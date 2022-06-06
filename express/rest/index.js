@@ -2,7 +2,6 @@ const express = require('express')
 
 const db = require('./db');
 
-
 const server = express();
 
 server.get('/', (req, res) => {
