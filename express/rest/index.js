@@ -27,7 +27,7 @@ server.get('/product/:productId', (req, res) => {
 server.get('/products/search', (req, res) => {// ? means start of query string (means) specific item's info
     const { name } = req.query;
     console.log(name, 'name');
-    const products = db.getProducts().filter(((product) => product.name.includes(name) ));
+    const products = db.getProducts().filter(((product) => product.name.includes(name)));
     // we've haven't used find here because we don't want ID rather we want name(info)
     if (!products.length) {
         res.status(404).send({ message: `No product found with name ${name}`});
