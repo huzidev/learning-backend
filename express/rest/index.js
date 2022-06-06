@@ -14,6 +14,7 @@ server.get('/products', (req, res) => {
 
 server.get('/product/:productId', (req, res) => {
     const { productId } = req.params;
+    console.log(productId, "is the product's Id");
     const product = db.getProducts().find(((product) => product.id === parseInt(productId) ));
     if (!product) {
         res.status(404).send({ message: 'product not found'})
