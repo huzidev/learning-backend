@@ -6,7 +6,7 @@ const server = express(); // will create express application OR starts ours serv
 
 const port = 8000;
 
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 server.get('/', (req, res) => {
     res.send({message: 'hello world'});
@@ -38,6 +38,10 @@ server.get('/products/search', (req, res) => {// ? means start of query string (
         return;
     }
     res.send({ products });
+})
+
+server.get('./products/body', (req, res) => {
+
 })
 
 server.listen(port, () => {
