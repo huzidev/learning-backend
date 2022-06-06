@@ -4,6 +4,8 @@ const db = require('./db');
 
 const server = express(); // will create express application OR starts ours server
 
+const port = 8000;
+
 server.get('/', (req, res) => {
     res.send({message: 'hello world'});
 })
@@ -36,6 +38,6 @@ server.get('/products/search', (req, res) => {// ? means start of query string (
     res.send({ products });
 })
 
-server.listen(8000, () => {
-    console.log('server listening on port 8000');
+server.listen(port, () => {
+    console.log(`server listening on port ${port}`);
 });
