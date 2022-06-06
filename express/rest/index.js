@@ -50,8 +50,15 @@ server.get('/products/search', (req, res) => {// ? means start of query string (
     res.send({ products });
 })
 
-server.get('./products/body', (req, res) => {
-
+server.get('/data/form', (req, res) => {
+    const { name, age, hobby, semester, learning } = req.query;
+    res.render('form', {
+        "name" : name,
+        "age" : age,
+        "hobby" : hobby,
+        "semester" : semester,
+        "learning" : learning,
+    })
 })
 
 server.listen(port, () => {
