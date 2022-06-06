@@ -16,6 +16,7 @@ server.get('/product/:productId', (req, res) => {
     const { productId } = req.params;
     console.log(productId, "is the product's Id");
     const product = db.getProducts().find(((product) => product.id === parseInt(productId) ));
+    // necessary to use parseINT to convert stringify int to simple int
     if (!product) {
         res.status(404).send({ message: 'product not found'})
         return;
