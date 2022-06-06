@@ -2,11 +2,23 @@ const express = require('express');
 
 const db = require('./db');
 
+const data = require('./user-data');
+
 const server = express(); // will create express application OR starts ours server
 
 const port = 8000;
 
 const bodyParser = require('body-parser');
+
+server.use(bodyParser.urlencoded({ extended : false }));
+
+// server.use(bodyParser.json());
+
+server.use('/', (req, res) => {
+    res.setHeader('Content-Type', 'text/plain')
+    res.write('you posted:\n')
+    res.end(JSON.stringify(req.body, null, 2))
+})
 
 server.get('/', (req, res) => {
     res.send({message: 'hello world'});
