@@ -10,15 +10,9 @@ const port = 8000;
 
 const bodyParser = require('body-parser');
 
-server.use(bodyParser.urlencoded({ extended : false }));
+// server.use(bodyParser.urlencoded({ extended : false }));
 
-// server.use(bodyParser.json());
-
-server.use('/', (req, res) => {
-    res.setHeader('Content-Type', 'text/plain')
-    res.write('you posted:\n')
-    res.end(JSON.stringify(req.body, null, 2))
-})
+server.use(bodyParser.json());
 
 server.get('/', (req, res) => {
     res.send({message: 'hello world'});
@@ -26,6 +20,10 @@ server.get('/', (req, res) => {
 
 server.get('/products', (req, res) => {
     res.send({ list: db.getProducts() });
+})
+
+server.get('/data', (req, res) => {
+    res.send({ userData : data.data() });
 })
 
 server.get('/product/:productId', (req, res) => {
