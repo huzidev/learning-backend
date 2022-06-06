@@ -15,7 +15,7 @@ const bodyParser = require('body-parser');
 server.use(bodyParser.json());
 
 server.get('/', (req, res) => {
-    res.send({message: 'hello world'});
+    res.send({ message: 'hello world' });
 })
 
 server.get('/products', (req, res) => {
@@ -59,6 +59,7 @@ server.get('/data/form', (req, res) => {
         "semester" : semester,
         "learning" : learning,
     })
+    res.send({ data });
 })
 
 server.listen(port, () => {
