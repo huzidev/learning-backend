@@ -2,7 +2,7 @@ const express = require('express');
 
 const db = require('./db');
 
-const server = express();
+const server = express(); // will create express application OR starts ours server
 
 server.get('/', (req, res) => {
     res.send({message: 'hello world'})
