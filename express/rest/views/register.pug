@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Learning-Backend
+    body 
+        form(method="post" action="/form" name="registration")
+            input(type="text" name="username" placeholder="username")
+            input(type="email" name="email" placeholder="email")
+            input(type="password" name="password" placeholder="password")
+            p male 
+            input(type="radio" value="male" name="gender")
+            p female 
+            input(type="radio" value="female" name="gender")
+            select(name="City")
+                option(value="0") [Choose]
+                option(value="karachi") karachi
+                option(value="Lahore") Lahore
+                option(value="islamabad") islamabad
+                input(type="submit" value="send")

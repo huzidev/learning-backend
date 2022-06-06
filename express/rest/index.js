@@ -2,7 +2,7 @@ const express = require('express');
 
 const db = require('./db');
 
-const data = require('./user-data');
+// const data = require('./user-data');
 
 const server = express(); // will create express application OR starts ours server
 
@@ -10,21 +10,24 @@ const port = 8000;
 
 const bodyParser = require('body-parser');
 
-// server.use(bodyParser.urlencoded({ extended : false }));
+server.set('view engine', 'pug');
+server.set('views', './views');
+
+server.use(bodyParser.urlencoded({ extended : true }));
 
 server.use(bodyParser.json());
 
 server.get('/', (req, res) => {
     res.send({ message: 'hello world' });
-})
+});
 
 server.get('/products', (req, res) => {
     res.send({ list: db.getProducts() });
-})
+});
 
 server.get('/data', (req, res) => {
     res.send({ userData : data.data() });
-})
+});
 
 server.get('/product/:productId', (req, res) => {
     const { productId } = req.params;
@@ -36,10 +39,10 @@ server.get('/product/:productId', (req, res) => {
         return;
     }
     res.send({ product });
-})
+});
 
 server.get('/products/search', (req, res) => {// ? means start of query string (means) specific item's info
-    const { name } = req.query;
+    const { name } = req.query;//we uses (req) when we wanted to read data which came to server 
     console.log(name, 'name');
     const products = db.getProducts().filter(((product) => product.name.includes(name)));
     // we've haven't used find here because we don't want ID rather we want name(info)
@@ -48,19 +51,29 @@ server.get('/products/search', (req, res) => {// ? means start of query string (
         return;
     }
     res.send({ products });
-})
+});
 
-server.get('/data/form', (req, res) => {
-    const { name, age, hobby, semester, learning } = req.query;
+//Registration page
+server.get('/register', (req, res) => {
+    res.render('register');
+});
+
+// if we uses submit="GET"
+server.get('/form', (req, res) => {
+    const temp = JSON.parse(JSON.stringify(req.query));
     res.render('form', {
-        "name" : name,
-        "age" : age,
-        "hobby" : hobby,
-        "semester" : semester,
-        "learning" : learning,
-    })
-    res.send({ data });
-})
+        "data" : temp
+    });
+});
+
+// if we uses submit="POST"
+// make sure to put urlencoded as TRUE
+server.post('/form', (req, res) => {
+    console.log(req.body);
+    res.render('form', {
+        data : req.body
+    });
+});
 
 server.listen(port, () => {
     console.log(`server listening on port ${port}`);
