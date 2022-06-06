@@ -6,6 +6,8 @@ const server = express(); // will create express application OR starts ours serv
 
 const port = 8000;
 
+var bodyParser = require('body-parser');
+
 server.get('/', (req, res) => {
     res.send({message: 'hello world'});
 })
