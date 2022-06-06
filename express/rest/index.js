@@ -22,7 +22,7 @@ server.get('/product/:productId', (req, res) => {
     res.send({ product })
 })
 
-server.get('/products/search', (req, res) => {
+server.get('/products/search', (req, res) => { // ? means start of query string (means) specific item's info
     const { name } = req.query;
     console.log(name, 'name');
     const products = db.getProducts().filter(((product) => product.name.includes(name) ))
