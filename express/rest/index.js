@@ -1,5 +1,5 @@
 const express = require('express');
-
+const mongoose = require('mongoose');
 const db = require('./db');
 
 const server = express(); // will create express application OR starts ours server
