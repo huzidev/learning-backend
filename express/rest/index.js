@@ -9,9 +9,9 @@ const DB = "mongodb+srv://Huzaifa:huzaifaiqbal@cluster0.ldakh6i.mongodb.net/back
 
 mongoose.connect(DB, {
     useNewUrlParser : true,
-    useCreateIndex : true,
+    // useCreateIndex : true,
     useUnifiedTopology : true,
-    useFindAndModify : false
+    // useFindAndModify : false
 }).then(() => { //since it is promise, we use (then) for success
     console.log("Connection Successful");
 }).catch((err) => {
