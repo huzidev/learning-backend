@@ -2,12 +2,13 @@ const express = require('express');
 
 const db = require('./db');
 
-
 const server = express(); // will create express application OR starts ours server
 
 const port = 8000;
 
 const bodyParser = require('body-parser');
+
+const DB = "mongodb+srv://Huzaifa:huzaifa123@cluster0.ldakh6i.mongodb.net/backend-learning?retryWrites=true&w=majority";
 
 server.set('view engine', 'pug');
 server.set('views', './views');
