@@ -5,7 +5,7 @@ const db = require('./db');
 const server = express(); // will create express application OR starts ours server
 const port = 8000;
 
-const DB = "mongodb+srv://Huzaifa:huzaifa123@cluster0.ldakh6i.mongodb.net/backend-learning?retryWrites=true&w=majority";
+const DB = "mongodb+srv://Huzaifa:huzaifa123@cluster0.ldakh6i.mongodb.net/backend?retryWrites=true&w=majority";
 
 mongoose.connect(DB, {
     useNewUrlParser : true,
@@ -14,7 +14,9 @@ mongoose.connect(DB, {
     useFindAndModify : false
 }).then(() => { //since it is promise, we use then for success
     console.log("Connection Successful");
-}).catch((err) => console.log("No Connection"));
+}).catch((err) => {
+    console.log("No Connection");
+});
 
 server.set('view engine', 'pug');
 server.set('views', './views');
