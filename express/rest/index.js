@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const db = require('./db');
+const dotenv = require('dotenv');
 
 const server = express(); // will create express application OR starts ours server
 const port = 8000;
