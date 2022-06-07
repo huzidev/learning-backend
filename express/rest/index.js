@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 const db = require('./db');
 const dotenv = require('dotenv');
 
+dotenv.config({ path : './config.env' });// for path where we've config.env
+
 const server = express(); // will create express application OR starts ours server
 const port = 8000;
 
-const DB = 
+const DB = process.env.DATA; //DATA name of variable we've created
 
 mongoose.connect(DB, {
     useNewUrlParser : true,
