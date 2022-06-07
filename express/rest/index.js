@@ -5,14 +5,14 @@ const db = require('./db');
 const server = express(); // will create express application OR starts ours server
 const port = 8000;
 
-const DB = "mongodb+srv://Huzaifa:huzaifa123@cluster0.ldakh6i.mongodb.net/backend?retryWrites=true&w=majority";
+const DB = "mongodb+srv://Huzaifa:huzaifaiqbal@cluster0.ldakh6i.mongodb.net/backend?retryWrites=true&w=majority";
 
 mongoose.connect(DB, {
     useNewUrlParser : true,
     useCreateIndex : true,
     useUnifiedTopology : true,
     useFindAndModify : false
-}).then(() => { //since it is promise, we use then for success
+}).then(() => { //since it is promise, we use (then) for success
     console.log("Connection Successful");
 }).catch((err) => {
     console.log("No Connection");
