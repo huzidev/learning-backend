@@ -7,7 +7,12 @@ const port = 8000;
 
 const DB = "mongodb+srv://Huzaifa:huzaifa123@cluster0.ldakh6i.mongodb.net/backend-learning?retryWrites=true&w=majority";
 
-mongoose.connect(DB).then(() => { //since it is promise, we use then for success
+mongoose.connect(DB, {
+    useNewUrlParser : true,
+    useCreateIndex : true,
+    useUnifiedTopology : true,
+    useFindAndModify : false
+}).then(() => { //since it is promise, we use then for success
     console.log("Connection Successful");
 }).catch((err) => console.log("No Connection"));
 
