@@ -2,7 +2,6 @@ const express = require('express');
 
 const db = require('./db');
 
-// const data = require('./user-data');
 
 const server = express(); // will create express application OR starts ours server
 
