@@ -66,7 +66,7 @@ server.get('/form', (req, res) => {
 });
 
 // if we uses submit="POST"
-// make sure to put urlencoded as TRUE
+// make sure to put urlencoded as TRUE at above
 server.post('/form', (req, res) => {
     console.log(req.body);
     res.render('form', {
