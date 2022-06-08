@@ -9,14 +9,7 @@ html(lang="en")
         form(method="post" action="/form" name="registration")
             input(type="text" name="username" placeholder="username")
             input(type="email" name="email" placeholder="email")
+            input(type="number" name="number" placeholder="yours number")
             input(type="password" name="password" placeholder="password")
-            p male 
-            input(type="radio" value="male" name="gender")
-            p female 
-            input(type="radio" value="female" name="gender")
-            select(name="City")
-                option(value="0") [Choose]
-                option(value="karachi") karachi
-                option(value="Lahore") Lahore
-                option(value="islamabad") islamabad
-                input(type="submit" value="send")
+            input(type="password" name="cpassword" placeholder="confirm password")
+            input(type="submit" value="send")
