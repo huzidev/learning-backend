@@ -25,7 +25,7 @@ server.use(bodyParser.json());
 
 // starting of server
 server.get('/', (req, res) => {
-    res.send({ message: 'hello world App.js' });
+    res.send({ message: 'hello world Index.js' });
 });
 
 server.get('/products', (req, res) => {

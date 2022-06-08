@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router();
-// since we are not in app.js the main file, therefore we've to use (router) instead of (server)
-
-router.get('/', (req, res) => {
-    res.send({ message: 'hello world Router.js' });
-});
+// since we are not in Index.js the main file, therefore we've to use (router) instead of (server)
+const User = require('../models/userSchema');
 
 // when we wanted to GET user data we uses POST because GET just brings data and POST Reads it or collect it so we can read it
 router.post('/register', (req, res) => {
