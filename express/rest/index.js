@@ -5,12 +5,13 @@ dotenv.config({ path : './config.env' });// for path where we've config.env
 require('./db/connection');
 const User = require('./models/userSchema');
 
+
 const server = express(); // will create express application OR starts ours server
 const port = 8000;
 
 
 // route address so we can make route easy
-server.use(require('./router/auth');)
+server.use(require('./router/auth'));
 
 server.set('view engine', 'pug');
 server.set('views', './views');
