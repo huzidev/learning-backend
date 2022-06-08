@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+// NOT NECESSARY TO PROVIDE PATH HERE IF WE'VE ALREADY IN APP.JS
 const DB = process.env.DATA; //DATA name of variable we've created
 
 mongoose.connect(DB, {
