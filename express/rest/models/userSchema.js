@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({ // new for creating new instance(example)
-    name : {
+    username : {
         type : String,
         required : true // means compulsory
     },
@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({ // new for creating new instance(exampl
         type : String,
         required : true
     },
-    phone : {
+    number : {
         type : Number,
         required : true
     },

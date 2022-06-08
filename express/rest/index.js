@@ -1,7 +1,6 @@
 const db = require('./db');
 const express = require('express');
 const dotenv = require('dotenv');
-const User = require('./models/userSchema');
 dotenv.config({ path : './config.env' });// for path where we've config.env
 require('./db/connection'); 
 
