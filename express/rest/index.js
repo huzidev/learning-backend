@@ -1,25 +1,12 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const db = require('./db');
 const dotenv = require('dotenv');
-
 dotenv.config({ path : './config.env' });// for path where we've config.env
+require('./db/connection');
 
 const server = express(); // will create express application OR starts ours server
 const port = 8000;
 
-const DB = process.env.DATA; //DATA name of variable we've created
-
-mongoose.connect(DB, {
-    useNewUrlParser : true,
-    // useCreateIndex : true,
-    useUnifiedTopology : true,
-    // useFindAndModify : false
-}).then(() => { //since it is promise, we use (then) for success
-    console.log("Connection Successful");
-}).catch((err) => {
-    console.log("No Connection");
-});
 
 server.set('view engine', 'pug');
 server.set('views', './views');
