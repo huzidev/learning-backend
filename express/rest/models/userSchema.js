@@ -25,4 +25,4 @@ const User = mongoose.model('USER', userSchema);
 // USER Parameter is the name of collection going to be created at DOCUMENT
 // userScheme is the way (STRUCTURE) we wanted ours user data to be stored
 
-module.exports.user = User;
+module.exports.User = User;
