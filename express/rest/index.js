@@ -15,13 +15,14 @@ server.use(require('./router/auth');)
 server.set('view engine', 'pug');
 server.set('views', './views');
 
+// Body-Parser for form management
 const bodyParser = require('body-parser');
-const { append } = require('express/lib/response');
 server.use(bodyParser.urlencoded({ extended : true }));
 server.use(bodyParser.json());
 
+// starting of server
 server.get('/', (req, res) => {
-    res.send({ message: 'hello world' });
+    res.send({ message: 'hello world App.js' });
 });
 
 server.get('/products', (req, res) => {
