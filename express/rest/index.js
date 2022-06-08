@@ -3,6 +3,7 @@ const db = require('./db');
 const dotenv = require('dotenv');
 dotenv.config({ path : './config.env' });// for path where we've config.env
 require('./db/connection');
+const user = require('./models/userSchema');
 
 const server = express(); // will create express application OR starts ours server
 const port = 8000;
