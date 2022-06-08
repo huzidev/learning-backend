@@ -9,9 +9,9 @@ const User = require('./models/userSchema');
 const server = express(); // will create express application OR starts ours server
 const port = 8000;
 
-
-// route address so we can make route easy
-server.use(require('./router/auth'));
+// MIDDLEWARE
+server.use(require('./router/auth')); //(.use) is used to set up middleware for your application
+server.use(express.json());
 
 server.set('view engine', 'pug');
 server.set('views', './views');
