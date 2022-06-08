@@ -13,7 +13,6 @@ router.post('/register', (req, res) => {
     if ( !username || !email || !number || !passowrd || !cpassowrd ) {
         return res.status(422).json({ error : "You've left an tag empty" }); // because data is going to be in JSON format and we've to stringify it
     }
-
 });
 
 module.exports = router;
