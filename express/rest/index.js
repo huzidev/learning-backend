@@ -5,6 +5,10 @@ dotenv.config({ path : './config.env' });// for path where we've config.env
 require('./db/connection');
 const User = require('./models/userSchema');
 
+
+server.use(require('./router/auth');)
+
+
 const server = express(); // will create express application OR starts ours server
 const port = 8000;
 
@@ -13,6 +17,7 @@ server.set('view engine', 'pug');
 server.set('views', './views');
 
 const bodyParser = require('body-parser');
+const { append } = require('express/lib/response');
 server.use(bodyParser.urlencoded({ extended : true }));
 server.use(bodyParser.json());
 
