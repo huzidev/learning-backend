@@ -34,4 +34,6 @@ module.exports = User;
 
 // HASHING password with bcryptjs
 
-userSchema.pre('save')
+userSchema.pre('save', async function (next) { //next parameter because of middleware
+    
+})
