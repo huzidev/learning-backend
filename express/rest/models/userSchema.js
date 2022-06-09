@@ -34,7 +34,8 @@ module.exports = User;
 
 // HASHING password with bcryptjs
 // we are creating pre function for password and pre function for save mean before running save we've to run bcrypt
-// save function is in auth.js
+// save function is in auth.js IMPORTANT we've to use simple function instead of arrow function because
+// we are going to use (this) and (this) basically works as opposite of arrow function therefore simply simply function
 userSchema.pre('save', async function (next) { //next parameter because of middleware
 
     
