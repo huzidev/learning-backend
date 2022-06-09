@@ -33,7 +33,9 @@ const User = mongoose.model('USER', userSchema);
 module.exports = User;
 
 // HASHING password with bcryptjs
-
+// we are creating pre function for password and pre function for save mean before running save we've to run bcrypt
+// save function is in auth.js
 userSchema.pre('save', async function (next) { //next parameter because of middleware
+
     
 })
