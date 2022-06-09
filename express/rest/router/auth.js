@@ -50,8 +50,8 @@ router.post('/login', async(req, res) => {
 
     }
 
-    catch (err){
-        
+    catch (err) {
+        console.log(err);
     }
 })
 
