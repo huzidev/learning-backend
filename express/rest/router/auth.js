@@ -21,10 +21,9 @@ router.post('/register', (req, res) => {
             if (userExist) {
                 return res.status(422).json({ error : "Email Already Exist" })
             }
-
-            const user = new User({ username, email, number, password, cpassword })// IF the instance like username : name then we've to 
-            // write it like that Example username : name etc but in this case BOTH are same therefore we can write just single variable
-            // means if key and property are same then just write any one
+            // if user not REGISTERED already
+            const user = new User({ username, email, number, password, cpassword })// IF the instance is like username : name then we've 
+            // to write it like that Example username : name etc means if key and property are same then just write any one
         })
 });
 
