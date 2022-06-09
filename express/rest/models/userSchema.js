@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({ // new for creating new instance(example)
     username : {
@@ -30,3 +31,7 @@ const User = mongoose.model('USER', userSchema);
 // userScheme is the way (STRUCTURE) we wanted ours user data to be stored
 
 module.exports = User;
+
+// HASHING password with bcryptjs
+
+userSchema.pre('save')
