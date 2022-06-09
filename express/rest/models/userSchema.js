@@ -38,5 +38,9 @@ module.exports = User;
 // we are going to use (this) and (this) basically works as opposite of arrow function therefore simply simply function
 userSchema.pre('save', async function (next) { //next parameter because of middleware
 
+    if (this.isModified('password')) { // means if password changes
+        this.password = bcrypt.hash(this.password, 12); // this.password inside bracket is users current password 
+        this.password = bcrypt.hash(this.cpassword, 12);
+    }
     
 })
