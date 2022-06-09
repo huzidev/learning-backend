@@ -22,16 +22,17 @@ router.post('/register', (req, res) => {
                 return res.status(422).json({ error : "Email Already Exist" })
             }
             //if user not REGISTERED already then we'll create an NEW Document for user data therefore we've used (const user = new User)
-            const user = new User({ username, email, number, password, cpassword })// IF the instance is like username : name then we've 
+            const user = new User({ username, email, number, password, cpassword });//IF the instance is like username : name then we've 
             // to write it like that Example username : name etc means if key and property are same then just write any one
 
             user.save().then(() => {
                 res.status(201).json({ message : "User Registered Successfully!" });
-            }).catch((err) => {res.status(500).json({ error : "Failed To Registered" }); // 500 is database error
+            }).catch((err) => {
+                res.status(500).json({ error : "Failed To Registered" }); // 500 is database error
             })
         }).catch((err) => {
-            console.log("error", err);
-        })
+            console.log(err);
+        });
 });
 
 module.exports = router;
