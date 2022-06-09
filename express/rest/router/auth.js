@@ -56,7 +56,13 @@ router.post('/login', async(req, res) => {
 
         const userLogin = await User.findOne({ email : email });
 
-        res.status(201).json({ message : "User LoggedIn Successfully!" });
+        if (!userLogin) {
+            return res.status(422).json({ error : "Email Doesn't Exit" });
+        }
+
+        else{
+            res.status(201).json({ message : "User LoggedIn Successfully!" });
+        }
 
     }
 
