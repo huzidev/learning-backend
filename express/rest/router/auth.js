@@ -45,8 +45,14 @@ router.post('/register', async (req, res) => {
         
 });
 
-router.post('/login', (req, res) => {
-    console.log(req.body);
+router.post('/login', async(req, res) => {
+    try{
+
+    }
+
+    catch (err){
+        
+    }
 })
 
 module.exports = router;
