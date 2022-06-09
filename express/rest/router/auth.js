@@ -14,11 +14,12 @@ router.post('/register', async (req, res) => {
         return res.status(422).json({ error : "You've left an tag empty" }); // because data is going to be in JSON format
     }
 
-
+    //Async Await
     try{
         // to check if user is already registered LEFT ONE IS KEY AND RIGHT ONE IS PROPERTY
         const userExist = await User.findOne({ email : email });// email at left is for userSchema and email at right is the email user going to insert
-        // this email : email means if email at database is equal to email user is going to insert means promise TRUE hence .then
+        // this email : email means if email at database is equal to email user is going to insert means promise TRUE and where their
+        // is promise we've to return await
 
         if (userExist) {
             return res.status(422).json({ error : "Email Already Exist" });
@@ -37,7 +38,7 @@ router.post('/register', async (req, res) => {
             res.status(500).json({ error : "Failed To Registered" }); // 500 is database error
         }
     }
-    
+
     catch{
         console.log(err);
     }
