@@ -57,7 +57,7 @@ router.post('/login', async(req, res) => {
         const userLogin = await User.findOne({ email : email });
 
         if (!userLogin) {
-            return res.status(422).json({ error : "Email Doesn't Exit" });
+            return res.status(400).json({ error : "Email Doesn't Exit" });
         }
 
         else{
