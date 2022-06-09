@@ -14,7 +14,7 @@ router.post('/register', (req, res) => {
         return res.status(422).json({ error : "You've left an tag empty" }); // because data is going to be in JSON format
     }
 
-    // to check if user is already registered
+    // to check if user is already registered LEFT ONE IS KEY AND RIGHT ONE IS PROPERTY
     User.findOne({ email : email }) // email at left is for userSchema and email at right is the email user going to insert
     // this email : email means if email at database is equal to email user is going to insert means promise TRUE hence .then
         .then((userExist) => {
@@ -24,6 +24,7 @@ router.post('/register', (req, res) => {
 
             const user = new User({ username, email, number, password, cpassword })// IF the instance like username : name then we've to 
             // write it like that Example username : name etc but in this case BOTH are same therefore we can write just single variable
+            // means if key and property are same then just write any one
         })
 });
 
