@@ -54,6 +54,10 @@ router.post('/login', async(req, res) => {
             return res.status(422).json({ error : "You've left an tag empty" });
         }
 
+        else if (password != cpassword) {
+            return res.status(422).json({ error : "Password are not matching" });
+        }
+
         const userLogin = await User.findOne({ email : email });
         // in case of login if email is equal to email present then success while at time of register we do opposite
 
