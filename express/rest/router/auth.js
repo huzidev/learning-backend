@@ -6,7 +6,7 @@ require('../db/connection');
 const User = require('../models/userSchema');
 
 // when we wanted to GET user data we uses POST because GET just brings data and POST Reads it or collect it so we can read it
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
 
     const { username, email, number, password, cpassword } = req.body;
 
