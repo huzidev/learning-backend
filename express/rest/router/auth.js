@@ -19,7 +19,7 @@ router.post('/register', async (req, res) => {
         // to check if user is already registered LEFT ONE IS KEY AND RIGHT ONE IS PROPERTY
         const userExist = await User.findOne({ email : email });// email at left is for userSchema and email at right is the email user going to insert
         // this email : email means if email at database is equal to email user is going to insert means promise TRUE and where their
-        // is promise we've to return await
+        // is promise return we've to use await
 
         if (userExist) {
             return res.status(422).json({ error : "Email Already Exist" });
