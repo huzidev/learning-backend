@@ -13,7 +13,11 @@ const userSchema = new mongoose.Schema({ // new for creating new instance(exampl
         type : Number,
         required : true
     },
-    name : {
+    password : {
+        type : String,
+        required : true
+    },
+    cpassword : {
         type : String,
         required : true
     },
