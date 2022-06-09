@@ -11,7 +11,7 @@ router.post('/register', (req, res) => {
     const { username, email, number, passowrd, cpassowrd } = req.body;
 
     if ( !username || !email || !number || !passowrd || !cpassowrd ) {
-        return res.status(422).json({ error : "You've left an tag empty" }); // because data is going to be in JSON format and we've to stringify it
+        return res.status(422).json({ error : "You've left an tag empty" }); // because data is going to be in JSON format
     }
 });
 
