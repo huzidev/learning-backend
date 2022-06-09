@@ -42,5 +42,5 @@ userSchema.pre('save', async function (next) { //next parameter because of middl
         this.password = bcrypt.hash(this.password, 12); // this.password inside bracket is users current password 
         this.password = bcrypt.hash(this.cpassword, 12);
     }
-    
-})
+    next();
+});
