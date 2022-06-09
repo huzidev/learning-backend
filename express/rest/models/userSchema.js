@@ -29,10 +29,10 @@ const userSchema = new mongoose.Schema({ // new for creating new instance(exampl
 // save function is in auth.js IMPORTANT we've to use simple function instead of arrow function because
 // we are going to use (this) and (this) basically works as opposite of arrow function therefore simply simply function
 userSchema.pre('save', async function (next) { //next parameter because of middleware
-
+    console.log("hi test");
     if (this.isModified('password')) { // means if password changes
         this.password = bcrypt.hash(this.password, 12); // this.password inside bracket is users current password 
-        this.password = bcrypt.hash(this.cpassword, 12);
+        this.cpassword = bcrypt.hash(this.cpassword, 12);
     }
     next();
 });
