@@ -53,6 +53,10 @@ router.post('/login', async(req, res) => {
         if (!email || !password) {
             return res.status(422).json({ error : "You've left an tag empty" });
         }
+
+        const userLogin = await User.findOne({ email : email });
+
+
     }
 
     catch (err) {
