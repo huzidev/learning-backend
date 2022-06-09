@@ -24,19 +24,26 @@ router.post('/register', async (req, res) => {
         if (userExist) {
             return res.status(422).json({ error : "Email Already Exist" });
         }
+
+        else if (password != cpassword) {
+            return res.status(422).json({ error : "Password are not matching" });
+        }
+
+        else {
+            //if user not REGISTERED already then we'll create an NEW Document for user data therefore we've used (const user = new User)
+            const user = new User({ username, email, number, password, cpassword });//IF the instance is like username : name then we've 
+            // to write it like that Example username : name etc means if key and property are same then just write any one
+    
+            const userRegister = await user.save();
+    
+            if (userRegister) {
+                res.status(201).json({ message : "User Registered Successfully!" });
+            }
+            else{
+                res.status(500).json({ error : "Failed To Registered" }); // 500 is database error
+            }
+        }
         
-        //if user not REGISTERED already then we'll create an NEW Document for user data therefore we've used (const user = new User)
-        const user = new User({ username, email, number, password, cpassword });//IF the instance is like username : name then we've 
-        // to write it like that Example username : name etc means if key and property are same then just write any one
-
-        const userRegister = await user.save();
-
-        if (userRegister) {
-            res.status(201).json({ message : "User Registered Successfully!" });
-        }
-        else{
-            res.status(500).json({ error : "Failed To Registered" }); // 500 is database error
-        }
     }
 
     catch (err) {
@@ -52,10 +59,6 @@ router.post('/login', async(req, res) => {
 
         if (!email || !password) {
             return res.status(422).json({ error : "You've left an tag empty" });
-        }
-
-        else if (password != cpassword) {
-            return res.status(422).json({ error : "Password are not matching" });
         }
 
         const userLogin = await User.findOne({ email : email });
