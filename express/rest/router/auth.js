@@ -56,6 +56,7 @@ router.post('/login', async(req, res) => {
 
         const userLogin = await User.findOne({ email : email });
 
+        res.status(201).json({ message : "User LoggedIn Successfully!" });
 
     }
 
