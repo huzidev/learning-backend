@@ -27,6 +27,8 @@ router.post('/register', (req, res) => {
 
             user.save().then(() => {
                 res.status(201).json({ message : "User Registered Successfully!"});
+            }).catch(() => {
+                res.status(500).json({ error : "Failed To Registered"}); // 500 is database error
             })
         })
 });
