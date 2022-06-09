@@ -31,8 +31,8 @@ const userSchema = new mongoose.Schema({ // new for creating new instance(exampl
 userSchema.pre('save', async function (next) { //next parameter because of middleware
     console.log("hi test");
     if (this.isModified('password')) { // means if password changes
-        this.password = bcrypt.hash(this.password, 12); // this.password inside bracket is users current password 
-        this.cpassword = bcrypt.hash(this.cpassword, 12);
+        this.password = await bcrypt.hash(this.password, 12); // this.password inside bracket is users current password 
+        this.cpassword = await bcrypt.hash(this.cpassword, 12);
     }
     next();
 });
