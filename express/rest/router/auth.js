@@ -30,6 +30,8 @@ router.post('/register', (req, res) => {
             }).catch(() => {
                 res.status(500).json({ error : "Failed To Registered"}); // 500 is database error
             })
+        }).catch((err) => {
+            console.log(err);
         })
 });
 
