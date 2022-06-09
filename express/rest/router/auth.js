@@ -13,6 +13,14 @@ router.post('/register', (req, res) => {
     if ( !username || !email || !number || !password || !cpassword ) {
         return res.status(422).json({ error : "You've left an tag empty" }); // because data is going to be in JSON format
     }
+
+    // to check if user is already registered
+    User.findOne({ email : email }) // email at left is for userSchema and email at right is the email user going to insert
+        .then((userExist) => {
+            if (userExist) {
+                return res.status(422).json({ error : "Email Already Exist" })
+            }
+        })
 });
 
 module.exports = router;
