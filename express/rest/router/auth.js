@@ -103,4 +103,8 @@ router.post('/login', async(req, res) => {
     }
 })
 
+router.post('/messge', async (req, res) => {
+    
+})
+
 module.exports = router;
