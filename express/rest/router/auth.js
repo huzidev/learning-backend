@@ -81,7 +81,7 @@ router.post('/login', async(req, res) => {
                 res.status(201).json({ message : "User LoggedIn Successfully!" });
                 userToken = await userLogin.generateAuthToken();// userLogin gets complete data of user from backend including _id
                 res.cookie("cookie", userToken, {
-                    
+                    expires : new Date(Date.now() + 2592000000), //means user will be logged out after 30 days automatically as cookie expires then token will also expires
                 })
             }
 
