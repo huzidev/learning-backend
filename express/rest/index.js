@@ -69,6 +69,10 @@ server.get('/login', (req, res) => {
     res.render('login');
 });
 
+server.get('/message', (req, res) => {
+    res.render('message');
+});
+
 
 // if we uses submit="GET"
 server.get('/form', (req, res) => {
