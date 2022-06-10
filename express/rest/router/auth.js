@@ -70,7 +70,7 @@ router.post('/login', async(req, res) => {
             
             const isMatch = await bcrypt.compare(password, userLogin.password); // left one is the password user inserting and right one is the password with already exist email
     
-            const token = userLogin.generateAuthToken();// userLogin gets complete data of user from backend including _id
+            const token = await userLogin.generateAuthToken();// userLogin gets complete data of user from backend including _id
 
             if (!isMatch) {
                 return res.status(400).json({ error : "Email Or Password Is Incorrect" });
