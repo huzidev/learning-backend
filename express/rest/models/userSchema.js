@@ -42,7 +42,10 @@ userSchema.pre('save', async function (next) { //next parameter because of middl
 // methods is the method we've created in auth.JS we are getting info from their therefore we've to use return in the end
 userSchema.methods.generateAuthToken = async function () {
     try{
-
+        let token = jwt.sign({ _id : this._id }, process.env.SECRET);
+// sign() will takes 2 parameters one is payload that must be unique and _id is unique 
+// this._id is referring the _id of user in database when user is already registered and trying to logged in 
+// and we knew userSchema.methods is referring the userLogin part where user will try to login 
     }
 
     catch (err) {
