@@ -82,6 +82,7 @@ router.post('/login', async(req, res) => {
                 userToken = await userLogin.generateAuthToken();// userLogin gets complete data of user from backend including _id
                 res.cookie("cookie", userToken, {
                     expires : new Date(Date.now() + 2592000000), //means user will be logged out after 30 days automatically as cookie expires then token will also expires
+                    httpOnly : true // httpOnly means if https secure not present it'll works as well not necessary for https secure
                 })
             }
 
