@@ -23,6 +23,12 @@ const userSchema = new mongoose.Schema({ // new for creating new instance(exampl
         type : String,
         required : true
     },
+
+    message : {
+        type : String,
+        required : true,
+        minlength : 150
+    }
     // for storing the token for particular email where _id matches therefore we've write {_id : this_id}
     tokens : [
         {
