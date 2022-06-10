@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 // since we are not in Index.js the main file, therefore we've to use (router) instead of (server)
 
 require('../db/connection'); 
