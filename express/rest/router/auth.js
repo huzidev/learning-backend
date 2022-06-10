@@ -7,6 +7,8 @@ const jwt = require('jsonwebtoken');
 require('../db/connection'); 
 const User = require('../models/userSchema');
 
+router.use(express.urlencoded({ extended : false }));
+
 // when we wanted to GET user data we uses POST because GET just brings data and POST Reads it or collect it so we can read it
 router.post('/register', async (req, res) => {
 
