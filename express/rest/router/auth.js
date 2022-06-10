@@ -58,7 +58,7 @@ router.post('/login', async(req, res) => {
 
     try{
         let userToken;
-        
+
         const {email, password} = req.body;
 
         if (!email || !password) {
@@ -80,6 +80,9 @@ router.post('/login', async(req, res) => {
             else{
                 res.status(201).json({ message : "User LoggedIn Successfully!" });
                 userToken = await userLogin.generateAuthToken();// userLogin gets complete data of user from backend including _id
+                res.cookie("cookie", userToken, {
+                    
+                })
             }
 
         }
