@@ -69,8 +69,8 @@ server.get('/login', (req, res) => {
     res.render('login');
 });
 
-server.get('/message', (req, res) => {
-    res.render('message');
+server.get('/contactUs', (req, res) => {
+    res.render('contactUs');
 });
 
 

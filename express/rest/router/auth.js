@@ -103,7 +103,7 @@ router.post('/login', async(req, res) => {
     }
 })
 
-router.post('/message', async (req, res) => {
+router.post('/contactUs', async (req, res) => {
 
     const { username, email, number, message} = req.body;
 
