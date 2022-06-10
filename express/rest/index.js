@@ -65,6 +65,11 @@ server.get('/register', (req, res) => {
     res.render('register');
 });
 
+server.get('/login', (req, res) => {
+    res.render('login');
+});
+
+
 // if we uses submit="GET"
 server.get('/form', (req, res) => {
     const temp = JSON.parse(JSON.stringify(req.query));
