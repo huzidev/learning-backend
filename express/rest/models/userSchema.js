@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({ // new for creating new instance(example)
     username : {
@@ -36,6 +37,9 @@ userSchema.pre('save', async function (next) { //next parameter because of middl
     }
     next();
 });
+
+// GENERATING TOKEN
+
 
 // model for linking ours schema with collection at mongoDB
 // const User is variable name and first word should've to be capital
