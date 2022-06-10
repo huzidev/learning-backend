@@ -39,6 +39,10 @@ userSchema.pre('save', async function (next) { //next parameter because of middl
 });
 
 // GENERATING TOKEN
+// methods is the method we've created in auth.JS we are getting info from their therefore we've to use return in the end
+userSchema.methods.generateAuthToken = async function () {
+
+}
 
 
 // model for linking ours schema with collection at mongoDB
