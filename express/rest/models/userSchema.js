@@ -23,6 +23,13 @@ const userSchema = new mongoose.Schema({ // new for creating new instance(exampl
         type : String,
         required : true
     },
+    tokens : [
+        {
+            token : {
+                
+            }
+        }
+    ]
 })
 
 // HASHING password with bcryptjs
