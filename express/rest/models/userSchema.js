@@ -58,6 +58,8 @@ userSchema.methods.generateAuthToken = async function () {
 // and we knew userSchema.methods is referring the userLogin part where user will try to login
         this.tokens = this.tokens.concat({ token : userToken });
 // for storing with the process of concatenation of tokens's inside token with the token we've created for user
+        await this.save();
+        return userToken;
     }
 
     catch (err) {
