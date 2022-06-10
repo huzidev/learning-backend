@@ -78,6 +78,10 @@ router.post('/login', async(req, res) => {
             }
 
         }
+        
+        else{
+            return res.status(400).json({ error : "Invalid Credentials" });
+        }
 
 
     }
