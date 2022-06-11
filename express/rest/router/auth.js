@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 
 require('../db/connection'); 
 const User = require('../models/userSchema');
+const contact = require('../models/userMessage');
 
 router.use(express.urlencoded({ extended : false })); // compulsory
 
