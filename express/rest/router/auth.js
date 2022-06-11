@@ -114,7 +114,7 @@ router.post('/contactUs', async (req, res) => {
     
     try{
 
-        const userMessage = new contact({ username, email, number, message });//IF the instance is like username : name then we've 
+        const userMessage = new Contact({ username, email, number, message });//IF the instance is like username : name then we've 
     
         const userResponse = await userMessage.save();
     
