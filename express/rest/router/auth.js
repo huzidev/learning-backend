@@ -105,7 +105,7 @@ router.post('/login', async(req, res) => {
 
 router.post('/contactUs', async (req, res) => {
 
-    const { username, email, number, message} = req.body;
+    const { username, email, number, message } = req.body;
 
     if ( !username || !email || !number || !message ) {
         return res.status(422).json({ error : "You've left an tag empty" }); // because data is going to be in JSON format
