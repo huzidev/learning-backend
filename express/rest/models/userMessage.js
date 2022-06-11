@@ -20,8 +20,8 @@ const userMessage = new mongoose.Schema({
         required : true,
     },
     date : {
-        type : date,
-        default : date.now // no need for using () for date.now()
+        type : Date,
+        default : Date.now // no need for using () for date.now()
     }
    
 })
