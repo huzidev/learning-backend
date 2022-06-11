@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({ // new for creating new instance(example)
+const userMessage = new mongoose.Schema({
+
     username : {
         type : String,
         required : true // means compulsory
@@ -13,26 +14,10 @@ const userSchema = new mongoose.Schema({ // new for creating new instance(exampl
         type : Number,
         required : true
     },
-    password : {
-        type : String,
-        required : true
-    },
-    cpassword : {
-        type : String,
-        required : true
-    },
-
+    
     message : {
         type : String,
         required : true,
     },
-    // for storing the token for particular email where _id matches therefore we've write {_id : this_id}
-    tokens : [
-        {
-            token : {
-                type : String,
-                required : true
-            }
-        }
-    ]
+   
 })
