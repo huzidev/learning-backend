@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 
 require('../db/connection'); 
 const User = require('../models/userSchema');
-const contact = require('../models/userMessage');
+const Contact = require('../models/userMessage');
 
 router.use(express.urlencoded({ extended : false })); // compulsory
 
@@ -114,7 +114,7 @@ router.post('/contactUs', async (req, res) => {
     
     try{
 
-        const userMessage = new User({ username, email, number, message });//IF the instance is like username : name then we've 
+        const userMessage = new contact({ username, email, number, message });//IF the instance is like username : name then we've 
     
         const userResponse = await userMessage.save();
     
