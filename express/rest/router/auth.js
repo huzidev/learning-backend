@@ -105,19 +105,19 @@ router.post('/login', async(req, res) => {
 
 router.post('/contactUs', async (req, res) => {
 
+    const { username, email, number, message } = req.body;
+
+    if ( !username || !email || !number || !message ) {
+        return res.status(422).json({ error : "You've left an tag empty" }); // because data is going to be in JSON format
+    }
     
     try{
-        const { username, email, number, message } = req.body;
-    
-        if ( !username || !email || !number || !message ) {
-            return res.status(422).json({ error : "You've left an tag empty" }); // because data is going to be in JSON format
-        }
 
-        const user = new User({ username, email, number, message });//IF the instance is like username : name then we've 
+        const userMessage = new User({ username, email, number, message });//IF the instance is like username : name then we've 
     
-        const userMessage = await user.save();
+        const userResponse = await userMessage.save();
     
-        if (userMessage) {
+        if (userResponse) {
             res.status(201).json({ message : "Message Sent Successfully!" });
         }
         else{
