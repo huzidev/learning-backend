@@ -5,9 +5,17 @@ export default function Login() {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
+    const loginUser = async (event) => {
+        event.preventDefault();
+
+        const res = await fetch("/login", {
+            method=
+        })
+    }
+
     return (
         <div>
-            <form action="/secret" method="post">
+            <form method="POST">
                 <input 
                     type="email" 
                     name="email" 
