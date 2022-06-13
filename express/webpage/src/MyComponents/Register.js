@@ -9,7 +9,7 @@ export default function register() {
                     type="text" 
                     name="username" 
                     value={email} 
-                    placeholder="email" 
+                    placeholder="username" 
                     onChange={(event) => setEmail(event.target.value)} // so we can get what user is typing
                 />
                 <input 
@@ -23,7 +23,7 @@ export default function register() {
                     type="email" 
                     name="number" 
                     value={email} 
-                    placeholder="email" 
+                    placeholder="contact number" 
                     onChange={(event) => setEmail(event.target.value)} // so we can get what user is typing
                 />
                 <input 
@@ -37,7 +37,7 @@ export default function register() {
                     type="password" 
                     name="cpassword" 
                     value={password} 
-                    placeholder="password" 
+                    placeholder="confirm password" 
                     onChange={(event) => setPassword(event.target.value)} 
                 />
                 <input 
