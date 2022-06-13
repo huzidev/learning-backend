@@ -28,6 +28,7 @@ export default function ContactUs() {
                     onChange={(event) => setEmail(event.target.value)} // so we can get what user is typing
                     required="true"
                 />
+                <textarea name="message" id="" cols="30" rows="10" placeholder='yours message'></textarea>
                 <input 
                     type="submit"
                     name="login"
