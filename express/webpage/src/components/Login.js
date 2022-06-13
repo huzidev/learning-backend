@@ -1,8 +1,10 @@
+import { reset } from 'nodemon';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 export default function Login() {
 
+    const history = useHistory();
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
@@ -21,6 +23,10 @@ export default function Login() {
         });
 
         const data = res.json(); // for getting user data
+
+        if ( res.status === 400 || reset.status === 422 || !data ) {
+            
+        }
 
     }
 
