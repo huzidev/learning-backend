@@ -13,7 +13,7 @@ export default function Login() {
                     name="email" 
                     value={email} 
                     placeholder="email" 
-                    onChange={(event) => setEmail(event.target.value)} 
+                    onChange={(event) => setEmail(event.target.value)} // so we can get what user is typing
                 />
                 <input 
                     type="password" 
