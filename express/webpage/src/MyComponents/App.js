@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Nav from './Nav';
 import Home from './Home';
 import About from './About';
 import ContactUs from './ContactUs';
@@ -10,6 +11,9 @@ import ErrorPage from './ErrorPage';
 export default function App() {
     return (
         <div>
+
+            <Nav />
+
             <Switch >
                 <Route exact path="/">
                     <Home />
