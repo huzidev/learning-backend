@@ -12,7 +12,11 @@ export default function Login() {
             method = "POST",
             headers = {
                 "Content-Type" : "application/json" // just like we make changes in POST-MAN for writing raw
-            }
+            },
+            body : JSON.stringify({ // since server didn't read JSON we've to send string like we did raw method in post-man
+                email,
+                password
+            })
         })
     }
 
