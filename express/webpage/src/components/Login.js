@@ -14,7 +14,7 @@ export default function Login() {
                 "Content-Type" : "application/json" // just like we make changes in POST-MAN for writing raw
             },
             body : JSON.stringify({ // since server didn't read JSON we've to send string like we did raw method in post-man
-                email,
+                email, // since key and property both are same
                 password
             })
         })
