@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default function ErrorPage() {
     return (
@@ -9,6 +10,7 @@ export default function ErrorPage() {
             <h2>
                 We are sorry, page not found!
             </h2>
+            <NavLink to="/">Go Back To Homepage</NavLink>
         </div>
     )
 }
