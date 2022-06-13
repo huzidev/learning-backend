@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 export default function Login() {
 
@@ -9,15 +10,18 @@ export default function Login() {
         event.preventDefault();
 
         const res = await fetch("/login", {
-            method = "POST",
-            headers = {
+            method : "POST",
+            headers : {
                 "Content-Type" : "application/json" // just like we make changes in POST-MAN for writing raw
             },
             body : JSON.stringify({ // since server didn't read JSON we've to send string like we did raw method in post-man
                 email, // since key and property both are same
                 password
             })
-        })
+        });
+
+        const data = res.json(); // for getting user data
+
     }
 
     return (

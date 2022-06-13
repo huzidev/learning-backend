@@ -23,9 +23,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index",
+    "dev": "nodemon index",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "dev": "nodemon index",
     "stage": "node index",
     "prod": "node index"
   },
