@@ -13,6 +13,21 @@ export default function App() {
             <Route exact path="/">
                 <Home />
             </Route>
+            <Route exact path="/about">
+                <About />
+            </Route>
+            <Route exact path="/contact">
+                <ContactUs />
+            </Route>
+            <Route exact path="/login">
+                <Login />
+            </Route>
+            <Route exact path="/register">
+                <Register />
+            </Route>
+            <Route>
+                <ErrorPage />
+            </Route>
         </div>
     )
 }
