@@ -29,6 +29,7 @@ export default function Login() {
         }
         else{
             window.alert("Login Successful!");
+            history.push("/");
         }
 
     }
