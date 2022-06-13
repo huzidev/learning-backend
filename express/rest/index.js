@@ -74,7 +74,7 @@ server.get('/contactUs', (req, res) => {
 
 server.get('/secret', token, (req, res) => {
     res.render('secret');
-})
+});
 
 // if we uses submit="GET"
 server.get('/form', (req, res) => {
