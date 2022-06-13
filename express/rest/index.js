@@ -72,8 +72,10 @@ server.get('/contactUs', (req, res) => {
     res.render('contactUs');
 });
 
-server.get('/secret', token, (req, res) => {
-    res.render('secret');
+server.post('/secret', token, (req, res) => {
+    res.render('secret', {
+        data : req.body
+    });
 });
 
 // if we uses submit="GET"
