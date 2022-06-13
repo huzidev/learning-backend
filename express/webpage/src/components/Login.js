@@ -25,7 +25,10 @@ export default function Login() {
         const data = res.json(); // for getting user data
 
         if ( res.status === 400 || reset.status === 422 || !data ) {
-            
+            window.alert("Invalid Value!");
+        }
+        else{
+            window.alert("Login Successful!");
         }
 
     }
