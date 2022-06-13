@@ -13,14 +13,14 @@ export default function register() {
                     onChange={(event) => setEmail(event.target.value)} // so we can get what user is typing
                 />
                 <input 
-                    type="text" 
-                    name="username" 
+                    type="email" 
+                    name="email" 
                     value={email} 
                     placeholder="email" 
                     onChange={(event) => setEmail(event.target.value)} // so we can get what user is typing
                 />
                 <input 
-                    type="email" 
+                    type="text" 
                     name="number" 
                     value={email} 
                     placeholder="contact number" 
