@@ -61,7 +61,6 @@ server.get('/products/search', (req, res) => {// ? means start of query string (
 
 //Registration page
 server.get('/register', (req, res) => {
-    // res.cookie("test", "hello");
     res.render('register');
 });
 
