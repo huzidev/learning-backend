@@ -22,7 +22,8 @@ export default function Login() {
 
     return (
         <div>
-            <form method="POST">
+            <form method="POST"> 
+            {/* didn't need to use action method here */}
                 <input 
                     type="email" 
                     name="email" 
