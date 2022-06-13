@@ -72,7 +72,7 @@ server.get('/contactUs', (req, res) => {
     res.render('contactUs');
 });
 
-server.get('/secret', (req, res) => {
+server.get('/secret', token, (req, res) => {
     res.render('secret');
 })
 
