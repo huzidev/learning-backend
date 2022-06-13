@@ -72,6 +72,9 @@ server.get('/contactUs', (req, res) => {
     res.render('contactUs');
 });
 
+server.get('/secret', (req, res) => {
+    res.render('secret');
+})
 
 // if we uses submit="GET"
 server.get('/form', (req, res) => {
