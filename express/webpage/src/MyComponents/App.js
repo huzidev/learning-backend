@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
 import Nav from './Nav';
 import Home from './Home';
 import About from './About';
@@ -7,6 +6,7 @@ import ContactUs from './ContactUs';
 import Login from './Login';
 import Register from './Register';
 import ErrorPage from './ErrorPage';
+import { Route, Switch } from 'react-router-dom';
 
 export default function App() {
     return (
