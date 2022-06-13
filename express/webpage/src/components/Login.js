@@ -9,7 +9,10 @@ export default function Login() {
         event.preventDefault();
 
         const res = await fetch("/login", {
-            method=
+            method = "POST",
+            headers = {
+                "Content-Type" : "application/json" // just like we make changes in POST-MAN for writing raw
+            }
         })
     }
 
