@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Home from './Home';
 import About from './About';
 import ContactUs from './ContactUs';
 import Login from './Login';
@@ -10,7 +11,7 @@ export default function App() {
     return (
         <div>
             <Route exact path="/">
-                
+                <Home />
             </Route>
         </div>
     )
