@@ -22,7 +22,12 @@ export default function Login() {
                     placeholder="password" 
                     onChange={(event) => setPassword(event.target.value)} 
                 />
-                <input type="submit" value="send" />
+                <input 
+                    type="submit"
+                    name="login"
+                    value="log in"
+                    onClick={loginUser}
+                 />
             </form>
         </div>
     )
