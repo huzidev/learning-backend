@@ -1,9 +1,9 @@
-const db = require('./db');
+const db = require('./src/db');
 const express = require('express');
 const dotenv = require('dotenv');
 dotenv.config({ path : './config.env' });// for path where we've config.env
-require('../db/connection'); 
-const token = require('../middleware/token');
+require('./db/connection'); 
+const token = require('./middleware/token');
 
 const server = express(); // will create express application OR starts ours server
 const port = 8080;
@@ -11,7 +11,7 @@ const port = 8080;
 
 // MIDDLEWARE
 server.use(express.json()); // al the data came in the form of JSON and app didn't recognize until we defined it with middleware
-server.use(require('../router/auth')); //(.use) is used to set up middleware for your application
+server.use(require('./router/auth')); //(.use) is used to set up middleware for your application
 
 // setting engine for pug
 server.set('view engine', 'pug');
@@ -64,7 +64,7 @@ server.get('/register', (req, res) => {
     res.render('register');
 });
 
-server.get('/login', (req, res) => {
+server.get('./src/components/login', (req, res) => {
     res.render('login');
 });
 
