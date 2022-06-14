@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
 
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     const [user, setUser] = React.useState({
         
@@ -19,7 +19,6 @@ export default function Register() {
 
     function handleInput(event) {
         
-        console.log(event);
         name = event.target.name;
         value = event.target.value;
 
@@ -55,7 +54,7 @@ export default function Register() {
         else{
             window.alert("Registration Successful!");
             console.log("Successful Registration");
-            history.push("/login");
+            navigate("/login");
         }
     }
 
