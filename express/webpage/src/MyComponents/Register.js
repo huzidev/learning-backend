@@ -4,7 +4,7 @@ export default function register() {
 
     const [user, setUser] = React.useState({
         
-        name : "",
+        username : "",
         email : "",
         number : "",
         password : "",
@@ -21,6 +21,7 @@ export default function register() {
         value = event.target.value;
 
         setUser({...user, [name] : value});
+
     }
 
     return (
@@ -30,7 +31,7 @@ export default function register() {
                 <input 
                     type="text" 
                     name="username" 
-                    value={user.name} 
+                    value={user.username} 
                     placeholder="username" 
                     onChange={handleInput} // so we can get what user is typing
                 />
