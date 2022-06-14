@@ -67,7 +67,7 @@ export default function register() {
                     type="submit"
                     name="login"
                     value="log in"
-                    onClick={loginUser}
+                    onClick={register}
                  />
             </form>
         </div>
