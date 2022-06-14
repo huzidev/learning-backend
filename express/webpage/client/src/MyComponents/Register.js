@@ -1,9 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function register() {
 
-    const history = useHistory();
+    const history = useNavigate();
 
     const [user, setUser] = React.useState({
         
