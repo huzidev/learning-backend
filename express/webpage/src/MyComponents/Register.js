@@ -1,4 +1,5 @@
 import React from 'react';
+import { History } from 'react-router-dom';
 
 export default function register() {
 
@@ -43,6 +44,16 @@ export default function register() {
                 cpassword 
             })
         });
+
+        const data = await res.json(); // for getting user data
+
+        if ( res.status === 400 || res.status === 422 || !data ) {
+            window.alert("Invalid Value!");
+        }
+        else{
+            window.alert("Login Successful!");
+            history.push("/login");
+        }
     }
 
     return (
