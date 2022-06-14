@@ -24,6 +24,13 @@ export default function register() {
 
     }
 
+    const register = async (event) => {
+        
+        event.preventDefault();
+
+        const { username, email, number, password, cpassword } = user;
+    }
+
     return (
         <div>
             <form method="POST"> 
