@@ -18,24 +18,12 @@ export default function App() {
             <Nav />
             <Router>
                 <Routes>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                    <Route exact path="/about">
-                        <About />
-                    </Route>
-                    <Route exact path="/contact">
-                        <ContactUs />
-                    </Route>
-                    <Route exact path="/login">
-                        <Login />
-                    </Route>
-                    <Route exact path="/register">
-                        <Register />
-                    </Route>
-                    <Route>
-                        <ErrorPage />
-                    </Route>
+                    <Route exact path="/" element={<Home />}/>
+                    <Route exact path="/about" element={<About />}/>
+                    <Route exact path="/contact" element={<ContactUs />}/>
+                    <Route exact path="/login" element={<Login />}/>
+                    <Route exact path="/register" element={<Login />}/>
+                    <Route element={<ErrorPage />}/>
                 </Routes>
             </Router>
         </div>
