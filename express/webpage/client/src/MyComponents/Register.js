@@ -96,7 +96,7 @@ export default function Register() {
                     name="cpassword" 
                     value={user.cpassword} 
                     placeholder="confirm password" 
-                    onChange={handleInput} 
+                    onChange={handleInput}
                 />
                 <input 
                     type="submit"
