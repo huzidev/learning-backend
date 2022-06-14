@@ -44,7 +44,7 @@ export default function register() {
                 <input 
                     type="text" 
                     name="number" 
-                    value={user.phone} 
+                    value={user.number} 
                     placeholder="contact number" 
                     onChange={handleInput} // so we can get what user is typing
                 />
