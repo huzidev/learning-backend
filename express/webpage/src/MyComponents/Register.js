@@ -19,35 +19,35 @@ export default function register() {
                 <input 
                     type="text" 
                     name="username" 
-                    value={email} 
+                    value={user.name} 
                     placeholder="username" 
                     onChange={(event) => setEmail(event.target.value)} // so we can get what user is typing
                 />
                 <input 
                     type="email" 
                     name="email" 
-                    value={email} 
+                    value={user.email} 
                     placeholder="email" 
                     onChange={(event) => setEmail(event.target.value)} // so we can get what user is typing
                 />
                 <input 
                     type="text" 
                     name="number" 
-                    value={email} 
+                    value={user.phone} 
                     placeholder="contact number" 
                     onChange={(event) => setEmail(event.target.value)} // so we can get what user is typing
                 />
                 <input 
                     type="password" 
                     name="password" 
-                    value={password} 
+                    value={user.password} 
                     placeholder="password" 
                     onChange={(event) => setPassword(event.target.value)} 
                 />
                 <input 
                     type="password" 
                     name="cpassword" 
-                    value={password} 
+                    value={user.cpassword} 
                     placeholder="confirm password" 
                     onChange={(event) => setPassword(event.target.value)} 
                 />
