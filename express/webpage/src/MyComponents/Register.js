@@ -1,7 +1,9 @@
 import React from 'react';
-import { History } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export default function register() {
+
+    const history = useHistory();
 
     const [user, setUser] = React.useState({
         
