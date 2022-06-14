@@ -53,7 +53,8 @@ export default function register() {
             window.alert("Invalid Value!");
         }
         else{
-            window.alert("Login Successful!");
+            window.alert("Registration Successful!");
+            console.log("Successful Registration");
             history.push("/login");
         }
     }
