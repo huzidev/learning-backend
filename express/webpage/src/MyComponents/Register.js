@@ -49,7 +49,7 @@ export default function register() {
 
         const data = await res.json(); // for getting user data
 
-        if ( res.status === 400 || res.status === 422 || !data ) {
+        if ( data.status === 422 || !data ) {
             window.alert("Invalid Value!");
         }
         else{
