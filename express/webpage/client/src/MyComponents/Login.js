@@ -1,13 +1,13 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
-
-    const history = useHistory();
+    
+    const history = useNavigate; 
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
-    const loginUser = async (event) => {
+    const loginUser = async (event) => {    
         event.preventDefault();
 
         const res = await fetch("/login", {
