@@ -12,6 +12,17 @@ export default function register() {
 
     });
 
+    let name, value;
+
+    function handleInput(event) {
+        
+        console.log(event);
+        name = event.target.name;
+        value = event.target.value;
+
+        setUser({...user, [name] : value});
+    }
+
     return (
         <div>
             <form method="POST"> 
@@ -21,35 +32,35 @@ export default function register() {
                     name="username" 
                     value={user.name} 
                     placeholder="username" 
-                    onChange={(event) => setEmail(event.target.value)} // so we can get what user is typing
+                    onChange={handleInput} // so we can get what user is typing
                 />
                 <input 
                     type="email" 
                     name="email" 
                     value={user.email} 
                     placeholder="email" 
-                    onChange={(event) => setEmail(event.target.value)} // so we can get what user is typing
+                    onChange={handleInput} // so we can get what user is typing
                 />
                 <input 
                     type="text" 
                     name="number" 
                     value={user.phone} 
                     placeholder="contact number" 
-                    onChange={(event) => setEmail(event.target.value)} // so we can get what user is typing
+                    onChange={handleInput} // so we can get what user is typing
                 />
                 <input 
                     type="password" 
                     name="password" 
                     value={user.password} 
                     placeholder="password" 
-                    onChange={(event) => setPassword(event.target.value)} 
+                    onChange={handleInput} 
                 />
                 <input 
                     type="password" 
                     name="cpassword" 
                     value={user.cpassword} 
                     placeholder="confirm password" 
-                    onChange={(event) => setPassword(event.target.value)} 
+                    onChange={handleInput} 
                 />
                 <input 
                     type="submit"
