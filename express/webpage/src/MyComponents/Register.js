@@ -30,7 +30,19 @@ export default function register() {
 
         const { username, email, number, password, cpassword } = user;
 
-        fetch("/register")
+        const res = await fetch("/register", {
+            method : "POST",
+            headers : {
+                "Content-Type" : "application/json" // just like we make changes in POST-MAN for writing raw
+            },
+            body : JSON.stringify({ // since server didn't read JSON we've to send string like we did raw method in post-man
+                username,
+                email, 
+                number, 
+                password, 
+                cpassword 
+            })
+        });
     }
 
     return (
