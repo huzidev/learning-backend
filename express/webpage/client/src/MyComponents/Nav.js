@@ -3,11 +3,11 @@ import React from 'react';
 export default function Nav() {
     return (
         <div>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Login</a>
-            <a href="#">Register</a>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact Us</a>
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
         </div>
     )
 }
