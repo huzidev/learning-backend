@@ -1,6 +1,17 @@
 import React from 'react';
 
 export default function register() {
+
+    const [user, setUser] = React.useState({
+        
+        name : "",
+        email : "",
+        number : "",
+        password : "",
+        cpassword : ""
+
+    });
+
     return (
         <div>
             <form method="POST"> 
