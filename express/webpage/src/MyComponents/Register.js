@@ -29,6 +29,8 @@ export default function register() {
         event.preventDefault();
 
         const { username, email, number, password, cpassword } = user;
+
+        fetch("/register")
     }
 
     return (
