@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
-    
-    const history = useNavigate; 
+
+    const history = useNavigate(); 
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
