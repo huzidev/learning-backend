@@ -101,7 +101,7 @@ export default function Register() {
                 <input 
                     type="submit"
                     name="login"
-                    value="log in"
+                    value="Register"
                     onClick={register}
                  />
             </form>
