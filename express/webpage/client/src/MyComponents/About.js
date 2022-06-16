@@ -4,7 +4,9 @@ export default function About() {
 
     const CallAboutPage = async () => {
         try{
-            const res = await fetch('/about')
+            const res = await fetch('/about', {
+                
+            })
         }
 
         catch (err) {
