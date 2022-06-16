@@ -138,7 +138,7 @@ router.post('/contactUs', async (req, res) => {
 //About Us Page
 router.get("/about", Token, (req, res) => {// verification is MIDDLEWARE will open about page only if user have its jwtoken
     console.log("About us page");
-    res.send("About us from auth.js")
+    res.send(req.userInfo); // userInfo have all the data of user because we've defined it already in middleware
 })
 
 module.exports = router;    
