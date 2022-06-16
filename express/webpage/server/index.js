@@ -72,7 +72,7 @@ server.get('/contact', (req, res) => {
     res.render('contactUs');
 });
 
-server.post('/secret', token, (req, res) => {
+server.post('/secret', (req, res) => {
     res.render('secret', {
         data : req.body
     });
