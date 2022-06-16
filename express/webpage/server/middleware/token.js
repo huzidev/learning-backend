@@ -1,7 +1,7 @@
 const User = require('../models/userSchema');
 const jwt = require('jsonwebtoken');
 
-const token = async (req, res, next) => {
+const Token = async (req, res, next) => {
     try{
 
         const userToken = req.cookies.jwtoken;
@@ -31,4 +31,4 @@ const token = async (req, res, next) => {
     }
 }
 
-module.exports = token;
+module.exports = Token;
