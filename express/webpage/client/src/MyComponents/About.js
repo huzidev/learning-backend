@@ -5,7 +5,11 @@ export default function About() {
     const CallAboutPage = async () => {
         try{
             const res = await fetch('/about', {
-                
+                method : "GET",
+                headers : {
+                    Accept : "application/json",
+                    "Content-Type" : "application/json"
+                },
             })
         }
 
