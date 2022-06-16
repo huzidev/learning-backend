@@ -15,6 +15,11 @@ const token = async (req, res, next) => {
         }
 
         console.log(userInfo);
+
+        // so we can get user's id, name, email with this method
+        req.userToken = userToken;
+        req.userInfo = userInfo; // will give us complete data of user
+
         next();
         
     }
