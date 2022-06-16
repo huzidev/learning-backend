@@ -12,6 +12,9 @@ export default function About() {
                 },
                 credentials : "include" // so cookies could reach backend easily
             });
+
+            const data = await res.json(); // for getting user's data
+
         }
 
         catch (err) {
