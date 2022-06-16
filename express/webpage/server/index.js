@@ -3,7 +3,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 dotenv.config({ path : './config.env' });// for path where we've config.env
 require('./db/connection'); 
-const token = require('./middleware/token');
+const Token = require('./middleware/Token');
 
 const server = express(); // will create express application OR starts ours server
 const port = 8000;
@@ -68,7 +68,7 @@ server.get('/login', (req, res) => {
     res.render('login');
 });
 
-server.get('/contactUs', (req, res) => {
+server.get('/contact', (req, res) => {
     res.render('contactUs');
 });
 
@@ -94,6 +94,7 @@ server.post('/form', (req, res) => {
         data : req.body
     });
 });
+
 
 server.listen(port, () => {
     console.log(`server listening on port ${port}`);

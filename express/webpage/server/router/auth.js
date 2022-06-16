@@ -141,4 +141,11 @@ router.get("/about", Token, (req, res) => {// verification is MIDDLEWARE will op
     res.send(req.userInfo); // userInfo have all the data of user because we've defined it already in middleware
 })
 
+router.get("/contact", Token, (req, res) => {// verification is MIDDLEWARE will open about page only if user have its jwtoken
+    console.log("About us page");
+    res.send(req.userInfo); // userInfo have all the data of user because we've defined it already in middleware
+})
+
+
+
 module.exports = router;    
