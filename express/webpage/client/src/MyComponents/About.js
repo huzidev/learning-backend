@@ -11,7 +11,7 @@ export default function About() {
                     "Content-Type" : "application/json"
                 },
                 credentials : "include" // so cookies could reach backend easily
-            })
+            });
         }
 
         catch (err) {
