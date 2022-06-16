@@ -62,7 +62,7 @@ router.post('/login', async (req, res) => {
 
     try{
 
-        let userToken;
+        let token;
 
         const {email, password} = req.body;
 
@@ -77,10 +77,10 @@ router.post('/login', async (req, res) => {
             
             const isMatch = await bcrypt.compare(password, userLogin.password); // left one is the password user inserting and right one is the password with already exist email
             
-            userToken = await userLogin.generateAuthToken();// userLogin gets complete data of user from backend including _id
-            console.log(userToken);
+            token = await userLogin.generateAuthToken();// userLogin gets complete data of user from backend including _id
+            console.log(token);
            
-            res.cookie("jwtoken", userToken, {
+            res.cookie("jwtoken", token, {
                 expires : new Date(Date.now() + 2592000000), //means user will be logged out after 30 days automatically as cookie expires then token will also expires
                 httpOnly : true // httpOnly means if https secure not present it'll works as well not necessary for https secure
             });

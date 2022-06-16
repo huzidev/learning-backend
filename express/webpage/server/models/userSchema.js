@@ -52,14 +52,14 @@ userSchema.pre('save', async function (next) { //next parameter because of middl
 userSchema.methods.generateAuthToken = async function () {
     try{
         // this will just generate token
-        let userToken = jwt.sign({ _id : this._id }, process.env.SECRET_KEY);
+        let token = jwt.sign({ _id : this._id }, process.env.SECRET_KEY);
 // sign() will takes 2 parameters one is payload that must be unique and _id is unique 
 // this._id is referring the _id of user in database when user is already registered and trying to logged in 
 // and we knew userSchema.methods is referring the userLogin part where user will try to login
-        this.tokens = this.tokens.concat({ token : userToken });
+        this.tokens = this.tokens.concat({ token : token });
 // for storing with the process of concatenation of tokens's inside token with the token we've created for user
         await this.save();
-        return userToken;
+        return token;
     }
 
     catch (err) {
