@@ -7,7 +7,7 @@ export default function About() {
             const res = await fetch('/about', {
                 method : "GET",
                 headers : {
-                    Accept : "application/json",
+                    Accept : "application/json", // here we are not using POST we are using GEt therefore accept type is application/json for reading
                     "Content-Type" : "application/json"
                 },
             })
