@@ -137,5 +137,9 @@ router.post('/contactUs', async (req, res) => {
 
 //About Us Page
 
+router.get("/about", (req, res) => {
+    console.log("About us page");
+    res.send("About us from router.js")
+})
 
 module.exports = router;    
