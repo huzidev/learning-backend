@@ -5,6 +5,8 @@ const Verification = async (req, res, next) => {
 
     try{
 
+        const token = req.cookies.
+
     }
     catch (err) {
         res.status(401).send("Unauthorized : No token provided!");
