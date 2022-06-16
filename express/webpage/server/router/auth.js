@@ -31,7 +31,7 @@ router.post('/register', async (req, res) => {
         }
 
         else if (password != cpassword) {
-            return res.status(422).json({ error : "Password are not matching" });
+            return res.status(423).json({ error : "Password are not matching" });
         }
 
         else {

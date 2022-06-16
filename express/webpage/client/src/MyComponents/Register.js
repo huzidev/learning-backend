@@ -48,8 +48,11 @@ export default function Register() {
 
         const data = await res.json(); // for getting user data
 
-        if ( data.status === 422 || !data ) {
+        if ( res.status === 422 || !data ) {
             window.alert("Invalid Value!");
+        }
+        else if ( res.status === 423 ) {
+            window.alert("Password Doesn't Match!");
         }
         else{
             window.alert("Registration Successful!");

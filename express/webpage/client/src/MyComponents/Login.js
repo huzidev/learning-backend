@@ -8,6 +8,7 @@ export default function Login() {
     const [password, setPassword] = React.useState('');
 
     const loginUser = async (event) => {    
+
         event.preventDefault();
 
         const res = await fetch("/login", {
