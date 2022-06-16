@@ -28,6 +28,7 @@ export default function About() {
 
         catch (err) {
             console.log(err);
+            Navigate('/login'); // so user can go login again
         }
     }
 
