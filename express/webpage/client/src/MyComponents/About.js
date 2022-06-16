@@ -18,7 +18,8 @@ export default function About() {
 
     return (
         <div>
-            <form method=''>
+            {/* we've to use GET because we just wanted to show user its own data just */}
+            <form method='GET'> 
                 
             </form>
         </div>
