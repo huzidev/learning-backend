@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function About() {
+
+    const Navigate = useNavigate();
 
     const CallAboutPage = async () => {
         try{
