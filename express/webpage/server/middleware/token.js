@@ -18,7 +18,7 @@ const Token = async (req, res, next) => {
 
         // so we can get user's id, name, email with this method
         req.userToken = userToken;
-        req.userInfo = userInfo; // will give us complete data of user
+        req.userInfo = userInfo; // will give us complete data of user and will use this in auth.js
         req.userID = userInfo._id; // for user's id
 
         next();

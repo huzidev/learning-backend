@@ -14,6 +14,12 @@ export default function About() {
             });
 
             const data = await res.json(); // for getting user's data
+            console.log(data);
+
+            if (!res.status === 200) {
+                const error = new Error(res.error);
+                throw error;
+            }
 
         }
 
