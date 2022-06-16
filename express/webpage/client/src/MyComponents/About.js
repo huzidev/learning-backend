@@ -34,13 +34,15 @@ export default function About() {
 
     React.useEffect(() => {
         CallAboutPage();
-    }, []);
+    });
 
     return (
         <div>
             {/* we've to use GET because we just wanted to show user its own data just */}
             <form method='GET'> 
-                
+                <h1>
+                    This is about page
+                </h1>
             </form>
         </div>
     )
