@@ -97,7 +97,6 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({ error : "Email Or Password Is Incorrect" });
         }
 
-
     }
 
     catch (err) {
