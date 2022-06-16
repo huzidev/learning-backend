@@ -28,4 +28,4 @@ const Verification = async (req, res, next) => {
     }
 }
 
-module.exports = Token;
+module.exports = Verification;
