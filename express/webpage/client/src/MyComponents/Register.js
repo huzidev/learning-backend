@@ -32,7 +32,7 @@ export default function Register() {
 
         const { username, email, number, password, cpassword } = user;
 
-        const res = await fetch("/register", {
+        const res = await fetch("/register", { //make sure to use proxy in package.json while linking frontend and backend
             method : "POST",
             headers : {
                 "Content-Type" : "application/json" // just like we make changes in POST-MAN for writing raw
