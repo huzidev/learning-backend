@@ -3,13 +3,16 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const verification = require("../middleware/Verification");
+const cookieParser = require("cookie-parser");
 // since we are not in Index.js the main file, therefore we've to use (router) instead of (server)
 
 require('../db/connection'); 
 const User = require('../models/userSchema');
 const Contact = require('../models/userMessage');
 
+
 router.use(express.urlencoded({ extended : false })); // compulsory
+router.use(cookieParser());
 
 // when we wanted to GET user data we uses POST because GET just brings data and POST Reads it or collect it so we can read it
 router.post('/register', async (req, res) => {

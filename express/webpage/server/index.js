@@ -3,6 +3,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 dotenv.config({ path : './config.env' });// for path where we've config.env
 require('./db/connection'); 
+const cookieParser = require("cookie-parser");
 
 const server = express(); // will create express application OR starts ours server
 const port = 8000;
@@ -11,7 +12,6 @@ const port = 8000;
 // MIDDLEWARE
 server.use(express.json()); // al the data came in the form of JSON and app didn't recognize until we defined it with middleware
 server.use(require('./router/auth')); //(.use) is used to set up middleware for your application
-
 // setting engine for pug
 server.set('view engine', 'pug');
 server.set('views', './views');
@@ -19,6 +19,7 @@ server.set('views', './views');
 // Body-Parser for form management
 const bodyParser = require('body-parser');
 server.use(bodyParser.urlencoded({ extended : true }));
+server.use(cookieParser());
 server.use(bodyParser.json());
 
 // starting of server
@@ -59,17 +60,21 @@ server.get('/products/search', (req, res) => {// ? means start of query string (
 });
 
 //Registration page
-server.get('/register', (req, res) => {
-    res.render('register');
-});
+// server.get('/register', (req, res) => {
+//     res.render('register');
+// });
 
-server.get('/login', (req, res) => {
-    res.render('login');
-});
+// server.get('/login', (req, res) => {
+//     res.render('login');
+// });
 
-server.get('/contact', (req, res) => {
-    res.render('contactUs');
-});
+// server.get('/contact', (req, res) => {
+//     res.render('contactUs');
+// });
+
+// server.get('/about', (req, res) => {
+//     res.render('about');
+// });
 
 server.post('/secret', (req, res) => {
     res.render('secret', {
