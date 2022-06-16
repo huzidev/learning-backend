@@ -136,7 +136,7 @@ router.post('/contactUs', async (req, res) => {
 })
 
 //About Us Page
-router.get("/about", verification, (req, res) => {// verification is MIDDLEWARE will open about page only if user have its jwtoken
+router.get("/about", Token, (req, res) => {// verification is MIDDLEWARE will open about page only if user have its jwtoken
     console.log("About us page");
     res.send("About us from auth.js")
 })
