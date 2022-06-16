@@ -135,4 +135,7 @@ router.post('/contactUs', async (req, res) => {
 
 })
 
+//About Us Page
+
+
 module.exports = router;    
