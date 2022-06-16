@@ -10,6 +10,7 @@ export default function About() {
                     Accept : "application/json", // here we are not using POST we are using GEt therefore accept type is application/json for reading
                     "Content-Type" : "application/json"
                 },
+                credentials : "include" // so cookies could reach backend easily
             })
         }
 
