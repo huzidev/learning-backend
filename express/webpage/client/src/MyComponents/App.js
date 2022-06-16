@@ -15,8 +15,8 @@ import {
 export default function App() {
     return (
         <div>
-            <Nav />
             <Router>
+                <Nav />
                 <Routes>
                     <Route exact path="/" element={<Home />}/>
                     <Route exact path="/about" element={<About />}/>
