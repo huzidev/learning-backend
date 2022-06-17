@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export default function About() {
 
     const Navigate = useNavigate();
-    const [userData, setUserData] = React.useState();
+    const [userData, setUserData] = React.useState({});
 
     const CallAboutPage = async () => {
         try{
@@ -45,6 +45,18 @@ export default function About() {
                 <h1>
                     This is about page
                 </h1>
+                <h2>
+                    Name : 
+                </h2>
+                <h3>
+                    {userData.username}
+                </h3>
+                <h2>
+                    Email :
+                </h2>
+                <h3>
+                    {userData.email}
+                </h3>
             </form>
         </div>
     )
