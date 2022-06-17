@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 export default function About() {
 
     const Navigate = useNavigate();
-
+    const [userData, setUserData] = React.useState();
+    
     const CallAboutPage = async () => {
         try{
             const res = await fetch('/about', {
@@ -19,7 +20,7 @@ export default function About() {
             const data = await res.json(); // for getting user's data
             console.log(data);
 
-            if (!res.status === 200) {
+            if (await (!res.status) === 200) {
                 const error = new Error(res.error);
                 throw error;
             }

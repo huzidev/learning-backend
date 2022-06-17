@@ -3,7 +3,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 dotenv.config({ path : './config.env' });// for path where we've config.env
 require('./db/connection'); 
-const cookieParser = require("cookie-parser");
+const cookie = require("cookie-parser");
 
 const server = express(); // will create express application OR starts ours server
 const port = 8000;
@@ -18,8 +18,9 @@ server.set('views', './views');
 
 // Body-Parser for form management
 const bodyParser = require('body-parser');
+const Verification = require('./middleware/Verification');
 server.use(bodyParser.urlencoded({ extended : true }));
-server.use(cookieParser());
+server.use(cookie());
 server.use(bodyParser.json());
 
 // starting of server
@@ -75,6 +76,11 @@ server.get('/products/search', (req, res) => {// ? means start of query string (
 // server.get('/about', (req, res) => {
 //     res.render('about');
 // });
+
+server.get("/about", Verification, (req, res) => {// verification is MIDDLEWARE will open about page only if user have its jwtoken
+    console.log("About us page");
+    res.send(req.userInfo); // userInfo have all the data of user because we've defined it already in middleware
+})
 
 server.post('/secret', (req, res) => {
     res.render('secret', {

@@ -4,7 +4,6 @@ const cookieParser = require("cookie-parser");
 
 const Verification = async (req, res, next) => {
     try{
-        // let verifyToken;
         const token = req.cookies.jwtoken;
         const verifyUser = jwt.verify(token, process.env.SECRET_KEY);
         console.log(verifyUser);
