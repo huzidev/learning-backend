@@ -9,7 +9,7 @@ const Verification = async (req, res, next) => {
         const verifyUser = jwt.verify(token, process.env.SECRET_KEY);
         console.log(verifyUser);
 
-        const userInfo = await User.findOne({ _id : verifyToken._id, "tokens.token": token });
+        const userInfo = await User.findOne({ _id : verifyToken._id, "tokens.token": token });// means inside mongoDB collection we've user collection tokens's inside token and :token is defined by us here
 
         if (!userInfo) {
             throw new Error("User Not Found!");

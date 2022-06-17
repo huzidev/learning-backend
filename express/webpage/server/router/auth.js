@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const verification = require("../middleware/Verification");
+const Verification = require("../middleware/Verification");
 const cookieParser = require("cookie-parser");
 // since we are not in Index.js the main file, therefore we've to use (router) instead of (server)
 
@@ -139,7 +139,7 @@ router.post('/contact', async (req, res) => {
 })
 
 //About Us Page
-router.get("/about", verification, (req, res) => {// verification is MIDDLEWARE will open about page only if user have its jwtoken
+router.get("/about", Verification, (req, res) => {// verification is MIDDLEWARE will open about page only if user have its jwtoken
     console.log("About us page");
     res.send(req.userInfo); // userInfo have all the data of user because we've defined it already in middleware
 })
