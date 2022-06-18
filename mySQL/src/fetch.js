@@ -34,5 +34,12 @@ module.exports = async () => {
     }).catch(errorHandler);
 
 
+    // here because of association we can find specific user's tweet
 
-}
+    User.findAll({ where : {
+        username : "huzi"
+    },
+    include : [ { model :  Tweet } ]
+     })
+
+};
