@@ -7,7 +7,7 @@
 //queryInterface allows us to create tables, columns and interacting with database
 module.exports = {
   async up (queryInterface, Sequelize) {
-    queryInterface.createTable("tweets", { // tweets is ours table name and second thing in object is ours actual schema
+    return queryInterface.createTable("tweets", { // tweets is ours table name and second thing in object is ours actual schema
       id : {
         type : Sequelize.INTEGER(11),
         allowNull : false, // means required true
@@ -23,6 +23,7 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    queryInterface.dropTable("tweets"); // will simply delete a table and all rows in the table means it will delete entire structure and all the contents in it
+    return queryInterface.dropTable("tweets"); // will simply delete a table and all rows in the table means it will delete entire structure and all the contents in it
   }
 };
+//make sure to use return
