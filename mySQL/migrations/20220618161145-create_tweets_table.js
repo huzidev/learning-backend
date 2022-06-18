@@ -15,6 +15,7 @@ module.exports = {
         primaryKey : true
       },
       content : Sequelize.STRING(300),
+      userId : Sequelize.INTEGER(11),
       //createAt creates date and time inside of that attribute 
       createdAt : Sequelize.DATE,
       updatedAt : Sequelize.DATE,
@@ -31,3 +32,5 @@ module.exports = {
 // password and user
 // make sure to change default database in cmd by using use (database name) EX use socialnetwork;
 // then describe (name of table created) EX describe tweets;
+// if we wanted to make some changes and wanted to migrate all the data to database but already all the data was migrated then 
+// we can use sequelize db:migrate:undo (for last migration) and sequelize db:migrate:undo:all (for all the migration) we've done
