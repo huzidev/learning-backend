@@ -10,4 +10,4 @@ server.listen(port, (err) => {
     else{
         console.log(err);
     }
-})
+});
