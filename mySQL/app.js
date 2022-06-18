@@ -1,5 +1,5 @@
 import express from "express";
-import ('./models');// import sequelize
+import ('./src/database');// import sequelize
 
 
 const server = express();

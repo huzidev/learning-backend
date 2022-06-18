@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 
-const sequelize = new Sequelize('userData', 'root', 'root', {//'userData' is the name of database , 'root' name of user we've created with, next parameter 'root' is for password
+const sequelize = new Sequelize('socialnetwork', 'root', 'root', {//'userData' is the name of database , 'root' name of user we've created with, next parameter 'root' is for password
     host : "127.0.0.1",
     dialect : "mysql",
     pool : {
