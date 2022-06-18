@@ -1,4 +1,6 @@
 import express from "express";
+import ('./models');// import sequelize
+
 
 const server = express();
 const port = 8000;
