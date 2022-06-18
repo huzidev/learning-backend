@@ -23,6 +23,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-  
+    queryInterface.dropTable("tweets"); // will simply delete a table and all rows in the table means it will delete entire structure and all the contents in it
   }
 };
