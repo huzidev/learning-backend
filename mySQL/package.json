@@ -5,10 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index",
-    "dev": "nodemon index",
-    "stage": "node index",
-    "prod": "node index"
+    "start": "nodemon --exec babel-node app",
+    "dev": "nodemon app",
+    "stage": "node app",
+    "prod": "node app"
   },
   "keywords": [],
   "author": "",
