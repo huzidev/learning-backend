@@ -8,8 +8,7 @@ module.exports = sequelize.define("Tweet", { // will take the name of model we w
         allowNull : false, // means required true
         autoIncrement : true,
         primaryKey : true
-        
-    }
-
+    },
+    content : Sequelize.STRING(300),
 
 });
