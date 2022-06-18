@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 
-const sequelize = new Sequelize('user-data', 'root', '', {//'user-data' is the name of database , 'root' name of user we've created with, '' empty tag is for password since we didn't provide any password therefore we can left it empty
+const sequelize = new Sequelize('userData', 'root', 'root', {//'userData' is the name of database , 'root' name of user we've created with, next parameter 'root' is for password
     host : "127.0.0.1",
     dialect : "mysql",
     pool : {
