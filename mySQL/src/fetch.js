@@ -36,11 +36,11 @@ module.exports = async () => {
 
     // here because of association we can find specific user's tweet
 
-    User.findAll({ 
+    const users = await User.findAll({ 
         where : {
             username : "huzi"
         },
-        include : [ { model : Tweet, as : "Tweets" } ] // will find all the tweets of that user wwe asked for
-    })
+        include : [ { model : Tweet, as : "Tweets" } ] // will find all the tweets of that user we asked for
+    }).catch(errorHandler);
 
 };
