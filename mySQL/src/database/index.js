@@ -17,3 +17,4 @@ sequelize.authenticate().then(() => { // to authenticate whether we are linked t
 })
 
 module.exports = sequelize;
+global.sequelize = sequelize;

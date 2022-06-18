@@ -1,4 +1,5 @@
 import { Sequelize } from "sequelize";
+// const Sequelize = require ("sequelize")
 
 module.exports = sequelize.define("User", {
 

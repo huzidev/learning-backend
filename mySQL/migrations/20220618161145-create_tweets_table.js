@@ -18,7 +18,7 @@ module.exports = {
       userId : Sequelize.INTEGER(11),
       //createAt creates date and time inside of that attribute 
       createdAt : Sequelize.DATE,
-      updatedAt : Sequelize.DATE,
+      updatedAt : Sequelize.DATE
       //updateAt will update date and time if we wanted to update anything
     })  
   },

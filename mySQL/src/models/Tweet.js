@@ -1,4 +1,5 @@
-import { Sequelize } from "sequelize";
+import { Sequelize } from 'sequelize';
+// const Sequelize = require ("sequelize")
 
 module.exports = sequelize.define("Tweet", { // will take the name of model we wanted to create Tweet is basically a table(document)
 
@@ -10,5 +11,5 @@ module.exports = sequelize.define("Tweet", { // will take the name of model we w
         primaryKey : true
     },
     content : Sequelize.STRING(300),
-
+    userId : Sequelize.INTEGER(11),
 });
