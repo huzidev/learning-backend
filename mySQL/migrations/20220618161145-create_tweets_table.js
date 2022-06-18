@@ -27,3 +27,7 @@ module.exports = {
   }
 };
 //make sure to use return
+// sequelize sequelize db:migrate will helps us to migrate data and make sure to make changes in config.json like database name
+// password and user
+// make sure to change default database in cmd by using use (database name) EX use socialnetwork;
+// then describe (name of table created) EX describe tweets;
