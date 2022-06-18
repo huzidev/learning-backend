@@ -6,7 +6,7 @@ module.exports = async () => {
         console.log("Error : " + err);
     }
 
-    User.create({
+    const user = await User.create({
         username : "huzi",
         password : "test123"
     }).catch(errorHandler);
