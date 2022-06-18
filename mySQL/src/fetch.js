@@ -14,6 +14,6 @@ module.exports = async () => {
     const tweet = await Tweet.create({
         content : "Hello, Testing The Tweet!",
         userId : user.id
-    })
+    }).catch(errorHandler);
 
 }
