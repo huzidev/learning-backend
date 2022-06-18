@@ -9,6 +9,6 @@ module.exports = async () => {
     User.create({
         username : "huzi",
         password : "test123"
-    }).catch()
+    }).catch(errorHandler);
 
 }
