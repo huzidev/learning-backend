@@ -5,6 +5,15 @@ import User from './models/User';
 // therefore we've to create an ASSOCIATION here
 module.exports = async () => {
 
+    User.hasMany(Tweet, {
+        as : "Tweets",
+        foreignKey : "userId"
+    });
+
+    Tweet.belongsTo(User, {
+        as : "User",
+        foreignKey : "userId"
+    });
 
     const errorHandler = (err) => {
         console.log("Error : " + err);
