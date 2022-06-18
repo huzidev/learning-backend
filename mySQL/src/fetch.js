@@ -40,7 +40,7 @@ module.exports = async () => {
         where : {
             username : "huzi"
         },
-        include : [ { model :  Tweet } ]
+        include : [ { model : Tweet, as : "Tweets" } ] // will find all the tweets of that user wwe asked for
     })
 
 };
