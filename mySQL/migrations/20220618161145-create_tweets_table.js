@@ -3,22 +3,14 @@
 // we put inside is gonna submit to database
 // basically UP is for running a migration,
 // DOWN is for reverting a migration
+
+//queryInterface allows us to create tables, columns and interacting with database
 module.exports = {
   async up (queryInterface, Sequelize) {
-    /**
-     * Add altering commands here.
-     *
-     * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-     */
+    queryInterface.  
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
+  
   }
 };
