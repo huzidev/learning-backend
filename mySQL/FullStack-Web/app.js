@@ -8,6 +8,10 @@ var corOptions = {
     origin : '127.0.0.1:8001'
 }
 
+//routers
+
+import router from './routes/productRouter'
+
 //middleware
 server.use(cors(corOptions));
 server.use(express.json());
