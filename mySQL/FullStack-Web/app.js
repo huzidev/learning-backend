@@ -5,7 +5,7 @@ const server = express();
 const port = 8000;
 
 var corOptions = {
-    origin : '127.0.0.1:8000'
+    origin : '127.0.0.1:8001'
 }
 
 //middleware
@@ -20,7 +20,8 @@ server.use(express.urlencoded({extended : true}))
 // server.use(router);
 
 server.get('/', (req, res) => {
-    res.send('Home Page');
+    // res.send('Home Page');
+    res.json({ message : "Hello Form API" });
 });
 
 server.listen(port, (err) => {
