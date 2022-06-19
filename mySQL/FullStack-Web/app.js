@@ -9,10 +9,6 @@ const port = 8000;
 // const router = express.Router();
 // server.use(router);
 
-
-require ('./src/database/index');// import sequelize
-require ('./src/fetch')(); // for executing it we've to put function at the end
-
 server.get('/', (req, res) => {
     res.send('Home Page');
 });
