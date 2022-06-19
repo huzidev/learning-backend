@@ -32,7 +32,22 @@ const getAllProducts = async (req, res) => {
 
 const getOneProduct = async (req, res) => {
     let id = req.params.id
-    let products = await Product.findOne({where : { id : id }})//id at left is key and id at right is the id we wanted to search for req.params.id
+    let product = await Product.findOne({
+        where : { 
+            id : id 
+        }
+    })//id at left is key and id at right is the id we wanted to search for req.params.id
     // we can also create like tittle = some tittle etc
-    res.status(200).send(products)
+    res.status(200).send(product)
+}
+
+// updateProduct
+
+const updateProduct = async (req, res) => {
+    let id = req.params.id
+    const product = await Product.update(req.body, {
+        where : {
+            id : id
+        }
+    })
 }
