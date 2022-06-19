@@ -8,19 +8,18 @@ var corOptions = {
     origin : '127.0.0.1:8001'
 }
 
-//routers
-
-import router from './routes/productRouter'
-server.use('/api/products', router)
 
 //middleware
 server.use(cors(corOptions));
 server.use(express.json());
 server.use(express.urlencoded({extended : true}))
 
+//routers
+import router from './routes/productRouter'
+server.use('/api/products', router) // /api/products will just get at the start then we can go to any route we wanted 
 
 server.get('/', (req, res) => {
-    res.json({ message : "Hello Form API" });
+    res.json({ message : "Hello From API" });
 });
 
 server.listen(port, (err) => {
