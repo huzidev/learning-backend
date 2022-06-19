@@ -8,13 +8,14 @@ var corOptions = {
     origin : '127.0.0.1:8000'
 }
 
+//middleware
 server.use(cors(corOptions));
 server.use(express.json());
+server.use(express.urlencoded({extended : true}))
 
 // import bodyParser from "body-parser";
 
 // server.use(bodyParser.json());
-// server.use(bodyParser.urlencoded({extended : true}))
 // const router = express.Router();
 // server.use(router);
 
