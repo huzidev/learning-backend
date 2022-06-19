@@ -1,5 +1,4 @@
 import { Sequelize } from 'sequelize';
-// const Sequelize = require ("sequelize")
 
 module.exports = sequelize.define("Tweet", { // will take the name of model we wanted to create Tweet is basically a table(document)
 

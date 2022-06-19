@@ -19,4 +19,4 @@ sequelize.authenticate()
 })
 
 module.exports = sequelize;
-global.sequelize = sequelize;
+global.sequelize = sequelize; // so we can use sequelize easily everywhere
