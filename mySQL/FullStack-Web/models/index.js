@@ -1,4 +1,4 @@
-import { Sequelize, DataTypes } from "sequelize";
+import { Sequelize, DataTypes } from "sequelize"; //datatypes are basically key ex tittle, price, description etc
 import dbConfig from "../config/dbConfig";
 
 const sequelize = new Sequelize(
