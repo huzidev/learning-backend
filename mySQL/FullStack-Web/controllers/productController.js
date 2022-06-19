@@ -62,5 +62,26 @@ const deleteProduct = async (req, res) => {
             id : id
         }
     })
-    res.status(200).send(product)
+    res.status(200).send("Product Deleted!")
+}
+
+// get published product
+
+const getPublishedProduct = async (req, res) => {
+    const products = await Product.findAll({
+        where : {
+            published : true
+        }
+    })
+    res.status(200).send(products)
+}
+
+
+module.exports = {
+    addProduct,
+    getAllProducts,
+    getOneProduct,
+    updateProduct,
+    deleteProduct,
+    getPublishedProduct
 }
