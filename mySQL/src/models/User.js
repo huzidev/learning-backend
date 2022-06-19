@@ -12,7 +12,7 @@ module.exports = sequelize.define("User", {
     username : {
         type : Sequelize.STRING(25),
         allowNull : false,
-        unique : true, // so each username must be unique not same
+        // unique : true, // so each username must be unique not same
     },
     password : {
         type : Sequelize.STRING(20),

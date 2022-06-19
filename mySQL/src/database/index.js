@@ -10,9 +10,11 @@ const sequelize = new Sequelize('socialnetwork', 'root', 'root', {//'userData' i
     }
 });
 
-sequelize.authenticate().then(() => { // to authenticate whether we are linked to database or not
+sequelize.authenticate()
+.then(() => { // to authenticate whether we are linked to database or not
     console.log("Connected to database");
-}).catch((err) => {
+})
+.catch((err) => {
     console.log("Failed to connect database " + err);
 })
 
