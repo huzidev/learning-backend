@@ -30,3 +30,6 @@ const db = {}
 
 db.Sequelize = Sequelize
 db.sequelize = sequelize
+
+db.products = require('./productModel.js')(sequelize, DataTypes)
+db.reviews = require('./reviewModel.js')(sequelize, DataTypes)
