@@ -40,3 +40,5 @@ db.sequelize.sync({ force : false })
 })
 // if we didn't do this than every time we run the server the force will overwrite all the 
 // data present in the table with new data and we don't want that until we really wanted it therefore it is necessary to use force : false
+
+module.exports = db;
