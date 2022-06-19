@@ -17,3 +17,11 @@ const sequelize = new Sequelize(
         }
     }
 )
+
+sequelize.authenticate()
+.then(() => {
+    console.log("Connected to database");
+})
+.catch((err) => {
+    console.log("Failed to connect database " + err);
+})
