@@ -13,14 +13,8 @@ server.use(cors(corOptions));
 server.use(express.json());
 server.use(express.urlencoded({extended : true}))
 
-// import bodyParser from "body-parser";
-
-// server.use(bodyParser.json());
-// const router = express.Router();
-// server.use(router);
 
 server.get('/', (req, res) => {
-    // res.send('Home Page');
     res.json({ message : "Hello Form API" });
 });
 

@@ -25,3 +25,8 @@ sequelize.authenticate()
 .catch((err) => {
     console.log("Failed to connect database " + err);
 })
+
+const db = {}
+
+db.Sequelize = Sequelize
+db.sequelize = sequelize
