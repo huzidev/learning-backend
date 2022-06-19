@@ -45,7 +45,7 @@ const getOneProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
     let id = req.params.id
-    const product = await Product.update(req.body, {
+    const product = await Product.update(req.body, { //means we can update it by updating in just body
         where : {
             id : id
         }
