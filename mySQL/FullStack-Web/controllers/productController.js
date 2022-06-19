@@ -41,11 +41,23 @@ const getOneProduct = async (req, res) => {
     res.status(200).send(product)
 }
 
-// updateProduct
+// update Product
 
 const updateProduct = async (req, res) => {
     let id = req.params.id
     const product = await Product.update(req.body, {
+        where : {
+            id : id
+        }
+    })
+    res.status(200).send(product)
+}
+
+// delete Product
+
+const deleteProduct = async (req, res) => {
+    let id = req.params.id
+    await Product.destroy({
         where : {
             id : id
         }
