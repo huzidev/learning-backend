@@ -50,4 +50,5 @@ const updateProduct = async (req, res) => {
             id : id
         }
     })
+    res.status(200).send(product)
 }
