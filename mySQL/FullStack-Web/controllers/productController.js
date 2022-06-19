@@ -15,4 +15,7 @@ const addProduct = async (req, res) => {
         description : req.body.description,
         published : req.body.published ? req.body.published : false
     } 
+
+    const product = await Product.create(info)
+    res.status(200).send(product)
 }
