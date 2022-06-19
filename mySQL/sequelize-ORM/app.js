@@ -10,7 +10,7 @@ const port = 8000;
 // server.use(router);
 
 
-require ('./src/database/index');// import sequelize
+import './src/database/index'
 require ('./src/fetch')(); // for executing it we've to put function at the end
 
 server.get('/', (req, res) => {
