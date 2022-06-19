@@ -11,6 +11,7 @@ var corOptions = {
 //routers
 
 import router from './routes/productRouter'
+server.use('/api/products', router)
 
 //middleware
 server.use(cors(corOptions));
