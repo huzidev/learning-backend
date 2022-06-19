@@ -1,12 +1,12 @@
-// import Tweet from './models/Tweet';
-// import User from './models/User';
+import Tweet from './models/Tweet';
+import User from './models/User';
 
 // we should always ASSOCIATE those models who have relation like here single user have multiple tweets means it is a relation
 // therefore we've to create an ASSOCIATION here
 module.exports = async () => {
 
-    const Tweet = require('./models/Tweet');
-    const User = require('./models/User');
+    // const Tweet = require('./models/Tweet');
+    // const User = require('./models/User');
 
 // this ASSOCIATION helps us to grab particular stuff we wanted ex if we wanted to extract specific MANY TWEETS FROM SINGLE USER WE
 // can because of this association like wise we can extract specific tweet from specific user OR all the users who have tweets the same
@@ -18,7 +18,7 @@ module.exports = async () => {
     });
 
     Tweet.belongsTo(User, {
-        as : "User",
+        as : "Usesr",
         foreignKey : "userId"
     });
 
