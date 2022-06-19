@@ -16,4 +16,6 @@ module.exports = (sequelize, DataTypes) => {
         }
     })
 
+    return Product
+
 }
