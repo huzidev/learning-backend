@@ -83,7 +83,8 @@ const getProductReviews = async (req, res) => {
         include : [{
             model : Review, // because we've model called Review
             as : 'review'
-        }]
+        }],
+        where : { id : 2 }
     })
 
 }
@@ -95,5 +96,6 @@ module.exports = {
     getOneProduct,
     updateProduct,
     deleteProduct,
-    getPublishedProduct
+    getPublishedProduct,
+    getProductReviews
 }
