@@ -1,6 +1,6 @@
 import productController from '../controllers/productController'
 
-const router = require('express').Router()
+const routerProduct = require('express').Router()
 
 router.post('/addProduct', productController.addProduct)
 
@@ -17,4 +17,4 @@ router.put('/:id', productController.updateProduct)
 
 router.delete('/:id', productController.deleteProduct)
 
-module.exports = router
+module.exports = routerProduct
