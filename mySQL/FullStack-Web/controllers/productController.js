@@ -75,6 +75,18 @@ const getPublishedProduct = async (req, res) => {
     res.status(200).send(products)
 }
 
+// connect product and reviews
+
+const getProductReviews = async (req, res) => {
+
+    const data = await Product.findAll({
+        include : [{
+            model : Review // because we've model called Review
+        }]
+    })
+
+}
+
 
 module.exports = {
     addProduct,
