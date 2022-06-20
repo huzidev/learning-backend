@@ -2,19 +2,19 @@ import productController from '../controllers/productController'
 
 const routerProduct = require('express').Router()
 
-router.post('/addProduct', productController.addProduct)
+routerProduct.post('/addProduct', productController.addProduct)
 
 
-router.get('/allProducts', productController.getAllProducts)
+routerProduct.get('/allProducts', productController.getAllProducts)
 
-router.get('/published', productController.getPublishedProduct)
+routerProduct.get('/published', productController.getPublishedProduct)
 
 
 
-router.get('/:id', productController.getOneProduct)
+routerProduct.get('/:id', productController.getOneProduct)
 
-router.put('/:id', productController.updateProduct)
+routerProduct.put('/:id', productController.updateProduct)
 
-router.delete('/:id', productController.deleteProduct)
+routerProduct.delete('/:id', productController.deleteProduct)
 
 module.exports = routerProduct
