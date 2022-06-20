@@ -14,5 +14,6 @@ const addReview = async (req, res) => {
     }
 
     const review = await Review.create(data)
+    res.status(200).send(review)
 
 }
