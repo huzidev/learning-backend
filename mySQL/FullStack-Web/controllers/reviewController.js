@@ -9,7 +9,8 @@ const Review = db.reviews
 const addReview = async (req, res) => {
 
     let data = {
-        rating : req.body.rating // rating is been defined in reviewModels
+        rating : req.body.rating, // rating is been defined in reviewModels
+        description : req.body.description
     }
 
 }
