@@ -18,3 +18,5 @@ routerProduct.put('/:id', productController.updateProduct)
 routerProduct.delete('/:id', productController.deleteProduct)
 
 module.exports = routerProduct
+
+// don't forget to use '/' with paths for example /allProducts, /addProduct
