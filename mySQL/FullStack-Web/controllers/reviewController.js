@@ -17,3 +17,12 @@ const addReview = async (req, res) => {
     res.status(200).send(review)
 
 }
+
+// Get All Reviews
+
+const getAllReviews = async (req, res) => {
+
+    const reviews = await Review.findAll({})
+    res.status(200).send(reviews)
+
+}
