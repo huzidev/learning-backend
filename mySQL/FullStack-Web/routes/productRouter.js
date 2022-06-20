@@ -1,4 +1,5 @@
 import productController from '../controllers/productController'
+import reviewController from '../controllers/reviewController'
 
 const router = require('express').Router()
 
