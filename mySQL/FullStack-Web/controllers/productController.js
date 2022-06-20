@@ -81,7 +81,8 @@ const getProductReviews = async (req, res) => {
 
     const data = await Product.findAll({
         include : [{
-            model : Review // because we've model called Review
+            model : Review, // because we've model called Review
+            as : 'review'
         }]
     })
 
