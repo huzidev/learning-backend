@@ -1,5 +1,4 @@
 import productController from '../controllers/productController'
-import reviewController from '../controllers/reviewController'
 
 const router = require('express').Router()
 
@@ -10,9 +9,6 @@ router.get('/allProducts', productController.getAllProducts)
 
 router.get('/published', productController.getPublishedProduct)
 
-// Review's Url And Controller
-router.post('addReview', reviewController.addReview)
-router.get('getAllReviews', reviewController.getAllReviews)
 
 
 router.get('/:id', productController.getOneProduct)
