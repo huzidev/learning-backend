@@ -43,15 +43,18 @@ db.sequelize.sync({ force : false })
 
 // one to many relations for single product their can be thousands of reviews
 
-db.products.hasMany(db.reviews, { // to tell with which table we want it to be linked with
-    foreignKey : 'product_id',// to specify with which product's id the review are going to set
-    as : 'review'
-})
+// db.products.hasMany(db.reviews, { // to tell with which table we want it to be linked with
+//     foreignKey : 'product_id',// to specify with which product's id the review are going to set
+//     as : 'review'
+// })
+
+
 // and we've already define (product and review models
 
-db.reviews.belongsTo(db.products, {
-    foreignKey : 'product_id',
-    as : 'product'
-})
+
+// db.reviews.belongsTo(db.products, {
+//     foreignKey : 'product_id',
+//     as : 'product'
+// })
 
 module.exports = db;

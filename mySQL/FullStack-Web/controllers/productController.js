@@ -77,17 +77,18 @@ const getPublishedProduct = async (req, res) => {
 
 // connect product and reviews
 
-const getProductReviews = async (req, res) => {
+// const getProductReviews = async (req, res) => {
 
-    const data = await Product.findAll({
-        include : [{
-            model : Review, // because we've model called Review
-            as : 'review'
-        }],
-        where : { id : 2 }
-    })
+//     const data = await Product.findAll({
+//         include : [{
+//             model : Review, // because we've model called Review
+//             as : 'review'
+//         }],
+//         where : { id : 2 }
+//     })
+//     res.status(200).send(data)
 
-}
+// }
 
 
 module.exports = {
@@ -96,6 +97,6 @@ module.exports = {
     getOneProduct,
     updateProduct,
     deleteProduct,
-    getPublishedProduct,
-    getProductReviews
+    getPublishedProduct
+    // getProductReviews
 }

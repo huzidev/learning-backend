@@ -9,9 +9,8 @@ routerProduct.get('/allProducts', productController.getAllProducts)
 
 routerProduct.get('/published', productController.getPublishedProduct)
 
-// get Product Reviews
-
-routerProduct.get('/productReviews', productController.getProductReviews)
+// // get Product Reviews
+// routerProduct.get('/productReviews', productController.getProductReviews)
 
 routerProduct.get('/:id', productController.getOneProduct)
 
