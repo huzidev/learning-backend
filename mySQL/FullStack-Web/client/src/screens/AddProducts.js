@@ -9,7 +9,7 @@ export default function AddProducts() {
     const [title, setTitle] = React.useState('');
     const [price, setPrice] = React.useState(0);
     const [description, setDescription] = React.useState('');
-
+ 
     const addProductHandler = async () => {
         const data = {
             title : title,
@@ -17,9 +17,9 @@ export default function AddProducts() {
             description : description,
             published : true
         }
-        await axios.post('/api/products/addProduct', data)
+        await axios.post('/api/products/addProduct', data);
 
-        navigate('/products')
+        navigate('/products');
     }
 
   return (
