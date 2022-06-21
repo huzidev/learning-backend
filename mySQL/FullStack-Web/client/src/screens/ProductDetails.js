@@ -1,5 +1,6 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 export default function ProductDetails() {
 
@@ -11,7 +12,8 @@ export default function ProductDetails() {
 
   React.useEffect(() => {
     const getSingleProduct = async () => {
-      
+      const {data} = await axios.get(`/api/products/${id}`)
+      console.log(data);
     }
   })
 
