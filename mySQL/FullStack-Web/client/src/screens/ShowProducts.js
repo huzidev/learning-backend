@@ -1,15 +1,19 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
 
 export default function ShowProducts() {
 
-    const [products, setProducts] = React.useEffect([]);
+    const [products, setProducts] = React.useState([]);
     
     React.useEffect(() => {
 
         const getProductsData = async () => {
 
+            const { data } = await axios.get('/api/products/allProducts');
+            console.log(data);
+            setProducts(data);
         }
-
+        getProductsData();
     }, [])
 
   return (
@@ -17,6 +21,15 @@ export default function ShowProducts() {
         <h1>
             All Products
         </h1>
+        {
+            products.map((product) => (
+                <>
+                    <li>
+                        
+                    </li>
+                </>
+            )) 
+        }
     </div>
   )
 }

@@ -4,9 +4,9 @@ import cors from "cors";
 const server = express();
 const port = 8000;
 
-var corOptions = {
-    origin : '127.0.0.1:8001'
-}
+// var corOptions = {
+//     origin : '127.0.0.1:8001'
+// }
 
 
 //middleware
