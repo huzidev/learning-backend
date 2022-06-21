@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import ProductCard from './MyComponents/ProductCard';
+import ProductCard from '../MyComponents/ProductCard';
 
 export default function ShowProducts() {
 

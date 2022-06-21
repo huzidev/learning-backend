@@ -15,9 +15,9 @@ export default function App() {
         <Router >
             <Routes>
                 <Route exact path="/addProduct" element={AddProducts}/>
-                <Route exact path="/Products" element={ShowProducts}/>
-                <Route exact path="/Product/edit/:id" element={EditProduct}/>
-                <Route exact path="/Product/:id" element={ProductDetails}/>
+                <Route exact path="/products" element={ShowProducts}/>
+                <Route exact path="/product/edit/:id" element={EditProduct}/>
+                <Route exact path="/product/:id" element={ProductDetails}/>
             </Routes>
         </Router>
     </div>

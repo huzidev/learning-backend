@@ -10,7 +10,7 @@ const port = 8000;
 
 
 //middleware
-server.use(cors(corOptions));
+// server.use(cors(corOptions));
 server.use(express.json());
 server.use(express.urlencoded({extended : true}))
 
