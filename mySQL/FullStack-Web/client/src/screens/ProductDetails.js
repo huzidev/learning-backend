@@ -1,8 +1,11 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
+import { useParams, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductDetails() {
+
+  const Navigate = useNavigate();
 
   const  { id } = useParams();
 
@@ -24,6 +27,15 @@ export default function ProductDetails() {
     getSingleProduct();
 
   }, [id])
+
+  // Delete function
+
+  const handleDelete = async (id) => {
+
+    await axios.delete(`/api/products/${id}`);
+
+    Navigate('/products');
+  }
 
   return (
     <div>
