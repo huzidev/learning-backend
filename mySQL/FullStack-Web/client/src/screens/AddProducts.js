@@ -46,9 +46,9 @@ export default function AddProducts() {
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
             />
-            <input 
-                type="submit" 
-            />
+            <button type="submit">
+                Add Product
+            </button>
         </form>
     </div>
   )

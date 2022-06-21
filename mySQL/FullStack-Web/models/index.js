@@ -49,7 +49,7 @@ db.sequelize.sync({ force : false })
 // })
 
 
-// and we've already define (product and review models
+// and we've already define product and review models
 
 
 // db.reviews.belongsTo(db.products, {
