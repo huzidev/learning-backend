@@ -7,6 +7,7 @@ import {
 import AddProducts from '../screens/AddProducts';
 import EditProduct from '../screens/EditProduct';
 import ShowProducts from '../screens/ShowProducts';
+import ProductDetails from '../screens/ProductDetails';
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
                 <Route exact path="/addProduct" element={AddProducts}/>
                 <Route exact path="/Products" element={ShowProducts}/>
                 <Route exact path="/Product/edit/:id" element={EditProduct}/>
-                <Route exact path="/Product/:id" element={ShowProducts}/>
+                <Route exact path="/Product/:id" element={ProductDetails}/>
             </Routes>
         </Router>
     </div>
