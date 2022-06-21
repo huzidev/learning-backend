@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 
 export default function EditProduct() {
@@ -21,9 +22,11 @@ export default function EditProduct() {
     
   }, [id])
 
-  const updateHandler = () => {
+  const updateHandler = async () => {
 
     // update with a put request
+
+    await axios.put(`/api/products/${id}`)
 
   }
 
