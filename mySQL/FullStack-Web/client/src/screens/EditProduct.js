@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 export default function EditProduct() {
 
@@ -25,7 +25,9 @@ export default function EditProduct() {
     
   }, [id])
 
-  const updateHandler = async () => {
+  const updateHandler = async (event) => {
+
+    event.preventDefault();
 
     const data = {
       title : title,

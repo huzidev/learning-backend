@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function AddProducts() {
 
-    // const navigate = useNavigate();
+    const Navigate = useNavigate();
 
     const [title, setTitle] = React.useState('');
     const [price, setPrice] = React.useState(0);
@@ -22,7 +22,7 @@ export default function AddProducts() {
         }
         await axios.post('/api/products/addProduct', data);
 
-        // navigate('/products');
+        Navigate('/products');
     }
 
   return (
