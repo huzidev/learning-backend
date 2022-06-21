@@ -10,7 +10,10 @@ export default function AddProducts() {
     const [price, setPrice] = React.useState(0);
     const [description, setDescription] = React.useState('');
  
-    const addProductHandler = async () => {
+    const addProductHandler = async (event) => {
+
+        event.preventDefault();
+
         const data = {
             title : title,
             price : price,
