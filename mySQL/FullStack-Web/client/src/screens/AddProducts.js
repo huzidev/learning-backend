@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 export default function AddProducts() {
 
@@ -13,6 +14,7 @@ export default function AddProducts() {
             description : description,
             published : true
         }
+        await axios.post('/api/products/addProduct', data)
     }
 
   return (
@@ -20,11 +22,28 @@ export default function AddProducts() {
         <h1>
             Add Products
         </h1>     
-        <form >
-            <input type="text" placeholder='product name'/>
-            <input type="number" placeholder='price' />
-            <input type="text" placeholder='description' />
-            <input type="submit" />
+        <form onSubmit={addProductHandler}>
+            <input 
+                type="text" 
+                placeholder='product name'
+                value={title}
+                onChange={(event) => setTitle(event.target.value)}
+            />
+            <input 
+                type="number" 
+                placeholder='price'
+                value={price}
+                onChange={(event) => setPrice(event.target.value)}
+            />
+            <input 
+                type="text" 
+                placeholder='description'
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+            />
+            <input 
+                type="submit" 
+            />
         </form>
     </div>
   )
