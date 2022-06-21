@@ -44,11 +44,9 @@ export default function ProductDetails() {
             Edit
           </button>
         </Link>
-        <Link to={`/product/${id}`}>
-          <button>
-            Delete
-          </button>
-        </Link>
+        <button onClick={handleDelete(id)}>
+          Delete
+        </button>
     </div>
   )
 }
