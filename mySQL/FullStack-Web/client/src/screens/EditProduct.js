@@ -1,12 +1,20 @@
 import React from 'react';
 
 export default function EditProduct() {
+
+  const  { id } = useParams();
+
+  const [title, setTitle] = React.useState('');
+  const [price, setPrice] = React.useState(0);
+  const [description, setDescription] = React.useState('');
+
+
+
   return (
     <div>
         <h1>
             Edit Products
         </h1>     
-        <form onSubmit={addProductHandler}>
             <input 
                 type="text" 
                 placeholder='product name'
@@ -26,7 +34,7 @@ export default function EditProduct() {
                 onChange={(event) => setDescription(event.target.value)}
             />
             <button type="submit">
-                Add Product
+                Update Product
             </button>
         </form>
     </div>
