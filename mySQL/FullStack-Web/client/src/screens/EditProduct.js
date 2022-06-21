@@ -1,9 +1,12 @@
 import axios from 'axios';
 import React from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 export default function EditProduct() {
 
   const  { id } = useParams();
+
+  const navigate = useNavigate();
 
   const [title, setTitle] = React.useState('');
   const [price, setPrice] = React.useState(0);
