@@ -79,12 +79,14 @@ const getPublishedProduct = async (req, res) => {
 
 // const getProductReviews = async (req, res) => {
 
+//     const id = req.params.id
+
 //     const data = await Product.findAll({
 //         include : [{
-//             model : Review, // because we've model called Review
+//             model : Review,
 //             as : 'review'
 //         }],
-//         where : { id : 2 }
+//         where : { id : id }
 //     })
 //     res.status(200).send(data)
 
