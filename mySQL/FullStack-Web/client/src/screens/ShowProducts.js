@@ -24,8 +24,8 @@ export default function ShowProducts() {
         {
             products.map((product) => (
                 <>
-                    <li>
-                        
+                    <li key={product.id}>
+                        {product.title}
                     </li>
                 </>
             )) 
