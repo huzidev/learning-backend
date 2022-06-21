@@ -33,8 +33,11 @@ export default function ProductDetails() {
   const handleDelete = async (id) => {
 
     await axios.delete(`/api/products/${id}`);
-
+    
+    alert("Product Deleted Successfully!");
+    
     Navigate('/products');
+
   }
 
   return (
@@ -56,7 +59,7 @@ export default function ProductDetails() {
             Edit
           </button>
         </Link>
-        <button onClick={handleDelete(id)}>
+        <button onClick={() => handleDelete(id)}>
           Delete
         </button>
     </div>
