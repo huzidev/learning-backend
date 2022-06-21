@@ -24,9 +24,16 @@ export default function EditProduct() {
 
   const updateHandler = async () => {
 
+    const data = {
+      title : title,
+      price : price,
+      description : description,
+      published : true
+    }
+
     // update with a put request
 
-    await axios.put(`/api/products/${id}`)
+    await axios.put(`/api/products/${id}`, data);
 
   }
 
