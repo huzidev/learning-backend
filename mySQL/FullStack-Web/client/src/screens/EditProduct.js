@@ -9,6 +9,7 @@ export default function EditProduct() {
   const [description, setDescription] = React.useState('');
 
   React.useEffect(() => {
+    
     const getDataById = async () => {
       const {data} = await axios.get(`/api/products/${id}`)
       console.log(data);
@@ -16,13 +17,22 @@ export default function EditProduct() {
       setPrice(data.price)
       setDescription(data.description)
     }
-  })
+    getDataById();
+    
+  }, [id])
+
+  const updateHandler = () => {
+
+    // update with a put request
+
+  }
 
   return (
     <div>
         <h1>
             Edit Products
         </h1>     
+        <form onSubmit={updateHandler}>
             <input 
                 type="text" 
                 placeholder='product name'
