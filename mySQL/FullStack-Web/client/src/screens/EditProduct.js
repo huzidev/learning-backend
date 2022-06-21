@@ -8,7 +8,15 @@ export default function EditProduct() {
   const [price, setPrice] = React.useState(0);
   const [description, setDescription] = React.useState('');
 
-
+  React.useEffect(() => {
+    const getDataById = async () => {
+      const {data} = await axios.get(`/api/products/${id}`)
+      console.log(data);
+      setTitle(data.title)
+      setPrice(data.price)
+      setDescription(data.description)
+    }
+  })
 
   return (
     <div>
