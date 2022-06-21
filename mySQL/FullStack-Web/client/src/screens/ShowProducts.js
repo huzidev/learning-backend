@@ -25,9 +25,9 @@ export default function ShowProducts() {
         </h1>
         {
             products.map((product) => (
-                <>
+                <div key={product.id}>
                     <ProductCard product={product} />
-                </>
+                </div>
             )) 
         }
     </div>
