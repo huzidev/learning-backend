@@ -9,10 +9,12 @@ import EditProduct from './screens/EditProduct';
 import ShowProducts from './screens/ShowProducts';
 import ProductDetails from './screens/ProductDetails';
 import Home from './screens/Home';
+import Nav from './screens/Nav';
 export default function App() {
   return (
     <div>
         <Router >
+          <Nav />
             <Routes>
                 {/* it is necessary to use first route as just / otherwise it'll not work */}
                 <Route exact path="/" element={<Home />}/> 

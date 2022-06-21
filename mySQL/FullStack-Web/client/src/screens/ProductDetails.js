@@ -11,15 +11,19 @@ export default function ProductDetails() {
   const [description, setDescription] = React.useState('');
 
   React.useEffect(() => {
+
     const getSingleProduct = async () => {
+
       const {data} = await axios.get(`/api/products/${id}`)
       console.log(data);
       setTitle(data.title)
       setPrice(data.price)
       setDescription(data.description)
+
     }
     getSingleProduct();
-  }, [])
+
+  }, [id])
 
   return (
     <div>
@@ -35,12 +39,12 @@ export default function ProductDetails() {
         <p>
           description : {description}
         </p>
-        <Link to={`product/edit/${id}`}>
+        <Link to={`/product/edit/${id}`}>
           <button>
             Edit
           </button>
         </Link>
-        <Link to={`product/${id}`}>
+        <Link to={`/product/${id}`}>
           <button>
             Delete
           </button>
