@@ -8,16 +8,18 @@ import AddProducts from './screens/AddProducts';
 import EditProduct from './screens/EditProduct';
 import ShowProducts from './screens/ShowProducts';
 import ProductDetails from './screens/ProductDetails';
-
+import Home from './screens/Home';
 export default function App() {
   return (
     <div>
         <Router >
             <Routes>
-                <Route exact path="/addProducts" element={AddProducts}/>
-                <Route exact path="/products" element={ShowProducts}/>
-                <Route exact path="/product/edit/:id" element={EditProduct}/>
-                <Route exact path="/product/:id" element={ProductDetails}/>
+                {/* it is necessary to use first route as just / otherwise it'll not work */}
+                <Route exact path="/" element={<Home />}/> 
+                <Route exact path="/addProducts" element={<AddProducts />}/>
+                <Route exact path="/products" element={<ShowProducts />}/>
+                <Route exact path="/product/edit/:id" element={<EditProduct />}/>
+                <Route exact path="/product/:id" element={<ProductDetails />}/>
             </Routes>
         </Router>
     </div>
