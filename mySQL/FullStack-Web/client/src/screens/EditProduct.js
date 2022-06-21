@@ -6,7 +6,7 @@ export default function EditProduct() {
 
   const  { id } = useParams();
 
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
   const [title, setTitle] = React.useState('');
   const [price, setPrice] = React.useState(0);
@@ -37,6 +37,8 @@ export default function EditProduct() {
     // update with a put request
 
     await axios.put(`/api/products/${id}`, data);
+
+    Navigate('/products');
 
   }
 
