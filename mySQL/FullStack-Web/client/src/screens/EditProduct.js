@@ -41,7 +41,7 @@ export default function EditProduct() {
 
     Navigate({
       pathname : '/products',
-      search : `?name=${title}`,
+      search : `?name=${title}&price=${price}`,
       state : { detail : Response.data }
     });
 

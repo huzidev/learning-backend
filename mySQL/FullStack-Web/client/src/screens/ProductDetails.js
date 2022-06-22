@@ -17,7 +17,7 @@ export default function ProductDetails() {
 
     const getSingleProduct = async () => {
 
-      const {data} = await axios.get(`/api/products/${id}`)
+      const {data} = await axios.get(`/api/products/getProductReviews/${id}`)
       console.log(data);
       setTitle(data.title)
       setPrice(data.price)
@@ -54,6 +54,11 @@ export default function ProductDetails() {
         <p>
           description : {description}
         </p>
+        <h4>
+          Reviews
+        </h4>
+        <br />
+
         <Link to={`/product/edit/${id}`}>
           <button>
             Edit
