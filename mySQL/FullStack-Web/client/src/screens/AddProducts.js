@@ -46,7 +46,7 @@ export default function AddProducts() {
         <form 
             onSubmit = {addProductHandler}
             method = "POST"
-            encType = 'multipart/form-data'
+            encType = 'multipart/form-data' //It is specifically used when FILE uploading is required
         >
             <input
                 name='image' // name must have to be same as of we defined in the productModel
