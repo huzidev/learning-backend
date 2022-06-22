@@ -15,6 +15,8 @@ import routerReview from './routes/reviewRouter'
 server.use('/api/products', routerProduct) // /api/products will just get at the start then we can go to any route we wanted 
 server.use('/api/reviews', routerReview)
 
+// STATIC Images Folder
+server.use('/Images', express.static('./Images')) // since images is an STATIC folder and it is mandatory to use
 
 server.get('/', (req, res) => {
     res.json({ message : "Hello From API" });
