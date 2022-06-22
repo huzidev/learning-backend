@@ -98,7 +98,7 @@ const getPublishedProduct = async (req, res) => {
 
 const storage = multer.diskStorage({
     destination : (req, file, cb) => { // file is the path from where img is coming and cb is call back function IMP to use 
-    
+        cb(null, Date.now() + path.extname(file.originalname)) // null means no error in call back function extname is EXTENSION NAME
     }
 })
 
