@@ -12,6 +12,7 @@ export default function ProductDetails() {
   const [title, setTitle] = React.useState('');
   const [price, setPrice] = React.useState(0);
   const [description, setDescription] = React.useState('');
+  const [productImage, setProductImage] = React.useState('');
 
   React.useEffect(() => {
 
@@ -22,7 +23,7 @@ export default function ProductDetails() {
       setTitle(data.title)
       setPrice(data.price)
       setDescription(data.description)
-
+      setProductImage(data.image)
     }
     getSingleProduct();
 
@@ -45,6 +46,7 @@ export default function ProductDetails() {
         <h1>
           Product Details
         </h1>
+        <img src={productImage} alt="Product-Img" />
         <h2>
           Tittle : {title}
         </h2>
