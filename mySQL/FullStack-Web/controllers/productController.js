@@ -98,7 +98,11 @@ const getPublishedProduct = async (req, res) => {
 
 const storage = multer.diskStorage({
     destination : (req, file, cb) => { // file is the path from where img is coming and cb is call back function IMP to use 
-        cb(null, Date.now() + path.extname(file.originalname)) // null means no error in call back function extname is EXTENSION NAME
+        cb(null, 'Images') // null means no error in call back function AND we can use ../Images if folder is one level Above
+        // or use just Folder Name if they are same siblings like in this case in Images all uploaded images are going to be stored
+    },
+    filename : (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname)) // path.extname is EXTENSION NAME
     }
 })
 
