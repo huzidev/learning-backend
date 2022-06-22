@@ -80,6 +80,12 @@ export default function ProductDetails() {
         <button onClick={() => handleDelete(id)}>
           Delete
         </button>
+        <br />
+        <h2>
+          Add Review
+        </h2>
+        <hr />
+        
     </div>
   )
 }
