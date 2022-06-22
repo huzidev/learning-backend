@@ -11,9 +11,12 @@ export default function ProductDetails() {
 
   const [title, setTitle] = React.useState('');
   const [price, setPrice] = React.useState(0);
-  const [description, setDescription] = React.useState('');
+  const [productDescription, setProductDescription] = React.useState('');
   const [reviews, setReviews] = React.useState([])
 
+  // rating and description
+  const [rating, setRating] = React.useState(0);
+  const [description, setRatingDescription] = React.useState('');
 
   React.useEffect(() => {
 
@@ -23,9 +26,10 @@ export default function ProductDetails() {
       console.log(data);
       setTitle(data.title)
       setPrice(data.price)
-      setDescription(data.description)
+      setProductDescription(data.description) // the description in bracket should be same as of in database
       //for reviews
       setReviews(data.review)// it should be review not reviews
+
     }
     getSingleProduct();
 
@@ -43,6 +47,20 @@ export default function ProductDetails() {
 
   }
 
+  const addReviewHandler = async (event) => {
+
+    event.preventDefault();
+
+    let review = {
+      product_id : id,
+      rating : rating,
+      description : description
+    }
+    
+    await axios.post(`/api/products/getProductReviews/${id}`, review)
+    Navigate('/products');
+  }
+
   return (
     <div>
         <h1>
@@ -55,7 +73,7 @@ export default function ProductDetails() {
           Price : {price}
         </h3>
         <p>
-          description : {description}
+          description : {productDescription}
         </p>
         <h4>
           Reviews
@@ -85,7 +103,23 @@ export default function ProductDetails() {
           Add Review
         </h2>
         <hr />
-        
+        <form onSubmit={addReviewHandler}>
+            <input 
+                type="text" 
+                placeholder='product name'
+                value={rating}
+                onChange={(event) => setRating(event.target.value)}
+            />
+            <input 
+                type="text" 
+                placeholder='description'
+                value={description}
+                onChange={(event) => setRatingDescription(event.target.value)}
+            />
+            <button type="submit">
+                Add Product
+            </button>
+        </form>
     </div>
   )
 }
