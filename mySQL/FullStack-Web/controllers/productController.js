@@ -122,6 +122,7 @@ const upload = multer({
         }
     }
 }).single('image') // this should've to be same as of we specify in productModels for image
+// if we wanted to upload more than 1 file then we'll uses .array('images', 5) if we wanted ours user to upload about 5 pic
 
 module.exports = {
     addProduct,
