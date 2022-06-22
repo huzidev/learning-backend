@@ -5,7 +5,6 @@ const routerProduct = require('express').Router()
 routerProduct.post('/addProduct', productController.upload ,productController.addProduct)
 // since user will upload images with product info therefore we've specify the information for image here as well
 
-
 routerProduct.get('/allProducts', productController.getAllProducts)
 
 routerProduct.get('/published', productController.getPublishedProduct)

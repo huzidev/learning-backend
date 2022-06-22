@@ -11,6 +11,7 @@ const Review = db.reviews;
 
 const addProduct = async (req, res) => {
     let info = {
+        image : req.file.path, // it SHOULD have to req.file NOT req.body and we can use req.files with (S) if we wanted to upload multiple images
         title : req.body.title,
         price : req.body.price,
         description : req.body.description,
