@@ -41,7 +41,7 @@ export default function AddProducts() {
                 type="file"
                 placeholder="Upload Image Max-Size 2mb"
                 onChange={(event) => setImage(event.target.files[0])} // if we just uses files means multiple images therefore we've to
-                // specify that only one image therefore we've used [0] 
+                // specify that only one image therefore we've used [0] array of zero index 
             />
             <input 
                 type="text" 
