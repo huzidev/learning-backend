@@ -37,7 +37,6 @@ export default function EditProduct() {
     }
 
     // update with a put request
-
     await axios.put(`/api/products/${id}`, data);
 
     Navigate('/products');
