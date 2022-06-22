@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export default function ProductCard({ product }) {
   return (
     <div>
+        {/* image is defined in productModel */}
         <img src={product.image} alt="Product-Img" />
         <h1>
             Tittle : {product.title}
