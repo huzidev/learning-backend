@@ -22,7 +22,7 @@ export default function AddProducts() {
         //     published : true
         // }
 
-        const formData = FormData()
+        const formData = new FormData()
 
         formData.append('image', image) // the image at right is same as of the name = 'image' of input tag for uploading image
         formData.append('title', title)
