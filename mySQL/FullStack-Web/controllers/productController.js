@@ -1,4 +1,5 @@
 import db from '../models'
+import multer from 'multer'; // used for uploading files, doc, images on node js
 
 // CREATING MAIN MODEL for passing our data and get ours data from database
 const Product = db.products
@@ -91,6 +92,8 @@ const getProductReviews = async (req, res) => {
     res.status(200).send(data)
 
 }
+
+// Upload Images
 
 
 module.exports = {
