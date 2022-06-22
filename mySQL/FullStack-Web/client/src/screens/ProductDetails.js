@@ -12,6 +12,8 @@ export default function ProductDetails() {
   const [title, setTitle] = React.useState('');
   const [price, setPrice] = React.useState(0);
   const [description, setDescription] = React.useState('');
+  const [reviews, setReviews] = React.useState([])
+
 
   React.useEffect(() => {
 
@@ -22,7 +24,8 @@ export default function ProductDetails() {
       setTitle(data.title)
       setPrice(data.price)
       setDescription(data.description)
-
+      //for reviews
+      setReviews(data.review)// it should be review not reviews
     }
     getSingleProduct();
 
@@ -58,7 +61,17 @@ export default function ProductDetails() {
           Reviews
         </h4>
         <br />
-
+        {
+          reviews.length > 0 ? (
+            reviews.map((review) => (
+              <p key={review.id}>
+                Rating : {review.rating}
+                <br />
+                Description : {review.description}
+              </p>
+            ))
+          ) : (<p>No Reviews For This Product</p>)
+        }
         <Link to={`/product/edit/${id}`}>
           <button>
             Edit
