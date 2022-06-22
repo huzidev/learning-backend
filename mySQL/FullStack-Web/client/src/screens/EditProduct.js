@@ -39,7 +39,11 @@ export default function EditProduct() {
     // update with a put request
     await axios.put(`/api/products/${id}`, data);
 
-    Navigate('/products');
+    Navigate({
+      pathname : '/products',
+      search : `?name=${title}`,
+      state : { detail : Response.data }
+    });
 
   }
 

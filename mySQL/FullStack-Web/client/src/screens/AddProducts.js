@@ -22,7 +22,11 @@ export default function AddProducts() {
         }
         await axios.post('/api/products/addProduct', data);
 
-        Navigate('/products');
+        Navigate({
+            pathname : '/products',
+            search : `?name=${title}&price=${price}`,
+            state : { detail : Response.data }
+        });
     }
 
   return (
