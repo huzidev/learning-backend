@@ -111,6 +111,8 @@ const upload = multer({
     limits : { fileSize : '2000000' }, // the size is in bytes means this means just 2 mb
     fileFilter : (req, file, cb) => {
         const fileTypes = /jpeg|jpg|png|gif/ // make sure to write file types INSIDE double /here/
+        const mimeType = fileTypes.test(file.mimetype) // it will test the file uploaded and run it with fileTypes which we've already created
+        
     }
 })
 
