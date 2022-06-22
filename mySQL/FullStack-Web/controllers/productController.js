@@ -106,6 +106,10 @@ const storage = multer.diskStorage({
     }
 })
 
+const upload = multer({
+    storage : storage // the storage at right is the function we've defined above
+})
+
 module.exports = {
     addProduct,
     getAllProducts,
