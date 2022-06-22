@@ -9,6 +9,7 @@ export default function AddProducts() {
     const [title, setTitle] = React.useState('');
     const [price, setPrice] = React.useState(0);
     const [description, setDescription] = React.useState('');
+    const [image, setImage] = React.useState('');
  
     const addProductHandler = async (event) => {
 
@@ -39,6 +40,8 @@ export default function AddProducts() {
                 name='image' // name must have to be same as of we defined in the productModel
                 type="file"
                 placeholder="Upload Image Max-Size 2mb"
+                onChange={(event) => setImage(event.target.files[0])} // if we just uses files means multiple images therefore we've to
+                // specify that only one image therefore we've used [0] 
             />
             <input 
                 type="text" 
