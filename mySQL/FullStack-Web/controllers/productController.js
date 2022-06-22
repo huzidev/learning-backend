@@ -108,7 +108,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({
     storage : storage, // the storage at right is the function we've defined above
-    limits : { fileSize : '1000000'} // the size is in bytes means this means just 1 mb
+    limits : { fileSize : '2000000' } // the size is in bytes means this means just 2 mb
 })
 
 module.exports = {
