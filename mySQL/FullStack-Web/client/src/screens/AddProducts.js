@@ -25,6 +25,9 @@ export default function AddProducts() {
         const formData = FormData()
 
         formData.append('image', image) // the image at right is same as of the name = 'image' of input tag for uploading image
+        formData.append('title', title)
+        formData.append('price', price)
+        formData.append('description', description)
 
         await axios.post('/api/products/addProduct', data);
 
@@ -40,7 +43,11 @@ export default function AddProducts() {
         <h1>
             Add Products
         </h1>     
-        <form onSubmit={addProductHandler}>
+        <form 
+            onSubmit = {addProductHandler}
+            method = "POST"
+            encType = 'multipart/form-data'
+        >
             <input
                 name='image' // name must have to be same as of we defined in the productModel
                 type="file"
