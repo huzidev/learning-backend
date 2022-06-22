@@ -29,7 +29,7 @@ export default function AddProducts() {
         formData.append('price', price)
         formData.append('description', description)
 
-        await axios.post('/api/products/addProduct', data);
+        await axios.post('/api/products/addProduct', formData);
 
         Navigate({
             pathname : '/products',
