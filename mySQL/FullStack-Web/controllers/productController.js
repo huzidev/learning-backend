@@ -108,7 +108,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({
     storage : storage, // the storage at right is the function we've defined above
-    limits : { fileSize : '2000000' } // the size is in bytes means this means just 2 mb
+    limits : { fileSize : '2000000' }, // the size is in bytes means this means just 2 mb
+    fileFilter : (req, file, cb) => {
+        const fileTypes = /jpeg|jpg|png|gif/ // make sure to write file types INSIDE double /here/
+    }
 })
 
 module.exports = {
