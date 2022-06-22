@@ -79,23 +79,28 @@ const getPublishedProduct = async (req, res) => {
 
 // connect product and reviews
 
-const getProductReviews = async (req, res) => {
+// const getProductReviews = async (req, res) => {
 
-    const id = req.params.id
+//     const id = req.params.id
 
-    const data = await Product.findAll({
-        include : [{
-            model : Review,
-            as : 'review'
-        }],
-        where : { id : id }
-    })
-    res.status(200).send(data)
+//     const data = await Product.findAll({
+//         include : [{
+//             model : Review,
+//             as : 'review'
+//         }],
+//         where : { id : id }
+//     })
+//     res.status(200).send(data)
 
-}
+// }
 
 // Upload Images
 
+const storage = multer.diskStorage({
+    destination : (req, file, cb) => { // file is the path from where img is coming and cb is call back function IMP to use 
+    
+    }
+})
 
 module.exports = {
     addProduct,
@@ -103,6 +108,6 @@ module.exports = {
     getOneProduct,
     updateProduct,
     deleteProduct,
-    getPublishedProduct,
-    getProductReviews
+    getPublishedProduct
+    // getProductReviews
 }

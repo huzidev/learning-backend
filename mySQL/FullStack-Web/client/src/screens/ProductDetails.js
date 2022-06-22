@@ -11,24 +11,17 @@ export default function ProductDetails() {
 
   const [title, setTitle] = React.useState('');
   const [price, setPrice] = React.useState(0);
-  const [productDescription, setProductDescription] = React.useState('');
-  const [reviews, setReviews] = React.useState([])
-
-  // rating and description
-  const [rating, setRating] = React.useState(0);
-  const [description, setRatingDescription] = React.useState('');
+  const [description, setDescription] = React.useState('');
 
   React.useEffect(() => {
 
     const getSingleProduct = async () => {
 
-      const {data} = await axios.get(`/api/products/getProductReviews/${id}`)
+      const {data} = await axios.get(`/api/products/${id}`)
       console.log(data);
       setTitle(data.title)
       setPrice(data.price)
-      setProductDescription(data.description) // the description in bracket should be same as of in database
-      //for reviews
-      setReviews(data.review)// it should be review not reviews
+      setDescription(data.description)
 
     }
     getSingleProduct();
@@ -47,20 +40,6 @@ export default function ProductDetails() {
 
   }
 
-  const addReviewHandler = async (event) => {
-
-    event.preventDefault();
-
-    let review = {
-      product_id : id,
-      rating : rating,
-      description : description
-    }
-    
-    await axios.post(`/api/products/productReviews/${id}`, review)
-    Navigate('/products');
-  }
-
   return (
     <div>
         <h1>
@@ -73,23 +52,8 @@ export default function ProductDetails() {
           Price : {price}
         </h3>
         <p>
-          description : {productDescription}
+          description : {description}
         </p>
-        <h4>
-          Reviews
-        </h4>
-        <br />
-        {
-          reviews.length > 0 ? (
-            reviews.map((review) => (
-              <p key={review.id}>
-                Rating : {review.rating}
-                <br />
-                Description : {review.description}
-              </p>
-            ))
-          ) : (<p>No Reviews For This Product</p>)
-        }
         <Link to={`/product/edit/${id}`}>
           <button>
             Edit
@@ -98,28 +62,6 @@ export default function ProductDetails() {
         <button onClick={() => handleDelete(id)}>
           Delete
         </button>
-        <br />
-        <h2>
-          Add Review
-        </h2>
-        <hr />
-        <form onSubmit={addReviewHandler}>
-            <input 
-                type="text" 
-                placeholder='product name'
-                value={rating}
-                onChange={(event) => setRating(event.target.value)}
-            />
-            <input 
-                type="text" 
-                placeholder='description'
-                value={description}
-                onChange={(event) => setRatingDescription(event.target.value)}
-            />
-            <button type="submit">
-                Add Product
-            </button>
-        </form>
     </div>
   )
 }
