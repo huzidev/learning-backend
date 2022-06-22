@@ -1,5 +1,6 @@
 import db from '../models'
 import multer from 'multer'; // used for uploading files, doc, images on node js
+import path from 'path'; // helpful while uploading
 
 // CREATING MAIN MODEL for passing our data and get ours data from database
 const Product = db.products
