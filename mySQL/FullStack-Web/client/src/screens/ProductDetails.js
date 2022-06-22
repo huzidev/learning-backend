@@ -57,7 +57,7 @@ export default function ProductDetails() {
       description : description
     }
     
-    await axios.post(`/api/products/getProductReviews/${id}`, review)
+    await axios.post(`/api/products/productReviews/${id}`, review)
     Navigate('/products');
   }
 
