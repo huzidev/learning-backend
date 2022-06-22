@@ -35,6 +35,10 @@ export default function AddProducts() {
             Add Products
         </h1>     
         <form onSubmit={addProductHandler}>
+            <input
+                type="file"
+                placeholder="Upload Image Max-Size 2mb"
+            />
             <input 
                 type="text" 
                 placeholder='product name'
