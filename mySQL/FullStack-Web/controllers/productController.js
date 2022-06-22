@@ -112,7 +112,14 @@ const upload = multer({
     fileFilter : (req, file, cb) => {
         const fileTypes = /jpeg|jpg|png|gif/ // make sure to write file types INSIDE double /here/
         const mimeType = fileTypes.test(file.mimetype) // it will test the file uploaded and run it with fileTypes which we've already created
-        
+        const extname = fileTypes.test(path.extname(file.originalname)) // works same as of mimetype
+
+        if (mimeType && extname) {
+            return cb(null, true)
+        }
+        else{
+            cb('use images with proper file format')
+        }
     }
 })
 
