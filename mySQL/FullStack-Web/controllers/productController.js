@@ -4,9 +4,9 @@ import path from 'path'; // helpful while uploading
 
 // CREATING MAIN MODEL for passing our data and get ours data from database
 const Product = db.products
+const Review = db.reviews;
 
 // main work
-
 // create product
 
 const addProduct = async (req, res) => {
