@@ -25,7 +25,7 @@ export default function AddProducts() {
         Navigate({
             pathname : '/products',
             search : `?name=${title}&price=${price}`,
-            state : { detail : Response.data }
+            state : { detail : Response.data } // this will pass all the information to the path where we navigate to
         });
     }
 
