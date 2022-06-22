@@ -130,6 +130,7 @@ module.exports = {
     getOneProduct,
     updateProduct,
     deleteProduct,
-    getPublishedProduct
+    getPublishedProduct,
+    upload
     // getProductReviews
 }
