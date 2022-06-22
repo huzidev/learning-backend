@@ -121,7 +121,7 @@ const upload = multer({
             cb('use images with proper file format')
         }
     }
-})
+}).single('image') // this should've to be same as of we specify in productModels for image
 
 module.exports = {
     addProduct,
