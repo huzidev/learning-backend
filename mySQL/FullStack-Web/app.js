@@ -20,6 +20,10 @@ server.use('/api/products', routerProduct) // /api/products will just get at the
 
 // STATIC Images Folder
 server.use('/images', express.static('images')) // since images is an STATIC folder and it is mandatory to use
+// STATIC folder is the folder where we've to store all the files therefore here we've linked it with images folder 
+// so all the images will save their in ours static folder AND we basically didn't upload images at database in ours 
+// DATABASE we just uploads address of images not files with real size just address is stored in database and then it linked
+// through server to show images
 
 server.get('/', (req, res) => {
     res.json({ message : "Hello From API" });
