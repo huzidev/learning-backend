@@ -7,7 +7,7 @@ const port = 8000;
 
 //middleware
 server.use(cors({ // cors is used so someone else didn't ping with ours files only we can
-    origin: '*' // * is used for debugging
+    origin: '*' // * is used for debugging we've to use it for os we can OVERCOME CORS error Cross-Origin Resource Sharing
 }))
 
 server.use(express.json());
