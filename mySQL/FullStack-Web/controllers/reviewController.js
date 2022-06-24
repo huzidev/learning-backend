@@ -3,7 +3,6 @@ import db from '../models'
 const Review = db.reviews
 
 // FUNCTIONS
-
 // Add Review
 
 const addReview = async (req, res) => {

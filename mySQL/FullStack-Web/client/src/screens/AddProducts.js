@@ -51,7 +51,7 @@ export default function AddProducts() {
         >
             <input
                 name='image' // name must have to be same as of we defined in the productModel
-                type="file"
+                type='file'
                 onChange={(event) => setImage(event.target.files[0])} // if we just uses files means multiple images therefore we've to
                 // specify that only one image therefore we've used [0] array of zero index 
             />
