@@ -42,13 +42,14 @@ export default function ProductDetails() {
 
   }
 
+  const path  = "http://localhost:8000/"+productImage;
   return (
     <div>
         <h1>
           Product Details
         </h1>
         {/* it is MANDATORY to use localhost address otherwise the image will not be shown in the detail page */}
-        <img src={`http://localhost:3000/${productImage}`} alt="Product-Img" />
+        <img src={path} alt="Product-Img" />
         <h2>
           Tittle : {title}
         </h2>
