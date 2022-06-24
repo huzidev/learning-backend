@@ -6,9 +6,10 @@ const port = 8000;
 
 
 //middleware
-server.use(cors({
-    origin: '*'
+server.use(cors({ // cors is used so someone else didn't ping with ours files only we can
+    origin: '*' // * is used for debugging
 }))
+
 server.use(express.json());
 server.use(express.urlencoded({extended : true}))
 
