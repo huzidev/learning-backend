@@ -97,7 +97,6 @@ const getPublishedProduct = async (req, res) => {
 // }
 
 // Upload Images
-
 const storage = multer.diskStorage({
     destination : (req, file, cb) => { // file is the path from where img is coming and cb is call back function IMP to use 
         cb(null, 'images') // null means no error in call back function AND we can use ../Images if folder is one level Above

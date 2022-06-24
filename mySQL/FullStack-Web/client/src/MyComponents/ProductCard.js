@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 export default function ProductCard({ product }) {
     const path  = "http://localhost:8000/"+product.image; // NECESSARY to do because image is uploading at backend server and we've
-    // to linked it with client server which is running at 8000 and backend server is running at 3000
+    // to linked it with client server which is running at 8000 and backend server is running at 3000 therefore here we uses 
+    // localhost:8000 because it is all UI is visible at this address
 
     console.log('path', path);
   return (
@@ -14,7 +15,7 @@ export default function ProductCard({ product }) {
             Tittle : {product.title}
         </h1>
         <h2>
-            Prce : {product.price}
+            Price : {product.price}
         </h2>
         <h3>
             Description : {product.description}
