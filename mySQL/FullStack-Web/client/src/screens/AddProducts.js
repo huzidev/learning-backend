@@ -16,6 +16,7 @@ export default function AddProducts() {
         event.preventDefault();
 
         // const data = {
+        //     image : image,
         //     title : title,
         //     price : price,
         //     description : description,
@@ -25,7 +26,7 @@ export default function AddProducts() {
         const formData = new FormData()
 
         formData.append('image', image) // the image at right is same as of the name = 'image' of input tag for uploading image
-        formData.append('title', title)
+        formData.append('title', title) // append means add
         formData.append('price', price)
         formData.append('description', description)
 
@@ -51,7 +52,6 @@ export default function AddProducts() {
             <input
                 name='image' // name must have to be same as of we defined in the productModel
                 type="file"
-                placeholder="Upload Image Max-Size 2mb"
                 onChange={(event) => setImage(event.target.files[0])} // if we just uses files means multiple images therefore we've to
                 // specify that only one image therefore we've used [0] array of zero index 
             />

@@ -47,7 +47,7 @@ export default function ProductDetails() {
           Product Details
         </h1>
         {/* it is MANDATORY to use localhost address otherwise the image will not be shown in the detail page */}
-        <img src={`http://localhost:8000/${productImage}`} alt="Product-Img" />
+        <img src={`http://localhost:3000/${productImage}`} alt="Product-Img" />
         <h2>
           Tittle : {title}
         </h2>
