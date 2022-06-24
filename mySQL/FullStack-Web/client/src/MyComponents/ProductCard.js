@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function ProductCard({ product }) {
-    const path  = "http://localhost:8000/"+product.image;
+    const path  = "http://localhost:8000/"+product.image; // NECESSARY to do because image is uploading at backend server and we've
+    // to linked it with client server which is running at 8000 and backend server is running at 3000
 
     console.log('path', path);
   return (
