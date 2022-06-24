@@ -1,6 +1,6 @@
-import axios from 'axios';
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import api from '../service/api';
 
 export default function EditProduct() {
 
@@ -15,7 +15,7 @@ export default function EditProduct() {
   React.useEffect(() => {
     
     const getDataById = async () => {
-      const {data} = await axios.get(`/api/products/${id}`)
+      const {data} = await api.get(`/api/products/${id}`)
       console.log(data);
       setTitle(data.title)
       setPrice(data.price)
@@ -37,7 +37,7 @@ export default function EditProduct() {
     }
 
     // update with a put request
-    await axios.put(`/api/products/${id}`, data);
+    await api.put(`/api/products/${id}`, data);
 
     Navigate({
       pathname : '/products',
