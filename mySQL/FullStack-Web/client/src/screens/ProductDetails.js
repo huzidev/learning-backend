@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import api from '../service/api';
 
 export default function ProductDetails() {
 
@@ -18,7 +19,7 @@ export default function ProductDetails() {
 
     const getSingleProduct = async () => {
 
-      const {data} = await axios.get(`/api/products/${id}`)
+      const {data} = await api.get(`/api/products/${id}`)
       console.log(data);
       setTitle(data.title)
       setPrice(data.price)

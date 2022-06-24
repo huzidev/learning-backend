@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import ProductCard from '../MyComponents/ProductCard';
 
+import api from '../service/api'
+
 export default function ShowProducts() {
 
     const [products, setProducts] = React.useState([]);
@@ -9,11 +11,9 @@ export default function ShowProducts() {
     React.useEffect(() => {
 
         const getProductsData = async () => {
-
-            const { data } = await axios.get('/api/products/allProducts');
+            const { data } = await api.get('/api/products/allProducts');
             console.log(data);
             setProducts(data);
-            
         }
         getProductsData();
     }, [])

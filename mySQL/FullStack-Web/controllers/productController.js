@@ -10,6 +10,7 @@ const Review = db.reviews;
 // create product
 
 const addProduct = async (req, res) => {
+    console.log(req.file.path);
     let info = {
         image : req.file.path, // it SHOULD have to req.file NOT req.body and we can use req.files with (S) if we wanted to upload multiple images
         title : req.body.title,
@@ -99,7 +100,7 @@ const getPublishedProduct = async (req, res) => {
 
 const storage = multer.diskStorage({
     destination : (req, file, cb) => { // file is the path from where img is coming and cb is call back function IMP to use 
-        cb(null, 'Images') // null means no error in call back function AND we can use ../Images if folder is one level Above
+        cb(null, 'images') // null means no error in call back function AND we can use ../Images if folder is one level Above
         // or use just Folder Name if they are same siblings like in this case in Images all uploaded images are going to be stored
     },
     filename : (req, file, cb) => {

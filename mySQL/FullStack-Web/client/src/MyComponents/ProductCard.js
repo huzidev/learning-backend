@@ -2,10 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function ProductCard({ product }) {
+    const path  = "http://localhost:8000/"+product.image;
+
+    console.log('path', path);
   return (
     <div>
         {/* image is defined in productModel */}
-        <img src={product.image} alt="Product-Img" />
+        {!!product.image &&<img src={path} alt="Product-Img" />}
         <h1>
             Tittle : {product.title}
         </h1>

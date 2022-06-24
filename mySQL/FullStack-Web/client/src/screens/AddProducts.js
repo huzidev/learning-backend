@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import api from '../service/api';
 
 export default function AddProducts() {
 
@@ -30,7 +31,7 @@ export default function AddProducts() {
         formData.append('price', price)
         formData.append('description', description)
 
-        await axios.post('/api/products/addProduct', formData);
+        await api.post('/api/products/addProduct', formData);
 
         Navigate({
             pathname : '/products',

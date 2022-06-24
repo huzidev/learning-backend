@@ -1,32 +1,32 @@
-import db from '../models'
+// import db from '../models'
 
-const Review = db.reviews
+// const Review = db.reviews
 
-// FUNCTIONS
-// Add Review
+// // FUNCTIONS
+// // Add Review
 
-const addReview = async (req, res) => {
+// const addReview = async (req, res) => {
 
-    let data = {
-        rating : req.body.rating, // rating is been defined in reviewModels
-        description : req.body.description
-    }
+//     let data = {
+//         rating : req.body.rating, // rating is been defined in reviewModels
+//         description : req.body.description
+//     }
 
-    const review = await Review.create(data)
-    res.status(200).send(review)
+//     const review = await Review.create(data)
+//     res.status(200).send(review)
 
-}
+// }
 
-// Get All Reviews
+// // Get All Reviews
 
-const getAllReviews = async (req, res) => {
+// const getAllReviews = async (req, res) => {
 
-    const reviews = await Review.findAll({})
-    res.status(200).send(reviews)
+//     const reviews = await Review.findAll({})
+//     res.status(200).send(reviews)
 
-}
+// }
 
-module.exports = {
-    addReview,
-    getAllReviews
-}
+// module.exports = {
+//     addReview,
+//     getAllReviews
+// }
