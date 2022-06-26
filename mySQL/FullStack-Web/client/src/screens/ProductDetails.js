@@ -16,8 +16,8 @@ export default function ProductDetails() {
 
   // for reviews
   const [reviews, setReviews] = React.useState([]);
-  const [rating, setRating] = useState(0);
-    const [description, setDescription] = useState('');
+  const [rating, setRating] = React.useState(0);
+  const [description, setDescription] = React.useState('');
 
   React.useEffect(() => {
 
@@ -25,12 +25,15 @@ export default function ProductDetails() {
 
       const {data} = await api.get(`/api/products/productReviews/${id}`)
       console.log(data);
+      
       setTitle(data.title)
       setPrice(data.price)
       setProductDescription(data.description)
       setProductImage(data.image)
-      setReviews(data.review)
       setPublished(data.published)
+
+      // for reviews
+      setReviews(data.review)
     }
     getSingleProduct();
 
