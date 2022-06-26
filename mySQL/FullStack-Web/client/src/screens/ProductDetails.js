@@ -94,11 +94,6 @@ export default function ProductDetails() {
             (<p>false</p>)
           }
         </p>
-        <h4>
-          Reviews
-        </h4>
-        <hr />
-
         <Link to={`/product/edit/${id}`}>
           <button>
             Edit
@@ -107,6 +102,14 @@ export default function ProductDetails() {
         <button onClick={() => handleDelete(id)}>
           Delete
         </button>
+        {/* Reviews */}
+        <h4>
+          Add Reviews
+        </h4>
+        <hr />
+        <form onSubmit={addReviewHandler}>
+          
+        </form>
     </div>
   )
 }
