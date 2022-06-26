@@ -108,7 +108,25 @@ export default function ProductDetails() {
         </h4>
         <hr />
         <form onSubmit={addReviewHandler}>
-          
+          <h4>
+            Rating
+          </h4>
+          <input 
+            value={rating}
+            onChange={(event) => setRating(event.target.value)}
+            type="number"
+          />
+          <h4>
+            Description
+          </h4>
+          <input 
+            value={description}
+            onChange={(event) => setDescription(event.target.value)}
+            type="number"
+          />
+          <button type="submit">
+            Add Review
+          </button>
         </form>
     </div>
   )
