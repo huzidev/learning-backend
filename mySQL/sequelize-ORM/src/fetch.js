@@ -15,7 +15,7 @@ module.exports = async () => {
     });
 
     Tweet.belongsTo(User, {
-        as : "Usesr",
+        as : "User",
         foreignKey : "userId"
     });
 
