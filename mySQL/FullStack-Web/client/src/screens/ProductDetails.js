@@ -13,7 +13,11 @@ export default function ProductDetails() {
   const [productDescription, setProductDescription] = React.useState('');
   const [published, setPublished] = React.useState(true);
   const [productImage, setProductImage] = React.useState('');
+
+  // for reviews
   const [reviews, setReviews] = React.useState([]);
+  const [rating, setRating] = useState(0);
+    const [description, setDescription] = useState('');
 
   React.useEffect(() => {
 
