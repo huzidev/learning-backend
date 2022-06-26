@@ -133,12 +133,15 @@ export default function ProductDetails() {
           Product Reviews
         </h5>
         <hr />
-        {reviews.length > 0 ? (
-        reviews.map(review => {
-        return <p key={review.id}>Rating: {review.rating} <br /> {review.description}</p>
-        })
-        ) : 
-        ( <p> No reviews for this product </p> )}
+        {
+          reviews.length > 0 ? 
+          (
+            reviews.map((review) => {
+            return <p key={review.id}> Rating : {review.rating} <br /> {review.description}</p>
+            })
+          ) : 
+          ( <p> No reviews for this product </p> )
+        }
     </div>
   )
 }
