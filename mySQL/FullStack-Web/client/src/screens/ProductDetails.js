@@ -83,7 +83,17 @@ export default function ProductDetails() {
         <p>
           description : {productDescription}
         </p>
-
+        <h3>
+          Published
+        </h3>
+        <p>
+          {
+            published ? 
+            (<p>True</p>) 
+            : 
+            (<p>false</p>)
+          }
+        </p>
         <h4>
           Reviews
         </h4>
