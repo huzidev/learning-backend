@@ -1,18 +1,17 @@
 import React from 'react';
-import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import api from '../service/api';
 
 export default function ProductDetails() {
-
-  const Navigate = useNavigate();
-
+  
   const  { id } = useParams();
+  const Navigate = useNavigate();
 
   const [title, setTitle] = React.useState('');
   const [price, setPrice] = React.useState(0);
-  const [description, setDescription] = React.useState('');
+  const [productDescription, setProductDescription] = React.useState('');
+  const [published, setPublished] = React.useState(true);
   const [productImage, setProductImage] = React.useState('');
   const [reviews, setReviews] = React.useState([]);
 
@@ -24,9 +23,10 @@ export default function ProductDetails() {
       console.log(data);
       setTitle(data.title)
       setPrice(data.price)
-      setDescription(data.description)
+      setProductDescription(data.description)
       setProductImage(data.image)
       setReviews(data.review)
+      setPublished(data.published)
     }
     getSingleProduct();
 
@@ -59,7 +59,7 @@ export default function ProductDetails() {
           Price : {price}
         </h3>
         <p>
-          description : {description}
+          description : {productDescription}
         </p>
 
         <h4>
