@@ -51,6 +51,21 @@ export default function ProductDetails() {
 
   }
 
+  const addReviewHandler = async (event) => {
+
+    event.preventDefault()
+    
+    let review = {
+        product_id : id,
+        rating : rating,
+        description : description
+    }
+
+    await api.post(`/api/products/addReview/${id}`, review)
+
+    Navigate('/products');
+  }
+
   const path  = "http://localhost:8000/"+productImage;
   return (
     <div>
@@ -63,7 +78,7 @@ export default function ProductDetails() {
           Tittle : {title}
         </h2>
         <h3>
-          Price : {price}
+          Price : ${price}
         </h3>
         <p>
           description : {productDescription}
