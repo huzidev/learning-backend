@@ -102,7 +102,7 @@ export default function ProductDetails() {
         <button onClick={() => handleDelete(id)}>
           Delete
         </button>
-        {/* Reviews */}
+        {/* Add Reviews */}
         <h4>
           Add Reviews
         </h4>
@@ -128,6 +128,11 @@ export default function ProductDetails() {
             Add Review
           </button>
         </form>
+        {/* ALL REVIEWS */}
+        <h5>
+          Product Reviews
+        </h5>
+        <hr />
     </div>
   )
 }
