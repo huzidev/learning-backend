@@ -26,6 +26,7 @@ export default function ProductDetails() {
       setPrice(data.price)
       setDescription(data.description)
       setProductImage(data.image)
+      setReviews(data.review)
     }
     getSingleProduct();
 

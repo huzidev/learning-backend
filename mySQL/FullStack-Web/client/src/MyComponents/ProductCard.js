@@ -15,7 +15,7 @@ export default function ProductCard({ product }) {
             Tittle : {product.title}
         </h1>
         <h2>
-            Price : {product.price}
+            Price : ${product.price}
         </h2>
         <h3>
             Description : {product.description}
