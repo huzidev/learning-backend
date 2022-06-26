@@ -3,7 +3,7 @@ import multer from 'multer'; // used for uploading files, doc, images on node js
 import path from 'path'; // helpful while uploading
 
 // CREATING MAIN MODEL for passing our data and get ours data from database
-const Product = db.products
+const Product = db.products;
 const Review = db.reviews;
 
 // main work
@@ -93,7 +93,6 @@ const getProductReviews = async (req, res) => {
         where : { id : id }
     })
     res.status(200).send(data)
-
 }
 
 // Upload Images
