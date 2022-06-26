@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import api from '../service/api';
 
@@ -10,6 +9,7 @@ export default function AddProducts() {
     const [title, setTitle] = React.useState('');
     const [price, setPrice] = React.useState(0);
     const [description, setDescription] = React.useState('');
+    const [published, setPublished] = React.useState(true);
     const [image, setImage] = React.useState('');
  
     const addProductHandler = async (event) => {
@@ -22,6 +22,7 @@ export default function AddProducts() {
         formData.append('title', title) // append means add
         formData.append('price', price)
         formData.append('description', description)
+        formData.append('published', published)
 
         await api.post('/api/products/addProduct', formData);
 
@@ -65,6 +66,10 @@ export default function AddProducts() {
                 placeholder='description'
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
+            />
+            <input 
+                type="checkbox" 
+                onChange={(event) => setPublished(event.target.checked)} // it should've to be (checked) because it is checkbox
             />
             <button type="submit">
                 Add Product
