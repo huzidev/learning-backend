@@ -16,14 +16,6 @@ export default function AddProducts() {
 
         event.preventDefault();
 
-        // const data = {
-        //     image : image,
-        //     title : title,
-        //     price : price,
-        //     description : description,
-        //     published : true
-        // }
-
         const formData = new FormData()
 
         formData.append('image', image) // the image at right is same as of the name = 'image' of input tag for uploading image

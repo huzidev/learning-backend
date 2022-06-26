@@ -34,7 +34,7 @@ export default function ProductDetails() {
 
   const handleDelete = async (id) => {
 
-    await axios.delete(`/api/products/${id}`);
+    await api.delete(`/api/products/${id}`);
     
     alert("Product Deleted Successfully!");
     
