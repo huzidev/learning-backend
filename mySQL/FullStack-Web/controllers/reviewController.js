@@ -7,7 +7,10 @@ const Review = db.reviews
 
 const addReview = async (req, res) => {
 
+    const id = req.params.id
+
     let data = {
+        product_id : id,
         rating : req.body.rating, // rating is been defined in reviewModels
         description : req.body.description
     }
@@ -28,5 +31,5 @@ const getAllReviews = async (req, res) => {
 
 module.exports = {
     addReview,
-    getAllReviews
+    getAllReviews,
 }

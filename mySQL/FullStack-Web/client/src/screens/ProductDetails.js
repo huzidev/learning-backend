@@ -122,7 +122,7 @@ export default function ProductDetails() {
           <input 
             value={description}
             onChange={(event) => setDescription(event.target.value)}
-            type="number"
+            type="text"
           />
           <button type="submit">
             Add Review
@@ -135,11 +135,9 @@ export default function ProductDetails() {
         <hr />
         {
           reviews.length > 0 ? 
-          (
-            reviews.map((review) => {
+          (reviews.map((review) => {
             return <p key={review.id}> Rating : {review.rating} <br /> {review.description}</p>
-            })
-          ) : 
+            })) : 
           ( <p> No reviews for this product </p> )
         }
     </div>
