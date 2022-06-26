@@ -21,12 +21,13 @@ export default function ShowProducts() {
         <h1>
             All Products
         </h1>
-        {
+        { products.length > 0 ? 
             products.map((product) => (
                 <div key={product.id}>
                     <ProductCard product={product} />
                 </div>
             )) 
+            : (<p>No Products</p>)
         }
     </div>
   )

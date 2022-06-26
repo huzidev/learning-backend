@@ -43,56 +43,56 @@ db.sequelize.sync({ force : false })
 
 // one to many relations for single product their can be thousands of reviews
 
-db.products.hasMany(db.reviews, { // to tell with which table we want it to be linked with
-    foreignKey : 'product_id',// to specify with which product's id the review are going to set
-    as : 'review'
-    // ProductId : {
-    //     type : DataTypes.INTEGER,
-    //     References : 'products',
-    //     ReferenceKey : 'Id',
-    // }
-})
-
-products.hasMany(db.reviews);
-
-// var Product = sequelize.define('Product', {
-//     name : DataTypes.STRING
+// db.products.hasMany(db.reviews, { // to tell with which table we want it to be linked with
+//     foreignKey : 'product_id',// to specify with which product's id the review are going to set
+//     as : 'review'
+//     // ProductId : {
+//     //     type : DataTypes.INTEGER,
+//     //     References : 'products',
+//     //     ReferenceKey : 'Id',
+//     // }
 // })
 
+// products.hasMany(db.reviews);
 
-// var reviews = sequelize.define('reviews', {
-//     productId : {
-//         type : DataTypes.INTEGER,
-//         references :  'products', // table name
-//         referencesKey : 'id' // primary key of that products table
-//     }
+// // var Product = sequelize.define('Product', {
+// //     name : DataTypes.STRING
+// // })
+
+
+// // var reviews = sequelize.define('reviews', {
+// //     productId : {
+// //         type : DataTypes.INTEGER,
+// //         references :  'products', // table name
+// //         referencesKey : 'id' // primary key of that products table
+// //     }
+// // })
+
+// // db.products.hasMany(reviews);
+
+// // and we've already define product and review models
+
+
+// // var products = sequelize.define('products', {
+// //     ReviewId : {
+// //         type : DataTypes.INTEGER,
+// //         references : 'reviews',
+// //         referencesKey : 'id'
+// //     }
+// // })
+
+// // reviews.belongsTo(products);
+
+// db.reviews.belongsTo(db.products, {
+//     foreignKey : 'product_id',
+//     as : 'product'
+//     // ReviewsId : {
+//     //     type : DataTypes.INTEGER,
+//     //     References : 'reviews',
+//     //     ReferenceKey : 'Id',
+//     // }
 // })
 
-// db.products.hasMany(reviews);
-
-// and we've already define product and review models
-
-
-// var products = sequelize.define('products', {
-//     ReviewId : {
-//         type : DataTypes.INTEGER,
-//         references : 'reviews',
-//         referencesKey : 'id'
-//     }
-// })
-
-// reviews.belongsTo(products);
-
-db.reviews.belongsTo(db.products, {
-    foreignKey : 'product_id',
-    as : 'product'
-    // ReviewsId : {
-    //     type : DataTypes.INTEGER,
-    //     References : 'reviews',
-    //     ReferenceKey : 'Id',
-    // }
-})
-
-reviews.belongsTo(db.products);
+// reviews.belongsTo(db.products);
 
 module.exports = db;

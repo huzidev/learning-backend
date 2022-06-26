@@ -14,12 +14,13 @@ export default function ProductDetails() {
   const [price, setPrice] = React.useState(0);
   const [description, setDescription] = React.useState('');
   const [productImage, setProductImage] = React.useState('');
+  const [reviews, setReviews] = React.useState([]);
 
   React.useEffect(() => {
 
     const getSingleProduct = async () => {
 
-      const {data} = await api.get(`/api/products/${id}`)
+      const {data} = await api.get(`/api/products/productReviews/${id}`)
       console.log(data);
       setTitle(data.title)
       setPrice(data.price)
@@ -59,6 +60,12 @@ export default function ProductDetails() {
         <p>
           description : {description}
         </p>
+
+        <h4>
+          Reviews
+        </h4>
+        <hr />
+
         <Link to={`/product/edit/${id}`}>
           <button>
             Edit
