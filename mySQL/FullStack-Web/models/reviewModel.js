@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
 
     const Review = sequelize.define("review", {
-        id : {
+        rid : {
             type : DataTypes.INTEGER,
             allowNull : false, // means required true
             autoIncrement : true,

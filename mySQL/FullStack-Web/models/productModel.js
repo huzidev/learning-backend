@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
 
     const Product = sequelize.define("product", {
-        id : {
+        pid : {
             type : DataTypes.INTEGER,
             allowNull : false, // means required true
             autoIncrement : true,
