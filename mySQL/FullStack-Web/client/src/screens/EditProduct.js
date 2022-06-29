@@ -11,6 +11,7 @@ export default function EditProduct() {
   const [title, setTitle] = React.useState('');
   const [price, setPrice] = React.useState(0);
   const [description, setDescription] = React.useState('');
+  const [published, setPublished] = React.useState(true);
 
   React.useEffect(() => {
     
@@ -20,6 +21,7 @@ export default function EditProduct() {
       setTitle(data.title)
       setPrice(data.price)
       setDescription(data.description)
+      setPublished(data.published)
     }
     getDataById();
     
@@ -33,7 +35,7 @@ export default function EditProduct() {
       title : title,
       price : price,
       description : description,
-      published : true
+      published : published
     }
 
     // update with a put request

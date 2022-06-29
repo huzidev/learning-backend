@@ -37,7 +37,7 @@ const getOneProduct = async (req, res) => {
     let id = req.params.id
     let product = await Product.findOne({
         where : { 
-            id : id 
+            pid : id 
         }
     })//id at left is key and id at right is the id we wanted to search for req.params.id
     // we can also create like tittle = some tittle etc
@@ -50,7 +50,7 @@ const updateProduct = async (req, res) => {
     let id = req.params.id
     const product = await Product.update(req.body, { //means we can update it by updating in just body
         where : {
-            id : id
+            pid : id
         }
     })
     res.status(200).send(product)
@@ -62,7 +62,7 @@ const deleteProduct = async (req, res) => {
     let id = req.params.id
     await Product.destroy({
         where : {
-            id : id
+            pid : id
         }
     })
     res.status(200).send("Product Deleted!")
@@ -91,7 +91,7 @@ const getProductReviews = async (req, res) => {
     console.log(req.params);
 
     const data = await Product.findAll({
-        include : [{
+        include : [{ // since here we've created array therefore we don't needs array for getting data therefore (data[0])
             model : Review,
             as : 'review'
         }],

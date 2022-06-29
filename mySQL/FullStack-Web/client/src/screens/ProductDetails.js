@@ -61,7 +61,11 @@ export default function ProductDetails() {
         rating : rating,
         description : description
     }
-
+    // console.log('aaaaaaaa');
+    // console.log('aaaaaaaa');
+    // console.log('aaaaaaaa');
+    // console.log('aaaaaaaa');
+    // console.log(id);
     await api.post(`/api/products/addReview/${id}`, review)
 
     Navigate('/products');
