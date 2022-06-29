@@ -8,6 +8,7 @@ export default function ProductDetails() {
   const  { id } = useParams();
   const Navigate = useNavigate();
 
+  // for product info
   const [title, setTitle] = React.useState('');
   const [price, setPrice] = React.useState(0);
   const [productDescription, setProductDescription] = React.useState('');
@@ -56,7 +57,7 @@ export default function ProductDetails() {
     event.preventDefault()
     
     let review = {
-        product_id : id,
+        pid : id,
         rating : rating,
         description : description
     }

@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         description : {
             type : DataTypes.TEXT
+        },
+        pid : {
+            type : DataTypes.INTEGER,
+            allowNull : false,
         }
     })
 
