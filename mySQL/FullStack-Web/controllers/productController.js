@@ -85,14 +85,19 @@ const getProductReviews = async (req, res) => {
 
     const id = req.params.id
 
+    console.log('req.params');
+    console.log('req.params');
+    console.log('req.params');
+    console.log(req.params);
+
     const data = await Product.findAll({
         include : [{
             model : Review,
             as : 'review'
         }],
-        where : { id : id }
+        where : { pid : id }
     })
-    res.status(200).send(data)
+    res.status(200).send(data[0]) // because we are getting array and we don't need array for product details
 }
 
 // Upload Images

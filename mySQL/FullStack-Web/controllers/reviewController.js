@@ -7,8 +7,7 @@ const Review = db.reviews
 
 const addReview = async (req, res) => {
 
-    const id = req.params.id
-
+    const id = req.body.pid
     let data = {
         pid : id,
         rating : req.body.rating, // rating is been defined in reviewModels

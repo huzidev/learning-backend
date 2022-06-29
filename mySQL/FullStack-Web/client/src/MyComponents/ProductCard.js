@@ -5,8 +5,6 @@ export default function ProductCard({ product }) {
     const path  = "http://localhost:8000/"+product.image; // NECESSARY to do because image is uploading at backend server and we've
     // to linked it with client server which is running at 8000 and backend server is running at 3000 therefore here we uses 
     // localhost:8000 because it is all UI is visible at this address
-
-    console.log('path', path);
   return (
     <div>
         {/* image is defined in productModel */}
@@ -21,7 +19,7 @@ export default function ProductCard({ product }) {
             Description : {product.description}
         </h3>
         {/* always remember to use / at start whenever using LINK or URL */}
-        <Link to={`/product/${product.id}`}> 
+        <Link to={`/product/${product.pid}`}> 
             <button>
                 Details
             </button>
