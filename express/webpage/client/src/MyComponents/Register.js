@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import api from '../service/api';
 
 export default function Register() {
 
@@ -32,7 +33,7 @@ export default function Register() {
 
         const { username, email, number, password, cpassword } = user;
 
-        const res = await fetch("/register", { //make sure to use proxy in package.json while linking frontend and backend
+        const res = await api.post("/register", { //make sure to use proxy in package.json while linking frontend and backend
             method : "POST",
             headers : {
                 "Content-Type" : "application/json" // just like we make changes in POST-MAN for writing raw
