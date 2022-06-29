@@ -6,10 +6,13 @@ require('./db/connection');
 const cookie = require("cookie-parser");
 const cors = require("cors");
 
-
 const server = express(); // will create express application OR starts ours server
 const port = 8000;
 
+//CORS ERROR SOLUTION
+server.use(cors({
+    origin : '*'
+}))
 
 // MIDDLEWARE
 server.use(express.json()); // al the data came in the form of JSON and app didn't recognize until we defined it with middleware
