@@ -66,7 +66,10 @@ export default function ProductDetails() {
     // console.log('aaaaaaaa');
     // console.log('aaaaaaaa');
     // console.log(id);
-    await api.post(`/api/products/addReview/${id}`, review)
+    await api.post(`/api/reviews/addReview`, review) // so here we don't have to give ${id} rather we have to use the URL where from
+    // where reviews will add if we go to postman we can see that from THIS URL http://127.0.0.1:8000/api/reviews/addReview WE can add
+    // reviews SINCE https://127.0.0.1:8000 adds automatically therefore we just have to specify the path through which we can
+    // add review
 
     Navigate('/products');
   }
