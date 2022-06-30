@@ -1,3 +1,4 @@
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -7,7 +8,7 @@ import Navbar from './MyComponents/Navbar';
 import { Home } from './MyComponents/Home';
 import About from './MyComponents/About';
 import NoteState from './context/notes/NoteState';
-import { Alert } from './MyComponents/Alert';
+import Alert from './MyComponents/Alert';
 import Signup from './MyComponents/Signup';
 import Login from './MyComponents/Login';
 
