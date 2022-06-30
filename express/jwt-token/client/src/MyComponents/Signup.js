@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = (props) => {
 
     const Navigate = useNavigate();
     const [credentials, setCredentials] = React.useState({name : "", email : "", password : "", cpassword : ""}) 
@@ -22,9 +22,10 @@ const Signup = () => {
         if (json.success) {
             localStorage.setItem('token', json.authtoken); 
             Navigate("/login");
+            props.showAlert("Registered Successfully!", "success")
         }
         else{
-            alert('Invalid Credentials')
+            props.showAlert("Invalid Credentials", "danger") // invalid credential is the msg and danger is the type
         }
     }
 
