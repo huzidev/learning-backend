@@ -1,10 +1,11 @@
 import React from 'react'
+import AboutContext from "./aboutContext";
 
-export default function aboutState() {
+export default function aboutState(props) {
 
     const host = "http://localhost:5000"
-    // const dataInitial = []
-    // const [data, setData] = useState(dataInitial)
+    const dataInitial = []
+    const [data, setData] = useState(dataInitial)
 
     const getData = async () => {
         // API Call 
@@ -16,9 +17,14 @@ export default function aboutState() {
           }
         });
         const json = await response.json() 
-        getData(json)
+        setData(json)
     }
 
   return (
+
+    <AboutContext.Provider value={{ data, getData }}>
+      {props.children}
+    </AboutContext.Provider>
+
   )
 }
