@@ -1,69 +1,52 @@
 import React from 'react';
+import { useContext } from 'react';
+import AboutItem from './AboutItem';
+import aboutContext from "../context/notes/aboutContext"
 import {useNavigate} from 'react-router-dom';
 
 const About = () => {
     
+    const context = useContext(aboutContext);
     const Navigate = useNavigate();
-    const [userData, setUserData] = React.useState({});
-    
-    const CallAboutPage = async () => {
-        try{
-            const res = await fetch('/about', {
-                method : "GET",
-                headers : {
-                    Accept : "application/json", // here we are not using POST we are using GEt therefore accept type is application/json for reading
-                    "Content-Type" : "application/json",
-                    "auth-token": localStorage.getItem('token')
-                },
-                credentials : "include" // so cookies could reach backend easily
-            });
-
-            const data = await res.json(); // for getting user's data
-            console.log(data);
-            setUserData(data) // because data variable have all the data of user
-            
-            if (await (!res.status) === 200) {
-                const error = new Error(res.error);
-                throw error;
-            }
-
-        }
-
-        catch (err) {
-            console.log(err);
-            Navigate('/login'); // so user can go login again
-        }
-    }
+    const { data, getData } = context;
 
     React.useEffect(() => {
-        CallAboutPage();
-    });
+        if (localStorage.getItem('token')) {
+            getData();
+        }
+        else{
+            Navigate("/login");
+        }
+    }, [])
 
     return (
         <div>
             This is About page
-            <form method='GET'>
+            {/* <form method='GET'>
                 <h3>
                     UserId :
                 </h3>
                 <h5>
-                    {userData.id}
+                    {data.id}
                 </h5>
                 <hr />
                 <h3>
                     Username : 
                 </h3> 
                 <h5>
-                    {userData.username}
+                    {data.username}
                 </h5>
                 <hr />
                 <h3>
                     Email :
                 </h3>
                 <h5>
-                    {userData.email}
+                    {data.email}
                 </h5>
-            </form>
+            </form> */}
+            {data.map((event) => {
+                    return <AboutItem key={event._id} />
+            })}
         </div>
     )
 }
