@@ -30,9 +30,8 @@ module.exports = async () => {
 
     const tweet = await Tweet.create({
         content : "Hello, Testing The Tweet with mySQL database migration then fetching the api with association!",
-        userId : User.id
+        userId : user.id
     }).catch(errorHandler);
-
 
     // here because of association we can find specific user's tweet
 
