@@ -18,7 +18,15 @@ const UserSchema = new Schema({
     date:{
         type: Date,
         default: Date.now
-    }
+    },
+    tokens : [
+        {
+            token : {
+                type : String,
+                required : true
+            }
+        }
+    ]
   });
   const User = mongoose.model('new_user', UserSchema);
   module.exports = User;

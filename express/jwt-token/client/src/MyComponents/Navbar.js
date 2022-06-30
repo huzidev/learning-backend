@@ -8,7 +8,7 @@ const Navbar = () => {
     const Navigate = useNavigate();
 
     const handleLogout = () => {
-        localStorage.removeItem('token');
+        localStorage.removeItem('token'); // so token will be removed as we logged out
         Navigate('/login');
     }
 
