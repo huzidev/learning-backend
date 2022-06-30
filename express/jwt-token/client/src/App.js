@@ -24,7 +24,7 @@ function App() {
       setAlert(null)
     }, 1200);
   }
-
+  // we've to pass alert as props where ever we wanted to use alert function
   return (
     <>
       <NoteState>
