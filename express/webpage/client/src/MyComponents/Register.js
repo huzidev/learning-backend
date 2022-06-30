@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../service/api';
 
 export default function Register() {
 
