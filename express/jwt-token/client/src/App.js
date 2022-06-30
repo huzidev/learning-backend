@@ -12,6 +12,18 @@ import Signup from './MyComponents/Signup';
 import Login from './MyComponents/Login';
 
 function App() {
+
+  const [alert, setAlert] = React.useState(null);
+  const showAlert = (message, type) => {
+    setAlert({
+      msg : message,
+      type : type
+    })
+    setTimeout(() => {
+      setAlert(null)
+    }, 1200);
+  }
+
   return (
     <>
       <NoteState>
