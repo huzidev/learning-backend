@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useDebugValue } from 'react';
 import {useNavigate} from 'react-router-dom';
-import api from '../service/api';
 
 const About = () => {
     
@@ -40,22 +39,16 @@ const About = () => {
         <div>
             This is About page
                 <h3>
-                    UserId :
+                    UserId : {userData._id}
                 </h3>
-                <h5>
-                </h5>
                 <hr />
                 <h3>
                     Username : {userData.name}
                 </h3> 
-                <h5>
-                </h5>
                 <hr />
                 <h3>
                     Email : {userData.email}
                 </h3>
-                <h5>
-                </h5>
         </div>
     )
 }
