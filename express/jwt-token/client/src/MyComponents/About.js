@@ -1,19 +1,31 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
+import api from '../service/api';
 
 const About = () => {
     
     const Navigate = useNavigate();
-    const [data, setData] = useState({}) 
+    const [data, setData] = React.useState({})
+    const host = "http://localhost:5000"
 
-    const response = await fetch("http://localhost:5000/api/auth/login", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        body: JSON.stringify({email, password})
-    });
+    React.useEffect(() => {
 
+        const getUserData = async () => {
+            const {data} = await fetch(`${host}/api/auth/getuser`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "auth-token": localStorage.getItem('token')
+                },
+            })    
+            const json = await data.json()
+            console.log(data);
+            setData(data.name)
+            setData(data.email)
+        }
+        getUserData();
+    })
+    
     return (
         <div>
             This is About page
@@ -25,13 +37,13 @@ const About = () => {
                 </h5>
                 <hr />
                 <h3>
-                    Username : 
+                    Username : {data.name}
                 </h3> 
                 <h5>
                 </h5>
                 <hr />
                 <h3>
-                    Email :
+                    Email : {data.email}
                 </h3>
                 <h5>
                 </h5>
