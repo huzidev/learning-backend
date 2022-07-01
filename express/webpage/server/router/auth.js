@@ -1,16 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
 const Verification = require("../middleware/Verification");
 const cookie = require("cookie-parser");
+const userSchema = require("../models/userSchema")
 // since we are not in Index.js the main file, therefore we've to use (router) instead of (server)
 
-const cors = require("cors");
+// const cors = require("cors");
 
-router.use(cors({
-    origin : '*'
-}))
 
 require('../db/connection'); 
 const User = require('../models/userSchema');
@@ -20,6 +18,9 @@ const Contact = require('../models/userMessage');
 router.use(express.urlencoded({ extended : false })); // compulsory
 router.use(cookie());
 
+// router.use(cors({
+//     origin : '*'
+// }))
 // when we wanted to GET user data we uses POST because GET just brings data and POST Reads it or collect it so we can read it
 router.post('/register', async (req, res) => {
 
@@ -144,10 +145,21 @@ router.post('/contact', async (req, res) => {
 
 })
 
-//About Us Page
+// About Us Page
 router.get("/about", Verification, (req, res) => {// verification is MIDDLEWARE will open about page only if user have its jwtoken
     console.log("About us page");
     res.send(req.userInfo); // userInfo have all the data of user because we've defined it already in middleware
 })
 
-module.exports = router;    
+// router.get('/about', Verification,  async (req, res) => {
+//     try {
+//       userId = req.userInfo.id;
+//       const user = await userSchema.findById(userId).select("-password")
+//       res.send(user)
+//     } catch (error) {
+//       console.error(error.message);
+//       res.status(500).send("Internal Server Error");
+//     }
+//   })
+
+module.exports = router;

@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/userSchema');
 const cookieParser = require("cookie-parser");
 
+
+
 const Verification = async (req, res, next) => {
     try{
         const token = req.cookies.jwtoken;

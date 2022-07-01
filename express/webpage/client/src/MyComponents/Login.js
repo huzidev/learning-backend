@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
-
+    const host = "http://127.0.0.1:8000"
     const navigate = useNavigate(); 
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
@@ -11,7 +11,7 @@ export default function Login() {
 
         event.preventDefault();
 
-        const res = await fetch("/login", {
+        const res = await fetch('/login', {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json" // just like we make changes in POST-MAN for writing raw
@@ -27,8 +27,9 @@ export default function Login() {
         if ( res.status === 400 || res.status === 422 || !data ) {
             window.alert("Invalid Value!");
         }
-        else{
+        else{   
             window.alert("Login Successful!");
+            // localStorage.setItem('token', data.token);
             navigate("/");
         }
 

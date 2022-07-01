@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
 
+    const host = "http://127.0.0.1:8000"
+
     const navigate = useNavigate();
 
     const [user, setUser] = React.useState({
@@ -32,7 +34,7 @@ export default function Register() {
 
         const { username, email, number, password, cpassword } = user;
 
-        const res = await fetch("/register", { //make sure to use proxy in package.json while linking frontend and backend
+        const res = await fetch('/register', { //make sure to use proxy in package.json while linking frontend and backend
             method : "POST",
             headers : {
                 "Content-Type" : "application/json" // just like we make changes in POST-MAN for writing raw
@@ -54,8 +56,9 @@ export default function Register() {
         else if ( res.status === 423 ) {
             window.alert("Password Doesn't Match!");
         }
-        else{
+        else{   
             window.alert("Registration Successful!");
+            // localStorage.setItem('token', data.token);
             console.log("Successful Registration");
             navigate("/login");
         }
