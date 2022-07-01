@@ -6,6 +6,12 @@ const Verification = require("../middleware/Verification");
 const cookie = require("cookie-parser");
 // since we are not in Index.js the main file, therefore we've to use (router) instead of (server)
 
+const cors = require("cors");
+
+server.use(cors({
+    origin : '*'
+}))
+
 require('../db/connection'); 
 const User = require('../models/userSchema');
 const Contact = require('../models/userMessage');
