@@ -8,7 +8,7 @@ const cookie = require("cookie-parser");
 
 const cors = require("cors");
 
-server.use(cors({
+router.use(cors({
     origin : '*'
 }))
 
