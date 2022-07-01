@@ -8,11 +8,12 @@ export default function About() {
 
     const CallAboutPage = async () => {
         try{
-            const res = await fetch('/about', {
+            const res = await fetch('http://127.0.0.1:8000/login', {
                 method : "GET",
                 headers : {
                     Accept : "application/json", // here we are not using POST we are using GEt therefore accept type is application/json for reading
-                    "Content-Type" : "application/json"
+                    "Content-Type" : "application/json",
+                    "auth-token": localStorage.getItem('token')
                 },
                 credentials : "include" // so cookies could reach backend easily
             });
