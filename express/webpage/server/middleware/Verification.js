@@ -11,6 +11,7 @@ const Verification = async (req, res, next) => {
         console.log(verifyUser);
         let tok = verifyUser._id; // verifyUser is already defined above for verifying jwtToken
         const userInfo = await User.findOne({ _id : tok, "tokens.token": token });// means inside mongoDB collection we've user collection tokens's inside token and :token is defined by us here
+        // _id is the type which is written in ours backend mongodb it is not (id) it is (_id)
 
         if (!userInfo) {
             throw new Error("User Not Found!");
