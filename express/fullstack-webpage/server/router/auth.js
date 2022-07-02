@@ -13,7 +13,18 @@ router.use(express.urlencoded({extended : true}));
 
 // main work
 router.post('/register', async (req, res) => {
-    const {username, email, number, password, cpassword} = req.body;
+    // getting all schema
+    const { username, email, number, password, cpassword } = req.body;
+    // if user left and tag empty
+    if ( !username || !email || !number || !password || !cpassword ) {
+        return res.status(422).json({ message : "You've left an tag empty" }) // json is used when message pop-up on window page as alert so ours web browser could understand it
+    }
+    try{
+        // if user is already exists
+    }
+    catch (err) {
+        console.log(err);
+    }
 })
 
 
