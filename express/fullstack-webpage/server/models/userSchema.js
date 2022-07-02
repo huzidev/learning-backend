@@ -41,9 +41,12 @@ userSchema.pre('save', async function (next) { // we've to use (this.) therefore
 userSchema.methods.generateAuthToken = async function () {
     try{
         // sign for creating token
-        let token = jwt.sign({ _id : this._id }, process.env.SECRET_KEY)
+        let token = jwt.sign({ _id : this._id }, process.env.SECRET_KEY);
         // concatenation of token inside tokens array we've created in schema
-        this.tokens = this.tokens.concat({ token : token })
+        this.tokens = this.tokens.concat({ token : token });
+        // saving tokens
+        await this.save();
+        return token;
     }
     catch (err) {
         console.log(err);
