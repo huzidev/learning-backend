@@ -1,9 +1,12 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
-
-dotenv.config({ path : './config.env' })
+// connection with mongoDB
+dotenv.config({ path : './config.env' }) // so password for mongoDB will remains UNKNOWN as we'll put the config file in .gitignore
 require('./db/connection.js');
+
+
+// server configurations
 const server = express();
 const port = 8000;
 
