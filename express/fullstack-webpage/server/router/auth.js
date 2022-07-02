@@ -1,5 +1,5 @@
 import express  from "express";
-import bcrypt from ('bcryptjs');
+import bcrypt from 'bcryptjs';
 import User from "../models/userSchema";
 import Verification from '../middleware/Verification';
 import cookie from "cookie-parser";
@@ -102,13 +102,13 @@ router.post('/login', async (req, res) => {
             console.log(token);
 
             // expire token duration
-            res.cookie("jwtoken", token{
+            res.cookie("jwtoken", token, {
                 expires : new Date(Date.now() + 86400000), // user will be logged out automatically after 24 hours
                 httpOnly : true
             });
 
             if (!isMatchEmail) {
-                return res.send(400).json({ error : "Email or Password is incorrect" })
+                return res.status(400).json({ error : "Email or Password is incorrect" })
             }
             else {
                 res.status(201).json({ message : "User loggedIn successfully" })
