@@ -40,22 +40,21 @@ export default function About() {
 
     return (
         <div>
-            {/* we've to use GET because we just wanted to show user its own data just */}
-                <h1>
-                    This is about page
-                </h1>
-                <h3>
-                    UserID : {userData._id}
-                </h3>
-                <h3>
-                    Username : {userData.username}
-                </h3>
-                <h3>
-                    Email : {userData.email}
-                </h3>
-                <h3>
-                    Number : {userData.number}
-                </h3>
+            <h1>
+                This is about page
+            </h1>
+            <h3>
+                UserID : {userData._id}
+            </h3>
+            <h3>
+                Username : {userData.username}
+            </h3>
+            <h3>
+                Email : {userData.email}
+            </h3>
+            <h3>
+                Number : {userData.number}
+            </h3>
         </div>
     )
 }

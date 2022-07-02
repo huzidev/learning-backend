@@ -29,7 +29,6 @@ export default function Login() {
         }
         else{   
             window.alert("Login Successful!");
-            // localStorage.setItem('token', data.token);
             navigate("/");
         }
 
