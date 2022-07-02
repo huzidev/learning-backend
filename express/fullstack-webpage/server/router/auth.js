@@ -40,6 +40,25 @@ router.post('/register', async (req, res) => {
         if (password != cpassword) {
             return res.status(423).json({ error : "Password doesn't match" })
         }
+        // when user succeed for registration
+        else {
+
+            // user info
+            const user = new User({ username, email, number, password, cpassword });
+
+            // saving user data
+            const userRegister = await user.save();
+
+            // if user registered
+            if (userRegister) {
+                res.status(201).json({ message : "User registered successfully!" })
+            }
+
+            // if internal server error
+            else {
+                res.status(500).json({ message : "Failed to registered" })
+            }
+        }
     }
     catch (err) {
         console.log(err);
