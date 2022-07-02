@@ -25,6 +25,14 @@ const userSchema = new mongoose.Schema({
     }
 })
 
+// HASHING password
+userSchema.pre('save', async function (next) { // we've to use (this.) therefore we can't use arrow function here
+    if (this.isModified('password')) {
+        
+    }
+})
+
+
 const User = mongoose.model('REDUX-USER', userSchema);
 
 module.exports = User;
