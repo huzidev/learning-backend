@@ -1,6 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 export default function Login() {
+
+    const [user, setUser] = React.useState({
+        username : "",
+        email : "",
+        password : "",
+    });
+
     return (
         <div>
             <h1>
@@ -17,7 +24,9 @@ export default function Login() {
                     placeholder="yours password"
                 />
                 <input 
-                    type="submit" 
+                    type="submit"
+                    name="login"
+                    value="Login"
                 />
             </form>
         </div>
