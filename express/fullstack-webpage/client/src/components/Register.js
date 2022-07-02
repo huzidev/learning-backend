@@ -60,6 +60,9 @@ export default function Register() {
         else if (res.status === 425) {
             window.alert("Password doesn't match")
         }
+        else if (!data) {
+            window.alert("Invalid value!")
+        }
         else {
             window.alert("User registered successfully!");
             console.log("Successful Registration");
@@ -112,6 +115,7 @@ export default function Register() {
                     type="submit"
                     name="login"
                     value="Register"
+                    onClick={register}
                 />
             </form>
         </div>
