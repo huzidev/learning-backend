@@ -2,7 +2,13 @@ import React from 'react'
 
 export default function Register() {
 
-    
+    const [user, setUser] = React.useState({
+        username : "",
+        email : "",
+        number : "",
+        password : "",
+        cpassword : ""
+    })
 
     return (
         <div>
@@ -15,23 +21,23 @@ export default function Register() {
                     placeholder="username" 
                 />
                 <input 
-                    type="text"
-                    name="username"
+                    type="email"
+                    name="email"
                     placeholder="username" 
                 />
                 <input 
                     type="text"
-                    name="username"
+                    name="number"
                     placeholder="username" 
                 />
                 <input 
-                    type="text"
-                    name="username"
+                    type="password"
+                    name="password"
                     placeholder="username" 
                 />
                 <input 
-                    type="text"
-                    name="username"
+                    type="password"
+                    name="cpassword"
                     placeholder="username" 
                 />
                 <input 
