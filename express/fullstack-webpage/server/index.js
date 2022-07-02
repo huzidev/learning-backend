@@ -10,8 +10,10 @@ require('./db/connection.js');
 const server = express();
 const port = 8000;
 
+
 // link with router
 server.use(require('./router/auth'));
+
 
 server.use(express.json());
 server.use(express.urlencoded({extended : true}));
