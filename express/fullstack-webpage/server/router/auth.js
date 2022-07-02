@@ -1,6 +1,6 @@
 import express  from "express";
 
-
+// WE CREATE ROUTER JUST TO MAKE OURS CODE SIMPLE AND EASY TO UNDERSTAND JUST LIKE STYLE COMPONENTS OF REACT
 require('../db/connection.js');
 
 
