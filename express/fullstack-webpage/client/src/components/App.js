@@ -8,7 +8,11 @@ import {
 export default function App() {
     return (
         <div>
-
+            <Router>
+                <Routes>
+                    <Route exact path="/" />
+                </Routes>
+            </Router>
         </div>
     )
 }
