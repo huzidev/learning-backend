@@ -28,6 +28,20 @@ export default function Register() {
 
         const { username, email, number, password, cpassword } = user; // user state already created
 
+        const res = await fetch('/register', {
+            method : "POST",
+            headers : {
+                "Content-Type" : "application/json"
+            },
+            body : JSON.stringify({
+                username,
+                email,
+                number,
+                password,
+                cpassword  
+            })
+        });
+
     }
 
     return (
