@@ -16,6 +16,9 @@ const Verification = async (req, res, next) => {
             // comparing token from cookies with the token stored in the backend
             "tokens.token" : token 
         })
+        if (!userInfo) {
+            throw new Error("User not found"); // we'll not use return
+        }
     }
     catch (err) {
         console.log(err);
