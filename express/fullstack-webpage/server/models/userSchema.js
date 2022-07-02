@@ -28,8 +28,12 @@ const userSchema = new mongoose.Schema({
 // HASHING password
 userSchema.pre('save', async function (next) { // we've to use (this.) therefore we can't use arrow function here
     if (this.isModified('password')) {
-        
+        // hash password
+        this.password = await bcrypt.hash(this.password, 12)
+        // hash cpassword
+        this.cpassword = await bcrypt.hash(this.cpassword, 12)
     }
+    next();
 })
 
 
