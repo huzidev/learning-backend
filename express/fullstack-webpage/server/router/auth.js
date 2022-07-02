@@ -102,7 +102,7 @@ router.post('/login', async (req, res) => {
             const isMatchName = await compare(password, userName.password);
 
             if (!isMatchName) {
-                return res.send(400).json({ error : "Username or Password is incorrect" })
+                return res.send(401).json({ error : "Username or Password is incorrect" })
             }
             else {
                 res.status(201).json({ message : "User loggedIn successfully" })
