@@ -24,3 +24,5 @@ const Verification = async (req, res, next) => {
         console.log(err);
     }
 }
+
+module.exports = Verification;
