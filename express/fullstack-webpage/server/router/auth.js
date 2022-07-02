@@ -8,7 +8,7 @@ require('../db/connection.js');
 const router = express.Router();
 
 
-router.use(express.urlencoded({extended : true}));
+router.use(express.urlencoded({extended : false }));
 
 
 // for REGISTRATION
@@ -19,7 +19,7 @@ router.post('/register', async (req, res) => {
 
     // if user left and tag empty
     if ( !username || !email || !number || !password || !cpassword ) {
-        return res.status(422).json({ message : "You've left an tag empty" }) // json is used when message pop-up on window page as alert so ours web browser could understand it
+        return res.status(422).json({ error : "You've left an tag empty" }) // json is used when message pop-up on window page as alert so ours web browser could understand it
     }
 
     // try catch the error

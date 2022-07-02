@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import bodyParser from 'body-parser'; // for form management
 
 // connection with mongoDB
 dotenv.config({ path : './config.env' }) // so password for mongoDB will remains UNKNOWN as we'll put the config file in .gitignore
@@ -12,11 +13,13 @@ const port = 8000;
 
 
 // link with router
+server.use(express.json());
 server.use(require('./router/auth'));
 
 
-server.use(express.json());
-server.use(express.urlencoded({extended : true}));
+// form management
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended : true }));
 
 
 
