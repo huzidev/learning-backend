@@ -98,6 +98,14 @@ router.post('/login', async (req, res) => {
             const isMatchEmail = await bcrypt.compare(password, userEmail.password);
 
             // generating token as user loggedIn
+            token = await userEmail.generateAuthToken();
+            console.log(token);
+
+            // expire token duration
+            res.cookie("jwtoken", token{
+                expires : new Date(Date.now() + 86400000), // user will be logged out automatically after 24 hours
+                httpOnly : true
+            });
 
             if (!isMatchEmail) {
                 return res.send(400).json({ error : "Email or Password is incorrect" })
