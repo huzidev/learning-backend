@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
-    const host = "http://127.0.0.1:8000"
     const navigate = useNavigate(); 
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');

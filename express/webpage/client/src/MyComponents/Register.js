@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
 
-    const host = "http://127.0.0.1:8000"
-
     const navigate = useNavigate();
 
     const [user, setUser] = React.useState({
@@ -58,7 +56,6 @@ export default function Register() {
         }
         else{   
             window.alert("Registration Successful!");
-            // localStorage.setItem('token', data.token);
             console.log("Successful Registration");
             navigate("/login");
         }

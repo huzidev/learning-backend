@@ -1,13 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-// const jwt = require('jsonwebtoken');
 const Verification = require("../middleware/Verification");
 const cookie = require("cookie-parser");
-const userSchema = require("../models/userSchema")
 // since we are not in Index.js the main file, therefore we've to use (router) instead of (server)
 
-// const cors = require("cors");
+// const cors = require("cors"); // since we've used proxy therefore we don't have to use CORS
 
 
 require('../db/connection'); 

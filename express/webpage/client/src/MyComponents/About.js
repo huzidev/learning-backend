@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function About() {
-    const host = "http://127.0.0.1:8000"
     const Navigate = useNavigate();
     const [userData, setUserData] = React.useState({});
 

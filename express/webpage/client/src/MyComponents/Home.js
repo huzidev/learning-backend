@@ -3,6 +3,7 @@ import React from 'react';
 export default function Home() {
 
   const [userName, setUserName] = React.useState('');
+  
     const userData = async () => {
       try{
         const res = await fetch('/about', {

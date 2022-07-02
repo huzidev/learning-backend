@@ -9,7 +9,7 @@ export default function Logout() {
             method : 'GET',
             headers : {
                 Accept : "application/json", 
-                "Content-Type" : "application/json",
+                "Content-Type" : "application/json"
             },
             credentials : "include"
         }).then((res) => { // if we used async then we can use (const data = await res.json();) but since we are using promises here
