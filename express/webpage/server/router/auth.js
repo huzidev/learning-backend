@@ -68,7 +68,7 @@ router.post('/register', async (req, res) => {
         
 });
 
-router.post('/login', Verification, async (req, res) => {
+router.post('/login', async (req, res) => {
 
     try{
 
@@ -115,7 +115,7 @@ router.post('/login', Verification, async (req, res) => {
     
 })
 
-router.post('/contact', Verification, async (req, res) => {
+router.post('/contact', async (req, res) => {
 
     const { username, email, number, message } = req.body;
     
