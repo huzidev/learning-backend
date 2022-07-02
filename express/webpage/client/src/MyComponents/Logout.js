@@ -12,7 +12,8 @@ export default function Logout() {
                 "Content-Type" : "application/json",
             },
             credentials : "include"
-        }).then((res)) => {
+        }).then((res)) => { // if we used async then we can use (const data = await res.json();) but since we are using promises here
+            // we've to use then catch if we use async await then we can use try catch  
             Navigate('/login', {
                 replace : true // this means after logout we've to COMPULSORY replace it because after logout the cookies will remove
                 // therefore we've to make ours user to login again
