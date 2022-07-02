@@ -75,6 +75,8 @@ router.post('/login', async (req, res) => {
 
     
     try{
+        let token;
+
         //getting data from schema
         const {username, email, password} = req.body;
     
@@ -93,7 +95,9 @@ router.post('/login', async (req, res) => {
         // if logging in with email
         if (userEmail) {
             // matching user email or username with password
-            const isMatchEmail = await compare(password, userEmail.password);
+            const isMatchEmail = await bcrypt.compare(password, userEmail.password);
+
+            // generating token as user loggedIn
 
             if (!isMatchEmail) {
                 return res.send(400).json({ error : "Email or Password is incorrect" })
