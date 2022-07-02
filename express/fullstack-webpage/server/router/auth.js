@@ -1,5 +1,7 @@
 import express  from "express";
+import bcrypt from ('bcryptjs');
 import User from "../models/userSchema";
+import Verification from '../middleware/Verification';
 
 // WE CREATE ROUTER JUST TO MAKE OURS CODE SIMPLE AND EASY TO UNDERSTAND JUST LIKE STYLE COMPONENTS OF REACT
 require('../db/connection.js');
