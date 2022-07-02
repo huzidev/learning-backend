@@ -41,7 +41,6 @@ export default function ContactUs() {
             window.alert("Message Sent Successfully!");
             navigate("/");
         }
-
     }
 
     return (

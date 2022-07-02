@@ -79,7 +79,6 @@ router.post('/login', async (req, res) => {
         if (!email || !password) {
             return res.status(422).json({ error : "You've left an tag empty" });
         }
-
         const userLogin = await User.findOne({ email : email });
         // in case of login if email is equal to email present then success while at time of register we do opposite
 
@@ -119,13 +118,13 @@ router.post('/login', async (req, res) => {
 router.post('/contact', async (req, res) => {
 
     const { username, email, number, message } = req.body;
-
+    
     if ( !username || !email || !number || !message ) {
         return res.status(422).json({ error : "You've left an tag empty" }); // because data is going to be in JSON format
     }
     
     try{
-
+        
         const userMessage = new Contact({ username, email, number, message });//IF the instance is like username : name then we've 
     
         const userResponse = await userMessage.save();
@@ -142,7 +141,6 @@ router.post('/contact', async (req, res) => {
     catch (err) {
         console.log(err);
     }
-
 })
 
 // About Us Page
@@ -151,15 +149,9 @@ router.get("/about", Verification, (req, res) => {// verification is MIDDLEWARE 
     res.send(req.userInfo); // userInfo have all the data of user because we've defined it already in middleware
 })
 
-// router.get('/about', Verification,  async (req, res) => {
-//     try {
-//       userId = req.userInfo.id;
-//       const user = await userSchema.findById(userId).select("-password")
-//       res.send(user)
-//     } catch (error) {
-//       console.error(error.message);
-//       res.status(500).send("Internal Server Error");
-//     }
-//   })
 
+router.get("/home", Verification, (req, res) => {// verification is MIDDLEWARE will open about page only if user have its jwtoken
+    console.log("About us page");
+    res.send(req.userInfo); // userInfo have all the data of user because we've defined it already in middleware
+})
 module.exports = router;

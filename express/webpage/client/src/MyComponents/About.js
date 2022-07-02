@@ -13,7 +13,6 @@ export default function About() {
                 headers : {
                     Accept : "application/json", // here we are not using POST we are using GEt therefore accept type is application/json for reading
                     "Content-Type" : "application/json",
-                    // "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmFjOGVmYTM1ODllMDU4MTViY2UwZWYiLCJpYXQiOjE2NTY2NzYyNTl9.Wwsb76mc6UmUV_nRFFGSGGKiGEnneAFt9a4LHmaM-6I"
                 },
                 credentials : "include" // so cookies could reach backend easily
             });
