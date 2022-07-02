@@ -15,8 +15,8 @@ const port = 8000;
 server.use(express.json()); // al the data came in the form of JSON and app didn't recognize until we defined it with middleware
 server.use(require('./router/auth')); //(.use) is used to set up middleware for your application
 // setting engine for pug
-server.set('view engine', 'pug');
-server.set('views', './views');
+// server.set('view engine', 'pug');
+// server.set('views', './views');
 
 // Body-Parser for form management
 const bodyParser = require('body-parser');
