@@ -150,4 +150,11 @@ router.get("/about", Verification, (req, res) => {// verification is MIDDLEWARE 
     //in brief from their we are getting backend data
 })
 
+//LOGOUT PAGE
+
+router.get('/logout', (req, res) => {
+    res.clearCookie('jwtoken', {path : '/'}) // we just have to clear the cookies for logging out
+    res.status(200).send('User Logged Out')
+})
+
 module.exports = router;
