@@ -85,7 +85,7 @@ export default function Register() {
                     placeholder="username" 
                 />
                 <input 
-                    type="email"
+                    type="text"
                     name="email"
                     value={user.email}
                     onChange={handleInput}
