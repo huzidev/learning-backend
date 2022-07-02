@@ -15,6 +15,7 @@ export default function Register() {
 
     let name, value;
 
+    // for freeze input (when we write something in the tag nothing appears)
     function handleInput(event) {
         name = event.target.name;
         value = event.target.value;
