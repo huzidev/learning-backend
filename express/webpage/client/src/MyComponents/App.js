@@ -23,7 +23,7 @@ export default function App() {
                     <Route exact path="/contact" element={<ContactUs />}/>
                     <Route exact path="/login" element={<Login />}/>
                     <Route exact path="/register" element={<Register />}/>
-                    <Route element={<ErrorPage />}/>
+                    <Route exact path='*' element={<ErrorPage />}/>
                 </Routes>
             </Router>
         </div>

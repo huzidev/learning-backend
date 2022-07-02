@@ -50,7 +50,7 @@ export default function ContactUs() {
                     type="text" 
                     name="username" 
                     placeholder="username" 
-                    required="true"
+                    required={true}
                     value={username}
                     onChange={(event) => setUsername(event.target.value)}
                 />
@@ -60,7 +60,7 @@ export default function ContactUs() {
                     value={email}
                     onChange={(event) => setEmail(event.target.value)} // MAKE SURE TO USE THIS OTHERWISE NOTHING WILL PRINT INSIDE the input tag
                     placeholder="email"
-                    required="true" 
+                    required={true} 
                 />
                 <input 
                     type="text" 
@@ -68,7 +68,7 @@ export default function ContactUs() {
                     value={number}
                     onChange={(event) => setNumber(event.target.value)}
                     placeholder="contact number" 
-                    required="true"
+                    required={true}
                 />
                 <textarea 
                     name="message" 
@@ -76,6 +76,7 @@ export default function ContactUs() {
                     rows="10" 
                     value={message}
                     onChange={(event) => setMessage(event.target.value)}
+                    required={true}
                     placeholder='yours message'>
                 </textarea>
                 <input 
