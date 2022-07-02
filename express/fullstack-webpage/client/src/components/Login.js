@@ -48,8 +48,11 @@ export default function Login() {
         if (res.status === 400) {
             window.alert("Email or Password is incorrect");
         }
-        else if (res.status === 401) {
+        if (res.status === 401) {
             window.alert("Username or Password is incorrect")
+        }
+        else if (!data) {
+            window.alert("Invalid Value!");
         }
         else {
             window.alert("User loggedIn successfully!");
@@ -64,19 +67,26 @@ export default function Login() {
                 Login Page
             </h1>
             <br />
-            <form >
+            <form method="POST">
                 <input 
-                    type="text" 
+                    type="email"
+                    name="email"
+                    value={user.email}
+                    onChange={handleInput}
                     placeholder="Username or Email"
                 />
                 <input 
-                    type="password" 
+                    type="password"
+                    name="password"
+                    value={user.password}
+                    onChange={handleInput}
                     placeholder="yours password"
                 />
                 <input 
                     type="submit"
                     name="login"
                     value="Login"
+                    onClick={login}
                 />
             </form>
         </div>
