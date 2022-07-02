@@ -9,8 +9,9 @@ server.use(express.urlencoded({extended : true}));
 // main work
 server.get('/', (req, res) => {
     res.json({ message : 'hello' });
-})
+});
 
+// running on port
 server.listen(port, (err) => {
     if (!err) {
         console.log(`Server Listening On Port ${port}`);        
@@ -18,4 +19,4 @@ server.listen(port, (err) => {
     else {
         console.log(err);
     }
-})
+});
