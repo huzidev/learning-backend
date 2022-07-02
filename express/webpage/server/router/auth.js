@@ -83,7 +83,7 @@ router.post('/login', async (req, res) => {
         const userLogin = await User.findOne({ email : email });
         // in case of login if email is equal to email present then success while at time of register we do opposite
 
-        if (userLogin) {
+        if (userLogin) { // means if user is successful in logging In in brief userLogin TRUE
             
             const isMatch = await bcrypt.compare(password, userLogin.password); // left one is the password user inserting and right one is the password with already exist email
             

@@ -28,10 +28,16 @@ export default function ContactUs() {
 
         const data = await res.json(); // for getting user data
 
-        if ( res.status === 400 || res.status === 422 || !data ) {
-            window.alert("Invalid Value!");
+        if (res.status === 422) {
+            window.alert("You've left an tag empty!")
         }
-        else{   
+        else if (res.status === 500 ) {
+            window.alert("Failed to sent message, Internal Server Error")
+        }
+        else if (!data) {
+            window.alert("Invalid Value")
+        }
+        else {   
             window.alert("Message Sent Successfully!");
             navigate("/");
         }
