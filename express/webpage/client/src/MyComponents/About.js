@@ -1,4 +1,4 @@
-import React, { useDebugValue } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function About() {
@@ -22,7 +22,7 @@ export default function About() {
             console.log(data);
             setUserData(data) // because data variable have all the data of user
             
-            if (await (!res.status) === 200) {
+            if (!res.status === 200) {
                 const error = new Error(res.error);
                 throw error;
             }
