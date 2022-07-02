@@ -15,11 +15,6 @@ server.use(express.json());
 server.use(express.urlencoded({extended : true}));
 
 
-// main work
-server.get('/', (req, res) => {
-    res.json({ message : 'hello' });
-});
-
 
 // running on port
 server.listen(port, (err) => {
