@@ -46,20 +46,33 @@ export default function ContactUs() {
                     name="username" 
                     placeholder="username" 
                     required="true"
+                    value={username}
+                    onChange={(event) => setUsername(event.target.value)}
                 />
                 <input 
                     type="email" 
                     name="email" 
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)} // MAKE SURE TO USE THIS OTHERWISE NOTHING WILL PRINT INSIDE the input tag
                     placeholder="email"
                     required="true" 
                 />
                 <input 
                     type="text" 
                     name="number" 
+                    value={number}
+                    onChange={(event) => setNumber(event.target.value)}
                     placeholder="contact number" 
                     required="true"
                 />
-                <textarea name="message" id="" cols="30" rows="10" placeholder='yours message'></textarea>
+                <textarea 
+                    name="message" 
+                    cols="30" 
+                    rows="10" 
+                    value={message}
+                    onChange={(event) => setMessage(event.target.value)}
+                    placeholder='yours message'>
+                </textarea>
                 <input 
                     type="submit"
                     name="login"
