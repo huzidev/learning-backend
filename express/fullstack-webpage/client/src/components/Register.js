@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
+
+    const Navigate = useNavigate();
 
     const [user, setUser] = React.useState({
         username : "",
@@ -42,6 +45,27 @@ export default function Register() {
             })
         });
 
+        // for getting all the data
+        const data = await res.json();
+
+        if (res.status === 422) {
+            window.alert("Email already exist");
+        }
+        else if (res.status === 423) {
+            window.alert("Username already exist")
+        }
+        else if (res.status === 424) {
+            window.alert("Number already exist")
+        }
+        else if (res.status === 425) {
+            window.alert("Password doesn't match")
+        }
+        else {
+            window.alert("User registered successfully!");
+            console.log("Successful Registration");
+            Navigate("/login");
+        }
+
     }
 
     return (
@@ -52,27 +76,37 @@ export default function Register() {
                 <input 
                     type="text"
                     name="username"
+                    value={user.username}
+                    onChange={handleInput}
                     placeholder="username" 
                 />
                 <input 
                     type="email"
                     name="email"
-                    placeholder="username" 
+                    value={user.email}
+                    onChange={handleInput}
+                    placeholder="email" 
                 />
                 <input 
                     type="text"
                     name="number"
-                    placeholder="username" 
+                    value={user.number}
+                    onChange={handleInput}
+                    placeholder="number" 
                 />
                 <input 
                     type="password"
                     name="password"
-                    placeholder="username" 
+                    value={user.password}
+                    onChange={handleInput}
+                    placeholder="password" 
                 />
                 <input 
                     type="password"
                     name="cpassword"
-                    placeholder="username" 
+                    value={user.cpassword}
+                    onChange={handleInput}
+                    placeholder="confirm password" 
                 />
                 <input 
                     type="submit"

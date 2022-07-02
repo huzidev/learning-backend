@@ -32,13 +32,13 @@ router.post('/register', async (req, res) => {
             return res.status(422).json({ error : "Email already exist" })
         }
         else if (userExistName) {
-            return res.status(422).json({ error : "Username already exist" })
+            return res.status(423).json({ error : "Username already exist" })
         }
         else if (userExistNumber) {
-            return res.status(422).json({ error : "Number already exist" })
+            return res.status(424).json({ error : "Number already exist" })
         }
         if (password != cpassword) {
-            return res.status(423).json({ error : "Password doesn't match" })
+            return res.status(425).json({ error : "Password doesn't match" })
         }
         // when user succeed for registration
         else {
