@@ -13,7 +13,7 @@ export default function App() {
             <Router>
                 <Routes>
                     <Route exact path="/" element={<Home />} />
-                    <Route exact path="/" element={<Register />} />
+                    <Route exact path="/register" element={<Register />} />
                 </Routes>
             </Router>
         </div>
