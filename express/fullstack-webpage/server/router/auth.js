@@ -12,7 +12,7 @@ const router = express.Router();
 
 
 router.use(express.urlencoded({ extended : false }));
-
+router.use(cookie());
 
 // for REGISTRATION
 router.post('/register', async (req, res) => {
