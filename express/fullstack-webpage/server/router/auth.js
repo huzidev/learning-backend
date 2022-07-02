@@ -82,17 +82,36 @@ router.post('/login', async (req, res) => {
         // checking user info
         const userEmail = await User.findOne({ email : email });
         const userName = await User.findOne({ username : username });
-
+        
+        // if logging in with email
         if (userEmail) {
             // matching user email or username with password
-            const isMatch = await compare(password, userEmail.password);
+            const isMatchEmail = await compare(password, userEmail.password);
 
-            if (!isMatch) {
+            if (!isMatchEmail) {
                 return res.send(400).json({ error : "Email or Password is incorrect" })
             }
             else {
                 res.status(201).json({ message : "User loggedIn successfully" })
             }
+        }
+        
+        // if logging in with username
+        else if (userName) {
+            // matching user email or username with password
+            const isMatchName = await compare(password, userName.password);
+
+            if (!isMatchName) {
+                return res.send(400).json({ error : "Username or Password is incorrect" })
+            }
+            else {
+                res.status(201).json({ message : "User loggedIn successfully" })
+            }
+        }
+        
+        // if password is incorrect, we'll not specify what is incorrect because this can help hacker to access user account
+        else {
+            return res.send(400).json({ error : "Username or Password is incorrect" })
         }
 
     }
