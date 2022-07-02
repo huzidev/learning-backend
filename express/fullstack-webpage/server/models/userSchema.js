@@ -20,5 +20,9 @@ const userSchema = new mongoose.Schema({
     cpassword : {
         type : String,
         required : true
-    },
+    }
 })
+
+const User = mongoose.model('REDUX-USER', userSchema);
+
+module.exports = User;
