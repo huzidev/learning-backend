@@ -1,4 +1,6 @@
 import React from 'react';
+import Home from './Home';
+import Register from './Register';
 import {
     BrowserRouter as Router,
     Routes,
@@ -10,7 +12,8 @@ export default function App() {
         <div>
             <Router>
                 <Routes>
-                    <Route exact path="/" />
+                    <Route exact path="/" element={<Home />} />
+                    <Route exact path="/" element={<Register />} />
                 </Routes>
             </Router>
         </div>
