@@ -19,10 +19,10 @@ export default function ContactUs() {
                 "Content-Type" : "application/json" // just like we make changes in POST-MAN for writing raw
             },
             body : JSON.stringify({
-                username,
-                email,
-                number,
-                message
+                username, // since in SCHEMA for userMessage we've same keys name like username, email, number and here we've 
+                email, // created same React state of same keys name as of in ours SCHEMA for messages therefore we can 
+                number, // just write username and NOT username : username OR email : email since we've same key properties 
+                message // therefore we can just write SINGLE property
             })
         });
 
