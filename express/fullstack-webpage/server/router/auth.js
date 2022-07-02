@@ -8,7 +8,7 @@ require('../db/connection.js');
 const router = express.Router();
 
 
-router.use(express.urlencoded({extended : false }));
+router.use(express.urlencoded({ extended : false }));
 
 
 // for REGISTRATION
