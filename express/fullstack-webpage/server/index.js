@@ -12,6 +12,7 @@ const port = 8000;
 
 
 server.use(express.json());
+server.use(require('./router/auth'));
 server.use(express.urlencoded({extended : true}));
 
 

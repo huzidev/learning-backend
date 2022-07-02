@@ -10,7 +10,7 @@ const router = express.Router();
 router.use(express.urlencoded({extended : true}));
 
 
-router.post('/', (req, res) => {
+router.get('/', (req, res) => {
     res.send("Hello from router")
 })
 
