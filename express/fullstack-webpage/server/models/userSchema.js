@@ -34,7 +34,21 @@ userSchema.pre('save', async function (next) { // we've to use (this.) therefore
         this.cpassword = await bcrypt.hash(this.cpassword, 12)
     }
     next();
-})
+});
+
+
+// GENERATING AUTH-TOKEN
+userSchema.methods.generateAuthToken = async function () {
+    try{
+        // sign for creating token
+        let token = jwt.sign({ _id : this._id }, process.env.SECRET_KEY)
+        // concatenation of token inside tokens array we've created in schema
+        this.tokens = this.tokens.concat({ token : token })
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
 
 
 const User = mongoose.model('REDUX-USER', userSchema);
