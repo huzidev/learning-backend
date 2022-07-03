@@ -140,6 +140,10 @@ router.post('/login', async (req, res) => {
 })
 
 // for LOGOUT
+router.get('/logout', (req, res) => { // we uses get because we get user's cookie then delete it
+    res.clearCookie('jwtoken', { path : '/' })
+    res.status(200).send("User loggedOut Successfully!")
+})
 router.get('/', (req, res) => {
     res.send("Hello from router")
 })
