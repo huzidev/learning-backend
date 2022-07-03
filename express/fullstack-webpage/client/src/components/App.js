@@ -14,7 +14,7 @@ export default function App() {
     return (
         <div>
             <Router>
-                <Nav />
+                {/* <Nav /> */}
                 <Routes>
                     <Route exact path="/" element={<Home />} />
                     <Route exact path="/login" element={<Login />} />

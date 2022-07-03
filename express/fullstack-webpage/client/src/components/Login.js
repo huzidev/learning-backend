@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Home from './Home';
 
 export default function Login() {
 
@@ -65,43 +66,46 @@ export default function Login() {
     }
 
     return (
-        <div className='login-page'>
-            <div className='form-data'>
-                <h1>
-                    Login Page
-                </h1>
-                <form method="POST">
-                    <input 
-                        type="email"
-                        name="email"
-                        className='data'
-                        value={user.email}
-                        onChange={handleInput}
-                        // onChange={(event) => setEmail(event.target.value)}
-                        placeholder="Yours Email"
+        <>
+            <Link to='/' >Home</Link>
+            <div className='login-page'>
+                <div className='form-data'>
+                    <h1>
+                        Login Page
+                    </h1>
+                    <form method="POST">
+                        <input 
+                            type="email"
+                            name="email"
+                            className='data'
+                            value={user.email}
+                            onChange={handleInput}
+                            // onChange={(event) => setEmail(event.target.value)}
+                            placeholder="Yours Email"
+                            />
+                        <input 
+                            type="password"
+                            name="password"
+                            className='data'
+                            value={user.password}
+                            onChange={handleInput}
+                            // onChange={(event) => setPassword(event.target.value)} 
+                            placeholder="Yours Password"
                         />
-                    <input 
-                        type="password"
-                        name="password"
-                        className='data'
-                        value={user.password}
-                        onChange={handleInput}
-                        // onChange={(event) => setPassword(event.target.value)} 
-                        placeholder="Yours Password"
-                    />
-                    <p>
-                        Didn't have an account? <Link to='/register'>Create One</Link>
-                        {/* // we didn't used a tag rather we've used REACT LINK but html will take it as a tag therefore we've to target a tag for styling in sass or css */}
-                    </p>
-                    <input 
-                        className='login-btn'
-                        type="submit"
-                        name="login"
-                        value="Login"
-                        onClick={login}
-                        />
-                </form>
+                        <p>
+                            Didn't have an account? <Link to='/register'>Create One</Link>
+                            {/* // we didn't used a tag rather we've used REACT LINK but html will take it as a tag therefore we've to target a tag for styling in sass or css */}
+                        </p>
+                        <input 
+                            className='login-btn'
+                            type="submit"
+                            name="login"
+                            value="Login"
+                            onClick={login}
+                            />
+                    </form>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
