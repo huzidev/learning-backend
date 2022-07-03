@@ -49,19 +49,19 @@ export default function Register() {
         // for getting all the data
         const data = await res.json();
 
-        if (res.status === 422) {
+        if (res.status === 423) {
             window.alert("Email already exist");
         }
-        else if (res.status === 423) {
+        else if (res.status === 424) {
             window.alert("Username already exist")
         }   
-        else if (res.status === 424) {
+        else if (res.status === 425) {
             window.alert("Number already exist")
         }
-        else if (res.status === 425) {
+        else if (res.status === 426) {
             window.alert("Password doesn't match")
         }
-        else if (!data) {
+        else if (res.status === 421 || !data) {
             window.alert("Invalid value!")
         }
         else {
