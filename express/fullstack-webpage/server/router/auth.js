@@ -1,14 +1,14 @@
 import express  from "express";
+const router = express.Router();
 import bcrypt from 'bcryptjs';
-import User from "../models/userSchema";
 import Verification from '../middleware/Verification';
 import cookie from "cookie-parser";
 
 // WE CREATE ROUTER JUST TO MAKE OURS CODE SIMPLE AND EASY TO UNDERSTAND JUST LIKE STYLE COMPONENTS OF REACT
 require('../db/connection.js');
+import User from "../models/userSchema";
 
 
-const router = express.Router();
 
 
 router.use(express.urlencoded({ extended : false }));
@@ -130,7 +130,7 @@ router.post('/login', async (req, res) => {
         
         // if password is incorrect, we'll not specify what is incorrect because this can help hacker to access user account
         else {
-            return res.send(400).json({ error : "Username or Password is incorrect" })
+            return res.status(400).json({ error : "Username or Password is incorrect" })
         }
 
     }

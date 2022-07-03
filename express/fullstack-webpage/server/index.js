@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cookie from 'cookie-parser';
 import bodyParser from 'body-parser'; // for form management
 
 // connection with mongoDB
@@ -20,6 +21,11 @@ server.use(require('./router/auth'));
 // form management
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended : true }));
+
+
+// MIDDLEWARE
+import Verification from './middleware/Verification';
+server.use(cookie());
 
 
 
