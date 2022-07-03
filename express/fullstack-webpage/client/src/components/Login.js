@@ -66,34 +66,38 @@ export default function Login() {
 
     return (
         <div className='login-page'>
-            <h1>
-                Login Page
-            </h1>
-            <br />
-            <form method="POST">
-                <input 
-                    type="email"
-                    name="email"
-                    value={user.email}
-                    onChange={handleInput}
-                    // onChange={(event) => setEmail(event.target.value)}
-                    placeholder="Username or Email"
-                />
-                <input 
-                    type="password"
-                    name="password"
-                    value={user.password}
-                    onChange={handleInput}
-                    // onChange={(event) => setPassword(event.target.value)} 
-                    placeholder="yours password"
-                />
-                <input 
-                    type="submit"
-                    name="login"
-                    value="Login"
-                    onClick={login}
-                />
-            </form>
+            <div className='form-data'>
+                <h1>
+                    Login Page
+                </h1>
+                <form method="POST">
+                    <input 
+                        type="email"
+                        name="email"
+                        className='data'
+                        value={user.email}
+                        onChange={handleInput}
+                        // onChange={(event) => setEmail(event.target.value)}
+                        placeholder="Yours Email"
+                        />
+                    <input 
+                        type="password"
+                        name="password"
+                        className='data'
+                        value={user.password}
+                        onChange={handleInput}
+                        // onChange={(event) => setPassword(event.target.value)} 
+                        placeholder="Yours Password"
+                    />
+                    <input 
+                        className='login-btn'
+                        type="submit"
+                        name="login"
+                        value="Login"
+                        onClick={login}
+                        />
+                </form>
+            </div>
         </div>
     )
 }
