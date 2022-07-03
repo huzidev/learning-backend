@@ -33,7 +33,6 @@
           flex-direction: column;
 }
 .register-page .form-data form {
-  margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
