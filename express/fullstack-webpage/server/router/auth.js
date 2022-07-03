@@ -139,7 +139,7 @@ router.post('/login', async (req, res) => {
     }
 })
 
-
+// for LOGOUT
 router.get('/', (req, res) => {
     res.send("Hello from router")
 })
