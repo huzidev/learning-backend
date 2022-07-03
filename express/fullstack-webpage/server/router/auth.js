@@ -1,14 +1,14 @@
 import express  from "express";
-const router = express.Router();
 import bcrypt from 'bcryptjs';
+import User from "../models/userSchema";
 import Verification from '../middleware/Verification';
 import cookie from "cookie-parser";
 
 // WE CREATE ROUTER JUST TO MAKE OURS CODE SIMPLE AND EASY TO UNDERSTAND JUST LIKE STYLE COMPONENTS OF REACT
 require('../db/connection.js');
-import User from "../models/userSchema";
 
-
+// setting router
+const router = express.Router();
 
 
 router.use(express.urlencoded({ extended : false }));
@@ -78,8 +78,8 @@ router.post('/login', async (req, res) => {
         let token;
 
         //getting data from schema
-        const {username, email, password} = req.body;
-    
+        const {email, password} = req.body;
+        
         // if (!username || !email || !password) {
         //     return res.status(421).json({ error : "You've left an tag empty!" });
         // }
