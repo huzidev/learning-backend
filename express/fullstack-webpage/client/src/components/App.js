@@ -1,9 +1,9 @@
 import React from 'react';
 import Home from './Home';
 import Register from './Register';
-import Nav from './Nav';
 import Error from './Error';
 import Login from './Login';
+import Logout from './Logout';
 import {
     BrowserRouter as Router,
     Routes,
@@ -14,11 +14,11 @@ export default function App() {
     return (
         <div>
             <Router>
-                {/* <Nav /> */}
                 <Routes>
                     <Route exact path="/" element={<Home />} />
                     <Route exact path="/login" element={<Login />} />
                     <Route exact path="/register" element={<Register />} />
+                    <Route exact path="/logout" element={<Logout />} />
                     <Route exact path="*" element={<Error />} />
                 </Routes>
             </Router>

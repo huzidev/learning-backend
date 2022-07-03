@@ -1,5 +1,4 @@
 import { createSlice  } from '@reduxjs/toolkit';
-import Logout from '../components/Logout';
 
 const logInStore = createSlice({
     name : 'login',
