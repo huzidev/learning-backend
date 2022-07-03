@@ -6,10 +6,13 @@ export default function Login() {
     const Navigate = useNavigate();
 
     const [user, setUser] = React.useState({
-        username : "",
+        // username : "",
         email : "",
         password : "",
     });
+
+    // const [email, setEmail] = React.useState('');
+    // const [password, setPassword] = React.useState('');
 
     let name, value;
 
@@ -28,15 +31,15 @@ export default function Login() {
         // for getting rid of automatic form update
         event.preventDefault();
 
-        const { username, email, password} = user; // user state already created
+        const { email, password} = user; // user state already created
 
-        const res = await fetch('/register', {
+        const res = await fetch('/login', {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"
             },
             body : JSON.stringify({
-                username,
+                // username,
                 email,
                 password,
             })
@@ -48,9 +51,9 @@ export default function Login() {
         if (res.status === 400) {
             window.alert("Email or Password is incorrect");
         }
-        if (res.status === 401) {
-            window.alert("Username or Password is incorrect")
-        }
+        // if (res.status === 401) {
+        //     window.alert("Username or Password is incorrect")
+        // }
         else if (!data) {
             window.alert("Invalid Value!");
         }
@@ -62,7 +65,7 @@ export default function Login() {
     }
 
     return (
-        <div>
+        <div className='login-page'>
             <h1>
                 Login Page
             </h1>
@@ -73,6 +76,7 @@ export default function Login() {
                     name="email"
                     value={user.email}
                     onChange={handleInput}
+                    // onChange={(event) => setEmail(event.target.value)}
                     placeholder="Username or Email"
                 />
                 <input 
@@ -80,6 +84,7 @@ export default function Login() {
                     name="password"
                     value={user.password}
                     onChange={handleInput}
+                    // onChange={(event) => setPassword(event.target.value)} 
                     placeholder="yours password"
                 />
                 <input 
