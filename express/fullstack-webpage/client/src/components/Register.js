@@ -54,7 +54,7 @@ export default function Register() {
         }
         else if (res.status === 423) {
             window.alert("Username already exist")
-        }
+        }   
         else if (res.status === 424) {
             window.alert("Number already exist")
         }

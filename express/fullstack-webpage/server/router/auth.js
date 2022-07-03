@@ -76,7 +76,7 @@ router.post('/login', async (req, res) => {
     
     try{
         let token;
-
+    
         //getting data from schema
         const {email, password} = req.body;
         
