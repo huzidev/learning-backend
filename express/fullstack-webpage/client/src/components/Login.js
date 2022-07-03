@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
 
@@ -89,6 +89,10 @@ export default function Login() {
                         // onChange={(event) => setPassword(event.target.value)} 
                         placeholder="Yours Password"
                     />
+                    <p>
+                        Didn't have an account? <Link to='/register'>Create One</Link>
+                        {/* // we didn't used a tag rather we've used REACT LINK but html will take it as a tag therefore we've to target a tag for styling in sass or css */}
+                    </p>
                     <input 
                         className='login-btn'
                         type="submit"
