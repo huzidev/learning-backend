@@ -1,0 +1,64 @@
+.register-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 80vh;
+}
+.register-page .form-data {
+  border: 1px solid black;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 500px;
+  width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.register-page .form-data form {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.register-page .form-data form p {
+  letter-spacing: 0px;
+}
+.register-page .form-data form p a {
+  text-decoration: none;
+}
+.register-page .form-data form .data {
+  width: 220px;
+  padding: 5px;
+  margin: 12px;
+  border: 0.2px solid black;
+}
+.register-page .form-data form .register-btn {
+  margin: auto;
+  width: 120px;
+  padding: 2px;
+  margin-top: 10px;
+  font-size: 17px;
+  cursor: pointer;
+}

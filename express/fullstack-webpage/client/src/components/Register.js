@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Register() {
 
@@ -73,52 +73,66 @@ export default function Register() {
     }
 
     return (
-        <div>
-            This is registration page
-            <br />
-            <form >
-                <input 
-                    type="text"
-                    name="username"
-                    value={user.username}
-                    onChange={handleInput}
-                    placeholder="username" 
-                />
-                <input 
-                    type="text"
-                    name="email"
-                    value={user.email}
-                    onChange={handleInput}
-                    placeholder="email" 
-                />
-                <input 
-                    type="text"
-                    name="number"
-                    value={user.number}
-                    onChange={handleInput}
-                    placeholder="number" 
-                />
-                <input 
-                    type="password"
-                    name="password"
-                    value={user.password}
-                    onChange={handleInput}
-                    placeholder="password" 
-                />
-                <input 
-                    type="password"
-                    name="cpassword"
-                    value={user.cpassword}
-                    onChange={handleInput}
-                    placeholder="confirm password" 
-                />
-                <input 
-                    type="submit"
-                    name="login"
-                    value="Register"
-                    onClick={register}
-                />
-            </form>
+        <div className='register-page'>
+            <div className='form-data'>
+                <h1>
+                    This is registration page
+                </h1>
+                <br />
+                <form >
+                    <input 
+                        type="text"
+                        name="username"
+                        className='data'
+                        value={user.username}
+                        onChange={handleInput}
+                        placeholder="username" 
+                    />
+                    <input 
+                        type="text"
+                        name="email"
+                        className='data'
+                        value={user.email}
+                        onChange={handleInput}
+                        placeholder="email" 
+                    />
+                    <input 
+                        type="text"
+                        name="number"
+                        className='data'
+                        value={user.number}
+                        onChange={handleInput}
+                        placeholder="number" 
+                    />
+                    <input 
+                        type="password"
+                        name="password"
+                        className='data'
+                        value={user.password}
+                        onChange={handleInput}
+                        placeholder="password" 
+                    />
+                    <input 
+                        type="password"
+                        name="cpassword"
+                        className='data'
+                        value={user.cpassword}
+                        onChange={handleInput}
+                        placeholder="confirm password" 
+                    />
+                    <p>
+                        Already have an account? <Link to='/login'>Login</Link>
+                        {/* // we didn't used a tag rather we've used REACT LINK but html will take it as a tag therefore we've to target a tag for styling in sass or css */}
+                    </p>
+                    <input 
+                        className='register-btn'
+                        type="submit"
+                        name="login"
+                        value="Register"
+                        onClick={register}
+                    />
+                </form>
+            </div>
         </div>
     )
 }
