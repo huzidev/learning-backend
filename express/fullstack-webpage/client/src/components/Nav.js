@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 export default function Nav() {
 
-    const isLoggedIn = useSelector((state) => state.login.logIn);
+    const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
   
     return (
         <div>

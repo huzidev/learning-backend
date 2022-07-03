@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import { logInActions } from '../store/Login-Store';
-// import { useDispatch } from 'react-redux';
+import { logInActions } from '../store/Login-Store';
+import { useDispatch } from 'react-redux';
 
 export default function Login() {
 
     const Navigate = useNavigate();
 
     // REDUX-FUNCTIONS
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const [user, setUser] = React.useState({
         // username : "",
@@ -65,7 +65,7 @@ export default function Login() {
         else {
             window.alert("User loggedIn successfully!");
             // REDUX FUNCTION FOR CHANGING NAV-BAR
-            // dispatch(logInActions.logIn());
+            dispatch(logInActions.logIn());
             console.log("Successfully loggedIn");
             Navigate("/");
         }
