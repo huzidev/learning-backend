@@ -1,4 +1,5 @@
 import { createSlice  } from '@reduxjs/toolkit';
+import Logout from '../components/Logout';
 
 const logInStore = createSlice({
     name : 'login',
@@ -6,7 +7,12 @@ const logInStore = createSlice({
         isLoggedIn : false,
     },
     reducers : {
-        
+        logIn(state) {
+            state.isLoggedIn = true;
+        },
+        Logout(state) {
+            state.isLoggedIn = false;
+        }
     }
 })
 
