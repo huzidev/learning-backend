@@ -35,35 +35,46 @@ export default function About() {
     return (
         <>
             <div className='nav'>
-                    <div  className='nav-bar'>
-                        <Link to='/' className='animation'>Home</Link>
-                    </div>
+                <div  className='nav-bar'>
+                    <Link to='/' className='animation'>Home</Link>
                 </div>
+            </div>
             <div className='about-data'>
-                <h5>
-                    User Id
-                </h5>
-                <p>
-                    {useData._id}
-                </p>
-                <h5>
-                    Username :
-                </h5>
-                <p>
-                    {useData.username}
-                </p>
-                <h5>
-                    User Email :
-                </h5>
-                <p>
-                    {useData.email}
-                </p>
-                <h5>
-                    User Number : 
-                </h5>
-                <p>
-                    {useData.number}
-                </p>
+            <h3>
+                User's Information
+            </h3>
+                <div className='user-info'>
+                    <h5>
+                        User Id :
+                    </h5>
+                    <p>
+                        {useData._id}
+                    </p>
+                </div>
+                <div className='user-info'>
+                    <h5>
+                        Username :
+                    </h5>
+                    <p>
+                        {useData.username}
+                    </p>
+                </div>
+                <div className='user-info'>
+                    <h5>
+                        User Email :
+                    </h5>
+                    <p>
+                        {useData.email}
+                    </p>
+                </div>
+                <div className='user-info'>
+                    <h5>
+                        User Number : 
+                    </h5>
+                    <p>
+                        {useData.number}
+                    </p>
+                </div>
             </div>
         </>
     )
