@@ -19,6 +19,13 @@ const Verification = async (req, res, next) => {
         if (!userInfo) {
             throw new Error("User not found"); // we'll not use return
         }
+
+        // for getting user information to show in about page
+        req.token = token;
+        req.userInfo = userInfo;
+        req.userID = userInfo._id;
+
+        next();
     }
     catch (err) {
         console.log(err);
