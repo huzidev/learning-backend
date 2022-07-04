@@ -2,6 +2,7 @@
   width: 100%;
   height: 50px;
   background-color: aqua;
+  z-index: 999;
 }
 .nav .nav-bar {
   background-color: aqua;
@@ -14,4 +15,24 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.nav .nav-bar .right-side {
+  width: 300px;
+  background-color: no-color;
+}
+.nav .nav-bar .right-side a {
+  text-decoration: none;
+}
+.nav .nav-bar .left-side {
+  width: 700px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+.nav .nav-bar .left-side a {
+  text-decoration: none;
+  margin: 0px 15px;
 }
