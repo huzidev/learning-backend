@@ -67,6 +67,7 @@ export default function Login() {
             window.alert("User loggedIn successfully!");
             // REDUX FUNCTION FOR CHANGING NAV-BAR
             dispatch(logInActions.logIn());
+            // redux function for changing state type of password
             dispatch(logInActions.passwordConditionLog());
             console.log("Successfully loggedIn");
             Navigate("/");
