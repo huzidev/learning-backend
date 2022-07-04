@@ -7,9 +7,8 @@ export default function Login() {
 
     const Navigate = useNavigate();
     
-    // REDUX-FUNCTIONS
+    // redux-functions
     const dispatch = useDispatch();
-
     const showPasswordLog = useSelector((state) => state.login.showPasswordLog);
 
     const [user, setUser] = React.useState({
