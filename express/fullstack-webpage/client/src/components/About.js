@@ -45,7 +45,7 @@ export default function About() {
             </h3>
                 <div className='user-info'>
                     <h5>
-                        User Id :
+                        User Id :&nbsp;
                     </h5>
                     <p>
                         {useData._id}
@@ -53,7 +53,7 @@ export default function About() {
                 </div>
                 <div className='user-info'>
                     <h5>
-                        Username :
+                        Username :&nbsp;
                     </h5>
                     <p>
                         {useData.username}
@@ -61,7 +61,7 @@ export default function About() {
                 </div>
                 <div className='user-info'>
                     <h5>
-                        User Email :
+                        User Email :&nbsp;
                     </h5>
                     <p>
                         {useData.email}
@@ -69,7 +69,7 @@ export default function About() {
                 </div>
                 <div className='user-info'>
                     <h5>
-                        User Number : 
+                        User Number :&nbsp; 
                     </h5>
                     <p>
                         {useData.number}
