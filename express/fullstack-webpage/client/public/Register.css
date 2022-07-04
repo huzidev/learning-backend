@@ -68,4 +68,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+}
+.register-page .form-data form .password-tag .fa-eye-slash {
+  right: 20px;
+  font-size: 13px;
+  position: absolute;
+  cursor: pointer;
 }
