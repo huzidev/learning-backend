@@ -163,7 +163,7 @@ export default function Register() {
                         </div>
                         <p>
                             Already have an account? <Link to='/login' onClick={passwordCondition}>Login</Link>
-                            {/* // we didn't used a tag rather we've used REACT LINK but html will take it as a tag therefore we've to target a tag for styling in sass or css */}
+                            {/* // we didn't used <a></a> tag rather we've used REACT LINK but html will take it as <a></a> tag therefore we've to target <a></a>  tag for styling in sass or css */}
                         </p>
                         <input 
                             className='register-btn'
