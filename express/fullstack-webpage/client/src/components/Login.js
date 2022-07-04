@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { logInActions } from '../store/Login-Store';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Login() {
 
     const Navigate = useNavigate();
+
+    const showPassword = useSelector((state) => state.login.showPassword);
 
     // REDUX-FUNCTIONS
     const dispatch = useDispatch();
