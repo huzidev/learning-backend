@@ -11,7 +11,13 @@ export default function Nav() {
             <div className='nav-bar'>
                 <div className='right-side'>
                     <Link to='/' className='animation right-element'>Home</Link>
-                    <Link to='/about' className='animation'>About</Link>
+                    {
+                        isLoggedIn
+                            ? (
+                                <Link to='/about' className='animation'>About</Link>
+                            ) 
+                            : ''
+                    }
                 </div>
                 <div className='left-side'>
                     {isLoggedIn ? <Link to='/logout' className='animation'>Logout</Link>
