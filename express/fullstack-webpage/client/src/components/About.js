@@ -2,12 +2,13 @@ import React from 'react'
 
 export default function About() {
 
-    const [useData, setUserData] = React.useState({})
+    const [useData, setUserData] = React.useState({}) // if we wanted to upload then we use ('') but here we just getting the data therefore we've used ({}) object we can get object of data
+    const [image, setImage] = React.useState('');
 
     async function aboutPage() {
         try{
             const res = await fetch('/about', {
-                method : 'GET',
+                method : 'POST',
                 headers : {
                     Accept : "application/json",
                     "Content-Type" : "application/json"

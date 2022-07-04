@@ -2,6 +2,8 @@ import express  from "express";
 import bcrypt from 'bcryptjs';
 import User from "../models/userSchema";
 import Verification from '../middleware/Verification';
+import Assets from "../middleware/Assets";
+// import upload from '../middleware/Assets';
 import cookie from "cookie-parser";
 
 // WE CREATE ROUTER JUST TO MAKE OURS CODE SIMPLE AND EASY TO UNDERSTAND JUST LIKE STYLE COMPONENTS OF REACT
@@ -139,7 +141,7 @@ router.post('/login', async (req, res) => {
     }
 })
 
-router.get('/about', Verification, (req, res) => {
+router.post('/about', Verification, Assets.upload, (req, res) => {
     res.send(req.userInfo) // userInfo is created in Middleware
 })
 

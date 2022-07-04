@@ -25,6 +25,7 @@ server.use(bodyParser.urlencoded({ extended : true }));
 
 // MIDDLEWARE
 import Verification from './middleware/Verification';
+server.use('/images', express.static('images'))
 server.use(cookie());
 
 
