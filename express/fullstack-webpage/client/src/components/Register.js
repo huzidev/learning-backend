@@ -76,6 +76,7 @@ export default function Register() {
         }
         else {
             window.alert("User registered successfully!");
+            dispatch(logInActions.passwordCondition()); // so input type for password can came to default form
             console.log("Successful Registration");
             Navigate("/login");
         }
@@ -94,8 +95,6 @@ export default function Register() {
     const typeCPassword = showCPassword ? 'text' : 'password';
     
     // for input class
-    const activeClassForPass = showPassword ? ' hide' : '';
-    const activeClassForCPass = showCPassword ? ' hide' : '';
     
     return (
         <>
@@ -142,8 +141,8 @@ export default function Register() {
                                 placeholder="password" 
                             />
                             <div className='icon' onClick={showPass}>
-                                <i className={`fa fa-eye-slash` + activeClassForPass}></i>
-                                <i className="fa fa-eye"></i>
+                                <i className={`fa fa-eye-slash`}></i>
+                                <i className={`fa fa-eye`}></i>
                             </div>
                         </div>
                         <div className='password-tag'>
@@ -156,8 +155,8 @@ export default function Register() {
                                 placeholder="confirm password" 
                             />
                             <div className='icon' onClick={showCPass}>
-                                <i className={`fa fa-eye-slash` + activeClassForCPass}></i>
-                                <i className="fa fa-eye"></i>
+                                <i className={`fa fa-eye-slash`}></i>
+                                <i className={`fa fa-eye`}></i>
                             </div>
                         </div>
                         <p>

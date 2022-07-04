@@ -19,6 +19,14 @@ const logInStore = createSlice({
         },
         typeCPassword(state) {
             state.showCPassword = !state.showCPassword;
+        },
+        passwordCondition(state) {
+            if (state.showPassword === true) {
+                state.showPassword = false;
+            }
+            if (state.showCPassword === true) {
+                state.showCPassword = false
+            }
         }
     }
 })
