@@ -19,10 +19,7 @@ const logInStore = createSlice({
         },
         typeCPassword(state) {
             state.showCPassword = !state.showCPassword;
-        },
-        // hidePass(state) {
-        //     state.showPassword = false;
-        // }
+        }
     }
 })
 
