@@ -10,6 +10,7 @@ export default function Register() {
     const dispatch = useDispatch();
 
     const showPassword = useSelector((state) => state.login.showPassword);
+    const showCPassword = useSelector((state) => state.login.showCPassword);
 
     const [user, setUser] = React.useState({
         username : "",
@@ -84,8 +85,12 @@ export default function Register() {
     function showPass() {
         dispatch(logInActions.typePassword());
     }
+    function showCPass() {
+        dispatch(logInActions.typeCPassword());
+    }
 
     const typePassword = showPassword ? 'text' : 'password';
+    const typeCPassword = showCPassword ? 'text' : 'password';
     
     return (
         <>
@@ -121,7 +126,7 @@ export default function Register() {
                             onChange={handleInput}
                             placeholder="number" 
                         />
-                        <div className='password-tag' onClick={showPass}>
+                        <div className='password-tag'>
                             <input
                                 // type="password"
                                 type={typePassword}
@@ -131,21 +136,21 @@ export default function Register() {
                                 onChange={handleInput}
                                 placeholder="password" 
                             />
-                            <div className='icon'>
+                            <div className='icon' onClick={showPass}>
                                 <i className="fa fa-eye-slash"></i>
                                 <i className="fa fa-eye"></i>
                             </div>
                         </div>
-                        <div className='password-tag' onClick={showPass}>
+                        <div className='password-tag'>
                             <input 
-                                type="password"
+                                type={typeCPassword}
                                 name="cpassword"
                                 className='data'
                                 value={user.cpassword}
                                 onChange={handleInput}
                                 placeholder="confirm password" 
                             />
-                            <div className='icon'>
+                            <div className='icon' onClick={showCPass}>
                                 <i className="fa fa-eye-slash"></i>
                                 <i className="fa fa-eye"></i>
                             </div>
