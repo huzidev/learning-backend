@@ -13,12 +13,12 @@ const logInStore = createSlice({
         Logout(state) {
             state.isLoggedIn = false;
         },
-        showPass(state) {
-            state.showPassword = true;
+        typePassword(state) {
+            state.showPassword = !state.showPassword;
         },
-        hidePass(state) {
-            state.showPassword = false;
-        }
+        // hidePass(state) {
+        //     state.showPassword = false;
+        // }
     }
 })
 

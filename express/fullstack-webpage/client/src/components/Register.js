@@ -1,12 +1,15 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { logInActions } from '../store/Login-Store';
 
 export default function Register() {
 
     const Navigate = useNavigate();
 
     const dispatch = useDispatch();
+
+    const showPassword = useSelector((state) => state.login.showPassword);
 
     const [user, setUser] = React.useState({
         username : "",
@@ -79,8 +82,10 @@ export default function Register() {
     }
 
     function showPass() {
-        
+        dispatch(logInActions.typePassword());
     }
+
+    const typePassword = showPassword ? 'text' : 'password';
     
     return (
         <>
@@ -116,9 +121,10 @@ export default function Register() {
                             onChange={handleInput}
                             placeholder="number" 
                         />
-                        <div className='password-tag'>
-                            <input 
-                                type="password"
+                        <div className='password-tag' onClick={showPass}>
+                            <input
+                                // type="password"
+                                type={typePassword}
                                 name="password"
                                 className='data'
                                 value={user.password}
@@ -130,7 +136,7 @@ export default function Register() {
                                 <i className="fa fa-eye"></i>
                             </div>
                         </div>
-                        <div className='password-tag'>
+                        <div className='password-tag' onClick={showPass}>
                             <input 
                                 type="password"
                                 name="cpassword"
