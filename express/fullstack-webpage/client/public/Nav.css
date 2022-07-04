@@ -44,13 +44,13 @@
   height: 2px;
   left: 0px;
   width: 100%;
-  background-color: chocolate;
+  background-color: black;
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
-  -webkit-transition: -webkit-transform 600ms;
-  transition: -webkit-transform 600ms;
-  transition: transform 600ms;
-  transition: transform 600ms, -webkit-transform 600ms;
+  -webkit-transition: -webkit-transform 500ms;
+  transition: -webkit-transform 500ms;
+  transition: transform 500ms;
+  transition: transform 500ms, -webkit-transform 500ms;
 }
 .nav .nav-bar .animation::after {
   bottom: 0px;
