@@ -141,7 +141,7 @@ router.post('/login', async (req, res) => {
     }
 })
 
-router.post('/about', Verification, Assets.upload, (req, res) => {
+router.post('/about', Verification, (req, res) => {
     res.send(req.userInfo) // userInfo is created in Middleware
 })
 
