@@ -4,6 +4,7 @@ const logInStore = createSlice({
     name : 'login',
     initialState : {
         isLoggedIn : false,
+        showPassword: false
     },
     reducers : {
         logIn(state) {
@@ -11,6 +12,12 @@ const logInStore = createSlice({
         },
         Logout(state) {
             state.isLoggedIn = false;
+        },
+        showPass(state) {
+            state.showPassword = true;
+        },
+        hidePass(state) {
+            state.showPassword = false;
         }
     }
 })
