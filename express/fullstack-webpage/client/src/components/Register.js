@@ -1,9 +1,12 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Register() {
 
     const Navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
     const [user, setUser] = React.useState({
         username : "",
@@ -73,6 +76,10 @@ export default function Register() {
             Navigate("/login");
         }
 
+    }
+
+    function showPass() {
+        
     }
     
     return (
