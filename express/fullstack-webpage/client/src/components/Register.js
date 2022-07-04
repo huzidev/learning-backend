@@ -83,6 +83,9 @@ export default function Register() {
 
     }
 
+    function passwordCondition() {
+        dispatch(logInActions.passwordCondition())
+    }
     function showPass() {
         dispatch(logInActions.typePassword());
     }
@@ -98,7 +101,7 @@ export default function Register() {
     
     return (
         <>
-            <Link to='/' >Home</Link>
+            <Link to='/' onClick={passwordCondition}>Home</Link>
             <div className='register-page'>
                 <div className='form-data'>
                     <h1>
@@ -160,7 +163,7 @@ export default function Register() {
                             </div>
                         </div>
                         <p>
-                            Already have an account? <Link to='/login'>Login</Link>
+                            Already have an account? <Link to='/login' onClick={passwordCondition}>Login</Link>
                             {/* // we didn't used a tag rather we've used REACT LINK but html will take it as a tag therefore we've to target a tag for styling in sass or css */}
                         </p>
                         <input 
