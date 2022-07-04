@@ -139,7 +139,7 @@ router.post('/login', async (req, res) => {
     }
 })
 
-router.get('/about', Verification, (req, res) {
+router.get('/about', Verification, (req, res) => {
     res.send(req.userInfo) // userInfo is created in Middleware
 })
 

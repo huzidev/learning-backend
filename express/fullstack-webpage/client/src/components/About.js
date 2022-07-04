@@ -5,7 +5,7 @@ export default function About() {
 
     const Navigate = useNavigate();
     
-    const [useData, setUserData] = React.useState('')
+    const [useData, setUserData] = React.useState({})
 
     async function aboutPage() {
         try{
