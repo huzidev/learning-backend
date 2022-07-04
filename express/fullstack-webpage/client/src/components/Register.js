@@ -99,7 +99,11 @@ export default function Register() {
     
     return (
         <>
-            <Link to='/' onClick={passwordConditionReg}>Home</Link>
+            <div className='nav'>
+                <div  className='nav-bar'>
+                    <Link to='/' onClick={passwordConditionReg} className='animation'>Home</Link>
+                </div>
+            </div>
             <div className='register-page'>
                 <div className='form-data'>
                     <h1>

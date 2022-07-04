@@ -85,7 +85,11 @@ export default function Login() {
 
     return (
         <>
-            <Link to='/' onClick={passwordConditionLog}>Home</Link>
+            <div className='nav'>
+                <div  className='nav-bar'>
+                    <Link to='/' className='animation' onClick={passwordConditionLog}>Home</Link>
+                </div>
+            </div>
             <div className='login-page'>
                 <div className='form-data'>
                     <h1>
