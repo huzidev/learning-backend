@@ -10,7 +10,7 @@ export default function Login() {
     // REDUX-FUNCTIONS
     const dispatch = useDispatch();
 
-    const showPassword = useSelector((state) => state.login.showPassword);
+    const showPasswordLog = useSelector((state) => state.login.showPasswordLog);
 
     const [user, setUser] = React.useState({
         // username : "",
@@ -68,24 +68,24 @@ export default function Login() {
             window.alert("User loggedIn successfully!");
             // REDUX FUNCTION FOR CHANGING NAV-BAR
             dispatch(logInActions.logIn());
-            dispatch(logInActions.passwordCondition());
+            dispatch(logInActions.passwordConditionLog());
             console.log("Successfully loggedIn");
             Navigate("/");
         }
     }
 
-    function passwordCondition() {
-        dispatch(logInActions.passwordCondition())
+    function passwordConditionLog() {
+        dispatch(logInActions.passwordConditionLog())
     }
     function showPass() {
-        dispatch(logInActions.typePassword());
+        dispatch(logInActions.typePasswordLog());
     }
 
-    const typePasswordType = showPassword ? 'text' : 'password';
+    const typePasswordType = showPasswordLog ? 'text' : 'password';
 
     return (
         <>
-            <Link to='/' >Home</Link>
+            <Link to='/' onClick={passwordConditionLog}>Home</Link>
             <div className='login-page'>
                 <div className='form-data'>
                     <h1>
@@ -98,25 +98,23 @@ export default function Login() {
                             className='data'
                             value={user.email}
                             onChange={handleInput}
-                            // onChange={(event) => setEmail(event.target.value)}
                             placeholder="Yours Email"
-                            />
+                        />
                         <div className='password-tag'>
                             <input 
-                                typ={typePasswordType}
+                                type={typePasswordType}
                                 name="password"
                                 className='data'
                                 value={user.password}
                                 onChange={handleInput}
-                                // onChange={(event) => setPassword(event.target.value)} 
                                 placeholder="Yours Password"
                             />
                             <div className='icon' onClick={showPass}>
-                                { showPassword ? <i className={`fa fa-eye`}></i> : <i className={`fa fa-eye-slash`}></i>}
+                                { showPasswordLog ? <i className={`fa fa-eye`}></i> : <i className={`fa fa-eye-slash`}></i>}
                             </div>
                         </div>
                         <p>
-                            Didn't have an account? <Link to='/register'>Create One</Link>
+                            Didn't have an account? <Link to='/register' onClick={passwordConditionLog}>Create One</Link>
                             {/* // we didn't used a tag rather we've used REACT LINK but html will take it as a tag therefore we've to target a tag for styling in sass or css */}
                         </p>
                         <input 

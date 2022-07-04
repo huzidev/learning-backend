@@ -94,8 +94,8 @@ export default function Register() {
     }
 
     // for input types
-    const typePasswordType = showPasswordReg ? 'text' : 'password';
-    const typeCPasswordType = showCPasswordReg ? 'text' : 'password';
+    const typePassword = showPasswordReg ? 'text' : 'password';
+    const typeCPassword = showCPasswordReg ? 'text' : 'password';
     
     return (
         <>
@@ -134,7 +134,7 @@ export default function Register() {
                         <div className='password-tag'>
                             <input
                                 // type="password"
-                                type={typePasswordType}
+                                type={typePassword}
                                 name="password"
                                 className='data'
                                 value={user.password}
@@ -147,7 +147,7 @@ export default function Register() {
                         </div>
                         <div className='password-tag'>
                             <input 
-                                type={typeCPasswordType}
+                                type={typeCPassword}
                                 name="cpassword"
                                 className='data'
                                 value={user.cpassword}

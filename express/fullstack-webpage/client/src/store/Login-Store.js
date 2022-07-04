@@ -6,7 +6,7 @@ const logInStore = createSlice({
         isLoggedIn : false,
         showPasswordReg: false,
         showCPasswordReg: false,
-        showPasswordRegLog: false
+        showPasswordLog: false
     },
     reducers : {
         logIn(state) {
@@ -33,6 +33,14 @@ const logInStore = createSlice({
         },
 
         // for login page
+        typePasswordLog(state) {
+            state.showPasswordLog = !state.showPasswordLog;
+        },
+        passwordConditionLog(state) {
+            if (state.showPasswordLog === true) {
+                state.showPasswordLog = false;
+            }
+        },
     }
 })
 
