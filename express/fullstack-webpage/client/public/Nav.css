@@ -34,6 +34,30 @@
 }
 .nav .nav-bar .animation {
   text-decoration: none;
-  font-size: 19px;
   letter-spacing: 1px;
+  font-size: 19px;
+  position: relative;
+}
+.nav .nav-bar .animation::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  left: 0px;
+  width: 100%;
+  background-color: chocolate;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 600ms;
+  transition: -webkit-transform 600ms;
+  transition: transform 600ms;
+  transition: transform 600ms, -webkit-transform 600ms;
+}
+.nav .nav-bar .animation::after {
+  bottom: 0px;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+.nav .nav-bar .animation:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
 }
