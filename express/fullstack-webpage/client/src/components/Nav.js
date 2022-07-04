@@ -13,7 +13,7 @@ export default function Nav() {
                     <Link to='/' className='animation'>Home</Link>
                 </div>
                 <div className='left-side'>
-                    {isLoggedIn ? <Link to='/logout'>Logout</Link>
+                    {isLoggedIn ? <Link to='/logout' className='animation'>Logout</Link>
                     : (
                         <>
                             <Link to='/login' className='animation'>Login</Link>
