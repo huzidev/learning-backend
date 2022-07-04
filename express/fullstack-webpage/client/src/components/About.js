@@ -41,17 +41,29 @@ export default function About() {
                 </div>
             <div className='about-data'>
                 <h5>
-                    User Id : {useData._id}
+                    User Id
                 </h5>
+                <p>
+                    {useData._id}
+                </p>
                 <h5>
-                    Username : {useData.username}
+                    Username :
                 </h5>
+                <p>
+                    {useData.username}
+                </p>
                 <h5>
-                    User Email : {useData.email}
+                    User Email :
                 </h5>
+                <p>
+                    {useData.email}
+                </p>
                 <h5>
-                    User Number : {useData.number}
+                    User Number : 
                 </h5>
+                <p>
+                    {useData.number}
+                </p>
             </div>
         </>
     )
