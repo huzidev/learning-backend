@@ -144,8 +144,5 @@ router.get('/logout', (req, res) => { // we uses get because we get user's cooki
     res.clearCookie('jwtoken', { path : '/' })
     res.status(200).send("User loggedOut Successfully!")
 })
-router.get('/', (req, res) => {
-    res.send("Hello from router")
-})
 
 module.exports = router;
