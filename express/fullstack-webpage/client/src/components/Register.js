@@ -89,8 +89,13 @@ export default function Register() {
         dispatch(logInActions.typeCPassword());
     }
 
+    // for input types
     const typePassword = showPassword ? 'text' : 'password';
     const typeCPassword = showCPassword ? 'text' : 'password';
+    
+    // for input class
+    const activeClassForPass = showPassword ? ' hide' : '';
+    const activeClassForCPass = showCPassword ? ' hide' : '';
     
     return (
         <>
@@ -137,7 +142,7 @@ export default function Register() {
                                 placeholder="password" 
                             />
                             <div className='icon' onClick={showPass}>
-                                <i className="fa fa-eye-slash"></i>
+                                <i className={`fa fa-eye-slash` + activeClassForPass}></i>
                                 <i className="fa fa-eye"></i>
                             </div>
                         </div>
@@ -151,7 +156,7 @@ export default function Register() {
                                 placeholder="confirm password" 
                             />
                             <div className='icon' onClick={showCPass}>
-                                <i className="fa fa-eye-slash"></i>
+                                <i className={`fa fa-eye-slash` + activeClassForCPass}></i>
                                 <i className="fa fa-eye"></i>
                             </div>
                         </div>
