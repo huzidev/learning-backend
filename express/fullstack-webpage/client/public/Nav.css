@@ -1,0 +1,17 @@
+.nav {
+  width: 100%;
+  height: 50px;
+  background-color: aqua;
+}
+.nav .nav-bar {
+  background-color: aqua;
+  height: 100%;
+  width: 1000px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}

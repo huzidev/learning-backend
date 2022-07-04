@@ -7,8 +7,8 @@ export default function Register() {
 
     const Navigate = useNavigate();
 
+    // redux-functions
     const dispatch = useDispatch();
-
     const showPasswordReg = useSelector((state) => state.login.showPasswordReg);
     const showCPasswordReg = useSelector((state) => state.login.showCPasswordReg);
 
