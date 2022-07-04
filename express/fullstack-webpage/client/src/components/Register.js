@@ -49,9 +49,12 @@ export default function Register() {
         // for getting all the data
         const data = await res.json();
 
-        if (res.status === 422) {
-            window.alert("Email already exist");
+        if (res.status === 421 || !data) {
+            window.alert("Invalid value!")
         }
+        else if (res.status === 422) {
+            window.alert("Email already exist");
+        }   
         else if (res.status === 423) {
             window.alert("Username already exist")
         }   
@@ -60,9 +63,6 @@ export default function Register() {
         }
         else if (res.status === 425) {
             window.alert("Password doesn't match")
-        }
-        else if (res.status === 421 || !data) {
-            window.alert("Invalid value!")
         }
         else if (res.status === 500) {
             window.alert("Internal Server Error : Failed to registered!")
