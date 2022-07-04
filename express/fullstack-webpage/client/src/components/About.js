@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function About() {
 
@@ -32,19 +33,26 @@ export default function About() {
     }, [])
     
     return (
-        <div className='about-data'>
-            <h5>
-                User Id : {useData._id}
-            </h5>
-            <h5>
-                Username : {useData.username}
-            </h5>
-            <h5>
-                User Email : {useData.email}
-            </h5>
-            <h5>
-                User Number : {useData.number}
-            </h5>
-        </div>
+        <>
+            <div className='nav'>
+                    <div  className='nav-bar'>
+                        <Link to='/' className='animation'>Home</Link>
+                    </div>
+                </div>
+            <div className='about-data'>
+                <h5>
+                    User Id : {useData._id}
+                </h5>
+                <h5>
+                    Username : {useData.username}
+                </h5>
+                <h5>
+                    User Email : {useData.email}
+                </h5>
+                <h5>
+                    User Number : {useData.number}
+                </h5>
+            </div>
+        </>
     )
 }
