@@ -62,6 +62,21 @@
   font-size: 17px;
   cursor: pointer;
 }
+.login-page .form-data form .password-tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.login-page .form-data form .password-tag .icon {
+  right: 33px;
+  font-size: 13px;
+  position: absolute;
+  cursor: pointer;
+}
 
 .logout {
   display: -webkit-box;
