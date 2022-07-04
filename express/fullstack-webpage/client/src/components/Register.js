@@ -9,8 +9,8 @@ export default function Register() {
 
     const dispatch = useDispatch();
 
-    const showPassword = useSelector((state) => state.login.showPassword);
-    const showCPassword = useSelector((state) => state.login.showCPassword);
+    const showPasswordReg = useSelector((state) => state.login.showPasswordReg);
+    const showCPasswordReg = useSelector((state) => state.login.showCPasswordReg);
 
     const [user, setUser] = React.useState({
         username : "",
@@ -83,26 +83,23 @@ export default function Register() {
 
     }
 
-    function passwordCondition() {
-        dispatch(logInActions.passwordCondition())
+    function passwordConditionReg() {
+        dispatch(logInActions.passwordConditionReg())
     }
     function showPass() {
-        dispatch(logInActions.typePassword());
+        dispatch(logInActions.typePasswordReg());
     }
     function showCPass() {
-        dispatch(logInActions.typeCPassword());
+        dispatch(logInActions.typeCPasswordReg());
     }
 
     // for input types
-    const typePasswordType = showPassword ? 'text' : 'password';
-    const typeCPasswordType = showCPassword ? 'text' : 'password';
+    const typePasswordType = showPasswordReg ? 'text' : 'password';
+    const typeCPasswordType = showCPasswordReg ? 'text' : 'password';
     
-    // for input class
-    const test = 'active';
-
     return (
         <>
-            <Link to='/' onClick={passwordCondition}>Home</Link>
+            <Link to='/' onClick={passwordConditionReg}>Home</Link>
             <div className='register-page'>
                 <div className='form-data'>
                     <h1>
@@ -145,7 +142,7 @@ export default function Register() {
                                 placeholder="password" 
                             />
                             <div className='icon' onClick={showPass}>
-                                { showPassword ? <i className={`fa fa-eye`}></i> : <i className={`fa fa-eye-slash`}></i>}
+                                { showPasswordReg ? <i className={`fa fa-eye`}></i> : <i className={`fa fa-eye-slash`}></i>}
                             </div>
                         </div>
                         <div className='password-tag'>
@@ -158,11 +155,11 @@ export default function Register() {
                                 placeholder="confirm password" 
                             />
                             <div className='icon' onClick={showCPass}>
-                            { showCPassword ? <i className={`fa fa-eye`}></i> : <i className={`fa fa-eye-slash`}></i>}
+                            { showCPasswordReg ? <i className={`fa fa-eye`}></i> : <i className={`fa fa-eye-slash`}></i>}
                             </div>
                         </div>
                         <p>
-                            Already have an account? <Link to='/login' onClick={passwordCondition}>Login</Link>
+                            Already have an account? <Link to='/login' onClick={passwordConditionReg}>Login</Link>
                             {/* // we didn't used <a></a> tag rather we've used REACT LINK but html will take it as <a></a> tag therefore we've to target <a></a>  tag for styling in sass or css */}
                         </p>
                         <input 
