@@ -134,28 +134,44 @@ export default function Register() {
                         <div className='password-tag'>
                             <input
                                 // type="password"
-                                type={typePassword}
                                 name="password"
                                 className='data'
+                                type={typePassword}
                                 value={user.password}
                                 onChange={handleInput}
                                 placeholder="password" 
                             />
                             <div className='icon' onClick={showPass}>
-                                { showPasswordReg ? <i className={`fa fa-eye`}></i> : <i className={`fa fa-eye-slash`}></i>}
+                            { 
+                                showPasswordReg 
+                                    ? (
+                                        <i className={`fa fa-eye`}></i> 
+                                    )
+                                    : (
+                                        <i className={`fa fa-eye-slash`}></i>
+                                    ) 
+                            }
                             </div>
                         </div>
                         <div className='password-tag'>
                             <input 
-                                type={typeCPassword}
                                 name="cpassword"
                                 className='data'
+                                type={typeCPassword}
                                 value={user.cpassword}
                                 onChange={handleInput}
                                 placeholder="confirm password" 
                             />
                             <div className='icon' onClick={showCPass}>
-                            { showCPasswordReg ? <i className={`fa fa-eye`}></i> : <i className={`fa fa-eye-slash`}></i>}
+                            { 
+                                showCPasswordReg 
+                                    ? (
+                                        <i className={`fa fa-eye`}></i> 
+                                    )
+                                    : (
+                                        <i className={`fa fa-eye-slash`}></i>
+                                    ) 
+                            }
                             </div>
                         </div>
                         <p>

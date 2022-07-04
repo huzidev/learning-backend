@@ -110,7 +110,15 @@ export default function Login() {
                                 placeholder="Yours Password"
                             />
                             <div className='icon' onClick={showPass}>
-                                { showPasswordLog ? <i className={`fa fa-eye`}></i> : <i className={`fa fa-eye-slash`}></i>}
+                                { 
+                                    showPasswordLog 
+                                        ? (
+                                            <i className={`fa fa-eye`}></i> 
+                                        )
+                                        : (
+                                            <i className={`fa fa-eye-slash`}></i>
+                                        )
+                                }
                             </div>
                         </div>
                         <p>
