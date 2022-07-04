@@ -118,7 +118,10 @@ export default function Register() {
                                 onChange={handleInput}
                                 placeholder="password" 
                             />
-                            <i className="fa fa-eye-slash"></i>
+                            <div className='icon'>
+                                <i className="fa fa-eye-slash"></i>
+                                <i className="fa fa-eye"></i>
+                            </div>
                         </div>
                         <div className='password-tag'>
                             <input 
@@ -129,7 +132,10 @@ export default function Register() {
                                 onChange={handleInput}
                                 placeholder="confirm password" 
                             />
-                            <i className="fa fa-eye-slash"></i>
+                            <div className='icon'>
+                                <i className="fa fa-eye-slash"></i>
+                                <i className="fa fa-eye"></i>
+                            </div>
                         </div>
                         <p>
                             Already have an account? <Link to='/login'>Login</Link>

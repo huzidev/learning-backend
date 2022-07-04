@@ -70,9 +70,12 @@
           align-items: center;
   position: relative;
 }
-.register-page .form-data form .password-tag .fa-eye-slash {
+.register-page .form-data form .password-tag .icon {
   right: 20px;
   font-size: 13px;
   position: absolute;
   cursor: pointer;
+}
+.register-page .form-data form .password-tag .icon .fa-eye {
+  display: none;
 }
