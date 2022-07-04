@@ -1,4 +1,5 @@
 import React from 'react';
+import Main from './Main';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logInActions } from '../store/Login-Store';
@@ -99,11 +100,7 @@ export default function Register() {
     
     return (
         <>
-            <div className='nav'>
-                <div  className='nav-bar'>
-                    <Link to='/' onClick={passwordConditionReg} className='animation'>Home</Link>
-                </div>
-            </div>
+            <Main />
             <div className='register-page'>
                 <div className='form-data'>
                     <h1>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Main from './Main';
 import { Link, useNavigate } from 'react-router-dom';
 import { logInActions } from '../store/Login-Store';
 import { useDispatch, useSelector } from 'react-redux';
@@ -85,11 +86,7 @@ export default function Login() {
 
     return (
         <>
-            <div className='nav'>
-                <div  className='nav-bar'>
-                    <Link to='/' className='animation' onClick={passwordConditionLog}>Home</Link>
-                </div>
-            </div>
+            <Main />
             <div className='login-page'>
                 <div className='form-data'>
                     <h1>
