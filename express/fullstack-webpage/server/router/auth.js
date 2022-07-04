@@ -139,6 +139,10 @@ router.post('/login', async (req, res) => {
     }
 })
 
+router.get('/about', Verification, (req, res) {
+    res.send(req.userInfo) // userInfo is created in Middleware
+})
+
 // for LOGOUT
 router.get('/logout', (req, res) => { // we uses get because we get user's cookie then delete it
     res.clearCookie('jwtoken', { path : '/' })
