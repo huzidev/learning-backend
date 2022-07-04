@@ -129,6 +129,7 @@ export default function Register() {
                                 onChange={handleInput}
                                 placeholder="confirm password" 
                             />
+                            <i className="fa fa-eye-slash"></i>
                         </div>
                         <p>
                             Already have an account? <Link to='/login'>Login</Link>
