@@ -94,11 +94,12 @@ export default function Register() {
     }
 
     // for input types
-    const typePassword = showPassword ? 'text' : 'password';
-    const typeCPassword = showCPassword ? 'text' : 'password';
+    const typePasswordType = showPassword ? 'text' : 'password';
+    const typeCPasswordType = showCPassword ? 'text' : 'password';
     
     // for input class
-    
+    const test = 'active';
+
     return (
         <>
             <Link to='/' onClick={passwordCondition}>Home</Link>
@@ -136,7 +137,7 @@ export default function Register() {
                         <div className='password-tag'>
                             <input
                                 // type="password"
-                                type={typePassword}
+                                type={typePasswordType}
                                 name="password"
                                 className='data'
                                 value={user.password}
@@ -144,13 +145,12 @@ export default function Register() {
                                 placeholder="password" 
                             />
                             <div className='icon' onClick={showPass}>
-                                <i className={`fa fa-eye-slash`}></i>
-                                <i className={`fa fa-eye`}></i>
+                                { showPassword ? <i className={`fa fa-eye`}></i> : <i className={`fa fa-eye-slash`}></i>}
                             </div>
                         </div>
                         <div className='password-tag'>
                             <input 
-                                type={typeCPassword}
+                                type={typeCPasswordType}
                                 name="cpassword"
                                 className='data'
                                 value={user.cpassword}
@@ -158,8 +158,7 @@ export default function Register() {
                                 placeholder="confirm password" 
                             />
                             <div className='icon' onClick={showCPass}>
-                                <i className={`fa fa-eye-slash`}></i>
-                                <i className={`fa fa-eye`}></i>
+                            { showCPassword ? <i className={`fa fa-eye`}></i> : <i className={`fa fa-eye-slash`}></i>}
                             </div>
                         </div>
                         <p>

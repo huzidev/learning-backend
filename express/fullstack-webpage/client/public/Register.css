@@ -76,12 +76,3 @@
   position: absolute;
   cursor: pointer;
 }
-.register-page .form-data form .password-tag .icon .fa-eye {
-  display: none;
-}
-.register-page .form-data form .password-tag .icon.hide-eye {
-  display: block;
-}
-.register-page .form-data form .password-tag .icon.hide-slash {
-  display: none;
-}
