@@ -109,22 +109,27 @@ export default function Register() {
                             onChange={handleInput}
                             placeholder="number" 
                         />
-                        <input 
-                            type="password"
-                            name="password"
-                            className='data'
-                            value={user.password}
-                            onChange={handleInput}
-                            placeholder="password" 
-                        />
-                        <input 
-                            type="password"
-                            name="cpassword"
-                            className='data'
-                            value={user.cpassword}
-                            onChange={handleInput}
-                            placeholder="confirm password" 
-                        />
+                        <div className='password-tag'>
+                            <input 
+                                type="password"
+                                name="password"
+                                className='data'
+                                value={user.password}
+                                onChange={handleInput}
+                                placeholder="password" 
+                            />
+                            <i className="fa fa-eye-slash"></i>
+                        </div>
+                        <div className='password-tag'>
+                            <input 
+                                type="password"
+                                name="cpassword"
+                                className='data'
+                                value={user.cpassword}
+                                onChange={handleInput}
+                                placeholder="confirm password" 
+                            />
+                        </div>
                         <p>
                             Already have an account? <Link to='/login'>Login</Link>
                             {/* // we didn't used a tag rather we've used REACT LINK but html will take it as a tag therefore we've to target a tag for styling in sass or css */}
