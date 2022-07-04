@@ -19,7 +19,7 @@ export default function About() {
             })
             const data = await res.json();
             setUserData(data);
-            
+
             // if status failed
             if (!res.status === 200) {
                 const error = new Error(res.error)
@@ -30,19 +30,23 @@ export default function About() {
             console.log(err);
         }
     }
+    React.useEffect(() => {
+        aboutPage();
+    }, [])
+    
     return (
         <div className='about-data'>
             <h5>
-                User Id :
+                User Id : {useData._id}
             </h5>
             <h5>
-                Username :
+                Username : {useData.username}
             </h5>
             <h5>
-                User Email :
+                User Email : {useData.email}
             </h5>
             <h5>
-                User Number :
+                User Number : {useData.number}
             </h5>
         </div>
     )
