@@ -19,3 +19,6 @@
       -ms-flex-align: center;
           align-items: center;
 }
+.about-data .user-info h5 {
+  font-size: 15px;
+}
