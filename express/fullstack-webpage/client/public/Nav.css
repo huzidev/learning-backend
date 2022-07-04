@@ -20,9 +20,6 @@
   width: 300px;
   background-color: no-color;
 }
-.nav .nav-bar .right-side a {
-  text-decoration: none;
-}
 .nav .nav-bar .left-side {
   width: 700px;
   display: -webkit-box;
@@ -33,6 +30,10 @@
           justify-content: end;
 }
 .nav .nav-bar .left-side a {
-  text-decoration: none;
   margin: 0px 15px;
+}
+.nav .nav-bar .animation {
+  text-decoration: none;
+  font-size: 19px;
+  letter-spacing: 1px;
 }
