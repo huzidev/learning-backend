@@ -1,7 +1,7 @@
 .about-data {
   width: 1050px;
   margin: 20px auto;
-  padding: 20px 0px 20px 25px;
+  padding: 20px 30px;
   background-color: aqua;
 }
 .about-data h3 {
@@ -10,6 +10,7 @@
   letter-spacing: 1px;
   text-align: center;
   text-decoration: underline;
+  margin-bottom: 15px;
 }
 .about-data .user-info {
   display: -webkit-box;
@@ -20,5 +21,6 @@
           align-items: center;
 }
 .about-data .user-info h5 {
-  font-size: 15px;
+  font-size: 19px;
+  margin: 10px 0px;
 }

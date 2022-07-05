@@ -40,9 +40,9 @@ export default function About() {
                 </div>
             </div>
             <div className='about-data'>
-            <h3>
-                User's Information
-            </h3>
+                <h3>
+                    User's Information
+                </h3>
                 <div className='user-info'>
                     <h5>
                         User Id :&nbsp;
