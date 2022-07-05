@@ -62,6 +62,11 @@ export default function Footer() {
                         </div>
                     </form>
                 </div>
+                <div className='bottom-text'>
+                    <p>
+                        All Rights Are Reserved by <b>HuziDev</b> &copy; 2021-22
+                    </p>
+                </div>
             </div>
         </>
     )

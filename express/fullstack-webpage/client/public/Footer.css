@@ -56,7 +56,7 @@
 }
 .footer-background .footer-container .form-main {
   width: 100%;
-  margin: 70px auto;
+  margin: 70px auto 20px auto;
 }
 .footer-background .footer-container .form-main .form-side {
   display: -webkit-box;
@@ -82,21 +82,11 @@
   padding: 10px 25px;
 }
 
-.bottom {
+.bottom-text {
+  text-align: center;
   background-color: black;
-  width: 100%;
-  height: 60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
-.bottom .bottom-text {
+.bottom-text p {
   color: white;
-  font-weight: 500;
+  font-size: 22px;
 }
