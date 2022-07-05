@@ -8,7 +8,7 @@ export default function Modal() {
                 Register as <Link to='/register/seller'>Seller</Link>
             </h5>
             <h5>
-                Register as<Link to='/register/buyer'>Buyer</Link>
+                Register as <Link to='/register/buyer'>Buyer</Link>
             </h5>
         </div>
     )

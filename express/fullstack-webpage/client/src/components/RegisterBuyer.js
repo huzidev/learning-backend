@@ -42,7 +42,7 @@ export default function RegisterBuyer() {
 
         const { username, email, number, password, cpassword } = user; // user state already created
 
-        const res = await fetch("/register", {
+        const res = await fetch("/register/buyer", {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"
