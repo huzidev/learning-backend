@@ -5,10 +5,10 @@ export default function Modal() {
     return (
         <div className='modal'>
             <h5>
-                Register as <Link to='/register/seller'>Seller </Link>
+                Register as <Link to='/register/seller'>Seller</Link>
             </h5>
             <h5>
-                Register as Buyer
+                Register as<Link to='/register/buyer'>Buyer</Link>
             </h5>
         </div>
     )

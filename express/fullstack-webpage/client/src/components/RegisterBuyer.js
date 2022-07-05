@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from './Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logInActions } from '../store/Login-Store';
@@ -100,6 +101,7 @@ export default function RegisterBuyer() {
     
     return (
         <>
+            <Modal />
             <div className='nav'>
                 <div  className='nav-bar'>
                     <Link to='/' onClick={passwordConditionReg} className='animation'>Home</Link>
