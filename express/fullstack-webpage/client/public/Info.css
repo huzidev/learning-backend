@@ -44,6 +44,16 @@
   border: 1px solid black;
 }
 .about-data .container .user-profile {
-  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border: 1px solid black;
+  width: 30%;
+  height: 170px;
+}
+.about-data .container .user-profile img {
+  height: 100%;
 }
