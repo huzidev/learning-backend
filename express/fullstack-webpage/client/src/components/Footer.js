@@ -12,6 +12,24 @@ export default function Footer() {
         message : ""
     })
 
+    let name, value;
+
+    function handleInput(event) {
+        name = event.target.name;
+        value = event.target.value;
+        setUser({ 
+            ...user,
+            [name] : value 
+        });
+    }
+    
+    async function sendMessage(event) {
+        event.preventDefault();
+
+        
+
+    }
+
     return (
         <>
             <div className='footer-background'>
