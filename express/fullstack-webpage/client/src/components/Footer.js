@@ -67,40 +67,40 @@ export default function Footer() {
                         <div className="logo">
                             <i className="fab fa-github">
                             </i>
-                            <a href="#">
+                            <Link to="#">
                                 Huzi-Dev
-                            </a>
+                            </Link>
                         </div>
                         <div className="logo">
                             <i className="fa fa-envelope">
                             </i>
-                            <a href="#">
+                            <Link to="#">
                                 Huzaifa Iqbal
-                            </a>
+                            </Link>
                         </div>
                         <div className="logo">
                             <i className="fa fa-facebook">
                             </i>
-                            <a href="#">
+                            <Link to="#">
                                 huzaifa_iqbal_
-                            </a>
+                            </Link>
                         </div>
                         <div className="logo">
                             <i className="fa fa-instagram">
                             </i>
-                            <a href="#">
+                            <Link to="#">
                                 huzaifa_iqbal_
-                            </a>
+                            </Link>
                         </div>
                         <div className="logo">
                             <i className="fa fa-phone">
                             </i>
-                            <a href="#">
+                            <Link to="#">
                                 123-456-789
-                            </a>
+                            </Link>
                         </div>
                     </div>
-                    <form action="">
+                    <form action="POST">
                         <div className='form-main'>
                             <div className='form-side'>
                                 <input type="text" placeholder='Yours Name'/>
