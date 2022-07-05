@@ -11,7 +11,7 @@ export default function Footer() {
                     <div className='icons'>
                         <i className='fa fa-github'></i>
                         <p>
-                            Huzi-Dev
+                            HuziDev
                         </p>
                     </div>
                     <div className='icons'>
