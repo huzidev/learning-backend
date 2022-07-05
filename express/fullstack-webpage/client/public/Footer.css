@@ -21,8 +21,10 @@
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  height: 70px;
 }
 .footer-container .contact-info .contact-container .icons {
+  border: 1px solid black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,4 +35,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }

@@ -15,25 +15,25 @@ export default function Footer() {
                         </p>
                     </div>
                     <div className='icons'>
-                        <i className='fa fa-github'></i>
+                        <i className='fa fa-instagram'></i>
                         <p>
                             Huzi-Dev
                         </p>
                     </div>
                     <div className='icons'>
-                        <i className='fa fa-github'></i>
+                        <i className='fa fa-facebook-square'></i>
                         <p>
                             Huzi-Dev
                         </p>
                     </div>
                     <div className='icons'>
-                        <i className='fa fa-github'></i>
+                        <i className='fa fa-google'></i>
                         <p>
                             Huzi-Dev
                         </p>
                     </div>
                     <div className='icons'>
-                        <i className='fa fa-github'></i>
+                        <i className='fa fa-phone'></i>
                         <p>
                             Huzi-Dev
                         </p>
