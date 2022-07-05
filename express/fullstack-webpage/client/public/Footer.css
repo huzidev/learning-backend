@@ -1,5 +1,8 @@
 .footer-background {
   background-color: aqua;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 }
 .footer-background .footer-container {
   width: 1000px;
