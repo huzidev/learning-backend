@@ -50,8 +50,8 @@ export default function About() {
                         User's Information
                     </h3>
                     <p>
-                        User's status : Active
-                        <span className='dot'></span>
+                        User's status : { isLoggedIn ? 'Active' : 'Inactive'} 
+                        { isLoggedIn ? <span className='dot'></span> : <span className='line'></span>}
                     </p>
                 </div>
                 <div className='container'>
