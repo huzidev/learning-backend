@@ -81,6 +81,9 @@ export default function About() {
                     </div>
                     <div className='user-profile'>
                         <img src={defaultImg} alt="user's-img" />
+                        <form>
+                            <input type="file" className='upload-img'/>
+                        </form>
                     </div>
                 </div>
             </div>

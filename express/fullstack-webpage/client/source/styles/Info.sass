@@ -3,6 +3,7 @@
     margin: 20px auto
     padding: 20px 30px
     background-color: aqua
+    height: 450px
     display: flex
     flex-direction: column
     h3
@@ -28,13 +29,18 @@
             flex-direction: column
             height: 100%
             width: 70%
-            // border: 1px solid black
         .user-profile
             display: flex
+            flex-direction: column
+            text-align: center
             justify-content: center
-            // border: 1px solid black
             width: 30%
             height: 100%
+            position: relative
             img
                 height: 100%
                 width: 100%
+            form
+                .upload-img
+                    position: absolute
+                    left: 60px
