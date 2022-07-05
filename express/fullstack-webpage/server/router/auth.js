@@ -1,6 +1,7 @@
 import express  from "express";
 import bcrypt from 'bcryptjs';
 import User from "../models/userSchema";
+import Contact from "../models/userMessage";
 import Verification from '../middleware/Verification';
 import cookie from "cookie-parser";
 import cors from "cors";
