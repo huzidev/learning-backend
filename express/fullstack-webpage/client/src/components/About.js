@@ -48,6 +48,7 @@ export default function About() {
                     <p>
                         User's status : Active
                     </p>
+                    <span className='dot'></span>
                 </div>
                 <div className='container'>
                     <div className='user-info-container'>
