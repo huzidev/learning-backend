@@ -5,6 +5,7 @@ import Error from './Error';
 import Login from './Login';
 import Logout from './Logout';
 import About from './About';
+import Footer from './Footer';
 import {
     BrowserRouter as Router,
     Routes,
@@ -23,6 +24,7 @@ export default function App() {
                     <Route exact path="/about" element={<About />} />
                     <Route exact path="*" element={<Error />} />
                 </Routes>
+                <Footer />
             </Router>
         </div>
     )

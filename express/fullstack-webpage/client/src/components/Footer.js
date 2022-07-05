@@ -14,6 +14,30 @@ export default function Footer() {
                             Huzi-Dev
                         </p>
                     </div>
+                    <div className='icons'>
+                        <i className='fa fa-github'></i>
+                        <p>
+                            Huzi-Dev
+                        </p>
+                    </div>
+                    <div className='icons'>
+                        <i className='fa fa-github'></i>
+                        <p>
+                            Huzi-Dev
+                        </p>
+                    </div>
+                    <div className='icons'>
+                        <i className='fa fa-github'></i>
+                        <p>
+                            Huzi-Dev
+                        </p>
+                    </div>
+                    <div className='icons'>
+                        <i className='fa fa-github'></i>
+                        <p>
+                            Huzi-Dev
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
