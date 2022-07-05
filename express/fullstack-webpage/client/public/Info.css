@@ -53,7 +53,6 @@
           flex-direction: column;
   height: 100%;
   width: 70%;
-  border: 1px solid black;
 }
 .about-data .container .user-profile {
   display: -webkit-box;
@@ -62,7 +61,6 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border: 1px solid black;
   width: 30%;
   height: 100%;
 }
