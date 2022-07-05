@@ -65,7 +65,7 @@ export default function Footer() {
                     </h2>
                     <div className='footer-items'>
                         <div className="logo">
-                            <i className="fab fa-github" target="_blank" rel="noopener noreferrer">
+                            <i className="fab fa-github" href="https://github.com/huzidev" target="_blank" rel="noopener noreferrer">
                             </i>
                             <a href="https://github.com/huzidev" target="_blank" rel="noopener noreferrer">
                                 Huzi-Dev
@@ -79,21 +79,21 @@ export default function Footer() {
                             </a>
                         </div>
                         <div className="logo">
-                            <i className="fa fa-facebook" target="_blank" rel="noopener noreferrer">
+                            <i className="fa fa-facebook" href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                             </i>
-                            <a href="facebook.com" target="_blank" rel="noopener noreferrer">
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                                 Huzaifa Iqbal
                             </a>
                         </div>
-                        <div className="logo" target="_blank" rel="noopener noreferrer">
-                            <i className="fa fa-instagram" target="_blank" rel="noopener noreferrer">
+                        <div className="logo">
+                            <i className="fa fa-instagram" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                             </i>
-                            <a href="instagram.com">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                                 huzaifa_iqbal_
                             </a>
                         </div>
                         <div className="logo">
-                            <i className="fa fa-phone">
+                            <i className="fa fa-phone" href="tel:0303030303">
                             </i>
                             <a href="tel:0303030303"> 
                             {/* if we uses (tel) then it'll directly opens phone app for you */}
