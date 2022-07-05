@@ -46,6 +46,9 @@ export default function Footer() {
         if (res.status === 422) {
             window.alert("You've left an tag empty!")
         }
+        else if (res.status === 500 || !data) {
+            window.alert("Failed To Send Message")
+        }
     }
 
     return (
