@@ -1,45 +1,68 @@
-import React from 'react'
+import React from 'react';
 
 export default function Footer() {
     return (
-        <div className='footer-container'>
-            <h3>
-                About Creator
-            </h3>
-            <div className='contact-info'>
-                <div className='contact-container'>
-                    <div className='icons'>
-                        <i className='fa fa-github'></i>
-                        <p>
-                            HuziDev
-                        </p>
+        <>
+            <div className='footer-background'>
+                <div className='footer-container'>
+                    <h2>
+                        About Creator
+                    </h2>
+                    <div className='footer-items'>
+                        <div className="logo">
+                            <i className="fab fa-github">
+                            </i>
+                            <a href="#">
+                                Huzi-Dev
+                            </a>
+                        </div>
+                        <div className="logo">
+                            <i className="fa fa-envelope">
+                            </i>
+                            <a href="#">
+                                Huzaifa Iqbal
+                            </a>
+                        </div>
+                        <div className="logo">
+                            <i className="fa fa-facebook">
+                            </i>
+                            <a href="#">
+                                huzaifa_iqbal_
+                            </a>
+                        </div>
+                        <div className="logo">
+                            <i className="fa fa-instagram">
+                            </i>
+                            <a href="#">
+                                huzaifa_iqbal_
+                            </a>
+                        </div>
+                        <div className="logo">
+                            <i className="fa fa-phone">
+                            </i>
+                            <a href="#">
+                                123-456-789
+                            </a>
+                        </div>
                     </div>
-                    <div className='icons'>
-                        <i className='fa fa-instagram'></i>
-                        <p>
-                            Huzi-Dev
-                        </p>
-                    </div>
-                    <div className='icons'>
-                        <i className='fa fa-facebook-square'></i>
-                        <p>
-                            Huzi-Dev
-                        </p>
-                    </div>
-                    <div className='icons'>
-                        <i className='fa fa-google'></i>
-                        <p>
-                            Huzi-Dev
-                        </p>
-                    </div>
-                    <div className='icons'>
-                        <i className='fa fa-phone'></i>
-                        <p>
-                            Huzi-Dev
-                        </p>
-                    </div>
+                    <form action="">
+                        <div className='form-main'>
+                            <div className='form-side'>
+                                <input type="text" placeholder='Yours Name'/>
+                                <input type="email" placeholder='Yours Email' />
+                                <input type="Phone" placeholder='Yours Contact (Optional)' />
+                            </div>
+                            <div className='form-comp'>
+                                <textarea name="message" cols="41.5" rows="10" placeholder='Yours Message'>
+                                </textarea>
+                            </div>
+                            <button>
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
