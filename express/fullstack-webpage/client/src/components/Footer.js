@@ -39,8 +39,13 @@ export default function Footer() {
                 number,
                 message
             })
-        })
+        });
 
+        const data = await res.json();
+
+        if (res.status === 422) {
+            window.alert("You've left an tag empty!")
+        }
     }
 
     return (
