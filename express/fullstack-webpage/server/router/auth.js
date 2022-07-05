@@ -145,6 +145,13 @@ router.post('/login', async (req, res) => {
     }
 })
 
+
+router.post('/contact', async (req, res) => {
+
+    // getting all schema
+    const { username, email, number, password, cpassword } = req.body;
+})
+
 router.get('/about', Verification, (req, res) => {
     res.send(req.userInfo) // userInfo is created in Middleware
 })
