@@ -49,6 +49,10 @@ export default function Footer() {
         else if (res.status === 500 || !data) {
             window.alert("Failed To Send Message")
         }
+        else {
+            window.alert("Message Sent Successfully!")
+            Navigate("/")
+        }
     }
 
     return (
