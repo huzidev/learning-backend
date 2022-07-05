@@ -21,3 +21,7 @@ const userMessage = new mongoose.Schema({
         default : Date.now // no need for using () for date.now()
     }
 })
+
+const Contact = mongoose.model("USER-REDUX-MESSAGES", userMessage);
+
+export default Contact;
