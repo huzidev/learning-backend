@@ -95,7 +95,7 @@ export default function Login() {
             <div className='login-page'>
                 <div className='form-data'>
                     <h1>
-                        Login Page
+                        Login
                     </h1>
                     <form method="POST">
                         <input 

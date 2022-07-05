@@ -8,7 +8,7 @@ export default function Home() {
             <Nav />
             <div className='home-page'>
                 <h1>
-                    Home-Page
+                    Items For Sale
                 </h1>
             </div>
             <Footer />

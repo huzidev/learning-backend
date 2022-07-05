@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from './Home';
-import Register from './Register';
+import Register from './RegisterBuyer';
 import Error from './Error';
 import Login from './Login';
 import Logout from './Logout';
