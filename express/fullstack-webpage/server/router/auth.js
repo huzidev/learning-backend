@@ -148,8 +148,18 @@ router.post('/login', async (req, res) => {
 
 router.post('/contact', async (req, res) => {
 
-    // getting all schema
-    const { username, email, number, password, cpassword } = req.body;
+    try{
+        // getting all schema
+        const { username, email, number, message } = req.body;
+
+        if ( !username || !email || !message ) {
+            return res.status(422).json({ error : "You've left an tag empty!" })
+        }
+
+    }
+    catch (err) {
+        console.log(err);
+    }
 })
 
 router.get('/about', Verification, (req, res) => {
