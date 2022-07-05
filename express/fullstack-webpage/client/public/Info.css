@@ -3,6 +3,13 @@
   margin: 20px auto;
   padding: 20px 30px;
   background-color: aqua;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .about-data h3 {
   font-weight: 300;
@@ -23,4 +30,18 @@
 .about-data .user-info h5 {
   font-size: 19px;
   margin: 10px 0px;
+}
+.about-data .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.about-data .container .user-info-container {
+  width: 70%;
+}
+.about-data .container .user-profile {
+  border: 1px solid black;
 }

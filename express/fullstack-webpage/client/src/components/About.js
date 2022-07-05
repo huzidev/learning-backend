@@ -43,37 +43,44 @@ export default function About() {
                 <h3>
                     User's Information
                 </h3>
-                <div className='user-info'>
-                    <h5>
-                        User Id :&nbsp;
-                    </h5>
-                    <p>
-                        {useData._id}
-                    </p>
-                </div>
-                <div className='user-info'>
-                    <h5>
-                        Username :&nbsp;
-                    </h5>
-                    <p>
-                        {useData.username}
-                    </p>
-                </div>
-                <div className='user-info'>
-                    <h5>
-                        User Email :&nbsp;
-                    </h5>
-                    <p>
-                        {useData.email}
-                    </p>
-                </div>
-                <div className='user-info'>
-                    <h5>
-                        User Number :&nbsp; 
-                    </h5>
-                    <p>
-                        {useData.number}
-                    </p>
+                <div className='container'>
+                    <div className='user-info-container'>
+                        <div className='user-info'>
+                            <h5>
+                                User Id :&nbsp;
+                            </h5>
+                            <p>
+                                {useData._id}
+                            </p>
+                        </div>
+                        <div className='user-info'>
+                            <h5>
+                                Username :&nbsp;
+                            </h5>
+                            <p>
+                                {useData.username}
+                            </p>
+                        </div>
+                        <div className='user-info'>
+                            <h5>
+                                User Email :&nbsp;
+                            </h5>
+                            <p>
+                                {useData.email}
+                            </p>
+                        </div>
+                        <div className='user-info'>
+                            <h5>
+                                User Number :&nbsp; 
+                            </h5>
+                            <p>
+                                {useData.number}
+                            </p>
+                        </div>
+                    </div>
+                    <div className='user-profile'>
+                        <img src="" alt="user's-img" />
+                    </div>
                 </div>
             </div>
         </>
