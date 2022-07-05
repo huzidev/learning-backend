@@ -65,35 +65,51 @@ export default function Footer() {
                     </h2>
                     <div className='footer-items'>
                         <div className="logo">
-                            <i className="fab fa-github" href="https://github.com/huzidev" target="_blank" rel="noopener noreferrer">
+                            <i className="fab fa-github">
                             </i>
-                            <a href="https://github.com/huzidev" target="_blank" rel="noopener noreferrer">
+                            <a 
+                                href="https://github.com/huzidev" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                            >
                                 Huzi-Dev
                             </a>
                         </div>
                         <div className="logo">
-                            <i className="fa fa-envelope" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=huzi.iqdev@gmail.com" target="_blank" rel="noopener noreferrer">
+                            <i className="fa fa-envelope">
                             </i>
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=huzi.iqdev@gmail.com" target="_blank" rel="noopener noreferrer">
+                            <a 
+                                href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=huzi.iqdev@gmail.com" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                            >
                                 Huzaifa Iqbal
                             </a>
                         </div>
                         <div className="logo">
-                            <i className="fa fa-facebook" href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                            <i className="fa fa-facebook">
                             </i>
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                            <a 
+                                href="https://facebook.com" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                            >
                                 Huzaifa Iqbal
                             </a>
                         </div>
                         <div className="logo">
-                            <i className="fa fa-instagram" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <i className="fa fa-instagram">
                             </i>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <a 
+                                href="https://instagram.com" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                            >
                                 huzaifa_iqbal_
                             </a>
                         </div>
                         <div className="logo">
-                            <i className="fa fa-phone" href="tel:0303030303">
+                            <i className="fa fa-phone">
                             </i>
                             <a href="tel:0303030303"> 
                             {/* if we uses (tel) then it'll directly opens phone app for you */}
@@ -104,12 +120,37 @@ export default function Footer() {
                     <form action="POST">
                         <div className='form-main'>
                             <div className='form-side'>
-                                <input type="text" placeholder='Yours Name'/>
-                                <input type="email" placeholder='Yours Email' />
-                                <input type="Phone" placeholder='Yours Contact (Optional)' />
+                                <input 
+                                    type="text"
+                                    name="username" // make to sure to add this name property whenever making form
+                                    value={user.username}
+                                    onChange={handleInput}
+                                    placeholder="Yours Name"
+                                />
+                                <input 
+                                    type="email"
+                                    name="email"
+                                    value={user.email}
+                                    onChange={handleInput}
+                                    placeholder='Yours Email'
+                                 />
+                                <input 
+                                    type="Phone" 
+                                    name="number"
+                                    value={user.number}
+                                    onChange={handleInput}
+                                    placeholder='Yours Contact 
+                                (Optional)' />
                             </div>
                             <div className='form-comp'>
-                                <textarea name="message" cols="41.5" rows="10" placeholder='Yours Message'>
+                                <textarea 
+                                    name="message" 
+                                    cols="41.5" 
+                                    rows="10" 
+                                    value={user.message}
+                                    onChange={handleInput}
+                                    placeholder='Yours Message'
+                                >
                                 </textarea>
                             </div>
                             <button>
