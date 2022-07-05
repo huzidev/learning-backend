@@ -39,7 +39,7 @@ export default function Login() {
         // for getting rid of automatic form update
         event.preventDefault();
 
-        const { email, password} = user; // user state already created
+        const { email, password } = user; // user state already created
 
         const res = await fetch("/login", {
             method : "POST",

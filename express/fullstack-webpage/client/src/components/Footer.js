@@ -26,7 +26,20 @@ export default function Footer() {
     async function sendMessage(event) {
         event.preventDefault();
 
-        
+        const { username, email, number, message } = user;
+
+        const res = await fetch("/contact", {
+            method : "POST",
+            headers : {
+                "Content-Type" : "application/json"
+            },
+            body : JSON.stringify({
+                username,
+                email,
+                number,
+                message
+            })
+        })
 
     }
 
