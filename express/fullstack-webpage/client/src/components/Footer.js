@@ -65,28 +65,28 @@ export default function Footer() {
                     </h2>
                     <div className='footer-items'>
                         <div className="logo">
-                            <i className="fab fa-github">
+                            <i className="fab fa-github" target="_blank" rel="noopener noreferrer">
                             </i>
-                            <a href="https://github.com/huzidev">
+                            <a href="https://github.com/huzidev" target="_blank" rel="noopener noreferrer">
                                 Huzi-Dev
                             </a>
                         </div>
                         <div className="logo">
-                            <i className="fa fa-envelope">
+                            <i className="fa fa-envelope" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=huzi.iqdev@gmail.com" target="_blank" rel="noopener noreferrer">
                             </i>
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=huzi.iqdev@gmail.com" target="_blank" rel='noopener noreferrer'>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=huzi.iqdev@gmail.com" target="_blank" rel="noopener noreferrer">
                                 Huzaifa Iqbal
                             </a>
                         </div>
                         <div className="logo">
-                            <i className="fa fa-facebook">
+                            <i className="fa fa-facebook" target="_blank" rel="noopener noreferrer">
                             </i>
-                            <a href="facebook.com">
+                            <a href="facebook.com" target="_blank" rel="noopener noreferrer">
                                 Huzaifa Iqbal
                             </a>
                         </div>
-                        <div className="logo">
-                            <i className="fa fa-instagram">
+                        <div className="logo" target="_blank" rel="noopener noreferrer">
+                            <i className="fa fa-instagram" target="_blank" rel="noopener noreferrer">
                             </i>
                             <a href="instagram.com">
                                 huzaifa_iqbal_
