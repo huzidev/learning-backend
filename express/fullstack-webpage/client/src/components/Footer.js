@@ -5,6 +5,13 @@ export default function Footer() {
 
     const Navigate = useNavigate();
 
+    const [user, setUser] = React.useState({
+        username : "",
+        email : "",
+        number : "",
+        message : ""
+    })
+
     return (
         <>
             <div className='footer-background'>
