@@ -9,6 +9,7 @@ export default function About() {
 
     const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
 
+    
     async function aboutPage() {
         try{
             const res = await fetch('/about', {
@@ -21,7 +22,7 @@ export default function About() {
             })
             const data = await res.json();
             setUserData(data);
-
+            
             // if status failed
             if (!res.status === 200) {
                 const error = new Error(res.error)
@@ -50,8 +51,8 @@ export default function About() {
                     </h3>
                     <p>
                         User's status : Active
+                        <span className='dot'></span>
                     </p>
-                    <span className='dot'></span>
                 </div>
                 <div className='container'>
                     <div className='user-info-container'>
