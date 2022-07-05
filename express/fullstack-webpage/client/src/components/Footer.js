@@ -74,7 +74,7 @@ export default function Footer() {
                         <div className="logo">
                             <i className="fa fa-envelope">
                             </i>
-                            <a href="huzi.iqdev@gmail.com">
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=huzi.iqdev@gmail.com" target="_blank" rel='noopener noreferrer'>
                                 Huzaifa Iqbal
                             </a>
                         </div>
