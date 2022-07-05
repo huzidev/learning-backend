@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import defaultImg from '../assets/default.png';
+import { useSelector } from 'react-redux';
 
 export default function About() {
 
     const [useData, setUserData] = React.useState({}) // if we wanted to upload then we use ('') but here we just getting the data therefore we've used ({}) object we can get object of data
+
+    const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
 
     async function aboutPage() {
         try{
