@@ -1,0 +1,17 @@
+.footer-container {
+  background-color: aqua;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+.footer-container h3 {
+  text-align: center;
+}
+.footer-container .contact-info {
+  border: 1px solid black;
+}
+.footer-container .contact-info .contact-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}

@@ -6,7 +6,7 @@ export default function Footer() {
             <h3>
                 About Creator
             </h3>
-            <div className='contact-tags'>
+            <div className='contact-info'>
                 <div className='contact-container'>
                     <div className='icons'>
                         <i className='fa fa-github'></i>
