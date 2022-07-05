@@ -1,6 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Footer() {
+
+    const Navigate = useNavigate();
+
     return (
         <>
             <div className='footer-background'>
