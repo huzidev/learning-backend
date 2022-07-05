@@ -41,7 +41,9 @@
 }
 .about-data .container .user-info-container {
   width: 70%;
+  border: 1px solid black;
 }
 .about-data .container .user-profile {
+  width: 30%;
   border: 1px solid black;
 }
