@@ -41,9 +41,14 @@ export default function About() {
                 </div>
             </div>
             <div className='about-data'>
-                <h3>
-                    User's Information
-                </h3>
+                <div className='top-header'>
+                    <h3>
+                        User's Information
+                    </h3>
+                    <p>
+                        User's status : Active
+                    </p>
+                </div>
                 <div className='container'>
                     <div className='user-info-container'>
                         <div className='user-info'>
