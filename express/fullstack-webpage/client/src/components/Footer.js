@@ -67,37 +67,38 @@ export default function Footer() {
                         <div className="logo">
                             <i className="fab fa-github">
                             </i>
-                            <Link to="#">
+                            <a href="https://github.com/huzidev">
                                 Huzi-Dev
-                            </Link>
+                            </a>
                         </div>
                         <div className="logo">
                             <i className="fa fa-envelope">
                             </i>
-                            <Link to="#">
+                            <a href="huzi.iqdev@gmail.com">
                                 Huzaifa Iqbal
-                            </Link>
+                            </a>
                         </div>
                         <div className="logo">
                             <i className="fa fa-facebook">
                             </i>
-                            <Link to="#">
-                                huzaifa_iqbal_
-                            </Link>
+                            <a href="facebook.com">
+                                Huzaifa Iqbal
+                            </a>
                         </div>
                         <div className="logo">
                             <i className="fa fa-instagram">
                             </i>
-                            <Link to="#">
+                            <a href="instagram.com">
                                 huzaifa_iqbal_
-                            </Link>
+                            </a>
                         </div>
                         <div className="logo">
                             <i className="fa fa-phone">
                             </i>
-                            <Link to="#">
+                            <a href="tel:0303030303"> 
+                            {/* if we uses (tel) then it'll directly opens phone app for you */}
                                 123-456-789
-                            </Link>
+                            </a>
                         </div>
                     </div>
                     <form action="POST">
