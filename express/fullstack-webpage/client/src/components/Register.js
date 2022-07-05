@@ -186,7 +186,7 @@ export default function Register() {
                         <input 
                             className='register-btn'
                             type="submit"
-                            name="login"
+                            name="register"
                             value="Register"
                             onClick={register}
                         />

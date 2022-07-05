@@ -153,9 +153,13 @@ export default function Footer() {
                                 >
                                 </textarea>
                             </div>
-                            <button>
-                                Send Message
-                            </button>
+                            <input 
+                                className='send-btn'
+                                type="submit"
+                                name="send"
+                                value="send message"
+                                onClick={sendMessage}
+                            />
                         </div>
                     </form>
                 </div>
