@@ -12,6 +12,8 @@ export default function Register() {
     const showPasswordReg = useSelector((state) => state.login.showPasswordReg);
     const showCPasswordReg = useSelector((state) => state.login.showCPasswordReg);
 
+    // const host = 'http://localhost:8000'
+
     const [user, setUser] = React.useState({
         username : "",
         email : "",
@@ -39,7 +41,7 @@ export default function Register() {
 
         const { username, email, number, password, cpassword } = user; // user state already created
 
-        const res = await fetch('/register', {
+        const res = await fetch("/register", {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"
@@ -76,11 +78,10 @@ export default function Register() {
         }
         else {
             window.alert("User registered successfully!");
-            dispatch(logInActions.passwordCondition()); // so input type for password can came to default form
+            dispatch(logInActions.passwordConditionReg()); // so input type for password can came to default form
             console.log("Successful Registration");
             Navigate("/login");
         }
-
     }
 
     function passwordConditionReg() {

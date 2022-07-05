@@ -9,10 +9,11 @@ export default function About() {
 
     const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
 
-    
+    // const host = 'http://localhost:8000'
+
     async function aboutPage() {
         try{
-            const res = await fetch('/about', {
+            const res = await fetch("/about", {
                 method : 'GET',
                 headers : {
                     Accept : "application/json",
@@ -52,8 +53,7 @@ export default function About() {
                     <p>
                         User's status : {isLoggedIn ? 'Active' : 'Inactive'} 
                     </p>
-                    {/* {isLoggedIn ? <span className='dot'></span> : <span className='line'></span>} */}
-                    <span className='line'></span>
+                    {isLoggedIn ? <span className='dot'></span> : <span className='line'></span>}
                 </div>
                 <div className='container'>
                     <div className='user-info-container'>

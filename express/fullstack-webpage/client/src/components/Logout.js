@@ -8,8 +8,10 @@ export default function Logout() {
     const dispatch = useDispatch();
     const Navigate = useNavigate();
 
+    // const host = 'http://localhost:8000'
+
     React.useEffect(() => {
-        fetch('/logout', {
+        fetch("/logout", {
             method : 'GET',
             headers : {
                 Accept : "application/json",
