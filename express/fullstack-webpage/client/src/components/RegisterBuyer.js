@@ -101,7 +101,6 @@ export default function RegisterBuyer() {
     
     return (
         <>
-            <Modal />
             <div className='nav'>
                 <div  className='nav-bar'>
                     <Link to='/' onClick={passwordConditionReg} className='animation'>Home</Link>
