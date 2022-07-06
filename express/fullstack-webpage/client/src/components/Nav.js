@@ -28,7 +28,7 @@ export default function Nav() {
                             : (
                             <>
                                 <Link to='/login' className='animation'>Login</Link>
-                                <Link to='/register/buyer' className='animation'>Register</Link>    
+                                <Link to='/register' className='animation'>Register</Link>    
                             </>
                             )
                     }
