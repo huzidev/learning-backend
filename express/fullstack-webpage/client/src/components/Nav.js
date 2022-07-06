@@ -5,6 +5,9 @@ import { useSelector } from 'react-redux';
 export default function Nav() {
 
     const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
+    
+    const isSeller = useSelector((state) => state.register.registerSeller);
+    const isBuyer = useSelector((state) => state.register.registerBuyer);
   
     return (
         <div className='nav'>
@@ -17,6 +20,27 @@ export default function Nav() {
                                 <Link to='/about' className='animation'>About</Link>
                             ) 
                             : ''
+                    }
+                    {
+                        isBuyer
+                            ? (
+                                <>
+                                    <Link to='/showProducts' className='animation'>Show Products</Link>
+                                    <Link to='/allSellers' className='animation'>All Sellers</Link>
+                                </>
+                            )
+                            : <h5>buyer false</h5>
+                    }
+                    {
+                        isSeller
+                            ? (
+                                <>
+                                    <Link to='/addProducts' className='animation'>Add Product</Link>
+                                    <Link to='/showProducts' className='animation'>Show Products</Link>
+                                    <Link to='/allSellers' className='animation'>All Sellers</Link>
+                                </>
+                            )
+                            : <h5>seller false</h5>
                     }
                 </div>
                 <div className='left-side'>

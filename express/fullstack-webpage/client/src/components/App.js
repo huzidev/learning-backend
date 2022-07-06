@@ -5,13 +5,13 @@ import Error from './Error';
 import Login from './Login';
 import Logout from './Logout';
 import About from './About';
+import RegisterBuyer from './RegisterBuyer';
+import RegisterSeller from './RegisterSeller';
 import {
     BrowserRouter as Router,
     Routes,
     Route,
 } from "react-router-dom";
-import RegisterBuyer from './RegisterBuyer';
-import RegisterSeller from './RegisterSeller';
 
 export default function App() {
     return (

@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logInActions } from '../store/Login-Store';
+import { registerActions } from '../store/Register-Store';
 
 export default function RegisterSeller() {
 
@@ -41,7 +42,7 @@ export default function RegisterSeller() {
 
         const { username, email, number, password, cpassword } = user; // user state already created
 
-        const res = await fetch("/register", {
+        const res = await fetch("/register/seller", {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"
@@ -79,6 +80,7 @@ export default function RegisterSeller() {
         else {
             window.alert("User registered successfully!");
             dispatch(logInActions.passwordConditionReg()); // so input type for password can came to default form
+            dispatch(registerActions.regSeller())
             console.log("Successful Registration");
             Navigate("/login");
         }

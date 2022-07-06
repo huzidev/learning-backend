@@ -3,6 +3,8 @@ import Modal from './Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logInActions } from '../store/Login-Store';
+import { registerActions } from '../store/Register-Store';
+
 
 export default function RegisterBuyer() {
 
@@ -80,6 +82,7 @@ export default function RegisterBuyer() {
         else {
             window.alert("User registered successfully!");
             dispatch(logInActions.passwordConditionReg()); // so input type for password can came to default form
+            dispatch(registerActions.regBuyer())
             console.log("Successful Registration");
             Navigate("/login");
         }
