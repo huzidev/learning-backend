@@ -1,8 +1,10 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import Modal from './Modal';
+import RegisterBuyer from './RegisterBuyer';
+import RegisterSeller from './RegisterSeller';
 import { Link } from 'react-router-dom';
 import registerStore from '../store/Register-Store';
-import Modal from './Modal';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Register() {
 
@@ -20,17 +22,25 @@ export default function Register() {
     return (
         <div>
             <Modal />
+            <Link to='/register/buyer' onClick={buyer}>Buyer</Link>
+            <h3 onClick={buyer}>
+                buyer
+            </h3>
             { 
                 registerBuyer 
                     ? (
-                        <Link to='/register/buyer' onClick={}>Buyer</Link>
+                        <RegisterBuyer />
                     )
                     : ''
             }
+            <Link to='/register/seller' onClick={seller}>Seller</Link>
+            {/* <h3 onClick={seller}>
+                seller
+            </h3> */}
             { 
                 registerSeller
                     ? (
-                        <Link to='/register/seller'>Seller</Link>
+                        <RegisterSeller />
                     )
                     : ''
             }

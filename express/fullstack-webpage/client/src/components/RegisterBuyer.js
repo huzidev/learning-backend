@@ -109,7 +109,7 @@ export default function RegisterBuyer() {
             <div className='register-page'>
                 <div className='form-data'>
                     <h1>
-                        Register
+                        Register As Buyer
                     </h1>
                     <br />
                     <form >

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logInActions } from '../store/Login-Store';
 
-export default function RegisterBuyer() {
+export default function RegisterSeller() {
 
     const Navigate = useNavigate();
 
@@ -108,7 +108,7 @@ export default function RegisterBuyer() {
             <div className='register-page'>
                 <div className='form-data'>
                     <h1>
-                        Register
+                        Register As Seller
                     </h1>
                     <br />
                     <form >

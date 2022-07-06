@@ -10,6 +10,8 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
+import RegisterBuyer from './RegisterBuyer';
+import RegisterSeller from './RegisterSeller';
 
 export default function App() {
     return (
@@ -19,6 +21,8 @@ export default function App() {
                     <Route exact path="/" element={<Home />} />
                     <Route exact path="/login" element={<Login />} />
                     <Route exact path="/register" element={<Register />} />
+                    <Route exact path="/register/buyer" element={<RegisterBuyer />} />
+                    <Route exact path="/register/seller" element={<RegisterSeller />} />
                     <Route exact path="/logout" element={<Logout />} />
                     <Route exact path="/about" element={<About />} />
                     <Route exact path="*" element={<Error />} />
