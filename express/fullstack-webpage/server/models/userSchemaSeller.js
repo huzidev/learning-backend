@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs"; // for securing user password
 import jwt from "jsonwebtoken";
 
-const userSchema = new mongoose.Schema({
+const userSchemaSeller = new mongoose.Schema({
     username : {
         type : String,
         required : true
@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
 })
 
 // HASHING password
-userSchema.pre('save', async function (next) { // we've to use (this.) therefore we can't use arrow function here
+userSchemaSeller.pre('save', async function (next) { // we've to use (this.) therefore we can't use arrow function here
     if (this.isModified('password')) {
         this.password = await bcrypt.hash(this.password, 12)
         this.cpassword = await bcrypt.hash(this.cpassword, 12)
@@ -42,7 +42,7 @@ userSchema.pre('save', async function (next) { // we've to use (this.) therefore
 
 
 // GENERATING AUTH-TOKEN
-userSchema.methods.generateAuthToken = async function () {
+userSchemaSeller.methods.generateAuthToken = async function () {
     try{
         // sign for creating token
         let token = jwt.sign({ _id : this._id }, process.env.SECRET_KEY);
@@ -58,6 +58,6 @@ userSchema.methods.generateAuthToken = async function () {
 }
 
 
-const User = mongoose.model('REDUX-USER', userSchema);
+const UserSeller = mongoose.model('REDUX-USER-SELLER', userSchemaSeller);
 
-module.exports = User;
+module.exports = UserSeller;
