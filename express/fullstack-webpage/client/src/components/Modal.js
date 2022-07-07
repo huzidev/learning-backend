@@ -2,7 +2,7 @@ import React from 'react';
 // import RegisterBuyer from './RegisterBuyer';
 // import RegisterSeller from './RegisterSeller';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Modal() {
 
@@ -16,6 +16,8 @@ export default function Modal() {
     // function seller() {
     //     dispatch(registerStore.regSeller())
     // }
+
+    const registerState = useSelector((state) => state.register.registerState)
 
     return (
         <div className='modal'>

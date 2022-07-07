@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { registerActions } from '../store/Register-Store';
 
 export default function Nav() {
 
@@ -11,7 +12,9 @@ export default function Nav() {
     const isSeller = useSelector((state) => state.register.registerSeller);
     const isBuyer = useSelector((state) => state.register.registerBuyer);
   
-
+    function register() {
+        dispatch(registerActions.registerState());
+    }
     
     return (
         <div className='nav'>
