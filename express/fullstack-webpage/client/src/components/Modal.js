@@ -1,24 +1,11 @@
 import React from 'react';
-// import RegisterBuyer from './RegisterBuyer';
-// import RegisterSeller from './RegisterSeller';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 export default function Modal() {
 
-
-    // const registerBuyer = useSelector((state) => state.register.registerBuyer);
-    // const registerSeller = useSelector((state) => state.register.registerSeller);
-
-    // function buyer() {
-    //     dispatch(registerStore.regBuyer())
-    // }
-    // function seller() {
-    //     dispatch(registerStore.regSeller())
-    // }
-
-    const registerState = useSelector((state) => state.register.registerState)
-    const loginState = useSelector((state) => state.register.loginState)
+    const registerState = useSelector((state) => state.login.registerState)
+    const loginState = useSelector((state) => state.login.loginState)
 
     return (
         <div className='modal'>

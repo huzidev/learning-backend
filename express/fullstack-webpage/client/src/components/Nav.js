@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerActions } from '../store/Register-Store';
+import { stateActions } from '../store/State-Store';
 
 export default function Nav() {
 
@@ -9,14 +9,14 @@ export default function Nav() {
 
     const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
     
-    const isSeller = useSelector((state) => state.register.registerSeller);
-    const isBuyer = useSelector((state) => state.register.registerBuyer);
+    const isSeller = useSelector((state) => state.login.registerSeller);
+    const isBuyer = useSelector((state) => state.login.registerBuyer);
   
     function register() {
-        dispatch(registerActions.registerState());
+        dispatch(stateActions.registerState());
     }
     function login() {
-        dispatch(registerActions.loginState());
+        dispatch(stateActions.loginState());
     }
     
     return (

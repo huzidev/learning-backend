@@ -1,12 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const logInStore = createSlice({
+const stateStore = createSlice({
     name : 'login',
     initialState : {
         isLoggedIn : false,
         showPasswordReg: false,
         showCPasswordReg: false,
-        showPasswordLog: false
+        showPasswordLog: false,
+        loginState : false,
+        registerState : false,
+        registerBuyer : false,
+        registerSeller : false
     },
     reducers : {
         logIn(state) {
@@ -30,6 +34,10 @@ const logInStore = createSlice({
             if (state.showCPasswordReg === true) {
                 state.showCPasswordReg = false
             }
+            state.loginState = true
+            if (state.registerState === true) {
+                state.registerState = false
+            }
         },
         // for login page
         typePasswordLog(state) {
@@ -40,9 +48,21 @@ const logInStore = createSlice({
                 state.showPasswordLog = false;
             }
         },
+        registerState(state) {
+            state.registerState = true
+            if (state.loginState === true) {
+                state.loginState = false
+            }
+        },
+        loginState(state) {
+            state.loginState = true
+            if (state.registerState === true) {
+                state.registerState = false
+            }
+        },
     }
 })
 
-export const logInActions = logInStore.actions;
+export const stateActions = stateStore.actions;
 
-export default logInStore;
+export default stateStore;

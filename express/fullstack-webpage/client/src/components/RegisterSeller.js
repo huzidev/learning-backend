@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { logInActions } from '../store/Login-Store';
-import { registerActions } from '../store/Register-Store';
+import { stateActions } from '../store/State-Store';
 
 export default function RegisterSeller() {
 
@@ -79,21 +78,21 @@ export default function RegisterSeller() {
         }
         else {
             window.alert("User registered successfully!");
-            dispatch(logInActions.passwordConditionReg()); // so input type for password can came to default form
-            dispatch(registerActions.regSeller())
+            dispatch(stateActions.passwordConditionReg()); // so input type for password can came to default form
+            dispatch(stateActions.regSeller())
             console.log("Successful Registration");
             Navigate("/login");
         }
     }
 
     function passwordConditionReg() {
-        dispatch(logInActions.passwordConditionReg())
+        dispatch(stateActions.passwordConditionReg())
     }
     function showPass() {
-        dispatch(logInActions.typePasswordReg());
+        dispatch(stateActions.typePasswordReg());
     }
     function showCPass() {
-        dispatch(logInActions.typeCPasswordReg());
+        dispatch(stateActions.typeCPasswordReg());
     }
 
     // for input types

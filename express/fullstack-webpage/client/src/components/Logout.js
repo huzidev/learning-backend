@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logInActions } from '../store/Login-Store';
+import { stateActions } from '../store/State-Store';
 
 export default function Logout() {
 
@@ -28,7 +28,7 @@ export default function Logout() {
             }
             else {
                 window.alert("User loggedOut successfully!");
-                dispatch(logInActions.Logout());
+                dispatch(stateActions.Logout());
             }
         }).catch((err) => {
             console.log(err);
