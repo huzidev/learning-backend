@@ -41,7 +41,7 @@ export default function Login() {
 
         const { email, password } = user; // user state already created
 
-        const res = await fetch("/login/buyer", {
+        const res = await fetch("/login/seller", {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"

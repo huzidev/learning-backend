@@ -18,7 +18,7 @@ export default function Modal() {
     // }
 
     const registerState = useSelector((state) => state.register.registerState)
-    const loginState = useSelector((state) => state.login.loginState)
+    const loginState = useSelector((state) => state.register.loginState)
 
     return (
         <div className='modal'>
