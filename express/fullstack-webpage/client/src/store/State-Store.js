@@ -47,6 +47,10 @@ const stateStore = createSlice({
             if (state.showPasswordLog === true) {
                 state.showPasswordLog = false;
             }
+            state.registerState = true
+            if (state.loginState === true) {
+                state.loginState = false
+            }
         },
         registerState(state) {
             state.registerState = true

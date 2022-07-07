@@ -3,6 +3,8 @@ import Home from './Home';
 import Register from './Register';
 import Error from './Error';
 import Login from './Login';
+import LoginBuyer from './LoginBuyer'
+import LoginSeller from './LoginSeller'
 import Logout from './Logout';
 import About from './About';
 import RegisterBuyer from './RegisterBuyer';
@@ -20,6 +22,8 @@ export default function App() {
                 <Routes>
                     <Route exact path="/" element={<Home />} />
                     <Route exact path="/login" element={<Login />} />
+                    <Route exact path="/login/buyer" element={<LoginBuyer />} />
+                    <Route exact path="/login/seller" element={<LoginSeller />} />
                     <Route exact path="/register" element={<Register />} />
                     <Route exact path="/register/buyer" element={<RegisterBuyer />} />
                     <Route exact path="/register/seller" element={<RegisterSeller />} />

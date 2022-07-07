@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { logInActions } from '../store/Login-Store';
+import { stateActions } from '../store/State-Store';
 import { useDispatch, useSelector } from 'react-redux';
 
-export default function Login() {
+export default function LoginSeller() {
 
     const Navigate = useNavigate();
     
@@ -68,19 +68,19 @@ export default function Login() {
         else {
             window.alert("User loggedIn successfully!");
             // REDUX FUNCTION FOR CHANGING NAV-BAR
-            dispatch(logInActions.logIn());
+            dispatch(stateActions.logIn());
             // redux function for changing state type of password
-            dispatch(logInActions.passwordConditionLog());
+            dispatch(stateActions.passwordConditionLog());
             console.log("Successfully loggedIn");
             Navigate("/");
         }
     }
 
     function passwordConditionLog() {
-        dispatch(logInActions.passwordConditionLog())
+        dispatch(stateActions.passwordConditionLog())
     }
     function showPass() {
-        dispatch(logInActions.typePasswordLog());
+        dispatch(stateActions.typePasswordLog());
     }
 
     const typePasswordType = showPasswordLog ? 'text' : 'password';
