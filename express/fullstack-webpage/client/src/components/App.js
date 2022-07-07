@@ -7,6 +7,7 @@ import LoginBuyer from './LoginBuyer'
 import LoginSeller from './LoginSeller'
 import Logout from './Logout';
 import AboutSeller from './AboutSeller';
+import AboutBuyer from './AboutBuyer';
 import RegisterBuyer from './RegisterBuyer';
 import RegisterSeller from './RegisterSeller';
 import {
@@ -28,6 +29,7 @@ export default function App() {
                     <Route exact path="/register/buyer" element={<RegisterBuyer />} />
                     <Route exact path="/register/seller" element={<RegisterSeller />} />
                     <Route exact path="/about/seller" element={<AboutSeller />} />
+                    <Route exact path="/about/buyer" element={<AboutBuyer />} />
                     <Route exact path="/logout" element={<Logout />} />
                     <Route exact path="*" element={<Error />} />
                 </Routes>
