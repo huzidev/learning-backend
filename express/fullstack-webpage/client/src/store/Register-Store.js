@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const registerStore = createSlice({
     name : 'register',
     initialState : {
+        register : false,
         registerBuyer : false,
         registerSeller : false
     },
@@ -12,6 +13,9 @@ const registerStore = createSlice({
         },
         regSeller(state) {
             state.registerSeller = !state.registerSeller;
+        },
+        registerState(state) {
+            state.register = !state.register; 
         }
     }
 })
