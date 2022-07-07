@@ -7,13 +7,14 @@ export default function About() {
 
     const [useData, setUserData] = React.useState({}) // if we wanted to upload then we use ('') but here we just getting the data therefore we've used ({}) object we can get object of data
 
-    const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
+    const isLoggedInSeller = useSelector((state) => state.login.isLoggedInSeller)
+    const isLoggedInBuyer = useSelector((state) => state.login.isLoggedInBuyer)
 
     // const host = 'http://localhost:8000'
-
-    async function aboutPage() {
+    // about page for seller
+    async function aboutPageSeller() {
         try{
-            const res = await fetch("/about", {
+            const res = await fetch("/about/seller", {
                 method : 'GET',
                 headers : {
                     Accept : "application/json",
@@ -34,8 +35,39 @@ export default function About() {
             console.log(err);
         }
     }
+
+    async function aboutPageBuyer() {
+        try{
+            const res = await fetch("/about/buyer", {
+                method : 'GET',
+                headers : {
+                    Accept : "application/json",
+                    "Content-Type" : "application/json"
+                },
+                credentials : "include"
+            })
+            const data = await res.json();
+            setUserData(data);
+            
+            // if status failed
+            if (!res.status === 200) {
+                const error = new Error(res.error)
+                throw error;
+            }
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+
+    // about page for buyer
     React.useEffect(() => {
-        aboutPage();
+        if (isLoggedInSeller === true) {
+            aboutPageSeller();
+        }
+        else if (isLoggedInBuyer === true) {
+            aboutPageBuyer();
+        }
     }, [])
     
     return (
@@ -51,9 +83,9 @@ export default function About() {
                         User's Information
                     </h3>
                     <p>
-                        User's status : {isLoggedIn ? 'Active' : 'Inactive'} 
+                        User's status : {isLoggedInSeller || isLoggedInBuyer ? 'Active' : 'Inactive'} 
                     </p>
-                    {isLoggedIn ? <span className='dot'></span> : <span className='line'></span>}
+                    {isLoggedInSeller || isLoggedInBuyer ? <span className='dot'></span> : <span className='line'></span>}
                 </div>
                 <div className='container'>
                     <div className='user-info-container'>
