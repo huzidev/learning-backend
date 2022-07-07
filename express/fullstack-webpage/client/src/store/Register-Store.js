@@ -18,13 +18,13 @@ const registerStore = createSlice({
         registerState(state) {
             state.registerState = true
             if (state.loginState === true) {
-                state.loginState = !state.loginState
+                state.loginState = false
             }
         },
         loginState(state) {
             state.loginState = true
             if (state.registerState === true) {
-                state.registerState = !state.registerState
+                state.registerState = false
             }
         },
         // overAllState(state) {
