@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const logInStore = createSlice({
     name : 'login',
     initialState : {
+        loginState : false,
         isLoggedIn : false,
         showPasswordReg: false,
         showCPasswordReg: false,
@@ -30,6 +31,10 @@ const logInStore = createSlice({
             if (state.showCPasswordReg === true) {
                 state.showCPasswordReg = false
             }
+        },
+
+        loginState(state) {
+            state.loginState = !state.loginState; 
         },
 
         // for login page
