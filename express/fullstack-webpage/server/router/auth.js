@@ -56,7 +56,7 @@ router.post('/register/seller', async (req, res) => {
         else {
 
             // user info
-            const user = new User({ username, email, number, password, cpassword });
+            const user = new UserSeller({ username, email, number, password, cpassword });
 
             // saving user data
             const userRegister = await user.save();
@@ -112,7 +112,7 @@ router.post('/register/buyer', async (req, res) => {
         else {
 
             // user info
-            const user = new User({ username, email, number, password, cpassword });
+            const user = new UserBuyer({ username, email, number, password, cpassword });
 
             // saving user data
             const userRegister = await user.save();
@@ -300,10 +300,10 @@ router.post('/contact', async (req, res) => {
     }
 })
 
-router.get('/about/seller', Verification, (req, res) => {
+router.get('/about/seller', VerificationSeller, (req, res) => {
     res.send(req.userInfo) // userInfo is created in Middleware
 })
-router.get('/about/buyer', Verification, (req, res) => {
+router.get('/about/buyer', VerificationBuyer, (req, res) => {
     res.send(req.userInfo) // userInfo is created in Middleware
 })
 

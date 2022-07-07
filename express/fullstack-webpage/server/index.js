@@ -28,7 +28,8 @@ server.use(bodyParser.urlencoded({ extended : true }));
 
 
 // MIDDLEWARE
-import Verification from './middleware/Verification';
+import VerificationBuyer from './middleware/VerificationBuyer';
+import VerificationSeller from './middleware/VerificationSeller';
 server.use('/images', express.static('images'))
 server.use(cookie());
 
