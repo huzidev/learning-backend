@@ -1,29 +1,29 @@
-import User from '../models/userSchema';
+import UserBuyer from '../models/userSchemaBuyer';
 import jwt from 'jsonwebtoken';
 
-const Verification = async (req, res, next) => {
+const VerificationBuyer = async (req, res, next) => {
     try{
         // getting stored token from cookies therefore we've used req
         // const token = req.cookies.jwtoken;
 
         // verifying user
-        const verifyUser = jwt.verify(req.cookies.jwtoken, process.env.SECRET_KEY);
-        let verifyToken = verifyUser._id;
+        const verifyBuyer = jwt.verify(req.cookies.jwtoken, process.env.SECRET_KEY);
+        let verifyToken = verifyBuyer._id;
 
         // finding user data through token
-        const userInfo = await User.findOne({ 
+        const buyerInfo = await UserBuyer.findOne({ 
             _id : verifyToken, 
             // comparing token from cookies with the token stored in the backend
             "tokens.token" : req.cookies.jwtoken 
         })
-        if (!userInfo) {
+        if (!buyerInfo) {
             throw new Error("User not found"); // we'll not use return
         }
 
         // for getting user information to show in about page
         req.token = req.cookies.jwtoken;
-        req.userInfo = userInfo;
-        req.userID = userInfo._id;
+        req.buyerInfo = buyerInfo;
+        req.userID = buyerInfo._id;
 
         next();
     }
@@ -32,4 +32,4 @@ const Verification = async (req, res, next) => {
     }
 }
 
-module.exports = Verification;
+module.exports = VerificationBuyer;
