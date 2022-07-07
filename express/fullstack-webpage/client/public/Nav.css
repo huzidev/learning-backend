@@ -16,19 +16,26 @@
           align-items: center;
 }
 .nav .nav-bar .right-side {
-  width: 300px;
-}
-.nav .nav-bar .right-side .right-element {
-  margin-right: 20px;
-}
-.nav .nav-bar .left-side {
-  width: 700px;
+  width: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
+  gap: 20px;
+}
+.nav .nav-bar .right-side .right-element {
+  margin-right: 20px;
+}
+.nav .nav-bar .left-side {
+  width: 480px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .nav .nav-bar .left-side a {
   margin: 0px 15px;

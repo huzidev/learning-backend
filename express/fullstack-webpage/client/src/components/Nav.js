@@ -20,7 +20,7 @@ export default function Nav() {
     return (
         <div className='nav'>
             <div className='nav-bar'>
-                <div className='right-side'>
+                <div className='left-side'>
                     <Link to='/' className='animation right-element'>Home</Link>
                     {
                         isLoggedInSeller
@@ -58,7 +58,7 @@ export default function Nav() {
                             : ''
                     }
                 </div>
-                <div className='left-side'>
+                <div className='right-side'>
                     {
                         isLoggedInSeller || isLoggedInBuyer
                             ? (
