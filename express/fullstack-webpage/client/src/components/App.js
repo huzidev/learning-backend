@@ -22,8 +22,14 @@ export default function App() {
     const isBuyer = useSelector((state) => state.login.isLoggedInBuyer)
     const isSeller = useSelector((state) => state.login.isLoggedInSeller)
     
+    const registerBuyer = useSelector((state) => state.login.registerBuyer)
+    const registerSeller = useSelector((state) => state.login.registerSeller)
+
     const pathBuyer = isBuyer ? '/buyer' : ''
     const pathSeller = isSeller ? '/seller' : ''
+
+    const pathBuyerReg = registerBuyer ? '/buyer' : ''
+    const pathSellerReg = registerSeller ? '/seller' : ''
     return (
         <div>
             <Router>
@@ -33,15 +39,18 @@ export default function App() {
                     <Route exact path="/login/buyer" element={<LoginBuyer />} />
                     <Route exact path="/login/seller" element={<LoginSeller />} />
                     <Route exact path="/register" element={<Register />} />
-                    <Route exact path="/register/buyer" element={<RegisterBuyer />} />
-                    <Route exact path="/register/seller" element={<RegisterSeller />} />
                     {
-                        isBuyer ? (<Route exact path={`/about` + pathBuyer} element={<About />} />) : ''
+                        registerBuyer ? <Route exact path={`/register` + pathBuyerReg} element={<Register />} /> : ''
                     }
                     {
-                        isSeller ? (<Route exact path={`/about` + pathSeller} element={<About />} />) : ''
+                        registerSeller ? <Route exact path={`/register` + pathSellerReg} element={<Register />} /> : ''
                     }
-                    {/* <Route exact path="/about/buyer" element={<AboutBuyer />} /> */}
+                    {
+                        isBuyer ? <Route exact path={`/about` + pathBuyer} element={<About />} /> : ''
+                    }
+                    {
+                        isSeller ? <Route exact path={`/about` + pathSeller} element={<About />} /> : ''
+                    }
                     <Route exact path="/logout" element={<Logout />} />
                     <Route exact path="*" element={<Error />} />
                 </Routes>
