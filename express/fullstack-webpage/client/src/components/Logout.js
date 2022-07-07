@@ -9,7 +9,8 @@ export default function Logout() {
     const Navigate = useNavigate();
 
     // const host = 'http://localhost:8000'
-
+    
+    // since useEffect didn't support async await therefore we'll not use that
     React.useEffect(() => {
         fetch("/logout", {
             method : 'GET',
