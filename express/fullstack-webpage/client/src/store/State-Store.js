@@ -21,7 +21,12 @@ const stateStore = createSlice({
             state.isLoggedBuyer = true;
         },
         Logout(state) {
-            state.isLoggedIn = false;
+            if (state.isLoggedSeller === true) {
+                state.isLoggedSeller = false
+            }
+            else if (state.isLoggedBuyer === true) {
+                state.isLoggedBuyer = false
+            }
         },
 
         // for register page
