@@ -58,6 +58,6 @@ userSchemaBuyer.methods.generateAuthToken = async function () {
 }
 
 
-const UserBuyer = mongoose.model('REDUX-USER-SELLER', userSchemaBuyer);
+const UserBuyer = mongoose.model('REDUX-USER-BUYER', userSchemaBuyer);
 
 module.exports = UserBuyer;
