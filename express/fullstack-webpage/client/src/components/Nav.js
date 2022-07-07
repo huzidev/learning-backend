@@ -21,7 +21,7 @@ export default function Nav() {
         <div className='nav'>
             <div className='nav-bar'>
                 <div className='left-side'>
-                    <Link to='/' className='animation right-element'>Home</Link>
+                    <Link to='/' className='animation left-element'>Home</Link>
                     {
                         isLoggedInSeller
                             ? (
@@ -62,12 +62,12 @@ export default function Nav() {
                     {
                         isLoggedInSeller || isLoggedInBuyer
                             ? (
-                                <Link to='/logout' className='animation'>Logout</Link>
+                                <Link to='/logout' className='animation right-element'>Logout</Link>
                             )
                             : (
                                 <>
                                     <Link to='/login' className='animation' onClick={login}>Login</Link>
-                                    <Link to='/register' className='animation' onClick={register}>Register</Link>    
+                                    <Link to='/register' className='animation right-element' onClick={register}>Register</Link>    
                                 </>
                             )
                     }

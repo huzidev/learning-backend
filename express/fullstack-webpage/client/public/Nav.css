@@ -16,7 +16,7 @@
           align-items: center;
 }
 .nav .nav-bar .right-side {
-  width: 600px;
+  width: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26,16 +26,13 @@
   gap: 20px;
 }
 .nav .nav-bar .right-side .right-element {
-  margin-right: 20px;
+  margin: 0px 15px;
 }
 .nav .nav-bar .left-side {
-  width: 480px;
+  width: 700px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 .nav .nav-bar .left-side a {
   margin: 0px 15px;
