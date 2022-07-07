@@ -79,7 +79,6 @@ export default function RegisterSeller() {
         else {
             window.alert("User registered successfully!");
             dispatch(stateActions.passwordConditionReg()); // so input type for password can came to default form
-            dispatch(stateActions.regSeller())
             console.log("Successful Registration");
             Navigate("/login");
         }
