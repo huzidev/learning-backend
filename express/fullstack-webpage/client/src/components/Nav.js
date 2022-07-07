@@ -37,7 +37,8 @@ export default function Nav() {
                          : ''
                     }
                     {
-                        isLoggedInBuyer 
+                        // isLoggedInBuyer 
+                        localStorage.getItem('jwtoken')
                             ? (
                                 <>
                                     <Link to='/showProducts' className='animation'>Show Products</Link>
@@ -47,7 +48,8 @@ export default function Nav() {
                             : ''
                     }
                     {
-                        isLoggedInSeller
+                        // isLoggedInSeller
+                        localStorage.getItem('jwtoken')
                             ? (
                                 <>
                                     <Link to='/addProducts' className='animation'>Add Product</Link>
