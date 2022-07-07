@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Nav() {
+
+    const dispatch = useDispatch()
 
     const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
     
     const isSeller = useSelector((state) => state.register.registerSeller);
     const isBuyer = useSelector((state) => state.register.registerBuyer);
   
+
+    
     return (
         <div className='nav'>
             <div className='nav-bar'>
@@ -52,7 +56,7 @@ export default function Nav() {
                             : (
                             <>
                                 <Link to='/login' className='animation'>Login</Link>
-                                <Link to='/register' className='animation'>Register</Link>    
+                                <Link to='/register' className='animation' onClick={register}>Register</Link>    
                             </>
                             )
                     }
