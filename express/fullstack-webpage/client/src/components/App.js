@@ -6,8 +6,8 @@ import Login from './Login';
 import LoginBuyer from './LoginBuyer'
 import LoginSeller from './LoginSeller'
 import Logout from './Logout';
-import AboutSeller from './AboutSeller';
-import AboutBuyer from './AboutBuyer';
+import About from './About';
+// import AboutBuyer from './AboutBuyer';
 import RegisterBuyer from './RegisterBuyer';
 import RegisterSeller from './RegisterSeller';
 import {
@@ -15,8 +15,15 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 export default function App() {
+
+    const isBuyer = useSelector((state) => state.login.isLoggedInBuyer)
+    const isSeller = useSelector((state) => state.login.isLoggedInSeller)
+    
+    const pathBuyer = isBuyer ? '/buyer' : ''
+    const pathSeller = isSeller ? '/seller' : ''
     return (
         <div>
             <Router>
@@ -28,8 +35,13 @@ export default function App() {
                     <Route exact path="/register" element={<Register />} />
                     <Route exact path="/register/buyer" element={<RegisterBuyer />} />
                     <Route exact path="/register/seller" element={<RegisterSeller />} />
-                    <Route exact path="/about/seller" element={<AboutSeller />} />
-                    <Route exact path="/about/buyer" element={<AboutBuyer />} />
+                    {
+                        isBuyer ? (<Route exact path={`/about` + pathBuyer} element={<About />} />) : ''
+                    }
+                    {
+                        isSeller ? (<Route exact path={`/about` + pathSeller} element={<About />} />) : ''
+                    }
+                    {/* <Route exact path="/about/buyer" element={<AboutBuyer />} /> */}
                     <Route exact path="/logout" element={<Logout />} />
                     <Route exact path="*" element={<Error />} />
                 </Routes>
