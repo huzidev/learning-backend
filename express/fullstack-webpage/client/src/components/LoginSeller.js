@@ -68,7 +68,7 @@ export default function LoginSeller() {
         else {
             window.alert("User loggedIn successfully!");
             // REDUX FUNCTION FOR CHANGING NAV-BAR
-            dispatch(stateActions.logIn());
+            dispatch(stateActions.logInSeller());
             // redux function for changing state type of password
             dispatch(stateActions.passwordConditionLog());
             console.log("Successfully loggedIn");
