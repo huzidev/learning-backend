@@ -60,7 +60,8 @@ export default function Nav() {
                 </div>
                 <div className='right-side'>
                     {
-                        isLoggedInSeller || isLoggedInBuyer
+                        // isLoggedInSeller || isLoggedInBuyer
+                        localStorage.getItem('jwtoken')
                             ? (
                                 <Link to='/logout' className='animation right-element'>Logout</Link>
                             )
