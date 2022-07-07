@@ -3,7 +3,8 @@ import bcrypt from 'bcryptjs';
 import UserBuyer from "../models/userSchemaBuyer";
 import UserSeller from "../models/userSchemaSeller";
 import Contact from "../models/userMessage";
-import Verification from '../middleware/VerificationSeller';
+import VerificationBuyer from '../middleware/VerificationBuyer';
+import VerificationSeller from '../middleware/VerificationSeller';
 import cookie from "cookie-parser";
 import cors from "cors";
 
@@ -299,7 +300,10 @@ router.post('/contact', async (req, res) => {
     }
 })
 
-router.get('/about', Verification, (req, res) => {
+router.get('/about/seller', Verification, (req, res) => {
+    res.send(req.userInfo) // userInfo is created in Middleware
+})
+router.get('/about/buyer', Verification, (req, res) => {
     res.send(req.userInfo) // userInfo is created in Middleware
 })
 
