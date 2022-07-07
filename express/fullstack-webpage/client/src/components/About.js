@@ -70,6 +70,7 @@ export default function About() {
         }
     }, [])
     
+
     return (
         <>
             <div className='nav'>
@@ -80,7 +81,8 @@ export default function About() {
             <div className='about-data'>
                 <div className='top-header'>
                     <h3>
-                        User's Information
+                        {isLoggedInSeller ? "Seller's Information" : ''}
+                        {isLoggedInBuyer ? "Buyer's Information" : ''}
                     </h3>
                     <p>
                         User's status : {isLoggedInSeller || isLoggedInBuyer ? 'Active' : 'Inactive'} 
