@@ -18,6 +18,7 @@ export default function Modal() {
     // }
 
     const registerState = useSelector((state) => state.register.registerState)
+    const loginState = useSelector((state) => state.login.loginState)
 
     return (
         <div className='modal'>
@@ -35,13 +36,21 @@ export default function Modal() {
                         </>
                     )
                     : ''
-                {/* for loggingIn */}
-                <h5>
-                    Login as <Link to='/login/buyer'>Buyer</Link>
-                </h5>
-                <h5>
-                    Login as <Link to='/login/seller'>Seller</Link>
-                </h5>
+            }
+            {/* for loggingIn */}   
+            {
+                loginState 
+                    ? (
+                        <>
+                            <h5>
+                                Login as <Link to='/login/buyer'>Buyer</Link>
+                            </h5>
+                            <h5>
+                                Login as <Link to='/login/seller'>Seller</Link>
+                            </h5>
+                        </>
+                    )
+                    : ''
             }
         </div>
     )
