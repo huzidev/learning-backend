@@ -301,10 +301,10 @@ router.post('/contact', async (req, res) => {
 })
 
 router.get('/about/seller', VerificationSeller, (req, res) => {
-    res.send(req.userInfo) // userInfo is created in Middleware
+    res.send(req.sellerInfo) // userInfo is created in Middleware
 })
 router.get('/about/buyer', VerificationBuyer, (req, res) => {
-    res.send(req.userInfo) // userInfo is created in Middleware
+    res.send(req.buyerInfo) // userInfo is created in Middleware
 })
 
 // for LOGOUT
