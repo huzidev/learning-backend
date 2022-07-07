@@ -95,7 +95,7 @@ export default function LoginBuyer() {
             <div className='login-page'>
                 <div className='form-data'>
                     <h1>
-                        Login
+                        Login As Buyer
                     </h1>
                     <form method="POST">
                         <input 
