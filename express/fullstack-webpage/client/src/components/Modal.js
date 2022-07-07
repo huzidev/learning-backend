@@ -2,7 +2,7 @@ import React from 'react';
 // import RegisterBuyer from './RegisterBuyer';
 // import RegisterSeller from './RegisterSeller';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export default function Modal() {
 

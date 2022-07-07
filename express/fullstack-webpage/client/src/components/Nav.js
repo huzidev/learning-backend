@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerActions } from '../store/Register-Store';
-import { logInActions } from '../store/Login-Store';
 
 export default function Nav() {
 
@@ -17,7 +16,7 @@ export default function Nav() {
         dispatch(registerActions.registerState());
     }
     function login() {
-        dispatch(logInActions.loginState());
+        dispatch(registerActions.loginState());
     }
     
     return (
@@ -61,10 +60,10 @@ export default function Nav() {
                                 <Link to='/logout' className='animation'>Logout</Link>
                             )
                             : (
-                            <>
-                                <Link to='/login' className='animation' onClick={login}>Login</Link>
-                                <Link to='/register' className='animation' onClick={register}>Register</Link>    
-                            </>
+                                <>
+                                    <Link to='/login' className='animation' onClick={login}>Login</Link>
+                                    <Link to='/register' className='animation' onClick={register}>Register</Link>    
+                                </>
                             )
                     }
                 </div>
