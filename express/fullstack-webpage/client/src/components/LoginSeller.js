@@ -34,7 +34,7 @@ export default function LoginSeller() {
         });
     }
 
-    async function login(event) {
+    async function loginSeller(event) {
 
         // for getting rid of automatic form update
         event.preventDefault();
@@ -136,7 +136,7 @@ export default function LoginSeller() {
                             type="submit"
                             name="login"
                             value="Login"
-                            onClick={login}
+                            onClick={loginSeller}
                         />
                     </form>
                 </div>

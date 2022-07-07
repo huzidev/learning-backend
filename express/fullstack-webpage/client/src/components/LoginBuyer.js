@@ -34,7 +34,7 @@ export default function LoginBuyer() {
         });
     }
 
-    async function login(event) {
+    async function loginBuyer(event) {
 
         // for getting rid of automatic form update
         event.preventDefault();
@@ -136,7 +136,7 @@ export default function LoginBuyer() {
                             type="submit"
                             name="login"
                             value="Login"
-                            onClick={login}
+                            onClick={loginBuyer}
                         />
                     </form>
                 </div>

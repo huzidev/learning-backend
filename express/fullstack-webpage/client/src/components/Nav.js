@@ -7,7 +7,8 @@ export default function Nav() {
 
     const dispatch = useDispatch()
 
-    const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
+    const isLoggedInSeller = useSelector((state) => state.login.isLoggedSeller);
+    const isLoggedInBuyer = useSelector((state) => state.login.isLoggedBuyer);
     
     const isSeller = useSelector((state) => state.login.registerSeller);
     const isBuyer = useSelector((state) => state.login.registerBuyer);
