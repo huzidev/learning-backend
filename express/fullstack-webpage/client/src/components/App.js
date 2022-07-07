@@ -6,7 +6,7 @@ import Login from './Login';
 import LoginBuyer from './LoginBuyer'
 import LoginSeller from './LoginSeller'
 import Logout from './Logout';
-import About from './About';
+import AboutSeller from './AboutSeller';
 import RegisterBuyer from './RegisterBuyer';
 import RegisterSeller from './RegisterSeller';
 import {
@@ -27,8 +27,8 @@ export default function App() {
                     <Route exact path="/register" element={<Register />} />
                     <Route exact path="/register/buyer" element={<RegisterBuyer />} />
                     <Route exact path="/register/seller" element={<RegisterSeller />} />
+                    <Route exact path="/about/seller" element={<AboutSeller />} />
                     <Route exact path="/logout" element={<Logout />} />
-                    <Route exact path="/about" element={<About />} />
                     <Route exact path="*" element={<Error />} />
                 </Routes>
             </Router>

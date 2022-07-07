@@ -26,11 +26,18 @@ export default function Nav() {
                 <div className='right-side'>
                     <Link to='/' className='animation right-element'>Home</Link>
                     {
-                        isLoggedInSeller || isLoggedInBuyer
+                        isLoggedInSeller
                             ? (
-                                <Link to='/about' className='animation'>About</Link>
+                                <Link to='/about/seller' className='animation'>About</Link>
                             ) 
                             : ''
+                    }
+                    {
+                        isLoggedInBuyer
+                         ? (
+                            <Link to='/about/buyer' className='animation'>About</Link>
+                         )
+                         : ''
                     }
                     {
                         isLoggedInBuyer 
