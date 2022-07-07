@@ -50,7 +50,7 @@ export default function AboutBuyer() {
             <div className='about-data'>
                 <div className='top-header'>
                     <h3>
-                        User's Information
+                        Buyer's Information
                     </h3>
                     <p>
                         User's status : {isLoggedInBuyer ? 'Active' : 'Inactive'} 

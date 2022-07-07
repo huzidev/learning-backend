@@ -50,7 +50,7 @@ export default function AboutSeller() {
             <div className='about-data'>
                 <div className='top-header'>
                     <h3>
-                        User's Information
+                        Seller's Information
                     </h3>
                     <p>
                         User's status : {isLoggedInSeller ? 'Active' : 'Inactive'} 

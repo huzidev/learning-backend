@@ -10,9 +10,6 @@ export default function Nav() {
     const isLoggedInSeller = useSelector((state) => state.login.isLoggedInSeller);
     const isLoggedInBuyer = useSelector((state) => state.login.isLoggedInBuyer);
     
-    // const isSeller = useSelector((state) => state.login.registerSeller);
-    // const isBuyer = useSelector((state) => state.login.registerBuyer);
-  
     function register() {
         dispatch(stateActions.registerState());
     }
