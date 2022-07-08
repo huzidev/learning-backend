@@ -64,6 +64,9 @@ export default function AddProduct() {
                     onChange={(event) => setImage(event.target.files[0])} // if we just uses files means multiple images
                     // therefore we've to specify that only one image therefore we've used [0] array of zero index 
                 />
+                <button type="submit">
+                    Add Product
+                </button>
             </form>
         </div>
     )
