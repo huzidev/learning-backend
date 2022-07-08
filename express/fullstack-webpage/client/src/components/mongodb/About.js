@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import defaultImg from '../assets/default.png';
+import defaultImg from '../../assets/default.png';
 // import { useSelector } from 'react-redux';
 
 export default function About() {

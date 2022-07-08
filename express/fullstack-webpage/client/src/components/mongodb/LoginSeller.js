@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { stateActions } from '../store/State-Store';
+import { stateActions } from '../../store/State-Store';
 import { useDispatch, useSelector } from 'react-redux';
 
-export default function LoginBuyer() {
+export default function LoginSeller() {
 
     const Navigate = useNavigate();
     
@@ -34,14 +34,14 @@ export default function LoginBuyer() {
         });
     }
 
-    async function loginBuyer(event) {
+    async function loginSeller(event) {
 
         // for getting rid of automatic form update
         event.preventDefault();
 
         const { email, password } = user; // user state already created
 
-        const res = await fetch("/login/buyer", {
+        const res = await fetch("/login/seller", {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"
@@ -68,11 +68,11 @@ export default function LoginBuyer() {
         else {
             window.alert("User loggedIn successfully!");
             // REDUX FUNCTION FOR CHANGING NAV-BAR
-            dispatch(stateActions.logInBuyer());
+            dispatch(stateActions.logInSeller());
             // redux function for changing state type of password
             dispatch(stateActions.passwordConditionLog());
             console.log("Successfully loggedIn");
-            localStorage.setItem('jwtokenbuyer', data.token)
+            localStorage.setItem('jwtokenseller', data.token)
             Navigate("/");
         }
     }
@@ -96,7 +96,7 @@ export default function LoginBuyer() {
             <div className='login-page'>
                 <div className='form-data'>
                     <h1>
-                        Login As Buyer
+                        Login As Seller
                     </h1>
                     <form method="POST">
                         <input 
@@ -137,7 +137,7 @@ export default function LoginBuyer() {
                             type="submit"
                             name="login"
                             value="Login"
-                            onClick={loginBuyer}
+                            onClick={loginSeller}
                         />
                     </form>
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { stateActions } from '../store/State-Store';
+import { stateActions } from '../../store/State-Store';
 
 export default function Logout() {
 

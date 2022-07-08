@@ -1,9 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { stateActions } from '../store/State-Store';
+import { stateActions } from '../../store/State-Store';
 
-export default function RegisterSeller() {
+
+export default function RegisterBuyer() {
 
     const Navigate = useNavigate();
 
@@ -41,7 +42,7 @@ export default function RegisterSeller() {
 
         const { username, email, number, password, cpassword } = user; // user state already created
 
-        const res = await fetch("/register/seller", {
+        const res = await fetch("/register/buyer", {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"
@@ -108,7 +109,7 @@ export default function RegisterSeller() {
             <div className='register-page'>
                 <div className='form-data'>
                     <h1>
-                        Register As Seller
+                        Register As Buyer
                     </h1>
                     <br />
                     <form >

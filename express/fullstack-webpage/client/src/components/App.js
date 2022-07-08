@@ -1,15 +1,14 @@
 import React from 'react';
 import Home from './Home';
-import Register from './Register';
+import Register from './mongodb/Register';
 import Error from './Error';
-import Login from './Login';
-import LoginBuyer from './LoginBuyer'
-import LoginSeller from './LoginSeller'
-import Logout from './Logout';
-import About from './About';
-// import AboutBuyer from './AboutBuyer';
-import RegisterBuyer from './RegisterBuyer';
-import RegisterSeller from './RegisterSeller';
+import Login from './mongodb/Login';
+import LoginBuyer from './mongodb/LoginBuyer'
+import LoginSeller from './mongodb/LoginSeller'
+import Logout from './mongodb/Logout';
+import About from './mongodb/About';
+import RegisterBuyer from './mongodb/RegisterBuyer';
+import RegisterSeller from './mongodb/RegisterSeller';
 import {
     BrowserRouter as Router,
     Routes,
