@@ -6,3 +6,6 @@ const routerReview  = require('express').Router()
 routerReview.post('/addReview', reviewController.addReview)
 
 // for getting all reviews respective to the product
+routerReview.get('/allReviews', reviewController.getAllReviews)
+
+module.exports = routerReview
