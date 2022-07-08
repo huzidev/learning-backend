@@ -2,6 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cookie from 'cookie-parser';
 import bodyParser from 'body-parser'; // for form management
+import routerProduct from './router/productRouter';
+import routerReview from './router/reviewRouter';
 import cors from "cors";
 
 dotenv.config({ path : './config.env' }) // so password for mongoDB will remains UNKNOWN as we'll put the config file in .gitignore
@@ -27,9 +29,9 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended : true }));
 
 
-// MIDDLEWARE
-import VerificationBuyer from './middleware/VerificationBuyer';
-import VerificationSeller from './middleware/VerificationSeller';
+// from mysql database
+server.use('/api/products', routerProduct)
+server.use('/api/reviews', routerReview)
 server.use('/images', express.static('images'))
 server.use(cookie());
 
