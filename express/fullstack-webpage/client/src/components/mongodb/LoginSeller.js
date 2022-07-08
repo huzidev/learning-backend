@@ -65,6 +65,9 @@ export default function LoginSeller() {
         else if (res.status === 421 || !data) {
             window.alert("Invalid Value!");
         }
+        else if (res.status === 500) {
+            window.alert("Internal Server Error : Failed to registered!")
+        }
         else {
             window.alert("User loggedIn successfully!");
             // REDUX FUNCTION FOR CHANGING NAV-BAR

@@ -21,7 +21,7 @@ export default function AddProduct() {
         formData.append('description', description)
         formData.append('image', image)
 
-        await axios.post('/products/addProduct', formData);
+        await axios.post('/addProduct', formData);
 
         Navigate({
             pathname : '/products',

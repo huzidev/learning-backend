@@ -2,13 +2,14 @@ import React from 'react';
 import Home from './Home';
 import Register from './mongodb/Register';
 import Error from './Error';
+import About from './mongodb/About';
+import AddProduct from './mysql/AddProduct';
 import Login from './mongodb/Login';
 import LoginBuyer from './mongodb/LoginBuyer'
 import LoginSeller from './mongodb/LoginSeller'
-import Logout from './mongodb/Logout';
-import About from './mongodb/About';
 import RegisterBuyer from './mongodb/RegisterBuyer';
 import RegisterSeller from './mongodb/RegisterSeller';
+import Logout from './mongodb/Logout';
 import {
     BrowserRouter as Router,
     Routes,
@@ -30,7 +31,7 @@ export default function App() {
                     <Route exact path="/register/seller" element={<RegisterSeller />} />
                     <Route exact path={"/about/buyer"} element={<About />} />
                     <Route exact path={"/about/seller"} element={<About />} />
-                    {/* <Route exact path="/about/buyer" element={<AboutBuyer />} /> */}
+                    <Route exact path={"/addProduct"} element={<AddProduct />} />
                     <Route exact path="/logout" element={<Logout />} />
                     <Route exact path="*" element={<Error />} />
                 </Routes>

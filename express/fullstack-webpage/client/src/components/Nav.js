@@ -54,7 +54,7 @@ export default function Nav() {
                             ? (
                                 <>
                                     <Link to='/about/seller' className='animation'>About</Link>
-                                    <Link to='/addProducts' className='animation'>Add Product</Link>
+                                    <Link to='/addProduct' className='animation'>Add Product</Link>
                                     <Link to='/showProducts' className='animation'>Show Products</Link>
                                     <Link to='/allSellers' className='animation'>All Sellers</Link>
                                 </>
