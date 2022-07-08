@@ -39,7 +39,21 @@ const getOneProduct = async (req, res) => {
 // UPDATE PRODUCT
 const updateProduct = async (req, res) => {
     let id = req.params.id
-    const product = await Product.update(req.body, { // req body for getting data about respective product
+    const product = await Product.update(req.body, { // req body for getting previous data about respective product
+        // by getting previous data we can update that data otherwise we've to update it from the scratch
+        where : {
+            pid : id
+        }
+    })
+    res.status(200).send(product)
+}
 
+// DELETE PRODUCT
+const deleteProduct = async (req, res) => {
+    let id = req.params.id
+    const product = await Product.destroy({
+        where : {
+            pid : id
+        }
     })
 }
