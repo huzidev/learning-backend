@@ -29,9 +29,9 @@ export default function App() {
                     <Route exact path="/register" element={<Register />} />
                     <Route exact path="/register/buyer" element={<RegisterBuyer />} />
                     <Route exact path="/register/seller" element={<RegisterSeller />} />
-                    <Route exact path={"/about/buyer"} element={<About />} />
-                    <Route exact path={"/about/seller"} element={<About />} />
-                    <Route exact path={"/addProduct"} element={<AddProduct />} />
+                    <Route exact path="/about/buyer" element={<About />} />
+                    <Route exact path="/about/seller" element={<About />} />
+                    <Route exact path="/products/addProduct" element={<AddProduct />} />
                     <Route exact path="/logout" element={<Logout />} />
                     <Route exact path="*" element={<Error />} />
                 </Routes>

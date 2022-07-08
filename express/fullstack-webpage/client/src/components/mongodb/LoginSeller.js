@@ -41,7 +41,7 @@ export default function LoginSeller() {
 
         const { email, password } = user; // user state already created
 
-        const res = await fetch("/login/seller", {
+        const res = await fetch("http://127.0.0.1:8000/login/seller", {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"
