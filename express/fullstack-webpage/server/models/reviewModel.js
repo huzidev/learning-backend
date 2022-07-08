@@ -1,25 +1,22 @@
 // FOR MYSQL
 module.exports = ( sequelize, DataTypes ) => { // we are not importing sequelize therefore we've used sequelize with small s
-    const Product = sequelize.define("product", {
-        pid : {
+    const Review = sequelize.define("review", {
+        rid : {
             type : DataTypes.INTEGER,
             allowNull : false,
             autoIncrement : true,
             primaryKey : true
         },
-        image : {
-            type : DataTypes.STRING
-        },
-        title : {
-            type : DataTypes.STRING,
-            allowNull : false
-        },
-        price : {
+        rating : {
             type : DataTypes.INTEGER
         },
         description : {
             type : DataTypes.TEXT
+        },
+        pid : {
+            type : DataTypes.INTEGER,
+            allowNull : false
         }
     })
-    return Product
+    return Review
 }
