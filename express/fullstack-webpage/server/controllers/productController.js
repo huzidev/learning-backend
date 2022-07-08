@@ -1,5 +1,7 @@
 // FOR MYSQL
 import db from '../models/index.js';
+import multer from 'multer';
+import path from 'path';
 
 const Product = db.products;
 const Review = db.reviews;
