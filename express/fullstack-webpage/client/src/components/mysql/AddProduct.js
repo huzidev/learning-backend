@@ -27,13 +27,15 @@ export default function addProduct() {
             pathname : '/products',
             search : `?name=${title}&price=${price}`,
             state : { detail : Response.data }
-        })
+        });
         
     }
 
     return (
         <div>
-            
+            <h1>
+                
+            </h1>
         </div>
     )
 }
