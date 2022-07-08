@@ -1,5 +1,5 @@
 // FOR MYSQL
-import { Sequelize, DataTypes } from 'sequelize';
+import { Sequelize, DataTypes, Model } from 'sequelize';
 import dbConfig from '../config/dbConfig';
 
 const sequelize = new Sequelize(
@@ -27,7 +27,7 @@ sequelize.authenticate()
     console.log("Can't connect to database" + err);
 })
 
-const db = {}
+const db = {} // we'll export db after creating relation of it with every instances
 
 db.Sequelize = Sequelize
 db.sequelize = sequelize
@@ -41,3 +41,15 @@ db.sequelize.sync({ force : false })
 })
 // if we didn't do this than every time we run the server the force will overwrite all the 
 // data present in the table with new data and we don't want that until we really wanted it therefore it is necessary to use force : false
+
+db.products.hasMany(db.reviews, {
+    as : 'review',
+    foreignKey : 'pid'
+})
+
+db.reviews.belongsTo(db.products, {
+    as : 'product',
+    foreignKey : 'pid'
+})
+
+module.exports = db;
