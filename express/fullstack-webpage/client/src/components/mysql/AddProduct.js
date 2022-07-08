@@ -1,6 +1,10 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function addProduct() {
+
+    const Navigate = useNavigate();
 
     const [title, setTitle] = React.useState('');
     const [price, setPrice] = React.useState('');
@@ -16,6 +20,8 @@ export default function addProduct() {
         formData.append('price', price)
         formData.append('description', description)
         formData.append('image', image)
+
+        await axios.post('/products/addProduct', formData);
 
         
     }
