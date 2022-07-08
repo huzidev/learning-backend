@@ -14,3 +14,19 @@ const addReview = async (req, res) => {
     const review = await Review.create(data)
     res.status(200).send(review)
 }
+
+// GET ALL REVIEWS
+const getReviews = async (req, res) => {
+    const reviews = await Review.findAll({})
+    res.status(200).send(reviews)
+}
+
+// DELETE REVIEW
+const deleteReview = async (req, res) => {
+    let id = req.params.id
+    await Review.destroy({
+        where : {
+            rid : id
+        }
+    })
+}
