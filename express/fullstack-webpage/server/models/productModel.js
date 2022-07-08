@@ -9,6 +9,10 @@ module.exports = { sequelize ,DataTypes } => { // we are not importing sequelize
         },
         image : {
             type : DataTypes.STRING
-        }
+        },
+        title : {
+            type : DataTypes.STRING,
+            allowNull : false
+        },
     }) 
 }
