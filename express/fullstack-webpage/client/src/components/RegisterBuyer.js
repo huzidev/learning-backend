@@ -1,5 +1,4 @@
 import React from 'react';
-import Modal from './Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { stateActions } from '../store/State-Store';

@@ -5,10 +5,10 @@ export default function Register() {
     return (
         <div className='modal'>
             <h5>
-                Login as <Link to='/login/buyer'>Buyer</Link>
+                Register as <Link to='/register/buyer'>Buyer</Link>
             </h5>
             <h5>
-                Login as <Link to='/login/seller'>Seller</Link>
+                Register as <Link to='/register/seller'>Seller</Link>
             </h5>
         </div>
     )
