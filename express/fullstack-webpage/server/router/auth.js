@@ -166,7 +166,7 @@ router.post('/login/seller', async (req, res) => {
             console.log(token);
 
             // expire token duration
-            res.cookie("jwtoken", token, {
+            res.cookie("jwtokenseller", token, {
                 expires : new Date(Date.now() + 86400000), // user will be logged out automatically after 24 hours
                 httpOnly : true
             });
@@ -236,7 +236,7 @@ router.post('/login/buyer', async (req, res) => {
             console.log(token);
 
             // expire token duration
-            res.cookie("jwtoken", token, {
+            res.cookie("jwtokenbuyer", token, {
                 expires : new Date(Date.now() + 86400000), // user will be logged out automatically after 24 hours
                 httpOnly : true
             });
