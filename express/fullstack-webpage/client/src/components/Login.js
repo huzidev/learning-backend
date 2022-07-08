@@ -13,6 +13,7 @@ export default function Login() {
                 <h5>
                     Login as <Link to='/login/buyer'>Buyer</Link>
                 </h5>
+                &nbsp;&nbsp;
                 <h5>
                     Login as <Link to='/login/seller'>Seller</Link>
                 </h5>

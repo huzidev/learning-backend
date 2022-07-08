@@ -13,6 +13,7 @@ export default function Register() {
                 <h5>
                     Register as <Link to='/register/buyer'>Buyer</Link>
                 </h5>
+                &nbsp;&nbsp;
                 <h5>
                     Register as <Link to='/register/seller'>Seller</Link>
                 </h5>
