@@ -1,10 +1,15 @@
 import React from 'react'
-import Modal from './Modal'
+import { Link } from 'react-router-dom';
 
 export default function Register() {
     return (
-        <div>
-            <Modal />
+        <div className='modal'>
+            <h5>
+                Login as <Link to='/login/buyer'>Buyer</Link>
+            </h5>
+            <h5>
+                Login as <Link to='/login/seller'>Seller</Link>
+            </h5>
         </div>
     )
 }
