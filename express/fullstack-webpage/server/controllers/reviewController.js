@@ -16,7 +16,7 @@ const addReview = async (req, res) => {
 }
 
 // GET ALL REVIEWS
-const getReviews = async (req, res) => {
+const getAllReviews = async (req, res) => {
     const reviews = await Review.findAll({})
     res.status(200).send(reviews)
 }
@@ -29,4 +29,10 @@ const deleteReview = async (req, res) => {
             rid : id
         }
     })
+}
+
+module.exports = {
+    addReview,
+    getAllReviews,
+    deleteReview
 }
