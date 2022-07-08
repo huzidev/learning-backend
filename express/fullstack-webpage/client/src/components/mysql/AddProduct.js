@@ -23,6 +23,11 @@ export default function addProduct() {
 
         await axios.post('/products/addProduct', formData);
 
+        Navigate({
+            pathname : '/products',
+            search : `?name=${title}&price=${price}`,
+            state : { detail : Response.data }
+        })
         
     }
 
