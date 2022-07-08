@@ -11,4 +11,6 @@ const addReview = async (req, res) => {
         rating : req.body.rating,
         description : req.body.description
     }
+    const review = await Review.create(data)
+    res.status(200).send(review)
 }
