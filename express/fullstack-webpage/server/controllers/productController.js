@@ -51,9 +51,25 @@ const updateProduct = async (req, res) => {
 // DELETE PRODUCT
 const deleteProduct = async (req, res) => {
     let id = req.params.id
-    const product = await Product.destroy({
+    await Product.destroy({
         where : {
             pid : id
         }
     })
+    res.status(200).send("Product Deleted!")
+}
+
+// GET PRODUCT REVIEWS
+const getProductReviews = async (req, res) => {
+    let id = req.params.id
+    const data = await Product.findAll({ // since we're GETTING the data therefore we've to use object ({})
+        include : [{
+            model : Review,
+            as : 'review'
+        }],
+        where : {
+            pid : id
+        }
+    })
+    res.status(200).send(data[0])
 }
