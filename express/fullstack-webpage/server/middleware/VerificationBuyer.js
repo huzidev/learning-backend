@@ -7,21 +7,21 @@ const VerificationBuyer = async (req, res, next) => {
         // const token = req.cookies.jwtoken;
 
         // verifying user
-        const verifyBuyer = jwt.verify(req.cookies.jwtoken, process.env.SECRET_KEY);
+        const verifyBuyer = jwt.verify(req.cookies.jwtokenbuyer, process.env.SECRET_KEY);
         let verifyToken = verifyBuyer._id;
 
         // finding user data through token
         const buyerInfo = await UserBuyer.findOne({ 
             _id : verifyToken, 
             // comparing token from cookies with the token stored in the backend
-            "tokens.token" : req.cookies.jwtoken 
+            "tokens.token" : req.cookies.jwtokenbuyer 
         })
         if (!buyerInfo) {
             throw new Error("User not found"); // we'll not use return
         }
 
         // for getting user information to show in about page
-        req.token = req.cookies.jwtoken;
+        req.token = req.cookies.jwtokenbuyer;
         req.buyerInfo = buyerInfo;
         req.userID = buyerInfo._id;
 

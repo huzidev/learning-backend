@@ -72,7 +72,7 @@ export default function LoginBuyer() {
             // redux function for changing state type of password
             dispatch(stateActions.passwordConditionLog());
             console.log("Successfully loggedIn");
-            localStorage.setItem('jwtoken', data.token)
+            localStorage.setItem('jwtokenbuyer', data.token)
             Navigate("/");
         }
     }

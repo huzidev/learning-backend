@@ -309,7 +309,8 @@ router.get('/about/buyer', VerificationBuyer, (req, res) => {
 
 // for LOGOUT
 router.get('/logout', (req, res) => { // we uses get because we get user's cookie then delete it
-    res.clearCookie('jwtoken', { path : '/' })
+    res.clearCookie('jwtokenbuyer', { path : '/' })
+    res.clearCookie('jwtokenseller', { path : '/' })
     res.status(200).send("User loggedOut Successfully!")
 })
 

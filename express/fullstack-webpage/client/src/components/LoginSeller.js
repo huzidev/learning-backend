@@ -71,8 +71,8 @@ export default function LoginSeller() {
             dispatch(stateActions.logInSeller());
             // redux function for changing state type of password
             dispatch(stateActions.passwordConditionLog());
-            localStorage.setItem('jwtoken', data.token)
             console.log("Successfully loggedIn");
+            localStorage.setItem('jwtokenseller', data.token)
             Navigate("/");
         }
     }

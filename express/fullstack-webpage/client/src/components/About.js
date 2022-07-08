@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import defaultImg from '../assets/default.png';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 export default function About() {
 
     const [useData, setUserData] = React.useState({}) // if we wanted to upload then we use ('') but here we just getting the data therefore we've used ({}) object we can get object of data
 
-    const isLoggedInSeller = useSelector((state) => state.login.isLoggedInSeller)
-    const isLoggedInBuyer = useSelector((state) => state.login.isLoggedInBuyer)
+    // const isLoggedInSeller = useSelector((state) => state.login.isLoggedInSeller)
+    // const isLoggedInBuyer = useSelector((state) => state.login.isLoggedInBuyer)
 
     // const host = 'http://localhost:8000'
     // about page for seller
@@ -62,10 +62,10 @@ export default function About() {
 
     // about page for buyer
     React.useEffect(() => {
-        if (isLoggedInSeller === true) {
+        if (localStorage.getItem('jwtokenseller')) {
             aboutPageSeller();
         }
-        else if (isLoggedInBuyer === true) {
+        else if (localStorage.getItem('jwtokenbuyer')) {
             aboutPageBuyer();
         }
     }, [])
@@ -81,13 +81,22 @@ export default function About() {
             <div className='about-data'>
                 <div className='top-header'>
                     <h3>
-                        {isLoggedInSeller ? "Seller's Information" : ''}
-                        {isLoggedInBuyer ? "Buyer's Information" : ''}
+                        {localStorage.getItem('jwtokenseller') ? "Seller's Information" : ''}
+                        {localStorage.getItem('jwtokenbuyer') ? "Buyer's Information" : ''}
                     </h3>
                     <p>
-                        User's status : {isLoggedInSeller || isLoggedInBuyer ? 'Active' : 'Inactive'} 
+                        User's status : 
+                        {
+                            localStorage.getItem('jwtokenseller')  || localStorage.getItem('jwtokenbuyer') 
+                                ? ' Active' 
+                                : ' Inactive'
+                        } 
                     </p>
-                    {isLoggedInSeller || isLoggedInBuyer ? <span className='dot'></span> : <span className='line'></span>}
+                    {
+                        localStorage.getItem('jwtokenseller')  || localStorage.getItem('jwtokenbuyer') 
+                            ? <span className='dot'></span> 
+                            : <span className='line'></span>
+                    }
                 </div>
                 <div className='container'>
                     <div className='user-info-container'>

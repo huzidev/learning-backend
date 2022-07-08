@@ -22,7 +22,7 @@ export default function Nav() {
             <div className='nav-bar'>
                 <div className='left-side'>
                     <Link to='/' className='animation left-element'>Home</Link>
-                    {
+                    {/* {
                         isLoggedInSeller
                             ? (
                                 <Link to='/about/seller' className='animation'>About</Link>
@@ -35,12 +35,13 @@ export default function Nav() {
                             <Link to='/about/buyer' className='animation'>About</Link>
                          )
                          : ''
-                    }
+                    } */}
                     {
                         // isLoggedInBuyer 
                         localStorage.getItem('jwtokenbuyer')
                             ? (
                                 <>
+                                    <Link to='/about/buyer' className='animation'>About</Link>
                                     <Link to='/showProducts' className='animation'>Show Products</Link>
                                     <Link to='/allSellers' className='animation'>All Sellers</Link>
                                 </>
@@ -52,6 +53,7 @@ export default function Nav() {
                         localStorage.getItem('jwtokenseller')
                             ? (
                                 <>
+                                    <Link to='/about/seller' className='animation'>About</Link>
                                     <Link to='/addProducts' className='animation'>Add Product</Link>
                                     <Link to='/showProducts' className='animation'>Show Products</Link>
                                     <Link to='/allSellers' className='animation'>All Sellers</Link>
@@ -63,7 +65,7 @@ export default function Nav() {
                 <div className='right-side'>
                     {
                         // isLoggedInSeller || isLoggedInBuyer
-                        localStorage.getItem('jwtoken')
+                        localStorage.getItem('jwtokenbuyer') || localStorage.getItem('jwtokenseller')
                             ? (
                                 <Link to='/logout' className='animation right-element'>Logout</Link>
                             )

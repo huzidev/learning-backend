@@ -29,13 +29,9 @@ export default function Logout() {
             }
             else {
                 window.alert("User loggedOut successfully!");
-                if (localStorage.getItem('jwtokenseller')) {
-                    localStorage.removeItem('jwtokenseller');
-                }
-                else if (localStorage.getItem('jwtokenbuyer')) {
-                    localStorage.removeItem('jwtokenbuyer');
-                }
                 dispatch(stateActions.Logout());
+                localStorage.removeItem('jwtokenseller')
+                localStorage.removeItem('jwtokenbuyer')
             }
         }).catch((err) => {
             console.log(err);
