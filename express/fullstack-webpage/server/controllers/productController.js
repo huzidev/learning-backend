@@ -1,3 +1,4 @@
+// FOR MYSQL
 import db from '../models/index.js';
 
 const Product = db.products;
