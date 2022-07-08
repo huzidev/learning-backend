@@ -31,3 +31,6 @@ const db = {}
 
 db.Sequelize = Sequelize
 db.sequelize = sequelize
+
+db.products = require('./productModel.js')(sequelize, DataTypes) // inside bracket we've same parameters as we used in product and reviews schema or models
+db.reviews = require('./reviewModel.js')(sequelize, DataTypes)
