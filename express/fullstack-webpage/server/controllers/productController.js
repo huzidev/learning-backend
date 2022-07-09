@@ -9,7 +9,7 @@ const Review = db.reviews;
 // ADD PRODUCT
 const addProduct = async (req, res) => {
     let info = {
-        image : req.file.path,
+        image : req.file.path, // it SHOULD have to req.file NOT req.body and we can use req.files with (S) if we wanted to upload multiple images
         title : req.body.title,
         price : req.body.price,
         description : req.body.description
@@ -27,7 +27,6 @@ const getAllProducts = async (req, res) => {
 
 
 // GET SINGLE PRODUCT
-
 const getOneProduct = async (req, res) => {
     // id for specific product
     let id = req.params.id

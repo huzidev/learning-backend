@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from './Nav'
-import Footer from './Footer';
+// import Footer from './Footer';
 
 export default function Home() {
     return (
@@ -11,7 +11,7 @@ export default function Home() {
                     Items For Sale
                 </h1>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }
