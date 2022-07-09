@@ -12,7 +12,7 @@ export default function Logout() {
     
     // since useEffect didn't support async await therefore we'll not use that
     React.useEffect(() => {
-        fetch("/logout", {
+        fetch("http://127.0.0.1:8000/logout", {
             method : 'GET',
             headers : {
                 Accept : "application/json",

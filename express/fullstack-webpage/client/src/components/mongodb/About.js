@@ -14,7 +14,7 @@ export default function About() {
     // about page for seller
     async function aboutPageSeller() {
         try{
-            const res = await fetch("/about/seller", {
+            const res = await fetch("http://127.0.0.1:8000/about/seller", {
                 method : 'GET',
                 headers : {
                     Accept : "application/json",
