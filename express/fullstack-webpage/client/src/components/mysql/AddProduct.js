@@ -6,6 +6,8 @@ export default function AddProduct() {
 
     const Navigate = useNavigate();
 
+    const host = "http://localhost:8000"
+
     const [title, setTitle] = React.useState('');
     const [price, setPrice] = React.useState('');
     const [description, setDescription] = React.useState('');
@@ -21,7 +23,7 @@ export default function AddProduct() {
         formData.append('description', description)
         formData.append('image', image)
 
-        const res = await fetch('http://127.0.0.1:8000/products/addProduct', {
+        const res = await axios.post(`${host}/products/addProduct`, {
             method : 'POST',
             headers : {
                 "Content-Type" : "application/json"

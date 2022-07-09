@@ -11,8 +11,6 @@ export default function LoginSeller() {
     const dispatch = useDispatch();
     const showPasswordLog = useSelector((state) => state.login.showPasswordLog);
 
-    // const host = 'http://localhost:8000'
-
     const [user, setUser] = React.useState({
         // username : "",
         email : "",
@@ -40,8 +38,8 @@ export default function LoginSeller() {
         event.preventDefault();
 
         const { email, password } = user; // user state already created
-
-        const res = await fetch("http://127.0.0.1:8000/login/seller", {
+        
+        const res = await fetch(`/login/seller`, {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"

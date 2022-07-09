@@ -7,6 +7,8 @@ export default function RegisterSeller() {
 
     const Navigate = useNavigate();
 
+    const host = "http://localhost:8000"
+
     // redux-functions
     const dispatch = useDispatch();
     const showPasswordReg = useSelector((state) => state.login.showPasswordReg);
@@ -41,8 +43,8 @@ export default function RegisterSeller() {
 
         const { username, email, number, password, cpassword } = user; // user state already created
 
-        const res = await fetch("/register/seller", {
-            method : "POST",
+        const res = await fetch(`${host}/register/seller`, {
+        method : "POST",
             headers : {
                 "Content-Type" : "application/json"
             },

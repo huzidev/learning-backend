@@ -2,20 +2,19 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { stateActions } from '../../store/State-Store';
+import api from '../../service/api'
 
 export default function Logout() {
 
     const dispatch = useDispatch();
     const Navigate = useNavigate();
 
-    // const host = 'http://localhost:8000'
-    
     // since useEffect didn't support async await therefore we'll not use that
     React.useEffect(() => {
-        fetch("http://127.0.0.1:8000/logout", {
+        fetch("/logout", {
             method : 'GET',
             headers : {
-                Accept : "application/json",
+                "Accept" : "application/json",
                 "Content-Type" : "application/json"
             },
             credentials : "include"

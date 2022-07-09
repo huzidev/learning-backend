@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import defaultImg from '../../assets/default.png';
+import api from '../../service/api'
 // import { useSelector } from 'react-redux';
 
 export default function About() {
 
-    const [useData, setUserData] = React.useState({}) // if we wanted to upload then we use ('') but here we just getting the data therefore we've used ({}) object we can get object of data
+    const [userData, setUserData] = React.useState({}) // if we wanted to upload then we use ('') but here we just getting the data therefore we've used ({}) object we can get object of data
+
+    // const host = "http://127.0.0.1:8000"
 
     // const isLoggedInSeller = useSelector((state) => state.login.isLoggedInSeller)
     // const isLoggedInBuyer = useSelector((state) => state.login.isLoggedInBuyer)
@@ -14,13 +17,13 @@ export default function About() {
     // about page for seller
     async function aboutPageSeller() {
         try{
-            const res = await fetch("http://127.0.0.1:8000/about/seller", {
+            const res = await fetch(`/about/seller`, {
                 method : 'GET',
                 headers : {
-                    Accept : "application/json",
-                    "Content-Type" : "application/json"
+                    "Accept" : "application/json",
+                    "Content-Type" : "application/json",
                 },
-                credentials : "include"
+                credentials : "include",
             })
             const data = await res.json();
             setUserData(data);
@@ -38,7 +41,7 @@ export default function About() {
 
     async function aboutPageBuyer() {
         try{
-            const res = await fetch("/about/buyer", {
+            const res = await fetch(`/about/buyer`, {
                 method : 'GET',
                 headers : {
                     Accept : "application/json",
@@ -105,7 +108,7 @@ export default function About() {
                                 User Id :&nbsp;
                             </h5>
                             <p>
-                                {useData._id}
+                                {userData._id}
                             </p>
                         </div>
                         <div className='user-info'>
@@ -113,7 +116,7 @@ export default function About() {
                                 Username :&nbsp;
                             </h5>
                             <p>
-                                {useData.username}
+                                {userData.username}
                             </p>
                         </div>
                         <div className='user-info'>
@@ -121,7 +124,7 @@ export default function About() {
                                 User Email :&nbsp;
                             </h5>
                             <p>
-                                {useData.email}
+                                {userData.email}
                             </p>
                         </div>
                         <div className='user-info'>
@@ -129,7 +132,7 @@ export default function About() {
                                 User Number :&nbsp; 
                             </h5>
                             <p>
-                                {useData.number}
+                                {userData.number}
                             </p>
                         </div>
                     </div>

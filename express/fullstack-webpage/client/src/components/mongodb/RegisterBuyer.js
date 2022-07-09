@@ -8,12 +8,12 @@ export default function RegisterBuyer() {
 
     const Navigate = useNavigate();
 
+    const host = "http://localhost:8000"
+
     // redux-functions
     const dispatch = useDispatch();
     const showPasswordReg = useSelector((state) => state.login.showPasswordReg);
     const showCPasswordReg = useSelector((state) => state.login.showCPasswordReg);
-
-    // const host = 'http://localhost:8000'
 
     const [user, setUser] = React.useState({
         username : "",
@@ -42,7 +42,7 @@ export default function RegisterBuyer() {
 
         const { username, email, number, password, cpassword } = user; // user state already created
 
-        const res = await fetch("/register/buyer", {
+        const res = await fetch(`${host}/register/buyer`, {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"

@@ -7,6 +7,9 @@ export default function LoginBuyer() {
 
     const Navigate = useNavigate();
     
+    // const host = "http://localhost:8000"
+
+
     // redux-functions
     const dispatch = useDispatch();
     const showPasswordLog = useSelector((state) => state.login.showPasswordLog);

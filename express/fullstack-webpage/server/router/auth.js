@@ -14,13 +14,19 @@ require('../db/connection.js');
 // setting router
 const router = express.Router();
 
+// router.use(cors({
+//     origin: 'http://localhost:3000',
+//     methods : ["GET", "PUT", "POST", "DELETE"],
+//     credentials : true
+// }))
+
+router.use(cors({
+    origin: '*',
+}))
 
 router.use(express.urlencoded({ extended : false }));
 router.use(cookie());
 
-router.use(cors({
-    origin: '*'
-}))
 
 // for REGISTRATION Seller
 router.post('/register/seller', async (req, res) => {
@@ -75,6 +81,10 @@ router.post('/register/seller', async (req, res) => {
     catch (err) {
         console.log(err);
     }
+})
+
+router.post('/', function(req, res) {
+    res.send("Home Page")
 })
 
 
@@ -137,7 +147,8 @@ router.post('/register/buyer', async (req, res) => {
 // for LOGIN as seller
 router.post('/login/seller', async (req, res) => {
 
-    
+    // res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+
     try{
         let token;
     
