@@ -12,7 +12,7 @@ server.use(cors({ // cors is used so someone else didn't ping with ours files on
 
 server.use(express.json());
 server.use(express.urlencoded({extended : true}))
-
+    
 //routers
 import routerProduct from './routes/productRouter'
 import routerReview from './routes/reviewRouter'

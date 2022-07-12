@@ -23,7 +23,7 @@ export default function ShowProducts() {
         </h1>
         { products.length > 0 ? 
             products.map((product) => (
-                <div key={product.id}>
+                <div key={product.pid}>
                     <ProductCard product={product} />
                 </div>
             )) 

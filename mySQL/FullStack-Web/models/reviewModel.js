@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         description : {
             type : DataTypes.TEXT
         },
-        pid : {
+        fid : {
             type : DataTypes.INTEGER,
             allowNull : false,
         }

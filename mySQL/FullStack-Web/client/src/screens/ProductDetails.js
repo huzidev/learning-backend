@@ -5,7 +5,7 @@ import api from '../service/api';
 
 export default function ProductDetails() {
   
-  const  { id } = useParams();
+  let { id } = useParams();
   const Navigate = useNavigate();
 
   // for product info
@@ -49,7 +49,6 @@ export default function ProductDetails() {
     alert("Product Deleted Successfully!");
     
     Navigate('/products');
-
   }
 
   const addReviewHandler = async (event) => {
@@ -57,7 +56,7 @@ export default function ProductDetails() {
     event.preventDefault()
     
     let review = {
-        pid : id,
+        id : id,
         rating : rating,
         description : description
     }

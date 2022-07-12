@@ -47,12 +47,12 @@ db.sequelize.sync({ force : false })
 
 
 db.products.hasMany(db.reviews, {
-    foreignKey: 'pid',
+    foreignKey: 'fid',
     as: 'review'
 })
 
 db.reviews.belongsTo(db.products, {
-    foreignKey: 'pid',
+    foreignKey: 'fid',
     as: 'product'
 })
 
