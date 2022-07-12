@@ -243,3 +243,13 @@ DISTINCT = DIFF (UNIQUE)
  ALTER TABLE testtable MODIFY id INT NOT NULL PRIMARY KEY AUTO_INCREMENT;3
  IF WE WANTED TO DEL SOME REVIEWS which are same and too many times we can use
  delete from reviews where description like '%excellent laptop%';
+
+ ON DELETE CASCADE ON DELETE UPDATE // it is necessary to do this while creating foreign key because cascade means 
+ if one main main columns delete then all the childs related to that column must also delete
+
+ and if we've already created a foreign key and didn't add on delete cascade and on delete update then first we've to 
+ drop the CONSTRAINT like this
+ ALTER TABLE reviews DROP FOREIGN KEY reviews_ibfk_1;
+
+ then we've to update the column with additional info and same CONSTRAINT name we've deleted before
+ ALTER TABLE reviews ADD CONSTRAINT reviews_ibfk_1 FOREIGN KEY (fid) REFERENCES products (pid) ON DELETE CASCADE ON UPDATE CASCADE;
