@@ -20,6 +20,4 @@ routerProduct.put('/:id', productController.updateProduct)
 // for deleting product
 routerProduct.delete('/:id', productController.deleteProduct)
 
-
-
 module.exports = routerProduct
