@@ -5,9 +5,9 @@ const Review = db.reviews
 
 // ADD REVIEW
 const addReview = async (req, res) => {
-    const id = req.body.pid // means inside body of that specific product's id in which we wanted to add review
+    const id = req.body.id // means inside body of that specific product's id in which we wanted to add review
     let data = {
-        pid : id,
+        fid : id,
         rating : req.body.rating,
         description : req.body.description
     }
@@ -21,18 +21,7 @@ const getAllReviews = async (req, res) => {
     res.status(200).send(reviews)
 }
 
-// DELETE REVIEW
-const deleteReview = async (req, res) => {
-    let id = req.params.id
-    await Review.destroy({
-        where : {
-            rid : id
-        }
-    })
-}
-
 module.exports = {
     addReview,
-    getAllReviews,
-    deleteReview
+    getAllReviews
 }
