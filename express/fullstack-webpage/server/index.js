@@ -25,8 +25,8 @@ server.use(bodyParser.urlencoded({ extended : true }));
 
 
 // from mysql database
-server.use('/products', routerProduct)
-server.use('/reviews', routerReview)
+server.use('/api/products', routerProduct)
+server.use('/api/reviews', routerReview)
 server.use('/images', express.static('images'))
 server.use(cookie());
 

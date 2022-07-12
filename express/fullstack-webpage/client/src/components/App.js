@@ -4,6 +4,9 @@ import Register from './mongodb/Register';
 import Error from './Error';
 import About from './mongodb/About';
 import AddProduct from './mysql/AddProduct';
+import ShowProducts from './mysql/ShowProducts'
+import ProductDetails from './mysql/ProductDetails.'
+import EditProduct from './mysql/EditProduct'
 import Login from './mongodb/Login';
 import LoginBuyer from './mongodb/LoginBuyer'
 import LoginSeller from './mongodb/LoginSeller'
@@ -31,7 +34,10 @@ export default function App() {
                     <Route exact path="/register/seller" element={<RegisterSeller />} />
                     <Route exact path="/about/buyer" element={<About />} />
                     <Route exact path="/about/seller" element={<About />} />
-                    <Route exact path="/products/addProduct" element={<AddProduct />} />
+                    <Route exact path="/addProduct" element={<AddProduct />} />
+                    <Route exact path="/allProducts" element={<ShowProducts />} />
+                    <Route exact path="/product/:id" element={<ProductDetails />} />
+                    <Route exact path="/EditProduct" element={<EditProduct />} />
                     <Route exact path="/logout" element={<Logout />} />
                     <Route exact path="*" element={<Error />} />
                 </Routes>
