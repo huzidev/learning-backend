@@ -311,6 +311,27 @@ router.post('/contact', async (req, res) => {
     }
 })
 
+// for getting all sellers data
+router.get('/allSellers',  function (req, res) {
+    UserSeller.find({}, function (err, users) {
+        if (err) {
+            return res.status(421).send("Error getting sellers");
+        }
+        res.status(200).send(users)
+    })
+})
+
+// router.get("/allSellers", function(req, res){
+//     UserSeller.find({}, function (err, users) {
+//         var userMap = {};
+
+//         users.forEach(function (user) {
+//             userMap[user._id] = user;
+//         })
+//         res.send(userMap);
+//     })
+// })
+
 router.get('/about/seller', VerificationSeller, (req, res) => {
     res.send(req.sellerInfo) // userInfo is created in Middleware
 })

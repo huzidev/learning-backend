@@ -12,7 +12,7 @@ import LoginBuyer from './mongodb/LoginBuyer'
 import LoginSeller from './mongodb/LoginSeller'
 import RegisterBuyer from './mongodb/RegisterBuyer';
 import RegisterSeller from './mongodb/RegisterSeller';
-import AllSeller from './mysql/AllSeller';
+import AllSeller from './mongodb/AllSeller';
 import Logout from './mongodb/Logout';
 import {
     BrowserRouter as Router,
