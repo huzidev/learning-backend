@@ -39,7 +39,7 @@ export default function EditProduct() {
     await api.put(`/api/products/${id}`, data);
 
     Navigate({
-      pathname : '/products',
+      pathname : '/allProducts',
       search : `?name=${title}`,
       state : { detail : Response.data }
     });
