@@ -1,5 +1,9 @@
 .seller-info {
   border: 1px solid black;
   width: 1000px;
-  margin: auto;
+  margin: 30px auto;
+}
+.seller-info .heading {
+  background-color: aqua;
+  text-align: center;
 }

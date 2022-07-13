@@ -56,14 +56,16 @@ export default function AllSeller() {
     }
 
     return (
-        <div className="seller-info">
+        <>
             <Header />
-            <h3>
-                List of all sellers
-            </h3>
-            {
-                displayData(sellersData.sellerinfo)
-            }
-        </div>
+            <div className="seller-info">
+                <h3 className='heading'>
+                    List of all sellers
+                </h3>
+                {
+                    displayData(sellersData.sellerinfo)
+                }
+            </div>
+        </>
     )
 }
