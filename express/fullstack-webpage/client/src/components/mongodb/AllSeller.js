@@ -40,17 +40,29 @@ export default function AllSeller() {
         return data.map((info, index) => (
             <div key={index}>
                 <h3>
+                    Seller's ID : 
+                </h3>
+                <h5>
                     {info._id}
-                </h3>
+                </h5>
                 <h3>
+                    Seller's Name :
+                </h3>
+                <h5>
                     {info.username}
-                </h3>
+                </h5>
                 <h3>
+                    Seller's Email :
+                </h3>
+                <h5>
                     {info.email}
-                </h3>
+                </h5>
                 <h3>
-                    {info.number}
+                    Seller's Number :
                 </h3>
+                <h5>
+                    {info.number}
+                </h5>
             </div>
         ))
     }
