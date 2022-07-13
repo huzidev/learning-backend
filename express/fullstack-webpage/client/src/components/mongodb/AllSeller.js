@@ -20,7 +20,7 @@ export default function AllSeller() {
                 },
             })
             const data = await res.json()
-            setSellersData({ sellerinfo : data })
+            setSellersData({ sellerinfo : data }) // so we can assign all the fetched data to sellerinfo then we can use it
         }
         catch (err) {
             console.log("Error while getting seller's data", err);
@@ -56,7 +56,7 @@ export default function AllSeller() {
     }
 
     return (
-        <div>
+        <div className="seller-info">
             <Header />
             <h3>
                 List of all sellers

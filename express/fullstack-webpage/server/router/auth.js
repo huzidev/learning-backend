@@ -312,8 +312,8 @@ router.post('/contact', async (req, res) => {
 })
 
 // for getting all sellers data
-router.get('/allSellers',  function (req, res) {
-    UserSeller.find({}, function (err, users) {
+router.get('/allSellers', (req, res) => {
+    UserSeller.find({}, (err, users) => {
         if (err) {
             return res.status(421).send("Error getting sellers");
         }
