@@ -21,6 +21,7 @@
   letter-spacing: 1px;
 }
 .product-container .details-btn {
+  cursor: pointer;
   margin-top: 10px;
   font-size: 19px;
   padding: 5px 15px;
