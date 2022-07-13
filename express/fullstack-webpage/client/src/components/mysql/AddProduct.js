@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../service/api';
+import Header from '../Header';
 
 export default function AddProducts() {
 
@@ -33,6 +34,7 @@ export default function AddProducts() {
 
   return (
     <div>
+        <Header />
         <h1>
             Add Products
         </h1>     
