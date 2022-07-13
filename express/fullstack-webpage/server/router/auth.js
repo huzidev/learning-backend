@@ -7,6 +7,7 @@ import VerificationBuyer from '../middleware/VerificationBuyer';
 import VerificationSeller from '../middleware/VerificationSeller';
 import cookie from "cookie-parser";
 import cors from "cors";
+import e from "express";
 
 // WE CREATE ROUTER JUST TO MAKE OURS CODE SIMPLE AND EASY TO UNDERSTAND JUST LIKE STYLE COMPONENTS OF REACT
 require('../db/connection.js');
@@ -323,16 +324,32 @@ router.get('/allSellers', (req, res) => {
 
 
 // getting specific seller's info with theirs id
-router.get('/:id', (req, res, next) => {
-    UserSeller.findById(req.params.id)
-    .then((result) => {
-        res.status(200).json({ UserSeller : result })
-    })
-    .catch((err) => {
-        res.status(500).json({Error : err})
+// router.get('/allSellers/:id', (req, res, next) => {
+//     UserSeller.findById(req.params.id)
+//     .then((result) => {
+//         res.status(200).json({ UserSeller : result })
+//     })
+//     .catch((err) => {
+//         res.status(500).json({Error : err})
+//     })
+// })
+
+router.param('id', function (req, res, next, id) {
+    UserSeller.findById(id, function (err, docs) {
+        if (err) {
+            res.json(err)
+        }
+        else{
+            req.userId = docs;
+            next();
+        }
     })
 })
 
+
+router.get('/allSellers/:id', function (req, res) {
+    res.render('AllSeller', {UserSeller : req.userId})
+})
 
 // about page if login as seller
 router.get('/about/seller', VerificationSeller, (req, res) => {

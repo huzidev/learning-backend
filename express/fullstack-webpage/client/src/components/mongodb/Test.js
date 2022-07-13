@@ -1,29 +1,25 @@
-import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom';
 import Header from '../Header';
 
-export default function AllSeller() {
-    
-    let {id} = useParams()
+
+export default function Test() {
 
     const [sellersData, setSellersData] = React.useState({
-        _id : '',
         username : '',
-        email : '',
-        number : '',
         sellerinfo : []
     })
 
     async function getData() {
         try{
-            const res = await fetch(`/allSellers/${id}`, {
+            const res = await fetch("/allSellers", {
                 method : "GET",
                 headers : {
                     "Content-Type" : "application/json",
                 },
             })
             const data = await res.json()
-            setSellersData({ sellerinfo : data }) // so we can assign all the fetched data to sellerinfo then we can use it
+            setSellersData({ sellerinfo : data })
         }
         catch (err) {
             console.log("Error while getting seller's data", err);
@@ -42,30 +38,15 @@ export default function AllSeller() {
 
         return data.map((info, index) => (
             <div key={index}>
-                <h3>
-                    Seller's ID : 
-                </h3>
-                <h5>
-                    {info._id}
-                </h5>
+                
                 <h3>
                     Seller's Name :
                 </h3>
-                <h5>
-                    {info.username}
-                </h5>
-                <h3>
-                    Seller's Email :
-                </h3>
-                <h5>
-                    {info.email}
-                </h5>
-                <h3>
-                    Seller's Number :
-                </h3>
-                <h5>
-                    {info.number}
-                </h5>
+                <Link to={`/allSellers/${info._id}`}>
+                    <h5>
+                        {info.username}
+                    </h5>
+                </Link>
             </div>
         ))
     }
