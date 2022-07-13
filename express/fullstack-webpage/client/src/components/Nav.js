@@ -1,15 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { stateActions } from '../store/State-Store';
 
 export default function Nav() {
 
     const dispatch = useDispatch()
 
-    const isLoggedInSeller = useSelector((state) => state.login.isLoggedInSeller);
-    const isLoggedInBuyer = useSelector((state) => state.login.isLoggedInBuyer);
-    
     function register() {
         dispatch(stateActions.registerState());
     }
@@ -22,22 +19,8 @@ export default function Nav() {
             <div className='nav-bar'>
                 <div className='left-side'>
                     <Link to='/' className='animation left-element'>Home</Link>
-                    {/* {
-                        isLoggedInSeller
-                            ? (
-                                <Link to='/about/seller' className='animation'>About</Link>
-                            ) 
-                            : ''
-                    }
+                    
                     {
-                        isLoggedInBuyer
-                         ? (
-                            <Link to='/about/buyer' className='animation'>About</Link>
-                         )
-                         : ''
-                    } */}
-                    {
-                        // isLoggedInBuyer 
                         localStorage.getItem('jwtokenbuyer')
                             ? (
                                 <>
@@ -49,7 +32,6 @@ export default function Nav() {
                             : ''
                     }
                     {
-                        // isLoggedInSeller
                         localStorage.getItem('jwtokenseller')
                             ? (
                                 <>
@@ -64,7 +46,6 @@ export default function Nav() {
                 </div>
                 <div className='right-side'>
                     {
-                        // isLoggedInSeller || isLoggedInBuyer
                         localStorage.getItem('jwtokenbuyer') || localStorage.getItem('jwtokenseller')
                             ? (
                                 <Link to='/logout' className='animation right-element'>Logout</Link>
