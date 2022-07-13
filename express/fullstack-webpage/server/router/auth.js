@@ -321,17 +321,6 @@ router.get('/allSellers',  function (req, res) {
     })
 })
 
-// router.get("/allSellers", function(req, res){
-//     UserSeller.find({}, function (err, users) {
-//         var userMap = {};
-
-//         users.forEach(function (user) {
-//             userMap[user._id] = user;
-//         })
-//         res.send(userMap);
-//     })
-// })
-
 router.get('/about/seller', VerificationSeller, (req, res) => {
     res.send(req.sellerInfo) // userInfo is created in Middleware
 })
