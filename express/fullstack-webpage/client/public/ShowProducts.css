@@ -26,3 +26,8 @@
   font-size: 19px;
   padding: 5px 15px;
 }
+
+.detail-product-container {
+  width: 1000px;
+  margin: auto;
+}

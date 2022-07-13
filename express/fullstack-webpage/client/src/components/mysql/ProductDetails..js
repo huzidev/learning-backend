@@ -71,7 +71,7 @@ export default function ProductDetails() {
   return (
     <>
     <Header />
-      <div>
+      <div className='detail-product-container'>
           <h1>
             Product Details
           </h1>

@@ -33,6 +33,7 @@ server.use(bodyParser.urlencoded({ extended : true }));
 server.use('/api/products', routerProduct)
 server.use('/api/reviews', routerReview)
 server.use('/images', express.static('images'))
+server.use(express.static(__dirname + '/public/'))
 server.use(cookie());
 
 
