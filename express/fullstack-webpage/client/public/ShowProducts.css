@@ -20,3 +20,8 @@
   margin: 5px 0px;
   letter-spacing: 1px;
 }
+.product-container .details-btn {
+  margin-top: 10px;
+  font-size: 19px;
+  padding: 5px 15px;
+}

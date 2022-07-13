@@ -20,7 +20,7 @@ export default function ProductCard({ product }) {
         </h3>
         {/* always remember to use / at start whenever using LINK or URL */}
         <Link to={`/product/${product.pid}`}> 
-            <button>
+            <button className='details-btn'>
                 Details
             </button>
         </Link>
