@@ -84,7 +84,7 @@ export default function ProductDetails() {
           description : {productDescription}
         </p>
         { 
-          localStorage.getItem('jwtseller') 
+          localStorage.getItem('jwtokenseller') 
             ? (
               <>
                 <Link to={`/product/edit/${id}`}>
