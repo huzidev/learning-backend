@@ -46,7 +46,7 @@ export default function ProductDetails() {
     
     alert("Product Deleted Successfully!");
     
-    Navigate('/products');
+    Navigate('/allProducts');
   }
 
   const addReviewHandler = async (event) => {
@@ -63,7 +63,7 @@ export default function ProductDetails() {
     // reviews SINCE https://127.0.0.1:8000 adds automatically therefore we just have to specify the path through which we can
     // add review
 
-    Navigate('/products');
+    Navigate(`/product/${id}`);
   }
 
   const path  = "http://localhost:8000/"+productImage;
@@ -83,14 +83,22 @@ export default function ProductDetails() {
         <p>
           description : {productDescription}
         </p>
-        <Link to={`/product/edit/${id}`}>
-          <button>
-            Edit
-          </button>
-        </Link>
-        <button onClick={() => handleDelete(id)}>
-          Delete
-        </button>
+        { 
+          localStorage.getItem('jwtseller') 
+            ? (
+              <>
+                <Link to={`/product/edit/${id}`}>
+                <button>
+                  Edit
+                </button>
+                </Link>
+                <button onClick={() => handleDelete(id)}>
+                  Delete
+                </button>
+              </>
+            ) 
+            : ''
+          }
         {/* Add Reviews */}
         <h4>
           Add Reviews
