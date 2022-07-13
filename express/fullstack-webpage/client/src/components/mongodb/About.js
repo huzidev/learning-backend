@@ -1,19 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import defaultImg from '../../assets/default.png';
-import api from '../../service/api'
-// import { useSelector } from 'react-redux';
 
 export default function About() {
 
     const [userData, setUserData] = React.useState({}) // if we wanted to upload then we use ('') but here we just getting the data therefore we've used ({}) object we can get object of data
 
-    // const host = "http://127.0.0.1:8000"
-
-    // const isLoggedInSeller = useSelector((state) => state.login.isLoggedInSeller)
-    // const isLoggedInBuyer = useSelector((state) => state.login.isLoggedInBuyer)
-
-    // const host = 'http://localhost:8000'
     // about page for seller
     async function aboutPageSeller() {
         try{

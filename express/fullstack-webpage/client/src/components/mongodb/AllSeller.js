@@ -1,77 +1,59 @@
 import React from 'react';
 import Header from '../Header';
-import axios from 'axios';
 
 export default function AllSeller() {
     
-    const [state, setState] = React.useState({
+    const [sellersData, setSellersData] = React.useState({
+        _id : '',
         username : '',
         email : '',
-        posts : []
+        number : '',
+        sellerinfo : []
     })
 
-    
-    const getData = () => {
-        axios.get('/allSellers')
-        .then((res) => {
-            const data = res.data
-                setState({ posts : data })
+    async function getData() {
+        try{
+            const res = await fetch("/allSellers", {
+                method : "GET",
+                headers : {
+                    "Content-Type" : "application/json",
+                },
             })
-            .catch(() => {
-                window.alert("error")
-            })
+            const data = await res.json()
+            setSellersData({ sellerinfo : data })
+        }
+        catch (err) {
+            console.log("Error while getting seller's data", err);
+        }
     }
 
     React.useEffect(() => {
-        getData()
+            getData()
     }, [])
     
-    const displayData = (posts) => {
-        if (!posts.length) {
+
+    const displayData = (data) => {
+        if (!data) {
             return
         }
 
-        return posts.map((post, index) => (
+        return data.map((info, index) => (
             <div key={index}>
                 <h3>
-                    {post.username}
+                    {info._id}
                 </h3>
-                <h5>
-                    {post.email}
-                </h5>
+                <h3>
+                    {info.username}
+                </h3>
+                <h3>
+                    {info.email}
+                </h3>
+                <h3>
+                    {info.number}
+                </h3>
             </div>
         ))
     }
-
-    // const [sellersData, setSellersData] = React.useState({})
-
-    // async function getData() {
-    //     try{
-    //         const res = await fetch("/allSellers", {
-    //             method : "GET",
-    //             headers : {
-    //                 "Content-Type" : "application/json",
-    //             },
-    //         })
-    //         const data = await res.json()
-    //         setSellersData(data)
-
-    //         if (res.status === 421) {
-    //             window.alert("Failed getting seller's data")
-    //         }
-    //         else if (res.status === 200) {
-    //             window.alert("Successfully get seller's data")
-    //         }
-    //     }
-    //     catch (err) {
-    //         console.log("Error while getting seller's data", err);
-    //     }
-    // }
-
-    // React.useEffect(() => {
-    //     getData()
-    // }, [])
-
 
     return (
         <div>
@@ -80,7 +62,7 @@ export default function AllSeller() {
                 List of all sellers
             </h3>
             {
-                displayData(state.posts)
+                displayData(sellersData.sellerinfo)
             }
         </div>
     )
