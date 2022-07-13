@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 import Header from '../Header';
 
 export default function AllSeller() {
@@ -48,9 +49,11 @@ export default function AllSeller() {
                 <h3>
                     Seller's Name :
                 </h3>
-                <h5>
-                    {info.username}
-                </h5>
+                <Link to={`/allSellers/${info._id}`}>
+                    <h5>
+                        {info.username}
+                    </h5>
+                </Link>
                 <h3>
                     Seller's Email :
                 </h3>

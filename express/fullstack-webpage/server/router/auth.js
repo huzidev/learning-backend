@@ -334,7 +334,6 @@ router.get('/:id', (req, res, next) => {
 })
 
 
-
 // about page if login as seller
 router.get('/about/seller', VerificationSeller, (req, res) => {
     res.send(req.sellerInfo) // userInfo is created in Middleware
