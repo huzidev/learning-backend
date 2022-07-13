@@ -4,6 +4,9 @@
   margin: 30px auto;
 }
 .seller-info .heading {
+  padding: 20px 0px;
+  font-size: 23px;
+  font-weight: 500;
   background-color: aqua;
   text-align: center;
 }
