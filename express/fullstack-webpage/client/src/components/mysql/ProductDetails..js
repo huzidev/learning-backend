@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import api from '../../service/api';
+import Header from '../Header';
 
 export default function ProductDetails() {
   
@@ -68,75 +69,78 @@ export default function ProductDetails() {
 
   const path  = "http://localhost:8000/"+productImage;
   return (
-    <div>
-        <h1>
-          Product Details
-        </h1>
-        {/* it is MANDATORY to use localhost address otherwise the image will not be shown in the detail page */}
-        <img src={path} alt="Product-Img" />
-        <h2>
-          Tittle : {title}
-        </h2>
-        <h3>
-          Price : ${price}
-        </h3>
-        <p>
-          description : {productDescription}
-        </p>
-        { 
-          localStorage.getItem('jwtokenseller') 
-            ? (
-              <>
-                <Link to={`/product/edit/${id}`}>
-                <button>
-                  Edit
-                </button>
-                </Link>
-                <button onClick={() => handleDelete(id)}>
-                  Delete
-                </button>
-              </>
-            ) 
-            : ''
+    <>
+    <Header />
+      <div>
+          <h1>
+            Product Details
+          </h1>
+          {/* it is MANDATORY to use localhost address otherwise the image will not be shown in the detail page */}
+          <img src={path} alt="Product-Img" />
+          <h2>
+            Tittle : {title}
+          </h2>
+          <h3>
+            Price : ${price}
+          </h3>
+          <p>
+            description : {productDescription}
+          </p>
+          { 
+            localStorage.getItem('jwtokenseller') 
+              ? (
+                <>
+                  <Link to={`/product/edit/${id}`}>
+                  <button>
+                    Edit
+                  </button>
+                  </Link>
+                  <button onClick={() => handleDelete(id)}>
+                    Delete
+                  </button>
+                </>
+              ) 
+              : ''
+            }
+          {/* Add Reviews */}
+          <h4>
+            Add Reviews
+          </h4>
+          <hr />
+          <form onSubmit={addReviewHandler}>
+            <h4>
+              Rating
+            </h4>
+            <input 
+              value={rating}
+              onChange={(event) => setRating(event.target.value)}
+              type="number"
+            />
+            <h4>
+              Description
+            </h4>
+            <input 
+              value={description}
+              onChange={(event) => setDescription(event.target.value)}
+              type="text"
+            />
+            <button type="submit">
+              Add Review
+            </button>
+          </form>
+          {/* ALL REVIEWS */}
+          <h5>
+            Product Reviews
+          </h5>
+          <hr />
+          {
+            reviews.length > 0 ? 
+            (reviews.map((review) => {
+              return <p key={review.id}> Rating : {review.rating} <br /> {review.description}</p>
+              })) : 
+            ( <p> No reviews for this product </p> )
           }
-        {/* Add Reviews */}
-        <h4>
-          Add Reviews
-        </h4>
-        <hr />
-        <form onSubmit={addReviewHandler}>
-          <h4>
-            Rating
-          </h4>
-          <input 
-            value={rating}
-            onChange={(event) => setRating(event.target.value)}
-            type="number"
-          />
-          <h4>
-            Description
-          </h4>
-          <input 
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-            type="text"
-          />
-          <button type="submit">
-            Add Review
-          </button>
-        </form>
-        {/* ALL REVIEWS */}
-        <h5>
-          Product Reviews
-        </h5>
-        <hr />
-        {
-          reviews.length > 0 ? 
-          (reviews.map((review) => {
-            return <p key={review.id}> Rating : {review.rating} <br /> {review.description}</p>
-            })) : 
-          ( <p> No reviews for this product </p> )
-        }
-    </div>
+      </div>
+    </>
   )
 }

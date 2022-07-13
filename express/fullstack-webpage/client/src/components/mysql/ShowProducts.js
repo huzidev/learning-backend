@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 import api from '../../service/api'
+import Header from '../Header';
 
 export default function ShowProducts() {
 
@@ -18,6 +19,7 @@ export default function ShowProducts() {
 
   return (
     <div>
+        <Header />
         <h1>
             All Products
         </h1>
