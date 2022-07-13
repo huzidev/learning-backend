@@ -321,9 +321,27 @@ router.get('/allSellers', (req, res) => {
     })
 })
 
+
+// getting specific seller's info with theirs id
+router.get('/:id', (req, res, next) => {
+    UserSeller.findById(req.params.id)
+    .then((result) => {
+        res.status(200).json({ UserSeller : result })
+    })
+    .catch((err) => {
+        res.status(500).json({Error : err})
+    })
+})
+
+
+
+// about page if login as seller
 router.get('/about/seller', VerificationSeller, (req, res) => {
     res.send(req.sellerInfo) // userInfo is created in Middleware
 })
+
+
+// about page if login as buyer
 router.get('/about/buyer', VerificationBuyer, (req, res) => {
     res.send(req.buyerInfo) // userInfo is created in Middleware
 })
