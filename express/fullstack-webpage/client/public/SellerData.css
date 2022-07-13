@@ -9,4 +9,8 @@
   font-weight: 500;
   background-color: aqua;
   text-align: center;
+  border-bottom: 1px solid black;
+}
+.seller-info .seller-data {
+  margin: 20px 30px;
 }

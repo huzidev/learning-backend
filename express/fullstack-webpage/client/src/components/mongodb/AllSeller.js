@@ -62,9 +62,11 @@ export default function AllSeller() {
                 <h3 className='heading'>
                     List of all sellers
                 </h3>
-                {
-                    displayData(sellersData.sellerinfo)
-                }
+                <div className='seller-data'>
+                    {
+                        displayData(sellersData.sellerinfo)
+                    }
+                </div>
             </div>
         </>
     )
