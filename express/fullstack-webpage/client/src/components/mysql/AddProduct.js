@@ -33,44 +33,46 @@ export default function AddProducts() {
     }
 
   return (
-    <div>
+    <>
         <Header />
-        <h1>
-            Add Products
-        </h1>     
-        <form 
-            onSubmit = {addProductHandler}
-            method = "POST"
-            encType = 'multipart/form-data' //It is specifically used when FILE uploading is required
-        >
-            <input
-                name='image' // name must have to be same as of we defined in the productModel
-                type='file'
-                onChange={(event) => setImage(event.target.files[0])} // if we just uses files means multiple images therefore we've to
-                // specify that only one image therefore we've used [0] array of zero index 
-            />
-            <input 
-                type="text" 
-                placeholder='product name'
-                value={title}
-                onChange={(event) => setTitle(event.target.value)}
-            />
-            <input 
-                type="number" 
-                placeholder='price'
-                value={price}
-                onChange={(event) => setPrice(event.target.value)}
-            />
-            <input 
-                type="text" 
-                placeholder='description'
-                value={description}
-                onChange={(event) => setDescription(event.target.value)}
-            />
-            <button type="submit">
-                Add Product
-            </button>
-        </form>
-    </div>
+        <div className='add-products-container'>
+            <h1>
+                Add Products
+            </h1>     
+            <form 
+                onSubmit = {addProductHandler}
+                method = "POST"
+                encType = 'multipart/form-data' //It is specifically used when FILE uploading is required
+            >
+                <input
+                    name='image' // name must have to be same as of we defined in the productModel
+                    type='file'
+                    onChange={(event) => setImage(event.target.files[0])} // if we just uses files means multiple images therefore we've to
+                    // specify that only one image therefore we've used [0] array of zero index 
+                />
+                <input 
+                    type="text" 
+                    placeholder='product name'
+                    value={title}
+                    onChange={(event) => setTitle(event.target.value)}
+                />
+                <input 
+                    type="number" 
+                    placeholder='price'
+                    value={price}
+                    onChange={(event) => setPrice(event.target.value)}
+                />
+                <input 
+                    type="text" 
+                    placeholder='description'
+                    value={description}
+                    onChange={(event) => setDescription(event.target.value)}
+                />
+                <button type="submit">
+                    Add Product
+                </button>
+            </form>
+        </div>
+    </>
   )
 }
