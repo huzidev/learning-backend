@@ -44,12 +44,12 @@ db.sequelize.sync({ force : false })
 
 db.products.hasMany(db.reviews, {
     as : 'review',
-    foreignKey : 'pid'
+    foreignKey : 'fid'
 })
 
 db.reviews.belongsTo(db.products, {
     as : 'product',
-    foreignKey : 'pid'
+    foreignKey : 'fid'
 })
 
 module.exports = db;

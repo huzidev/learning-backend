@@ -19,7 +19,7 @@ export default function ProductCard({ product }) {
             Description : {product.description}
         </h3>
         {/* always remember to use / at start whenever using LINK or URL */}
-        <Link to={`/api/products/product/${product.pid}`}> 
+        <Link to={`/product/${product.pid}`}> 
             <button>
                 Details
             </button>
