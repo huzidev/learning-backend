@@ -46,19 +46,19 @@ export default function AddProducts() {
             >
                 <input 
                     type="text" 
-                    placeholder='product name'
+                    placeholder="product's name"
                     value={title}
                     onChange={(event) => setTitle(event.target.value)}
                 />
                 <input 
-                    type="number" 
-                    placeholder='price'
+                    type="number"
+                    placeholder="product's price"
                     value={price}
                     onChange={(event) => setPrice(event.target.value)}
                 />
                 <input 
                     type="text" 
-                    placeholder='description'
+                    placeholder="product's description"
                     value={description}
                     onChange={(event) => setDescription(event.target.value)}
                 />
