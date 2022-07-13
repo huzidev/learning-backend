@@ -44,12 +44,6 @@ export default function AddProducts() {
                 method = "POST"
                 encType = 'multipart/form-data' //It is specifically used when FILE uploading is required
             >
-                <input
-                    name='image' // name must have to be same as of we defined in the productModel
-                    type='file'
-                    onChange={(event) => setImage(event.target.files[0])} // if we just uses files means multiple images therefore we've to
-                    // specify that only one image therefore we've used [0] array of zero index 
-                />
                 <input 
                     type="text" 
                     placeholder='product name'
@@ -67,6 +61,12 @@ export default function AddProducts() {
                     placeholder='description'
                     value={description}
                     onChange={(event) => setDescription(event.target.value)}
+                />
+                <input
+                    name='image' // name must have to be same as of we defined in the productModel
+                    type='file'
+                    onChange={(event) => setImage(event.target.files[0])} // if we just uses files means multiple images therefore we've to
+                    // specify that only one image therefore we've used [0] array of zero index 
                 />
                 <button type="submit">
                     Add Product
