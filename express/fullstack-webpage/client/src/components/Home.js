@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from './Nav'
+import ShowProducts from './mysql/ShowProducts'
 // import Footer from './Footer';
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
                 <h1>
                     Items For Sale
                 </h1>
+                <ShowProducts />
             </div>
             {/* <Footer /> */}
         </>
