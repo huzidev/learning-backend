@@ -12,7 +12,6 @@
   border-bottom: 1px solid black;
 }
 .seller-info .seller-data {
-  height: 350px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,6 +49,9 @@
 .seller-info .seller-data .user-info-container .user-info h5 {
   font-size: 19px;
   margin: 10px 0px;
+}
+.seller-info .seller-data .user-info-container .user-info p {
+  margin-top: 2px;
 }
 
 .sellers-name-info {

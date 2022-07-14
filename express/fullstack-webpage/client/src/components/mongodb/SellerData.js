@@ -44,11 +44,41 @@ export default function SellerData() {
                 <h3 className='heading'>
                     About {sellersData.username}
                 </h3>
-                <div className='seller-data'>
-                    ID : {sellersData._id}
-                    name : {sellersData.username}
-                    email : {sellersData.email}
-                    number : {sellersData.number}
+                <div className="seller-data">
+                    <div className="user-info-container">
+                        <div className='user-info'>
+                            <h5>
+                                User Id :&nbsp;
+                            </h5>
+                            <p>
+                                {sellersData._id}
+                            </p>
+                        </div>
+                        <div className='user-info'>
+                            <h5>
+                                Username :&nbsp;
+                            </h5>
+                            <p>
+                                {sellersData.username}
+                            </p>
+                        </div>
+                        <div className='user-info'>
+                            <h5>
+                                User Email :&nbsp;
+                            </h5>
+                            <p>
+                                {sellersData.email}
+                            </p>
+                        </div>
+                        <div className='user-info'>
+                            <h5>
+                                User Number :&nbsp; 
+                            </h5>
+                            <p>
+                                {sellersData.number}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
