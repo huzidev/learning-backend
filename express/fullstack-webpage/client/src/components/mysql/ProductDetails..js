@@ -103,43 +103,46 @@ export default function ProductDetails() {
               : ''
             }
           {/* Add Reviews */}
-          <h4>
-            Add Reviews
-          </h4>
-          <hr />
-          <form onSubmit={addReviewHandler}>
+          <div className="reviews-container">
+            <hr />
             <h4>
-              Rating
+              Add Reviews
             </h4>
-            <input 
-              value={rating}
-              onChange={(event) => setRating(event.target.value)}
-              type="number"
-            />
-            <h4>
-              Description
-            </h4>
-            <input 
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
-              type="text"
-            />
-            <button type="submit" className='review-btn'>
-              Add Review
-            </button>
-          </form>
-          {/* ALL REVIEWS */}
-          <h5>
-            Product Reviews
-          </h5>
-          <hr />
-          {
-            reviews.length > 0 ? 
-            (reviews.map((review) => {
-              return <p key={review.id}> Rating : {review.rating} <br /> {review.description}</p>
-              })) : 
-            ( <p> No reviews for this product </p> )
-          }
+            <hr />
+            <form onSubmit={addReviewHandler}>
+              <h4>
+                Rating
+              </h4>
+              <input 
+                value={rating}
+                onChange={(event) => setRating(event.target.value)}
+                type="number"
+              />
+              <h4>
+                Description
+              </h4>
+              <input 
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+                type="text"
+              />
+              <button type="submit" className='review-btn'>
+                Add Review
+              </button>
+            </form>
+            {/* ALL REVIEWS */}
+            <h5>
+              Product Reviews
+            </h5>
+            <hr />
+            {
+              reviews.length > 0 ? 
+              (reviews.map((review) => {
+                return <p key={review.id}> Rating : {review.rating} <br /> {review.description}</p>
+                })) : 
+              ( <p> No reviews for this product </p> )
+            }
+          </div>
       </div>
     </>
   )
