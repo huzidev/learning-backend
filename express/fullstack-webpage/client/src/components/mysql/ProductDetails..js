@@ -115,6 +115,7 @@ export default function ProductDetails() {
                 value={rating}
                 onChange={(event) => setRating(event.target.value)}
                 type="number"
+                placeholder="Rating for product"
               />
               <h4>
                 Description
@@ -123,6 +124,7 @@ export default function ProductDetails() {
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
                 type="text"
+                placeholder="Description related to rating"
               />
               <button type="submit" className='review-btn'>
                 Add Review
