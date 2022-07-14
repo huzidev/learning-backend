@@ -87,5 +87,6 @@
   background: none;
 }
 .nav .nav-bar .back-btn-container i {
+  cursor: pointer;
   float: right;
 }
