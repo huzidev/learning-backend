@@ -108,6 +108,12 @@
   .footer-background .footer-container {
     width: 600px;
   }
+  .footer-background .footer-container .form-main {
+    margin: 50px auto 20px auto;
+  }
+  .footer-background .footer-container .footer-items {
+    margin: 30px auto 0px auto;
+  }
   .footer-background .footer-container .footer-items .logo i {
     font-size: 30px;
   }
