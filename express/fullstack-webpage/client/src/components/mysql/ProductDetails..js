@@ -104,11 +104,9 @@ export default function ProductDetails() {
             }
           {/* Add Reviews */}
           <div className="reviews-container">
-            <hr />
-            <h4>
+            <h4 className='main-heading-reviews'>
               Add Reviews
             </h4>
-            <hr />
             <form onSubmit={addReviewHandler}>
               <h4>
                 Rating
