@@ -67,6 +67,7 @@
           align-items: center;
 }
 .sellers-name-info .sellers-name .user-info a {
-  margin-top: 3px;
+  font-size: 23px;
+  margin-top: 2px;
   text-decoration: none;
 }
