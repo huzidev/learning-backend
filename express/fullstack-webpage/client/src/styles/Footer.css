@@ -97,4 +97,10 @@
   .footer-background .footer-container {
     width: 650px;
   }
+  .footer-background .footer-container .footer-items .logo i {
+    font-size: 33px;
+  }
+  .footer-background .footer-container .footer-items .logo a {
+    letter-spacing: 0.7px;
+  }
 }

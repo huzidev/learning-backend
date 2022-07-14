@@ -14,3 +14,8 @@
     width: 800px;
   }
 }
+@media only screen and (max-width: 820px) {
+  .home-page {
+    width: 650px;
+  }
+}
