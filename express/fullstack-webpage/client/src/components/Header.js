@@ -13,9 +13,11 @@ export default function Header() {
         <div className='nav'>
             <div  className='nav-bar'>
                 <Link to='/' className='animation'>Home</Link>
-                <button onClick={backButton} className='animation back-btn'>
-                    Go back
-                </button>
+                <div className='back-btn-container'>
+                    <button onClick={backButton} className='animation back-btn'>
+                        Go back
+                    </button>
+                </div>
             </div>
         </div>
     )
