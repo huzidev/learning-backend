@@ -83,7 +83,7 @@ export default function ProductDetails() {
           <h3 className='info'>
             Price : ${price}
           </h3>
-          <p>
+          <p className='info'>
             description : {productDescription}
           </p>
           { 
