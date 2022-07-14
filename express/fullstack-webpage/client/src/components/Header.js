@@ -6,7 +6,7 @@ export default function Header() {
     const Navigate = useNavigate()
 
     function backButton() {
-        Navigate(-1);
+        Navigate(-1); // Navigate -1 will simply moves us one page back
     }
 
     return (
