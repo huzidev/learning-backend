@@ -89,16 +89,16 @@ export default function ProductDetails() {
           { 
             localStorage.getItem('jwtokenseller') 
               ? (
-                <>
+                <div className='buttons'>
                   <Link to={`/product/edit/${id}`}>
-                  <button className='edit-btn'>
-                    Edit
-                  </button>
+                    <button className='edit-btn'>
+                      Edit
+                    </button>
                   </Link>
                   <button onClick={() => handleDelete(id)} className='delete-btn'>
                     Delete
                   </button>
-                </>
+                </div>
               ) 
               : ''
             }
