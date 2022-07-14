@@ -313,13 +313,15 @@ router.post('/contact', async (req, res) => {
 })
 
 // for getting all sellers data
-router.get('/allSellers', (req, res) => {
-    UserSeller.find({}, (err, users) => {
-        if (err) {
-            return res.status(421).send("Error getting sellers");
-        }
-        res.status(200).send(users)
-    })
+router.get('/allSellers', async (req, res) => {
+    try{
+        const data = await UserSeller.find({})
+        res.status(200).send(data)
+    }
+    catch (err) {
+        console.log(err);
+        res.status(421).send(err)
+    }
 })
 
 
@@ -328,10 +330,11 @@ router.get('/allSellers/:id', async (req, res, next) => {
     try{
         let id = req.params.id
         const result = await UserSeller.findById(id)
-        res.status(200).json(result)
+        res.status(200).send(result)
     }
     catch (err) {
-        res.status(500).json({Error : err})
+        console.log(err);
+        res.status(421).send(err)
     }
 })
 
