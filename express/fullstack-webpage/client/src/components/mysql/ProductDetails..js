@@ -64,7 +64,7 @@ export default function ProductDetails() {
     // reviews SINCE https://127.0.0.1:8000 adds automatically therefore we just have to specify the path through which we can
     // add review
 
-    Navigate(`/product/${id}`);
+    Navigate("/allProducts");
   }
 
   const path  = "http://localhost:8000/"+productImage;
@@ -107,6 +107,7 @@ export default function ProductDetails() {
             <h4 className='main-heading-reviews'>
               Add Reviews
             </h4>
+            <hr />
             <form onSubmit={addReviewHandler}>
               <h4>
                 Rating
@@ -131,17 +132,19 @@ export default function ProductDetails() {
               </button>
             </form>
             {/* ALL REVIEWS */}
-            <h5>
-              Product Reviews
-            </h5>
-            <hr />
-            {
-              reviews.length > 0 ? 
-              (reviews.map((review) => {
-                return <p key={review.id}> Rating : {review.rating} <br /> {review.description}</p>
-                })) : 
-              ( <p> No reviews for this product </p> )
-            }
+            <div className="added-review">
+              <h5>
+                Product Reviews
+              </h5>
+              <hr />
+              {
+                reviews.length > 0 ? 
+                (reviews.map((review) => {
+                  return <p key={review.id}> Rating : {review.rating} <br /> {review.description}</p>
+                  })) : 
+                ( <p> No reviews for this product </p> )
+              }
+            </div>
           </div>
       </div>
     </>
