@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../../service/api';
+import Header from '../Header';
 
 export default function EditProduct() {
 
@@ -47,33 +48,36 @@ export default function EditProduct() {
   }
 
   return (
-    <div>
-        <h1>
-            Edit Products
-        </h1>     
-        <form onSubmit={updateHandler}>
-            <input 
-                type="text" 
-                placeholder='product name'
-                value={title}
-                onChange={(event) => setTitle(event.target.value)}
-            />
-            <input 
-                type="number" 
-                placeholder='price'
-                value={price}
-                onChange={(event) => setPrice(event.target.value)}
-            />
-            <input 
-                type="text" 
-                placeholder='description'
-                value={description}
-                onChange={(event) => setDescription(event.target.value)}
-            />
-            <button type="submit">
-                Update Product
-            </button>
-        </form>
-    </div>
+    <>
+      <Header />
+      <div className="edit-products-container">
+          <h1>
+              Edit Products
+          </h1>     
+          <form onSubmit={updateHandler}>
+              <input 
+                  type="text" 
+                  placeholder='product name'
+                  value={title}
+                  onChange={(event) => setTitle(event.target.value)}
+              />
+              <input 
+                  type="number" 
+                  placeholder='price'
+                  value={price}
+                  onChange={(event) => setPrice(event.target.value)}
+              />
+              <input 
+                  type="text" 
+                  placeholder='description'
+                  value={description}
+                  onChange={(event) => setDescription(event.target.value)}
+              />
+              <button type="submit">
+                  Update Product
+              </button>
+          </form>
+      </div>
+    </>
   )
 }
