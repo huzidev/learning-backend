@@ -4,19 +4,15 @@ import Header from '../Header';
 
 export default function AllSeller() {
     
-    let {id} = useParams()
-
     const [sellersData, setSellersData] = React.useState({
         _id : '',
         username : '',
-        email : '',
-        number : '',
         sellerinfo : []
     })
 
     async function getData() {
         try{
-            const res = await fetch(`/allSellers/${id}`, {
+            const res = await fetch(`/allSellers`, {
                 method : "GET",
                 headers : {
                     "Content-Type" : "application/json",
@@ -41,31 +37,15 @@ export default function AllSeller() {
         }
 
         return data.map((info, index) => (
-            <div key={index}>
-                <h3>
-                    Seller's ID : 
-                </h3>
-                <h5>
-                    {info._id}
-                </h5>
-                <h3>
+            <div key={index} className="user-">
+                <h3 className="user-info">
                     Seller's Name :
                 </h3>
-                <h5>
-                    {info.username}
-                </h5>
-                <h3>
-                    Seller's Email :
-                </h3>
-                <h5>
-                    {info.email}
-                </h5>
-                <h3>
-                    Seller's Number :
-                </h3>
-                <h5>
-                    {info.number}
-                </h5>
+                <Link to={`/allSellers/${info._id}`}>
+                    <h5 className="user-info">
+                        {info.username}
+                    </h5>
+                </Link>
             </div>
         ))
     }

@@ -12,7 +12,7 @@ import LoginBuyer from './mongodb/LoginBuyer'
 import LoginSeller from './mongodb/LoginSeller'
 import RegisterBuyer from './mongodb/RegisterBuyer';
 import RegisterSeller from './mongodb/RegisterSeller';
-import Test from './mongodb/Test';
+import SellerData from './mongodb/SellerData';
 import AllSeller from './mongodb/AllSeller';
 import Logout from './mongodb/Logout';
 import {
@@ -40,8 +40,8 @@ export default function App() {
                     <Route exact path="/allProducts" element={<ShowProducts />} />
                     <Route exact path="/product/:id" element={<ProductDetails />} />
                     <Route exact path="/product/edit/:id" element={<EditProduct />} />
-                    <Route exact path="/allSellers" element={<Test />} />
-                    <Route exact path="/allSellers/:id" element={<AllSeller />} />
+                    <Route exact path="/allSellers" element={<AllSeller />} />
+                    <Route exact path="/allSellers/:id" element={<SellerData />} />
                     <Route exact path="/logout" element={<Logout />} />
                     <Route exact path="*" element={<Error />} />
                 </Routes>

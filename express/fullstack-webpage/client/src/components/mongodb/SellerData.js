@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom';
 import Header from '../Header';
 
 
-export default function Test() {
+export default function SellerData() {
 
     const [sellersData, setSellersData] = React.useState({
+        _id : '',
         username : '',
+        email : '',
+        number : '',
         sellerinfo : []
     })
 
@@ -37,16 +40,39 @@ export default function Test() {
         }
 
         return data.map((info, index) => (
-            <div key={index}>
-                
-                <h3>
-                    Seller's Name :
-                </h3>
-                <Link to={`/allSellers/${info._id}`}>
+            <div key={index} className="user-info-container">
+                <div className="user-info">
                     <h5>
-                        {info.username}
+                        Seller's ID :&nbsp;
                     </h5>
-                </Link>
+                    <p>
+                        {info._id}
+                    </p>
+                </div>
+                <div className="user-info">
+                    <h5>
+                        Seller's Name :&nbsp;
+                    </h5>
+                    <p>
+                        {info.username}
+                    </p>
+                </div>
+                <div className="user-info">
+                    <h5>
+                        Seller's Email :&nbsp;
+                    </h5>
+                    <p>
+                        {info.email}
+                    </p>
+                </div>
+                <div className="user-info">
+                    <h5>
+                        Seller's Number :&nbsp;
+                    </h5>
+                    <p>
+                        {info.number}
+                    </p>
+                </div>
             </div>
         ))
     }
