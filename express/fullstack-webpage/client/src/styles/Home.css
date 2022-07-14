@@ -3,6 +3,8 @@
   width: 1000px;
   margin: 30px auto;
 }
-.home-page h1 {
+.home-page .home-page-heading {
+  text-decoration: underline;
+  margin: 30px 0px;
   text-align: center;
 }
