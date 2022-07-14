@@ -14,7 +14,7 @@ export default function Header() {
             <div  className='nav-bar'>
                 <Link to='/' className='animation'>Home</Link>
                 <button onClick={backButton} className='animation back-btn'>
-                    back
+                    Go back
                 </button>
             </div>
         </div>

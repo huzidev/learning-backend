@@ -67,5 +67,8 @@
           transform: scaleX(1);
 }
 .nav .nav-bar .back-btn {
+  color: #551a8b;
   cursor: pointer;
+  border: none;
+  background: none;
 }
