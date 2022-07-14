@@ -104,3 +104,14 @@
     letter-spacing: 0.7px;
   }
 }
+@media only screen and (max-width: 700px) {
+  .footer-background .footer-container {
+    width: 600px;
+  }
+  .footer-background .footer-container .footer-items .logo i {
+    font-size: 30px;
+  }
+  .footer-background .footer-container .footer-items .logo a {
+    letter-spacing: 0.1px;
+  }
+}
