@@ -14,6 +14,8 @@ export default function Header() {
             <div  className='nav-bar'>
                 <Link to='/' className='animation'>Home</Link>
                 <div className='back-btn-container'>
+                    <i className='fa fa-arrow-left'>
+                    </i>
                     <button onClick={backButton} className='animation back-btn'>
                         Go back
                     </button>
