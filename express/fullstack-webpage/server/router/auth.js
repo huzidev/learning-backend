@@ -324,15 +324,15 @@ router.get('/allSellers', (req, res) => {
 
 
 // getting specific seller's info with theirs id
-router.get('/allSellers/:id', (req, res, next) => {
-    let id = req.params.id
-    UserSeller.findById(id)
-    .then((result) => {
-        res.status(200).json({ UserSeller : result })
-    })
-    .catch((err) => {
+router.get('/allSellers/:id', async (req, res, next) => {
+    try{
+        let id = req.params.id
+        const result = await UserSeller.findById(id)
+        res.status(200).json(result)
+    }
+    catch (err) {
         res.status(500).json({Error : err})
-    })
+    }
 })
 
 

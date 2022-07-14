@@ -17,12 +17,6 @@ export default function SellerData() {
 
     async function getData() {
         try{
-            console.log("id");
-            console.log("id");
-            console.log("id");
-            console.log("id");
-            console.log("id");
-            console.log(id);
             const res = await fetch(`/allSellers/${id}`, {
                 method : "GET",
                 headers : {
