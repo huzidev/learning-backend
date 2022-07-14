@@ -51,3 +51,22 @@
   font-size: 19px;
   margin: 10px 0px;
 }
+
+.sellers-name-info {
+  padding: 20px;
+}
+.sellers-name-info .sellers-name {
+  margin: 10px 0px;
+}
+.sellers-name-info .sellers-name .user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.sellers-name-info .sellers-name .user-info a {
+  margin-top: 3px;
+  text-decoration: none;
+}

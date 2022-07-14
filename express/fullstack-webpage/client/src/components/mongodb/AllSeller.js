@@ -37,15 +37,17 @@ export default function AllSeller() {
         }
 
         return data.map((info, index) => (
-            <div key={index} className="user-">
-                <h3 className="user-info">
-                    Seller's Name :
-                </h3>
-                <Link to={`/allSellers/${info._id}`}>
-                    <h5 className="user-info">
-                        {info.username}
-                    </h5>
-                </Link>
+            <div key={index} className="sellers-name">
+                <div className="user-info">
+                    <h3>
+                        Seller's Name :&nbsp;
+                    </h3>
+                    <Link to={`/allSellers/${info._id}`}>
+                        <h5>
+                            {info.username}
+                        </h5>
+                    </Link>
+                </div>
             </div>
         ))
     }
@@ -57,7 +59,7 @@ export default function AllSeller() {
                 <h3 className='heading'>
                     List of all sellers
                 </h3>
-                <div className='seller-data'>
+                <div className='sellers-name-info'>
                     {
                         displayData(sellersData.sellerinfo)
                     }
