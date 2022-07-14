@@ -91,11 +91,11 @@ export default function ProductDetails() {
               ? (
                 <>
                   <Link to={`/product/edit/${id}`}>
-                  <button>
+                  <button className='edit-btn'>
                     Edit
                   </button>
                   </Link>
-                  <button onClick={() => handleDelete(id)}>
+                  <button onClick={() => handleDelete(id)} className='delete-btn'>
                     Delete
                   </button>
                 </>
@@ -124,7 +124,7 @@ export default function ProductDetails() {
               onChange={(event) => setDescription(event.target.value)}
               type="text"
             />
-            <button type="submit">
+            <button type="submit" className='review-btn'>
               Add Review
             </button>
           </form>

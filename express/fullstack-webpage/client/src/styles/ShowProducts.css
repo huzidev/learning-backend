@@ -29,7 +29,7 @@
 
 .detail-product-container {
   width: 1000px;
-  margin: 35px auto;
+  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
