@@ -18,19 +18,21 @@ export default function ShowProducts() {
     }, [])
 
   return (
-    <div>
-        <Header />
-        <h1>
-            All Products
-        </h1>
-        { products.length > 0 ? 
-            products.map((product) => (
-                <div key={product.pid}>
-                    <ProductCard product={product} />
-                </div>
-            )) 
-            : <p>No Products</p>
-        }
-    </div>
+    <>
+    <Header />
+        <div className='show-all-products'>
+            <h1>
+                All Products
+            </h1>
+            { products.length > 0 ? 
+                products.map((product) => (
+                    <div key={product.pid}>
+                        <ProductCard product={product} />
+                    </div>
+                )) 
+                : <p>No Products</p>
+            }
+        </div>
+    </>
   )
 }
