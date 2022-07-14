@@ -90,3 +90,15 @@
   cursor: pointer;
   float: right;
 }
+
+@media only screen and (max-width: 1010px) {
+  .nav .nav-bar {
+    width: 800px;
+  }
+  .nav .nav-bar .right-side {
+    width: 150px;
+  }
+  .nav .nav-bar .left-side {
+    width: 650px;
+  }
+}
