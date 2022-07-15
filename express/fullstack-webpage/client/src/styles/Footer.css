@@ -23,7 +23,15 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.footer-background .footer-container .footer-items .logo {
+.footer-background .footer-container .footer-items .parts,
+.footer-background .footer-container .footer-items .bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 100px;
+}
+.footer-background .footer-container .footer-items .parts .logo,
+.footer-background .footer-container .footer-items .bottom .logo {
   height: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -39,12 +47,14 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.footer-background .footer-container .footer-items .logo i {
+.footer-background .footer-container .footer-items .parts .logo i,
+.footer-background .footer-container .footer-items .bottom .logo i {
   margin: 20px 0px;
   font-size: 39px;
   cursor: pointer;
 }
-.footer-background .footer-container .footer-items .logo a {
+.footer-background .footer-container .footer-items .parts .logo a,
+.footer-background .footer-container .footer-items .bottom .logo a {
   letter-spacing: 1.5px;
   font-size: 19px;
   text-decoration: none;
@@ -92,19 +102,36 @@
   .footer-background .footer-container {
     width: 800px;
   }
+  .footer-background .footer-container .footer-items .parts,
+.footer-background .footer-container .footer-items .bottom {
+    gap: 50px;
+  }
 }
 @media only screen and (max-width: 820px) {
   .footer-background .footer-container {
     width: 650px;
   }
-  .footer-background .footer-container .footer-items .logo i {
+  .footer-background .footer-container .footer-items {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer-background .footer-container .footer-items .parts,
+.footer-background .footer-container .footer-items .bottom {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .footer-background .footer-container .footer-items .parts .logo i,
+.footer-background .footer-container .footer-items .bottom .logo i {
     font-size: 33px;
   }
-  .footer-background .footer-container .footer-items .logo a {
+  .footer-background .footer-container .footer-items .parts .logo a,
+.footer-background .footer-container .footer-items .bottom .logo a {
     letter-spacing: 0.7px;
   }
-}
-@media only screen and (max-width: 700px) {
+
   .footer-background .footer-container {
     width: 600px;
   }
@@ -135,7 +162,8 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .footer-background .footer-container .footer-items .parts {
+  .footer-background .footer-container .footer-items .parts,
+.footer-background .footer-container .footer-items .bottom {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -143,10 +171,12 @@
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
   }
-  .footer-background .footer-container .footer-items .logo i {
+  .footer-background .footer-container .footer-items .parts .logo i,
+.footer-background .footer-container .footer-items .bottom .logo i {
     font-size: 28px;
   }
-  .footer-background .footer-container .footer-items .logo a {
+  .footer-background .footer-container .footer-items .parts .logo a,
+.footer-background .footer-container .footer-items .bottom .logo a {
     letter-spacing: 0.9px;
   }
 }
@@ -173,7 +203,8 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .footer-background .footer-container .footer-items .parts {
+  .footer-background .footer-container .footer-items .parts,
+.footer-background .footer-container .footer-items .bottom {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -181,10 +212,133 @@
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
   }
-  .footer-background .footer-container .footer-items .logo i {
+  .footer-background .footer-container .footer-items .parts .logo i,
+.footer-background .footer-container .footer-items .bottom .logo i {
     font-size: 28px;
   }
-  .footer-background .footer-container .footer-items .logo a {
+  .footer-background .footer-container .footer-items .parts .logo a,
+.footer-background .footer-container .footer-items .bottom .logo a {
+    letter-spacing: 0.9px;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .footer-background .footer-container {
+    width: 350px;
+  }
+  .footer-background .footer-container .form-main {
+    margin: 50px auto 20px auto;
+  }
+  .footer-background .footer-container .form-main .form-side {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer-background .footer-container .form-main .form-side input {
+    width: 100%;
+  }
+  .footer-background .footer-container .footer-items {
+    margin: 30px auto 0px auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer-background .footer-container .footer-items .parts,
+.footer-background .footer-container .footer-items .bottom {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .footer-background .footer-container .footer-items .parts .logo i,
+.footer-background .footer-container .footer-items .bottom .logo i {
+    font-size: 28px;
+  }
+  .footer-background .footer-container .footer-items .parts .logo a,
+.footer-background .footer-container .footer-items .bottom .logo a {
+    letter-spacing: 0.9px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .footer-background .footer-container {
+    width: 300px;
+  }
+  .footer-background .footer-container .form-main {
+    margin: 50px auto 20px auto;
+  }
+  .footer-background .footer-container .form-main .form-side {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer-background .footer-container .form-main .form-side input {
+    width: 100%;
+  }
+  .footer-background .footer-container .footer-items {
+    margin: 30px auto 0px auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer-background .footer-container .footer-items .parts,
+.footer-background .footer-container .footer-items .bottom {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .footer-background .footer-container .footer-items .parts .logo i,
+.footer-background .footer-container .footer-items .bottom .logo i {
+    font-size: 28px;
+  }
+  .footer-background .footer-container .footer-items .parts .logo a,
+.footer-background .footer-container .footer-items .bottom .logo a {
+    letter-spacing: 0.6px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .footer-background .footer-container {
+    width: 250px;
+  }
+  .footer-background .footer-container .form-main {
+    margin: 50px auto 20px auto;
+  }
+  .footer-background .footer-container .form-main .form-side {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer-background .footer-container .form-main .form-side input {
+    width: 100%;
+  }
+  .footer-background .footer-container .footer-items {
+    margin: 30px auto 0px auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer-background .footer-container .footer-items .parts,
+.footer-background .footer-container .footer-items .bottom {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .footer-background .footer-container .footer-items .parts .logo i,
+.footer-background .footer-container .footer-items .bottom .logo i {
+    font-size: 28px;
+  }
+  .footer-background .footer-container .footer-items .parts .logo a,
+.footer-background .footer-container .footer-items .bottom .logo a {
+    font-size: 16px;
     letter-spacing: 0.9px;
   }
 }

@@ -208,3 +208,25 @@
     width: 300px;
   }
 }
+@media only screen and (max-width: 380px) {
+  .product-container {
+    width: 300px;
+  }
+  .product-container .product-img {
+    height: 200px;
+    width: 250px;
+  }
+  .product-container .info {
+    margin: 5px 0px;
+    letter-spacing: 0.5px;
+  }
+  .product-container h1 {
+    font-size: 25px;
+  }
+  .product-container h2 {
+    font-size: 20px;
+  }
+  .product-container h3 {
+    font-size: 17px;
+  }
+}

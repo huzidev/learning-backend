@@ -15,21 +15,25 @@
             margin: 50px auto 0px auto
             display: flex
             justify-content: space-between
-            .logo
-                height: 100px
+            .parts,
+            .bottom
                 display: flex
-                justify-content: space-evenly
-                flex-direction: column
-                align-items: center
-                i
-                    margin: 20px 0px
-                    font-size: 39px
-                    cursor: pointer
-                a
-                    letter-spacing: 1.5px
-                    font-size: 19px
-                    text-decoration: none
-                    cursor: pointer
+                gap: 100px
+                .logo
+                    height: 100px
+                    display: flex
+                    justify-content: space-evenly
+                    flex-direction: column
+                    align-items: center
+                    i
+                        margin: 20px 0px
+                        font-size: 39px
+                        cursor: pointer
+                    a
+                        letter-spacing: 1.5px
+                        font-size: 19px
+                        text-decoration: none
+                        cursor: pointer
         .form-main
             width: 100%
             margin: 70px auto 20px auto
@@ -62,19 +66,28 @@
     .footer-background
         .footer-container
             width: 800px
+            .footer-items
+                .parts,
+                .bottom
+                    gap: 50px
+
 
 @media only screen and (max-width: 820px)
     .footer-background
         .footer-container
             width: 650px
             .footer-items
-                .logo
-                    i
-                        font-size: 33px
-                    a
-                        letter-spacing: 0.7px
+                flex-direction: column
+                .parts,
+                .bottom
+                    justify-content: space-evenly
+                    .logo
+                        i
+                            font-size: 33px
+                        a
+                            letter-spacing: 0.7px
 
-@media only screen and (max-width: 700px)
+    @media only screen and (max-width: 700px)
     .footer-background
         .footer-container
             width: 600px
@@ -97,14 +110,15 @@
             .footer-items
                 margin: 30px auto 0px auto
                 flex-direction: column
-                .parts
+                .parts,
+                .bottom
                     display: flex
                     justify-content: space-evenly
-                .logo
-                    i
-                        font-size: 28px
-                    a
-                        letter-spacing: 0.9px
+                    .logo
+                        i
+                            font-size: 28px
+                        a
+                            letter-spacing: 0.9px
 
 @media only screen and (max-width: 540px)
     .footer-background
@@ -119,11 +133,81 @@
             .footer-items
                 margin: 30px auto 0px auto
                 flex-direction: column
-                .parts
+                .parts,
+                .bottom
                     display: flex
                     justify-content: space-evenly
-                .logo
-                    i
-                        font-size: 28px
-                    a
-                        letter-spacing: 0.9px
+                    .logo
+                        i
+                            font-size: 28px
+                        a
+                            letter-spacing: 0.9px
+            
+@media only screen and (max-width: 420px)
+    .footer-background
+        .footer-container
+            width: 350px
+            .form-main
+                margin: 50px auto 20px auto
+                .form-side
+                    flex-direction: column
+                    input
+                        width: 100%
+            .footer-items
+                margin: 30px auto 0px auto
+                flex-direction: column
+                .parts,
+                .bottom
+                    display: flex
+                    justify-content: space-evenly
+                    .logo
+                        i
+                            font-size: 28px
+                        a
+                            letter-spacing: 0.9px
+
+@media only screen and (max-width: 380px)
+    .footer-background
+        .footer-container
+            width: 300px
+            .form-main
+                margin: 50px auto 20px auto
+                .form-side
+                    flex-direction: column
+                    input
+                        width: 100%
+            .footer-items
+                margin: 30px auto 0px auto
+                flex-direction: column
+                .parts,
+                .bottom
+                    display: flex
+                    justify-content: space-evenly
+                    .logo
+                        i
+                            font-size: 28px
+                        a
+                            letter-spacing: 0.6px
+                    
+@media only screen and (max-width: 320px)
+    .footer-background
+        .footer-container
+            width: 250px
+            .form-main
+                margin: 50px auto 20px auto
+                .form-side
+                    flex-direction: column
+                    input
+                        width: 100%
+            .footer-items
+                margin: 30px auto 0px auto
+                flex-direction: column
+                .parts,
+                .bottom
+                    justify-content: space-evenly
+                    .logo
+                        i
+                            font-size: 28px
+                        a
+                            font-size: 16px
+                            letter-spacing: 0.9px
