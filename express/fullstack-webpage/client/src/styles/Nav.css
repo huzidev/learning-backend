@@ -149,6 +149,7 @@
             justify-content: flex-start;
   }
   .nav .nav-bar .right-side .right-element {
+    font-size: 23px;
     margin: 20px 0px 0px 15px;
   }
   .nav .nav-bar .left-side {
@@ -157,9 +158,9 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    width: 700px;
   }
   .nav .nav-bar .left-side a {
+    font-size: 23px;
     margin: 0px 15px;
   }
 }
