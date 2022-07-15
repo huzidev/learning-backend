@@ -233,3 +233,8 @@
     width: 170px;
   }
 }
+@media only screen and (max-width: 320px) {
+  .nav .nav-bar {
+    padding: 50px;
+  }
+}
