@@ -148,22 +148,52 @@
 }
 @media only screen and (max-width: 660px) {
   .about-data {
-    width: 600px;
+    width: 500px;
   }
   .about-data .top-header h3 {
     width: 50%;
-    margin-left: 60px;
+    margin-left: 20px;
   }
   .about-data .container .user-info-container {
-    width: 60%;
+    width: 70%;
   }
   .about-data .container .user-profile {
-    width: 40%;
+    width: 30%;
   }
   .about-data .container .user-profile img {
-    height: 65%;
+    height: 55%;
   }
   .about-data .container .user-profile form .upload-img {
-    left: 20px;
+    left: -20px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .about-data {
+    width: 400px;
+  }
+  .about-data .top-header h3 {
+    width: 50%;
+    margin-left: 20px;
+  }
+  .about-data .container {
+    gap: 50px;
+  }
+  .about-data .container .user-info-container {
+    width: 50%;
+  }
+  .about-data .container .user-info-container .user-info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .about-data .container .user-profile {
+    width: 50%;
+  }
+  .about-data .container .user-profile img {
+    height: 55%;
+  }
+  .about-data .container .user-profile form .upload-img {
+    left: -30px;
   }
 }

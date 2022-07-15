@@ -46,32 +46,3 @@
     width: 800px;
   }
 }
-@media only screen and (max-width: 990px) {
-  .add-products-container {
-    width: 600px;
-  }
-}
-@media only screen and (max-width: 630px) {
-  .add-products-container {
-    width: 400px;
-  }
-  .add-products-container form input {
-    width: 50%;
-  }
-}
-@media only screen and (max-width: 430px) {
-  .add-products-container {
-    width: 300px;
-  }
-  .add-products-container form input {
-    width: 70%;
-  }
-}
-@media only screen and (max-width: 320px) {
-  .add-products-container {
-    width: 250px;
-  }
-  .add-products-container form input {
-    width: 80%;
-  }
-}

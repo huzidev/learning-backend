@@ -98,18 +98,39 @@
 
 @media only screen and (max-width: 660px)
     .about-data
-        width: 600px
+        width: 500px
         .top-header
             h3
                 width: 50%
-                margin-left: 60px
+                margin-left: 20px
         .container
             .user-info-container
-                width: 60%
+                width: 70%
             .user-profile
-                width: 40%
+                width: 30%
                 img
-                    height: 65%
+                    height: 55%
                 form
                     .upload-img
-                        left: 20px
+                        left: -20px
+
+@media only screen and (max-width: 500px)
+    .about-data
+        width: 400px
+        .top-header
+            h3
+                width: 50%
+                margin-left: 20px
+        .container
+            gap: 50px
+            .user-info-container
+                width: 50%
+                .user-info
+                    flex-direction: column
+            .user-profile
+                width: 50%
+                img
+                    height: 55%
+                form
+                    .upload-img
+                        left: -30px
