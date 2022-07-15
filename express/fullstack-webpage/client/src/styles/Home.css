@@ -44,3 +44,8 @@
     width: 250px;
   }
 }
+@media only screen and (max-width: 270px) {
+  .home-page {
+    width: 200px;
+  }
+}
