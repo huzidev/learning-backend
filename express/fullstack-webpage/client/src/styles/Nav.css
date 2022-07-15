@@ -21,10 +21,10 @@
       justify-content: space-around;
 }
 .nav .ham .hamburger-menu {
-  z-index: 2;
+  z-index: 999;
   width: 50px;
   height: 6px;
-  background-color: black;
+  background-color: white;
   border-radius: 5px;
   -webkit-transition: all 500ms ease-in-out;
   transition: all 500ms ease-in-out;
@@ -32,8 +32,8 @@
           box-shadow: 0px 2px 5px rgba(255, 101, 47, 0.2);
 }
 .nav .ham .hamburger-menu::before, .nav .ham .hamburger-menu::after {
-  background-color: black;
   content: "";
+  background-color: white;
   position: absolute;
   width: 50px;
   height: 6px;
@@ -200,7 +200,6 @@
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    z-index: 999;
     padding: 50px 70px;
     -webkit-transition: all 800ms cubic-bezier(1, 0, 0, 1);
     transition: all 800ms cubic-bezier(1, 0, 0, 1);
