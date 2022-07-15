@@ -75,3 +75,11 @@
     width: 80%;
   }
 }
+@media only screen and (max-width: 260px) {
+  .add-products-container {
+    width: 200px;
+  }
+  .add-products-container form input {
+    width: 95%;
+  }
+}
