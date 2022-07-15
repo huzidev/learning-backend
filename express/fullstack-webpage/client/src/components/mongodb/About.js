@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import Header from '../Header';
 import defaultImg from '../../assets/default.png';
 
 export default function About() {
@@ -68,11 +69,7 @@ export default function About() {
 
     return (
         <>
-            <div className='nav'>
-                <div  className='nav-bar'>
-                    <Link to='/' className='animation'>Home</Link>
-                </div>
-            </div>
+            <Header />
             <div className='about-data'>
                 <div className='top-header'>
                     <h3>
