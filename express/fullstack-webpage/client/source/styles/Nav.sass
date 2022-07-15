@@ -9,9 +9,7 @@
         height: 40px
         width: 45px
         cursor: pointer
-        display: flex
-        flex-direction: column
-        justify-content: space-around
+        display: none
         .hamburger-menu
             z-index: 999
             width: 50px
@@ -123,6 +121,11 @@
 
 @media only screen and (max-width: 700px)
     .nav
+        .ham
+            position: fixed
+            display: flex
+            flex-direction: column
+            justify-content: space-around
         .nav-bar
             height: 100%
             background-color: black
@@ -148,4 +151,5 @@
                 a
                     font-size: 23px
                     margin: 0px 15px
+                    width: 170px
         

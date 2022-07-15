@@ -16,10 +16,11 @@ export default function Nav() {
         dispatch(stateActions.loginState());
     }
     function hamburgerMenu() {
-        dispatch(stateActions.hamburgerOpen())
+        dispatch(stateActions.hamburgerState())
     }
-    
+  
     const activeClass = hamburgerOpen ? ' open' : '';
+
 
     return (
         <div className='nav'>
@@ -29,7 +30,7 @@ export default function Nav() {
                     </div>
                 </div>
             </div>
-            <div className='nav-bar'>
+            <div className={`nav-bar` + activeClass}>
                 <div className='left-side'>
                     <Link to='/' className='animation left-element'>Home</Link>
                     
