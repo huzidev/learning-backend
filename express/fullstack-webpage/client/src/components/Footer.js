@@ -63,57 +63,63 @@ export default function Footer() {
                         About Creator
                     </h2>
                     <div className='footer-items'>
-                        <div className="logo">
-                            <i className="fab fa-github">
-                            </i>
-                            <a 
-                                href="https://github.com/huzidev" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                            >
-                                Huzi-Dev
-                            </a>
+                        <div className="parts">
+                            <div className="logo">
+                                <i className="fab fa-github">
+                                </i>
+                                <a 
+                                    href="https://github.com/huzidev" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                >
+                                    Huzi-Dev
+                                </a>
+                            </div>
+                            <div className="logo">
+                                <i className="fa fa-envelope">
+                                </i>
+                                <a 
+                                    href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=huzi.iqdev@gmail.com" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                >
+                                    Huzaifa Iqbal
+                                </a>
+                            </div>
                         </div>
-                        <div className="logo">
-                            <i className="fa fa-envelope">
-                            </i>
-                            <a 
-                                href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=huzi.iqdev@gmail.com" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                            >
-                                Huzaifa Iqbal
-                            </a>
+                        <div className="parts">
+                            <div className="logo">
+                                <i className="fa fa-facebook">
+                                </i>
+                                <a 
+                                    href="https://facebook.com" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                >
+                                    Huzaifa Iqbal
+                                </a>
+                            </div>
+                            <div className="logo">
+                                <i className="fa fa-instagram">
+                                </i>
+                                <a 
+                                    href="https://instagram.com" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                >
+                                    huzaifa_iqbal_
+                                </a>
+                            </div>
                         </div>
-                        <div className="logo">
-                            <i className="fa fa-facebook">
-                            </i>
-                            <a 
-                                href="https://facebook.com" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                            >
-                                Huzaifa Iqbal
-                            </a>
-                        </div>
-                        <div className="logo">
-                            <i className="fa fa-instagram">
-                            </i>
-                            <a 
-                                href="https://instagram.com" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                            >
-                                huzaifa_iqbal_
-                            </a>
-                        </div>
-                        <div className="logo">
-                            <i className="fa fa-phone">
-                            </i>
-                            <a href="tel:0303030303"> 
-                            {/* if we uses (tel) then it'll directly opens phone app for you */}
-                                123-456-789
-                            </a>
+                        <div className="bottom">
+                            <div className="logo">
+                                <i className="fa fa-phone">
+                                </i>
+                                <a href="tel:0303030303"> 
+                                {/* if we uses (tel) then it'll directly opens phone app for you */}
+                                    123-456-789
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <form action="POST">
