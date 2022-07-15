@@ -11,12 +11,17 @@ export default function Nav() {
 
     function register() {
         dispatch(stateActions.registerState());
+        dispatch(stateActions.fixState())
     }
     function login() {
         dispatch(stateActions.loginState());
+        dispatch(stateActions.fixState())
     }
     function hamburgerMenu() {
         dispatch(stateActions.hamburgerState())
+    }
+    function fixState() {
+        dispatch(stateActions.fixState())
     }
   
     const activeClass = hamburgerOpen ? ' open' : '';
@@ -38,9 +43,9 @@ export default function Nav() {
                         localStorage.getItem('jwtokenbuyer')
                             ? (
                                 <>
-                                    <Link to='/about/buyer' className='animation'>About</Link>
-                                    <Link to='/allProducts' className='animation'>Show Products</Link>
-                                    <Link to='/allSellers' className='animation'>All Sellers</Link>
+                                    <Link to='/about/buyer' onClick={fixState} className='animation'>About</Link>
+                                    <Link to='/allProducts' onClick={fixState} className='animation'>Show Products</Link>
+                                    <Link to='/allSellers' onClick={fixState} className='animation'>All Sellers</Link>
                                 </>
                             )
                             : ''
@@ -49,10 +54,10 @@ export default function Nav() {
                         localStorage.getItem('jwtokenseller')
                             ? (
                                 <>
-                                    <Link to='/about/seller' className='animation'>About</Link>
-                                    <Link to='/addProduct' className='animation'>Add Product</Link>
-                                    <Link to='/allProducts' className='animation'>Show Products</Link>
-                                    <Link to='/allSellers' className='animation'>All Sellers</Link>
+                                    <Link to='/about/seller' onClick={fixState} className='animation'>About</Link>
+                                    <Link to='/addProduct' onClick={fixState} className='animation'>Add Product</Link>
+                                    <Link to='/allProducts' onClick={fixState} className='animation'>Show Products</Link>
+                                    <Link to='/allSellers' onClick={fixState} className='animation'>All Sellers</Link>
                                 </>
                             )
                             : ''
@@ -62,7 +67,7 @@ export default function Nav() {
                     {
                         localStorage.getItem('jwtokenbuyer') || localStorage.getItem('jwtokenseller')
                             ? (
-                                <Link to='/logout' className='animation right-element'>Logout</Link>
+                                <Link to='/logout' onClick={fixState} className='animation right-element'>Logout</Link>
                             )
                             : (
                                 <>
