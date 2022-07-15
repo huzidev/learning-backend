@@ -29,3 +29,8 @@
     width: 450px;
   }
 }
+@media only screen and (max-width: 480px) {
+  .home-page {
+    width: 350px;
+  }
+}
