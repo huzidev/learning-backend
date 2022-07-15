@@ -340,5 +340,58 @@
 .footer-background .footer-container .footer-items .bottom .logo a {
     font-size: 16px;
     letter-spacing: 0.9px;
+    width: 95px;
+  }
+}
+@media only screen and (max-width: 270px) {
+  .footer-background .footer-container {
+    width: 200px;
+  }
+  .footer-background .footer-container .form-main {
+    margin: 50px auto 20px auto;
+  }
+  .footer-background .footer-container .form-main .form-side {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer-background .footer-container .form-main .form-side input {
+    width: 100%;
+  }
+  .footer-background .footer-container .footer-items {
+    margin: 20px auto 0px auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer-background .footer-container .footer-items .parts,
+.footer-background .footer-container .footer-items .bottom {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 0px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .footer-background .footer-container .footer-items .parts .logo,
+.footer-background .footer-container .footer-items .bottom .logo {
+    text-align: center;
+  }
+  .footer-background .footer-container .footer-items .parts .logo i,
+.footer-background .footer-container .footer-items .bottom .logo i {
+    font-size: 28px;
+  }
+  .footer-background .footer-container .footer-items .parts .logo a,
+.footer-background .footer-container .footer-items .bottom .logo a {
+    font-size: 16px;
+    letter-spacing: 0.9px;
+    width: 110px;
   }
 }
