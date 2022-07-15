@@ -11,7 +11,8 @@ const stateStore = createSlice({
         loginState : false,
         registerState : false,
         registerBuyer : false,
-        registerSeller : false
+        registerSeller : false,
+        hamburgerOpen : false
     },
     reducers : {
         logInSeller(state) {
@@ -75,6 +76,9 @@ const stateStore = createSlice({
                 state.registerState = false
             }
         },
+        hamburgerOpen(state) {
+            state.hamburgerOpen = !state.hamburgerOpen
+        }
     }
 })
 

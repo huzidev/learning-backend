@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { stateActions } from '../store/State-Store';
 
 export default function Nav() {
 
     const dispatch = useDispatch()
+
+    const hamburgerOpen = useSelector((state) => state.login.hamburgerOpen)
 
     function register() {
         dispatch(stateActions.registerState());
@@ -13,10 +15,15 @@ export default function Nav() {
     function login() {
         dispatch(stateActions.loginState());
     }
+    function hamburgerMenu() {
+        dispatch(stateActions.hamburgerOpen())
+    }
     
+    const activeClass = hamburgerOpen ? ' open' : '';
+
     return (
         <div className='nav'>
-            <div className='ham'>
+            <div onClick={hamburgerMenu} className={`ham` + activeClass}>
                 <div className='hamburger-menu'>
                     <div className='menu'>
                     </div>
