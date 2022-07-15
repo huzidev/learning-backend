@@ -16,7 +16,13 @@ export default function Nav() {
     
     return (
         <div className='nav'>
-            <div className='nav-bar open'>
+            <div className='ham'>
+                <div className='hamburger-menu'>
+                    <div className='menu'>
+                    </div>
+                </div>
+            </div>
+            <div className='nav-bar'>
                 <div className='left-side'>
                     <Link to='/' className='animation left-element'>Home</Link>
                     

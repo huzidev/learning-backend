@@ -3,6 +3,71 @@
   height: 60px;
   background-color: aqua;
 }
+.nav .ham {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  height: 40px;
+  width: 45px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.nav .ham .hamburger-menu {
+  z-index: 2;
+  width: 50px;
+  height: 6px;
+  background-color: black;
+  border-radius: 5px;
+  -webkit-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+  -webkit-box-shadow: 0px 2px 5px rgba(255, 101, 47, 0.2);
+          box-shadow: 0px 2px 5px rgba(255, 101, 47, 0.2);
+}
+.nav .ham .hamburger-menu::before, .nav .ham .hamburger-menu::after {
+  background-color: black;
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 2px 5px rgba(255, 101, 47, 0.2);
+          box-shadow: 0px 2px 5px rgba(255, 101, 47, 0.2);
+  -webkit-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+}
+.nav .ham .hamburger-menu::before {
+  -webkit-transform: translateY(-16px);
+          transform: translateY(-16px);
+}
+.nav .ham .hamburger-menu::after {
+  -webkit-transform: translateY(16px);
+          transform: translateY(16px);
+}
+.nav .ham.open .hamburger-menu {
+  -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.nav .ham.open .hamburger-menu::before {
+  background-color: white;
+  -webkit-transform: rotate(45deg) translate(35px, -35px);
+          transform: rotate(45deg) translate(35px, -35px);
+}
+.nav .ham.open .hamburger-menu::after {
+  background-color: white;
+  -webkit-transform: rotate(-45deg) translate(35px, 35px);
+          transform: rotate(-45deg) translate(35px, 35px);
+}
 .nav .nav-bar {
   background-color: aqua;
   height: 100%;
