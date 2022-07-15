@@ -16,7 +16,7 @@ export default function Nav() {
     
     return (
         <div className='nav'>
-            <div className='nav-bar'>
+            <div className='nav-bar open'>
                 <div className='left-side'>
                     <Link to='/' className='animation left-element'>Home</Link>
                     
