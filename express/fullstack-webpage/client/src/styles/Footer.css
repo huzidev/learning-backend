@@ -394,4 +394,10 @@
     letter-spacing: 0.9px;
     width: 110px;
   }
+  .footer-background .footer-container form .form-main .form-side input {
+    padding: 5px;
+  }
+  .footer-background .footer-container form .form-main .send-btn {
+    font-size: 16px;
+  }
 }
