@@ -55,7 +55,7 @@ export default function LoginSeller() {
         if (res.status === 401) {
             window.alert("Username or Password is incorrect")
         }
-        else if (!data) {
+        else if (res.status === 421 || !data) {
             window.alert("Invalid Value!");
         }
         else if (res.status === 500) {
