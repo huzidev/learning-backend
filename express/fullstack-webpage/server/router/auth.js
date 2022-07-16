@@ -215,7 +215,6 @@ router.post('/login/buyer', async (req, res) => {
 
         // checking user info
         const userEmail = await UserBuyer.findOne({ email : email });
-        // const userName = await User.findOne({ username : username });
         
         // if logging in with email
         if (userEmail) {
