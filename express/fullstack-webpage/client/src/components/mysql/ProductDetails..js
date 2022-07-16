@@ -103,34 +103,42 @@ export default function ProductDetails() {
               : ''
             }
           {/* Add Reviews */}
+          {
+            localStorage.getItem("jwtokenseller") || localStorage.getItem("jwtokenbuyer") 
+              ? (
+                <div className="reviews-container">
+                  <h4 className='main-heading-reviews'>
+                    Add Reviews
+                  </h4>
+                  <hr />
+                  <form onSubmit={addReviewHandler}>
+                    <h4>
+                      Rating
+                    </h4>
+                    <input 
+                      value={rating}
+                      onChange={(event) => setRating(event.target.value)}
+                      type="number"
+                      placeholder="Rating for product"
+                    />
+                    <h4>
+                      Description
+                    </h4>
+                    <input 
+                      value={description}
+                      onChange={(event) => setDescription(event.target.value)}
+                      type="text"
+                      placeholder="Description related to rating"
+                    />
+                    <button type="submit" className='review-btn'>
+                      Add Review
+                    </button>
+                  </form>
+                </div>
+              )
+              : ''
+          }
           <div className="reviews-container">
-            <h4 className='main-heading-reviews'>
-              Add Reviews
-            </h4>
-            <hr />
-            <form onSubmit={addReviewHandler}>
-              <h4>
-                Rating
-              </h4>
-              <input 
-                value={rating}
-                onChange={(event) => setRating(event.target.value)}
-                type="number"
-                placeholder="Rating for product"
-              />
-              <h4>
-                Description
-              </h4>
-              <input 
-                value={description}
-                onChange={(event) => setDescription(event.target.value)}
-                type="text"
-                placeholder="Description related to rating"
-              />
-              <button type="submit" className='review-btn'>
-                Add Review
-              </button>
-            </form>
             {/* ALL REVIEWS */}
             <div className="added-review">
               <h5>
