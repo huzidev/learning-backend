@@ -7,19 +7,12 @@ import VerificationBuyer from '../middleware/VerificationBuyer';
 import VerificationSeller from '../middleware/VerificationSeller';
 import cookie from "cookie-parser";
 import cors from "cors";
-import e from "express";
 
 // WE CREATE ROUTER JUST TO MAKE OURS CODE SIMPLE AND EASY TO UNDERSTAND JUST LIKE STYLE COMPONENTS OF REACT
 require('../db/connection.js');
 
 // setting router
 const router = express.Router();
-
-// router.use(cors({
-//     origin: 'http://localhost:3000',
-//     methods : ["GET", "PUT", "POST", "DELETE"],
-//     credentials : true
-// }))
 
 router.use(cors({
     origin: '*',
@@ -58,6 +51,12 @@ router.post('/register/seller', async (req, res) => {
         }
         if (password != cpassword) {
             return res.status(425).json({ error : "Password doesn't match" })
+        }
+        if (username.length < 4) {
+            return res.status(426).json({ error : "username's length must be greater than 4 values" })
+        }
+        if (password.length < 8 || cpassword.length < 8) {
+            return res.status(427).json({ error : "Password's length must be greater than 8 values" })
         }
         // when user succeed for registration
         else {
@@ -119,6 +118,12 @@ router.post('/register/buyer', async (req, res) => {
         if (password != cpassword) {
             return res.status(425).json({ error : "Password doesn't match" })
         }
+        if (username.length < 4) {
+            return res.status(426).json({ error : "username's length must be greater than 4 values" })
+        }
+        if (password.length < 8 || cpassword.length < 8) {
+            return res.status(427).json({ error : "Password's length must be greater than 8 values" })
+        }
         // when user succeed for registration
         else {
 
@@ -147,8 +152,6 @@ router.post('/register/buyer', async (req, res) => {
 
 // for LOGIN as seller
 router.post('/login/seller', async (req, res) => {
-
-    // res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
 
     try{
         let token;
@@ -179,7 +182,7 @@ router.post('/login/seller', async (req, res) => {
 
             // expire token duration
             res.cookie("jwtokenseller", token, {
-                expires : new Date(Date.now() + 86400000), // user will be logged out automatically after 24 hours
+                expires : new Date(Date.now() + 5000), // user will be logged out automatically after 24 hours
                 httpOnly : true
             });
 

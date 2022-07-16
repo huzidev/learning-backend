@@ -75,6 +75,12 @@ export default function RegisterSeller() {
         else if (res.status === 425) {
             window.alert("Password doesn't match")
         }
+        else if (res.status === 426) {
+            window.alert(`Username's length must be greater than 4 values and you using just ${username.length} values`)
+        }
+        else if (res.status === 427) {
+            window.alert(`Password's length must be greater than 8 values and you using just ${password.length} values`)
+        }
         else if (res.status === 500) {
             window.alert("Internal Server Error : Failed to registered!")
         }
@@ -146,7 +152,7 @@ export default function RegisterSeller() {
                                 type={typePassword}
                                 value={user.password}
                                 onChange={handleInput}
-                                placeholder="password" 
+                                placeholder="password"
                             />
                             <div className='icon' onClick={showPass}>
                             { 
