@@ -7,23 +7,14 @@ export default function LoginBuyer() {
 
     const Navigate = useNavigate();
     
-    // const host = "http://localhost:8000"
-
-
     // redux-functions
     const dispatch = useDispatch();
     const showPasswordLog = useSelector((state) => state.login.showPasswordLog);
 
-    // const host = 'http://localhost:8000'
-
     const [user, setUser] = React.useState({
-        // username : "",
         email : "",
         password : "",
     });
-
-    // const [email, setEmail] = React.useState('');
-    // const [password, setPassword] = React.useState('');
 
     let name, value;
 
@@ -50,9 +41,8 @@ export default function LoginBuyer() {
                 "Content-Type" : "application/json"
             },
             body : JSON.stringify({
-                // username,
                 email,
-                password,
+                password
             })
         });
 
@@ -62,9 +52,6 @@ export default function LoginBuyer() {
         if (res.status === 400) {
             window.alert("Email or Password is incorrect");
         }
-        // if (res.status === 401) {
-        //     window.alert("Username or Password is incorrect")
-        // }
         else if (res.status === 421 || !data) {
             window.alert("Invalid Value!");
         }

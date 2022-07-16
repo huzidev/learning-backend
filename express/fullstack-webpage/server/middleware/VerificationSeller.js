@@ -4,7 +4,6 @@ import jwt from 'jsonwebtoken';
 const VerificationSeller = async (req, res, next) => {
     try{
         // getting stored token from cookies therefore we've used req
-        // const token = req.cookies.jwtoken;
 
         // verifying user
         const verifySeller = jwt.verify(req.cookies.jwtokenseller, process.env.SECRET_KEY);

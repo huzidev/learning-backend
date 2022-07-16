@@ -159,17 +159,12 @@ router.post('/login/seller', async (req, res) => {
         //getting data from schema
         const {email, password} = req.body;
         
-        // if (!username || !email || !password) {
-        //     return res.status(421).json({ error : "You've left an tag empty!" });
-        // }
-        
         if (!email || !password) {
             return res.status(421).json({ error : "You've left an tag empty!" });
         }
 
         // checking user info
         const userEmail = await UserSeller.findOne({ email : email });
-        // const userName = await User.findOne({ username : username });
         
         // if logging in with email
         if (userEmail) {
@@ -182,37 +177,22 @@ router.post('/login/seller', async (req, res) => {
 
             // expire token duration
             res.cookie("jwtokenseller", token, {
-                expires : new Date(Date.now() + 5000), // user will be logged out automatically after 24 hours
+                expires : new Date(Date.now() + 86400000), // user will be logged out automatically after 24 hours
                 httpOnly : true
             });
 
             if (!isMatchEmail) {
                 return res.status(400).json({ error : "Email or Password is incorrect" })
             }
-            else {
+            else if (isMatchEmail) {
                 res.status(201).json({ message : "User loggedIn successfully" })
             }
+            else {
+                res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
+            }
         }
-        
-        // if logging in with username
-        // else if (userName) {
-        //     // matching user email or username with password
-        //     const isMatchName = await compare(password, userName.password);
-
-        //     if (!isMatchName) {
-        //         return res.send(401).json({ error : "Username or Password is incorrect" })
-        //     }
-        //     else {
-        //         res.status(201).json({ message : "User loggedIn successfully" })
-        //     }
-        // }
-        
-        // if password is incorrect, we'll not specify what is incorrect because this can help hacker to access user account
-        else {
-            return res.status(400).json({ error : "Username or Password is incorrect" })
-        }
-
     }
+    
     catch (err) {
         console.log(err);
     }
@@ -228,10 +208,6 @@ router.post('/login/buyer', async (req, res) => {
     
         //getting data from schema
         const {email, password} = req.body;
-        
-        // if (!username || !email || !password) {
-        //     return res.status(421).json({ error : "You've left an tag empty!" });
-        // }
         
         if (!email || !password) {
             return res.status(421).json({ error : "You've left an tag empty!" });
@@ -259,29 +235,13 @@ router.post('/login/buyer', async (req, res) => {
             if (!isMatchEmail) {
                 return res.status(400).json({ error : "Email or Password is incorrect" })
             }
-            else {
+            else if (isMatchEmail) {
                 res.status(201).json({ message : "User loggedIn successfully" })
             }
+            else {
+                res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
+            }
         }
-        
-        // if logging in with username
-        // else if (userName) {
-        //     // matching user email or username with password
-        //     const isMatchName = await compare(password, userName.password);
-
-        //     if (!isMatchName) {
-        //         return res.send(401).json({ error : "Username or Password is incorrect" })
-        //     }
-        //     else {
-        //         res.status(201).json({ message : "User loggedIn successfully" })
-        //     }
-        // }
-        
-        // if password is incorrect, we'll not specify what is incorrect because this can help hacker to access user account
-        else {
-            return res.status(400).json({ error : "Username or Password is incorrect" })
-        }
-
     }
     catch (err) {
         console.log(err);

@@ -12,13 +12,9 @@ export default function LoginSeller() {
     const showPasswordLog = useSelector((state) => state.login.showPasswordLog);
 
     const [user, setUser] = React.useState({
-        // username : "",
         email : "",
-        password : "",
+        password : ""
     });
-
-    // const [email, setEmail] = React.useState('');
-    // const [password, setPassword] = React.useState('');
 
     let name, value;
 
@@ -45,7 +41,6 @@ export default function LoginSeller() {
                 "Content-Type" : "application/json"
             },
             body : JSON.stringify({
-                // username,
                 email,
                 password,
             })
@@ -57,10 +52,10 @@ export default function LoginSeller() {
         if (res.status === 400) {
             window.alert("Email or Password is incorrect");
         }
-        // if (res.status === 401) {
-        //     window.alert("Username or Password is incorrect")
-        // }
-        else if (res.status === 421 || !data) {
+        if (res.status === 401) {
+            window.alert("Username or Password is incorrect")
+        }
+        else if (!data) {
             window.alert("Invalid Value!");
         }
         else if (res.status === 500) {
