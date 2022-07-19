@@ -2,6 +2,10 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { stateActions } from '../../store/State-Store';
 import { useDispatch, useSelector } from 'react-redux';
+import PersonIcon from '@material-ui/icons/Person';
+import LockIcon from '@material-ui/icons/Lock';
+import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
+import VisibilityOffOutlinedIcon from '@material-ui/icons/VisibilityOffOutlined';
 
 export default function LoginBuyer() {
 
@@ -92,15 +96,19 @@ export default function LoginBuyer() {
                         Login As Buyer
                     </h1>
                     <form method="POST">
-                        <input 
-                            type="email"
-                            name="email"
-                            className='data'
-                            value={user.email}
-                            onChange={handleInput}
-                            placeholder="Yours Email"
-                        />
                         <div className='password-tag'>
+                            <PersonIcon />
+                            <input 
+                                type="email"
+                                name="email"
+                                className='data'
+                                value={user.email}
+                                onChange={handleInput}
+                                placeholder="Yours Email"
+                            />
+                        </div>
+                        <div className='password-tag'>
+                            <LockIcon />
                             <input 
                                 type={typePasswordType}
                                 name="password"
@@ -113,10 +121,10 @@ export default function LoginBuyer() {
                                 { 
                                     showPasswordLog 
                                         ? (
-                                            <i className={`fa fa-eye`}></i> 
+                                            <VisibilityOutlinedIcon />
                                         )
                                         : (
-                                            <i className={`fa fa-eye-slash`}></i>
+                                            <VisibilityOffOutlinedIcon />
                                         )
                                 }
                             </div>

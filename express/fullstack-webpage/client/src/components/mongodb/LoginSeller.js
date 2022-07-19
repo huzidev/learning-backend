@@ -4,8 +4,8 @@ import { stateActions } from '../../store/State-Store';
 import { useDispatch, useSelector } from 'react-redux';
 import PersonIcon from '@material-ui/icons/Person';
 import LockIcon from '@material-ui/icons/Lock';
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
+import VisibilityOffOutlinedIcon from '@material-ui/icons/VisibilityOffOutlined';
 
 export default function LoginSeller() {
 
@@ -122,10 +122,10 @@ export default function LoginSeller() {
                                 { 
                                     showPasswordLog 
                                         ? (
-                                            <VisibilityIcon />
+                                            <VisibilityOutlinedIcon />
                                         )
                                         : (
-                                            <VisibilityOffIcon />
+                                            <VisibilityOffOutlinedIcon />
                                         )
                                 }
                             </div>

@@ -41,6 +41,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .login-page .form-data form p {
   letter-spacing: 0px;
