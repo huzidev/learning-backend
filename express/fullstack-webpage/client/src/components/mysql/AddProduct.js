@@ -8,7 +8,7 @@ export default function AddProducts() {
     const Navigate = useNavigate();
 
     const [title, setTitle] = React.useState('');
-    const [price, setPrice] = React.useState(0);
+    const [price, setPrice] = React.useState('');
     const [description, setDescription] = React.useState('');
     const [image, setImage] = React.useState('');
  

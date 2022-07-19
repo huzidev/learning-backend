@@ -11,13 +11,13 @@ export default function ProductDetails() {
 
   // for product info
   const [title, setTitle] = React.useState('');
-  const [price, setPrice] = React.useState(0);
+  const [price, setPrice] = React.useState('');
   const [productDescription, setProductDescription] = React.useState('');
   const [productImage, setProductImage] = React.useState('');
 
   // for reviews
   const [reviews, setReviews] = React.useState([]);
-  const [rating, setRating] = React.useState(0);
+  const [rating, setRating] = React.useState('');
   const [description, setDescription] = React.useState('');
 
   React.useEffect(() => {
