@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import ArrowBackIosOutlinedIcon from '@material-ui/icons/ArrowBackIosOutlined';
 
 export default function Header() {
 
@@ -14,8 +15,7 @@ export default function Header() {
             <div  className='nav-bar'>
                 <Link to='/' className='animation'>Home</Link>
                 <div className='back-btn-container'>
-                    <i onClick={backButton} className='fa fa-arrow-left'>
-                    </i>
+                    <ArrowBackIosOutlinedIcon onClick={backButton}/>
                     <button onClick={backButton} className='animation back-btn'>
                         Go back
                     </button>

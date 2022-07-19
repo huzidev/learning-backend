@@ -133,7 +133,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 5px;
 }
 .nav .nav-bar .back-btn-container .back-btn {
   float: right;
@@ -142,7 +141,7 @@
   border: none;
   background: none;
 }
-.nav .nav-bar .back-btn-container i {
+.nav .nav-bar .back-btn-container svg {
   cursor: pointer;
   float: right;
 }
