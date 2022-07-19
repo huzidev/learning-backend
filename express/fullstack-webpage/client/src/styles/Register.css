@@ -40,6 +40,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .register-page .form-data form p {
   letter-spacing: 0px;
@@ -48,20 +51,22 @@
   text-decoration: none;
 }
 .register-page .form-data form .data {
-  width: 220px;
+  width: 240px;
   padding: 5px;
   margin: 12px;
   border: 0.2px solid black;
 }
 .register-page .form-data form .register-btn {
-  margin: auto;
-  width: 120px;
-  padding: 2px;
+  background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+  borderRadius: 3px;
+  border: 0px;
+  color: white;
+  height: 35px;
   margin-top: 10px;
-  font-size: 17px;
-  cursor: pointer;
+  padding: 0px 30px;
+  boxShadow: 0px 3px 5px 2px rgba(255, 105, 135, 0.3);
 }
-.register-page .form-data form .password-tag {
+.register-page .form-data form .alignment {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -70,9 +75,15 @@
           align-items: center;
   position: relative;
 }
-.register-page .form-data form .password-tag .icon {
+.register-page .form-data form .alignment svg {
+  font-size: 21px;
+}
+.register-page .form-data form .alignment .icon {
   right: 20px;
-  font-size: 13px;
   position: absolute;
   cursor: pointer;
+  margin-top: 5px;
+}
+.register-page .form-data form .alignment .icon svg {
+  font-size: 19px;
 }

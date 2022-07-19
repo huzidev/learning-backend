@@ -2,6 +2,13 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { stateActions } from '../../store/State-Store';
+import PersonIcon from '@material-ui/icons/Person';
+import LockIcon from '@material-ui/icons/Lock';
+import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
+import VisibilityOffOutlinedIcon from '@material-ui/icons/VisibilityOffOutlined';
+import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
+import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
+import Button from '@material-ui/core/Button';
 
 export default function RegisterSeller() {
 
@@ -120,31 +127,41 @@ export default function RegisterSeller() {
                     </h1>
                     <br />
                     <form >
-                        <input 
-                            type="text"
-                            name="username"
-                            className='data'
-                            value={user.username}
-                            onChange={handleInput}
-                            placeholder="username" 
-                        />
-                        <input 
-                            type="text"
-                            name="email"
-                            className='data'
-                            value={user.email}
-                            onChange={handleInput}
-                            placeholder="email" 
-                        />
-                        <input 
-                            type="text"
-                            name="number"
-                            className='data'
-                            value={user.number}
-                            onChange={handleInput}
-                            placeholder="number" 
-                        />
-                        <div className='password-tag'>
+                        <div className="alignment">
+                            <PersonIcon />
+                            <input 
+                                type="text"
+                                name="username"
+                                className='data'
+                                value={user.username}
+                                onChange={handleInput}
+                                placeholder="username" 
+                            />
+                        </div>
+                        <div className="alignment">
+                            <EmailOutlinedIcon />
+                            <input 
+                                type="text"
+                                name="email"
+                                className='data'
+                                value={user.email}
+                                onChange={handleInput}
+                                placeholder="email" 
+                            />
+                        </div>
+                        <div className="alignment">
+                            <PhoneOutlinedIcon />
+                            <input 
+                                type="text"
+                                name="number"
+                                className='data'
+                                value={user.number}
+                                onChange={handleInput}
+                                placeholder="number" 
+                            />
+                        </div>
+                        <div className="alignment">
+                            <LockIcon />
                             <input
                                 // type="password"
                                 name="password"
@@ -158,15 +175,16 @@ export default function RegisterSeller() {
                             { 
                                 showPasswordReg 
                                     ? (
-                                        <i className={`fa fa-eye`}></i> 
+                                        <VisibilityOutlinedIcon />
                                     )
                                     : (
-                                        <i className={`fa fa-eye-slash`}></i>
+                                        <VisibilityOffOutlinedIcon />
                                     ) 
                             }
                             </div>
                         </div>
-                        <div className='password-tag'>
+                        <div className="alignment">
+                            <LockIcon />
                             <input 
                                 name="cpassword"
                                 className='data'
@@ -179,10 +197,10 @@ export default function RegisterSeller() {
                             { 
                                 showCPasswordReg 
                                     ? (
-                                        <i className={`fa fa-eye`}></i> 
+                                        <VisibilityOutlinedIcon />
                                     )
                                     : (
-                                        <i className={`fa fa-eye-slash`}></i>
+                                        <VisibilityOffOutlinedIcon />
                                     ) 
                             }
                             </div>
@@ -191,13 +209,14 @@ export default function RegisterSeller() {
                             Already have an account? <Link to='/login' onClick={passwordConditionReg}>Login</Link>
                             {/* // we didn't used <a></a> tag rather we've used REACT LINK but html will take it as <a></a> tag therefore we've to target <a></a>  tag for styling in sass or css */}
                         </p>
-                        <input 
+                        <Button 
                             className='register-btn'
                             type="submit"
                             name="register"
-                            value="Register"
                             onClick={register}
-                        />
+                        >
+                            Register
+                        </Button>
                     </form>
                 </div>
             </div>
