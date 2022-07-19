@@ -40,7 +40,7 @@ export default function AllSeller() {
             <div key={index} className="sellers-name">
                 <div className="user-info">
                     <h3>
-                        Seller's Name :&nbsp;
+                        {index + 1} : Seller's Name :&nbsp;
                     </h3>
                     <Link to={`/allSellers/${info._id}`}>
                         <h5>
