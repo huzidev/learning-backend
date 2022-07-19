@@ -6,6 +6,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import LockIcon from '@material-ui/icons/Lock';
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@material-ui/icons/VisibilityOffOutlined';
+import Button from '@material-ui/core/Button';
 
 export default function LoginSeller() {
 
@@ -134,13 +135,14 @@ export default function LoginSeller() {
                             Didn't have an account? <Link to='/register' onClick={passwordConditionLog}>Create One</Link>
                             {/* // we didn't used a tag rather we've used REACT LINK but html will take it as a tag therefore we've to target a tag for styling in sass or css */}
                         </p>
-                        <input 
+                        <Button 
                             className='login-btn'
                             type="submit"
                             name="login"
-                            value="Login"
                             onClick={loginSeller}
-                        />
+                        >
+                            Login
+                        </Button>
                     </form>
                 </div>
             </div>
