@@ -71,17 +71,11 @@
           align-items: center;
   position: relative;
 }
-.login-page .form-data form .password-tag svg {
-  font-size: 23px;
-}
 .login-page .form-data form .password-tag .icon {
-  right: 21px;
+  right: 33px;
+  font-size: 13px;
   position: absolute;
   cursor: pointer;
-  margin-top: 3px;
-}
-.login-page .form-data form .password-tag .icon svg {
-  font-size: 20px;
 }
 
 .logout {

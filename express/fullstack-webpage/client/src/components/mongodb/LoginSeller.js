@@ -2,11 +2,14 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { stateActions } from '../../store/State-Store';
 import { useDispatch, useSelector } from 'react-redux';
+import PersonIcon from '@material-ui/icons/Person';
+import LockIcon from '@material-ui/icons/Lock';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 export default function LoginSeller() {
 
     const Navigate = useNavigate();
-    
     // redux-functions
     const dispatch = useDispatch();
     const showPasswordLog = useSelector((state) => state.login.showPasswordLog);
@@ -48,7 +51,6 @@ export default function LoginSeller() {
 
         // for getting all the data
         const data = await res.json();
-
         if (res.status === 400) {
             window.alert("Email or Password is incorrect");
         }
@@ -95,15 +97,19 @@ export default function LoginSeller() {
                         Login As Seller
                     </h1>
                     <form method="POST">
-                        <input 
-                            type="email"
-                            name="email"
-                            className='data'
-                            value={user.email}
-                            onChange={handleInput}
-                            placeholder="Yours Email"
-                        />
                         <div className='password-tag'>
+                            <PersonIcon />
+                            <input 
+                                type="email"
+                                name="email"
+                                className='data'
+                                value={user.email}
+                                onChange={handleInput}
+                                placeholder="Yours Email"
+                            />
+                        </div>
+                        <div className='password-tag'>
+                            <LockIcon />
                             <input 
                                 type={typePasswordType}
                                 name="password"
@@ -116,10 +122,10 @@ export default function LoginSeller() {
                                 { 
                                     showPasswordLog 
                                         ? (
-                                            <i className={`fa fa-eye`}></i> 
+                                            <VisibilityIcon />
                                         )
                                         : (
-                                            <i className={`fa fa-eye-slash`}></i>
+                                            <VisibilityOffIcon />
                                         )
                                 }
                             </div>
