@@ -22,6 +22,11 @@ router.use(express.urlencoded({ extended : false }));
 router.use(cookie());
 
 
+// HOME PAGE
+router.post('/', function(req, res) {
+    res.send("Home Page")
+})
+
 // for REGISTRATION Seller
 router.post('/register/seller', async (req, res) => {
 
@@ -83,9 +88,6 @@ router.post('/register/seller', async (req, res) => {
     }
 })
 
-router.post('/', function(req, res) {
-    res.send("Home Page")
-})
 
 
 // for REGISTRATION Buyer
@@ -180,7 +182,6 @@ router.post('/login/seller', async (req, res) => {
                 expires : new Date(Date.now() + 86400000), // user will be logged out automatically after 24 hours
                 httpOnly : true
             });
-
             if (!isMatchEmail) {
                 return res.status(400).json({ error : "Email or Password is incorrect" })
             }
@@ -192,7 +193,6 @@ router.post('/login/seller', async (req, res) => {
             }
         }
     }
-    
     catch (err) {
         console.log(err);
     }
@@ -201,18 +201,18 @@ router.post('/login/seller', async (req, res) => {
 
 // for LOGIN as buyer
 router.post('/login/buyer', async (req, res) => {
-
+    
     
     try{
         let token;
-    
+        
         //getting data from schema
         const {email, password} = req.body;
         
         if (!email || !password) {
             return res.status(421).json({ error : "You've left an tag empty!" });
         }
-
+        
         // checking user info
         const userEmail = await UserBuyer.findOne({ email : email });
         
@@ -220,17 +220,17 @@ router.post('/login/buyer', async (req, res) => {
         if (userEmail) {
             // matching user email or username with password
             const isMatchEmail = await bcrypt.compare(password, userEmail.password);
-
+            
             // generating token as user loggedIn
             token = await userEmail.generateAuthToken();
             console.log(token);
-
+            
             // expire token duration
             res.cookie("jwtokenbuyer", token, {
                 expires : new Date(Date.now() + 86400000), // user will be logged out automatically after 24 hours
                 httpOnly : true
             });
-
+            
             if (!isMatchEmail) {
                 return res.status(400).json({ error : "Email or Password is incorrect" })
             }
@@ -249,7 +249,7 @@ router.post('/login/buyer', async (req, res) => {
 
 
 router.post('/contact', async (req, res) => {
-
+    
     try{
         // getting all schema
         const { username, email, number, message } = req.body;
@@ -267,7 +267,7 @@ router.post('/contact', async (req, res) => {
         else {
             res.status(500).json({ error : "Failed To Send Message" });
         }
-
+        
     }
     catch (err) {
         console.log(err);
