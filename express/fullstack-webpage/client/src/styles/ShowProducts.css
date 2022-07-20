@@ -102,11 +102,14 @@
 .detail-product-container .reviews-container form h4 {
   font-size: 19px;
 }
-.detail-product-container .reviews-container form span {
-  margin: 7px 0px;
-}
 .detail-product-container .reviews-container form .text-field {
-  margin: 0px 0px 7px 0px;
+  margin: 16px 0px 7px 0px;
+}
+.detail-product-container .reviews-container form .text-field label {
+  top: -5px;
+}
+.detail-product-container .reviews-container form .text-field input {
+  padding: 10px 15px;
 }
 .detail-product-container .reviews-container .review-btn {
   background: linear-gradient(45deg, aqua 10%, purple 90%);
