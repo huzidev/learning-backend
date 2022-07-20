@@ -19,8 +19,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 350px;
-  width: 350px;
+  height: 400px;
+  width: 550px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -75,18 +75,30 @@
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  gap: 7px;
 }
 .login-page .form-data form .password-tag svg {
   font-size: 23px;
+  margin-top: 27px;
 }
 .login-page .form-data form .password-tag .icon {
-  right: 21px;
+  right: 5px;
   position: absolute;
   cursor: pointer;
   margin-top: 5px;
 }
 .login-page .form-data form .password-tag .icon svg {
   font-size: 20px;
+}
+.login-page .form-data form .password-tag .input-label {
+  margin-top: 12px;
+  width: 270px;
+}
+.login-page .form-data form .password-tag .input-label .label {
+  font-size: 19px;
+}
+.login-page .form-data form p {
+  margin-top: 15px;
 }
 
 .logout {

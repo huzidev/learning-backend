@@ -103,12 +103,12 @@ export default function LoginSeller() {
                     <form method="POST">
                         <div className='password-tag'>
                             <PersonIcon />
-                            <FormControl variant="standard">
-                                <InputLabel htmlFor="component-simple">
-                                    user name
+                            <FormControl variant="standard" className='input-label'>
+                                <InputLabel htmlFor="component-simple" className='label'>
+                                    email
                                 </InputLabel>
                                 <Input 
-                                    name='username'
+                                    name="email"
                                     id="component-simple" 
                                     value={user.email} 
                                     onChange={handleInput} 
@@ -117,12 +117,14 @@ export default function LoginSeller() {
                         </div>
                         <div className='password-tag'>
                             <LockIcon />
-                            <FormControl variant="standard">
-                                <InputLabel htmlFor="component-simple">
+                            <FormControl variant="standard" className='input-label'>
+                                <InputLabel htmlFor="component-simple" className='label'>
                                     Password
                                 </InputLabel>
                                 <Input 
-                                    id="component-simple" 
+                                    id="component-simple"
+                                    name='password'
+                                    type={typePasswordType}
                                     value={user.password} 
                                     onChange={handleInput} 
                                 />
