@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductCard from './ProductCard';
-import api from '../../service/api'
+import api from '../../service/api';
 
 export default function ShowProducts() {
 

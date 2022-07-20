@@ -107,13 +107,13 @@ export default function ProductDetails() {
               ? (
                 <div className='buttons'>
                   <Link to={`/product/edit/${id}`}>
-                    <button className='edit-btn'>
+                    <Button className='edit-btn'>
                       Edit
-                    </button>
+                    </Button>
                   </Link>
-                  <button onClick={() => handleDelete(id)} className='delete-btn'>
+                  <Button onClick={() => handleDelete(id)} className='delete-btn'>
                     Delete
-                  </button>
+                  </Button>
                 </div>
               ) 
               : ''

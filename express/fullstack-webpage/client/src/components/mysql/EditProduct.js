@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../../service/api';
 import Header from '../Header';
+import Button from '@material-ui/core/Button';
 
 export default function EditProduct() {
 
@@ -73,9 +74,9 @@ export default function EditProduct() {
                   value={description}
                   onChange={(event) => setDescription(event.target.value)}
               />
-              <button type="submit">
+              <Button type="submit" className='update-button'>
                   Update Product
-              </button>
+              </Button>
           </form>
       </div>
     </>
