@@ -59,25 +59,25 @@ export default function EditProduct() {
           <form onSubmit={updateHandler}>
               <TextField 
                 className='text-field'
-                label="product name"
+                type="text"
+                placeholder="product's name"
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
-                type="text"
-              >
-              </TextField>
+              / >
               <TextField 
-                label="price" 
+                className='text-field'
+                type='number'
+                placeholder="product's price"
                 value={price}
                 onChange={(event) => setPrice(event.target.value)}
               />
               <TextField 
                 className='text-field'
-                label="Description"
+                type="text"
+                placeholder="product's description"
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
-                type="text"
-              >
-              </TextField>
+              />
               <Button type="submit" className='update-button'>
                   Update Product
               </Button>
