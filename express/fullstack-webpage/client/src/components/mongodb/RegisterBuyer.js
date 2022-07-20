@@ -180,9 +180,9 @@ export default function RegisterBuyer() {
                                     Password
                                 </InputLabel>
                                 <Input 
-                                    type="password"
                                     id="component-simple"
                                     name='password'
+                                    type={typePassword}
                                     value={user.password} 
                                     onChange={handleInput} 
                                 />
@@ -206,10 +206,10 @@ export default function RegisterBuyer() {
                                     Confirm Password
                                 </InputLabel>
                                 <Input 
-                                    type="password"
                                     id="component-simple"
                                     name='cpassword'
-                                    value={user.cpassword} 
+                                    value={user.cpassword}
+                                    type={typeCPassword}
                                     onChange={handleInput} 
                                 />
                             </FormControl>
