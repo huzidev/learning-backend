@@ -55,10 +55,14 @@
 }
 .detail-product-container .buttons .edit-btn,
 .detail-product-container .buttons .delete-btn {
-  margin: 10px;
-  cursor: pointer;
-  font-size: 17px;
-  padding: 3px 15px;
+  background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+  borderRadius: 3px;
+  border: 0px;
+  color: white;
+  height: 35px;
+  margin-top: 10px;
+  padding: 0px 30px;
+  boxShadow: 0px 3px 5px 2px rgba(255, 105, 135, 0.3);
 }
 .detail-product-container .reviews-container {
   border: 1px solid black;
@@ -96,11 +100,18 @@
   -webkit-appearance: none;
   margin: 0px;
 }
+.detail-product-container .reviews-container form .text-field label {
+  top: -5px;
+}
 .detail-product-container .reviews-container .review-btn {
-  margin: 10px 0px;
-  cursor: pointer;
-  font-size: 17px;
-  padding: 3px 15px;
+  background: linear-gradient(45deg, aqua 10%, purple 90%);
+  borderRadius: 3px;
+  border: 0px;
+  color: white;
+  height: 35px;
+  margin-top: 10px;
+  padding: 0px 30px;
+  boxShadow: 0px 3px 5px 2px rgba(255, 105, 135, 0.3);
 }
 .detail-product-container .reviews-container .added-review h5 {
   text-align: center;

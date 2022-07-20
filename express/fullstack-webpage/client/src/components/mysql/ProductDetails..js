@@ -3,9 +3,9 @@ import { useParams, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import api from '../../service/api';
 import Header from '../Header';
-import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-import Typography from '@mui/material/Typography';
+import Button from '@material-ui/core/Button';
+import TextField from '@mui/material/TextField';
 
 export default function ProductDetails() {
   
@@ -123,18 +123,17 @@ export default function ProductDetails() {
                       value={rating}
                       onChange={(event) => setRating(event.target.value)}
                     />
-                    <h4>
-                      Description
-                    </h4>
-                    <input 
+                    <TextField 
+                      className='text-field'
+                      label="Description"
                       value={description}
                       onChange={(event) => setDescription(event.target.value)}
                       type="text"
-                      placeholder="Description related to rating"
-                    />
-                    <button type="submit" className='review-btn'>
+                    >
+                    </TextField>
+                    <Button type="submit" className='review-btn'>
                       Add Review
-                    </button>
+                    </Button>
                   </form>
                 </div>
               )
