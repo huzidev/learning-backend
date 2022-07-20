@@ -178,14 +178,14 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.edit-products-container form input {
+.edit-products-container form input::-webkit-outer-spin-button, .edit-products-container form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.edit-products-container form .text-field {
   padding: 5px;
   width: 25%;
   margin: 5px auto;
-}
-.edit-products-container form input::-webkit-outer-spin-button, .edit-products-container form input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0px;
+  margin-margin: 0px;
 }
 .edit-products-container form .update-button {
   margin: 10px 0px 0px 0px;
