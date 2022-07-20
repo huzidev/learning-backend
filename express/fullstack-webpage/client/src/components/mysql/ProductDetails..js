@@ -46,6 +46,8 @@ export default function ProductDetails() {
 
   const handleDelete = async (id) => {
 
+    window.alert("You sure you wanted to delete that item?")
+
     await api.delete(`/api/products/${id}`);
     
     alert("Product Deleted Successfully!");
@@ -53,21 +55,32 @@ export default function ProductDetails() {
     Navigate('/allProducts');
   }
 
+  
   const addReviewHandler = async (event) => {
-
+    
     event.preventDefault()
     
     let review = {
-        id : id,
-        rating : rating,
-        description : description
+      id : id,
+      rating : rating,
+      description : description
     }
-    await api.post(`/api/reviews/addReview`, review) // so here we don't have to give ${id} rather we have to use the URL where from
-    // where reviews will add if we go to postman we can see that from THIS URL http://127.0.0.1:8000/api/reviews/addReview WE can add
-    // reviews SINCE https://127.0.0.1:8000 adds automatically therefore we just have to specify the path through which we can
-    // add review
-
-    Navigate("/allProducts");
+    if (description.length > 0 && rating.length > 0) {
+      await api.post(`/api/reviews/addReview`, review) // so here we don't have to give ${id} rather we have to use the URL where from
+      Navigate("/allProducts");
+      // where reviews will add if we go to postman we can see that from THIS URL http://127.0.0.1:8000/api/reviews/addReview WE can add
+      // reviews SINCE https://127.0.0.1:8000 adds automatically therefore we just have to specify the path through which we can
+      // add review
+    }
+    if (description.length === 0 && rating.length === 0) {
+      window.alert("Description and rating must have to be something")
+    }
+    else if (description.length === 0) {
+      window.alert("Description must have to be something")
+    }
+    else if (rating.length === 0) {
+      window.alert("You must have select at least one star")
+    }
   }
 
   const path  = "http://localhost:8000/"+productImage;
