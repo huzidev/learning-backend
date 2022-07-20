@@ -154,7 +154,7 @@ export default function ProductDetails() {
                     <>
                     <div className='rating-container'>
                       <p>
-                        <b>Rating</b>
+                        <b>Rating :</b>
                       </p>
                        <Rating name="read-only" value={review.rating} readOnly />
                     </div>

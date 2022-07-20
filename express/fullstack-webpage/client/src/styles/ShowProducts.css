@@ -109,6 +109,11 @@
 .detail-product-container .reviews-container .added-review p {
   margin: 20px 0px;
 }
+.detail-product-container .reviews-container .added-review .reviews-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 
 .show-all-products h1 {
   margin: 30px 0px;
