@@ -142,8 +142,7 @@ export default function ProductDetails() {
                       value={description}
                       onChange={(event) => setDescription(event.target.value)}
                       type="text"
-                    >
-                    </TextField>
+                    />
                     <Button type="submit" className='review-btn'>
                       Add Review
                     </Button>

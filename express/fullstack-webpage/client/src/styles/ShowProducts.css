@@ -59,6 +59,9 @@
   display: flex;
   gap: 10px;
 }
+.detail-product-container .buttons a {
+  text-decoration: none;
+}
 .detail-product-container .buttons .edit-btn,
 .detail-product-container .buttons .delete-btn {
   cursor: pointer;

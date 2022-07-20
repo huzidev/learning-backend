@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import api from '../../service/api';
 import Header from '../Header';
 import Button from '@material-ui/core/Button';
+import TextField from '@mui/material/TextField';
 
 export default function EditProduct() {
 
@@ -56,24 +57,27 @@ export default function EditProduct() {
               Edit Products
           </h1>     
           <form onSubmit={updateHandler}>
-              <input 
-                  type="text" 
-                  placeholder='product name'
-                  value={title}
-                  onChange={(event) => setTitle(event.target.value)}
+              <TextField 
+                className='text-field'
+                label="product name"
+                value={title}
+                onChange={(event) => setTitle(event.target.value)}
+                type="text"
+              >
+              </TextField>
+              <TextField 
+                label="price" 
+                value={price}
+                onChange={(event) => setPrice(event.target.value)}
               />
-              <input 
-                  type="number" 
-                  placeholder='price'
-                  value={price}
-                  onChange={(event) => setPrice(event.target.value)}
-              />
-              <input 
-                  type="text" 
-                  placeholder='description'
-                  value={description}
-                  onChange={(event) => setDescription(event.target.value)}
-              />
+              <TextField 
+                className='text-field'
+                label="Description"
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+                type="text"
+              >
+              </TextField>
               <Button type="submit" className='update-button'>
                   Update Product
               </Button>
