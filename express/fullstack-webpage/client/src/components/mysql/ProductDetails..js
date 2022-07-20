@@ -3,6 +3,9 @@ import { useParams, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import api from '../../service/api';
 import Header from '../Header';
+import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
+import Typography from '@mui/material/Typography';
 
 export default function ProductDetails() {
   
@@ -115,11 +118,10 @@ export default function ProductDetails() {
                     <h4>
                       Rating
                     </h4>
-                    <input 
+                    <Rating
+                      name="simple-controlled"
                       value={rating}
                       onChange={(event) => setRating(event.target.value)}
-                      type="number"
-                      placeholder="Rating for product"
                     />
                     <h4>
                       Description
@@ -148,7 +150,19 @@ export default function ProductDetails() {
               {
                 reviews.length > 0 ? 
                 (reviews.map((review) => {
-                  return <p key={review.id}> Rating : {review.rating} <br /> {review.description}</p>
+                  return (
+                    <>
+                    <div className='rating-container'>
+                      <p>
+                        <b>Rating</b>
+                      </p>
+                       <Rating name="read-only" value={review.rating} readOnly />
+                    </div>
+                      <p key={review.id}> 
+                        <b>Description :</b> {review.description}
+                      </p>
+                    </>
+                  )
                   })) : 
                 ( <p> No reviews for this product </p> )
               }
