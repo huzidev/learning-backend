@@ -149,18 +149,19 @@ export default function ProductDetails() {
               <hr />
               {
                 reviews.length > 0 ? 
-                (reviews.map((review) => {
+                (reviews.map((review, index) => {
                   return (
                     <>
                     <div className='rating-container'>
                       <p>
-                        <b>Rating :</b>
+                        <b>{index + 1}) Rating :</b>
                       </p>
                        <Rating name="read-only" value={review.rating} readOnly />
                     </div>
                       <p key={review.id}> 
                         <b>Description :</b> {review.description}
                       </p>
+                      <hr />
                     </>
                   )
                   })) : 
