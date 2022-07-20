@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../service/api';
 import Header from '../Header';
+import Button from '@material-ui/core/Button';
+import TextField from '@mui/material/TextField';
 
 export default function AddProducts() {
 
@@ -44,33 +46,37 @@ export default function AddProducts() {
                 method = "POST"
                 encType = 'multipart/form-data' //It is specifically used when FILE uploading is required
             >
-                <input 
-                    type="text" 
+                <TextField 
+                    className='text-field'
+                    type="text"
                     placeholder="product's name"
                     value={title}
                     onChange={(event) => setTitle(event.target.value)}
-                />
-                <input 
-                    type="number"
+                / >
+                <TextField 
+                    className='text-field'
+                    type='number'
                     placeholder="product's price"
                     value={price}
                     onChange={(event) => setPrice(event.target.value)}
                 />
-                <input 
-                    type="text" 
+                <TextField 
+                    className='text-field'
+                    type="text"
                     placeholder="product's description"
                     value={description}
                     onChange={(event) => setDescription(event.target.value)}
                 />
-                <input
+                <TextField 
                     name='image' // name must have to be same as of we defined in the productModel
-                    type='file'
+                    className='text-field'
+                    type="file"
                     onChange={(event) => setImage(event.target.files[0])} // if we just uses files means multiple images therefore we've to
                     // specify that only one image therefore we've used [0] array of zero index 
                 />
-                <button type="submit">
+                <Button type="submit">
                     Add Product
-                </button>
+                </Button>
             </form>
         </div>
     </>

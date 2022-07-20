@@ -15,17 +15,28 @@
         justify-content: center
         align-items: center
         input
-            padding: 5px 
-            width: 25%
-            margin: 5px auto
             &::-webkit-outer-spin-button, 
             &::-webkit-inner-spin-button
                 -webkit-appearance: none
                 margin: 0px
+        .text-field
+            padding: 5px 
+            width: 25%
+            margin: 5px auto
+            label
+                top: -5px
+            input
+                padding: 10px 15px
         button
-            margin: 10px 0px 0px 0px
-            padding: 5px 10px
             cursor: pointer
+            background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)
+            border-radius: 3px
+            border: 0px
+            color: white
+            height: 35px
+            margin-top: 10px
+            padding: 0px 30px
+            box-shadow: 0px 3px 5px 2px rgba(255, 105, 135, .3)
 
 @media only screen and (max-width: 1230px)
     .add-products-container
