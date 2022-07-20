@@ -44,6 +44,9 @@
       -ms-flex-align: center;
           align-items: center;
 }
+.register-page .form-data form input::-webkit-outer-spin-button, .register-page .form-data form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 .register-page .form-data form p {
   letter-spacing: 0px;
 }
@@ -74,16 +77,28 @@
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  gap: 7px;
 }
 .register-page .form-data form .alignment svg {
-  font-size: 21px;
+  font-size: 23px;
+  margin-top: 27px;
 }
 .register-page .form-data form .alignment .icon {
-  right: 20px;
+  right: 5px;
   position: absolute;
   cursor: pointer;
   margin-top: 5px;
 }
 .register-page .form-data form .alignment .icon svg {
+  font-size: 20px;
+}
+.register-page .form-data form .alignment .input-label {
+  margin-top: 12px;
+  width: 270px;
+}
+.register-page .form-data form .alignment .input-label .label {
   font-size: 19px;
+}
+.register-page .form-data form p {
+  margin-top: 15px;
 }

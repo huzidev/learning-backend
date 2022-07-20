@@ -9,6 +9,9 @@ import VisibilityOffOutlinedIcon from '@material-ui/icons/VisibilityOffOutlined'
 import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import Button from '@material-ui/core/Button';
+import FormControl from '@mui/material/FormControl';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
 
 export default function RegisterBuyer() {
 
@@ -127,48 +130,63 @@ export default function RegisterBuyer() {
                     <form >
                         <div className="alignment">
                             <PersonIcon />
-                            <input 
-                                type="text"
-                                name="username"
-                                className='data'
-                                value={user.username}
-                                onChange={handleInput}
-                                placeholder="username" 
-                            />
+                            <FormControl variant="standard" className='input-label'>
+                                <InputLabel htmlFor="component-simple" className='label'>
+                                    Username
+                                </InputLabel>
+                                <Input 
+                                    type="text"
+                                    id="component-simple"
+                                    name='username'
+                                    value={user.username} 
+                                    onChange={handleInput} 
+                                />
+                            </FormControl>
                         </div>
                         <div className="alignment">
                             <EmailOutlinedIcon />
-                            <input 
-                                type="text"
-                                name="email"
-                                className='data'
-                                value={user.email}
-                                onChange={handleInput}
-                                placeholder="email" 
-                            />
+                            <FormControl variant="standard" className='input-label'>
+                                <InputLabel htmlFor="component-simple" className='label'>
+                                    Email
+                                </InputLabel>
+                                <Input 
+                                    type="email"
+                                    id="component-simple"
+                                    name='email'
+                                    value={user.email} 
+                                    onChange={handleInput} 
+                                />
+                            </FormControl>
                         </div>
                         <div className="alignment">
                             <PhoneOutlinedIcon />
-                            <input 
-                                type="text"
-                                name="number"
-                                className='data'
-                                value={user.number}
-                                onChange={handleInput}
-                                placeholder="number" 
-                            />
+                            <FormControl variant="standard" className='input-label'>
+                                <InputLabel htmlFor="component-simple" className='label'>
+                                    Number
+                                </InputLabel>
+                                <Input 
+                                    type="number"
+                                    id="component-simple"
+                                    name='number'
+                                    value={user.number} 
+                                    onChange={handleInput} 
+                                />
+                            </FormControl>
                         </div>
                         <div className="alignment">
                             <LockIcon />
-                            <input
-                                // type="password"
-                                name="password"
-                                className='data'
-                                type={typePassword}
-                                value={user.password}
-                                onChange={handleInput}
-                                placeholder="password"
-                            />
+                            <FormControl variant="standard" className='input-label'>
+                                <InputLabel htmlFor="component-simple" className='label'>
+                                    Password
+                                </InputLabel>
+                                <Input 
+                                    type="password"
+                                    id="component-simple"
+                                    name='password'
+                                    value={user.password} 
+                                    onChange={handleInput} 
+                                />
+                            </FormControl>
                             <div className='icon' onClick={showPass}>
                             { 
                                 showPasswordReg 
@@ -183,14 +201,18 @@ export default function RegisterBuyer() {
                         </div>
                         <div className="alignment">
                             <LockIcon />
-                            <input 
-                                name="cpassword"
-                                className='data'
-                                type={typeCPassword}
-                                value={user.cpassword}
-                                onChange={handleInput}
-                                placeholder="confirm password" 
-                            />
+                            <FormControl variant="standard" className='input-label'>
+                                <InputLabel htmlFor="component-simple" className='label'>
+                                    Confirm Password
+                                </InputLabel>
+                                <Input 
+                                    type="password"
+                                    id="component-simple"
+                                    name='cpassword'
+                                    value={user.cpassword} 
+                                    onChange={handleInput} 
+                                />
+                            </FormControl>
                             <div className='icon' onClick={showCPass}>
                             { 
                                 showCPasswordReg 
