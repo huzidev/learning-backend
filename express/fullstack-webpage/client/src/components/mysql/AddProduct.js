@@ -52,7 +52,7 @@ export default function AddProducts() {
                     placeholder="product's name"
                     value={title}
                     onChange={(event) => setTitle(event.target.value)}
-                / >
+                />
                 <TextField 
                     className='text-field'
                     type='number'

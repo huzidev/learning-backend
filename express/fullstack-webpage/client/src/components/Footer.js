@@ -1,5 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import TextField from '@mui/material/TextField';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 
 export default function Footer() {
 
@@ -125,46 +128,49 @@ export default function Footer() {
                     <form action="POST">
                         <div className='form-main'>
                             <div className='form-side'>
-                                <input 
+                                <TextField 
+                                    className='text-field'
+                                    name='username'
                                     type="text"
-                                    name="username" // make to sure to add this name property whenever making form
+                                    placeholder="Yours Name"
                                     value={user.username}
                                     onChange={handleInput}
-                                    placeholder="Yours Name"
                                 />
-                                <input 
-                                    type="email"
+                                <TextField 
+                                    className='text-field'
                                     name="email"
+                                    type="email"
+                                    placeholder="Yours Email"
                                     value={user.email}
                                     onChange={handleInput}
-                                    placeholder='Yours Email'
-                                 />
-                                <input 
-                                    type="Phone" 
+                                />
+                                <TextField 
+                                    className='text-field'
                                     name="number"
+                                    type="Phone"
+                                    placeholder='Yours Contact (Optional)'
                                     value={user.number}
                                     onChange={handleInput}
-                                    placeholder='Yours Contact 
-                                (Optional)' />
+                                />
                             </div>
                             <div className='form-comp'>
-                                <textarea 
+                                <TextareaAutosize 
+                                    className='textarea-field'
                                     name="message" 
-                                    cols="41.5" 
-                                    rows="10" 
+                                    minRows={9}
                                     value={user.message}
                                     onChange={handleInput}
                                     placeholder='Yours Message'
-                                >
-                                </textarea>
+                                />
                             </div>
-                            <input 
+                            <Button 
                                 className='send-btn'
                                 type="submit"
                                 name="send"
-                                value="send message"
                                 onClick={sendMessage}
-                            />
+                            >
+                                send message
+                            </Button>
                         </div>
                     </form>
                 </div>
