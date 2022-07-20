@@ -7,6 +7,9 @@ import LockIcon from '@material-ui/icons/Lock';
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@material-ui/icons/VisibilityOffOutlined';
 import Button from '@material-ui/core/Button';
+import FormControl from '@mui/material/FormControl';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
 
 export default function LoginSeller() {
 
@@ -100,25 +103,30 @@ export default function LoginSeller() {
                     <form method="POST">
                         <div className='password-tag'>
                             <PersonIcon />
-                            <input 
-                                type="email"
-                                name="email"
-                                className='data'
-                                value={user.email}
-                                onChange={handleInput}
-                                placeholder="Yours Email"
-                            />
+                            <FormControl variant="standard">
+                                <InputLabel htmlFor="component-simple">
+                                    user name
+                                </InputLabel>
+                                <Input 
+                                    name='username'
+                                    id="component-simple" 
+                                    value={user.email} 
+                                    onChange={handleInput} 
+                                />
+                            </FormControl>
                         </div>
                         <div className='password-tag'>
                             <LockIcon />
-                            <input 
-                                type={typePasswordType}
-                                name="password"
-                                className='data'
-                                value={user.password}
-                                onChange={handleInput}
-                                placeholder="Yours Password"
-                            />
+                            <FormControl variant="standard">
+                                <InputLabel htmlFor="component-simple">
+                                    Password
+                                </InputLabel>
+                                <Input 
+                                    id="component-simple" 
+                                    value={user.password} 
+                                    onChange={handleInput} 
+                                />
+                            </FormControl>
                             <div className='icon' onClick={showPass}>
                                 { 
                                     showPasswordLog 
