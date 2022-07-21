@@ -4,6 +4,9 @@ import api from '../../service/api';
 import Header from '../Header';
 import Button from '@material-ui/core/Button';
 import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import Stack from '@mui/material/Stack';
 
 export default function AddProducts() {
 
@@ -67,13 +70,21 @@ export default function AddProducts() {
                     value={description}
                     onChange={(event) => setDescription(event.target.value)}
                 />
-                <TextField 
-                    name='image' // name must have to be same as of we defined in the productModel
-                    className='text-field'
-                    type="file"
-                    onChange={(event) => setImage(event.target.files[0])} // if we just uses files means multiple images therefore we've to
-                    // specify that only one image therefore we've used [0] array of zero index 
-                />
+                <Stack className='stack'>
+                    <Button variant="contained" component="label">
+                        Upload Image
+                        <input 
+                            hidden accept="image/*" 
+                            multiple type="file" 
+                            onChange={(event) => setImage(event.target.files[0])} // if we just uses files means multiple images therefore we've to
+                            // specify that only one image therefore we've used [0] array of zero index 
+                        />
+                    </Button>
+                    <IconButton color="primary" aria-label="upload picture" component="label">
+                        <input hidden accept="image/*" type="file" />
+                        <PhotoCamera />
+                    </IconButton>
+                </Stack>
                 <Button type="submit">
                     Add Product
                 </Button>
