@@ -54,7 +54,7 @@ export default function Footer() {
         }
         else {
             window.alert("Message Sent Successfully!")
-            Navigate("/")
+            window.location.reload(); // so all the input data for sending message will remove automatically
         }
     }
 

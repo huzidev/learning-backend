@@ -85,6 +85,11 @@
   resize: none;
   border-radius: 4px;
   padding: 10px;
+  font-size: 17px;
+}
+.footer-background .footer-container .form-main .form-comp .textarea-field:focus {
+  outline: 0px;
+  border: 1.5px solid blue;
 }
 .footer-background .footer-container .form-main .send-btn {
   margin: 10px 0px 0px 0px;
