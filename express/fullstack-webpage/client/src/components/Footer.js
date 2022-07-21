@@ -29,7 +29,6 @@ export default function Footer() {
         event.preventDefault();
 
         const { username, email, number, message } = user;
-
         const res = await fetch("/contact", {
             method : "POST",
             headers : {
