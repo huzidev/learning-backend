@@ -10,6 +10,8 @@ import Button from '@material-ui/core/Button';
 import FormControl from '@mui/material/FormControl';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 
 export default function LoginSeller() {
 
@@ -68,7 +70,6 @@ export default function LoginSeller() {
             window.alert("Internal Server Error : Failed to registered!")
         }
         else {
-            window.alert("User loggedIn successfully!");
             // REDUX FUNCTION FOR CHANGING NAV-BAR
             dispatch(stateActions.logInSeller());
             // redux function for changing state type of password
@@ -153,6 +154,20 @@ export default function LoginSeller() {
                         >
                             Login
                         </Button>
+                        {
+                            loginSeller.res === 201
+                                ? (
+                                    <>
+                                        <Alert severity="success">
+                                            <AlertTitle>
+                                                Success
+                                            </AlertTitle>
+                                            User loggedIn Successfully
+                                        </Alert>
+                                    </>
+                                )
+                                : ''
+                        }
                     </form>
                 </div>
             </div>
