@@ -5,6 +5,7 @@ import api from '../../service/api';
 import Header from '../Header';
 import Rating from '@mui/material/Rating';
 import Button from '@material-ui/core/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 import TextField from '@mui/material/TextField';
 
 export default function ProductDetails() {
@@ -111,7 +112,7 @@ export default function ProductDetails() {
                       Edit
                     </Button>
                   </Link>
-                  <Button onClick={() => handleDelete(id)} className='delete-btn'>
+                  <Button onClick={() => handleDelete(id)} startIcon={<DeleteIcon />} className='delete-btn'>
                     Delete
                   </Button>
                 </div>

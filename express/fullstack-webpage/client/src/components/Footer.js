@@ -1,12 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import TextField from '@mui/material/TextField';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
+import SendIcon from '@mui/icons-material/Send';
 
 export default function Footer() {
-
-    const Navigate = useNavigate();
 
     const [user, setUser] = React.useState({
         username : "",
@@ -168,6 +166,7 @@ export default function Footer() {
                                 type="submit"
                                 name="send"
                                 onClick={sendMessage}
+                                endIcon={<SendIcon />}
                             >
                                 send message
                             </Button>
