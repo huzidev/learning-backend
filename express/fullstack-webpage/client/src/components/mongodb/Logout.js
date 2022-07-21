@@ -2,9 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { stateActions } from '../../store/State-Store';
-import api from '../../service/api'
 
-export default function Logout() {
+export default function Logout(props) {
 
     const dispatch = useDispatch();
     const Navigate = useNavigate();
@@ -27,7 +26,8 @@ export default function Logout() {
                 throw error;
             }
             else {
-                window.alert("User loggedOut successfully!");
+                // window.alert("User loggedOut successfully!");
+                props.showAlert("LoggedOut Successfully!", "success")
                 dispatch(stateActions.Logout());
                 localStorage.removeItem('jwtokenseller')
                 localStorage.removeItem('jwtokenbuyer')

@@ -10,10 +10,8 @@ import Button from '@material-ui/core/Button';
 import FormControl from '@mui/material/FormControl';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
 
-export default function LoginSeller() {
+export default function LoginSeller(props) {
 
     const Navigate = useNavigate();
     // redux-functions
@@ -58,18 +56,16 @@ export default function LoginSeller() {
         // for getting all the data
         const data = await res.json();
         if (res.status === 400) {
-            window.alert("Email or Password is incorrect");
-        }
-        if (res.status === 401) {
-            window.alert("Username or Password is incorrect")
+            props.showAlert("Email or Password is incorrect!", "warning")
         }
         else if (res.status === 421 || !data) {
-            window.alert("Invalid Value!");
-        }
+            props.showAlert("Invalid Value!", "danger")
+        }   
         else if (res.status === 500) {
-            window.alert("Internal Server Error : Failed to registered!")
+            props.showAlert("Internal Server Error : Failed to registered!", "danger")
         }
         else {
+            props.showAlert("LoggedIn Successfully!", "success")
             // REDUX FUNCTION FOR CHANGING NAV-BAR
             dispatch(stateActions.logInSeller());
             // redux function for changing state type of password
@@ -154,8 +150,8 @@ export default function LoginSeller() {
                         >
                             Login
                         </Button>
-                        {
-                            loginSeller.res === 201
+                        {/* {
+                            res.json 
                                 ? (
                                     <>
                                         <Alert severity="success">
@@ -167,7 +163,7 @@ export default function LoginSeller() {
                                     </>
                                 )
                                 : ''
-                        }
+                        } */}
                     </form>
                 </div>
             </div>
