@@ -32,7 +32,7 @@ export default function App() {
         })
         setTimeout(() => {
             setAlert(null)
-        }, 1200);
+        }, 1900);
     }
   // we've to pass alert as props where ever we wanted to use alert function
 

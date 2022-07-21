@@ -13,7 +13,7 @@ import FormControl from '@mui/material/FormControl';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 
-export default function RegisterSeller() {
+export default function RegisterSeller(props) {
 
     const Navigate = useNavigate();
 
@@ -69,33 +69,32 @@ export default function RegisterSeller() {
 
         // for getting all the data
         const data = await res.json();
-
         if (res.status === 421 || !data) {
-            window.alert("Invalid value!")
+            props.showAlert("Invalid value!", "error")
         }
         else if (res.status === 422) {
-            window.alert("Email already exist");
+            props.showAlert("Email already exist", "warning")
         }   
         else if (res.status === 423) {
-            window.alert("Username already exist")
+            props.showAlert("Username already exist", "warning")
         }   
         else if (res.status === 424) {
-            window.alert("Number already exist")
+            props.showAlert("Number already exist", "warning")
         }
         else if (res.status === 425) {
-            window.alert("Password doesn't match")
+            props.showAlert("Password doesn't match", "warning")
         }
         else if (res.status === 426) {
-            window.alert(`Username's length must be greater than 4 values and you using just ${username.length} values`)
+            props.showAlert(`Username's length must be greater than 4 values and you using just ${username.length} values`, "warning")
         }
         else if (res.status === 427) {
-            window.alert(`Password's length must be greater than 8 values and you using just ${password.length} values`)
+            props.showAlert(`Password's length must be greater than 8 values and you using just ${password.length} values`, "warning")
         }
         else if (res.status === 500) {
-            window.alert("Internal Server Error : Failed to registered!")
+            props.showAlert("Internal Server Error : Failed to registered!", "warning")
         }
         else {
-            window.alert("User registered successfully!");
+            props.showAlert("User registered successfully!", "success")
             dispatch(stateActions.passwordConditionReg()); // so input type for password can came to default form
             console.log("Successful Registration");
             Navigate("/login");
