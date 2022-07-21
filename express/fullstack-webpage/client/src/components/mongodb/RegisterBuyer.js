@@ -49,7 +49,6 @@ export default function RegisterBuyer(props) {
         event.preventDefault();
 
         const { username, email, number, password, cpassword } = user; // user state already created
-
         const res = await fetch(`${host}/register/buyer`, {
             method : "POST",
             headers : {
