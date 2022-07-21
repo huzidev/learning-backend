@@ -86,9 +86,11 @@ export default function AddProducts() {
                         <PhotoCamera />
                     </IconButton>
                 </Stack>
-                <Button type="submit">
-                    Add Product
-                </Button>
+                <Tooltip title="Upload Product image">
+                    <Button type="submit">
+                        Add Product
+                    </Button>
+                </Tooltip>
             </form>
         </div>
     </>
