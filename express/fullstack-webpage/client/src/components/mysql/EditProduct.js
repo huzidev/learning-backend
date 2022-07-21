@@ -4,6 +4,7 @@ import api from '../../service/api';
 import Header from '../Header';
 import Button from '@material-ui/core/Button';
 import TextField from '@mui/material/TextField';
+import Tooltip from '@mui/material/Tooltip';
 
 export default function EditProduct() {
 
@@ -78,9 +79,11 @@ export default function EditProduct() {
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
               />
-              <Button type="submit" className='update-button'>
-                  Update Product
-              </Button>
+              <Tooltip title="Update Product">
+                <Button type="submit" className='update-button'>
+                    Update Product
+                </Button>
+              </Tooltip>
           </form>
       </div>
     </>

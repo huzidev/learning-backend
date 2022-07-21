@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import Tooltip from '@mui/material/Tooltip';
 
 export default function ProductCard({ product }) {
     const path  = "http://localhost:8000/"+product.image; // NECESSARY to do because image is uploading at backend server and we've
@@ -21,9 +22,11 @@ export default function ProductCard({ product }) {
         </h3>
         {/* always remember to use / at start whenever using LINK or URL */}
         <Link to={`/product/${product.pid}`}> 
-            <Button className='details-btn'>
-                Details
-            </Button>
+            <Tooltip title="Details">
+                <Button className='details-btn'>
+                    Details
+                </Button>
+            </Tooltip>
         </Link>
     </div>
   )

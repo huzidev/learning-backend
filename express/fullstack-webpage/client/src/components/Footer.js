@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@mui/material/TextField';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import SendIcon from '@mui/icons-material/Send';
+import Tooltip from '@mui/material/Tooltip';
 
 export default function Footer() {
 
@@ -162,15 +163,17 @@ export default function Footer() {
                                     placeholder='Yours Message'
                                 />
                             </div>
-                            <Button 
-                                className='send-btn'
-                                type="submit"
-                                name="send"
-                                onClick={sendMessage}
-                                endIcon={<SendIcon />}
-                            >
-                                send message
-                            </Button>
+                            <Tooltip title="Send Message">
+                                <Button 
+                                    className='send-btn'
+                                    type="submit"
+                                    name="send"
+                                    onClick={sendMessage}
+                                    endIcon={<SendIcon />}
+                                >
+                                    send message
+                                </Button>
+                            </Tooltip>
                         </div>
                     </form>
                 </div>
