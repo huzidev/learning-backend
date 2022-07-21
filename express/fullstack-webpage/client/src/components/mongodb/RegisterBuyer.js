@@ -16,7 +16,6 @@ import InputLabel from '@mui/material/InputLabel';
 export default function RegisterBuyer(props) {
 
     const Navigate = useNavigate();
-
     const host = "http://localhost:8000"
 
     // redux-functions
