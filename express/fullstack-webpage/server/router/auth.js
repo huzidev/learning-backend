@@ -181,11 +181,11 @@ router.post('/login/seller', async (req, res) => {
             res.cookie("jwtokenseller", token, {
                 expires : new Date(Date.now() + 86400000), // user will be logged out automatically after 24 hours
                 httpOnly : true
-            });
+            })
             if (!isMatchEmail) {
                 return res.status(400).json({ error : "Email or Password is incorrect" })
             }
-            else if (isMatchEmail) {
+            if (isMatchEmail) {
                 res.status(201).json({ message : "User loggedIn successfully" })
             }
             else {
@@ -230,7 +230,6 @@ router.post('/login/buyer', async (req, res) => {
                 expires : new Date(Date.now() + 86400000), // user will be logged out automatically after 24 hours
                 httpOnly : true
             });
-            
             if (!isMatchEmail) {
                 return res.status(400).json({ error : "Email or Password is incorrect" })
             }

@@ -11,7 +11,7 @@ import FormControl from '@mui/material/FormControl';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 
-export default function LoginBuyer() {
+export default function LoginBuyer(props) {
 
     const Navigate = useNavigate();
     
@@ -56,18 +56,17 @@ export default function LoginBuyer() {
 
         // for getting all the data
         const data = await res.json();
-
         if (res.status === 400) {
-            window.alert("Email or Password is incorrect");
+            props.showAlert("Email or Password is incorrect!", "warning")
         }
         else if (res.status === 421 || !data) {
-            window.alert("Invalid Value!");
+            props.showAlert("Invalid Value!", "error")
         }
         else if (res.status === 500) {
-            window.alert("Internal Server Error : Failed to registered!")
+            props.showAlert("Internal Server Error : Failed to registered!", "error")
         }
         else {
-            window.alert("User loggedIn successfully!");
+            props.showAlert("LoggedIn Successfully!", "success")
             // REDUX FUNCTION FOR CHANGING NAV-BAR
             dispatch(stateActions.logInBuyer());
             // redux function for changing state type of password

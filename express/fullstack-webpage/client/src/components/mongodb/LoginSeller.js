@@ -59,10 +59,10 @@ export default function LoginSeller(props) {
             props.showAlert("Email or Password is incorrect!", "warning")
         }
         else if (res.status === 421 || !data) {
-            props.showAlert("Invalid Value!", "danger")
+            props.showAlert("Invalid Value!", "error")
         }   
         else if (res.status === 500) {
-            props.showAlert("Internal Server Error : Failed to registered!", "danger")
+            props.showAlert("Internal Server Error : Failed to registered!", "error")
         }
         else {
             props.showAlert("LoggedIn Successfully!", "success")
