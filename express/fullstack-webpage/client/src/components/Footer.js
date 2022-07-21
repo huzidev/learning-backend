@@ -173,7 +173,7 @@ export default function Footer() {
                                     placeholder='Yours Message'
                                 />
                             </div>
-                            <Tooltip title="Send Message">
+                            <Tooltip title={<Typography fontSize={25}>Send Message</Typography>}>
                                 <Button 
                                     className='send-btn'
                                     type="submit"

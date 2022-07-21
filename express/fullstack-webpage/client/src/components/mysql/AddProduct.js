@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
+import { Typography } from '@material-ui/core';
 
 export default function AddProducts() {
 
@@ -86,7 +87,7 @@ export default function AddProducts() {
                         <PhotoCamera />
                     </IconButton>
                 </Stack>
-                <Tooltip title="Upload Product image">
+                <Tooltip title={<Typography fontSize={25}>Add Product</Typography>}>
                     <Button type="submit">
                         Add Product
                     </Button>

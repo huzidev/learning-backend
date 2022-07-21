@@ -10,6 +10,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
+import { Typography } from '@material-ui/core';
 
 export default function ProductDetails() {
   
@@ -110,14 +111,14 @@ export default function ProductDetails() {
             localStorage.getItem('jwtokenseller') 
               ? (
                 <div className='buttons'>
-                  <Tooltip title="Edit Item">
+                  <Tooltip title={<Typography fontSize={25}>Edit Item</Typography>}>
                     <Link to={`/product/edit/${id}`}>
                       <Button className='edit-btn' startIcon={<EditIcon />}>
                         Edit
                       </Button>
                     </Link>
                   </Tooltip>
-                  <Tooltip title="Delete Item">
+                  <Tooltip title={<Typography fontSize={25}>Delete Item</Typography>}>
                     <Button onClick={() => handleDelete(id)} startIcon={<DeleteIcon />} className='delete-btn'>
                       Delete
                     </Button>
@@ -151,7 +152,7 @@ export default function ProductDetails() {
                       onChange={(event) => setDescription(event.target.value)}
                       type="text"
                     />
-                    <Tooltip title="Add Review">
+                    <Tooltip title={<Typography fontSize={25}>Add Review</Typography>}>
                       <Button type="submit" startIcon={<AddIcon />} className='review-btn'>
                         Add Review
                       </Button>

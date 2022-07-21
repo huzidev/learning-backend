@@ -5,6 +5,7 @@ import Header from '../Header';
 import Button from '@material-ui/core/Button';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
+import { Typography } from '@material-ui/core';
 
 export default function EditProduct() {
 
@@ -79,7 +80,7 @@ export default function EditProduct() {
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
               />
-              <Tooltip title="Update Product">
+              <Tooltip title={<Typography fontSize={25}>Update Product</Typography>}>
                 <Button type="submit" className='update-button'>
                     Update Product
                 </Button>
