@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@mui/material/TextField';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
+import { Typography } from '@material-ui/core';
 import SendIcon from '@mui/icons-material/Send';
 import Tooltip from '@mui/material/Tooltip';
 
@@ -65,7 +66,7 @@ export default function Footer() {
                     </h2>
                     <div className='footer-items'>
                         <div className="parts">
-                            <Tooltip title="Github">
+                            <Tooltip title={<Typography fontSize={25}>Github</Typography>}>
                                 <div className="logo">
                                         <i className="fab fa-github">
                                         </i>
@@ -79,7 +80,7 @@ export default function Footer() {
                                     </a>
                                 </div>
                             </Tooltip>
-                            <Tooltip title="Gmail">
+                            <Tooltip title={<Typography fontSize={25}>Gmail</Typography>}>
                                 <div className="logo">
                                         <i className="fa fa-envelope">
                                         </i>
@@ -94,7 +95,7 @@ export default function Footer() {
                             </Tooltip>
                         </div>
                         <div className="parts">
-                            <Tooltip title="Facebook">
+                            <Tooltip title={<Typography fontSize={25}>Facebook</Typography>}>
                                 <div className="logo">
                                         <i className="fa fa-facebook">
                                         </i>
@@ -107,7 +108,7 @@ export default function Footer() {
                                     </a>
                                 </div>
                             </Tooltip>
-                            <Tooltip title="Instagram">
+                            <Tooltip title={<Typography fontSize={25}>instagram</Typography>}>
                                 <div className="logo">
                                         <i className="fa fa-instagram">
                                         </i>
@@ -122,7 +123,7 @@ export default function Footer() {
                             </Tooltip>
                         </div>
                         <div className="bottom">
-                            <Tooltip title="Phone">
+                            <Tooltip title={<Typography fontSize={25}>Phone</Typography>}>
                                 <div className="logo">
                                         <i className="fa fa-phone">
                                         </i>
