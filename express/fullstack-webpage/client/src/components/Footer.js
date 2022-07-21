@@ -71,7 +71,8 @@ export default function Footer() {
                                 <a 
                                     href="https://github.com/huzidev" 
                                     target="_blank" 
-                                    rel="noopener noreferrer"
+                                    rel="noopener noreferrer" 
+                                    // it is necessary to use rel property
                                 >
                                     Huzi-Dev
                                 </a>
