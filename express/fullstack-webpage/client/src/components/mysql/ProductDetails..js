@@ -9,6 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
+import Tooltip from '@mui/material/Tooltip';
 
 export default function ProductDetails() {
   
@@ -109,14 +110,18 @@ export default function ProductDetails() {
             localStorage.getItem('jwtokenseller') 
               ? (
                 <div className='buttons'>
-                  <Link to={`/product/edit/${id}`}>
-                    <Button className='edit-btn' startIcon={<EditIcon />}>
-                      Edit
+                  <Tooltip title="Edit Item">
+                    <Link to={`/product/edit/${id}`}>
+                      <Button className='edit-btn' startIcon={<EditIcon />}>
+                        Edit
+                      </Button>
+                    </Link>
+                  </Tooltip>
+                  <Tooltip title="Delete Item">
+                    <Button onClick={() => handleDelete(id)} startIcon={<DeleteIcon />} className='delete-btn'>
+                      Delete
                     </Button>
-                  </Link>
-                  <Button onClick={() => handleDelete(id)} startIcon={<DeleteIcon />} className='delete-btn'>
-                    Delete
-                  </Button>
+                  </Tooltip>
                 </div>
               ) 
               : ''
@@ -146,9 +151,11 @@ export default function ProductDetails() {
                       onChange={(event) => setDescription(event.target.value)}
                       type="text"
                     />
-                    <Button type="submit" startIcon={<AddIcon />} className='review-btn'>
-                      Add Review
-                    </Button>
+                    <Tooltip title="Add Review">
+                      <Button type="submit" startIcon={<AddIcon />} className='review-btn'>
+                        Add Review
+                      </Button>
+                    </Tooltip>
                   </form>
                 </div>
               )
