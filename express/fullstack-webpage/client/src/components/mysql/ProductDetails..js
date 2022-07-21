@@ -6,6 +6,8 @@ import Header from '../Header';
 import Rating from '@mui/material/Rating';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
 
 export default function ProductDetails() {
@@ -108,7 +110,7 @@ export default function ProductDetails() {
               ? (
                 <div className='buttons'>
                   <Link to={`/product/edit/${id}`}>
-                    <Button className='edit-btn'>
+                    <Button className='edit-btn' startIcon={<EditIcon />}>
                       Edit
                     </Button>
                   </Link>
@@ -144,7 +146,7 @@ export default function ProductDetails() {
                       onChange={(event) => setDescription(event.target.value)}
                       type="text"
                     />
-                    <Button type="submit" className='review-btn'>
+                    <Button type="submit" startIcon={<AddIcon />} className='review-btn'>
                       Add Review
                     </Button>
                   </form>
