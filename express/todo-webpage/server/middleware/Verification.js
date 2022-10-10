@@ -5,9 +5,8 @@ const Verification = async (req, res, next) => {
     try {
         const token = req.cookies.jwtoken;
         const verifyUser = jwt.verify(token, process.env.SECRET_KEY);
-        let tok = verifyUser._id;
         const userInfo = await User.findOne({
-            _id: tok,
+            _id: verifyUser._id,
             "tokens.token": token // in mongoDB we've tokens in which token and :token is defined here
         })
 
