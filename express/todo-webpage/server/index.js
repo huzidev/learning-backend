@@ -14,6 +14,10 @@ const port = 8000;
 server.use(express.json());
 server.use(require('./router/auth'));
 
+server.use(cors({
+    origin: "*"
+}))
+
 server.use(bodyParser.urlencoded({ extended : true }));
 server.use(cookie());
 server.use(bodyParser.json());
