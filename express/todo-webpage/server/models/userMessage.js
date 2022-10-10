@@ -1,10 +1,9 @@
 import mongoose from "mongoose";
 
 const userMessage = new mongoose.Schema({
-
     username : {
         type : String,
-        required : true // means compulsory
+        required : true
     },
     email : {
         type : String,
@@ -20,11 +19,10 @@ const userMessage = new mongoose.Schema({
     },
     date : {
         type : Date,
-        default : Date.now // no need for using () for date.now()
+        default : Date.now
     }
-   
 })
 
-const Contact = mongoose.model('USERS_MESSAGES', userMessage); 
+const Contact = mongoose.model('TODO-USERS-MESSAGES', userMessage); 
 
 module.exports = Contact;
