@@ -6,11 +6,11 @@ import User from '../models/userSchema';
 import userMessage from '../models/userMessage';
 
 
-
 const router = express.router();
 require('../db/connection');
 
 router.use(express.urlencoded({ extended : false }));
+router.use(cookie());
 
 router.post('/register', async (req, res) => {
 
