@@ -59,12 +59,8 @@ router.post('/register', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
-    const {email, username, number, password} = req.body;
-        
-    if (!email || !password) {
-        return res.status(421).json({ error : "You've left an tag empty!" });
-    }
     try {
+        const {email, username, number, password} = req.body;
         const userEmail = await User.findOne({ email : email });
         const userName = await User.findOne({ username : username });
         const userNumber = await User.findOne({ number : number });
