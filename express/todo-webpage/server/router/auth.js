@@ -37,6 +37,12 @@ router.post('/register', async (req, res) => {
             return res.status(423).json({ error: "Username already Exist" });
         } else if (numberExist) {
             return res.status(423).json({ error: "Number already Exist" });
+        } if (password !== cpassword) {
+            return res.status(425).json({ error : "Password doesn't match" })
+        } if (username.length < 4) {
+            return res.status(426).json({ error : "Username's length must be greater than 4 characters" })
+        } if (password.length < 8 || cpassword.length < 8) {
+            return res.status(427).json({ error : "Password's length must be greater than 8 characters" })
         }
 
     } catch (err) {
