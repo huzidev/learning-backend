@@ -27,9 +27,9 @@ router.post('/register', async (req, res) => {
     }
 
     try {
-        const emailExist = await UserSeller.findOne({ email : email })
-        const usernameExist = await UserSeller.findOne({ username : username })
-        const numberExist = await UserSeller.findOne({ number : number })
+        const emailExist = await User.findOne({ email : email })
+        const usernameExist = await User.findOne({ username : username })
+        const numberExist = await User.findOne({ number : number })
 
         if (emailExist) {
             return res.status(422).json({ error: "Email already Exist" });
@@ -43,6 +43,16 @@ router.post('/register', async (req, res) => {
             return res.status(426).json({ error : "Username's length must be greater than 4 characters" })
         } else if (password.length < 8 || cpassword.length < 8) {
             return res.status(427).json({ error : "Password's length must be greater than 8 characters" })
+        } 
+        // when user registered successfully
+        else {
+            const user = new User({ username, email, number, password, cpassword });
+            const userRegister = await user.save();
+            if (userRegister) {
+                res.status(201).json({ message : "User registered successfully!" })
+            } else {
+                res.status(500).json({ message : "Failed to registered" })
+            }
         }
 
     } catch (err) {
