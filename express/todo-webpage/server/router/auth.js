@@ -19,7 +19,6 @@ router.use(express.urlencoded({ extended : false }));
 router.use(cookie());
 
 router.post('/register', async (req, res) => {
-
     const { username, email, number, password, cpassword } = req.body;
 
     if ( !username || !email || !number || !password || !cpassword ) {
@@ -54,6 +53,22 @@ router.post('/register', async (req, res) => {
                 res.status(500).json({ message : "Failed to registered" })
             }
         }
+
+    } catch (err) {
+        console.log(err);
+    }
+})
+
+router.post('/login', async (req, res) => {
+    const {email, password} = req.body;
+        
+    if (!email || !password) {
+        return res.status(421).json({ error : "You've left an tag empty!" });
+    }
+
+    try {
+
+        
 
     } catch (err) {
         console.log(err);
