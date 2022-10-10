@@ -5,7 +5,7 @@ const port = 8000;
 
 server.get('/', (req, res) => {
     res.send({ message: "Hello, world" });
-})
+});
 
 server.listen(port, (e) => {
     if (!e) {
@@ -14,4 +14,4 @@ server.listen(port, (e) => {
     else {
         console.log(e);
     }
-})
+});
