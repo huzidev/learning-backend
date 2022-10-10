@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import Verification from "./middleware/Verification";
-import cors form "cors"
+import cors from "cors";
 
 dotenv.config({ path : './config.env' });
 
