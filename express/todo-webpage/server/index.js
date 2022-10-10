@@ -1,5 +1,7 @@
+require('../db/connection');
 import express from "express";
 import dotenv from "dotenv";
+import cookie from 'cookie-parser';
 import bodyParser from "body-parser";
 import Verification from "./middleware/Verification";
 import cors from "cors";
