@@ -1,4 +1,5 @@
 import express from "express";
+import dotenv from "dotenv";
 
 const server = express();
 const port = 8000;
