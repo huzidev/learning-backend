@@ -31,7 +31,7 @@ const useSchema = new mongoose.Schema({
             }
         }
     ]
-})
+});
 
 // HASHING
 useSchema.pre('save', async function (next) {
@@ -39,4 +39,23 @@ useSchema.pre('save', async function (next) {
         this.password = await bcrypt.hash(this.password, 12);
         this.password = await bcrypt.hash(this.cpassword, 12);
     }
-})
+    next();
+});
+
+// GENERATING TOKEN
+useSchema.methods.generateAuthToken = async function () {
+    try {
+        let token = jwt.sign({ 
+            _id : this._id 
+        }, 
+            process.env.SECRET_KEY
+        );
+        // concatenation of token inside tokens array we've created in schema
+        this.tokens = this.tokens.concat({ token : token });
+        await this.save();
+        return token;
+    )
+    } catch (err) {
+        console.log(err);
+    }
+}
