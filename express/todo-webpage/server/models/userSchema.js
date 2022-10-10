@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-const useSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     username : {
         type : String,
         required : true
@@ -34,7 +34,7 @@ const useSchema = new mongoose.Schema({
 });
 
 // HASHING
-useSchema.pre('save', async function (next) {
+userSchema.pre('save', async function (next) {
     if (this.isModified('password')) {
         this.password = await bcrypt.hash(this.password, 12);
         this.password = await bcrypt.hash(this.cpassword, 12);
@@ -43,7 +43,7 @@ useSchema.pre('save', async function (next) {
 });
 
 // GENERATING TOKEN
-useSchema.methods.generateAuthToken = async function () {
+userSchema.methods.generateAuthToken = async function () {
     try {
         let token = jwt.sign({ 
             _id : this._id 
@@ -58,4 +58,6 @@ useSchema.methods.generateAuthToken = async function () {
     } catch (err) {
         console.log(err);
     }
-}
+};
+
+const User = mongoose.model('TODO-USERS', userSchema);
