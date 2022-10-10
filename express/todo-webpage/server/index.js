@@ -16,11 +16,11 @@ server.use(require('./router/auth'));
 
 server.use(cors({
     origin: "*"
-}))
+}));
 
+server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended : true }));
 server.use(cookie());
-server.use(bodyParser.json());
 
 server.get('*', (req, res) => {
     res.send({ message: "Hello, world" });
