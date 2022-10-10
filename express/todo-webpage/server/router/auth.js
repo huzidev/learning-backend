@@ -6,7 +6,7 @@ import Verification from '../middleware/Verification';
 import cookie from 'cookie-parser';
 import cors from "cors";
 
-require('../db/connection');
+require('../db/connection.js');
 
 const router = express.Router();
 
@@ -17,6 +17,10 @@ router.use(cors({
 
 router.use(express.urlencoded({ extended : false }));
 router.use(cookie());
+
+router.post('/', (req, res) => {
+    res.send("Home page");
+})
 
 router.post('/register', async (req, res) => {
     const { username, email, number, password, cpassword } = req.body;
