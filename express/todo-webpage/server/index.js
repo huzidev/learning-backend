@@ -8,6 +8,10 @@ const port = 8000;
 server.use(express.json());
 server.use(require('./router/auth'));
 
+const bodyParser = require('body-parser');
+server.use(bodyParser.urlencoded({ extended : true }));
+server.use(bodyParser.json());
+
 server.get('/', (req, res) => {
     res.send({ message: "Hello, world" });
 });
