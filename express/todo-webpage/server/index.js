@@ -1,5 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
+import bodyParser from "body-parser";
+import Verification from "./middleware/Verification";
+import cors form "cors"
+
 dotenv.config({ path : './config.env' });
 
 const server = express();
@@ -8,8 +12,6 @@ const port = 8000;
 server.use(express.json());
 server.use(require('./router/auth'));
 
-import bodyParser from "body-parser";
-import Verification from './middleware/Verification';
 server.use(bodyParser.urlencoded({ extended : true }));
 server.use(cookie());
 server.use(bodyParser.json());
