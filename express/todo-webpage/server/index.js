@@ -1,4 +1,3 @@
-require('./db/connection.js');
 import express from "express";
 import dotenv from "dotenv";
 import cookie from 'cookie-parser';
@@ -7,6 +6,7 @@ import Verification from "./middleware/Verification";
 import cors from "cors";
 
 dotenv.config({ path : './config.env' });
+require('./db/connection.js');
 
 const server = express();
 const port = 8000;
