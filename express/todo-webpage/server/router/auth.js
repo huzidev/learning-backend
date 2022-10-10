@@ -24,7 +24,6 @@ router.post('/register', async (req, res) => {
     if ( !username || !email || !number || !password || !cpassword ) {
         return res.status(422).json({ error : "You've left an tag empty" });
     }
-
     try {
         const emailExist = await User.findOne({ email : email })
         const usernameExist = await User.findOne({ username : username })
@@ -60,15 +59,53 @@ router.post('/register', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
-    const {email, password} = req.body;
+    const {email, username, number, password} = req.body;
         
     if (!email || !password) {
         return res.status(421).json({ error : "You've left an tag empty!" });
     }
-
     try {
+        const userEmail = await User.findOne({ email : email });
+        const userName = await User.findOne({ username : username });
+        const number = await User.findOne({ number : number });
+        if (userEmail) {
+            const isMatchEmail = await bcrypt.compare(password, userEmail.password);
 
-        
+            token = await userEmail.generateAuthToken();
+
+            res.cookie("jwtoken", token, {
+                expires : new Date(Date.now() + 86400000),
+                httpOnly : true
+            })
+            if (!isMatchEmail) {
+                return res.status(400).json({ error : "Email or Password is incorrect" })
+            }
+            else if (isMatchEmail) {
+                res.status(201).json({ message : "User loggedIn successfully" })
+            }
+            else {
+                res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
+            }
+        } 
+        else if (userName) {
+            const isMatchName = await bcrypt.compare(password, userName.password);
+
+            token = await userName.generateAuthToken();
+
+            res.cookie("jwtoken", token, {
+                expires : new Date(Date.now() + 86400000),
+                httpOnly : true
+            })
+            if (!isMatchName) {
+                return res.status(400).json({ error : "Username or Password is incorrect" })
+            }
+            else if (isMatchName) {
+                res.status(201).json({ message : "User loggedIn successfully" })
+            }
+            else {
+                res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
+            }
+        }
 
     } catch (err) {
         console.log(err);
