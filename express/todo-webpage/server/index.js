@@ -5,6 +5,9 @@ dotenv.config({ path : './config.env' });
 const server = express();
 const port = 8000;
 
+server.use(express.json());
+server.use(require())
+
 server.get('/', (req, res) => {
     res.send({ message: "Hello, world" });
 });
