@@ -21,7 +21,7 @@ const userMessage = new mongoose.Schema({
         type : Date,
         default : Date.now
     }
-})
+});
 
 const Contact = mongoose.model('TODO-USERS-MESSAGES', userMessage); 
 
