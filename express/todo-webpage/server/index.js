@@ -1,4 +1,4 @@
-require('../db/connection');
+require('./db/connection');
 import express from "express";
 import dotenv from "dotenv";
 import cookie from 'cookie-parser';
