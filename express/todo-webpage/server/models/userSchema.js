@@ -32,3 +32,10 @@ const useSchema = new mongoose.Schema({
         }
     ]
 })
+
+// HASHING
+useSchema.pre('save', async function (next) {
+    if (this.isModified('password')) {
+        
+    }
+})
