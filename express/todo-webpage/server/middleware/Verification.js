@@ -9,7 +9,6 @@ const Verification = async (req, res, next) => {
             _id: verifyUser._id,
             "tokens.token": token // in mongoDB we've tokens in which token and :token is defined here
         })
-
         if (!userInfo) {
             res.status(404).send("User Not Found");
         }
@@ -18,3 +17,5 @@ const Verification = async (req, res, next) => {
         console.log(err);
     }
 }
+
+module.exports = Verification;
