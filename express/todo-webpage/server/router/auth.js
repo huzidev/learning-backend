@@ -14,7 +14,6 @@ router.use(cors({
     origin: "*"
 }));
 
-
 router.use(express.urlencoded({ extended : false }));
 router.use(cookie());
 
