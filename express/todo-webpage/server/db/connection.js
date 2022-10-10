@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 const DB = process.env.DATA;
 
 mongoose.connect(DB, {
-    useuseNewUrlParser : true,
+    useNewUrlParser : true,
     useUnifiedTopology : true
 }).then(() => {
     console.log("Connection Successfull");
