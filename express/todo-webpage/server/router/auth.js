@@ -92,7 +92,7 @@ router.post('/login', async (req, res) => {
                 httpOnly : true
             })
             if (!isMatchName) {
-                return res.status(400).json({ error : "Username or Password is incorrect" })
+                return res.status(401).json({ error : "Username or Password is incorrect" })
             }
             else if (isMatchName) {
                 res.status(201).json({ message : "User loggedIn successfully" })
@@ -110,7 +110,7 @@ router.post('/login', async (req, res) => {
                 httpOnly : true
             })
             if (!isMatchNumber) {
-                return res.status(400).json({ error : "Username or Password is incorrect" })
+                return res.status(402).json({ error : "Number or Password is incorrect" })
             }
             else if (isMatchNumber) {
                 res.status(201).json({ message : "User loggedIn successfully" })
