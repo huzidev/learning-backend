@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
     res.send("Home page");
 })
 
-router.post('/register', async (req, res) => {
+router.post('/signup', async (req, res) => {
     const { username, email, number, password, cpassword } = req.body;
 
     if ( !username || !email || !number || !password || !cpassword ) {
