@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Signup() {
+export default function SignUp() {
   const Navigate = useNavigate();
   const host = "http://localhost:8000";
 
@@ -44,7 +44,9 @@ export default function Signup() {
 
   return (
     <div>
-
+        <h1>
+            SignUp page
+        </h1>
     </div>
   )
 }
