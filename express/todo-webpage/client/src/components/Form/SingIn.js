@@ -34,16 +34,14 @@ export default function SingIn() {
         },
         body : JSON.stringify({
             email,
-            password,
+            username,
+            number,
+            password
         })
     });
 
-    // for getting all the data
     const data = await res.json();
-    if (res.status === 400) {
-        props.showAlert("Email or Password is incorrect!", "warning")
-    }
-    else if (res.status === 421 || !data) {
+    if (res.status === 421 || !data) {
         props.showAlert("Invalid Value!", "error")
     }   
     else if (res.status === 500) {
