@@ -91,7 +91,7 @@ export default function SignUp() {
             />
             <input 
                 type="number"
-                name="username"
+                name="number"
                 value={user.number}
                 onChange={inputHandler}
                 placeholder="Enter Yours Number"
@@ -107,7 +107,7 @@ export default function SignUp() {
             />
             <input 
                 type="password"
-                name="username"
+                name="cpassword"
                 value={user.cpassword}
                 onChange={inputHandler}
                 placeholder="Confirm Yours Password"
