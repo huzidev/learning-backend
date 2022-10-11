@@ -45,6 +45,8 @@ export default function SignUp() {
 
     if (res.status === 421 || !data) {
         window.alert("Invalid Value")
+    } else if (res.status === 422) {
+        window.alert("Email already Exist")
     }
   };
 
