@@ -2,6 +2,16 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function SingIn() {
+
+  const Navigate = useNavigate();
+
+  const [user, setUser] = React.useState({
+    username : "",
+    email : "",
+    number : "",
+    password : ""
+  });
+
   return (
     <div>
         <h1>
