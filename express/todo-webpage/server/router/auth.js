@@ -70,6 +70,7 @@ router.post('/signin', async (req, res) => {
         const userNumber = await User.findOne({ number : number });
         if (userEmail) {
             const isMatchEmail = await bcrypt.compare(password, userEmail.password);
+            res.status(455).send({ message: "User is logged in through email" })
 
             token = await userEmail.generateAuthToken();
 
@@ -81,7 +82,6 @@ router.post('/signin', async (req, res) => {
                 res.status(400).json({ error : "Email or Password is incorrect" })
             }
             else if (isMatchEmail) {
-                res.status(455).send({ message: "User is logged in through email" })
                 res.status(201).json({ message : "User loggedIn successfully" })
             }
             else {
@@ -89,6 +89,7 @@ router.post('/signin', async (req, res) => {
             }
         } else if (userName) {
             const isMatchName = await bcrypt.compare(password, userName.password);
+            res.status(456).json({ message: "User is logged in through username" })
 
             token = await userName.generateAuthToken();
 
@@ -100,7 +101,6 @@ router.post('/signin', async (req, res) => {
                 res.status(401).json({ error : "Username or Password is incorrect" })
             }
             else if (isMatchName) {
-                res.status(456).json({ message: "User is logged in through email" })
                 res.status(201).json({ message : "User loggedIn successfully" })
             }
             else {
@@ -108,6 +108,7 @@ router.post('/signin', async (req, res) => {
             }
         } else if (userNumber) {
             const isMatchNumber = await bcrypt.compare(password, userNumber.password);
+            res.status(457).send({ message: "User is logged in through number" })
 
             token = await userNumber.generateAuthToken();
 
@@ -119,7 +120,6 @@ router.post('/signin', async (req, res) => {
                 res.status(402).json({ error : "Number or Password is incorrect" })
             }
             else if (isMatchNumber) {
-                res.status(457).send({ message: "User is logged in through email" })
                 res.status(201).json({ message : "User loggedIn successfully" })
             }
             else {
