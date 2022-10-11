@@ -24,10 +24,13 @@ export default function SingIn() {
     });
   };
 
-  let hold;
   let type;
   let namea;
   let state;
+
+  let a;
+  let b;
+  let c;
   async function signIn(e) {
     e.preventDefault();
 
@@ -47,20 +50,17 @@ export default function SingIn() {
     });
     
     if (res.status === 455) {
-      hold = email;
-      type = "email"
-      namea = "email"
-      state = user.email
+      a = true;
+      b = false;
+      c = false;
     } else if (res.status === 456) {
-      hold = username;
-      type = "text"
-      namea = "username"
-      state = user.username
+      a = false;
+      b = true;
+      c = false;
     } else if (res.status === 457) {
-      hold = number;
-      type = "number"
-      namea = "number"
-      state = user.number
+      a = false;
+      b = false;
+      c = true;
     }
 
     const data = await res.json();
@@ -87,21 +87,32 @@ export default function SingIn() {
           SingIn Page
         </h1>
         <form>
-            {/* <input 
+          {
+            a ? (
+                <input 
+                type="text"
+                name="username"
+                value={user.username}
+                onChange={inputHandler}
+                required
+              />
+            ) : "hello"
+          }
+            <input 
               type={type}
               name={namea}
               value={state}
               onChange={inputHandler}
+              placeholder="Enter email, number, username"
               required
-            /> */}
-            <input 
+            />
+            {/* <input 
               type="text"
               name="username"
               value={user.username}
               onChange={inputHandler}
-              placeholder="Enter Yours username"
               required
-            />
+            /> */}
             <input 
               type="password"
               name="password"
