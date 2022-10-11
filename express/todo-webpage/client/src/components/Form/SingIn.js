@@ -4,7 +4,7 @@ export default function SingIn() {
   return (
     <div>
         <h1>
-            Login Page
+          SingIn Page
         </h1>
     </div>
   )
