@@ -20,7 +20,7 @@ export default function Signup() {
         ...user,
         [name]: value
     });
-  }
+  };
 
   async function signUp(e) {
 
@@ -39,8 +39,8 @@ export default function Signup() {
             password,
             cpassword 
         })
-    })
-    };
+    });
+  };
 
   return (
     <div>
