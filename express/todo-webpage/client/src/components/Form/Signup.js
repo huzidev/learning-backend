@@ -47,6 +47,22 @@ export default function SignUp() {
         window.alert("Invalid Value")
     } else if (res.status === 422) {
         window.alert("Email already Exist")
+    } else if (res.status === 423) {
+        window.alert("Username already Exist")
+    } else if (res.status === 424) {
+        window.alert("Number already Exist")
+    } else if (res.status === 425) {
+        window.alert("Password doesn't match")
+    } else if (res.status === 426) {
+        window.alert(`Username's length must be greater than 4 character and you've used just ${username.length} characters`)
+    } else if (res.status === 427) {
+        window.alert(`Password's length must be greater than 8 character and you've used just ${password.length} values`)
+    } else if (res.status === 500) {
+        window.alert("Internal Server Error : Failed to registered!")
+    } else {
+        window.alert("User registered successfully!")
+        console.log("Successful Registration");
+        Navigate("/login");
     }
   };
 
