@@ -12,6 +12,16 @@ export default function SingIn() {
     password : ""
   });
 
+  let name, value;
+  function inputHandler(e) {
+    name= e.target.name;
+    value= e.target.value;
+    setUser({
+        ...user,
+        [name]: value
+    });
+  };
+
   return (
     <div>
         <h1>
