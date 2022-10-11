@@ -42,8 +42,8 @@ export default function SingIn() {
 
     const data = await res.json();
     if (!data) {
-      window.alert[("Invalid Value!")
-    }   
+      window.alert("Invalid Value!")
+    } 
     else if (res.status === 500) {
       window.alert("Internal Server Error : Failed to registered!")
     }
