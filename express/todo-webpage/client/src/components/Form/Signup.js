@@ -32,6 +32,13 @@ export default function Signup() {
         headers: {
             "Content-Type" : "application/json"
         },
+        body: JSON.stringify({
+            username,
+            email,
+            number,
+            password,
+            cpassword 
+        })
     })
     };
 
