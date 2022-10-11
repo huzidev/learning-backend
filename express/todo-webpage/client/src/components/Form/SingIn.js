@@ -27,7 +27,7 @@ export default function SingIn() {
 
     const { email, username, number, password } = user;
     
-    const res = await fetch(`${host}/signin`, {
+    const res = await fetch(`/signin`, {
         method : "POST",
         headers : {
             "Content-Type" : "application/json"
