@@ -22,6 +22,45 @@ export default function SingIn() {
     });
   };
 
+  async function loginSeller(e) {
+    e.preventDefault();
+
+    const { email, username, number, password } = user; // user state already created
+    
+    const res = await fetch(`/login/seller`, {
+        method : "POST",
+        headers : {
+            "Content-Type" : "application/json"
+        },
+        body : JSON.stringify({
+            email,
+            password,
+        })
+    });
+
+    // for getting all the data
+    const data = await res.json();
+    if (res.status === 400) {
+        props.showAlert("Email or Password is incorrect!", "warning")
+    }
+    else if (res.status === 421 || !data) {
+        props.showAlert("Invalid Value!", "error")
+    }   
+    else if (res.status === 500) {
+        props.showAlert("Internal Server Error : Failed to registered!", "error")
+    }
+    else {
+        props.showAlert("LoggedIn Successfully!", "success")
+        // REDUX FUNCTION FOR CHANGING NAV-BAR
+        dispatch(stateActions.logInSeller());
+        // redux function for changing state type of password
+        dispatch(stateActions.passwordConditionLog());
+        console.log("Successfully loggedIn");
+        localStorage.setItem('jwtokenseller', data.token)
+        Navigate("/");
+    }
+  }
+
   return (
     <div>
         <h1>
