@@ -40,6 +40,12 @@ export default function SignUp() {
             cpassword 
         })
     });
+
+    const data = await res.json();
+
+    if (res.status === 421 || !data) {
+        window.alert("Invalid Value")
+    }
   };
 
   return (
