@@ -27,7 +27,12 @@ export default function Signup() {
     e.preventDefault();
 
     const { username, email, number, password, cpassword } = user;
-    const res = await fetch(`${host}/`)
+    const res = await fetch(`${host}/signup`, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json"
+        },
+    })
     };
 
   return (
