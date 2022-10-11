@@ -71,6 +71,51 @@ export default function SignUp() {
         <h1>
             SignUp page
         </h1>
+        <form>
+            <input 
+                type="text"
+                name="username"
+                value={user.username}
+                onChange={inputHandler}
+                placeholder="Enter Yours Name"
+                required
+            />
+            <input 
+                type="email"
+                name="email"
+                value={user.email}
+                onChange={inputHandler}
+                placeholder="Enter Yours Email"
+                required
+            />
+            <input 
+                type="number"
+                name="username"
+                value={user.number}
+                onChange={inputHandler}
+                placeholder="Enter Yours Number"
+                required
+            />
+            <input 
+                type="password"
+                name="password"
+                value={user.password}
+                onChange={inputHandler}
+                placeholder="Enter Yours Password"
+                required
+            />
+            <input 
+                type="password"
+                name="username"
+                value={user.cpassword}
+                onChange={inputHandler}
+                placeholder="Confirm Yours Password"
+                required
+            />
+            <button onClick={signUp}>
+                
+            </button>
+        </form>
     </div>
   )
 }
