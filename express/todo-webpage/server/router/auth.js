@@ -37,7 +37,7 @@ router.post('/signup', async (req, res) => {
         } else if (usernameExist) {
             return res.status(423).json({ error: "Username already Exist" });
         } else if (numberExist) {
-            return res.status(423).json({ error: "Number already Exist" });
+            return res.status(424).json({ error: "Number already Exist" });
         } else if (password !== cpassword) {
             return res.status(425).json({ error : "Password doesn't match" })
         } else if (username.length < 4) {
