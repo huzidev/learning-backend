@@ -1,6 +1,8 @@
 import React from 'react';
 
 export default function Signup() {
+  const Navigate = useNavigate();
+  const host = "http://localhost:8000";
 
   const [user, setUser] = React.useState({
     username : "",
@@ -25,6 +27,7 @@ export default function Signup() {
     e.preventDefault();
 
     const { username, email, number, password, cpassword } = user;
+    const res = await fetch(`${host}/`)
     };
 
   return (
