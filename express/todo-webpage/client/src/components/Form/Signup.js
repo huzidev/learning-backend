@@ -35,7 +35,7 @@ export default function SignUp() {
         body: JSON.stringify({
             username,
             email,
-            number,
+            number: parseInt(user.number),
             password,
             cpassword 
         })
