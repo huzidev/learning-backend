@@ -1,5 +1,5 @@
 {
-  "name": "fullstack-webpage",
+  "name": "todo-webpage",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:8000",
