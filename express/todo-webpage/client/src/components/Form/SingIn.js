@@ -4,11 +4,10 @@ import { useNavigate } from 'react-router-dom';
 export default function SingIn() {
 
   const Navigate = useNavigate();
+  const host = "http://localhost:8000";
 
   const [user, setUser] = React.useState({
     username : "",
-    email : "",
-    number : "",
     password : ""
   });
 
@@ -28,15 +27,13 @@ export default function SingIn() {
 
     const { email, username, number, password } = user;
     
-    const res = await fetch(`/signin`, {
+    const res = await fetch(`${host}/signin`, {
         method : "POST",
         headers : {
             "Content-Type" : "application/json"
         },
         body : JSON.stringify({
-            email,
             username,
-            number,
             password
         })
     });
