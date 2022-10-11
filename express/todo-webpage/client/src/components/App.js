@@ -13,6 +13,7 @@ export default function App() {
         <Router>
                 <Routes>
                     <Route exact path="/" element={<Home />} />
+                    <Route exact path="/signup" element={<SignUp />} />
                     <Route exact path="*" element={<Error />} />
                 </Routes>
             </Router>
