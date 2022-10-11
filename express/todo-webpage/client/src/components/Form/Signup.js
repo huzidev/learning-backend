@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
   const Navigate = useNavigate();
@@ -113,7 +114,7 @@ export default function SignUp() {
                 required
             />
             <button onClick={signUp}>
-                
+                SignUp
             </button>
         </form>
     </div>
