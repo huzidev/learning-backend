@@ -78,53 +78,54 @@ router.post('/signin', async (req, res) => {
                 httpOnly : true
             })
             if (!isMatchEmail) {
-                return res.status(400).json({ error : "Email or Password is incorrect" })
+                res.status(400).json({ error : "Email or Password is incorrect" })
             }
             else if (isMatchEmail) {
-                return res.status(201).json({ message : "User loggedIn successfully" })
+                res.status(455).send({ message: "User is logged in through email" })
+                res.status(201).json({ message : "User loggedIn successfully" })
             }
             else {
-                return res.status(500).json({ message : "Internal Server Error : Failed to registered!" })
+                res.status(500).json({ message : "Internal Server Error : Failed to registered!" })
             }
-        } 
-        
-        // else if (userName) {
-        //     const isMatchName = await bcrypt.compare(password, userName.password);
+        } else if (userName) {
+            const isMatchName = await bcrypt.compare(password, userName.password);
 
-        //     token = await userName.generateAuthToken();
+            token = await userName.generateAuthToken();
 
-        //     res.cookie("jwtoken", token, {
-        //         expires : new Date(Date.now() + 86400000),
-        //         httpOnly : true
-        //     })
-        //     if (!isMatchName) {
-        //         return res.status(401).json({ error : "Username or Password is incorrect" })
-        //     }
-        //     else if (isMatchName) {
-        //         return res.status(201).json({ message : "User loggedIn successfully" })
-        //     }
-        //     else {
-        //         return res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
-        //     }
-        // } else if (userNumber) {
-        //     const isMatchNumber = await bcrypt.compare(password, userNumber.password);
+            res.cookie("jwtoken", token, {
+                expires : new Date(Date.now() + 86400000),
+                httpOnly : true
+            })
+            if (!isMatchName) {
+                res.status(401).json({ error : "Username or Password is incorrect" })
+            }
+            else if (isMatchName) {
+                res.status(456).json({ message: "User is logged in through email" })
+                res.status(201).json({ message : "User loggedIn successfully" })
+            }
+            else {
+                res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
+            }
+        } else if (userNumber) {
+            const isMatchNumber = await bcrypt.compare(password, userNumber.password);
 
-        //     token = await userNumber.generateAuthToken();
+            token = await userNumber.generateAuthToken();
 
-        //     res.cookie("jwtoken", token, {
-        //         expires : new Date(Date.now() + 86400000),
-        //         httpOnly : true
-        //     })
-        //     if (!isMatchNumber) {
-        //         return res.status(402).json({ error : "Number or Password is incorrect" })
-        //     }
-        //     else if (isMatchNumber) {
-        //         return res.status(201).json({ message : "User loggedIn successfully" })
-        //     }
-        //     else {
-        //         return res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
-        //     }
-        // }
+            res.cookie("jwtoken", token, {
+                expires : new Date(Date.now() + 86400000),
+                httpOnly : true
+            })
+            if (!isMatchNumber) {
+                res.status(402).json({ error : "Number or Password is incorrect" })
+            }
+            else if (isMatchNumber) {
+                res.status(457).send({ message: "User is logged in through email" })
+                res.status(201).json({ message : "User loggedIn successfully" })
+            }
+            else {
+                res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
+            }
+        }
     } catch (err) {
         console.log(err);
     }
