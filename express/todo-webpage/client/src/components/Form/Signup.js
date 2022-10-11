@@ -15,8 +15,8 @@ export default function SignUp() {
 
   let name, value;
   function inputHandler(e) {
-    name: e.target.name;
-    value: e.target.value;
+    name= e.target.name;
+    value= e.target.value;
     setUser({
         ...user,
         [name]: value
