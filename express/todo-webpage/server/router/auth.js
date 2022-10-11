@@ -25,7 +25,7 @@ router.post('/signup', async (req, res) => {
     const { username, email, number, password, cpassword } = req.body;
 
     if ( !username || !email || !number || !password || !cpassword ) {
-        return res.status(422).json({ error : "You've left an tag empty" });
+        return res.status(421).json({ error : "You've left an tag empty" });
     }
     try {
         const emailExist = await User.findOne({ email : email })
@@ -50,9 +50,9 @@ router.post('/signup', async (req, res) => {
             const user = new User({ username, email, number, password, cpassword });
             const userRegister = await user.save();
             if (userRegister) {
-                res.status(201).json({ message : "User registered successfully!" })
+                return res.status(201).json({ message : "User registered successfully!" })
             } else {
-                res.status(500).json({ message : "Failed to registered" })
+                return res.status(500).json({ message : "Failed to registered" })
             }
         }
 
@@ -80,10 +80,10 @@ router.post('/login', async (req, res) => {
                 return res.status(400).json({ error : "Email or Password is incorrect" })
             }
             else if (isMatchEmail) {
-                res.status(201).json({ message : "User loggedIn successfully" })
+                return res.status(201).json({ message : "User loggedIn successfully" })
             }
             else {
-                res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
+                return res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
             }
         } else if (userName) {
             const isMatchName = await bcrypt.compare(password, userName.password);
@@ -98,10 +98,10 @@ router.post('/login', async (req, res) => {
                 return res.status(401).json({ error : "Username or Password is incorrect" })
             }
             else if (isMatchName) {
-                res.status(201).json({ message : "User loggedIn successfully" })
+                return res.status(201).json({ message : "User loggedIn successfully" })
             }
             else {
-                res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
+                return res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
             }
         } else if (userNumber) {
             const isMatchNumber = await bcrypt.compare(password, userNumber.password);
@@ -116,10 +116,10 @@ router.post('/login', async (req, res) => {
                 return res.status(402).json({ error : "Number or Password is incorrect" })
             }
             else if (isMatchNumber) {
-                res.status(201).json({ message : "User loggedIn successfully" })
+                return res.status(201).json({ message : "User loggedIn successfully" })
             }
             else {
-                res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
+                return res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
             }
         }
     } catch (err) {
