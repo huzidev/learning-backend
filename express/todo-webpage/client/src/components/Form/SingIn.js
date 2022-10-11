@@ -25,9 +25,9 @@ export default function SingIn() {
   async function loginSeller(e) {
     e.preventDefault();
 
-    const { email, username, number, password } = user; // user state already created
+    const { email, username, number, password } = user;
     
-    const res = await fetch(`/login/seller`, {
+    const res = await fetch(`/signin`, {
         method : "POST",
         headers : {
             "Content-Type" : "application/json"
