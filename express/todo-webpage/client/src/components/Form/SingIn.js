@@ -12,6 +12,7 @@ export default function SingIn() {
     password : ""
   });
 
+
   let name, value;
   function inputHandler(e) {
     name= e.target.name;
@@ -22,7 +23,7 @@ export default function SingIn() {
     });
   };
 
-  async function loginSeller(e) {
+  async function signIn(e) {
     e.preventDefault();
 
     const { email, username, number, password } = user;
@@ -48,7 +49,7 @@ export default function SingIn() {
       window.alert("Internal Server Error : Failed to registered!")
     }
     else {
-      props.showAlert("LoggedIn Successfully!")
+      window.alert("LoggedIn Successfully!")
       localStorage.setItem('jwtoken', data.token)
       Navigate("/");
     }
@@ -61,47 +62,23 @@ export default function SingIn() {
         </h1>
         <form>
             <input 
-                type="text"
-                name="username"
-                value={user.username}
-                onChange={inputHandler}
-                placeholder="Enter Yours Name"
-                required
+              type="text"
+              name="username"
+              value={user.username}
+              onChange={inputHandler}
+              placeholder="Enter Yours Name"
+              required
             />
             <input 
-                type="email"
-                name="email"
-                value={user.email}
-                onChange={inputHandler}
-                placeholder="Enter Yours Email"
-                required
+              type="password"
+              name="password"
+              value={user.password}
+              onChange={inputHandler}
+              placeholder="Enter Yours Password"
+              required
             />
-            <input 
-                type="number"
-                name="number"
-                value={user.number}
-                onChange={inputHandler}
-                placeholder="Enter Yours Number"
-                required
-            />
-            <input 
-                type="password"
-                name="password"
-                value={user.password}
-                onChange={inputHandler}
-                placeholder="Enter Yours Password"
-                required
-            />
-            <input 
-                type="password"
-                name="cpassword"
-                value={user.cpassword}
-                onChange={inputHandler}
-                placeholder="Confirm Yours Password"
-                required
-            />
-            <button onClick={signUp}>
-                SignUp
+            <button onClick={signIn}>
+              SignIn
             </button>
         </form>
     </div>
