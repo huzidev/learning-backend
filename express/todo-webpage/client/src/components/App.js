@@ -1,5 +1,6 @@
 import React from 'react';
 import SignUp from './Form/SignUp';
+import Home from './Home';
 import {
   BrowserRouter as Router,
   Routes,
