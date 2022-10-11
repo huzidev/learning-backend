@@ -41,21 +41,16 @@ export default function SingIn() {
     });
 
     const data = await res.json();
-    if (res.status === 421 || !data) {
-        props.showAlert("Invalid Value!", "error")
+    if (!data) {
+      window.alert[("Invalid Value!")
     }   
     else if (res.status === 500) {
-        props.showAlert("Internal Server Error : Failed to registered!", "error")
+      window.alert("Internal Server Error : Failed to registered!")
     }
     else {
-        props.showAlert("LoggedIn Successfully!", "success")
-        // REDUX FUNCTION FOR CHANGING NAV-BAR
-        dispatch(stateActions.logInSeller());
-        // redux function for changing state type of password
-        dispatch(stateActions.passwordConditionLog());
-        console.log("Successfully loggedIn");
-        localStorage.setItem('jwtokenseller', data.token)
-        Navigate("/");
+      props.showAlert("LoggedIn Successfully!")
+      localStorage.setItem('jwtoken', data.token)
+      Navigate("/");
     }
   }
 
