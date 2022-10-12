@@ -22,14 +22,14 @@ router.post('/', (req, res) => {
 })
 
 router.post('/signup', async (req, res) => {
-    const { usernamea, emaila, number, password, cpassword } = req.body;
+    const { user, number, password, cpassword } = req.body;
 
-    if ( !usernamea || !emaila || !number || !password || !cpassword ) {
+    if ( !user || !number || !password || !cpassword ) {
         return res.status(421).json({ error : "You've left an tag empty" });
     }
     try {
-        const emailExist = await User.findOne({ emaila : emaila })
-        const usernameExist = await User.findOne({ usernamea : usernamea })
+        const emailExist = await User.findOne({ user : user })
+        const usernameExist = await User.findOne({ user : user })
         const numberExist = await User.findOne({ number : number })
 
         if (emailExist) {
@@ -40,11 +40,7 @@ router.post('/signup', async (req, res) => {
             return res.status(424).json({ error: "Number already Exist" });
         } else if (password !== cpassword) {
             return res.status(425).json({ error : "Password doesn't match" })
-        } else if (usernamea.length < 4) {
-            return res.status(426).json({ error : "Username's length must be greater than 4 characters" })
-        } else if (password.length < 8 || cpassword.length < 8) {
-            return res.status(427).json({ error : "Password's length must be greater than 8 characters" })
-        } 
+        }
         // when user registered successfully
         else {
             const user = new User({ usernamea, emaila, number, password, cpassword });
