@@ -28,9 +28,9 @@ router.post('/signup', async (req, res) => {
         return res.status(421).json({ error : "You've left an tag empty" });
     }
     try {
-        const emailExist = await User.findOne({ email : email })
-        const usernameExist = await User.findOne({ username : username })
-        const numberExist = await User.findOne({ number : number })
+        const emailExist = await User.findOne({ email : email });
+        const usernameExist = await User.findOne({ username : username });
+        const numberExist = await User.findOne({ number : number });
 
         if (emailExist) {
             return res.status(422).json({ error: "Email already Exist" });
