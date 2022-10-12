@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 export default function SingIn() {
 
   const Navigate = useNavigate();
-  const host = "http://localhost:8000";
 
   const [user, setUser] = React.useState({
     username: "",
@@ -24,18 +23,22 @@ export default function SingIn() {
     });
   };
 
-  let type;
-  let namea;
-  let state;
+  // let type;
+  // let namea;
+  // let state;
 
-  let a;
-  let b;
-  let c;
+  // let a;
+  // let b;
+  // let c;
+
   async function signIn(e) {
     e.preventDefault();
 
     const { email, username, number, password } = user;
     
+    const email_regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    const username_regex = /^[a-zA-Z][\w-]+$/;
+
     const res = await fetch(`/signin`, {
       method : "POST",
       headers : {
@@ -49,19 +52,19 @@ export default function SingIn() {
       })
     });
     
-    if (res.status === 455) {
-      a = true;
-      b = false;
-      c = false;
-    } else if (res.status === 456) {
-      a = false;
-      b = true;
-      c = false;
-    } else if (res.status === 457) {
-      a = false;
-      b = false;
-      c = true;
-    }
+    // if (res.status === 455) {
+    //   a = true;
+    //   b = false;
+    //   c = false;
+    // } else if (res.status === 456) {
+    //   a = false;
+    //   b = true;
+    //   c = false;
+    // } else if (res.status === 457) {
+    //   a = false;
+    //   b = false;
+    //   c = true;
+    // }
 
     const data = await res.json();
     if (!data) {
@@ -87,32 +90,13 @@ export default function SingIn() {
           SingIn Page
         </h1>
         <form>
-          {
-            a ? (
-                <input 
-                type="text"
-                name="username"
-                value={user.username}
-                onChange={inputHandler}
-                required
-              />
-            ) : "hello"
-          }
             <input 
-              type={type}
-              name={namea}
-              value={state}
-              onChange={inputHandler}
-              placeholder="Enter email, number, username"
-              required
-            />
-            {/* <input 
               type="text"
               name="username"
               value={user.username}
               onChange={inputHandler}
               required
-            /> */}
+            />
             <input 
               type="password"
               name="password"
