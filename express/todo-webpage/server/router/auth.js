@@ -39,20 +39,20 @@ router.post('/signup', async (req, res) => {
         } else if (numberExist) {
             return res.status(424).json({ error: "Number already Exist" });
         } else if (password !== cpassword) {
-            return res.status(425).json({ error : "Password doesn't match" })
+            return res.status(425).json({ error : "Password doesn't match" });
         } else if (username.length < 4) {
-            return res.status(426).json({ error : "Username's length must be greater than 4 characters" })
+            return res.status(426).json({ error : "Username's length must be greater than 4 characters" });
         } else if (password.length < 8 || cpassword.length < 8) {
-            return res.status(427).json({ error : "Password's length must be greater than 8 characters" })
+            return res.status(427).json({ error : "Password's length must be greater than 8 characters" });
         } 
         // when user registered successfully
         else {
             const user = new User({ username, email, number, password, cpassword });
             const userRegister = await user.save();
             if (userRegister) {
-                return res.status(201).json({ message : "User registered successfully!" })
+                return res.status(201).json({ message : "User registered successfully!" });
             } else {
-                return res.status(500).json({ message : "Failed to registered" })
+                return res.status(500).json({ message : "Failed to registered" });
             }
         }
 
