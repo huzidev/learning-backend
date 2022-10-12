@@ -30,14 +30,16 @@ export default function SingIn() {
   // let a;
   // let b;
   // let c;
+  const email_regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  const username_regex = /^[a-zA-Z][\w-]+$/;
+
+  let info = email_regex ? user.email : user.username;
 
   async function signIn(e) {
     e.preventDefault();
 
     const { email, username, number, password } = user;
     
-    const email_regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    const username_regex = /^[a-zA-Z][\w-]+$/;
 
     const res = await fetch(`/signin`, {
       method : "POST",
@@ -93,7 +95,7 @@ export default function SingIn() {
             <input 
               type="text"
               name="username"
-              value={user.username}
+              value={info}
               onChange={inputHandler}
               required
             />

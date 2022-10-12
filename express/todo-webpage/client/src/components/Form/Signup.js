@@ -63,7 +63,7 @@ export default function SignUp() {
     } else {
         window.alert("User registered successfully!")
         console.log("Successful Registration");
-        Navigate("/login");
+        Navigate("/signin");
     }
   };
 
