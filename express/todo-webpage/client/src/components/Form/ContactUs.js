@@ -41,6 +41,41 @@ export default function Footer() {
       });
   }
     
+  async function sendMessage(event) {
+    event.preventDefault();
+
+    const { username, email, number, message } = user;
+    const res = await fetch("/contact", {
+        method : "POST",
+        headers : {
+            "Content-Type" : "application/json"
+        },
+        body : JSON.stringify({
+            username,
+            email,
+            number,
+            message
+        })
+    });
+
+    const data = await res.json();
+
+    if (res.status === 422) {
+        window.alert("You've left an tag empty!")
+    }
+    else if (res.status === 500 || !data) {
+        window.alert("Failed To Send Message")
+    }
+    else {
+        window.alert("Message Sent Successfully!")
+        setUser({
+          username : "",
+          email : "",
+          number : "",
+          message : ""
+        })
+    }
+  }
 
   const onFinish = (values) => {
     console.log(values);
