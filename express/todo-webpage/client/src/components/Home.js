@@ -83,7 +83,7 @@ const App = () => {
             textAlign: 'center',
           }}
         >
-          Ant Design ©2018 Created by Ant UED
+          All Rights Are Reserved &copy; 2022
         </Footer>
       </Layout>
     </Layout>
