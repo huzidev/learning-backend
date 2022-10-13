@@ -5,7 +5,7 @@ const layout = {
     span: 8,
   },
   wrapperCol: {
-    span: 16,
+    span: 8,
   },
 };
 
@@ -45,6 +45,7 @@ const App = () => {
         rules={[
           {
             type: 'email',
+            required: true,
           },
         ]}
       >
@@ -66,7 +67,17 @@ const App = () => {
       <Form.Item name={['user', 'website']} label="Website">
         <Input />
       </Form.Item>
-      <Form.Item name={['user', 'introduction']} label="Introduction">
+      <Form.Item 
+        name={['user', 'introduction']} 
+        label="Introduction"
+        rules={[
+          {
+            type: 'number',
+            min: 0,
+            max: 99,
+          },
+        ]}
+      >
         <Input.TextArea />
       </Form.Item>
       <Form.Item
