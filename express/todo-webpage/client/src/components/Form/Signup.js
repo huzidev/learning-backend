@@ -6,6 +6,20 @@ export default function SignUp() {
   const Navigate = useNavigate();
   const host = "http://localhost:8000";
 
+    /* eslint-disable no-template-curly-in-string */
+    const validateMessages = {
+        required: '${label} is required!',
+        types: {
+        username: '${label} is not a valid username!',
+        email: '${label} is not a valid email!',
+        number: '${label} is not a valid number!',
+        },
+        number: {
+        range: '${label} must be between ${min} and ${max}',
+        },
+    };
+  /* eslint-enable no-template-curly-in-string */
+
   const [user, setUser] = React.useState({
     username : "",
     email : "",
