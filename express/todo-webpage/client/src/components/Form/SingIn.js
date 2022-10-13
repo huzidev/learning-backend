@@ -6,10 +6,9 @@ export default function SingIn() {
   const Navigate = useNavigate();
 
   const [user, setUser] = React.useState({
-    // username: "",
-    // number : "",
-    // email: "",
-    test: "",
+    username: "",
+    number : "",
+    email: "",
     password : ""
   });
 
@@ -36,7 +35,7 @@ export default function SingIn() {
   async function signIn(e) {
     e.preventDefault();
 
-    const { test, number, password } = user;
+    const { email, number, password } = user;
 
     const res = await fetch(`/signin`, {
       method : "POST",
@@ -44,7 +43,7 @@ export default function SingIn() {
         "Content-Type" : "application/json"
       },
       body : JSON.stringify({
-        test,
+        email,
         number,
         password
       })
@@ -76,8 +75,8 @@ export default function SingIn() {
         <form>
             <input 
               type="text"
-              name="test"
-              value={user.test}
+              name="email"
+              value={user.email}
               onChange={inputHandler}
               required
             />
