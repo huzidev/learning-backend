@@ -55,9 +55,9 @@ export default function SignUp() {
     } else if (res.status === 425) {
         window.alert("Password doesn't match")
     } else if (res.status === 426) {
-        window.alert(`Username's length must be greater than 4 character and you've used just ${username.length} characters`)
+        window.alert(`Username's length must be greater than 2 character and you've used just ${username.length} characters`)
     } else if (res.status === 427) {
-        window.alert(`Password's length must be greater than 8 character and you've used just ${password.length} values`)
+        window.alert(`Password's length must be greater than 2 character and you've used just ${password.length} values`)
     } else if (res.status === 500) {
         window.alert("Internal Server Error : Failed to registered!")
     } else {

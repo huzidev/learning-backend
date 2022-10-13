@@ -6,9 +6,10 @@ export default function SingIn() {
   const Navigate = useNavigate();
 
   const [user, setUser] = React.useState({
-    username: "",
-    number : "",
-    email: "",
+    // username: "",
+    // number : "",
+    // email: "",
+    test: "",
     password : ""
   });
 
@@ -30,16 +31,12 @@ export default function SingIn() {
   // let a;
   // let b;
   // let c;
-  const email_regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  const username_regex = /^[a-zA-Z][\w-]+$/;
-
-  let info = email_regex ? user.email : user.username;
+  
 
   async function signIn(e) {
     e.preventDefault();
 
-    const { email, username, number, password } = user;
-    
+    const { test, number, password } = user;
 
     const res = await fetch(`/signin`, {
       method : "POST",
@@ -47,27 +44,12 @@ export default function SingIn() {
         "Content-Type" : "application/json"
       },
       body : JSON.stringify({
-        username,
-        email,
+        test,
         number,
         password
       })
     });
     
-    // if (res.status === 455) {
-    //   a = true;
-    //   b = false;
-    //   c = false;
-    // } else if (res.status === 456) {
-    //   a = false;
-    //   b = true;
-    //   c = false;
-    // } else if (res.status === 457) {
-    //   a = false;
-    //   b = false;
-    //   c = true;
-    // }
-
     const data = await res.json();
     if (!data) {
       window.alert("Invalid Value!")
@@ -94,8 +76,8 @@ export default function SingIn() {
         <form>
             <input 
               type="text"
-              name="username"
-              value={info}
+              name="test"
+              value={user.test}
               onChange={inputHandler}
               required
             />
