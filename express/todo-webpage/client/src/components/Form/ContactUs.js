@@ -33,9 +33,9 @@ export default function Footer() {
 
   let name, value;
 
-  function handleInput(event) {
-      name = event.target.name;
-      value = event.target.value;
+  function handleInput(e) {
+      name = e.target.name;
+      value = e.target.value;
       setUser({ 
           ...user,
           [name] : value 
