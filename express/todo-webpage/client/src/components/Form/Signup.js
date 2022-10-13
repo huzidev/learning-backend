@@ -121,7 +121,7 @@ export default function SignUp() {
             <Input 
             name="username"
             value={user.username}
-            onChange={handleInput}
+            onChange={inputHandler}
             placeholder="Enter Yours Username"
             />
         </Form.Item>
