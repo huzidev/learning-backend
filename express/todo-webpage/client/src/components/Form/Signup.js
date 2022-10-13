@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button, Checkbox, Form, Input } from 'antd';
 
 export default function SignUp() {
   const Navigate = useNavigate();
@@ -66,57 +67,51 @@ export default function SignUp() {
         Navigate("/signin");
     }
   };
-
+  
+    const onFinish = (values) => {
+        console.log('Success:', values);
+    };
+    const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+    };
   return (
+
     <div>
-        <h1>
-            SignUp page
-        </h1>
-        <form>
-            <input 
-                type="text"
-                name="username"
-                value={user.username}
-                onChange={inputHandler}
-                placeholder="Enter Yours Name"
-                required
-            />
-            <input 
-                type="email"
-                name="email"
-                value={user.email}
-                onChange={inputHandler}
-                placeholder="Enter Yours Email"
-                required
-            />
-            <input 
-                type="number"
-                name="number"
-                value={user.number}
-                onChange={inputHandler}
-                placeholder="Enter Yours Number"
-                required
-            />
-            <input 
-                type="password"
-                name="password"
-                value={user.password}
-                onChange={inputHandler}
-                placeholder="Enter Yours Password"
-                required
-            />
-            <input 
-                type="password"
-                name="cpassword"
-                value={user.cpassword}
-                onChange={inputHandler}
-                placeholder="Confirm Yours Password"
-                required
-            />
-            <button onClick={signUp}>
-                SignUp
-            </button>
-        </form>
+        <Form
+            name="basic"
+            labelCol={{ span: 8 }}
+            wrapperCol={{ span: 16 }}
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
+        >
+        <Form.Item
+            label="Username"
+            name="username"
+            rules={[{ required: true, message: 'Please input your username!' }]}
+        >
+            <Input />
+        </Form.Item>
+
+        <Form.Item
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: 'Please input your password!' }]}
+        >
+            <Input.Password />
+        </Form.Item>
+
+        <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+            <Checkbox>Remember me</Checkbox>
+        </Form.Item>
+
+        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+            <Button type="primary" htmlType="submit">
+            Submit
+            </Button>
+        </Form.Item>
+        </Form>
     </div>
   )
 }
