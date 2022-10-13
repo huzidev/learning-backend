@@ -71,7 +71,6 @@ export default function Footer() {
         window.alert("Failed To Send Message")
     } else {
         window.alert("Message Sent Successfully!");
-        window.location.reload();
     }
   }
 
@@ -123,10 +122,10 @@ export default function Footer() {
         ]}
       >
         <InputNumber   
-          style={{ width: '100%' }}
           name="number"
           value={user.number}
           onChange={handleInput}
+          style={{ width: '100%' }}
           placeholder="Enter Yours Number (Optional)"
         />
       </Form.Item>
