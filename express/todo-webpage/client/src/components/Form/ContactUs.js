@@ -87,7 +87,7 @@ export default function Footer() {
   return (
     <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
       <Form.Item
-        name={['user', 'username']}
+        name={['Username']}
         label="Name"
         rules={[
           {
@@ -99,10 +99,11 @@ export default function Footer() {
           name="username"
           value={user.username}
           onChange={handleInput}
+          placeholder="Enter Yours Username"
         />
       </Form.Item>
       <Form.Item
-        name={['user', 'email']}
+        name={['Email']}
         label="Email"
         rules={[
           {
@@ -115,11 +116,12 @@ export default function Footer() {
           name="email"
           value={user.email}
           onChange={handleInput}
+          placeholder="Enter Yours Email"
         />
       </Form.Item>
       <Form.Item 
-        name={['user', 'number']}
-        label="Yours Number"
+        name={['Number']}
+        label="Number"
         rules={[
           {
             type: 'number',
@@ -132,14 +134,17 @@ export default function Footer() {
           name="number"
           value={user.number}
           onChange={handleInput}
+          placeholder="Enter Yours Number (Optional)"
         />
       </Form.Item>
       <Form.Item 
-        name={['user', 'message']}
-        label="Yours Message"
+        name={['Message']}
+        label="Message"
         rules={[
           {
-            required: true
+            required: true,
+            min: 0,
+            max: 255
           },
         ]}
       >
@@ -147,6 +152,7 @@ export default function Footer() {
           name="message"
           value={user.message}
           onChange={handleInput}
+          placeholder="Enter Yours Message"
         />
       </Form.Item>
       <Form.Item
