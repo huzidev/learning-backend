@@ -11,7 +11,6 @@ const userMessage = new mongoose.Schema({
     },
     number : {
         type : Number,
-        required : true
     },
     message : {
         type : String,
