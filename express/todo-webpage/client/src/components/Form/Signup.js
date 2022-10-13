@@ -144,9 +144,9 @@ export default function SignUp() {
                 name={['Number']}
                 label="Number"
                 rules={[
-                {
-                    type: 'number',
-                },
+                    {
+                        type: 'number',
+                    },
                 ]}
             >
                 <InputNumber   
@@ -161,11 +161,11 @@ export default function SignUp() {
                 name={['password']}
                 label="Password"
                 rules={[
-                {
-                    required: true,
-                    type: 'password',
-                    min: 6
-                },
+                    {
+                        required: true,
+                        type: 'password',
+                        min: 6
+                    },
                 ]}
             >
                 <Input 
