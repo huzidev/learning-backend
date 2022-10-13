@@ -138,7 +138,7 @@ router.post('/contact', async (req, res) => {
         } else if (!email) {
             return res.status(423).json({ error : "Email must be provide" });
         } else if (!message) {
-            return res.status(424).json({ error : "You must convey a message" });
+            return res.status(424).json({ error : "Mesasge field is empty" });
         }
         const userMessage = new Contact({ username, email, number, message })
         const userResponse = await userMessage.save();
