@@ -136,6 +136,11 @@ router.post('/contact', async (req, res) => {
         if ( !username || !email || !message ) {
             return res.status(422).json({ error : "You've left an tag empty!" });
         }
+        if (!username) {
+            return res.status(422).json({ error : "Username must be provide" });
+        } else if (!email) {
+            return res.status(422).json({ error : "User name must be provide" });
+        }
         const userMessage = new Contact({ username, email, number, message })
         const userResponse = await userMessage.save();
 
