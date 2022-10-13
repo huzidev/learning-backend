@@ -139,14 +139,12 @@ router.post('/contact', async (req, res) => {
         const userMessage = new Contact({ username, email, number, message })
         const userResponse = await userMessage.save();
 
-        // if success
         if (userResponse) {
-            res.status(200).json({ message : "Message Sent Successfully!" });
+            return res.status(200).json({ message : "Message Sent Successfully!" });
         }
         else {
-            res.status(500).json({ error : "Failed To Send Message" });
+            return res.status(500).json({ error : "Failed To Send Message" });
         }
-        
     }
     catch (err) {
         console.log(err);
