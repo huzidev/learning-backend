@@ -71,14 +71,9 @@ export default function Footer() {
         window.alert("Failed To Send Message")
     }
     else {
-        window.alert("Message Sent Successfully!")
+        window.alert("Message Sent Successfully!");
+        window.location.reload();
     }
-    setUser({
-      username : "",
-      email : "",
-      number : "",
-      message : ""
-    })
   }
 
   const onFinish = (values) => {
