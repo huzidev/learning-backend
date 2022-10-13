@@ -158,7 +158,7 @@ export default function SignUp() {
                 />
             </Form.Item>
             <Form.Item 
-                name={['Password']}
+                name={['password']}
                 label="Password"
                 rules={[
                 {
@@ -168,7 +168,7 @@ export default function SignUp() {
                 },
                 ]}
             >
-                <Input.TextArea 
+                <Input 
                     name="password"
                     value={user.password}
                     onChange={inputHandler}
@@ -191,7 +191,7 @@ export default function SignUp() {
                     if (!value || getFieldValue('password') === value) {
                         return Promise.resolve();
                     }
-                    return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                        return Promise.reject(new Error('The two passwords that you entered do not match!'));
                     },
                 }),
                 ]}
