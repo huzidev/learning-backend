@@ -139,7 +139,9 @@ router.post('/contact', async (req, res) => {
         if (!username) {
             return res.status(422).json({ error : "Username must be provide" });
         } else if (!email) {
-            return res.status(422).json({ error : "User name must be provide" });
+            return res.status(422).json({ error : "Email must be provide" });
+        } else if (!message) {
+            return res.status(422).json({ error : "You must convey a message" });
         }
         const userMessage = new Contact({ username, email, number, message })
         const userResponse = await userMessage.save();
