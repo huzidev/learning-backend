@@ -6,6 +6,15 @@ export default function SignUp() {
   const Navigate = useNavigate();
   const host = "http://localhost:8000";
 
+    const layout = {
+        labelCol: {
+        span: 8,
+        },
+        wrapperCol: {
+        span: 8,
+        },
+    };
+
     /* eslint-disable no-template-curly-in-string */
     const validateMessages = {
         required: '${label} is required!',
