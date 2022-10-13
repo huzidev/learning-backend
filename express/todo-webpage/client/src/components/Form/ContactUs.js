@@ -72,13 +72,13 @@ export default function Footer() {
     }
     else {
         window.alert("Message Sent Successfully!")
-        setUser({
-          username : "",
-          email : "",
-          number : "",
-          message : ""
-        })
     }
+    setUser({
+      username : "",
+      email : "",
+      number : "",
+      message : ""
+    })
   }
 
   const onFinish = (values) => {
@@ -87,7 +87,7 @@ export default function Footer() {
   return (
     <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
       <Form.Item
-        name={['user', 'name']}
+        name={['user', 'username']}
         label="Name"
         rules={[
           {
@@ -95,7 +95,11 @@ export default function Footer() {
           },
         ]}
       >
-        <Input />
+        <Input 
+          name="username"
+          value={user.username}
+          onChange={handleInput}
+        />
       </Form.Item>
       <Form.Item
         name={['user', 'email']}
@@ -107,10 +111,16 @@ export default function Footer() {
           },
         ]}
       >
-        <Input />
+        <Input 
+          name="email"
+          value={user.email}
+          onChange={handleInput}
+        />
       </Form.Item>
       <Form.Item 
-        name={['user', 'number']} 
+        name="number"
+        value={user.number}
+        onChange={handleInput}
         label="Yours Number"
         rules={[
           {
@@ -123,7 +133,9 @@ export default function Footer() {
         <Input />
       </Form.Item>
       <Form.Item 
-        name={['user', 'message']} 
+        name="message"
+        value={user.message}
+        onChange={handleInput}
         label="Yours Message"
         rules={[
           {
@@ -131,7 +143,11 @@ export default function Footer() {
           },
         ]}
       >
-        <Input.TextArea />
+        <Input.TextArea 
+          name="message"
+          value={user.message}
+          onChange={handleInput}
+        />
       </Form.Item>
       <Form.Item
         wrapperCol={{
@@ -139,7 +155,7 @@ export default function Footer() {
           offset: 8,
         }}
       >
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" onClick={sendMessage}>
           Submit
         </Button>
       </Form.Item>
