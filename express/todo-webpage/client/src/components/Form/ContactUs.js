@@ -13,6 +13,7 @@ const layout = {
 const validateMessages = {
   required: '${label} is required!',
   types: {
+    username: '${label} is not a valid username!',
     email: '${label} is not a valid email!',
     number: '${label} is not a valid number!',
   },
@@ -66,11 +67,9 @@ export default function Footer() {
       window.alert("Email must be provide")
     } else if (res.status === 424) {
       window.alert("Mesasge field is empty")
-    }
-    else if (res.status === 500 || !data) {
+    } else if (res.status === 500 || !data) {
         window.alert("Failed To Send Message")
-    }
-    else {
+    } else {
         window.alert("Message Sent Successfully!");
         window.location.reload();
     }
@@ -120,12 +119,11 @@ export default function Footer() {
         rules={[
           {
             type: 'number',
-            min: 0,
-            max: 99
           },
         ]}
       >
-        <Input 
+        <InputNumber   
+          style={{ width: '100%' }}
           name="number"
           value={user.number}
           onChange={handleInput}
