@@ -53,7 +53,7 @@ export default function Footer() {
         body : JSON.stringify({
             username,
             email,
-            number,
+            number: parseInt(number),
             message
         })
     });
@@ -118,9 +118,7 @@ export default function Footer() {
         />
       </Form.Item>
       <Form.Item 
-        name="number"
-        value={user.number}
-        onChange={handleInput}
+        name={['user', 'number']}
         label="Yours Number"
         rules={[
           {
@@ -130,12 +128,14 @@ export default function Footer() {
           },
         ]}
       >
-        <Input />
+        <Input 
+          name="number"
+          value={user.number}
+          onChange={handleInput}
+        />
       </Form.Item>
       <Form.Item 
-        name="message"
-        value={user.message}
-        onChange={handleInput}
+        name={['user', 'message']}
         label="Yours Message"
         rules={[
           {
