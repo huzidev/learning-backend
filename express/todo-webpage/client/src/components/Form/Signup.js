@@ -109,7 +109,7 @@ export default function SignUp() {
         >
             <Form.Item
                 name={['Username']}
-                label="Name"
+                label="Username"
                 rules={[
                     {
                         required: true,
@@ -117,10 +117,10 @@ export default function SignUp() {
                 ]}
             >
                 <Input 
-                name="username"
-                value={user.username}
-                onChange={inputHandler}
-                placeholder="Enter Yours Username"
+                    name="username"
+                    value={user.username}
+                    onChange={inputHandler}
+                    placeholder="Enter Yours Username"
                 />
             </Form.Item>
             <Form.Item
@@ -134,10 +134,10 @@ export default function SignUp() {
                 ]}
             >
                 <Input 
-                name="email"
-                value={user.email}
-                onChange={inputHandler}
-                placeholder="Enter Yours Email"
+                    name="email"
+                    value={user.email}
+                    onChange={inputHandler}
+                    placeholder="Enter Yours Email"
                 />
             </Form.Item>
             <Form.Item 
