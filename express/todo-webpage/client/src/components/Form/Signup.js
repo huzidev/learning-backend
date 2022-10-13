@@ -158,22 +158,44 @@ export default function SignUp() {
                 />
             </Form.Item>
             <Form.Item 
-                name={['Message']}
-                label="Message"
+                name={['Password']}
+                label="Password"
                 rules={[
                 {
                     required: true,
-                    min: 0,
-                    max: 255
+                    min: 6
                 },
                 ]}
             >
                 <Input.TextArea 
-                name="message"
-                value={user.message}
-                onChange={inputHandler}
-                placeholder="Enter Yours Message"
+                    name="password"
+                    value={user.password}
+                    onChange={inputHandler}
+                    placeholder="Enter Yours password"
                 />
+            </Form.Item>
+            <Form.Item
+                name={['confirm']}
+                label="Confirm Password"
+                dependencies={['password']}
+                hasFeedback
+                rules={[
+                {
+                    required: true,
+                    type: 'password',
+                    min: 6
+                },
+                ({ getFieldValue }) => ({
+                    validator(_, value) {
+                    if (!value || getFieldValue('password') === value) {
+                        return Promise.resolve();
+                    }
+                    return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                    },
+                }),
+                ]}
+            >
+                <Input.Password />
             </Form.Item>
             <Form.Item
                     wrapperCol={{
