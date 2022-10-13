@@ -163,6 +163,7 @@ export default function SignUp() {
                 rules={[
                 {
                     required: true,
+                    type: 'password',
                     min: 6
                 },
                 ]}
