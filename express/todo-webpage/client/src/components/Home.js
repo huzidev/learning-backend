@@ -11,14 +11,15 @@ import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStore
 import PaymentOutlinedIcon from '@mui/icons-material/PaymentOutlined';
 import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 import KeyboardOutlinedIcon from '@mui/icons-material/KeyboardOutlined';
-import { Breadcrumb, Layout, Menu } from 'antd';
+import { Breadcrumb, Layout, Menu, Icon } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
-function getItem(label, key, icon, children) {
+function getItem(label, key, icon, children, onClick) {
   return {
     key,
     icon,
     children,
     label,
+    onClick,
   };
 }
 const items = [
@@ -36,21 +37,33 @@ const items = [
   getItem('Logout', '8', <LoginOutlined />)
 ];
 
-const data = [
-  getItem("Hello World")
-]
-
 const App = () => {
   const [collapsed, setCollapsed] = useState(false);
+
+  function test() {
+    window.alert("Hello world")
+  }
+
   return (
     <Layout
       style={{
         minHeight: '100vh',
       }}
     >
-      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} style={{paddingTop: 60}}>
+      <Sider 
+        collapsible 
+        collapsed={collapsed} 
+        onCollapse={(value) => setCollapsed(value)} 
+        style={{paddingTop: 60}}
+      >
         <div className="logo" />
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+        <Menu 
+          theme="dark" 
+          defaultSelectedKeys={['1']} 
+          mode="inline"
+          items={items}
+        >
+        </Menu>
       </Sider>
       <Layout className="site-layout">
         <Header
