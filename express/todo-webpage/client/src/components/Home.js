@@ -7,6 +7,7 @@ import {
   HomeOutlined,
   LoginOutlined
 } from '@ant-design/icons';
+import HomeIcon from '@mui/icons-material/Home';
 import { Breadcrumb, Layout, Menu } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children) {
