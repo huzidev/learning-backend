@@ -51,26 +51,12 @@ const App = () => {
       >
         <Input />
       </Form.Item>
-      <Form.Item
-        name={['user', 'age']}
-        label="Age"
-        rules={[
-          {
-            type: 'number',
-            min: 0,
-            max: 99,
-          },
-        ]}
-      >
-        <InputNumber />
-      </Form.Item>
       <Form.Item 
-        name={['user', 'website']} 
+        name={['user', 'number']} 
         label="Yours Number"
         rules={[
           {
             type: 'number',
-            required: true,
             min: 0,
             max: 99
           },
@@ -78,7 +64,15 @@ const App = () => {
       >
         <Input />
       </Form.Item>
-      <Form.Item name={['user', 'introduction']} label="Introduction">
+      <Form.Item 
+        name={['user', 'message']} 
+        label="Yours Message"
+        rules={[
+          {
+            required: true
+          },
+        ]}
+      >
         <Input.TextArea />
       </Form.Item>
       <Form.Item
