@@ -1,4 +1,5 @@
 import React from 'react';
+import 'antd/dist/antd.css';
 import SignUp from './Form/SignUp';
 import SingIn from './Form/SingIn';
 import Home from './Home';
