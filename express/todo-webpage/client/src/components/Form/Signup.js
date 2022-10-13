@@ -101,20 +101,29 @@ export default function SignUp() {
 
     <div>
         <Form
+            {...layout}
             name="basic"
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 8 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
+            validateMessages={validateMessages}
         >
         <Form.Item
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: 'Please input your username!' }]}
+            name={['Username']}
+            label="Name"
+            rules={[
+            {
+                required: true,
+            },
+            ]}
         >
-            <Input />
+            <Input 
+            name="username"
+            value={user.username}
+            onChange={handleInput}
+            placeholder="Enter Yours Username"
+            />
         </Form.Item>
         <Form.Item
             label="Email"
@@ -133,7 +142,7 @@ export default function SignUp() {
         <Form.Item
             label="Password"
             name="password"
-            rules={[{ required: true, message: 'Please input your password!', min: 6 }]}
+            rules={[{ required: true, type: 'password', min: 6 }]}
         >
             <Input.Password />
         </Form.Item>
@@ -145,7 +154,7 @@ export default function SignUp() {
             rules={[
             {
                 required: true,
-                message: 'Please confirm your password!',
+                type: 'password',
                 min: 6
             },
             ({ getFieldValue }) => ({
