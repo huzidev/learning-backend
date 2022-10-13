@@ -97,9 +97,16 @@ export default function SignUp() {
     const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
     };
+
   return (
     <div>
-        <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+        <Form 
+            {...layout} 
+            name="nest-messages" 
+            onFinish={onFinish} 
+            onFinishFailed={onFinishFailed}
+            alidateMessages={validateMessages}
+        >
             <Form.Item
                 name={['Username']}
                 label="Name"
@@ -169,9 +176,9 @@ export default function SignUp() {
                 />
             </Form.Item>
             <Form.Item
-                wrapperCol={{
-                ...layout.wrapperCol,
-                offset: 8,
+                    wrapperCol={{
+                    ...layout.wrapperCol,
+                    offset: 8,
                 }}
             >
                 <Button type="primary" htmlType="submit" onClick={signUp}>
