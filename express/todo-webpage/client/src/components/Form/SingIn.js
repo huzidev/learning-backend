@@ -23,15 +23,6 @@ export default function SingIn() {
     });
   };
 
-  // let type;
-  // let namea;
-  // let state;
-
-  // let a;
-  // let b;
-  // let c;
-  
-
   async function signIn(e) {
     e.preventDefault();
 
