@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import {
-  DesktopOutlined,
   FileOutlined,
-  TeamOutlined,
   UserOutlined,
   HomeOutlined,
-  LoginOutlined
+  LoginOutlined,
+  MessageOutlined
 } from '@ant-design/icons';
 import MapsHomeWorkOutlinedIcon from '@mui/icons-material/MapsHomeWorkOutlined';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
@@ -30,10 +29,11 @@ const items = [
     getItem('Rent', '4', <PaymentsOutlinedIcon />)
   ]),
   getItem('Office', 'sub2', <MapsHomeWorkOutlinedIcon />, [
-    getItem('Project A', '5', <KeyboardOutlinedIcon /> ), 
+    getItem('Project A', '5', <KeyboardOutlinedIcon /> )
   ]),
   getItem('Completed Tasks', '6', <FileOutlined />),
-  getItem('Logout', '7', <LoginOutlined />),
+  getItem('Contact Us', '7', <MessageOutlined />),
+  getItem('Logout', '8', <LoginOutlined />)
 ];
 
 const data = [
