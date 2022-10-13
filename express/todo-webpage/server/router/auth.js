@@ -131,7 +131,7 @@ router.post('/signin', async (req, res) => {
 router.post('/contact', async (req, res) => {
     
     try{
-        const { username, email, message } = req.body;
+        const { username, email, number, message } = req.body;
 
         if (!username) {
             return res.status(422).json({ error : "Username must be provide" });
