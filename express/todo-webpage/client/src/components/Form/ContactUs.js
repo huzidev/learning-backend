@@ -33,7 +33,7 @@ export default function Footer() {
   })
 
   let name, value;
-  function handleInput(e) {
+  function inputHandler(e) {
       name = e.target.name;
       value = e.target.value;
       setUser({ 
@@ -91,7 +91,7 @@ export default function Footer() {
         <Input 
           name="username"
           value={user.username}
-          onChange={handleInput}
+          onChange={inputHandler}
           placeholder="Enter Yours Username"
         />
       </Form.Item>
@@ -108,7 +108,7 @@ export default function Footer() {
         <Input 
           name="email"
           value={user.email}
-          onChange={handleInput}
+          onChange={inputHandler}
           placeholder="Enter Yours Email"
         />
       </Form.Item>
@@ -124,7 +124,7 @@ export default function Footer() {
         <InputNumber   
           name="number"
           value={user.number}
-          onChange={handleInput}
+          onChange={inputHandler}
           style={{ width: '100%' }}
           placeholder="Enter Yours Number (Optional)"
         />
@@ -143,7 +143,7 @@ export default function Footer() {
         <Input.TextArea 
           name="message"
           value={user.message}
-          onChange={handleInput}
+          onChange={inputHandler}
           placeholder="Enter Yours Message"
         />
       </Form.Item>
