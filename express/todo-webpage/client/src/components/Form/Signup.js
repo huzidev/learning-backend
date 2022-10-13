@@ -80,7 +80,7 @@ export default function SignUp() {
         <Form
             name="basic"
             labelCol={{ span: 8 }}
-            wrapperCol={{ span: 16 }}
+            wrapperCol={{ span: 8 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
@@ -93,7 +93,20 @@ export default function SignUp() {
         >
             <Input />
         </Form.Item>
-
+        <Form.Item
+            label="Email"
+            name="email"
+            rules={[{ required: true, message: 'Please input your email!' }]}
+        >
+            <Input />
+        </Form.Item>
+        <Form.Item
+            label="Number"
+            name="number"
+            rules={[{ required: true, message: 'Please input your number!' }]}
+        >
+            <Input />
+        </Form.Item>
         <Form.Item
             label="Password"
             name="password"
@@ -101,15 +114,10 @@ export default function SignUp() {
         >
             <Input.Password />
         </Form.Item>
-
-        <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-            <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit">
             Submit
-            </Button>
+        </Button>
         </Form.Item>
         </Form>
     </div>
