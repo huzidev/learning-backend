@@ -32,7 +32,6 @@ export default function Footer() {
   })
 
   let name, value;
-
   function handleInput(e) {
       name = e.target.name;
       value = e.target.value;
