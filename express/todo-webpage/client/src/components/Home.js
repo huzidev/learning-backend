@@ -7,7 +7,11 @@ import {
   HomeOutlined,
   LoginOutlined
 } from '@ant-design/icons';
-import HomeIcon from '@mui/icons-material/Home';
+import MapsHomeWorkOutlinedIcon from '@mui/icons-material/MapsHomeWorkOutlined';
+import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
+import PaymentOutlinedIcon from '@mui/icons-material/PaymentOutlined';
+import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
+import KeyboardOutlinedIcon from '@mui/icons-material/KeyboardOutlined';
 import { Breadcrumb, Layout, Menu } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children) {
@@ -21,16 +25,15 @@ function getItem(label, key, icon, children) {
 const items = [
   getItem('User', '1', <UserOutlined />),
   getItem('Home', 'sub1', <HomeOutlined />, [
-    getItem('Grocery', '2'),
-    getItem('Bills', '3'),
-    getItem('Rent', '4')
+    getItem('Grocery', '2', <LocalGroceryStoreOutlinedIcon />),
+    getItem('Bills', '3', <PaymentOutlinedIcon />),
+    getItem('Rent', '4', <PaymentsOutlinedIcon />)
   ]),
-  getItem('Office', 'sub2', <TeamOutlined />, [
-    getItem('Project A', '5'), 
-    getItem('Project B', '6')
+  getItem('Office', 'sub2', <MapsHomeWorkOutlinedIcon />, [
+    getItem('Project A', '5', <KeyboardOutlinedIcon /> ), 
   ]),
-  getItem('Completed Tasks', '7', <FileOutlined />),
-  getItem('Logout', '8', <LoginOutlined />),
+  getItem('Completed Tasks', '6', <FileOutlined />),
+  getItem('Logout', '7', <LoginOutlined />),
 ];
 
 const data = [
