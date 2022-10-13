@@ -45,7 +45,7 @@ const App = () => {
         rules={[
           {
             type: 'email',
-            required: true,
+            required: true
           },
         ]}
       >
@@ -64,20 +64,21 @@ const App = () => {
       >
         <InputNumber />
       </Form.Item>
-      <Form.Item name={['user', 'website']} label="Website">
-        <Input />
-      </Form.Item>
       <Form.Item 
-        name={['user', 'introduction']} 
-        label="Introduction"
+        name={['user', 'website']} 
+        label="Yours Number"
         rules={[
           {
             type: 'number',
+            required: true,
             min: 0,
-            max: 99,
+            max: 99
           },
         ]}
       >
+        <Input />
+      </Form.Item>
+      <Form.Item name={['user', 'introduction']} label="Introduction">
         <Input.TextArea />
       </Form.Item>
       <Form.Item
