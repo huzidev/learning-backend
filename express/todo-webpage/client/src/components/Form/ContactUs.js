@@ -22,7 +22,27 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 
-const App = () => {
+export default function Footer() {
+
+  const [user, setUser] = React.useState({
+    username : "",
+    email : "",
+    number : "",
+    message : ""
+  })
+
+  let name, value;
+
+  function handleInput(event) {
+      name = event.target.name;
+      value = event.target.value;
+      setUser({ 
+          ...user,
+          [name] : value 
+      });
+  }
+    
+
   const onFinish = (values) => {
     console.log(values);
   };
@@ -88,4 +108,3 @@ const App = () => {
     </Form>
   );
 };
-export default App;
