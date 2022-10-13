@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, InputNumber, Form, Input } from 'antd';
 
 export default function SignUp() {
   const Navigate = useNavigate();
@@ -98,82 +98,86 @@ export default function SignUp() {
     console.log('Failed:', errorInfo);
     };
   return (
-
     <div>
-        <Form
-            {...layout}
-            name="basic"
-            initialValues={{ remember: true }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
-            validateMessages={validateMessages}
-        >
-        <Form.Item
-            name={['Username']}
-            label="Name"
-            rules={[
-            {
-                required: true,
-            },
-            ]}
-        >
-            <Input 
-            name="username"
-            value={user.username}
-            onChange={inputHandler}
-            placeholder="Enter Yours Username"
-            />
-        </Form.Item>
-        <Form.Item
-            label="Email"
-            name="email"
-            rules={[{ required: true, message: 'Please input your email!' }]}
-        >
-            <Input />
-        </Form.Item>
-        <Form.Item
-            label="Number"
-            name="number"
-            rules={[{ required: true, message: 'Please input your number!' }]}
-        >
-            <Input />
-        </Form.Item>
-        <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, type: 'password', min: 6 }]}
-        >
-            <Input.Password />
-        </Form.Item>
-        <Form.Item
-            name="confirm"
-            label="Confirm Password"
-            dependencies={['password']}
-            hasFeedback
-            rules={[
-            {
-                required: true,
-                type: 'password',
-                min: 6
-            },
-            ({ getFieldValue }) => ({
-                validator(_, value) {
-                if (!value || getFieldValue('password') === value) {
-                    return Promise.resolve();
-                }
-                return Promise.reject(new Error('The two passwords that you entered do not match!'));
+        <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+            <Form.Item
+                name={['Username']}
+                label="Name"
+                rules={[
+                    {
+                        required: true,
+                    },
+                ]}
+            >
+                <Input 
+                name="username"
+                value={user.username}
+                onChange={inputHandler}
+                placeholder="Enter Yours Username"
+                />
+            </Form.Item>
+            <Form.Item
+                name={['Email']}
+                label="Email"
+                rules={[
+                    {
+                        type: 'email',
+                        required: true
+                    },
+                ]}
+            >
+                <Input 
+                name="email"
+                value={user.email}
+                onChange={inputHandler}
+                placeholder="Enter Yours Email"
+                />
+            </Form.Item>
+            <Form.Item 
+                name={['Number']}
+                label="Number"
+                rules={[
+                {
+                    type: 'number',
                 },
-            }),
-            ]}
-        >
-            <Input.Password />
-        </Form.Item>
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit" onClick={signUp}>
-                Submit
-            </Button>
-        </Form.Item>
+                ]}
+            >
+                <InputNumber   
+                    name="number"
+                    value={user.number}
+                    onChange={inputHandler}
+                    style={{ width: '100%' }}
+                    placeholder="Enter Yours Number (Optional)"
+                />
+            </Form.Item>
+            <Form.Item 
+                name={['Message']}
+                label="Message"
+                rules={[
+                {
+                    required: true,
+                    min: 0,
+                    max: 255
+                },
+                ]}
+            >
+                <Input.TextArea 
+                name="message"
+                value={user.message}
+                onChange={inputHandler}
+                placeholder="Enter Yours Message"
+                />
+            </Form.Item>
+            <Form.Item
+                wrapperCol={{
+                ...layout.wrapperCol,
+                offset: 8,
+                }}
+            >
+                <Button type="primary" htmlType="submit" onClick={signUp}>
+                    Submit
+                </Button>
+            </Form.Item>
         </Form>
     </div>
   )
