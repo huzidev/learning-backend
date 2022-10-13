@@ -110,21 +110,37 @@ export default function SignUp() {
         <Form.Item
             label="Password"
             name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
+            rules={[{ required: true, message: 'Please input your password!', min: 6 }]}
         >
             <Input.Password />
         </Form.Item>
         <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
+            name="confirm"
+            label="Confirm Password"
+            dependencies={['password']}
+            hasFeedback
+            rules={[
+            {
+                required: true,
+                message: 'Please confirm your password!',
+                min: 6
+            },
+            ({ getFieldValue }) => ({
+                validator(_, value) {
+                if (!value || getFieldValue('password') === value) {
+                    return Promise.resolve();
+                }
+                return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                },
+            }),
+            ]}
         >
             <Input.Password />
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit" onClick={signUp}>
-            Submit
-        </Button>
+            <Button type="primary" htmlType="submit" onClick={signUp}>
+                Submit
+            </Button>
         </Form.Item>
         </Form>
     </div>
