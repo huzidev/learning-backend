@@ -41,8 +41,8 @@ export default function Footer() {
       });
   }
     
-  async function sendMessage(event) {
-    event.preventDefault();
+  async function sendMessage(e) {
+    e.preventDefault();
 
     const { username, email, number, message } = user;
     const res = await fetch("/contact", {
@@ -61,7 +61,11 @@ export default function Footer() {
     const data = await res.json();
 
     if (res.status === 422) {
-        window.alert("You've left an tag empty!")
+        window.alert("Username must be provide")
+    } else if (res.status === 423) {
+      window.alert("Email must be provide")
+    } else if (res.status === 424) {
+      window.alert("Mesasge field is empty")
     }
     else if (res.status === 500 || !data) {
         window.alert("Failed To Send Message")
