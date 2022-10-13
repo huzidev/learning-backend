@@ -1,12 +1,13 @@
+import React, { useState } from 'react';
 import {
   DesktopOutlined,
   FileOutlined,
   TeamOutlined,
   UserOutlined,
-  HomeOutlined
+  HomeOutlined,
+  LoginOutlined
 } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu } from 'antd';
-import React, { useState } from 'react';
 const { Header, Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children) {
   return {
@@ -18,15 +19,23 @@ function getItem(label, key, icon, children) {
 }
 const items = [
   getItem('User', '1', <UserOutlined />),
-  getItem(' 2', '2', <DesktopOutlined />),
   getItem('Home', 'sub1', <HomeOutlined />, [
-    getItem('Grocery', '3'),
-    getItem('Bills', '4'),
-    getItem('Rent', '5'),
+    getItem('Grocery', '2'),
+    getItem('Bills', '3'),
+    getItem('Rent', '4')
   ]),
-  getItem('Office', 'sub2', <TeamOutlined />, [getItem('Project A', '6'), getItem('Project B', '8')]),
-  getItem('Completed Tasks', '9', <FileOutlined />),
+  getItem('Office', 'sub2', <TeamOutlined />, [
+    getItem('Project A', '5'), 
+    getItem('Project B', '6')
+  ]),
+  getItem('Completed Tasks', '7', <FileOutlined />),
+  getItem('Logout', '8', <LoginOutlined />),
 ];
+
+const data = [
+  getItem("Hello World")
+]
+
 const App = () => {
   const [collapsed, setCollapsed] = useState(false);
   return (
@@ -35,7 +44,7 @@ const App = () => {
         minHeight: '100vh',
       }}
     >
-      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} style={{paddingTop: 60}}>
         <div className="logo" />
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
       </Sider>
@@ -57,7 +66,7 @@ const App = () => {
             }}
           >
             <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+            <Breadcrumb.Item>Huzi-Dev</Breadcrumb.Item>
           </Breadcrumb>
           <div
             className="site-layout-background"
