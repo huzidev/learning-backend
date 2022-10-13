@@ -8,10 +8,10 @@ export default function SignUp() {
 
     const layout = {
         labelCol: {
-        span: 8,
+            span: 8,
         },
         wrapperCol: {
-        span: 8,
+            span: 8,
         },
     };
 
