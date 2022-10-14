@@ -50,30 +50,6 @@ export default function App() {
   const [collapsed, setCollapsed] = useState(false);
 
 
-  React.useEffect(() => {
-    fetch('/signout', {
-      method : 'GET',
-      headers : {
-          "Accept" : "application/json",
-          "Content-Type" : "application/json"
-      },
-      credentials : "include"
-    }).then((res) => {
-      Navigate('/login', {
-        replace : true
-      })
-      if (res.status === 200) {
-        window.alert("Logout successfully")
-        localStorage.removeItem('jwtokenseller')
-      } else {
-        const error = new Error(res.Error);
-        throw error;
-      }
-    }).catch((err) => {
-      console.log(err);
-    })
-  }, [])
-
   return (
     <Layout
       style={{
