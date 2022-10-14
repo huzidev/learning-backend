@@ -105,7 +105,7 @@ export default function SignUp() {
             name="nest-messages" 
             onFinish={onFinish} 
             onFinishFailed={onFinishFailed}
-            alidateMessages={validateMessages}
+            validateMessages={validateMessages}
         >
             <Form.Item
                 name={['Username']}
@@ -165,7 +165,8 @@ export default function SignUp() {
                     {
                         required: true,
                         type: 'password',
-                        min: 6
+                        min: 6,
+                        max: 8
                     },
                 ]}
             >
