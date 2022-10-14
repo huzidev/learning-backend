@@ -51,7 +51,14 @@ export default function App() {
 
 
   React.useEffect(() => {
-    fetch('/signout')
+    fetch('/signout', {
+      method : 'GET',
+      headers : {
+          "Accept" : "application/json",
+          "Content-Type" : "application/json"
+      },
+      credentials : "include"
+    })
   }, [])
 
 
