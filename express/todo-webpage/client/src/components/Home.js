@@ -24,31 +24,32 @@ function getItem(label, key, icon, children ) {
   };
 }
 
-
-
 function funcaa() {
   window.alert("Hello World")
 }
 
 const items = [
-  getItem('User', '1', <UserOutlined />),
-  getItem('Home', 'sub1', <HomeOutlined />, [
-    getItem('Grocery', '2', <LocalGroceryStoreOutlinedIcon />),
-    getItem('Bills', '3', <PaymentOutlinedIcon />),
-    getItem('Rent', '4', <PaymentsOutlinedIcon />)
-  ]),
-  getItem('Office', 'sub2', <MapsHomeWorkOutlinedIcon />, [
-    getItem('Project A', '5', <KeyboardOutlinedIcon /> )
-  ]),
-  getItem('Completed Tasks', '6', <FileOutlined />),
-  getItem('Contact Us', '7', <MessageOutlined />),
-  getItem('Logout', '8', <LoginOutlined />)
+  localStorage.getItem('jwtoken') ? (
+    getItem('User', '1', <UserOutlined />),
+    getItem('Home', 'sub1', <HomeOutlined />, [
+      getItem('Grocery', '2', <LocalGroceryStoreOutlinedIcon />),
+      getItem('Bills', '3', <PaymentOutlinedIcon />),
+      getItem('Rent', '4', <PaymentsOutlinedIcon />)
+    ]),
+    getItem('Office', 'sub2', <MapsHomeWorkOutlinedIcon />, [
+      getItem('Project A', '5', <KeyboardOutlinedIcon /> )
+    ]),
+    getItem('Completed Tasks', '6', <FileOutlined />),
+    getItem('Contact Us', '7', <MessageOutlined />),
+    getItem('Logout', '8', <LoginOutlined />)
+  ) : (
+    getItem('Signin', '1', <UserOutlined />),
+    getItem('Signup', '2', <FileOutlined />)
+  )
 ];
 
 export default function App() {
-  const Navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
-
 
   return (
     <Layout
@@ -70,7 +71,7 @@ export default function App() {
           items={items}
         >
           <Menu.item key="8">
-            {onclick=(() => {window.alert("Hello World")})}
+            <Link to='/signout'></Link>
           </Menu.item>
         </Menu>
       </Sider>
