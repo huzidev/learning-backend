@@ -16,6 +16,20 @@ export default function SingIn() {
     },
   };
 
+  /* eslint-disable no-template-curly-in-string */
+  const validateMessages = {
+    required: '${label} is required!',
+    types: {
+        username: '${label} is not a valid username!',
+        email: '${label} is not a valid email!',
+        number: '${label} is not a valid number!',
+    },
+    password: {
+        range: '${label} must be between ${min} and ${max}',
+    },
+  };
+  /* eslint-enable no-template-curly-in-string */
+
   const [user, setUser] = React.useState({
     username: "",
     number : "",
@@ -79,13 +93,11 @@ export default function SingIn() {
         <h1>
           SingIn Page
         </h1>
-        <Form
-          name="normal_login"
-          className="login-form"
-          initialValues={{
-            remember: true,
-          }}
-          onFinish={onFinish}
+        <Form 
+            {...layout} 
+            name="nest-messages" 
+            onFinish={onFinish} 
+            validateMessages={validateMessages}
         >
           <Form.Item
             name="username"
