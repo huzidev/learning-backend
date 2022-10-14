@@ -59,6 +59,11 @@ export default function App() {
       },
       credentials : "include"
     })
+    try {
+      
+    } catch (err) {
+      console.log(err);
+    }
   }, [])
 
 
