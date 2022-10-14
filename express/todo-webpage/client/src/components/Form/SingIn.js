@@ -7,6 +7,15 @@ export default function SingIn() {
 
   const Navigate = useNavigate();
 
+  const layout = {
+    labelCol: {
+        span: 8,
+    },
+    wrapperCol: {
+        span: 8,
+    },
+  };
+
   const [user, setUser] = React.useState({
     username: "",
     number : "",
@@ -57,6 +66,7 @@ export default function SingIn() {
     else {
       window.alert("LoggedIn Successfully!")
       localStorage.setItem('jwtoken', data.token)
+      Navigate('/');
     }
   }
 
@@ -103,16 +113,6 @@ export default function SingIn() {
               placeholder="Password"
             />
           </Form.Item>
-          <Form.Item>
-            <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-
-            <a className="login-form-forgot" href="">
-              Forgot password
-            </a>
-          </Form.Item>
-
           <Form.Item>
             <Button type="primary" htmlType="submit" className="login-form-button">
               Log in
