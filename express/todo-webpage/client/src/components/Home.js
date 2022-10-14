@@ -62,6 +62,10 @@ export default function App() {
       Navigate('/login', {
         replace : true
       })
+      if (res.status === 200) {
+        window.alert("Logout successfully")
+        localStorage.removeItem('jwtokenseller')
+      }
     })
   }, [])
 
