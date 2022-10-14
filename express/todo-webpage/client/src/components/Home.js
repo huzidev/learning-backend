@@ -58,12 +58,11 @@ export default function App() {
           "Content-Type" : "application/json"
       },
       credentials : "include"
+    }).then((res) => {
+      Navigate('/login', {
+        replace : true
+      })
     })
-    try {
-      
-    } catch (err) {
-      console.log(err);
-    }
   }, [])
 
 
