@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   FileOutlined,
   UserOutlined,
@@ -23,6 +24,8 @@ function getItem(label, key, icon, children ) {
   };
 }
 
+
+
 function funcaa() {
   window.alert("Hello World")
 }
@@ -42,8 +45,10 @@ const items = [
   getItem('Logout', '8', <LoginOutlined />)
 ];
 
-const App = () => {
+export default function App() {
+  const Navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
+
 
 
   return (
@@ -111,4 +116,3 @@ const App = () => {
     </Layout>
   );
 };
-export default App;
