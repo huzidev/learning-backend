@@ -78,8 +78,8 @@ export default function SingIn() {
       window.alert("Internal Server Error : Failed to registered!")
     }
     else {
-      window.alert("LoggedIn Successfully!")
-      localStorage.setItem('jwtoken', data.token)
+      window.alert("LoggedIn Successfully!");
+      localStorage.setItem('jwtoken', data.token);
       Navigate('/');
     }
   }
