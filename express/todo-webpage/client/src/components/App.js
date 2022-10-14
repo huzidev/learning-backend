@@ -16,9 +16,11 @@ export default function App() {
     <div>
         <Router>
           <Routes>
-            <React.Suspense fallback={<h1>Please Wait</h1>}>
-              <Route exact path="/" element={<Home />} />
-            </React.Suspense>
+              <Route exact path="/" element={
+                <React.Suspense fallback={<h1>Please Wait</h1>}>
+                  <Home /> 
+                </React.Suspense>
+              }/>
             <Route exact path="/signup" element={<SignUp />} />
             <Route exact path="/signin" element={<SingIn />} />
             <Route exact path="/contact" element={<ContactUs />} />
