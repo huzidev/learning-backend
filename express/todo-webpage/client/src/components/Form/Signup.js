@@ -101,6 +101,9 @@ export default function SignUp() {
 
   return (
     <div>
+        <h1>
+            Signup
+        </h1>
         <Form 
             {...layout} 
             name="nest-messages" 

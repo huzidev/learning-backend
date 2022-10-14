@@ -91,7 +91,7 @@ export default function SingIn() {
   return (
     <div>
         <h1>
-          SingIn Page
+          Singin
         </h1>
         <Form 
             {...layout} 
