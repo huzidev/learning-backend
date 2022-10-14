@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input } from 'antd';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 
 export default function SignUp() {
   const Navigate = useNavigate();
@@ -115,7 +116,7 @@ export default function SignUp() {
                         required: true,
                     },
                 ]}
-            >
+                >
                 <Input 
                     name="username"
                     value={user.username}
