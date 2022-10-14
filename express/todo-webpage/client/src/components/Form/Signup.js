@@ -1,8 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Select, Form, Input } from 'antd';
-
-const { Option } = Select;
+import { Button, Form, Input } from 'antd';
 
 export default function SignUp() {
   const Navigate = useNavigate();
@@ -21,12 +19,12 @@ export default function SignUp() {
     const validateMessages = {
         required: '${label} is required!',
         types: {
-        username: '${label} is not a valid username!',
-        email: '${label} is not a valid email!',
-        number: '${label} is not a valid number!',
+            username: '${label} is not a valid username!',
+            email: '${label} is not a valid email!',
+            number: '${label} is not a valid number!',
         },
-        number: {
-        range: '${label} must be between ${min} and ${max}',
+        password: {
+            range: '${label} must be between ${min} and ${max}',
         },
     };
   /* eslint-enable no-template-curly-in-string */
@@ -62,7 +60,7 @@ export default function SignUp() {
         body: JSON.stringify({
             username,
             email,
-            number: parseInt(user.number),
+            number: parseInt(number),
             password,
             cpassword 
         })
@@ -99,14 +97,6 @@ export default function SignUp() {
     const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
     };
-
-    const prefixSelector = (
-        <Form.Item name="prefix" noStyle>
-          <Select style={{ width: 70 }}>
-            <Option value="+92">+92</Option>
-          </Select>
-        </Form.Item>
-    );
 
   return (
     <div>
@@ -153,9 +143,20 @@ export default function SignUp() {
             <Form.Item
                 name="phone"
                 label="Phone Number"
-                rules={[{ required: true, message: 'Please input your phone number!' }]}
+                rules={[
+                    { 
+                        required: true, 
+                        message: 'Please input your phone number!' 
+                    }
+                ]}
             >
-                <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+                <Input 
+                    name="number"
+                    value={user.number}
+                    onChange={inputHandler}
+                    style={{ width: '100%' }}
+                    placeholder="Enter Yours Number"
+                />
             </Form.Item>
             <Form.Item 
                 name={['password']}
