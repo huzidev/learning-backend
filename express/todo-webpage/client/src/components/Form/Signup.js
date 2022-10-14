@@ -146,6 +146,7 @@ export default function SignUp() {
                 rules={[
                     {
                         type: 'number',
+                        required: true
                     },
                 ]}
             >
@@ -154,7 +155,7 @@ export default function SignUp() {
                     value={user.number}
                     onChange={inputHandler}
                     style={{ width: '100%' }}
-                    placeholder="Enter Yours Number (Optional)"
+                    placeholder="Enter Yours Number"
                 />
             </Form.Item>
             <Form.Item 
