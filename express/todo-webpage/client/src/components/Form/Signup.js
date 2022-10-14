@@ -196,7 +196,12 @@ export default function SignUp() {
                 }),
                 ]}
             >
-                <Input.Password />
+                <Input.Password 
+                    name="cpassword"
+                    value={user.cpassword}
+                    onChange={inputHandler}
+                    placeholder="Confirm Yours Password"
+                />
             </Form.Item>
             <Form.Item
                     wrapperCol={{
