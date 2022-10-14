@@ -50,6 +50,10 @@ export default function App() {
   const [collapsed, setCollapsed] = useState(false);
 
 
+  React.useEffect(() => {
+    fetch('/signout')
+  }, [])
+
 
   return (
     <Layout
