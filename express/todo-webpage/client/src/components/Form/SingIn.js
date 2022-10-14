@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input, Typography } from 'antd';
 
 export default function SingIn() {
 
@@ -108,7 +109,10 @@ export default function SingIn() {
               },
             ]}
           >
-            <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+            <Input 
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              placeholder="Username" 
+            />
           </Form.Item>
           <Form.Item
             name="password"
@@ -125,11 +129,13 @@ export default function SingIn() {
               placeholder="Password"
             />
           </Form.Item>
+          <Typography.Text>
+            Don't have an account sign up <Link to='/signup'>Signup</Link>
+          </Typography.Text>
           <Form.Item>
             <Button type="primary" htmlType="submit" className="login-form-button">
               Log in
             </Button>
-            Or <a href="">register now!</a>
           </Form.Item>
         </Form>
     </div>
