@@ -101,17 +101,20 @@ export default function SingIn() {
             validateMessages={validateMessages}
         >
           <Form.Item
-            name="username"
+            name="email"
             rules={[
               {
                 required: true,
-                message: 'Please input your Username!',
+                message: 'Please input your Email!',
               },
             ]}
           >
             <Input 
+              name='email'
+              value={user.email}
+              onChange={inputHandler}
               prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="Username" 
+              placeholder="Email" 
             />
           </Form.Item>
           <Form.Item
@@ -124,8 +127,11 @@ export default function SingIn() {
             ]}
           >
             <Input
-              prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
+              prefix={<LockOutlined className="site-form-item-icon" />}
+              name='password'
+              value={user.password}
+              onChange={inputHandler}
               placeholder="Password"
             />
           </Form.Item>
@@ -133,7 +139,11 @@ export default function SingIn() {
             Don't have an account? <Link to='/signup'>Signup</Link>
           </Typography.Text>
           <Form.Item>
-            <Button type="primary" htmlType="submit" className="login-form-button">
+            <Button 
+              type="primary" 
+              htmlType="submit"
+              onClick={signIn} 
+              className="login-form-button">
               Log in
             </Button>
           </Form.Item>
