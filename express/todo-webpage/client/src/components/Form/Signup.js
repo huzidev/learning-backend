@@ -168,7 +168,7 @@ export default function SignUp() {
                     },
                 ]}
             >
-                <Input 
+                <Input.Password
                     name="password"
                     value={user.password}
                     onChange={inputHandler}
