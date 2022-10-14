@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import {
   FileOutlined,
@@ -48,6 +48,8 @@ const items = [
 
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
+  const Navigate = useNavigate();
+
 
   return (
     <Layout
@@ -69,12 +71,11 @@ export default function App() {
           items={items}
         >
           <Menu.item key="9">
+            {onclick(() => {Navigate('/signout')})}
           </Menu.item>
           <Menu.item key="10">
-            <Link to='/signin'></Link>
           </Menu.item>
           <Menu.item key="11">
-            <Link to='/signup'></Link>
           </Menu.item>
         </Menu>
       </Sider>
