@@ -15,14 +15,14 @@ export default function App() {
   return (
     <div>
         <Router>
-                <Routes>
-                    <Route exact path="/" element={<Home />} />
-                    <Route exact path="/signup" element={<SignUp />} />
-                    <Route exact path="/signin" element={<SingIn />} />
-                    <Route exact path="/contact" element={<ContactUs />} />
-                    <Route exact path="*" element={<Error />} />
-                </Routes>
-            </Router>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/signup" element={<SignUp />} />
+            <Route exact path="/signin" element={<SingIn />} />
+            <Route exact path="/contact" element={<ContactUs />} />
+            <Route exact path="*" element={<Error />} />
+          </Routes>
+        </Router>
     </div>
   )
 }
