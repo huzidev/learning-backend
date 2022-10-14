@@ -130,7 +130,7 @@ export default function SingIn() {
             />
           </Form.Item>
           <Typography.Text>
-            Don't have an account sign up <Link to='/signup'>Signup</Link>
+            Don't have an account? <Link to='/signup'>Signup</Link>
           </Typography.Text>
           <Form.Item>
             <Button type="primary" htmlType="submit" className="login-form-button">
