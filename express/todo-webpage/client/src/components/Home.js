@@ -65,7 +65,12 @@ export default function App() {
       if (res.status === 200) {
         window.alert("Logout successfully")
         localStorage.removeItem('jwtokenseller')
+      } else {
+        const error = new Error(res.Error);
+        throw error;
       }
+    }).catch((err) => {
+      console.log(err);
     })
   }, [])
 
