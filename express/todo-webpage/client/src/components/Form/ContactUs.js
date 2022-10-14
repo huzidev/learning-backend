@@ -115,11 +115,6 @@ export default function Footer() {
       <Form.Item 
         name={['Number']}
         label="Number"
-        rules={[
-          {
-            type: 'number',
-          },
-        ]}
       >
         <InputNumber   
           name="number"

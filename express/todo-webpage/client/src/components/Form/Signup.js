@@ -95,7 +95,7 @@ export default function SignUp() {
         console.log('Success:', values);
     };
     const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+        console.log('Failed:', errorInfo);
     };
 
   return (
