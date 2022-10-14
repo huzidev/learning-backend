@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   FileOutlined,
   UserOutlined,
@@ -22,6 +23,11 @@ function getItem(label, key, icon, children, onClick) {
     onClick,
   };
 }
+
+function funcaa() {
+  window.alert("Hello World")
+}
+
 const items = [
   getItem('User', '1', <UserOutlined />),
   getItem('Home', 'sub1', <HomeOutlined />, [
@@ -40,9 +46,6 @@ const items = [
 const App = () => {
   const [collapsed, setCollapsed] = useState(false);
 
-  function test() {
-    window.alert("Hello world")
-  }
 
   return (
     <Layout
