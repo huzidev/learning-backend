@@ -14,13 +14,12 @@ import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 import KeyboardOutlinedIcon from '@mui/icons-material/KeyboardOutlined';
 import { Breadcrumb, Layout, Menu, Icon } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
-function getItem(label, key, icon, children, onClick) {
+function getItem(label, key, icon, children ) {
   return {
     key,
     icon,
     children,
     label,
-    onClick,
   };
 }
 
@@ -66,6 +65,9 @@ const App = () => {
           mode="inline"
           items={items}
         >
+          <Menu.item key="8">
+            {onclick=(() => {window.alert("Hello World")})}
+          </Menu.item>
         </Menu>
       </Sider>
       <Layout className="site-layout">
