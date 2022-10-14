@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Checkbox, InputNumber, Form, Input } from 'antd';
+import { Button, Select, Form, Input } from 'antd';
+
+const { Option } = Select;
 
 export default function SignUp() {
   const Navigate = useNavigate();
@@ -69,7 +71,7 @@ export default function SignUp() {
     const data = await res.json();
 
     if (res.status === 421 || !data) {
-        window.alert("Invalid Value")
+        window.alert("You've left an tag empty")
     } else if (res.status === 422) {
         window.alert("Email already Exist")
     } else if (res.status === 423) {
@@ -97,6 +99,14 @@ export default function SignUp() {
     const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
     };
+
+    const prefixSelector = (
+        <Form.Item name="prefix" noStyle>
+          <Select style={{ width: 70 }}>
+            <Option value="+92">+92</Option>
+          </Select>
+        </Form.Item>
+    );
 
   return (
     <div>
@@ -140,23 +150,12 @@ export default function SignUp() {
                     placeholder="Enter Yours Email"
                 />
             </Form.Item>
-            <Form.Item 
-                name={['Number']}
-                label="Number"
-                rules={[
-                    {
-                        type: 'number',
-                        required: true
-                    },
-                ]}
+            <Form.Item
+                name="phone"
+                label="Phone Number"
+                rules={[{ required: true, message: 'Please input your phone number!' }]}
             >
-                <InputNumber   
-                    name="number"
-                    value={user.number}
-                    onChange={inputHandler}
-                    style={{ width: '100%' }}
-                    placeholder="Enter Yours Number"
-                />
+                <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
             </Form.Item>
             <Form.Item 
                 name={['password']}
