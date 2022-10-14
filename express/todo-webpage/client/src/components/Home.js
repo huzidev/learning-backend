@@ -24,32 +24,27 @@ function getItem(label, key, icon, children ) {
   };
 }
 
-function funcaa() {
-  window.alert("Hello World")
-}
+
+
 
 const items = [
-  getItem('Todo', '1', <UserOutlined />),
-      getItem('User', '2', <UserOutlined />),
-      getItem('Home', 'sub1', <HomeOutlined />, [
-        getItem('Grocery', '3', <LocalGroceryStoreOutlinedIcon />),
-        getItem('Bills', '4', <PaymentOutlinedIcon />),
-        getItem('Rent', '5', <PaymentsOutlinedIcon />)
-      ]),
-      getItem('Office', 'sub2', <MapsHomeWorkOutlinedIcon />, [
-        getItem('Project A', '6', <KeyboardOutlinedIcon /> )
-      ]),
-      getItem('Completed Tasks', '7', <FileOutlined />),
-      getItem('Contact Us', '8', <MessageOutlined />),
-      getItem('Logout', '9', <LoginOutlined />),
-      getItem('Signin', '10', <UserOutlined />),
-      getItem('Signup', '11', <FileOutlined />)
+  getItem('User', '1', <UserOutlined />),
+  getItem('Home', 'sub1', <HomeOutlined />, [
+    getItem('Grocery', '2', <LocalGroceryStoreOutlinedIcon />),
+    getItem('Bills', '3', <PaymentOutlinedIcon />),
+    getItem('Rent', '4', <PaymentsOutlinedIcon />)
+  ]),
+  getItem('Office', 'sub2', <MapsHomeWorkOutlinedIcon />, [
+    getItem('Project A', '5', <KeyboardOutlinedIcon /> )
+  ]),
+  getItem('Completed Tasks', '6', <FileOutlined />),
+  getItem('Contact Us', '7', <MessageOutlined />),
+  getItem('Logout', '8', <LoginOutlined />)
 ];
 
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
   const Navigate = useNavigate();
-
 
   return (
     <Layout
@@ -70,12 +65,8 @@ export default function App() {
           mode="inline"
           items={items}
         >
-          <Menu.item key="9">
-            {onclick(() => {Navigate('/signout')})}
-          </Menu.item>
-          <Menu.item key="10">
-          </Menu.item>
-          <Menu.item key="11">
+          <Menu.item key="8">
+            {onclick=(() => {window.alert("hello Wolrd")})}
           </Menu.item>
         </Menu>
       </Sider>
