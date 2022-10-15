@@ -32,11 +32,22 @@ export default function User() {
         about();
     }
   }, [])
-
-  console.log("Data", userData);
   
   return (
     <div>
+        User data
+        <h1>
+            Name: {userData.username}
+        </h1>
+        <h1>
+            Email: {userData.email}
+        </h1> 
+        <h1>
+            Number: {userData.number}
+        </h1>
+        <TodoPage 
+            test={userData.username}
+        />
     </div>
-  ) 
+  )
 }
