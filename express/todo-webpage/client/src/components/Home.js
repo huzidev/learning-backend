@@ -52,22 +52,23 @@ export default function App() {
       'Signout', '9', 
       <LoginOutlined />, 
       null, 
-      Navigate('/signin')
+      Navigate('/signout')
     )
   ];
   
   const signOutItems = [
+    getItem('Todo', '1', <UserOutlined />),
     getItem(
-      'Signin', '1', 
+      'Signin', '2', 
       <LoginOutlined />, 
       null, 
-      test
+      Navigate('/signin')
       ),
     getItem(
-      'Signup', '2', 
+      'Signup', '3', 
       <LoginOutlined />, 
       null, 
-      test
+      Navigate('/signup')
     )
   ];
 
