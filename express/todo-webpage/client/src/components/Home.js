@@ -32,7 +32,11 @@ export default function App() {
 
   const signInItems = [
     getItem('Todo', '1', <UserOutlined />),
-    getItem('User', '2', <UserOutlined />),
+    getItem(
+      'User', 
+      '2', 
+      <UserOutlined />
+    ),
     getItem('Home', 'sub1', <HomeOutlined />, [
       getItem('Grocery', '3', <LocalGroceryStoreOutlinedIcon />),
       getItem('Bills', '4', <PaymentOutlinedIcon />),
