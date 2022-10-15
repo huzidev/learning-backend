@@ -17,12 +17,12 @@ export default function Logout() {
           Navigate('/', {
             replace : true
           })
-          if (res.status === 200) {
-            window.alert("Logout successfully")
-            localStorage.removeItem('jwtoken')
-          } else {
+          if (!res.status === 200) {
             const error = new Error(res.Error);
             throw error;
+          } else {
+            localStorage.removeItem('jwtoken')
+            window.alert("Logout successfully")
           }
         }).catch((err) => {
           console.log(err);
