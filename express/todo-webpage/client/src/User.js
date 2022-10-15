@@ -27,6 +27,9 @@ export default function User() {
   }
 
   return (
-    <div>User data</div>
+    <div>
+        User data
+    </div>
+    
   )
 }
