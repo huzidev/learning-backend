@@ -14,12 +14,12 @@ export default function Logout() {
           },
           credentials : "include"
         }).then((res) => {
-          Navigate('/login', {
+          Navigate('/', {
             replace : true
           })
           if (res.status === 200) {
             window.alert("Logout successfully")
-            localStorage.removeItem('jwtokenseller')
+            localStorage.removeItem('jwtoken')
           } else {
             const error = new Error(res.Error);
             throw error;
