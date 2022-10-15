@@ -4,6 +4,7 @@ import SignUp from './Form/SignUp';
 import SingIn from './Form/SingIn';
 import Logout from './Form/Logout';
 import ContactUs from './Form/ContactUs';
+import TodoPage from './Todo/TodoPage';
 import User from './User';
 import Error from './Error';
 import { Skeleton } from 'antd';
@@ -28,6 +29,7 @@ export default function App() {
               <Route exact path="/signin" element={<SingIn />} />
               <Route exact path="/signout" element={<Logout />} />
               <Route exact path="/about" element={<User />} />
+              <Route exact path="/todo" element={<TodoPage />} />
               <Route exact path="/contact" element={<ContactUs />} />
               <Route exact path="*" element={<Skeleton active />} />
           </Routes>

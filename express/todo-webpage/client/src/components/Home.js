@@ -48,7 +48,13 @@ export default function App() {
       getItem('Project A', '6', <KeyboardOutlinedIcon /> )
     ]),
     getItem('Completed Tasks', '7', <FileOutlined />),
-    getItem('Contact Us', '8', <MessageOutlined />),
+    getItem(
+      'Contact Us', 
+      '8', 
+      <MessageOutlined />,
+      null,
+      () => Navigate('/contact')
+      ),
     getItem(
       'Signout', '9', 
       <LoginOutlined />, 
