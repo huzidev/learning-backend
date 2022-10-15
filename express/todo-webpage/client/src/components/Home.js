@@ -15,12 +15,13 @@ import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 import KeyboardOutlinedIcon from '@mui/icons-material/KeyboardOutlined';
 import { Breadcrumb, Layout, Menu, Icon } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
-function getItem(label, key, icon, children ) {
+function getItem(label, key, icon, children, onClick ) {
   return {
     key,
     icon,
     children,
     label,
+    onClick
   };
 }
 
@@ -32,7 +33,7 @@ function test() {
 
 
 const items = [
-  getItem('User', '1', <UserOutlined />),
+  getItem('User', '1', <UserOutlined />, null, test),
   getItem('Home', 'sub1', <HomeOutlined />, [
     getItem('Grocery', '2', <LocalGroceryStoreOutlinedIcon />),
     getItem('Bills', '3', <PaymentOutlinedIcon />),
@@ -69,9 +70,8 @@ export default function App() {
           mode="inline"
           items={items}
         >
-          <Menu.item key="8">
-            {onclick=(() => {window.alert("hello Wolrd")})}
-          </Menu.item>
+          <Menu.Item key="8" onClick={console.log("Hello")}>
+          </Menu.Item>
         </Menu>
       </Sider>
       <Layout className="site-layout">
