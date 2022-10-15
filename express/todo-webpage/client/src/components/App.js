@@ -5,6 +5,7 @@ import SingIn from './Form/SingIn';
 import Logout from './Form/Logout'
 import ContactUs from './Form/ContactUs';
 import Error from './Error';
+import { Skeleton } from 'antd';
 import {
   BrowserRouter as Router,
   Routes,
@@ -18,7 +19,7 @@ export default function App() {
         <Router>
           <Routes>
               <Route exact path="/" element={
-                <React.Suspense fallback={<h1>Please Wait</h1>}>
+                <React.Suspense fallback={<h1>Please Wait...</h1>}>
                   <Home /> 
                 </React.Suspense>
               }/>
@@ -26,7 +27,7 @@ export default function App() {
             <Route exact path="/signin" element={<SingIn />} />
             <Route exact path="/signout" element={<Logout />} />
             <Route exact path="/contact" element={<ContactUs />} />
-            <Route exact path="*" element={<Error />} />
+            <Route exact path="*" element={<Skeleton active />} />
           </Routes>
         </Router>
     </div>
