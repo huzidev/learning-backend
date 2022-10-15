@@ -26,10 +26,18 @@ export default function User() {
     }
   }
 
+  React.useEffect(() => {
+    if (localStorage.getItem('jwtoken')) {
+        about()
+    }
+  }, [])
+
   return (
     <div>
         User data
+        <h1>
+            Name: {userData.username}
+        </h1>
     </div>
-    
   )
 }
