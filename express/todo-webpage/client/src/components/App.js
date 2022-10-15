@@ -24,8 +24,10 @@ export default function App() {
                   <Home /> 
                 </React.Suspense>
               }/>
-            <Route exact path="/signup" element={<SignUp />} />
-            <Route exact path="/signin" element={<SingIn />} />
+              {!localStorage.getItem('jwtoken')} ? (
+                <Route exact path="/signup" element={<SignUp />} />
+                <Route exact path="/signin" element={<SingIn />} />
+              )
             <Route exact path="/signout" element={<Logout />} />
             <Route exact path="/about" element={<User />} />
             <Route exact path="/contact" element={<ContactUs />} />
