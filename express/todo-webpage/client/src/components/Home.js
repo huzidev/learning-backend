@@ -34,9 +34,8 @@ export default function App() {
     Navigate('/signin')
   }
 
-  const showItems localStorage.getItem('jwtoken') ? signInItems : signOutItems 
-
-  const items = [
+  
+  const signInItems = [
     getItem('Todo', '1', <UserOutlined />),
     getItem('User', '2', <UserOutlined />),
     getItem('Home', 'sub1', <HomeOutlined />, [
@@ -55,19 +54,25 @@ export default function App() {
       null, 
       Navigate('/signin')
     ),
+  ];
+  
+  const signOutItems = [
     getItem(
       'Signin', '1', 
       <LoginOutlined />, 
       null, 
       test
-    ),
+      ),
     getItem(
       'Signup', '2', 
       <LoginOutlined />, 
       null, 
       test
     )
-  ];
+  ]
+
+  const showItems = localStorage.getItem('jwtoken') ? signInItems : signOutItems 
+
   return (
     <Layout
       style={{
