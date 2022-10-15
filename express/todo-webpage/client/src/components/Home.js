@@ -53,7 +53,7 @@ export default function App() {
       <LoginOutlined />, 
       null, 
       Navigate('/signin')
-    ),
+    )
   ];
   
   const signOutItems = [
@@ -69,7 +69,7 @@ export default function App() {
       null, 
       test
     )
-  ]
+  ];
 
   const showItems = localStorage.getItem('jwtoken') ? signInItems : signOutItems 
 
@@ -90,7 +90,7 @@ export default function App() {
           theme="dark" 
           defaultSelectedKeys={['1']} 
           mode="inline"
-          items={items}
+          items={showItems}
         >
         </Menu>
       </Sider>
