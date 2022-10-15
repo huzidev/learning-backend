@@ -4,7 +4,7 @@ import SignUp from './Form/SignUp';
 import SingIn from './Form/SingIn';
 import Logout from './Form/Logout';
 import ContactUs from './Form/ContactUs';
-import TodoPage from './Todo/TodoPage';
+import Home from './Home';
 import User from './User';
 import Error from './Error';
 import { Skeleton } from 'antd';
@@ -13,7 +13,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-const Home = React.lazy(() => import('./Home'))
+const TodoPage = React.lazy(() => import('./Todo/TodoPage'))
 
 export default function App() {
   return (
@@ -22,14 +22,14 @@ export default function App() {
           <Routes>
               <Route exact path="/" element={
                 <React.Suspense fallback={<h1>Please Wait...</h1>}>
-                  <Home /> 
+                  <TodoPage /> 
                 </React.Suspense>
               }/>
               <Route exact path="/signup" element={<SignUp />} />
               <Route exact path="/signin" element={<SingIn />} />
               <Route exact path="/signout" element={<Logout />} />
               <Route exact path="/about" element={<User />} />
-              <Route exact path="/todo" element={<TodoPage />} />
+              <Route exact path="/todo" element={<Home />} />
               <Route exact path="/contact" element={<ContactUs />} />
               <Route exact path="*" element={<Skeleton active />} />
           </Routes>

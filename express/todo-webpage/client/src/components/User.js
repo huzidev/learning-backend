@@ -28,7 +28,7 @@ export default function User() {
 
   React.useEffect(() => {
     if (localStorage.getItem('jwtoken')) {
-        about()
+        about();
     }
   }, [])
 
