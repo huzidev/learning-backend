@@ -34,18 +34,36 @@ export default function App() {
     Navigate('/signin')
   }
   const items = [
-    getItem('User', '1', <UserOutlined />),
+    getItem('Todo', '1', <UserOutlined />),
+    getItem('User', '2', <UserOutlined />),
     getItem('Home', 'sub1', <HomeOutlined />, [
-      getItem('Grocery', '2', <LocalGroceryStoreOutlinedIcon />),
-      getItem('Bills', '3', <PaymentOutlinedIcon />),
-      getItem('Rent', '4', <PaymentsOutlinedIcon />)
+      getItem('Grocery', '3', <LocalGroceryStoreOutlinedIcon />),
+      getItem('Bills', '4', <PaymentOutlinedIcon />),
+      getItem('Rent', '5', <PaymentsOutlinedIcon />)
     ]),
     getItem('Office', 'sub2', <MapsHomeWorkOutlinedIcon />, [
-      getItem('Project A', '5', <KeyboardOutlinedIcon /> )
+      getItem('Project A', '6', <KeyboardOutlinedIcon /> )
     ]),
-    getItem('Completed Tasks', '6', <FileOutlined />),
-    getItem('Contact Us', '7', <MessageOutlined />),
-    getItem('Logout', '8', <LoginOutlined />, null, test)
+    getItem('Completed Tasks', '7', <FileOutlined />),
+    getItem('Contact Us', '8', <MessageOutlined />),
+    getItem(
+      'Logout', '9', 
+      <LoginOutlined />, 
+      null, 
+      Navigate('/signin')
+    ),
+    getItem(
+      'Logout', '1', 
+      <LoginOutlined />, 
+      null, 
+      test
+    ),
+    getItem(
+      'Logout', '2', 
+      <LoginOutlined />, 
+      null, 
+      test
+    )
   ];
   return (
     <Layout
