@@ -33,6 +33,9 @@ export default function App() {
   function test() {
     Navigate('/signin')
   }
+
+  const showItems localStorage.getItem('jwtoken') ? signInItems : signOutItems 
+
   const items = [
     getItem('Todo', '1', <UserOutlined />),
     getItem('User', '2', <UserOutlined />),
