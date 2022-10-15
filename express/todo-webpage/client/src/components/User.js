@@ -36,7 +36,7 @@ export default function User() {
     <div>
         User data
         <h1>
-            Name: {userData.username}
+            Name: {userData.email}
         </h1>
     </div>
   )
