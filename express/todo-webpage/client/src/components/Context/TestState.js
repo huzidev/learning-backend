@@ -8,9 +8,9 @@ export default function TestState(props) {
 
   return (
     <div>
-        <TestState.Provider value={state}>
+        <TestContext.Provider value={state}>
             {props.children}
-        </TestState.Provider>
+        </TestContext.Provider>
     </div>
   )
 }
