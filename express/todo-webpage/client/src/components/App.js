@@ -2,9 +2,9 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import SignUp from './Form/SignUp';
 import SingIn from './Form/SingIn';
-import Logout from './Form/Logout'
-import User from './Form/Logout'
+import Logout from './Form/Logout';
 import ContactUs from './Form/ContactUs';
+import User from './User';
 import Error from './Error';
 import { Skeleton } from 'antd';
 import {
