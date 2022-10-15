@@ -36,8 +36,14 @@ export default function User() {
     <div>
         User data
         <h1>
-            Name: {userData.email}
+            Name: {userData.username}
         </h1>
+        <h1>
+            Email: {userData.email}
+        </h1> 
+        <h1>
+            Number: {userData.number}
+        </h1>           
     </div>
   )
 }
