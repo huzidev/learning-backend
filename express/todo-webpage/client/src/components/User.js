@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoPage from './Todo/TodoPage';
 
 export default function User() {
 
@@ -43,7 +44,10 @@ export default function User() {
         </h1> 
         <h1>
             Number: {userData.number}
-        </h1>           
+        </h1>
+        <TodoPage 
+            username={userData.username}
+        />       
     </div>
   )
 }
