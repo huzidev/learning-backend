@@ -25,6 +25,10 @@ function getItem(label, key, icon, children ) {
 }
 
 
+function test() {
+  window.alert("Hello world");
+}
+
 
 
 const items = [
