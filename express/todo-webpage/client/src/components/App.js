@@ -2,6 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import SignUp from './Form/SignUp';
 import SingIn from './Form/SingIn';
+import Logout from './Form/Logout'
 import ContactUs from './Form/ContactUs';
 import Error from './Error';
 import {
@@ -23,6 +24,7 @@ export default function App() {
               }/>
             <Route exact path="/signup" element={<SignUp />} />
             <Route exact path="/signin" element={<SingIn />} />
+            <Route exact path="/signout" element={<Logout />} />
             <Route exact path="/contact" element={<ContactUs />} />
             <Route exact path="*" element={<Error />} />
           </Routes>
