@@ -25,7 +25,7 @@ export default function Logout() {
             Navigate('/', {
               replace : true
             })
-          }, 3000)
+          }, 2500)
         }).catch((err) => {
           console.log(err);
         })
