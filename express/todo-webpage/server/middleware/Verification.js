@@ -12,6 +12,7 @@ const Verification = async (req, res, next) => {
         if (!userInfo) {
             res.status(404).send("User Not Found");
         }
+        next();
     } catch (err) {
         res.status(401).send("No token provided");
         console.log(err);
