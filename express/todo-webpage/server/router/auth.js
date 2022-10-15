@@ -155,6 +155,10 @@ router.post('/contact', async (req, res) => {
     }
 })
 
+router.get('/about', Verification, (req, res) => {
+    res.send(req.userInfo)
+})
+
 router.get('/signout', (req, res) => {
     res.clearCookie('jwtoken', { path : '/' })
     res.status(200).send("User loggedOut Successfully!")
