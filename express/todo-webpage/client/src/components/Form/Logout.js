@@ -14,16 +14,18 @@ export default function Logout() {
           },
           credentials : "include"
         }).then((res) => {
-          Navigate('/', {
-            replace : true
-          })
-          if (!res.status === 200) {
+          if (res.status === 200) {
+            localStorage.removeItem('jwtoken')
+          } else {
             const error = new Error(res.Error);
             throw error;
-          } else {
-            localStorage.removeItem('jwtoken')
-            window.alert("Logout successfully")
           }
+          setTimeout(() => {
+            window.alert("Logout successfully")
+            Navigate('/', {
+              replace : true
+            })
+          }, 5000)
         }).catch((err) => {
           console.log(err);
         })
