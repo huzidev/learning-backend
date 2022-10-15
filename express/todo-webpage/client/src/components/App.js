@@ -13,11 +13,13 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import TestState from './Context/TestState';
 const TodoPage = React.lazy(() => import('./Todo/TodoPage'))
 
 export default function App() {
   return (
     <div>
+      <TestState>
         <Router>
           <Routes>
               <Route exact path="/" element={
@@ -34,6 +36,7 @@ export default function App() {
               <Route exact path="*" element={<Skeleton active />} />
           </Routes>
         </Router>
+      </TestState>
     </div>
   )
 }
