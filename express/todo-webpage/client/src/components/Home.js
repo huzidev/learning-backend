@@ -51,8 +51,8 @@ export default function App() {
     getItem(
       'Signout', '9', 
       <LoginOutlined />, 
-      null, 
-      Navigate('/signout')
+      null,
+      () => Navigate('/signout')
     )
   ];
   
@@ -62,13 +62,13 @@ export default function App() {
       'Signin', '2', 
       <LoginOutlined />, 
       null, 
-      Navigate('/signin')
+      () => Navigate('/signin')
       ),
     getItem(
       'Signup', '3', 
       <LoginOutlined />, 
       null, 
-      Navigate('/signup')
+      () => Navigate('/signup')
     )
   ];
 
