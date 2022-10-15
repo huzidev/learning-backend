@@ -1,5 +1,5 @@
 import React from 'react';
-import testContext from './testContext';
+import TestContext from './testContext';
 
 export default function TestState(props) {
     const state = {
