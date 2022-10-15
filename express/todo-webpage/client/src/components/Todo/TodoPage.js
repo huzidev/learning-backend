@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext }from 'react';
+import TestContext from '../Context/TestContext';
 
 export default function TodoPage() {
+
+  const context = useContext(TestContext);
+
   return (
     <div>
-      Welcome
+      Welcome, {context.email}
     </div>
   )
 }
