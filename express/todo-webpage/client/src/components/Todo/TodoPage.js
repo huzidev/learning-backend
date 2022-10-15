@@ -1,7 +1,7 @@
 import React from 'react';
 import User from '../User';
 
-export default function TodoPage({ username }) {
+export default function TodoPage({ test }) {
 
   const tets = User();
 
@@ -10,7 +10,7 @@ export default function TodoPage({ username }) {
     <div>
         TodoPage
         <h1>
-            Hello, {username}
+            Hello, {test}
         </h1>
     </div>
   )
