@@ -12,6 +12,9 @@ const Verification = async (req, res, next) => {
         if (!userInfo) {
             res.status(404).send("User Not Found");
         }
+        req.token = req.cookies.jwtokenbuyer;
+        req.userInfo = userInfo;
+        req.userID = userInfo._id;
         next();
     } catch (err) {
         res.status(401).send("No token provided");
