@@ -35,7 +35,9 @@ export default function App() {
     getItem(
       'User', 
       '2', 
-      <UserOutlined />
+      <UserOutlined />,
+      null,
+      () => Navigate('/about')
     ),
     getItem('Home', 'sub1', <HomeOutlined />, [
       getItem('Grocery', '3', <LocalGroceryStoreOutlinedIcon />),
