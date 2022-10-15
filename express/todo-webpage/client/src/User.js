@@ -15,6 +15,12 @@ export default function User() {
             credentials : "include"
         })
         const data = await res.json();
+        setUserData(data);
+
+        if (!res.status === 200) {
+            const error = new Error(res.error)
+            throw error;
+        }
     } catch (err) {
         console.log(err);
     }
