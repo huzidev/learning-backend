@@ -47,19 +47,19 @@ export default function App() {
     getItem('Completed Tasks', '7', <FileOutlined />),
     getItem('Contact Us', '8', <MessageOutlined />),
     getItem(
-      'Logout', '9', 
+      'Signout', '9', 
       <LoginOutlined />, 
       null, 
       Navigate('/signin')
     ),
     getItem(
-      'Logout', '1', 
+      'Signin', '1', 
       <LoginOutlined />, 
       null, 
       test
     ),
     getItem(
-      'Logout', '2', 
+      'Signup', '2', 
       <LoginOutlined />, 
       null, 
       test
