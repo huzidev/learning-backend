@@ -63,6 +63,8 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
             newNote.category = category
         }
 
+        let note = await Note.findBy(req.params.id)
+
     } catch (e) {
         console.log(e);
     }
