@@ -21,5 +21,8 @@ router.get('/allnotes', Verification, async (req, res) => {
 
 router.post('/addnote', Verification, [
     body('title', 'Enter a valid title').isLength({ min: 3 }),
-    body('description', 'Description must be atleast 5 characters')
+    body('description', 'Description must be atleast 5 characters').isLength({ min: 5 })], 
+    async (req, res) => {
+        
+    }
 ])
