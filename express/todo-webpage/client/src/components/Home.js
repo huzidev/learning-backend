@@ -129,7 +129,8 @@ export default function App() {
           >
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>{Context.userData.username}</Breadcrumb.Item>
-          </Breadcrumb>) : ''}
+          </Breadcrumb>) : ''
+          }
           <div
             className="site-layout-background"
             style={{
