@@ -25,6 +25,8 @@ router.post('/addnote', Verification, [
     async (req, res) => {
         try {
             const { title, description, category } = req.body;
+
+            const errors = validationResult(req);
         } catch (e) {
             console.log(e);
         }
