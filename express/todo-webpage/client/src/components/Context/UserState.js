@@ -1,7 +1,7 @@
 import React from 'react';
-import TestContext from './TestContext';
+import DataContext from './DataContext';
 
-export default function TestState(props) {
+export default function UserState(props) {
   const [userData, setUserData] = React.useState({})
 
   async function about() {
@@ -33,9 +33,9 @@ export default function TestState(props) {
   }, [])
   return (
     <div>
-        <TestContext.Provider value={userData}>
+        <DataContext.Provider value={userData}>
             {props.children}
-        </TestContext.Provider>
+        </DataContext.Provider>
     </div>
   )
 }
