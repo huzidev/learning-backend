@@ -82,6 +82,7 @@ export default function SingIn() {
       window.alert("LoggedIn Successfully!");
       localStorage.setItem('jwtoken', data.token);
       Navigate('/');
+      window.location.reload();
     }
   }
 
