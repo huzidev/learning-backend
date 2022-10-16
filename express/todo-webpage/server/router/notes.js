@@ -52,4 +52,9 @@ router.post('/addnote', Verification, [
 
 router.put('/updatenote/:id', Verification, async (req, res) => {
     const { title, description, category } = req.body;
+    try {
+        
+    } catch (e) {
+        console.log(e);
+    }
 })
