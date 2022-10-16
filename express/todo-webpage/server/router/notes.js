@@ -67,6 +67,9 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         if (!note) {
             return res.status(404).json({ error: "Not Found" })
         }
+        if (note.user.toString() !== req.user.id) {
+            return res.status(401).json({ message: "Not Allowed" })
+        }
 
     } catch (e) {
         console.log(e);
