@@ -38,6 +38,10 @@ router.post('/addnote', Verification, [
 
             const savedNote = await note.save();
 
+            if (savedNote) {
+                return res.status(200).json(savedNote)
+            }
+
         } catch (e) {
             console.log(e);
         }
