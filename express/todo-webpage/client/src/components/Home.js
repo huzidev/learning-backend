@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import DataContext from './Context/DataContext';
 import {
   FileOutlined,
   UserOutlined,
@@ -13,7 +14,6 @@ import PaymentOutlinedIcon from '@mui/icons-material/PaymentOutlined';
 import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 import KeyboardOutlinedIcon from '@mui/icons-material/KeyboardOutlined';
 import { Breadcrumb, Layout, Menu, Icon } from 'antd';
-import User from './User';
 
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
@@ -29,7 +29,7 @@ export default function App() {
   }
   
   const Navigate = useNavigate();
-  
+  const Context = useContext(DataContext);
 
   const signInItems = [
     getItem('Todo', '1', <UserOutlined />),
@@ -121,7 +121,7 @@ export default function App() {
             }}
           >
             <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Huzi-Dev</Breadcrumb.Item>
+            <Breadcrumb.Item>{Context.userData.username}</Breadcrumb.Item>
           </Breadcrumb>
           <div
             className="site-layout-background"
