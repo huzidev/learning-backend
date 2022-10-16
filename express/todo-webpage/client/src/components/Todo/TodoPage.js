@@ -1,9 +1,9 @@
 import React, { useContext }from 'react';
-import TestContext from '../Context/TestContext';
+import DataContext from '../Context/DataContext';
 
 export default function TodoPage() {
 
-  const context = useContext(TestContext);
+  const context = useContext(DataContext);
 
   return (
     <div>
