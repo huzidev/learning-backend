@@ -36,6 +36,7 @@ export default function UserState(props) {
     <div>
         {/* if we just use value={userData} then we simply uses context.email */}
         {/* if use value={{ userData }} multiple brackets then we've to use context.userData.email */}
+        {/* {{}} multiple brackets are used when we've to pass multiple values like value={{ userData, notes }} */}
         <DataContext.Provider value={{userData}}>
             {props.children}
         </DataContext.Provider>
