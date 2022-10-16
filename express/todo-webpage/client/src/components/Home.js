@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from './Context/DataContext';
 import {
   FileOutlined,
@@ -14,6 +14,7 @@ import PaymentOutlinedIcon from '@mui/icons-material/PaymentOutlined';
 import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 import KeyboardOutlinedIcon from '@mui/icons-material/KeyboardOutlined';
 import { Breadcrumb, Layout, Menu, Icon } from 'antd';
+import User from './User';
 
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
@@ -29,13 +30,17 @@ export default function App() {
   }
   
   const Navigate = useNavigate();
+  const Location = useLocation();
   const Context = useContext(DataContext);
+
+  console.log("currenrt location is "  + Location.pathname);
 
   const signedInItems = [
     getItem(
       'My Todo', 
       '1', 
       <HomeOutlined />,
+      null,
       () => Navigate('/')
     ),
     getItem(
@@ -135,7 +140,7 @@ export default function App() {
               minHeight: 360,
             }}
           >
-            Bill is a cat.
+            {Location.pathname.includes('/about') && <User />}
           </div>
         </Content>
         <Footer
