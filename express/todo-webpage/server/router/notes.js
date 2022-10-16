@@ -31,6 +31,11 @@ router.post('/addnote', Verification, [
             if (!errors.isEmpty()) {
                 return res.status(400).json({ errors: errors.array() })
             }
+
+            const note = new Note({
+                title, description, category, user: req.user.id
+            })
+
         } catch (e) {
             console.log(e);
         }
