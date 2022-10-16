@@ -101,7 +101,7 @@ export default function App() {
         onCollapse={(value) => setCollapsed(value)} 
         style={{paddingTop: 20}}
       >
-        <div style={{ textAlign: 'center', cursor: 'pointer' }}>
+        <div style={{ textAlign: 'center', cursor: 'pointer' }} onClick={() => Navigate('/')}>
           <h1 
             style={{ color: "#fff" }}>
             My Todo
