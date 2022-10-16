@@ -13,6 +13,7 @@ import PaymentOutlinedIcon from '@mui/icons-material/PaymentOutlined';
 import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 import KeyboardOutlinedIcon from '@mui/icons-material/KeyboardOutlined';
 import { Breadcrumb, Layout, Menu, Icon } from 'antd';
+import User from './User';
 
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
@@ -41,8 +42,8 @@ export default function App() {
     ),
     getItem('Home', 'sub1', <HomeOutlined />, [
       getItem('Grocery', '3', <LocalGroceryStoreOutlinedIcon />),
-      getItem('Bills', '4', <PaymentOutlinedIcon />),
-      getItem('Rent', '5', <PaymentsOutlinedIcon />)
+      getItem('Payments', '4', <PaymentsOutlinedIcon />),
+      getItem('Bills', '5', <PaymentOutlinedIcon />)
     ]),
     getItem('Office', 'sub2', <MapsHomeWorkOutlinedIcon />, [
       getItem('Project A', '6', <KeyboardOutlinedIcon /> )
