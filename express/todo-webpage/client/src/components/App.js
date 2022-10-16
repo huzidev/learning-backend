@@ -27,11 +27,11 @@ export default function App() {
                   <TodoPage /> 
                 </React.Suspense>
               }/>
+              <Route exact path="/about" element={<User />} />
             </UserState>
               <Route exact path="/signup" element={<SignUp />} />
               <Route exact path="/signin" element={<SingIn />} />
               <Route exact path="/signout" element={<Logout />} />
-              <Route exact path="/about" element={<User />} />
               <Route exact path="/todo" element={<Home />} />
               <Route exact path="/contact" element={<ContactUs />} />
               <Route exact path="*" element={<Skeleton active />} />
