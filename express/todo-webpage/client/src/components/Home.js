@@ -31,8 +31,13 @@ export default function App() {
   const Navigate = useNavigate();
   const Context = useContext(DataContext);
 
-  const signInItems = [
-    getItem('Todo', '1', <UserOutlined />),
+  const signedInItems = [
+    getItem(
+      'My Todo', 
+      '1', 
+      <HomeOutlined />,
+      () => Navigate('/')
+    ),
     getItem(
       'User', 
       '2', 
@@ -64,7 +69,7 @@ export default function App() {
     )
   ];
   
-  const signOutItems = [
+  const signedOutItems = [
     getItem('Todo', '1', <UserOutlined />),
     getItem(
       'Signin', '2', 
@@ -80,7 +85,7 @@ export default function App() {
     )
   ];
 
-  const showItems = localStorage.getItem('jwtoken') ? signInItems : signOutItems 
+  const showItems = localStorage.getItem('jwtoken') ? signedInItems : signedOutItems 
 
   return (
     <Layout
