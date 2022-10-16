@@ -22,7 +22,7 @@ import TodoPage from './Todo/TodoPage';
 
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
-  const { Header, Content, Footer, Sider } = Layout;
+  const { Content, Footer, Sider } = Layout;
   function getItem(label, key, icon, children, onClick ) {
     return {
       key,
@@ -41,37 +41,30 @@ export default function App() {
 
   const signedInItems = [
     getItem(
-      'My Todo', 
-      '1', 
-      <HomeOutlined />,
-      null,
-      () => Navigate('/')
-    ),
-    getItem(
       'User', 
-      '2', 
+      '1', 
       <UserOutlined />,
       null,
       () => Navigate('/about')
     ),
     getItem('Home', 'sub1', <HomeOutlined />, [
-      getItem('Grocery', '3', <LocalGroceryStoreOutlinedIcon />),
-      getItem('Payments', '4', <PaymentsOutlinedIcon />),
-      getItem('Bills', '5', <PaymentOutlinedIcon />)
+      getItem('Grocery', '2', <LocalGroceryStoreOutlinedIcon />),
+      getItem('Payments', '3', <PaymentsOutlinedIcon />),
+      getItem('Bills', '4', <PaymentOutlinedIcon />)
     ]),
     getItem('Office', 'sub2', <MapsHomeWorkOutlinedIcon />, [
-      getItem('Project A', '6', <KeyboardOutlinedIcon /> )
+      getItem('Project A', '5', <KeyboardOutlinedIcon /> )
     ]),
-    getItem('Completed Tasks', '7', <FileOutlined />),
+    getItem('Completed Tasks', '6', <FileOutlined />),
     getItem(
       'Contact Us', 
-      '8', 
+      '7', 
       <MessageOutlined />,
       null,
       () => Navigate('/contact')
     ),
     getItem(
-      'Signout', '9', 
+      'Signout', '8', 
       <LoginOutlined />, 
       null,
       () => Navigate('/signout')
@@ -108,22 +101,20 @@ export default function App() {
         onCollapse={(value) => setCollapsed(value)} 
         style={{paddingTop: 60}}
       >
-        <div className="logo" />
+        <div>
+          <h1 
+            style={{ color: "#fff" }}>
+            My Todo
+          </h1>  
+        </div>
         <Menu 
           theme="dark" 
-          defaultSelectedKeys={['1']} 
           mode="inline"
           items={showItems}
         >
         </Menu>
       </Sider>
       <Layout className="site-layout">
-        <Header
-          className="site-layout-background"
-          style={{
-            padding: 0,
-          }}
-        />
         <Content
           style={{
             margin: '0 16px',
