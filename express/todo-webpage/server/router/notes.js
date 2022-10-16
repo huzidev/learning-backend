@@ -11,7 +11,7 @@ router.get('/allnotes', Verification, async (req, res) => {
         if (notes) {
             return res.status(200).json(notes)
         } else {
-            return res.status(500).json({ message : "Internal server error" });
+            return res.status(500).json({ message : "Internal Server Error" });
         }
         res.json(notes)
     } catch (e) {
