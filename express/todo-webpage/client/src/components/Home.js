@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import ContactUs from './Form/ContactUs'
 import DataContext from './Context/DataContext';
 import {
   FileOutlined,
@@ -141,6 +142,7 @@ export default function App() {
             }}
           >
             {Location.pathname.includes('/about') && <User />}
+            {Location.pathname.includes('/contact') && <ContactUs />}
           </div>
         </Content>
         <Footer
