@@ -5,9 +5,9 @@ import { body, validationResult } from 'express-validator';
  
 const router = express.Router();
 
-router.get('/allnotes', Verification, (req, res) => {
+router.get('/allnotes', Verification, async (req, res) => {
     try {
-        
+        const notes = await Note.find({ user: req.body.id })
     } catch (e) {
         console.log(e);
     }
