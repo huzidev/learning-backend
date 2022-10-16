@@ -18,3 +18,7 @@ router.get('/allnotes', Verification, async (req, res) => {
         console.log(e);
     }
 })
+
+router.post('/addnote', Verification, [
+    
+])
