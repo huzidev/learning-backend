@@ -71,7 +71,7 @@ export default function App() {
       <LoginOutlined />, 
       null, 
       () => Navigate('/signin')
-      ),
+    ),
     getItem(
       'Signup', '3', 
       <LoginOutlined />, 
