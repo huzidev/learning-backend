@@ -90,7 +90,10 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
 
 router.delete('/deletenote/:id', Verification, async (req, res) => {
     try {
-        
+        let note = await Note.findById(req.params.id);
+        if (!note) {
+            return res.status(404).json({ error: "Not Found" })
+        }
     } catch (e) {
         console.log(e);
     }
