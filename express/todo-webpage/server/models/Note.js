@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { model } from "mongoose";
 
 const NotesSchema = new mongoose.Schema({
     user: {
@@ -21,4 +21,8 @@ const NotesSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-})
+});
+
+const Note = mongoose.model('NOTES', NotesSchema);
+
+module.exports = Note;
