@@ -55,7 +55,7 @@ export default function App() {
       <MessageOutlined />,
       null,
       () => Navigate('/contact')
-      ),
+    ),
     getItem(
       'Signout', '9', 
       <LoginOutlined />, 
