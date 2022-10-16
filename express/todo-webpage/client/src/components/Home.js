@@ -72,7 +72,6 @@ export default function App() {
   ];
   
   const signedOutItems = [
-    getItem('Todo', '1', <UserOutlined />),
     getItem(
       'Signin', '2', 
       <LoginOutlined />, 
