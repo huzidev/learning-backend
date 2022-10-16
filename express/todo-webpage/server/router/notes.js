@@ -40,6 +40,8 @@ router.post('/addnote', Verification, [
 
             if (savedNote) {
                 return res.status(200).json(savedNote)
+            } else {
+                return res.status(500).json({ message : "Internal Server Error" });
             }
 
         } catch (e) {
