@@ -34,7 +34,7 @@ export default function UserState(props) {
 
   return (
     <div>
-        {/* uf we just use value={userData} then we simply uses context.email */}
+        {/* if we just use value={userData} then we simply uses context.email */}
         {/* if use value={{ userData }} multiple brackets then we've to use context.userData.email */}
         <DataContext.Provider value={{userData}}>
             {props.children}
