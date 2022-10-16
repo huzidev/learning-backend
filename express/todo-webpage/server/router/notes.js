@@ -54,6 +54,15 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
     const { title, description, category } = req.body;
     try {
         
+        const newNote = {}
+        if (title) {
+            newNote.title = title
+        } else if (description) {
+            newNote.description = description
+        } else if (category) {
+            newNote.category = category
+        }
+
     } catch (e) {
         console.log(e);
     }
