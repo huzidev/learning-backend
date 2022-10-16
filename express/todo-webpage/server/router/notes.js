@@ -33,8 +33,10 @@ router.post('/addnote', Verification, [
             }
 
             const note = new Note({
-                title, description, category, user: req.user.id
+                title, description, category, user: req.user.id;
             })
+
+            const savedNote = await note.save()
 
         } catch (e) {
             console.log(e);
