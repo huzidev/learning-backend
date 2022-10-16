@@ -146,7 +146,7 @@ export default function App() {
               minHeight: 360,
             }}
           >
-            {Location.pathname.includes('/') && <TodoPage />}
+            {!Location.pathname.includes('/about') && !Location.pathname.includes('/contact') && <TodoPage />}
             {Location.pathname.includes('/about') && <User />}
             {Location.pathname.includes('/contact') && <ContactUs />}
             {Location.pathname.includes('/signin') && <SingIn />}

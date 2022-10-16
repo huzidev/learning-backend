@@ -7,7 +7,9 @@ export default function TodoPage() {
 
   return (
     <div>
-      Welcome, {context.userData.username}
+      <h1>
+        Welcome, {context.userData.username}
+      </h1>
     </div>
   )
 }
