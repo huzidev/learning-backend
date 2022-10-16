@@ -25,7 +25,6 @@ export default function UserState(props) {
         console.log(err);
     }
   }
-
   React.useEffect(() => {
     if (localStorage.getItem('jwtoken')) {
         about();
