@@ -19,16 +19,15 @@ const TodoPage = React.lazy(() => import('./Todo/TodoPage'))
 export default function App() {
   return (
     <div>
+      <UserState>
         <Router>
           <Routes>
-            <UserState>
               <Route exact path="/" element={
                 <React.Suspense fallback={<h1>Please Wait...</h1>}>
                   <TodoPage /> 
                 </React.Suspense>
               }/>
               <Route exact path="/about" element={<User />} />
-            </UserState>
               <Route exact path="/signup" element={<SignUp />} />
               <Route exact path="/signin" element={<SingIn />} />
               <Route exact path="/signout" element={<Logout />} />
@@ -37,6 +36,7 @@ export default function App() {
               <Route exact path="*" element={<Skeleton active />} />
           </Routes>
         </Router>
+      </UserState>
     </div>
   )
 }

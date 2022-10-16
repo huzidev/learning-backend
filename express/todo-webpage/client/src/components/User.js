@@ -8,16 +8,16 @@ export default function User() {
   return (
     <div>
         <h1>
-            UserId: {context._id}
+            UserId: {context.userData._id}
         </h1>
         <h1>
-            Username: {context.username}
+            Username: {context.userData.username}
         </h1>
         <h1>
-            Email: {context.email}
+            Email: {context.userData.email}
         </h1>
         <h1>
-            Number: {context.number}
+            Number: {context.userData.number}
         </h1>
     </div>
   )
