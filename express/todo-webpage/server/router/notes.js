@@ -87,3 +87,11 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         console.log(e);
     }
 })
+
+router.delete('/deletenote/:id', Verification, async (req, res) => {
+    try {
+        
+    } catch (e) {
+        console.log(e);
+    }
+})
