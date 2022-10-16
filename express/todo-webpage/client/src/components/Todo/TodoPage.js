@@ -7,7 +7,7 @@ export default function TodoPage() {
 
   return (
     <div>
-      Welcome, {context.userData.email}
+      Welcome, {context.userData.username}
     </div>
   )
 }

@@ -18,6 +18,7 @@ import { Breadcrumb, Layout, Menu, Icon } from 'antd';
 import User from './User';
 import SingIn from './Form/SingIn';
 import SignUp from './Form/SignUp';
+import TodoPage from './Todo/TodoPage';
 
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
@@ -145,6 +146,7 @@ export default function App() {
               minHeight: 360,
             }}
           >
+            {Location.pathname.includes('/') && <TodoPage />}
             {Location.pathname.includes('/about') && <User />}
             {Location.pathname.includes('/contact') && <ContactUs />}
             {Location.pathname.includes('/signin') && <SingIn />}
