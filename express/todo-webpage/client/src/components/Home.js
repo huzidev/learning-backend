@@ -16,6 +16,8 @@ import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 import KeyboardOutlinedIcon from '@mui/icons-material/KeyboardOutlined';
 import { Breadcrumb, Layout, Menu, Icon } from 'antd';
 import User from './User';
+import SingIn from './Form/SingIn';
+import SignUp from './Form/SignUp';
 
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
@@ -126,6 +128,8 @@ export default function App() {
             margin: '0 16px',
           }}
         >
+          {localStorage.getItem('jwtoken') ? (
+
           <Breadcrumb
             style={{
               margin: '16px 0',
@@ -133,7 +137,7 @@ export default function App() {
           >
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>{Context.userData.username}</Breadcrumb.Item>
-          </Breadcrumb>
+          </Breadcrumb>) : ''}
           <div
             className="site-layout-background"
             style={{
@@ -143,6 +147,8 @@ export default function App() {
           >
             {Location.pathname.includes('/about') && <User />}
             {Location.pathname.includes('/contact') && <ContactUs />}
+            {Location.pathname.includes('/signin') && <SingIn />}
+            {Location.pathname.includes('/signup') && <SignUp />}
           </div>
         </Content>
         <Footer

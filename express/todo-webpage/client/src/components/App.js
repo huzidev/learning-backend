@@ -29,8 +29,8 @@ export default function App() {
                 </React.Suspense>
               }/>
               <Route exact path="/about" />
-              <Route exact path="/signup" element={<SignUp />} />
-              <Route exact path="/signin" element={<SingIn />} />
+              <Route exact path="/signup" />
+              <Route exact path="/signin" />
               <Route exact path="/signout" element={<Logout />} />
               <Route exact path="/contact" />
               <Route exact path="*" element={<Skeleton active />} />
