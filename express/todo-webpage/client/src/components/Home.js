@@ -99,9 +99,9 @@ export default function App() {
         collapsible 
         collapsed={collapsed} 
         onCollapse={(value) => setCollapsed(value)} 
-        style={{paddingTop: 60}}
+        style={{paddingTop: 20}}
       >
-        <div>
+        <div style={{ textAlign: 'center', cursor: 'pointer' }}>
           <h1 
             style={{ color: "#fff" }}>
             My Todo
