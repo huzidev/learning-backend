@@ -22,6 +22,7 @@ export default function UserState(props) {
         setNotes(data)
     
         if (!res.status === 200) {
+            window.alert("No New Note added")
             const error = new Error(res.error)
             throw error;
         }
@@ -43,6 +44,7 @@ export default function UserState(props) {
         const note = await res.json();
         setNotes(notes.concat(note))
         if (!res.status === 200) {
+            window.alert("No New Note added")
             const error = new Error(res.error)
             throw error;
         }
@@ -62,6 +64,12 @@ export default function UserState(props) {
         })
         const data = res.json();
         const newNotes = notes.filter((note) => { return note._id !== id })
+        if (!res.status === 200) {
+            window.alert("No New Note added")
+            const error = new Error(res.error)
+            throw error;
+        }
+        setNotes(newNotes)
     } catch (err) {
         console.log(err);
     }
