@@ -9,20 +9,24 @@ export default function UserState(props) {
 
 
   async function getNotes() {
-    const res = await fetch('/allnotes', {
-        method : 'GET',
-            headers : {
-                "Accept" : "application/json",
-                "Content-Type" : "application/json",
-            },
-        credentials : "include"
-    })
-    const data = await res.json();
-    setNotes(data)
-
-    if (!res.status === 200) {
-        const error = new Error(res.error)
-        throw error;
+    try {
+        const res = await fetch('/allnotes', {
+            method : 'GET',
+                headers : {
+                    "Accept" : "application/json",
+                    "Content-Type" : "application/json",
+                },
+            credentials : "include"
+        })
+        const data = await res.json();
+        setNotes(data)
+    
+        if (!res.status === 200) {
+            const error = new Error(res.error)
+            throw error;
+        }
+    } catch (err) {
+        console.log(err);
     }
   }
 
