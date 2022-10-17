@@ -61,6 +61,7 @@ export default function UserState(props) {
             }
         })
         const data = res.json();
+        const newNotes = notes.filter((note) => { return note._id !== id })
     } catch (err) {
         console.log(err);
     }
