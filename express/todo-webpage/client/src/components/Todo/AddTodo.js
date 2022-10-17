@@ -55,9 +55,12 @@ export default function AddTodo() {
                 value={note.category}
                 onChange={onChange}
                 minLength= {5}
-                placeholder='Enter Yours Toodo Tittle'
+                placeholder='Enter Yours Todo Tittle'
                 required 
             />
+            <button onClick={handleClick}>
+
+            </button>
         </form>
     </div>
   )
