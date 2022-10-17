@@ -30,6 +30,12 @@ export default function UserState(props) {
     }
   }
 
+  async function addNote() {
+    const res = await fetch(`${host}/addnote`, {
+        
+    })
+  }
+
   async function about() {
     try {
         const res = await fetch('/about', {
