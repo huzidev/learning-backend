@@ -32,7 +32,11 @@ export default function UserState(props) {
 
   async function addNote() {
     const res = await fetch(`${host}/addnote`, {
-        
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            "auth-token": localStorage.getItem('jwtoken')
+        },
     })
   }
 
