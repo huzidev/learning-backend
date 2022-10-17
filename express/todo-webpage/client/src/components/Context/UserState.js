@@ -7,6 +7,25 @@ export default function UserState(props) {
   const [notes, setNotes] = React.useState(initialState)
   const [userData, setUserData] = React.useState({})
 
+
+  async function getNotes() {
+    const res = await fetch('/allnotes', {
+        method : 'GET',
+            headers : {
+                "Accept" : "application/json",
+                "Content-Type" : "application/json",
+            },
+        credentials : "include"
+    })
+    const data = await res.json();
+    setNotes(data)
+
+    if (!res.status === 200) {
+        const error = new Error(res.error)
+        throw error;
+    }
+  }
+
   async function about() {
     try {
         const res = await fetch('/about', {
