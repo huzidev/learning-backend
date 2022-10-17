@@ -26,6 +26,9 @@ export default function AddTodo() {
     }
   return (
     <div>
+        <h1>
+            Add Todo Note
+        </h1>
     </div>
   )
 }
