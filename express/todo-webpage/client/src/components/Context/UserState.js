@@ -2,7 +2,9 @@ import React from 'react';
 import DataContext from './DataContext';
 
 export default function UserState(props) {
-    const host = "http://localhost:8000"
+  const host = "http://localhost:5000"
+  const initialState = []
+  const [notes, setNotes] = React.useState(initialState)
   const [userData, setUserData] = React.useState({})
 
   async function about() {
