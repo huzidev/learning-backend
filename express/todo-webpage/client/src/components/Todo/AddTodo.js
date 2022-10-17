@@ -59,7 +59,7 @@ export default function AddTodo() {
                 required 
             />
             <button onClick={handleClick}>
-
+                Add Todo
             </button>
         </form>
     </div>
