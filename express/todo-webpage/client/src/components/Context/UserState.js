@@ -89,6 +89,16 @@ export default function UserState(props) {
         const data = await res.json();
 
         let newNote = JSON.parse(JSON.stringify(notes))
+
+        for (let index = 0; index < newNote.length; index++) {
+            const element = newNote[index];
+            if (element._id === id) {
+                newNote[index].title = title;
+                newNote[index].description = description;
+                newNote[index].category = category; 
+            }
+            
+        }
     } catch (err) {
         console.log(err);
     }
