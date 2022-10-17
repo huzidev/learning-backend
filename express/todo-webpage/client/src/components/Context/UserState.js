@@ -31,7 +31,7 @@ export default function UserState(props) {
     }
   }
 
-  async function addNote(title, description, tag) {
+  async function addNote(title, description, category) {
     try {
         const res = await fetch(`${host}/addnote`, {
             method: 'POST',
@@ -39,7 +39,7 @@ export default function UserState(props) {
                 'Content-Type': 'application/json',
                 "auth-token": localStorage.getItem('jwtoken')
             },
-            body: JSON.stringify({ title, description, tag })
+            body: JSON.stringify({ title, description, category })
         })
         const note = await res.json();
         setNotes(notes.concat(note))
@@ -73,6 +73,10 @@ export default function UserState(props) {
     } catch (err) {
         console.log(err);
     }
+  }
+
+  async function editNote(id, title, description, category) {
+    
   }
 
   async function about() {
