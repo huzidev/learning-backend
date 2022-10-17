@@ -19,6 +19,7 @@ import User from './User';
 import SingIn from './Form/SingIn';
 import SignUp from './Form/SignUp';
 import TodoPage from './Todo/TodoPage';
+import AddTodo from './Todo/AddTodo';
 
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
@@ -146,6 +147,7 @@ export default function App() {
             {Location.pathname.includes('/contact') && <ContactUs />}
             {Location.pathname.includes('/signin') && <SingIn />}
             {Location.pathname.includes('/signup') && <SignUp />}
+            {Location.pathname.includes('/addnote') && <AddTodo />}
           </div>
         </Content>
         <Footer
