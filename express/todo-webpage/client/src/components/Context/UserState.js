@@ -31,16 +31,24 @@ export default function UserState(props) {
   }
 
   async function addNote(title, description, tag) {
-    const res = await fetch(`${host}/addnote`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            "auth-token": localStorage.getItem('jwtoken')
-        },
-        body: JSON.stringify({ title, description, tag })
-    })
-    const note = await res.json();
-    setNotes(notes.concat(note))
+    try {
+        const res = await fetch(`${host}/addnote`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                "auth-token": localStorage.getItem('jwtoken')
+            },
+            body: JSON.stringify({ title, description, tag })
+        })
+        const note = await res.json();
+        setNotes(notes.concat(note))
+        if (!res.status === 200) {
+            const error = new Error(res.error)
+            throw error;
+        }
+    } catch (err) {
+        console.log(err);
+    }
   }
 
   async function about() {
