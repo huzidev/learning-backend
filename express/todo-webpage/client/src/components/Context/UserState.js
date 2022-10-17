@@ -2,6 +2,7 @@ import React from 'react';
 import DataContext from './DataContext';
 
 export default function UserState(props) {
+    const host = "http://localhost:8000"
   const [userData, setUserData] = React.useState({})
 
   async function about() {
@@ -30,6 +31,9 @@ export default function UserState(props) {
         about();
     }
   }, [])
+
+
+
 
 
   return (
