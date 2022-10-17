@@ -2,7 +2,6 @@ import express from "express";
 import dotenv from "dotenv";
 import cookie from 'cookie-parser';
 import bodyParser from "body-parser";
-import Verification from "./middleware/Verification";
 import cors from "cors";
 
 dotenv.config({ path : './config.env' });
@@ -13,6 +12,7 @@ const port = 8000;
 
 server.use(express.json());
 server.use(require('./router/auth'));
+server.use(require('./router/notes'));
 
 server.use(cors({
     origin: "*"
