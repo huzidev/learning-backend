@@ -36,7 +36,9 @@ export default function AddTodo() {
                 name='title' 
                 value={note.title}
                 onChange={onChange}
-                minLength= {5} 
+                minLength= {5}
+                placeholder='Enter Yours Tood Tittle'
+                required 
             />
         </form>
     </div>
