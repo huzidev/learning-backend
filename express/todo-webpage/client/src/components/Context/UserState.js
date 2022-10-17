@@ -95,9 +95,10 @@ export default function UserState(props) {
             if (element._id === id) {
                 newNote[index].title = title;
                 newNote[index].description = description;
-                newNote[index].category = category; 
+                newNote[index].category = category;
+                break; 
             }
-            
+            setNotes(newNote)
         }
     } catch (err) {
         console.log(err);
