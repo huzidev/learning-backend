@@ -2,7 +2,7 @@ import React from 'react';
 import DataContext from './DataContext';
 
 export default function UserState(props) {
-  const host = "http://localhost:5000"
+  const host = "http://localhost:8000"
   const initialState = []
   const [notes, setNotes] = React.useState(initialState)
   const [userData, setUserData] = React.useState({})
@@ -33,10 +33,10 @@ export default function UserState(props) {
 
   async function addNote(title, description, category) {
     try {
-        const res = await fetch(`${host}/addnote`, {
+        const res = await fetch(`/addnote`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type" : "application/json",
                 "auth-token": localStorage.getItem('jwtoken')
             },
             body: JSON.stringify({ title, description, category })
@@ -50,7 +50,7 @@ export default function UserState(props) {
         }
     } catch (err) {
         console.log(err);
-    }
+    }   
   }
 
   async function deleteNote(id) {
