@@ -2,17 +2,17 @@ import express from "express";
 import Verification from '../middleware/Verification';
 import Note from '../models/Note';
 import { body, validationResult } from 'express-validator';
+import cors from "cors";
  
 const router = express.Router();
+
+router.use(cors({
+    origin: "*"
+}));
 
 router.get('/allnotes', Verification, async (req, res) => {
     try {
         const notes = await Note.find({ user: req.body.id })
-        if (notes) {
-            return res.status(200).json(notes)
-        } else {
-            return res.status(500).json({ message : "Internal Server Error" });
-        }
         res.json(notes)
     } catch (e) {
         console.log(e);
@@ -33,16 +33,12 @@ router.post('/addnote', Verification, [
             }
 
             const note = new Note({
-                title, description, category, user: req.user.id
+                title, description, category, user: req.UserId
             })
 
             const savedNote = await note.save();
 
-            if (savedNote) {
-                return res.status(200).json(savedNote)
-            } else {
-                return res.status(500).json({ message : "Internal Server Error" });
-            }
+            res.json(savedNote)
 
         } catch (e) {
             console.log(e);

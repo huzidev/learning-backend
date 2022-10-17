@@ -1,11 +1,12 @@
-import mongoose, { model } from "mongoose";
+import mongoose from "mongoose";
+const { Schema } = mongoose;
 
 const NotesSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'users'
     },
-    tittle: {
+    title: {
         type: String,
         required: true
     },

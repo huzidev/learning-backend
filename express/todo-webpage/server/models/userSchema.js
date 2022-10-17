@@ -59,6 +59,6 @@ userSchema.methods.generateAuthToken = async function () {
     }
 };
 
-const User = mongoose.model('TODO-USERS', userSchema);
+const User = mongoose.model('users', userSchema);
 
 module.exports = User;
