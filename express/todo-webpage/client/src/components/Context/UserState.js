@@ -60,6 +60,7 @@ export default function UserState(props) {
                 "auth-token": localStorage.getItem('token')
             }
         })
+        const data = res.json();
     } catch (err) {
         console.log(err);
     }
