@@ -51,11 +51,11 @@ export default function AddTodo() {
             />
             <input 
                 type="text"
-                name='description' 
-                value={note.title}
+                name='category' 
+                value={note.category}
                 onChange={onChange}
                 minLength= {5}
-                placeholder='Enter Yours Tood Tittle'
+                placeholder='Enter Yours Toodo Tittle'
                 required 
             />
         </form>
