@@ -1,7 +1,11 @@
 import React from 'react';
 import 'antd/dist/antd.css';
+import SignUp from './Form/SignUp';
+import SingIn from './Form/SingIn';
 import Logout from './Form/Logout';
+import ContactUs from './Form/ContactUs';
 import Home from './Home';
+import User from './User';
 import Error from './Error';
 import UserState from './Context/UserState';
 import { Skeleton } from 'antd';
@@ -28,7 +32,7 @@ export default function App() {
               <Route exact path="/signup" />
               <Route exact path="/signin" />
               <Route exact path="/signout" element={<Logout />} />
-              <Route exact path="/signout" />
+              <Route exact path="/addnote" />
               <Route exact path="/contact" />
               <Route exact path="*" element={<Skeleton active />} />
           </Routes>
