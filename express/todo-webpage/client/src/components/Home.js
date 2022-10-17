@@ -49,7 +49,13 @@ export default function App() {
       () => Navigate('/about')
     ),
     getItem('Home', 'sub1', <HomeOutlined />, [
-      getItem('Grocery', '2', <LocalGroceryStoreOutlinedIcon />),
+      getItem(
+        'Grocery', 
+        '2', 
+        <LocalGroceryStoreOutlinedIcon />,
+        null,
+        () => Navigate('/addnote')
+      ),
       getItem('Payments', '3', <PaymentsOutlinedIcon />),
       getItem('Bills', '4', <PaymentOutlinedIcon />)
     ]),
