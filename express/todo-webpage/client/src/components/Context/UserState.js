@@ -51,6 +51,20 @@ export default function UserState(props) {
     }
   }
 
+  async function deleteNote(id) {
+    try {
+        const res = await fetch(`/deletenote/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                "auth-token": localStorage.getItem('token')
+            }
+        })
+    } catch (err) {
+        console.log(err);
+    }
+  }
+
   async function about() {
     try {
         const res = await fetch('/about', {
