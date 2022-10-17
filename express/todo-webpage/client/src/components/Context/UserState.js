@@ -59,7 +59,7 @@ export default function UserState(props) {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                "auth-token": localStorage.getItem('token')
+                "auth-token": localStorage.getItem('jwtoken')
             }
         })
         const data = res.json();
