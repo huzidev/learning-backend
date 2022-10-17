@@ -76,7 +76,22 @@ export default function UserState(props) {
   }
 
   async function editNote(id, title, description, category) {
-    
+    try {
+        const res = await fetch(`/updatenote/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                "auth-token": localStorage.getItem('jwtoken')
+            },
+            body: JSON.stringify({title, description, category})
+        });
+
+        const data = await res.json();
+
+        let newNote = JSON.parse(JSON.stringify(notes))
+    } catch (err) {
+        console.log(err);
+    }
   }
 
   async function about() {
