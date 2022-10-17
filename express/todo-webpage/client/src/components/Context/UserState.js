@@ -39,6 +39,7 @@ export default function UserState(props) {
         },
         body: JSON.stringify({ title, description, tag })
     })
+    const note = await res.json();
   }
 
   async function about() {
