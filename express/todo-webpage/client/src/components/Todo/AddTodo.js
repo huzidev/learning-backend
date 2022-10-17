@@ -29,6 +29,16 @@ export default function AddTodo() {
         <h1>
             Add Todo Note
         </h1>
+
+        <form>
+            <input 
+                type="text"
+                name='title' 
+                value={note.title}
+                onChange={onChange}
+                minLength= {5} 
+            />
+        </form>
     </div>
   )
 }
