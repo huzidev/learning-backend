@@ -10,6 +10,16 @@ export default function AddTodo() {
         description: "", 
         category: ""
     })
+
+    const handleClick = (e)=>{
+        e.preventDefault();
+        addNote(note.title, note.description, note.category);
+        setNote({
+            title: "", 
+            description: "", 
+            category: ""
+        })
+    }
   return (
     <div>
     </div>
