@@ -37,6 +37,24 @@ export default function AddTodo() {
                 value={note.title}
                 onChange={onChange}
                 minLength= {5}
+                placeholder='Enter Yours Todo Tittle'
+                required 
+            />
+            <input 
+                type="text"
+                name='description' 
+                value={note.description}
+                onChange={onChange}
+                minLength= {5}
+                placeholder='Enter Yours Todo Description'
+                required 
+            />
+            <input 
+                type="text"
+                name='description' 
+                value={note.title}
+                onChange={onChange}
+                minLength= {5}
                 placeholder='Enter Yours Tood Tittle'
                 required 
             />
