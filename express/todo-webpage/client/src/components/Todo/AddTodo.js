@@ -5,6 +5,8 @@ export default function AddTodo() {
     const Context = useContext(DataContext);
     const { addNote, getNotes, notes } = Context;
 
+    console.log("What is notes", notes);
+
     const [note, setNote] = useState({
         title: "", 
         description: "", 
@@ -70,6 +72,26 @@ export default function AddTodo() {
                 Add Todo
             </button>
         </form>
+        <h1>
+            Yours Notes
+        </h1>
+       {notes.map((data) => {
+        return (
+            <>
+                <h1>
+                    Tittle: {data.title}
+                </h1>
+                <h3>
+                    Description: {data.description}
+                </h3>
+                <h5>
+                    Category: {data.category}
+                </h5>
+            </>
+        )
+       })
+
+       }
     </div>
   )
 }
