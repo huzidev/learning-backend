@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 
 export default function ShowNotes() {
   return (
