@@ -12,10 +12,11 @@ router.use(cors({
 
 router.get('/allnotes', Verification, async (req, res) => {
     try {
-        const notes = await Note.find({ user: req.body.id })
+        const notes = await Note.find({ user: req.userID });
         res.json(notes)
-    } catch (e) {
-        console.log(e);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
     }
 })
 
