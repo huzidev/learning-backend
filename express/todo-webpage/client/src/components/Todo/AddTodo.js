@@ -3,9 +3,7 @@ import DataContext from "../Context/DataContext";
 
 export default function AddTodo() {
     const Context = useContext(DataContext);
-    const { addNote, getNotes, notes } = Context;
-
-    console.log("What is notes", notes);
+    const { addNote, getNotes, notes, deleteNote } = Context;
 
     const [note, setNote] = useState({
         title: "", 
@@ -75,11 +73,20 @@ export default function AddTodo() {
         <h1>
             Yours Notes
         </h1>
-       {notes.map((data) => {
+       {notes.map((data, index) => {
         return (
             <>
                 <h1>
-                    Tittle: {data.title}
+                    Note number : {index + 1}
+                </h1>
+                <button onClick={() => deleteNote(data._id)}>
+                    deleteNote
+                </button>
+                <h1>
+                    Id: {data._id}
+                </h1>
+                <h1>
+                    Tittle: {data.title} 
                 </h1>
                 <h3>
                     Description: {data.description}
@@ -90,7 +97,6 @@ export default function AddTodo() {
             </>
         )
        })
-
        }
     </div>
   )

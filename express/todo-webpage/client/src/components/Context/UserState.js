@@ -52,12 +52,8 @@ export default function UserState(props) {
         })
         const data = res.json();
         const newNotes = notes.filter((note) => { return note._id !== id })
-        if (!res.status === 200) {
-            window.alert("No New Note added")
-            const error = new Error(res.error)
-            throw error;
-        }
         setNotes(newNotes)
+        console.log("Delete note with id", id);
     } catch (err) {
         console.log(err);
     }
