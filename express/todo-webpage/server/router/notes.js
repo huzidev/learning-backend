@@ -64,8 +64,8 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         if (!note) {
             return res.status(404).json({ error: "Not Found" })
         }
-        if (note.user.toString() !== req.user.id) {
-            return res.status(401).json({ message: "Not Allowed" })
+        if (note.user.toString() !== req.userID.toString()) {
+            return res.status(401).send("Not Allowed");
         }
 
         note = await Note.findByIdAndUpdate(
