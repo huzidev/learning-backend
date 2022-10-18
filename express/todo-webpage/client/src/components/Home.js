@@ -20,6 +20,7 @@ import SingIn from './Form/SingIn';
 import SignUp from './Form/SignUp';
 import TodoPage from './Todo/TodoPage';
 import AddTodo from './Todo/AddTodo';
+import ShowNotes from './Todo/ShowNotes';
 
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);

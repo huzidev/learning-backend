@@ -1,9 +1,9 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import DataContext from "../Context/DataContext";
 
 export default function AddTodo() {
     const Context = useContext(DataContext);
-    const { addNote } = Context;
+    const { addNote, getNotes, notes } = Context;
 
     const [note, setNote] = useState({
         title: "", 
@@ -20,6 +20,14 @@ export default function AddTodo() {
             category: ""
         })
     }
+
+    useEffect(() => {
+        if (localStorage.getItem('jwtoken')) {
+            getNotes();
+        }
+    }, [])
+
+
 
     const onChange = (e)=>{
         setNote({...note, [e.target.name]: e.target.value})

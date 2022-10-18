@@ -7,28 +7,16 @@ export default function UserState(props) {
   const [notes, setNotes] = React.useState(initialState)
   const [userData, setUserData] = React.useState({})
 
-
   async function getNotes() {
-    try {
-        const res = await fetch('/allnotes', {
-            method : 'GET',
-                headers : {
-                    "Accept" : "application/json",
-                    "Content-Type" : "application/json",
-                },
-            credentials : "include"
-        })
-        const data = await res.json();
-        setNotes(data)
-    
-        if (!res.status === 200) {
-            window.alert("No New Note added")
-            const error = new Error(res.error)
-            throw error;
-        }
-    } catch (err) {
-        console.log(err);
-    }
+    const res = await fetch('/allnotes', {
+        method : 'GET',
+            headers : {
+                "Accept" : "application/json",
+                "auth-token": localStorage.getItem('jwtoken')
+            },
+    })
+    const data = await res.json();
+    setNotes(data)
   }
 
   async function addNote(title, description, category) {
@@ -141,7 +129,7 @@ export default function UserState(props) {
         {/* if we just use value={userData} then we simply uses context.email */}
         {/* if use value={{ userData }} multiple brackets then we've to use context.userData.email */}
         {/* {{}} multiple brackets are used when we've to pass multiple values like value={{ userData, notes }} */}
-        <DataContext.Provider value={{ userData, addNote, getNotes, editNote, deleteNote }}>
+        <DataContext.Provider value={{ userData, addNote, getNotes, editNote, deleteNote, notes }}>
             {props.children}
         </DataContext.Provider>
     </div>
