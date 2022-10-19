@@ -1,33 +1,19 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from "../Context/DataContext";
+import ShowNotes from './ShowNotes';
 
 export default function AddTodo() {
-    const Context = useContext(DataContext);
-    const { addNote, getNotes, notes, deleteNote } = Context;
+    const context = useContext(DataContext);
+    const {addNote} = context;
 
-    const [note, setNote] = useState({
-        title: "", 
-        description: "", 
-        category: ""
-    })
+    const [note, setNote] = useState({title: "", description: "", category: ""})
 
     const handleClick = (e)=>{
         e.preventDefault();
         addNote(note.title, note.description, note.category);
-        setNote({
-            title: "", 
-            description: "", 
-            category: ""
-        })
+        setNote({title: "", description: "", category: ""})
     }
-
-    useEffect(() => {
-        if (localStorage.getItem('jwtoken')) {
-            getNotes();
-        }
-    }, [])
-
-
 
     const onChange = (e)=>{
         setNote({...note, [e.target.name]: e.target.value})
@@ -73,31 +59,6 @@ export default function AddTodo() {
         <h1>
             Yours Notes
         </h1>
-       {notes.map((data, index) => {
-        return (
-            <>
-                <h1>
-                    Note number : {index + 1}
-                </h1>
-                <button onClick={() => deleteNote(data._id)}>
-                    deleteNote
-                </button>
-                <h1>
-                    Id: {data._id}
-                </h1>
-                <h1>
-                    Tittle: {data.title} 
-                </h1>
-                <h3>
-                    Description: {data.description}
-                </h3>
-                <h5>
-                    Category: {data.category}
-                </h5>
-            </>
-        )
-       })
-       }
     </div>
   )
 }
