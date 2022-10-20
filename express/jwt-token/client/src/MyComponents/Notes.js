@@ -37,7 +37,7 @@ const Notes = () => {
     return (
         <>
             <AddNote />
-            <Button ref={ref} variant="primary" onClick={handleShow}>
+            <Button style={{display: 'none'}} ref={ref} variant="primary" onClick={handleShow}>
                 Launch demo modal
             </Button>
             <Modal show={show} onHide={handleClose}>
