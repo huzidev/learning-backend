@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Button, Modal } from 'antd';
+import { Button, Modal, Select  } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from "../Context/DataContext";
 import AddTodo from './AddTodo';
@@ -7,12 +7,13 @@ import ShowNotes from './ShowNotes';
 import UpdateTodo from './UpdateTodo';
 
 export default function NotesItems(props) {
+    const { Option } = Select;
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
-      setIsModalOpen(true);
+        setIsModalOpen(true);
     };
     const handleOk = () => {
-      setIsModalOpen(false);
+        setIsModalOpen(false);
     };
     const handleCancel = () => {
       setIsModalOpen(false);
@@ -24,44 +25,54 @@ export default function NotesItems(props) {
   useEffect(() => {
       if (localStorage.getItem('jwtoken')) {
           getNotes()
-      }
-      else{
-          Navigate("/login");
-      }
-  }, [])
-  const ref = useRef(null)
-  const refClose = useRef(null)
-  const [note, setNote] = useState({id: "", etitle: "", edescription: "", ecategory: ""})
-
-  const updateNote = (currentNote) => {
-      ref.current.click();
-      setNote({id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, ecategory:currentNote.category})
-  }
-
-  const handleClick = (e)=>{ 
-      setIsModalOpen(false);
-      editNote(note.id, note.etitle, note.edescription, note.ecategory)
+        }
+        else{
+            Navigate("/login");
+        }
+    }, [])
+    const ref = useRef(null)
+    const refClose = useRef(null)
+    const [note, setNote] = useState({id: "", etitle: "", edescription: "", ecategory: ""})
+    
+    const updateNote = (currentNote) => {
+        ref.current.click();
+        setNote({id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, ecategory:currentNote.category})
+    }
+    
+    const handleClick = (e)=>{ 
+        setIsModalOpen(false);
+        editNote(note.id, note.etitle, note.edescription, note.ecategory)
       window.location.reload();
-  }
-
-  const onChange = (e)=>{
-      setNote({...note, [e.target.name]: e.target.value})
-  }
-
-
-  const [items, setItems] = useState(notes)
-
-
-  function filterItems(items) {
+    }
+    
+    const onChange = (e)=>{
+        setNote({...note, [e.target.name]: e.target.value})
+    }
+  
+    const allItems = [...new Set(notes.map((currentEle) => {
+        return (
+            currentEle.category
+        )
+    }))]
+    
+    const [items, setItems] = useState(notes)
+    
+    function filterItems(items) {
+        
+    if (items === 'all') {
+        setItems(notes)
+        return;
+    }
+    
     const updatedItems = notes.filter((element) => {
         return element.category === items
     })
 
     setItems(updatedItems)
   }
-
+  
   return (
-    <div>
+      <div>
       <AddTodo />
       <Button style={{display: "none" }} ref={ref} type="primary" onClick={showModal}>
         Open Modal
@@ -103,6 +114,20 @@ export default function NotesItems(props) {
         <button onClick={() => setItems(notes)}>
             All items
         </button>
+        {allItems.map((currentEle) => {
+            return (
+                <>
+                <button
+                    onClick={() => filterItems(currentEle)}
+                >
+                    {currentEle}
+                </button>
+                </>
+            )
+        })}
+        {/* <button onClick={() => setItems(notes)}>
+            All items
+        </button>
         <button onClick={() => filterItems('fruit')}>
             fruit
         </button>
@@ -111,7 +136,7 @@ export default function NotesItems(props) {
         </button>
         <button onClick={() => filterItems('book')}>
             book
-        </button>
+        </button> */}
         <hr />
         {items.map((note, i) => {
             return <ShowNotes key={note._id} updateNote={updateNote} note={note} index={i} />
