@@ -62,7 +62,7 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
             newNote.category = category
         }
 
-        let note = await Note.findBy(req.params.id);
+        let note = await Note.findById(req.params.id);
         if (!note) {
             return res.status(404).json({ error: "Not Found" })
         }
