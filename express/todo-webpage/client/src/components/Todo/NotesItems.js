@@ -81,8 +81,12 @@ export default function NotesItems(props) {
                 />
         </form>
       </Modal>
-        {notes.map((note) => {
-            return <ShowNotes key={note._id} updateNote={updateNote} note={note} />
+        <h1>
+            Yours Notes
+        </h1>
+        <hr />
+        {notes.map((note, i) => {
+            return <ShowNotes key={note._id} updateNote={updateNote} note={note} index={i} />
         })}
     </div>
   )

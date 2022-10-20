@@ -7,7 +7,8 @@ import {
   UserOutlined,
   HomeOutlined,
   LoginOutlined,
-  MessageOutlined
+  MessageOutlined,
+  PaperClipOutlined
 } from '@ant-design/icons';
 import MapsHomeWorkOutlinedIcon from '@mui/icons-material/MapsHomeWorkOutlined';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
@@ -60,7 +61,7 @@ export default function App() {
         () => Navigate('/addnote')
       ),
       getItem('Payments', '3', <PaymentsOutlinedIcon />),
-      getItem('Bills', '4', <PaymentOutlinedIcon />)
+      getItem('Personal', '4',  <PaperClipOutlined />)
     ]),
     getItem('Office', 'sub2', <MapsHomeWorkOutlinedIcon />, [
       getItem('Project A', '5', <KeyboardOutlinedIcon /> )

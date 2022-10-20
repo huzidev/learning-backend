@@ -11,12 +11,12 @@ export default function ShowNotes(props) {
 
     const context = useContext(DataContext);
     const { deleteNote } = context;
-    const { note, updateNote } = props;
+    const { note, updateNote, index } = props;
 
   return (
     <div>
         <h1>
-            Yours Notes
+            Note Number : {index + 1}
         </h1>
         <h1>
             Title: {note.title}
