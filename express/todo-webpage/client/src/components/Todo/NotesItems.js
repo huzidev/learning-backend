@@ -11,13 +11,12 @@ export default function NotesItems(props) {
   const Navigate = useNavigate();
   const { notes, getNotes, editNote } = context;
   useEffect(() => {
-      if (localStorage.getItem('jwtoken')) { // means if their is not jwt token for authentication then simply navigate to login page
+      if (localStorage.getItem('jwtoken')) {
           getNotes()
       }
       else{
           Navigate("/login");
       }
-      // eslint-disable-next-line
   }, [])
   const ref = useRef(null)
   const refClose = useRef(null)
