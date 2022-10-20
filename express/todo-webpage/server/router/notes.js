@@ -73,12 +73,7 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
             { $set: newNote },
             { new: true }
         )
-
-        if (note) {
-            return res.status(200).json({ note })
-        } else {
-            return res.status(500).json({ message : "Internal Server Error" });
-        }
+        res.json({ note });
 
     } catch (e) {
         console.log(e);
