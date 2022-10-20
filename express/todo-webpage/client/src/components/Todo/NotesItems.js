@@ -47,6 +47,19 @@ export default function NotesItems(props) {
   const onChange = (e)=>{
       setNote({...note, [e.target.name]: e.target.value})
   }
+
+
+  const [items, setItems] = useState(notes)
+
+
+  function filterItems(items) {
+    const updatedItems = notes.filter((element) => {
+        return element.category === items
+    })
+
+    setItems(updatedItems)
+  }
+
   return (
     <div>
       <AddTodo />
@@ -63,7 +76,7 @@ export default function NotesItems(props) {
                 placeholder='Update Yours Todo Tittle'
                 required 
                 />
-            <input 
+            <input  
                 type="text"
                 name='edescription' 
                 value={note.edescription}
@@ -84,8 +97,23 @@ export default function NotesItems(props) {
         <h1>
             Yours Notes
         </h1>
+        <h1>
+            Filter the list
+        </h1>
+        <button onClick={() => setItems(notes)}>
+            All items
+        </button>
+        <button onClick={() => filterItems('fruit')}>
+            fruit
+        </button>
+        <button onClick={() => filterItems('tool')}>
+            tool
+        </button>
+        <button onClick={() => filterItems('book')}>
+            book
+        </button>
         <hr />
-        {notes.map((note, i) => {
+        {items.map((note, i) => {
             return <ShowNotes key={note._id} updateNote={updateNote} note={note} index={i} />
         })}
     </div>
