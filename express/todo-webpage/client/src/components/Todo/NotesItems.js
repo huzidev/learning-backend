@@ -58,12 +58,7 @@ export default function NotesItems(props) {
     const [items, setItems] = useState(notes)
     
     function filterItems(items) {
-        
-    if (items === 'all') {
-        setItems(notes)
-        return;
-    }
-    
+
     const updatedItems = notes.filter((element) => {
         return element.category === items
     })
