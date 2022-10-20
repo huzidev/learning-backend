@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
+import { Button, Modal } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from "../Context/DataContext";
 import AddTodo from './AddTodo';
@@ -6,6 +7,16 @@ import ShowNotes from './ShowNotes';
 import UpdateTodo from './UpdateTodo';
 
 export default function NotesItems(props) {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const showModal = () => {
+      setIsModalOpen(true);
+    };
+    const handleOk = () => {
+      setIsModalOpen(false);
+    };
+    const handleCancel = () => {
+      setIsModalOpen(false);
+    };
     const Location = useLocation();
   const context = useContext(DataContext);
   const Navigate = useNavigate();
@@ -38,10 +49,10 @@ export default function NotesItems(props) {
   return (
     <div>
       <AddTodo />
-      <div ref={ref}>
-        <h1>
-            Update Todo
-        </h1>
+      <Button style={{display: "none" }} ref={ref} type="primary" onClick={showModal}>
+        Open Modal
+      </Button>
+      <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
         <form>
             <input 
                 type="text"
@@ -71,7 +82,7 @@ export default function NotesItems(props) {
                 Update Todo
             </button>
         </form>
-        </div>
+      </Modal>
         {notes.map((note) => {
             return <ShowNotes key={note._id} updateNote={updateNote} note={note} />
         })}

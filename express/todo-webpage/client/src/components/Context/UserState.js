@@ -116,10 +116,6 @@ export default function UserState(props) {
     }
   }, [])
 
-
-
-
-
   return (
     <div>
         {/* if we just use value={userData} then we simply uses context.email */}
