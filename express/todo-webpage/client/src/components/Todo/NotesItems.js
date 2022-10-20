@@ -39,8 +39,9 @@ export default function NotesItems(props) {
   }
 
   const handleClick = (e)=>{ 
+      setIsModalOpen(false);
       editNote(note.id, note.etitle, note.edescription, note.ecategory)
-      refClose.current.click();
+      window.location.reload();
   }
 
   const onChange = (e)=>{
@@ -52,7 +53,7 @@ export default function NotesItems(props) {
       <Button style={{display: "none" }} ref={ref} type="primary" onClick={showModal}>
         Open Modal
       </Button>
-      <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+      <Modal title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
         <form>
             <input 
                 type="text"
@@ -78,9 +79,6 @@ export default function NotesItems(props) {
                 placeholder='Update Yours Todo category'
                 required 
                 />
-            <button onClick={handleClick}>
-                Update Todo
-            </button>
         </form>
       </Modal>
         {notes.map((note) => {
