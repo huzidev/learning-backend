@@ -157,7 +157,6 @@ export default function App() {
             {Location.pathname.includes('/signin') && <SingIn />}
             {Location.pathname.includes('/signup') && <SignUp />}
             {Location.pathname.includes('/addnote') && <NotesItems />}
-            {Location.pathname.includes('/updatenote') && <UpdateTodo />}
           </div>
         </Content>
         <Footer

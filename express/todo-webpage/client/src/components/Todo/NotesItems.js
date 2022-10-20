@@ -3,8 +3,10 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from "../Context/DataContext";
 import AddTodo from './AddTodo';
 import ShowNotes from './ShowNotes';
+import UpdateTodo from './UpdateTodo';
 
 export default function NotesItems(props) {
+    const Location = useLocation();
   const context = useContext(DataContext);
   const Navigate = useNavigate();
   const { notes, getNotes, editNote } = context;
@@ -37,6 +39,10 @@ export default function NotesItems(props) {
   return (
     <div>
       <AddTodo />
+      <div ref={ref}>
+        <h1>
+            Update Todo
+        </h1>
         <form>
             <input 
                 type="text"
@@ -45,7 +51,7 @@ export default function NotesItems(props) {
                 onChange={onChange}
                 placeholder='Update Yours Todo Tittle'
                 required 
-            />
+                />
             <input 
                 type="text"
                 name='edescription' 
@@ -53,7 +59,7 @@ export default function NotesItems(props) {
                 onChange={onChange}
                 placeholder='Update Yours Todo Description'
                 required 
-            />
+                />
             <input 
                 type="text"
                 name='ecategory' 
@@ -61,11 +67,12 @@ export default function NotesItems(props) {
                 onChange={onChange}
                 placeholder='Update Yours Todo category'
                 required 
-            />
+                />
             <button onClick={handleClick}>
                 Update Todo
             </button>
         </form>
+        </div>
         {notes.map((note) => {
             return <ShowNotes key={note._id} updateNote={updateNote} note={note} />
         })}

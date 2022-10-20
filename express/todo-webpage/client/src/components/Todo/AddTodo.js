@@ -56,9 +56,6 @@ export default function AddTodo() {
                 Add Todo
             </button>
         </form>
-        <h1>
-            Yours Notes
-        </h1>
     </div>
   )
 }

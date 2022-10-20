@@ -1,9 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import DataContext from "../Context/DataContext";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import NotesItems from './NotesItems';
 
 export default function ShowNotes(props) {
+
+    const Navigate = useNavigate();
+
+    let { id } = useParams();
 
     const context = useContext(DataContext);
     const { deleteNote } = context;
@@ -26,9 +30,10 @@ export default function ShowNotes(props) {
         <button onClick={() => deleteNote(note._id)}>
             Delete
         </button>
-        <button onClick={() => updateNote(note)}>
+        <button onClick={()=>{updateNote(note)}}>
             Update Note
         </button>
+        <hr />
     </div>
   )
 }
