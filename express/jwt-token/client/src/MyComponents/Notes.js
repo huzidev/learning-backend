@@ -3,7 +3,6 @@ import noteContext from "../context/notes/noteContext"
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
 import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-bootstrap/Modal';
 
 const Notes = () => {
@@ -38,23 +37,28 @@ const Notes = () => {
     return (
         <>
             <AddNote />
-            <Button variant="primary" onClick={handleShow}>
+            <Button ref={ref} variant="primary" onClick={handleShow}>
                 Launch demo modal
             </Button>
-
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Close
-                </Button>
-                <Button variant="primary" onClick={handleClose}>
-                    Save Changes
-                </Button>
-                </Modal.Footer>
+                <form className="my-3">
+                    <div className="mb-3">
+                        <label htmlFor="title" className="form-label">Title</label>
+                        <input type="text" className="form-control" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="description" className="form-label">Description</label>
+                        <input type="text" className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} minLength={5} required/>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="tag" className="form-label">Tag</label>
+                        <input type="text" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange} />
+                    </div>
+                </form>
+                <div className="modal-footer">
+                    <button ref={refClose} onClick={handleClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button disabled={note.etitle.length<5 || note.edescription.length<5} onClick={handleClick} type="button" className="btn btn-primary">Update Note</button>
+                </div>
             </Modal>
 
             <div className="row my-3">
