@@ -44,6 +44,11 @@ export default function UpdateUser() {
             "auth-token": localStorage.getItem('jwtoken')
         },
     }, data);
+    Navigate({
+        pathname : '/about',
+        search : `?name=${username}`,
+        state : { detail : Response.data }
+    });
 }
 
   return (
