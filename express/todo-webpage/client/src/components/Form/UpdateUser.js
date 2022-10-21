@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
 export default function UpdateUser() {
+
+    const  { id } = useParams();
 
     const [username, setUsername] = React.useState('');
     const [email, setEmail] = React.useState('');
