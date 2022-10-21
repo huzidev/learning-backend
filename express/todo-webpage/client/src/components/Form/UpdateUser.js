@@ -26,9 +26,9 @@ export default function UpdateUser() {
         event.preventDefault();
     
         const data = {
-          title : title,
-          price : price,
-          description : description,
+            username : username,
+            email : email,
+            number : number,
     }
 
   return (
