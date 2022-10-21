@@ -15,15 +15,19 @@ export default function UpdateUser() {
   const [data, setData] = useState({id: "", eusername: "", eemail: "", enumber: ""})
 
 
-  const updateNote = (currData) => {
-    ref.current.click();
-    setNote({
-        id: currData._id, 
-        eusername: currData.username, 
-        eemail: currData.email, 
-        enumber:currData.number
-    })
-}
+//   const updateNote = (currData) => {
+//     ref.current.click();
+//     setNote({
+//         id: currData._id, 
+//         eusername: currData.username, 
+//         eemail: currData.email, 
+//         enumber:currData.number
+//     })
+// }
+
+    const handleClick = (e)=>{ 
+        setData(data.id, data.eusername, data.eemail, data.enumber)
+    }
 
   const onChange = (e)=>{
     setData({...data, [e.target.name]: e.target.value})
