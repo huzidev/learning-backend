@@ -9,6 +9,9 @@ export default function UpdateUser() {
   const Navigate = useNavigate();
   const { userData } = context;
 
+  const ref = useRef(null)
+  const refClose = useRef(null)
+
   const [data, setData] = useState({id: "", eusername: "", eemail: "", enumber: ""})
 
 
@@ -16,9 +19,9 @@ export default function UpdateUser() {
     ref.current.click();
     setNote({
         id: currData._id, 
-        eusername: currData.title, 
-        eemail: currData.description, 
-        enumber:currData.category
+        eusername: currData.username, 
+        eemail: currData.email, 
+        enumber:currData.number
     })
 }
 
