@@ -17,12 +17,14 @@ const onChange = (e)=>{
                 name='username'
                 onChange={onChange}
                 required 
-            /><input 
+            />
+            <input 
                 type="text"
                 name='username'
                 onChange={onChange}
                 required 
-            /><input 
+            />
+            <input 
                 type="text"
                 name='username'
                 onChange={onChange}
