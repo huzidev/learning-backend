@@ -13,7 +13,13 @@ export default function UpdateUser() {
 
     React.useEffect(() => {
         const getDataById = async () => {
-            const {data} = await fetch(`/updateuser/${id}`)
+            const {data} = await fetch(`/updateuser/${id}`, {
+            method : 'GET',
+            headers : {
+                "Accept" : "application/json",
+                "auth-token": localStorage.getItem('jwtoken')
+            },
+        })
             console.log(data);
             setUsername(data.username)
             setEmail(data.email)
@@ -31,7 +37,7 @@ export default function UpdateUser() {
             number : number,
     }
 
-    await fetch(`/updateuser/${id}`)
+    await fetch(`/updateuser/${id}` )
 }
 
   return (
