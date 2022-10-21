@@ -6,9 +6,6 @@ export default function UpdateUser() {
     const [email, setEmail] = React.useState('');
     const [number, setNumber] = React.useState('');
 
-    const onChange = (e)=>{
-        setNote({...note, [e.target.name]: e.target.value})
-    }
 
   return (
     <div>
@@ -20,21 +17,21 @@ export default function UpdateUser() {
                 type="text"
                 name='username'
                 value={username}
-                onChange={onChange}
+                onChange={(event) => setTitle(event.target.value)}
                 required 
             />
             <input 
                 type="text"
                 name='email'
                 value={username}
-                onChange={onChange}
+                onChange={(event) => setTitle(event.target.value)}
                 required 
             />
             <input 
                 type="text"
                 name='number'
                 value={number}
-                onChange={onChange}
+                onChange={(event) => setTitle(event.target.value)}
                 required 
             />
         </form>
