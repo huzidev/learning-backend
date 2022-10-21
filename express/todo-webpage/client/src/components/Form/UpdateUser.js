@@ -21,7 +21,6 @@ export default function UpdateUser() {
 
     const context = useContext(DataContext);
   const Navigate = useNavigate();
-  const { userData } = context;
 
   const ref = useRef(null)
   const refClose = useRef(null)
@@ -49,7 +48,6 @@ export default function UpdateUser() {
 
   return (
     <div>
-        <User updateNote={updateData} />
         <Button style={{display: "none" }} ref={ref} type="primary" onClick={showModal}>
             Open Modal
         </Button>
@@ -84,6 +82,7 @@ export default function UpdateUser() {
                 </button>
             </form>
         </Modal>
+        <User updateData={updateData} />
     </div>
   )
 }
