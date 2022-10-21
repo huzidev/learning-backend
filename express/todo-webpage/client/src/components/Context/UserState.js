@@ -105,11 +105,11 @@ export default function UserState(props) {
         let newData = JSON.parse(JSON.stringify(userData))
 
         for (let index = 0; index < newData.length; index++) {
-            const element = newNote[index];
+            const element = newData[index];
             if (element._id === id) {
-                newNote[index].title = title;
-                newNote[index].description = description;
-                newNote[index].category = category;
+                newData[index].username = username;
+                newData[index].email = email;
+                newData[index].number = number;
                 break; 
             }
             setNotes(newNote)
