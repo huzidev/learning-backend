@@ -4,21 +4,22 @@ import DataContext from './Context/DataContext';
 
 export default function User() {
   const context = useContext(DataContext);
+  const { userData } = context
   return (
     <div>
         <h1>
-            UserId: {context.userData._id}
+            UserId: {userData._id}
         </h1>
         <h1>
-            Username: {context.userData.username}
+            Username: {userData.username}
         </h1>
         <h1>
-            Email: {context.userData.email}
+            Email: {userData.email}
         </h1>
         <h1>
-            Number: {context.userData.number}
+            Number: {userData.number}
         </h1>
-        <Link to={`/updateuser/${context.userData._id}`}> 
+        <Link to={`/updateuser/${userData._id}`}> 
             Update Info
         </Link>
     </div>
