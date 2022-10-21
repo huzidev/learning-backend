@@ -24,7 +24,7 @@ export default function UpdateUser() {
             setUsername(data.username)
             setEmail(data.email)
             setNumber(data.number)
-          }
+        }
     }, [id])
 
     const updateHandler = async (event) => {
