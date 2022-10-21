@@ -15,11 +15,21 @@ export default function UpdateUser() {
         const getDataById = async () => {
             const {data} = await fetch(`/updateuser/${id}`)
             console.log(data);
-            setTitle(data.title)
-            setPrice(data.price)
-            setDescription(data.description)
+            setUsername(data.username)
+            setEmail(data.email)
+            setNumber(data.number)
           }
-    }, [])
+    }, [id])
+
+    const updateHandler = async (event) => {
+
+        event.preventDefault();
+    
+        const data = {
+          title : title,
+          price : price,
+          description : description,
+    }
 
   return (
     <div>
