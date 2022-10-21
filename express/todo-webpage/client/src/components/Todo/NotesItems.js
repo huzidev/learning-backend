@@ -79,7 +79,6 @@ export default function NotesItems(props) {
                 name='etitle' 
                 value={note.etitle}
                 onChange={onChange}
-                placeholder='Update Yours Todo Tittle'
                 required 
                 />
             <input  
@@ -87,7 +86,6 @@ export default function NotesItems(props) {
                 name='edescription' 
                 value={note.edescription}
                 onChange={onChange}
-                placeholder='Update Yours Todo Description'
                 required 
                 />
             <input 
@@ -95,7 +93,6 @@ export default function NotesItems(props) {
                 name='ecategory' 
                 value={note.ecategory}
                 onChange={onChange}
-                placeholder='Update Yours Todo category'
                 required 
                 />
         </form>
