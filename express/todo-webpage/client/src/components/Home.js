@@ -154,12 +154,11 @@ export default function App() {
             !Location.pathname.includes('/signout') && 
             <TodoPage />
           }
-            {Location.pathname.includes('/about') && <User />}
+            {Location.pathname.includes('/about') && <UpdateUser />}
             {Location.pathname.includes('/contact') && <ContactUs />}
             {Location.pathname.includes('/signin') && <SingIn />}
             {Location.pathname.includes('/signup') && <SignUp />}
             {Location.pathname.includes('/addnote') && <NotesItems />}
-            {Location.pathname.includes('/updateuser') && <UpdateUser />}
           </div>
         </Content>
         <Footer
