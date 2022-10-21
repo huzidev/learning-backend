@@ -112,7 +112,7 @@ export default function UserState(props) {
                 newData[index].number = number;
                 break; 
             }
-            setNotes(newNote)
+            setUserData(newData)
         }
     } catch (err) {
         console.log(err);

@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
+import DataContext from '../Context/DataContext';
 
 export default function UpdateUser() {
 
+
+    const context = useContext(DataContext);
+  const Navigate = useNavigate();
+  const { notes, getNotes, editNote } = context;
 
   return (
     <div>
