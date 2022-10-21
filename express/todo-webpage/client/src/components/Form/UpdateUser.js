@@ -31,6 +31,9 @@ export default function UpdateUser() {
             number : number,
     }
 
+    await fetch(`/updateuser/${id}`)
+}
+
   return (
     <div>
         <h1>
