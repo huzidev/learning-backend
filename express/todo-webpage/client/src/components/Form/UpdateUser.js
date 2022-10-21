@@ -37,7 +37,14 @@ export default function UpdateUser() {
             number : number,
     }
 
-    await fetch(`/updateuser/${id}` )
+    await fetch(`/updateuser/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            "auth-token": localStorage.getItem('jwtoken')
+        },
+        body: JSON.stringify({title, description, category})
+    });
 }
 
   return (
