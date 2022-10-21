@@ -43,8 +43,7 @@ export default function UpdateUser() {
             'Content-Type': 'application/json',
             "auth-token": localStorage.getItem('jwtoken')
         },
-        body: JSON.stringify({title, description, category})
-    });
+    }, data);
 }
 
   return (
