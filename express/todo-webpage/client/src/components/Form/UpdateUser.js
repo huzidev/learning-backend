@@ -25,6 +25,7 @@ export default function UpdateUser() {
             setEmail(data.email)
             setNumber(data.number)
         }
+        getDataById();
     }, [id])
 
     const updateHandler = async (event) => {
@@ -79,7 +80,7 @@ export default function UpdateUser() {
                 required 
             />
             <button onClick={updateHandler}>
-
+                Update Data
             </button>
         </form>
     </div>
