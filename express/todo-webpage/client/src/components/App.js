@@ -15,6 +15,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import UpdateUser from './Form/UpdateUser';
 const TodoPage = React.lazy(() => import('./Todo/TodoPage'))
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
               <Route exact path="/signin" />
               <Route exact path="/signout" element={<Logout />} />
               <Route exact path="/addnote" />
+              <Route exact path="/updateuser"  element={<UpdateUser />}/>
               <Route exact path="/contact" />
               <Route exact path="*" element={<Skeleton active />} />
           </Routes>

@@ -33,7 +33,7 @@ export default function UpdateUser() {
             <input 
                 type="text"
                 name='number'
-                value={username}
+                value={number}
                 onChange={onChange}
                 required 
             />
