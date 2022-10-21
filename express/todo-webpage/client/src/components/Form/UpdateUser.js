@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 export default function UpdateUser() {
 
     const  { id } = useParams();
+    const Navigate = useNavigate();
 
     const [username, setUsername] = React.useState('');
     const [email, setEmail] = React.useState('');
