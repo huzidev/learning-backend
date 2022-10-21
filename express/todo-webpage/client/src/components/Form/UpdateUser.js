@@ -11,8 +11,19 @@ export default function UpdateUser() {
 
   const [data, setData] = useState({id: "", eusername: "", eemail: "", enumber: ""})
 
+
+  const updateNote = (currData) => {
+    ref.current.click();
+    setNote({
+        id: currData._id, 
+        eusername: currData.title, 
+        eemail: currData.description, 
+        enumber:currData.category
+    })
+}
+
   const onChange = (e)=>{
-    setData({...note, [e.target.name]: e.target.value})
+    setData({...data, [e.target.name]: e.target.value})
 }
 
   return (
@@ -42,9 +53,6 @@ export default function UpdateUser() {
                 onChange={onChange}
                 required 
             />
-            <button onClick={updateHandler}>
-                Update Data
-            </button>
         </form>
     </div>
   )
