@@ -51,7 +51,7 @@ export default function App() {
       '1', 
       <UserOutlined />,
       null,
-      () => Navigate('/about')
+      () => Navigate('/updateuser')
     ),
     getItem('Home', 'sub1', <HomeOutlined />, [
       getItem(
@@ -154,11 +154,11 @@ export default function App() {
             !Location.pathname.includes('/signout') && 
             <TodoPage />
           }
-            {Location.pathname.includes('/about') && <UpdateUser />}
             {Location.pathname.includes('/contact') && <ContactUs />}
             {Location.pathname.includes('/signin') && <SingIn />}
             {Location.pathname.includes('/signup') && <SignUp />}
             {Location.pathname.includes('/addnote') && <NotesItems />}
+            {Location.pathname.includes('/updateuser') && <UpdateUser />}
           </div>
         </Content>
         <Footer

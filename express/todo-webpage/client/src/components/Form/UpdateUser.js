@@ -22,6 +22,8 @@ export default function UpdateUser() {
     const context = useContext(DataContext);
   const Navigate = useNavigate();
 
+  const { updateUser } = context;
+
   const ref = useRef(null)
   const refClose = useRef(null)
 
@@ -39,7 +41,7 @@ export default function UpdateUser() {
 }
 
     const handleClick = (e)=>{ 
-        setData(data.id, data.eusername, data.eemail, data.enumber)
+        updateUser(data.id, data.eusername, data.eemail, data.enumber)
     }
 
   const onChange = (e)=>{
