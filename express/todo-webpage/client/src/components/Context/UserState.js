@@ -89,6 +89,36 @@ export default function UserState(props) {
     }
   }
 
+  async function updateUser(id, username, email, number) {
+    try {
+        const res = await fetch(`/updatenote/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                "auth-token": localStorage.getItem('jwtoken')
+            },
+            body: JSON.stringify({title, description, category})
+        });
+
+        const data = await res.json();
+
+        let newNote = JSON.parse(JSON.stringify(notes))
+
+        for (let index = 0; index < newNote.length; index++) {
+            const element = newNote[index];
+            if (element._id === id) {
+                newNote[index].title = title;
+                newNote[index].description = description;
+                newNote[index].category = category;
+                break; 
+            }
+            setNotes(newNote)
+        }
+    } catch (err) {
+        console.log(err);
+    }
+  }
+
   async function about() {
     try {
         const res = await fetch('/about', {
