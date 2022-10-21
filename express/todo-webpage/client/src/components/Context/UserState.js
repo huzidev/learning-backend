@@ -102,9 +102,9 @@ export default function UserState(props) {
 
         const data = await res.json();
 
-        let newNote = JSON.parse(JSON.stringify(notes))
+        let newData = JSON.parse(JSON.stringify(userData))
 
-        for (let index = 0; index < newNote.length; index++) {
+        for (let index = 0; index < newData.length; index++) {
             const element = newNote[index];
             if (element._id === id) {
                 newNote[index].title = title;
