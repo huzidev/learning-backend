@@ -9,7 +9,7 @@ export default function UpdateUser() {
 
     React.useEffect(() => {
         const getDataById = async () => {
-            const {data} = await api.get(`/api/products/${id}`)
+            const {data} = await fetch(`/updateuser/${id}`)
             console.log(data);
             setTitle(data.title)
             setPrice(data.price)
