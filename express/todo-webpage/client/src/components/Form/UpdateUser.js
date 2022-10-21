@@ -2,9 +2,13 @@ import React from 'react'
 
 export default function UpdateUser() {
 
-const onChange = (e)=>{
-    setNote({...note, [e.target.name]: e.target.value})
-}
+    const [username, setUsername] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [number, setNumber] = React.useState('');
+
+    const onChange = (e)=>{
+        setNote({...note, [e.target.name]: e.target.value})
+    }
 
   return (
     <div>
@@ -15,18 +19,21 @@ const onChange = (e)=>{
             <input 
                 type="text"
                 name='username'
+                value={username}
                 onChange={onChange}
                 required 
             />
             <input 
                 type="text"
-                name='username'
+                name='email'
+                value={username}
                 onChange={onChange}
                 required 
             />
             <input 
                 type="text"
-                name='username'
+                name='number'
+                value={username}
                 onChange={onChange}
                 required 
             />
