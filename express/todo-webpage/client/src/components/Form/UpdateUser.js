@@ -9,7 +9,7 @@ export default function UpdateUser() {
   const Navigate = useNavigate();
   const { userData } = context;
 
-  const [note, setNote] = useState({id: "", eusername: "", eemail: "", enumber: ""})
+  const [data, setData] = useState({id: "", eusername: "", eemail: "", enumber: ""})
 
   return (
     <div>
@@ -20,21 +20,21 @@ export default function UpdateUser() {
             <input 
                 type="text"
                 name='eusername'
-                value={username}
+                value={data.eusername}
                 onChange={(event) => setUsername(event.target.value)}
                 required 
             />
             <input 
                 type="text"
                 name='eemail'
-                value={email}
+                value={data.eemail}
                 onChange={(event) => setEmail(event.target.value)}
                 required 
             />
             <input 
                 type="text"
                 name='enumber'
-                value={number}
+                value={data.enumber}
                 onChange={(event) => setNumber(event.target.value)}
                 required 
             />
