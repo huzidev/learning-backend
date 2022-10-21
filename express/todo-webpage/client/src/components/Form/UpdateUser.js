@@ -35,7 +35,7 @@ export default function UpdateUser() {
             username : username,
             email : email,
             number : number,
-    }
+        }
 
     await fetch(`/updateuser/${id}`, {
         method: 'PUT',
@@ -78,6 +78,9 @@ export default function UpdateUser() {
                 onChange={(event) => setNumber(event.target.value)}
                 required 
             />
+            <button onClick={updateHandler}>
+
+            </button>
         </form>
     </div>
   )
