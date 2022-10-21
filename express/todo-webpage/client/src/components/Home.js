@@ -24,6 +24,7 @@ import AddTodo from './Todo/AddTodo';
 import ShowNotes from './Todo/ShowNotes';
 import UpdateTodo from './Todo/UpdateTodo';
 import NotesItems from './Todo/NotesItems';
+import UpdateUser from './Form/UpdateUser';
 
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
@@ -158,6 +159,7 @@ export default function App() {
             {Location.pathname.includes('/signin') && <SingIn />}
             {Location.pathname.includes('/signup') && <SignUp />}
             {Location.pathname.includes('/addnote') && <NotesItems />}
+            {Location.pathname.includes('/updateuser') && <UpdateUser />}
           </div>
         </Content>
         <Footer

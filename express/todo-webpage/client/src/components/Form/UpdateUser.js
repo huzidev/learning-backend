@@ -7,6 +7,16 @@ export default function UpdateUser() {
     const [number, setNumber] = React.useState('');
 
 
+    React.useEffect(() => {
+        const getDataById = async () => {
+            const {data} = await api.get(`/api/products/${id}`)
+            console.log(data);
+            setTitle(data.title)
+            setPrice(data.price)
+            setDescription(data.description)
+          }
+    }, [])
+
   return (
     <div>
         <h1>
@@ -17,21 +27,21 @@ export default function UpdateUser() {
                 type="text"
                 name='username'
                 value={username}
-                onChange={(event) => setTitle(event.target.value)}
+                onChange={(event) => setUsername(event.target.value)}
                 required 
             />
             <input 
                 type="text"
                 name='email'
                 value={username}
-                onChange={(event) => setTitle(event.target.value)}
+                onChange={(event) => setEmail(event.target.value)}
                 required 
             />
             <input 
                 type="text"
                 name='number'
                 value={number}
-                onChange={(event) => setTitle(event.target.value)}
+                onChange={(event) => setNumber(event.target.value)}
                 required 
             />
         </form>

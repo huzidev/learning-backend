@@ -35,7 +35,7 @@ export default function App() {
               <Route exact path="/signin" />
               <Route exact path="/signout" element={<Logout />} />
               <Route exact path="/addnote" />
-              <Route exact path="/updateuser"  element={<UpdateUser />}/>
+              <Route exact path="/updateuser"/>
               <Route exact path="/contact" />
               <Route exact path="*" element={<Skeleton active />} />
           </Routes>
