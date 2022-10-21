@@ -7,7 +7,9 @@ export default function UpdateUser() {
 
     const context = useContext(DataContext);
   const Navigate = useNavigate();
-  const { notes, getNotes, editNote } = context;
+  const { userData } = context;
+
+  const [note, setNote] = useState({id: "", eusername: "", eemail: "", enumber: ""})
 
   return (
     <div>
@@ -17,21 +19,21 @@ export default function UpdateUser() {
         <form>
             <input 
                 type="text"
-                name='username'
+                name='eusername'
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
                 required 
             />
             <input 
                 type="text"
-                name='email'
+                name='eemail'
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 required 
             />
             <input 
                 type="text"
-                name='number'
+                name='enumber'
                 value={number}
                 onChange={(event) => setNumber(event.target.value)}
                 required 
