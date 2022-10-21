@@ -91,13 +91,13 @@ export default function UserState(props) {
 
   async function updateUser(id, username, email, number) {
     try {
-        const res = await fetch(`/updatenote/${id}`, {
+        const res = await fetch(`/updateuser/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 "auth-token": localStorage.getItem('jwtoken')
             },
-            body: JSON.stringify({title, description, category})
+            body: JSON.stringify({username, email, number})
         });
 
         const data = await res.json();
