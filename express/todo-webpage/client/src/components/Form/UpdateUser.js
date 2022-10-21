@@ -11,6 +11,10 @@ export default function UpdateUser() {
 
   const [data, setData] = useState({id: "", eusername: "", eemail: "", enumber: ""})
 
+  const onChange = (e)=>{
+    setData({...note, [e.target.name]: e.target.value})
+}
+
   return (
     <div>
         <h1>
@@ -21,21 +25,21 @@ export default function UpdateUser() {
                 type="text"
                 name='eusername'
                 value={data.eusername}
-                onChange={(event) => setUsername(event.target.value)}
+                onChange={onChange}
                 required 
             />
             <input 
                 type="text"
                 name='eemail'
                 value={data.eemail}
-                onChange={(event) => setEmail(event.target.value)}
+                onChange={onChange}
                 required 
             />
             <input 
                 type="text"
                 name='enumber'
                 value={data.enumber}
-                onChange={(event) => setNumber(event.target.value)}
+                onChange={onChange}
                 required 
             />
             <button onClick={updateHandler}>
