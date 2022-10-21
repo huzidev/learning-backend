@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import DataContext from './Context/DataContext';
 
 export default function User() {
   const context = useContext(DataContext);
   const { userData } = context
+
+  const ref = useRef(null)
 
   const updateData = (currData) => {
     ref.current.click();

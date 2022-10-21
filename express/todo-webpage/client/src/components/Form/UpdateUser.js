@@ -60,6 +60,9 @@ export default function UpdateUser() {
                 onChange={onChange}
                 required 
             />
+            <button onClick={handleClick}>
+                Update
+            </button>
         </form>
     </div>
   )
