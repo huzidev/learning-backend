@@ -79,9 +79,21 @@ export default function AddTodo() {
                 required 
             />
              <Radio.Group onChange={onChangeRadio} value={value}>
-                <Radio value="fruit">Fruit</Radio>
-                <Radio value="book">Book</Radio>
-                <Radio value="tool">tools</Radio>
+                <Radio 
+                    value="fruit"
+                >
+                    Fruit
+                </Radio>
+                <Radio 
+                    value="book"
+                >
+                    Book
+                </Radio>
+                <Radio 
+                    value="tool"
+                >
+                    tools
+                </Radio>
             </Radio.Group>
             {/* {
                 options.map((data, index) => (
