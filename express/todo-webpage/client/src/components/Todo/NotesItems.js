@@ -63,6 +63,7 @@ export default function NotesItems(props) {
     }))]
     
     const [items, setItems] = useState(notes)
+    const [state, setState] = useState(false)
     
     function filterItems(items) {
 
@@ -72,8 +73,11 @@ export default function NotesItems(props) {
     })
 
     setItems(updatedItems)
+    setState(true)
   }
+
   
+
   return (
       <div>
       <AddTodo />
@@ -138,7 +142,9 @@ export default function NotesItems(props) {
             book
         </button> */}
         <hr />
-        {items.map((note, i) => {
+        {!state ? notes.map((note, i) => {
+            return <ShowNotes key={note._id} updateNote={updateNote} note={note} index={i} />
+        }) : items.map((note, i) => {
             return <ShowNotes key={note._id} updateNote={updateNote} note={note} index={i} />
         })}
     </div>
