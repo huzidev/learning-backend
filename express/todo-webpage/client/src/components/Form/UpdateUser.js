@@ -53,12 +53,11 @@ export default function UpdateUser() {
 
   return (
     <div>
-        <Test value={data} onChange={onChange} onOk={handleClick} />
         <Button style={{display: "none" }} ref={ref} type="primary" onClick={showModal}>
             Open Modal
         </Button>
-        {/* <Modal title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}> */}
-            {/* <h1>
+        <Modal title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
+            <h1>
                 Update User's Info
             </h1>
             <form>
@@ -83,8 +82,8 @@ export default function UpdateUser() {
                     onChange={onChange}
                     required 
                 />
-            </form> */}
-        {/* </Modal> */}
+            </form>
+        </Modal>
         <User updateData={updateData} />
     </div>
   )
