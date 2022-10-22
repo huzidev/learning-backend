@@ -37,6 +37,9 @@ export default function NotesItems(props) {
     const [note, setNote] = useState({id: "", etitle: "", edescription: "", ecategory: ""})
     
     const updateNote = (currentNote) => {
+
+        // ref.current.click() checks if user clicked or not therefore we've passed the ref in the button of modal as ref={ref}
+        // to check if user clicked or not
         ref.current.click();
         setNote({id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, ecategory:currentNote.category})
     }
