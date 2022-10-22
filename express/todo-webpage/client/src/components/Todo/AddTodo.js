@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from "../Context/DataContext";
 import ShowNotes from './ShowNotes';
-import { DownOutlined } from '@ant-design/icons';
-import { Dropdown, Menu, Space, Radio } from 'antd';
+
 
 export default function AddTodo() {
     const context = useContext(DataContext);
@@ -23,25 +22,6 @@ export default function AddTodo() {
             [e.target.name]: e.target.value
         })
     }
-
-    const menu = (
-        <Menu
-          items={[
-            {
-              label: <a href="https://www.antgroup.com">1st menu item</a>,
-              key: '0',
-            },
-            {
-              label: <a href="https://www.aliyun.com">2nd menu item</a>,
-              key: '1',
-            },
-            {
-              label: '3rd menu item',
-              key: '3',
-            },
-          ]}
-        />
-      );
   return (
     <div>
         <h1>
@@ -77,14 +57,6 @@ export default function AddTodo() {
                 required 
             />
             <br />
-            <Dropdown overlay={menu} trigger={['click']}>
-                <a onClick={(e) => e.preventDefault()}>
-                <Space>
-                    Please Select Category
-                    <DownOutlined />
-                </Space>
-                </a>
-            </Dropdown>
             <input 
                 id="fruit"
                 type="radio"
