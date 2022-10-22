@@ -30,11 +30,11 @@ export default function AddTodo() {
     }
 
 
-    const options = [
-        { label: "fruit", value: "fruit"},
-        { label: "tool", value: "tool" },
-        { label: "book", value: "book" },
-      ];
+    // const options = [
+    //     { label: "fruit", value: "fruit"},
+    //     { label: "tool", value: "tool" },
+    //     { label: "book", value: "book" },
+    //   ];
 
     if (Radio.value === 'fruit') {
         note.category.valueOf = 'fruit' 
@@ -78,17 +78,22 @@ export default function AddTodo() {
                 placeholder='Enter Yours Todo category'
                 required 
             />
-            {
-                options.map((data) => (
+             <Radio.Group onChange={onChangeRadio} value={value}>
+                <Radio value="fruit">Fruit</Radio>
+                <Radio value="book">Book</Radio>
+                <Radio value="tool">tools</Radio>
+            </Radio.Group>
+            {/* {
+                options.map((data, index) => (
                     <Radio 
                         name='category'
-                        value={data.value}
+                        value={index + 1}
                         onChange={onChangeRadio}
                     >
                         {data.label}
                     </Radio>
                 ))
-            }
+            } */}
             <button onClick={handleClick}>
                 Add Todo
             </button>
