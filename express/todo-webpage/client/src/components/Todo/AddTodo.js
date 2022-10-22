@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from "../Context/DataContext";
 import ShowNotes from './ShowNotes';
-import { Cascader } from 'antd';
+import { Checkbox } from 'antd';
 
 
 export default function AddTodo() {
@@ -23,22 +23,6 @@ export default function AddTodo() {
             [e.target.name]: e.target.value
         })
     }
-
-
-    const options = [
-        {
-          value: 'fruit',
-          label: 'fruit',
-        },
-        {
-          value: 'tool',
-          label: 'tool',
-        },
-        {
-          value: 'book',
-          label: 'book',
-        }
-      ];
 
   return (
     <div>
@@ -74,7 +58,9 @@ export default function AddTodo() {
                 placeholder='Enter Yours Todo category'
                 required 
             />
-             <Cascader options={options} placeholder="Select Category" />
+            <Checkbox onChange={onChange}>fruit</Checkbox>
+            <Checkbox onChange={onChange}>book</Checkbox>
+            <Checkbox onChange={onChange}>tool</Checkbox>
             {/* <br />
             <input 
                 id="fruit"
