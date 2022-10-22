@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from "../Context/DataContext";
 import ShowNotes from './ShowNotes';
-import { Checkbox } from 'antd';
+import { Radio  } from 'antd';
 
 
 export default function AddTodo() {
@@ -30,13 +30,11 @@ export default function AddTodo() {
         { label: "book", value: "book" },
       ];
 
-      const [checkState, setCheckState] = useState(false)
-
-    if (Checkbox.value === 'fruit') {
+    if (Radio.value === 'fruit') {
         note.category.valueOf = 'fruit' 
-    } else if (Checkbox.value === 'tool') {
+    } else if (Radio.value === 'tool') {
         note.category.valueOf = 'tool' 
-    } else if (Checkbox.value === 'book') {
+    } else if (Radio.value === 'book') {
         note.category.valueOf = 'book' 
     }
 
@@ -76,13 +74,13 @@ export default function AddTodo() {
             />
             {
                 options.map((data) => (
-                    <Checkbox 
+                    <Radio 
                         name='category'
                         value={data.value}
                         onChange={onChange}
                     >
                         {data.label}
-                    </Checkbox>
+                    </Radio>
                 ))
             }
             <button onClick={handleClick}>
