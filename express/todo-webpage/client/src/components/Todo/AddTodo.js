@@ -58,9 +58,21 @@ export default function AddTodo() {
                 placeholder='Enter Yours Todo category'
                 required 
             />
-            <Checkbox onChange={onChange}>fruit</Checkbox>
-            <Checkbox onChange={onChange}>book</Checkbox>
-            <Checkbox onChange={onChange}>tool</Checkbox>
+            <Checkbox 
+                onChange={onChange}
+            >
+                fruit
+            </Checkbox>
+            <Checkbox 
+                onChange={onChange}
+            >
+                book
+            </Checkbox>
+            <Checkbox 
+                onChange={onChange}
+            >
+                tool
+            </Checkbox>
             {/* <br />
             <input 
                 id="fruit"
