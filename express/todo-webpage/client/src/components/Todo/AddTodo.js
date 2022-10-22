@@ -44,6 +44,11 @@ export default function AddTodo() {
                 required 
             />
             <input 
+                type="checkbox"
+                name="checkbox"
+                onChange={onChange}
+            />
+            <input 
                 type="text"
                 name='category' 
                 value={note.category}
