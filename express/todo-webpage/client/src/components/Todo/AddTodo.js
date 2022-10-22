@@ -26,9 +26,13 @@ export default function AddTodo() {
 
     let hold;
 
-    if (Checkbox === '') {
-
-    }
+    if (Checkbox.value === 'fruit') {
+        note.category.valueOf = 'fruit' 
+    } else if (Checkbox.value === 'tool') {
+        note.category.valueOf = 'tool' 
+    } else if (Checkbox.value === 'book') {
+        note.category.valueOf = 'book' 
+    } 
 
   return (
     <div>
@@ -76,14 +80,14 @@ export default function AddTodo() {
                 value='tool'
                 onChange={onChange}
             >
-                book
+                tool
             </Checkbox>
             <Checkbox 
                 name='category'
                 value='book'
                 onChange={onChange}
             >
-                tool
+                book
             </Checkbox>
             {/* <br />
             <input 
