@@ -40,6 +40,8 @@ export default function NotesItems(props) {
 
         // ref.current.click() checks if user clicked or not therefore we've passed the ref in the button of modal as ref={ref}
         // to check if user clicked or not
+        // ref.current.value gets the value
+        // ref.current.click() checks the click
         ref.current.click();
         setNote({id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, ecategory:currentNote.category})
     }
