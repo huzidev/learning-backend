@@ -59,7 +59,7 @@ export default function AddTodo() {
             <input 
                 id="radio"
                 type="radio"
-                name="fruit"
+                name="radio" // radio names have to be same so we can't select multiple radio buttons
                 checked={note.name}
                 onChange={onChange}
             />
@@ -69,7 +69,7 @@ export default function AddTodo() {
             <input 
                 id="radio"
                 type="radio"
-                name="tool"
+                name="radio"
                 checked={note.name}
                 onChange={onChange}
             />
@@ -79,7 +79,7 @@ export default function AddTodo() {
             <input 
                 id="radio"
                 type="radio"
-                name="book"
+                name="radio"
                 checked={note.name}
                 onChange={onChange}
             />
