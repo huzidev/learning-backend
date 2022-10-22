@@ -60,6 +60,7 @@ export default function AddTodo() {
                 id="radio"
                 type="radio"
                 name="radio" // radio names have to be same so we can't select multiple radio buttons
+                value="fruit"
                 checked={note.name}
                 onChange={onChange}
             />
@@ -70,6 +71,7 @@ export default function AddTodo() {
                 id="radio"
                 type="radio"
                 name="radio"
+                value="tool"
                 checked={note.name}
                 onChange={onChange}
             />
@@ -80,6 +82,7 @@ export default function AddTodo() {
                 id="radio"
                 type="radio"
                 name="radio"
+                value="book"
                 checked={note.name}
                 onChange={onChange}
             />
