@@ -155,6 +155,41 @@ router.post('/contact', async (req, res) => {
     }
 })
 
+router.put('/updateuser/:id', Verification, async (req, res) => {
+    const { username, email, number } = req.body;
+
+    try {
+        
+        const newInfo = {}
+        if (username) {
+            newInfo.username = username
+        } 
+        if (email) {
+            newInfo.email = email
+        } 
+        if (number) {
+            newInfo.number = number
+        } 
+
+        let info = await User.findById(req.params.id);
+        console.log("what is info", info);
+        if (!info) {
+            return res.status(404).json({ error: "Not Found" })
+        }
+
+        info = await User.findByIdAndUpdate(
+            req.params.id,
+            { $set: newInfo },
+            { new: true }
+        )
+        res.json({ info });
+
+    } catch (e) {
+        console.log(e);
+    }
+
+})
+
 router.get('/about', Verification, (req, res) => {
     res.send(req.userInfo)
 })
