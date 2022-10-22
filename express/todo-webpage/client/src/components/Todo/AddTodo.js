@@ -24,6 +24,12 @@ export default function AddTodo() {
         })
     }
 
+    let hold;
+
+    if (Checkbox === '') {
+
+    }
+
   return (
     <div>
         <h1>
@@ -60,18 +66,21 @@ export default function AddTodo() {
             />
             <Checkbox 
                 name='category'
+                value='fruit'
                 onChange={onChange}
             >
                 fruit
             </Checkbox>
             <Checkbox 
                 name='category'
+                value='tool'
                 onChange={onChange}
             >
                 book
             </Checkbox>
             <Checkbox 
                 name='category'
+                value='book'
                 onChange={onChange}
             >
                 tool
