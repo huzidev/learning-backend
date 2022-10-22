@@ -16,6 +16,11 @@ export default function AddTodo() {
         addNote(note.title, note.description, note.category);
         setNote({title: "", description: "", category: ""})
     }
+    const [value, setValue] = useState(1);
+
+    const onChangeRadio = (e) => {
+        setValue(e.target.value);
+      };
 
     const onChange = (e)=>{
         setNote({
@@ -23,6 +28,7 @@ export default function AddTodo() {
             [e.target.name]: e.target.value
         })
     }
+
 
     const options = [
         { label: "fruit", value: "fruit"},
@@ -77,7 +83,7 @@ export default function AddTodo() {
                     <Radio 
                         name='category'
                         value={data.value}
-                        onChange={onChange}
+                        onChange={onChangeRadio}
                     >
                         {data.label}
                     </Radio>
