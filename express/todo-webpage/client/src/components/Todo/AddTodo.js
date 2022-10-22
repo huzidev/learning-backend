@@ -38,7 +38,7 @@ export default function AddTodo() {
         note.category.valueOf = 'tool' 
     } else if (Checkbox.value === 'book') {
         note.category.valueOf = 'book' 
-    } 
+    }
 
   return (
     <div>
