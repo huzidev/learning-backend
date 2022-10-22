@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Test() {
+export default function Test(props) {
   return (
     <div>
         <h1>
