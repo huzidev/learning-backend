@@ -30,6 +30,8 @@ export default function NotesItems(props) {
             Navigate("/login");
         }
     }, [])
+
+    // null is the initial value
     const ref = useRef(null)
     const refClose = useRef(null)
     const [note, setNote] = useState({id: "", etitle: "", edescription: "", ecategory: ""})
