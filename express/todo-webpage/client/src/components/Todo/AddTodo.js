@@ -24,6 +24,12 @@ export default function AddTodo() {
         })
     }
 
+    const options = [
+        { label: "fruit", value: "fruit"},
+        { label: "tool", value: "tool" },
+        { label: "book", value: "book" },
+      ];
+
     let hold;
 
     if (Checkbox.value === 'fruit') {
@@ -68,62 +74,17 @@ export default function AddTodo() {
                 placeholder='Enter Yours Todo category'
                 required 
             />
-            <Checkbox 
-                name='category'
-                value='fruit'
-                onChange={onChange}
-            >
-                fruit
-            </Checkbox>
-            <Checkbox 
-                name='category'
-                value='tool'
-                onChange={onChange}
-            >
-                tool
-            </Checkbox>
-            <Checkbox 
-                name='category'
-                value='book'
-                onChange={onChange}
-            >
-                book
-            </Checkbox>
-            {/* <br />
-            <input 
-                id="fruit"
-                type="radio"
-                name="radio" // radio names have to be same so we can't select multiple radio buttons
-                value="fruit"
-                checked={note.name}
-                onChange={onChange}
-            />
-            <label htmlFor="fruit">
-                fruit
-            </label>
-            <input 
-                id="tool"
-                type="radio"
-                name="radio"
-                value="tool"
-                checked={note.name}
-                onChange={onChange}
-            />
-            <label htmlFor="tool">
-                tool
-            </label>
-            <input 
-                id="book"
-                type="radio"
-                name="radio"
-                value="book"
-                checked={note.name}
-                onChange={onChange}
-            />
-            <label htmlFor="book">
-                book
-            </label>
-            <br /> */}
+            {
+                options.map((data) => (
+                    <Checkbox 
+                        name='category'
+                        value={data.value}
+                        onChange={onChange}
+                    >
+                        {data.label}
+                    </Checkbox>
+                ))
+            }
             <button onClick={handleClick}>
                 Add Todo
             </button>
