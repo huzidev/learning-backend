@@ -57,36 +57,36 @@ export default function AddTodo() {
             />
             <br />
             <input 
-                id="radio"
+                id="fruit"
                 type="radio"
                 name="radio" // radio names have to be same so we can't select multiple radio buttons
                 value="fruit"
                 checked={note.name}
                 onChange={onChange}
             />
-            <label htmlFor="radio">
+            <label htmlFor="fruit">
                 fruit
             </label>
             <input 
-                id="radio"
+                id="tool"
                 type="radio"
                 name="radio"
                 value="tool"
                 checked={note.name}
                 onChange={onChange}
             />
-            <label htmlFor="radio">
+            <label htmlFor="tool">
                 tool
             </label>
             <input 
-                id="radio"
+                id="book"
                 type="radio"
                 name="radio"
                 value="book"
                 checked={note.name}
                 onChange={onChange}
             />
-            <label htmlFor="radio">
+            <label htmlFor="book">
                 book
             </label>
             <br />
