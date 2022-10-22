@@ -23,6 +23,23 @@ export default function AddTodo() {
             [e.target.name]: e.target.value
         })
     }
+
+
+    const options = [
+        {
+          value: 'fruit',
+          label: 'fruit',
+        },
+        {
+          value: 'tool',
+          label: 'tool',
+        },
+        {
+          value: 'book',
+          label: 'book',
+        }
+      ];
+
   return (
     <div>
         <h1>
@@ -57,7 +74,8 @@ export default function AddTodo() {
                 placeholder='Enter Yours Todo category'
                 required 
             />
-            <br />
+             <Cascader options={options} placeholder="Select Category" />
+            {/* <br />
             <input 
                 id="fruit"
                 type="radio"
@@ -91,7 +109,7 @@ export default function AddTodo() {
             <label htmlFor="book">
                 book
             </label>
-            <br />
+            <br /> */}
             <button onClick={handleClick}>
                 Add Todo
             </button>
