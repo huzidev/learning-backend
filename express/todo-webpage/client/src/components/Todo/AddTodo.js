@@ -30,7 +30,7 @@ export default function AddTodo() {
         { label: "book", value: "book" },
       ];
 
-    let hold;
+      const [checkState, setCheckState] = useState(false)
 
     if (Checkbox.value === 'fruit') {
         note.category.valueOf = 'fruit' 
