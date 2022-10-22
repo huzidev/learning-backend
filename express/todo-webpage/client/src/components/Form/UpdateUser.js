@@ -41,7 +41,9 @@ export default function UpdateUser() {
 }
 
     const handleClick = (e)=>{ 
+        setIsModalOpen(false);
         updateUser(data.id, data.eusername, data.eemail, data.enumber)
+        window.location.reload();
     }
 
   const onChange = (e)=>{
@@ -79,9 +81,6 @@ export default function UpdateUser() {
                     onChange={onChange}
                     required 
                 />
-                <button onClick={handleClick}>
-                    Update
-                </button>
             </form>
         </Modal>
         <User updateData={updateData} />
