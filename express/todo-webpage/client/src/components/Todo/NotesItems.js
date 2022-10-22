@@ -67,6 +67,7 @@ export default function NotesItems(props) {
     function filterItems(items) {
 
     const updatedItems = notes.filter((element) => {
+        // element.category targets category only ex: grocery, payments and bills
         return element.category === items
     })
 
