@@ -36,11 +36,11 @@ export default function AddTodo() {
     //     { label: "book", value: "book" },
     //   ];
 
-    if (Radio.value === 'fruit') {
+    if (Radio.value === 1) {
         note.category.valueOf = 'fruit' 
-    } else if (Radio.value === 'tool') {
+    } else if (Radio.value === 2) {
         note.category.valueOf = 'tool' 
-    } else if (Radio.value === 'book') {
+    } else if (Radio.value === 3) {
         note.category.valueOf = 'book' 
     }
 
@@ -80,16 +80,19 @@ export default function AddTodo() {
             />
              <Radio.Group onChange={onChangeRadio} value={value}>
                 <Radio 
+                    name="category"
                     value="fruit"
                 >
                     Fruit
                 </Radio>
                 <Radio 
+                    name="category"
                     value="book"
                 >
                     Book
                 </Radio>
                 <Radio 
+                    name="category"
                     value="tool"
                 >
                     tools
