@@ -19,28 +19,30 @@ export default function AddTodo() {
     const [value, setValue] = useState(1);
 
     const onChangeRadio = (e) => {
-        setValue(e.target.value);
+        setValue(
+            e.target.value
+        );
       };
 
     const onChange = (e)=>{
         setNote({
-            ...note, 
+            ...note,
             [e.target.name]: e.target.value
         })
     }
 
 
-    // const options = [
-    //     { label: "fruit", value: "fruit"},
-    //     { label: "tool", value: "tool" },
-    //     { label: "book", value: "book" },
-    //   ];
+    const options = [
+        { label: "fruit", value: "fruit"},
+        { label: "tool", value: "tool" },
+        { label: "book", value: "book" },
+      ];
 
-    if (Radio.value === 1) {
+    if (Radio.value === 'fruit') {
         note.category.valueOf = 'fruit' 
-    } else if (Radio.value === 2) {
+    } else if (Radio.value === 'tool') {
         note.category.valueOf = 'tool' 
-    } else if (Radio.value === 3) {
+    } else if (Radio.value === 'book') {
         note.category.valueOf = 'book' 
     }
 
@@ -78,37 +80,34 @@ export default function AddTodo() {
                 placeholder='Enter Yours Todo category'
                 required 
             />
-             <Radio.Group onChange={onChangeRadio} value={value}>
+             <Radio.Group onChange={onChangeRadio} name="category" value={value}>
                 <Radio 
-                    name="category"
                     value="fruit"
                 >
                     Fruit
                 </Radio>
                 <Radio 
-                    name="category"
                     value="book"
                 >
                     Book
                 </Radio>
                 <Radio 
-                    name="category"
                     value="tool"
                 >
                     tools
                 </Radio>
             </Radio.Group>
-            {/* {
-                options.map((data, index) => (
+            {
+                options.map((data) => (
                     <Radio 
                         name='category'
-                        value={index + 1}
-                        onChange={onChangeRadio}
+                        value={data.label}
+                        onChange={onChange}
                     >
                         {data.label}
                     </Radio>
                 ))
-            } */}
+            }
             <button onClick={handleClick}>
                 Add Todo
             </button>
