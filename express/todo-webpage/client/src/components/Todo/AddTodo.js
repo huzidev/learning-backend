@@ -59,16 +59,19 @@ export default function AddTodo() {
                 required 
             />
             <Checkbox 
+                name='category'
                 onChange={onChange}
             >
                 fruit
             </Checkbox>
             <Checkbox 
+                name='category'
                 onChange={onChange}
             >
                 book
             </Checkbox>
             <Checkbox 
+                name='category'
                 onChange={onChange}
             >
                 tool
