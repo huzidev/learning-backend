@@ -65,6 +65,8 @@ export default function NotesItems(props) {
     const [items, setItems] = useState(notes)
     const [state, setState] = useState(false)
     
+    let test = state ? items : notes
+
     function filterItems(items) {
 
     const updatedItems = notes.filter((element) => {
@@ -142,11 +144,14 @@ export default function NotesItems(props) {
             book
         </button> */}
         <hr />
-        {!state ? notes.map((note, i) => {
+        {/* {!state ? notes.map((note, i) => {
             return <ShowNotes key={note._id} updateNote={updateNote} note={note} index={i} />
         }) : items.map((note, i) => {
             return <ShowNotes key={note._id} updateNote={updateNote} note={note} index={i} />
-        })}
+        })} */}
+        {test.map((note, i) => {
+            return <ShowNotes key={note._id} updateNote={updateNote} note={note} index={i} />
+        }) }
     </div>
   )
 }
