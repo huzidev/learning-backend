@@ -44,11 +44,6 @@ export default function AddTodo() {
                 required 
             />
             <input 
-                type="checkbox"
-                name="checkbox"
-                onChange={onChange}
-            />
-            <input 
                 type="text"
                 name='category' 
                 value={note.category}
@@ -57,6 +52,33 @@ export default function AddTodo() {
                 placeholder='Enter Yours Todo category'
                 required 
             />
+            <input 
+                id="radio"
+                type="radio"
+                name="fruit"
+                onChange={onChange}
+            />
+            <label htmlFor="radio">
+                fruit
+            </label>
+            <input 
+                id="radio"
+                type="radio"
+                name="tool"
+                onChange={onChange}
+            />
+            <label htmlFor="radio">
+                tool
+            </label>
+            <input 
+                id="radio"
+                type="radio"
+                name="book"
+                onChange={onChange}
+            />
+            <label htmlFor="radio">
+                book
+            </label>
             <button onClick={handleClick}>
                 Add Todo
             </button>
