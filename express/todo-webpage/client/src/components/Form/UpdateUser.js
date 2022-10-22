@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import DataContext from '../Context/DataContext';
 import User from '../User';
 import { Button, Modal, Select  } from 'antd';
+import Test from './Test';
 
 export default function UpdateUser() {
 
@@ -52,6 +53,7 @@ export default function UpdateUser() {
 
   return (
     <div>
+        <Test value={data.eusername}/>
         <Button style={{display: "none" }} ref={ref} type="primary" onClick={showModal}>
             Open Modal
         </Button>
