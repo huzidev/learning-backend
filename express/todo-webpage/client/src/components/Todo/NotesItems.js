@@ -77,7 +77,11 @@ export default function NotesItems(props) {
     setState(true)
   }
 
-  
+  const options = [
+    { label: "fruit", value: "fruit"},
+    { label: "tool", value: "tool" },
+    { label: "book", value: "book" },
+  ];
 
   return (
       <div>

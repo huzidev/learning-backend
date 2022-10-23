@@ -19,7 +19,6 @@ import SignUp from './Form/SignUp';
 import TodoPage from './Todo/TodoPage';
 import AddTodo from './Todo/AddTodo';
 import ShowNotes from './Todo/ShowNotes';
-import UpdateTodo from './Todo/UpdateTodo';
 import NotesItems from './Todo/NotesItems';
 
 export default function App() {
