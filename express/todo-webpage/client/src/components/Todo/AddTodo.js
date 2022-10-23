@@ -82,13 +82,15 @@ export default function AddTodo() {
             />
             {
                 options.map((data) => (
-                    <input 
-                        type='radio'
-                        name='category'
-                        value={data.value}
-                        onChange={onChange}
-                    />
-                        {data.label}
+                    <>
+                        <input 
+                            type='radio'
+                            name='category'
+                            value={data.value}
+                            onChange={onChange}
+                        />
+                            {data.label}
+                    </>
                 ))
             }
             <button onClick={handleClick}>
