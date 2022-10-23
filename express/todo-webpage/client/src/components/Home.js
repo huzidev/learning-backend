@@ -12,6 +12,9 @@ import {
 } from '@ant-design/icons';
 import MapsHomeWorkOutlinedIcon from '@mui/icons-material/MapsHomeWorkOutlined';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
+import PaymentOutlinedIcon from '@mui/icons-material/PaymentOutlined';
+import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
+import KeyboardOutlinedIcon from '@mui/icons-material/KeyboardOutlined';
 import { Breadcrumb, Layout, Menu, Icon } from 'antd';
 import User from './User';
 import SingIn from './Form/SingIn';
@@ -19,7 +22,9 @@ import SignUp from './Form/SignUp';
 import TodoPage from './Todo/TodoPage';
 import AddTodo from './Todo/AddTodo';
 import ShowNotes from './Todo/ShowNotes';
+import UpdateTodo from './Todo/UpdateTodo';
 import NotesItems from './Todo/NotesItems';
+import UpdateUser from './Form/UpdateUser';
 
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
@@ -148,6 +153,7 @@ export default function App() {
             {Location.pathname.includes('/signin') && <SingIn />}
             {Location.pathname.includes('/signup') && <SignUp />}
             {Location.pathname.includes('/addnote') && <NotesItems />}
+            {Location.pathname.includes('/updateuser') && <UpdateUser />}
           </div>
         </Content>
         <Footer
