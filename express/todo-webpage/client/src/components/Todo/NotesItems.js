@@ -46,7 +46,7 @@ export default function NotesItems(props) {
             id: currentNote._id, 
             etitle: currentNote.title, 
             edescription: currentNote.description, 
-            ecategory:currentNote.category
+            ecategory: currentNote.category
         })
     }
     
