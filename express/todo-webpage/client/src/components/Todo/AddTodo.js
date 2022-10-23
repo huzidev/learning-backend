@@ -1,8 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from "../Context/DataContext";
-import ShowNotes from './ShowNotes';
-import { Radio  } from 'antd';
 
 
 export default function AddTodo() {
@@ -16,13 +13,6 @@ export default function AddTodo() {
         addNote(note.title, note.description, note.category);
         setNote({title: "", description: "", category: ""})
     }
-    const [value, setValue] = useState(1);
-
-    const onChangeRadio = (e) => {
-        setValue(
-            e.target.value
-        );
-      };
 
     const onChange = (e)=>{
         setNote({
@@ -30,7 +20,6 @@ export default function AddTodo() {
             [e.target.name]: e.target.value
         })
     }
-
 
     const options = [
         { label: "fruit", value: "fruit"},
