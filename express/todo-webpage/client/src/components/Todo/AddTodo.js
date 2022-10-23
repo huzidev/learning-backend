@@ -43,7 +43,6 @@ export default function AddTodo() {
         <h1>
             Add Todo Note
         </h1>
-
         <form>
             <input 
                 type="text"
