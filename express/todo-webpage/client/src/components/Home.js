@@ -55,17 +55,12 @@ export default function App() {
     ),
     getItem('Home', 'sub1', <HomeOutlined />, [
       getItem(
-        'Grocery', 
+        'Add Todo', 
         '2', 
         <LocalGroceryStoreOutlinedIcon />,
         null,
         () => Navigate('/addnote')
       ),
-      getItem('Payments', '3', <PaymentsOutlinedIcon />),
-      getItem('Personal', '4',  <PaperClipOutlined />)
-    ]),
-    getItem('Office', 'sub2', <MapsHomeWorkOutlinedIcon />, [
-      getItem('Project A', '5', <KeyboardOutlinedIcon /> )
     ]),
     getItem('Completed Tasks', '6', <FileOutlined />),
     getItem(
