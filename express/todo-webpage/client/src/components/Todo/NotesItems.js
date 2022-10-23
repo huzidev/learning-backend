@@ -105,13 +105,19 @@ export default function NotesItems(props) {
                 onChange={onChange}
                 required 
                 />
-            <input 
-                type="text"
-                name='ecategory' 
-                value={note.ecategory}
-                onChange={onChange}
-                required 
-                />
+            {
+                options.map((data) => (
+                    <>
+                        <input 
+                            type='radio'
+                            name='category'
+                            value={data.value}
+                            onChange={onChange}
+                        />
+                            {data.label}
+                    </>
+                ))
+            }
         </form>
       </Modal>
         <h1>
