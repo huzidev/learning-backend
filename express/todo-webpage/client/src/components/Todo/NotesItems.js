@@ -110,7 +110,7 @@ export default function NotesItems(props) {
                     <>
                         <input 
                             type='radio'
-                            name='category'
+                            name='ecategory'
                             value={data.value}
                             onChange={onChange}
                         />
