@@ -38,16 +38,16 @@ export default function AddTodo() {
         { label: "book", value: "book" },
       ];
 
-    if (Radio.value === 'fruit') {
-        // note.category.valueOf = 'fruit' 
-        setNote({...note, category:"fruit"})
-    } else if (Radio.value === 'tool') {
-        // note.category.valueOf = 'tool' 
-        setNote({...note, category:"fruit"})
-    } else if (Radio.value === 'book') {
-        // note.category.valueOf = 'book' 
-        setNote({...note, category:"fruit"})
-    }
+    // if (Radio.value === 'fruit') {
+    //     // note.category.valueOf = 'fruit' 
+    //     setNote({...note, category:"fruit"})
+    // } else if (Radio.value === 'tool') {
+    //     // note.category.valueOf = 'tool' 
+    //     setNote({...note, category:"fruit"})
+    // } else if (Radio.value === 'book') {
+    //     // note.category.valueOf = 'book' 
+    //     setNote({...note, category:"fruit"})
+    // }
 
   return (
     <div>
@@ -72,15 +72,6 @@ export default function AddTodo() {
                 onChange={onChange}
                 minLength= {5}
                 placeholder='Enter Yours Todo Description'
-                required 
-            />
-            <input 
-                type="text"
-                name='category' 
-                value={note.category}
-                onChange={onChange}
-                minLength= {5}
-                placeholder='Enter Yours Todo category'
                 required 
             />
             {
