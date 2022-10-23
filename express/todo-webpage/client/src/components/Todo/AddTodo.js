@@ -12,6 +12,7 @@ export default function AddTodo() {
         e.preventDefault();
         addNote(note.title, note.description, note.category);
         setNote({title: "", description: "", category: ""})
+        window.location.reload()
     }
 
     const onChange = (e)=>{
