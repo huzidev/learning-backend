@@ -83,9 +83,9 @@ export default function NotesItems(props) {
   }
 
   const options = [
-    { label: "fruit", value: note.ecategory},
-    { label: "tool", value: note.ecategory},
-    { label: "book", value: note.ecategory},
+    { label: "fruit", value: "fruit"},
+    { label: "tool", value: "tool" },
+    { label: "book", value: "book" }
   ];
 
   return (
