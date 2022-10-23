@@ -39,11 +39,14 @@ export default function AddTodo() {
       ];
 
     if (Radio.value === 'fruit') {
-        note.category.valueOf = 'fruit' 
+        // note.category.valueOf = 'fruit' 
+        setNote({...note, category:"fruit"})
     } else if (Radio.value === 'tool') {
-        note.category.valueOf = 'tool' 
+        // note.category.valueOf = 'tool' 
+        setNote({...note, category:"fruit"})
     } else if (Radio.value === 'book') {
-        note.category.valueOf = 'book' 
+        // note.category.valueOf = 'book' 
+        setNote({...note, category:"fruit"})
     }
 
   return (
