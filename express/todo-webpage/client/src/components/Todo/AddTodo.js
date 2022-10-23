@@ -82,16 +82,19 @@ export default function AddTodo() {
             />
              <Radio.Group onChange={onChangeRadio} name="category" value={value}>
                 <Radio 
+                    type='radio'
                     value="fruit"
                 >
                     Fruit
                 </Radio>
                 <Radio 
+                    type='radio'
                     value="book"
                 >
                     Book
                 </Radio>
                 <Radio 
+                    type='radio'
                     value="tool"
                 >
                     tools
