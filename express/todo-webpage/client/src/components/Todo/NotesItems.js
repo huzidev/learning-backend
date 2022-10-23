@@ -83,9 +83,9 @@ export default function NotesItems(props) {
   }
 
   const options = [
-    { label: "fruit", value: "fruit"},
-    { label: "tool", value: "tool" },
-    { label: "book", value: "book" },
+    { label: "fruit", value: note.ecategory},
+    { label: "tool", value: note.ecategory},
+    { label: "book", value: note.ecategory},
   ];
 
   return (
@@ -101,14 +101,12 @@ export default function NotesItems(props) {
                 name='etitle' 
                 value={note.etitle}
                 onChange={onChange}
-                required 
                 />
             <input  
                 type="text"
                 name='edescription' 
                 value={note.edescription}
                 onChange={onChange}
-                required 
                 />
             {
                 options.map((data) => (
