@@ -42,7 +42,12 @@ export default function NotesItems(props) {
         // ref.current.value gets the value
         // ref.current.click() checks the click
         ref.current.click();
-        setNote({id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, ecategory:currentNote.category})
+        setNote({
+            id: currentNote._id, 
+            etitle: currentNote.title, 
+            edescription: currentNote.description, 
+            ecategory:currentNote.category
+        })
     }
     
     const handleClick = (e)=>{ 
