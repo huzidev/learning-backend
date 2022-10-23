@@ -15,7 +15,6 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import UpdateUser from './Form/UpdateUser';
 const TodoPage = React.lazy(() => import('./Todo/TodoPage'))
 
 export default function App() {

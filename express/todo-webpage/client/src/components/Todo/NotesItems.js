@@ -4,7 +4,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from "../Context/DataContext";
 import AddTodo from './AddTodo';
 import ShowNotes from './ShowNotes';
-import UpdateTodo from './UpdateTodo';
 
 export default function NotesItems(props) {
     const { Option } = Select;
