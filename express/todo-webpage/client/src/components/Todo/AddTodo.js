@@ -80,35 +80,15 @@ export default function AddTodo() {
                 placeholder='Enter Yours Todo category'
                 required 
             />
-             <Radio.Group onChange={onChangeRadio} name="category" value={value}>
-                <Radio 
-                    type='radio'
-                    value="fruit"
-                >
-                    Fruit
-                </Radio>
-                <Radio 
-                    type='radio'
-                    value="book"
-                >
-                    Book
-                </Radio>
-                <Radio 
-                    type='radio'
-                    value="tool"
-                >
-                    tools
-                </Radio>
-            </Radio.Group>
             {
                 options.map((data) => (
-                    <Radio 
+                    <input 
+                        type='radio'
                         name='category'
-                        value={data.label}
+                        value={data.value}
                         onChange={onChange}
-                    >
+                    />
                         {data.label}
-                    </Radio>
                 ))
             }
             <button onClick={handleClick}>
