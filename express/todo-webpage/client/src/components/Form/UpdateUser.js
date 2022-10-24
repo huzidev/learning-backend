@@ -4,6 +4,7 @@ import DataContext from '../Context/DataContext';
 import User from '../User';
 import { Button, Modal, Select  } from 'antd';
 import Test from './Test';
+import { current } from '@reduxjs/toolkit';
 
 export default function UpdateUser() {
 
@@ -28,7 +29,7 @@ export default function UpdateUser() {
   const ref = useRef(null)
   const refClose = useRef(null)
 
-  const [data, setData] = useState({id: "", eusername: "", eemail: "", enumber: ""})
+  const [data, setData] = useState({id: "", eusername: "", eemail: "", enumber: "", eimage: ""})
 
 
   const updateData = (currData) => {
@@ -37,7 +38,8 @@ export default function UpdateUser() {
         id: currData._id, 
         eusername: currData.username, 
         eemail: currData.email, 
-        enumber:currData.number
+        enumber:currData.number,
+        eimage: currData.image
     })
 }
 

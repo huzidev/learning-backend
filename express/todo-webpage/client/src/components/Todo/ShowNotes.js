@@ -23,7 +23,11 @@ export default function ShowNotes(props) {
         window.location.reload();
     }
 
-    const [compNotes, setCompNotes] = useState()
+    function taskManager() {
+        setCompletedNotes({
+            ...completedNotes,
+        })
+    }
 
   return (
     <div>
