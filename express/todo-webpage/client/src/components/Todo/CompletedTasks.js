@@ -4,7 +4,7 @@ export default function CompletedTasks() {
   return (
     <div>
         <h1>
-            CompletedTasks
+            Completed Tasks
         </h1>
     </div>
   )

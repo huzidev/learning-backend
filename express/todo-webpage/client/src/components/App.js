@@ -28,13 +28,7 @@ export default function App() {
                   <TodoPage /> 
                 </React.Suspense>
               }/>
-              <Route exact path="/about" />
-              <Route exact path="/signup" />
-              <Route exact path="/signin" />
               <Route exact path="/signout" element={<Logout />} />
-              <Route exact path="/addnote" />
-              <Route exact path="/updateuser"/>
-              <Route exact path="/contact" />
               <Route exact path="*" element={<Skeleton active />} />
           </Routes>
         </Router>
