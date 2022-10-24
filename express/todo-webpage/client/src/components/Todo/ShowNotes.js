@@ -13,9 +13,10 @@ export default function ShowNotes(props) {
     const { deleteNote } = context;
     const { note, updateNote, index } = props;
 
-    function delete() {
+    function Test() {
         deleteNote(note._id);
         window.alert("Note Deleted Successfully!");
+        window.location.reload();
     }
 
   return (
@@ -32,7 +33,7 @@ export default function ShowNotes(props) {
         <h3>
             Category: {note.category}
         </h3>
-        <button onClick={() => deleteNote(note._id)}>
+        <button onClick={Test}>
             Delete
         </button>
         <button onClick={()=>{updateNote(note)}}>
