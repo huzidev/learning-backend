@@ -5,7 +5,6 @@ export default function UserState(props) {
   const host = "http://localhost:8000"
   const initialState = []
   const [notes, setNotes] = React.useState(initialState)
-  const [completedNotes, setCompletedNotes] = React.useState(initialState)
   const [userData, setUserData] = React.useState({})
 
   async function getNotes() {
@@ -19,44 +18,10 @@ export default function UserState(props) {
     const data = await res.json();
     setNotes(data)
   }
-  
-  async function getNotes() {
-    const res = await fetch('/allnotescompleted', {
-        method : 'GET',
-            headers : {
-                "Accept" : "application/json",
-                "auth-token": localStorage.getItem('jwtoken')
-            },
-    })
-    const data = await res.json();
-    setNotes(data)
-  }
 
   async function addNote(title, description, category) {
     try {
         const res = await fetch(`/addnote`, {
-            method: 'POST',
-            headers: {
-                "Content-Type" : "application/json",
-                "auth-token": localStorage.getItem('jwtoken')
-            },
-            body: JSON.stringify({ title, description, category })
-        })
-        const note = await res.json();
-        setNotes(notes.concat(note))
-        if (!res.status === 200) {
-            window.alert("No New Note added")
-            const error = new Error(res.error)
-            throw error;
-        }
-    } catch (err) {
-        console.log(err);
-    }   
-  }
-  
-  async function addNote(title, description, category) {
-    try {
-        const res = await fetch(`/addnotecompleted`, {
             method: 'POST',
             headers: {
                 "Content-Type" : "application/json",
