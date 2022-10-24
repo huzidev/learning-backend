@@ -35,7 +35,8 @@ export default function SingIn() {
     username: "",
     number : "",
     email: "",
-    password : ""
+    password : "",
+    image: ""
   });
 
 
@@ -52,7 +53,7 @@ export default function SingIn() {
   async function signIn(e) {
     e.preventDefault();
 
-    const { email, number, password } = user;
+    const { email, number, password, image } = user;
 
     const res = await fetch(`/signin`, {
       method : "POST",
@@ -62,7 +63,8 @@ export default function SingIn() {
       body : JSON.stringify({
         email,
         number,
-        password
+        password,
+        image
       })
     });
     

@@ -20,6 +20,9 @@ export default function User(props) {
         <h1>
             Number: {userData.number}
         </h1>
+        <h1>
+            Image: {userData.image}
+        </h1>
         <button onClick={()=>{updateData(userData)}}>
             Update Data
         </button>
