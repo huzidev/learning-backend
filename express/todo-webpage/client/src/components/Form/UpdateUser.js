@@ -82,11 +82,10 @@ export default function UpdateUser() {
                     onChange={onChange}
                 />
                 <input 
-                    type="text"
-                    name='enumber'
-                    value={data.enumber}
-                    onChange={onChange}
-                    required 
+                    type="file" 
+                    accept=".png, .jpg, .jpeg"
+                    name="photo"
+                    onChange={handlePhoto}
                 />
             </form>
         </Modal>
