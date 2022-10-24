@@ -4,7 +4,9 @@ import User from '../models/userSchema';
 import Contact from '../models/userMessage';
 import Verification from '../middleware/Verification';
 import cookie from 'cookie-parser';
+import multer from "multer";
 import cors from "cors";
+
 
 require('../db/connection.js');
 
