@@ -17,7 +17,7 @@ export default function ShowNotes(props) {
     const { deleteNote } = context;
     const { note, updateNote, index } = props;
 
-    function Test() {
+    function del() {
         deleteNote(note._id);
         window.alert("Note Deleted Successfully!");
         window.location.reload();
@@ -39,7 +39,7 @@ export default function ShowNotes(props) {
         <h3>
             Category: {note.category}
         </h3>
-        <button onClick={Test}>
+        <button onClick={del}>
             Delete
         </button>
         <button onClick={()=>{updateNote(note)}}>
