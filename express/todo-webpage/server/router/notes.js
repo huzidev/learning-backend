@@ -20,7 +20,44 @@ router.get('/allnotes', Verification, async (req, res) => {
     }
 })
 
+router.get('/allnotescompleted', Verification, async (req, res) => {
+    try {
+        const notes = await Note.find({ user: req.userID });
+        res.json(notes)
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
 router.post('/addnote', Verification, [
+    body('title', 'Enter a valid title').isLength({ min: 3 }),
+    body('description', 'Description must be atleast 5 characters').isLength({ min: 5 })], 
+    async (req, res) => {
+        try {
+            const { title, description, category } = req.body;
+
+            const errors = validationResult(req);
+
+            if (!errors.isEmpty()) {
+                return res.status(400).json({ errors: errors.array() })
+            }
+
+            const note = new Note({
+                title, description, category, user: req.userID
+            })
+
+            const savedNote = await note.save();
+
+            res.json(savedNote)
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+)
+
+router.post('/addnotecompleted', Verification, [
     body('title', 'Enter a valid title').isLength({ min: 3 }),
     body('description', 'Description must be atleast 5 characters').isLength({ min: 5 })], 
     async (req, res) => {
