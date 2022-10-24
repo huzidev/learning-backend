@@ -36,7 +36,7 @@ export default function UpdateUser() {
     ref.current.click();
     setData({
         id: currData._id, 
-        eusername: currData.username, 
+        eusername: currData.username,
         eemail: currData.email, 
         enumber:currData.number,
         eimage: currData.image

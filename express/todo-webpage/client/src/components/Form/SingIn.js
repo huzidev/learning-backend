@@ -35,8 +35,7 @@ export default function SingIn() {
     username: "",
     number : "",
     email: "",
-    password : "",
-    image: ""
+    password : ""
   });
 
 
@@ -63,8 +62,7 @@ export default function SingIn() {
       body : JSON.stringify({
         email,
         number,
-        password,
-        image
+        password
       })
     });
     
