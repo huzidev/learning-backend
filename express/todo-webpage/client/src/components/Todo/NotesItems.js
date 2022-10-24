@@ -126,23 +126,29 @@ export default function NotesItems(props) {
         <h1>
             Yours Notes
         </h1>
-        <h1>
-            Filter the list
-        </h1>
-        <button onClick={() => setItems(notes)}>
-            All items
-        </button>
-        {allItems.map((currentEle) => {
-            return (
+        {
+            notes.length === 0 ? "" : (
                 <>
-                <button
-                    onClick={() => filterItems(currentEle)}
-                >
-                    {currentEle}
-                </button>
+                    <h1>
+                        Filter the list
+                    </h1>
+                    <button onClick={() => setItems(notes)}>
+                        All items
+                    </button>
+                    {allItems.map((currentEle) => {
+                        return (
+                            <>
+                            <button
+                                onClick={() => filterItems(currentEle)}
+                                >
+                                {currentEle}
+                            </button>
+                            </>
+                        )
+                    })}
                 </>
             )
-        })}
+        }
         {/* <button onClick={() => setItems(notes)}>
             All items
         </button>
