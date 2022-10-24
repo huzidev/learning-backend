@@ -2,22 +2,18 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 export default function Test() {
-    const [newUser, setNewUser] = useState(
+    const [newUser, setNewAuthor] = useState(
         {
-            name: '',
-            birthdate: '',
-            photo: '',
+            image: '',
         }
     );
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('photo', newUser.photo);
-        formData.append('birthdate', newUser.birthdate);
-        formData.append('name', newUser.name);
+        formData.append('image', newUser.image);
 
-        axios.post('http://localhost:5000/users/add/', formData)
+        axios.post('http://localhost:8000/add', formData)
              .then(res => {
                 console.log(res);
              })
@@ -31,7 +27,7 @@ export default function Test() {
     }
 
     const handlePhoto = (e) => {
-        setNewAuthor({...newUser, photo: e.target.files[0]});
+        setNewAuthor({...newUser, image: e.target.files[0]});
     }
 
   return (
@@ -43,7 +39,7 @@ export default function Test() {
             <input 
                 type="file" 
                 accept=".png, .jpg, .jpeg"
-                name="photo"
+                name="image"
                 onChange={handlePhoto}
             />
             <input 
