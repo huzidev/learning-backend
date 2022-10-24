@@ -19,6 +19,8 @@ export default function ShowNotes(props) {
         window.location.reload();
     }
 
+    const [compNotes, setCompNotes] = useState()
+
   return (
     <div>
         <h1>
