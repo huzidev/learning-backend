@@ -5,6 +5,7 @@ export default function UserState(props) {
   const host = "http://localhost:8000"
   const initialState = []
   const [notes, setNotes] = React.useState(initialState)
+  const [completedNotes, setCompletedNotes] = React.useState(initialState)
   const [userData, setUserData] = React.useState({})
 
   async function getNotes() {
@@ -19,7 +20,7 @@ export default function UserState(props) {
     setNotes(data)
   }
 
-  async function addNote(title, description, category) {
+  async function addNote(title, description, category, isCompleted) {
     try {
         const res = await fetch(`/addnote`, {
             method: 'POST',
@@ -27,7 +28,7 @@ export default function UserState(props) {
                 "Content-Type" : "application/json",
                 "auth-token": localStorage.getItem('jwtoken')
             },
-            body: JSON.stringify({ title, description, category })
+            body: JSON.stringify({ title, description, category, isCompleted })
         })
         const note = await res.json();
         setNotes(notes.concat(note))
@@ -54,6 +55,26 @@ export default function UserState(props) {
         const newNotes = notes.filter((note) => { return note._id !== id })
         setNotes(newNotes)
         console.log("Delete note with id", id);
+    } catch (err) {
+        console.log(err);
+    }
+  }
+  
+  async function compNote(id, isCompleted) {
+    try {
+        const res = await fetch(`/completed/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                "auth-token": localStorage.getItem('jwtoken')
+            },
+            body: JSON.stringify({isCompleted})
+        });
+
+        const data = await res.json();
+
+        let newNote = JSON.parse(JSON.stringify(notes))
+        setNotes(!isCompleted)
     } catch (err) {
         console.log(err);
     }
@@ -152,7 +173,7 @@ export default function UserState(props) {
         {/* if we just use value={userData} then we simply uses context.email */}
         {/* if use value={{ userData }} multiple brackets then we've to use context.userData.email */}
         {/* {{}} multiple brackets are used when we've to pass multiple values like value={{ userData, notes }} */}
-        <DataContext.Provider value={{ userData, addNote, getNotes, editNote, deleteNote, notes, setNotes, updateUser }}>
+        <DataContext.Provider value={{ userData, addNote, getNotes, editNote, deleteNote, notes, setNotes, updateUser, compNote }}>
             {props.children}
         </DataContext.Provider>
     </div>

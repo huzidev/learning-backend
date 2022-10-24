@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import DataContext from "../Context/DataContext";
 import { useNavigate, useParams } from 'react-router-dom';
 import NotesItems from './NotesItems';
+import { Button, Checkbox } from 'antd';
 
 export default function ShowNotes(props) {
 
@@ -14,7 +15,7 @@ export default function ShowNotes(props) {
     const [completedNotes, setCompletedNotes] = React.useState(initialState)
 
     const context = useContext(DataContext);
-    const { deleteNote } = context;
+    const { deleteNote,notes, setNotes, compNote } = context;
     const { note, updateNote, index } = props;
 
     function del() {
@@ -23,11 +24,30 @@ export default function ShowNotes(props) {
         window.location.reload();
     }
 
-    function taskManager() {
-        setCompletedNotes({
-            ...completedNotes,
-        })
+    console.log("Data", note);
+
+    function stateReg() {
+        compNote(note._id);
+        window.alert("State Updated Successfully!");
+        window.location.reload();
     }
+
+    const [checked, setChecked] = useState(true);
+
+      const onChange = (e) => {
+        console.log('checked = ', e.target.checked);
+        setChecked(e.target.checked);
+      };
+
+    const test = !note.isCompleted ? "Hello World" : "True"
+
+      React.useEffect(() => {
+          if (note.isCompleted === true) {
+              setChecked(true)
+          } else if (note.isCompleted === false) {
+              setChecked(false)
+          }
+      }, [setChecked])
 
   return (
     <div>
@@ -49,11 +69,12 @@ export default function ShowNotes(props) {
         <button onClick={()=>{updateNote(note)}}>
             Update Note
         </button>
-        <input 
-            id='check'
-            type="checkbox"
-        />
-        <label htmlFor="check">Task Completed</label>
+        <h1>
+            {test}
+        </h1>
+        <Checkbox checked={checked} onClick={stateReg} onChange={onChange}>
+            Task Completed
+        </Checkbox>
         <hr />
     </div>
   )

@@ -30,6 +30,14 @@ export default function Test() {
         setNewAuthor({...newUser, image: e.target.files[0]});
     }
 
+    const [test, setTest] = useState(false)
+
+    function ff() {
+        setTest(prevState => !prevState)
+    }
+
+    console.log("State is ", test);
+
   return (
     <div>
         <h1>
@@ -46,6 +54,10 @@ export default function Test() {
                 type="submit"
             />
         </form>
+        <input 
+            type="checkbox"
+            onClick={ff} 
+        />
     </div>
   )
 }

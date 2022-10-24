@@ -6,11 +6,11 @@ export default function AddTodo() {
     const context = useContext(DataContext);
     const {addNote} = context;
 
-    const [note, setNote] = useState({title: "", description: "", category: ""})
+    const [note, setNote] = useState({title: "", description: "", category: "", isCompleted: false})
 
     const handleClick = (e)=>{
         e.preventDefault();
-        addNote(note.title, note.description, note.category);
+        addNote(note.title, note.description, note.category, note.isCompleted);
         setNote({title: "", description: "", category: ""})
         window.location.reload()
     }
