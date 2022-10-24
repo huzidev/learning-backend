@@ -5,7 +5,6 @@ export default function UserState(props) {
   const host = "http://localhost:8000"
   const initialState = []
   const [notes, setNotes] = React.useState(initialState)
-  const [completedNotes, setCompletedNotes] = React.useState(initialState)
   const [userData, setUserData] = React.useState({})
 
   async function getNotes() {
@@ -152,18 +151,7 @@ export default function UserState(props) {
         {/* if we just use value={userData} then we simply uses context.email */}
         {/* if use value={{ userData }} multiple brackets then we've to use context.userData.email */}
         {/* {{}} multiple brackets are used when we've to pass multiple values like value={{ userData, notes }} */}
-        <DataContext.Provider value={{ 
-            userData, 
-            addNote, 
-            getNotes, 
-            editNote, 
-            deleteNote, 
-            notes, 
-            setNotes, 
-            updateUser, 
-            completedNotes, 
-            setCompletedNotes 
-        }}>
+        <DataContext.Provider value={{ userData, addNote, getNotes, editNote, deleteNote, notes, setNotes, updateUser }}>
             {props.children}
         </DataContext.Provider>
     </div>
