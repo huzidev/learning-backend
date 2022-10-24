@@ -39,6 +39,11 @@ export default function ShowNotes(props) {
         <button onClick={()=>{updateNote(note)}}>
             Update Note
         </button>
+        <input 
+            id='check'
+            type="checkbox"
+        />
+        <label htmlFor="check">Task Completed</label>
         <hr />
     </div>
   )
