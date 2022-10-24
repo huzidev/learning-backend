@@ -68,14 +68,18 @@ export default function UpdateUser() {
                     name='eusername'
                     value={data.eusername}
                     onChange={onChange}
-                    required 
                 />
                 <input 
                     type="text"
                     name='eemail'
                     value={data.eemail}
                     onChange={onChange}
-                    required 
+                />
+                <input 
+                    type="text"
+                    name='enumber'
+                    value={data.enumber}
+                    onChange={onChange}
                 />
                 <input 
                     type="text"
