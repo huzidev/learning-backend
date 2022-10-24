@@ -53,6 +53,10 @@ export default function UpdateUser() {
     setData({...data, [e.target.name]: e.target.value})
 }
 
+const handlePhoto = (e) => {
+    setData({...data, eimage: e.target.files[0]});
+}
+
   return (
     <div>
         <Button style={{display: "none" }} ref={ref} type="primary" onClick={showModal}>
@@ -84,7 +88,7 @@ export default function UpdateUser() {
                 <input 
                     type="file" 
                     accept=".png, .jpg, .jpeg"
-                    name="photo"
+                    name="eimage"
                     onChange={handlePhoto}
                 />
             </form>
