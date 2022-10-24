@@ -13,6 +13,10 @@ export default function ShowNotes(props) {
     const { deleteNote } = context;
     const { note, updateNote, index } = props;
 
+    function delete() {
+        deleteNote(note._id)
+    }
+
   return (
     <div>
         <h1>
