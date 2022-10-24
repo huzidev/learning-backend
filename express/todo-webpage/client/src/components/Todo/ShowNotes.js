@@ -14,7 +14,7 @@ export default function ShowNotes(props) {
     const [completedNotes, setCompletedNotes] = React.useState(initialState)
 
     const context = useContext(DataContext);
-    const { deleteNote, completedNotes } = context;
+    const { deleteNote } = context;
     const { note, updateNote, index } = props;
 
     function Test() {
