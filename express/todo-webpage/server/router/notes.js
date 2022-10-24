@@ -25,7 +25,7 @@ router.post('/addnote', Verification, [
     body('description', 'Description must be atleast 5 characters').isLength({ min: 5 })], 
     async (req, res) => {
         try {
-            const { title, description, category } = req.body;
+            const { title, description, category, isCompleted } = req.body;
 
             const errors = validationResult(req);
 
@@ -34,7 +34,7 @@ router.post('/addnote', Verification, [
             }
 
             const note = new Note({
-                title, description, category, user: req.userID
+                title, description, category, isCompleted, user: req.userID
             })
 
             const savedNote = await note.save();
@@ -95,6 +95,35 @@ router.delete('/deletenote/:id', Verification, async (req, res) => {
         
         note = await Note.findByIdAndDelete(req.params.id);
         return res.status(200).json({ message: "Note Deleted", note: note })
+    } catch (e) {
+        console.log(e);
+    }
+})
+
+router.put('/completed/:id', Verification, async (req, res) => {
+    const { isCompleted } = req.body;
+    try {
+        
+        const newNote = {}
+        if (isCompleted) {
+            newNote.isCompleted = isCompleted
+        } 
+
+        let note = await Note.findById(req.params.id);
+        if (!note) {
+            return res.status(404).json({ error: "Not Found" })
+        }
+        if (note.user.toString() !== req.userID.toString()) {
+            return res.status(401).send("Not Allowed");
+        }
+
+        note = await Note.findByIdAndUpdate(
+            req.params.id,
+            { $set: newNote },
+            { new: true }
+        )
+        res.json({ note });
+
     } catch (e) {
         console.log(e);
     }

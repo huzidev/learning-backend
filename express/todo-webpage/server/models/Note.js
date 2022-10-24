@@ -14,6 +14,9 @@ const NotesSchema = new mongoose.Schema({
         type: String,
         required: true, 
     },
+    isCompleted: {
+        type: Boolean
+    },
     category: {
         type: String,
         default: "General"

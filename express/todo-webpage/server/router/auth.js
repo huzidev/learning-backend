@@ -1,12 +1,13 @@
 import express from "express";
 import bcrypt from "bcrypt";
+const { v4: uuidv4 } = require('uuid');
+import multer from "multer";
 import User from '../models/userSchema';
 import Contact from '../models/userMessage';
 import Verification from '../middleware/Verification';
 import cookie from 'cookie-parser';
-import multer from "multer";
 import cors from "cors";
-
+import path from 'path';
 
 require('../db/connection.js');
 
@@ -24,7 +25,7 @@ router.post('/', (req, res) => {
 })
 
 router.post('/signup', async (req, res) => {
-    const { username, email, number, password, cpassword } = req.body;
+    const { username, email, number, password, cpassword, image } = req.body;
 
     if ( !username || !email || !number || !password || !cpassword ) {
         return res.status(421).json({ error : "You've left an tag empty" });
@@ -49,7 +50,7 @@ router.post('/signup', async (req, res) => {
         } 
         // when user registered successfully
         else {
-            const user = new User({ username, email, number, password, cpassword });
+            const user = new User({ username, email, number, password, cpassword, image });
             const userRegister = await user.save();
             if (userRegister) {
                 return res.status(201).json({ message : "User registered successfully!" });
@@ -191,6 +192,41 @@ router.put('/updateuser/:id', Verification, async (req, res) => {
     }
 
 })
+
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, 'images');
+    },
+    filename: function(req, file, cb) {   
+        cb(null, uuidv4() + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    const allowedFileTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+    if(allowedFileTypes.includes(file.mimetype)) {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+}
+
+let upload = multer({ storage, fileFilter });
+
+router.route('/add').post(upload.single('image'), async (req, res) => {
+    const image = req.file.filename;
+
+    const newUserData = {
+        image
+    }
+
+    const newUser = new User(newUserData);
+
+    const upload = await newUser.save()
+
+    res.json(upload)
+});
 
 router.get('/about', Verification, (req, res) => {
     res.send(req.userInfo)
