@@ -14,7 +14,8 @@ export default function ShowNotes(props) {
     const { note, updateNote, index } = props;
 
     function delete() {
-        deleteNote(note._id)
+        deleteNote(note._id);
+        window.alert("Note Deleted Successfully!");
     }
 
   return (
