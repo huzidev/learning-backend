@@ -97,7 +97,7 @@ export default function UserState(props) {
                 'Content-Type': 'application/json',
                 "auth-token": localStorage.getItem('jwtoken')
             },
-            body: JSON.stringify({username, email, number})
+            body: JSON.stringify({username, email, number, image})
         });
 
         const data = await res.json();
@@ -110,6 +110,7 @@ export default function UserState(props) {
                 newData[index].username = username;
                 newData[index].email = email;
                 newData[index].number = number;
+                newData[index].image = image;
                 break; 
             }
             setUserData(newData)
