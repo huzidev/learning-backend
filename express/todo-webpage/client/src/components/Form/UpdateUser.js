@@ -38,7 +38,7 @@ export default function UpdateUser() {
         id: currData._id, 
         eusername: currData.username,
         eemail: currData.email, 
-        enumber:currData.number,
+        enumber: currData.number,
         eimage: currData.image
     })
 }

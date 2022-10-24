@@ -89,7 +89,7 @@ export default function UserState(props) {
     }
   }
 
-  async function updateUser(id, username, email, number) {
+  async function updateUser(id, username, email, number, image) {
     try {
         const res = await fetch(`/updateuser/${id}`, {
             method: 'PUT',
