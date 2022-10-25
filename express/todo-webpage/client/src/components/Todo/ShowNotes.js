@@ -29,7 +29,6 @@ export default function ShowNotes(props) {
     function stateReg() {
         compNote(note._id);
         window.alert("State Updated Successfully!");
-        window.location.reload();
     }
 
     const [checked, setChecked] = useState(true);
@@ -40,7 +39,7 @@ export default function ShowNotes(props) {
       };
 
     const test = !note.isCompleted ? "Hello World" : "True"
-
+      
       React.useEffect(() => {
           if (note.isCompleted === true) {
               setChecked(true)

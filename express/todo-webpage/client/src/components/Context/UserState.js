@@ -74,7 +74,7 @@ export default function UserState(props) {
         const data = await res.json();
 
         let newNote = JSON.parse(JSON.stringify(notes))
-        setNotes(!isCompleted)
+        setNotes({...notes,  isCompleted: !notes.isCompleted})
     } catch (err) {
         console.log(err);
     }
