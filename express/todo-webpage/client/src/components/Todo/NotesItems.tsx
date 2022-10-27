@@ -174,7 +174,7 @@ export default function NotesItems(props: any) {
         }) : items.map((note, i) => {
             return <ShowNotes key={note._id} updateNote={updateNote} note={note} index={i} />
         })} */}
-        {test.map((note: string, i: number) => {
+        {test.map((note: any, i: number) => {
             return <ShowNotes key={note._id} updateNote={updateNote} note={note} index={i} />
         }) }
     </div>
