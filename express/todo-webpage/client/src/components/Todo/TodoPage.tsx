@@ -1,7 +1,7 @@
 import React, { useContext }from 'react';
 import DataContext from '../Context/DataContext';
 
-export default function TodoPage() {
+export default function TodoPage(): JSX.Element {
 
   const context = useContext(DataContext);
 
