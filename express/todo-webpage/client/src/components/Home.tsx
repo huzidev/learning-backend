@@ -33,7 +33,7 @@ export default function App(): JSX.Element {
   const { Content, Footer, Sider } = Layout;
   function getItem(
     label: String, 
-    key: Number, 
+    key: String, 
     icon: any,
     children: any, 
     onClick : any
@@ -56,15 +56,15 @@ export default function App(): JSX.Element {
   const signedInItems = [
     getItem(
       'User', 
-      1, 
+      '1', 
       <UserOutlined />,
       null,
       () => Navigate('/updateuser')
     ),
-    getItem('Home', 'sub1', <HomeOutlined />, [
+    getItem('Home', 'sub1', <HomeOutlined />, null, [
       getItem(
         'Add Todo', 
-        '2', 
+        2, 
         <LocalGroceryStoreOutlinedIcon />,
         null,
         () => Navigate('/addnote')
