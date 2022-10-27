@@ -28,7 +28,7 @@ import UpdateUser from './Form/UpdateUser';
 import CompletedTasks from './Todo/CompletedTasks';
 import Test from './Form/Test';
 
-export default function App() {
+export default function App(): JSX.Element {
   const [collapsed, setCollapsed] = useState(false);
   const { Content, Footer, Sider } = Layout;
   function getItem(label, key, icon, children, onClick ) {
