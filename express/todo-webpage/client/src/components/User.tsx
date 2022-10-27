@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import DataContext from './Context/DataContext';
 
-export default function User(props) {
+export default function User(props): JSX.Element {
   const context = useContext(DataContext);
   const { userData } = context
 
