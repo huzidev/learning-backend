@@ -8,13 +8,13 @@ export default function Test() {
         }
     );
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('image', newUser.image);
 
         axios.post('http://localhost:8000/add', formData)
-             .then((res: Response) => {
+             .then((res: any) => {
                 console.log(res);
              })
              .catch((err: any) => {
