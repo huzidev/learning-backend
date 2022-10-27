@@ -40,7 +40,6 @@ export default function NotesItems(props: any) {
 
     // null is the initial value
     const ref = useRef(null)
-    const refClose = useRef(null)
     const [note, setNote] = useState<DataType>({id: "", etitle: "", edescription: "", ecategory: ""})
     
     const updateNote = (currentNote: any) => {
@@ -64,7 +63,7 @@ export default function NotesItems(props: any) {
       window.location.reload();
     }
     
-    const onChange = (e)=>{
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
         setNote({...note, [e.target.name]: e.target.value})
     }
   
