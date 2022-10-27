@@ -37,7 +37,7 @@ export default function SignUp() {
         cpassword: string
     }
 
-  const [user, setUser] = React.useState({
+  const [user, setUser] = React.useState<DataTypes>({
     username : "",
     email : "",
     number : "",
@@ -99,10 +99,10 @@ export default function SignUp() {
     }
   };
   
-    const onFinish = (values) => {
+    const onFinish = (values: any) => {
         console.log('Success:', values);
     };
-    const onFinishFailed = (errorInfo) => {
+    const onFinishFailed = (errorInfo: : any) => {
         console.log('Failed:', errorInfo);
     };
 
