@@ -29,6 +29,14 @@ export default function SignUp() {
     };
   /* eslint-enable no-template-curly-in-string */
 
+    interface DataTypes {
+        username: string,
+        email: string,
+        number: string,
+        password: string,
+        cpassword: string
+    }
+
   const [user, setUser] = React.useState({
     username : "",
     email : "",
