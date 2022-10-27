@@ -32,8 +32,8 @@ export default function App(): JSX.Element {
   const [collapsed, setCollapsed] = useState(false);
   const { Content, Footer, Sider } = Layout;
   function getItem(
-    label: String, 
-    key: String, 
+    label: string, 
+    key: string, 
     icon: any,
     children: any, 
     onClick : any
