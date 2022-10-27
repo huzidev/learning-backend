@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Button, Modal, Select  } from 'antd';
+import { Button, Modal } from 'antd';
 import { useHistory, useLocation } from 'react-router-dom';
 import DataContext from "../Context/DataContext";
 import AddTodo from './AddTodo';
@@ -14,13 +14,9 @@ export default function NotesItems(props: any) {
         ecategory: string
     }
 
-    const { Option } = Select;
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
         setIsModalOpen(true);
-    };
-    const handleOk = () => {
-        setIsModalOpen(false);
     };
     const handleCancel = () => {
       setIsModalOpen(false);
@@ -156,24 +152,6 @@ export default function NotesItems(props: any) {
                 </>
             )
         }
-        {/* <button onClick={() => setItems(notes)}>
-            All items
-        </button>
-        <button onClick={() => filterItems('fruit')}>
-            fruit
-        </button>
-        <button onClick={() => filterItems('tool')}>
-            tool
-        </button>
-        <button onClick={() => filterItems('book')}>
-            book
-        </button> */}
-        <hr />
-        {/* {!state ? notes.map((note, i) => {
-            return <ShowNotes key={note._id} updateNote={updateNote} note={note} index={i} />
-        }) : items.map((note, i) => {
-            return <ShowNotes key={note._id} updateNote={updateNote} note={note} index={i} />
-        })} */}
         {test.map((note: any, i: number) => {
             return <ShowNotes key={note._id} updateNote={updateNote} note={note} index={i} />
         }) }
