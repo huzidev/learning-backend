@@ -6,9 +6,9 @@ export default function AddTodo(): JSX.Element {
     const context = useContext(DataContext);
     const {addNote} = context;
     interface Test {
-        title: String,
-        description: String,
-        category: String,
+        title: string,
+        description: string,
+        category: string,
     }
     const [note, setNote] = useState<Test>({title: "", description: "", category: ""})
 
