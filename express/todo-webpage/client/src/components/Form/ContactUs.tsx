@@ -40,7 +40,7 @@ export default function Footer() {
   })
 
   let name, value;
-  function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
+  function inputHandler(e: any) {
       name = e.target.name;
       value = e.target.value;
       setUser({ 
@@ -81,7 +81,7 @@ export default function Footer() {
     }
   }
 
-  const onFinish = (values) => {
+  const onFinish = (values: any) => {
     console.log(values);
   };
   return (

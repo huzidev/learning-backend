@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 export default function Logout() {
 
-    const Navigate = useNavigate();
+    const history = useHistory();
 
     React.useEffect(() => {
         fetch('/signout', {
@@ -22,7 +22,7 @@ export default function Logout() {
           }
           setTimeout(() => {
             window.alert("Logout successfully")
-            Navigate('/', {
+            history.push('/', {
               replace : true
             })
             window.location.reload();
