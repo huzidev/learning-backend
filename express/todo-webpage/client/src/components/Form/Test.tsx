@@ -14,10 +14,10 @@ export default function Test() {
         formData.append('image', newUser.image);
 
         axios.post('http://localhost:8000/add', formData)
-             .then(res => {
+             .then((res: Response) => {
                 console.log(res);
              })
-             .catch(err => {
+             .catch((err: any) => {
                 console.log(err);
              });
     }
