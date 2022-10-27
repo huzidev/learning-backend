@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-export default function Logout() {
+export default function Logout(): JSX.Element {
 
     const history = useHistory();
 
