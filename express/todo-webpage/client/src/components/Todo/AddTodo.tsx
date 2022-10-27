@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import DataContext from "../Context/DataContext";
 
 
-export default function AddTodo() {
+export default function AddTodo(): JSX.Element {
     const context = useContext(DataContext);
     const {addNote} = context;
 
