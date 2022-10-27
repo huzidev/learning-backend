@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Button, Modal, Select  } from 'antd';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import DataContext from "../Context/DataContext";
 import AddTodo from './AddTodo';
 import ShowNotes from './ShowNotes';
 
-export default function NotesItems(props) {
+export default function NotesItems(props: any) {
     const { Option } = Select;
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
@@ -19,14 +19,14 @@ export default function NotesItems(props) {
     };
     const Location = useLocation();
   const context = useContext(DataContext);
-  const Navigate = useNavigate();
+  const history = useHistory();
   const { notes, getNotes, editNote } = context;
   useEffect(() => {
       if (localStorage.getItem('jwtoken')) {
           getNotes()
         }
         else{
-            Navigate("/login");
+            history.push("/login");
         }
     }, [])
 
