@@ -25,7 +25,14 @@ const validateMessages = {
 
 export default function Footer() {
 
-  const [user, setUser] = React.useState({
+  interface DataTypes {
+    username: string,
+    email: string,
+    number: string,
+    message: string,
+  }
+
+  const [user, setUser] = React.useState<DataTypes>({
     username : "",
     email : "",
     number : "",
