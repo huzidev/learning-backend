@@ -8,7 +8,7 @@ export default function AddTodo(): JSX.Element {
 
     const [note, setNote] = useState({title: "", description: "", category: "", isCompleted: false})
 
-    const handleClick = (e)=>{
+    const handleClick = (e: React.FormEvent)=>{
         e.preventDefault();
         addNote(note.title, note.description, note.category, note.isCompleted);
         setNote({title: "", description: "", category: ""})
