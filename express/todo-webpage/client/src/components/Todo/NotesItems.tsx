@@ -67,7 +67,7 @@ export default function NotesItems(props: any) {
         setNote({...note, [e.target.name]: e.target.value})
     }
   
-    const allItems = [...new Set(notes.map((currentEle) => {
+    const allItems = [...new Set(notes.map((currentEle: any) => {
         return (
             currentEle.category
         )
@@ -78,9 +78,9 @@ export default function NotesItems(props: any) {
     
     let test = state ? items : notes
 
-    function filterItems(items) {
+    function filterItems(items: string) {
 
-    const updatedItems = notes.filter((element) => {
+    const updatedItems = notes.filter((element: any) => {
         // element.category targets category only ex: grocery, payments and bills
         return element.category === items
     })
