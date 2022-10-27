@@ -6,6 +6,14 @@ import AddTodo from './AddTodo';
 import ShowNotes from './ShowNotes';
 
 export default function NotesItems(props: any) {
+
+    interface DataType {
+        id: string,
+        etitle: string,
+        edescription: string,
+        ecategory: string
+    }
+
     const { Option } = Select;
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
@@ -33,9 +41,9 @@ export default function NotesItems(props: any) {
     // null is the initial value
     const ref = useRef(null)
     const refClose = useRef(null)
-    const [note, setNote] = useState({id: "", etitle: "", edescription: "", ecategory: ""})
+    const [note, setNote] = useState<DataType>({id: "", etitle: "", edescription: "", ecategory: ""})
     
-    const updateNote = (currentNote) => {
+    const updateNote = (currentNote: any) => {
 
         // ref.current.click() checks if user clicked or not therefore we've passed the ref in the button of modal as ref={ref}
         // to check if user clicked or not
