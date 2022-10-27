@@ -40,7 +40,7 @@ export default function SingIn() {
 
 
   let name, value;
-  function inputHandler(e) {
+  function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
     name= e.target.name;
     value= e.target.value;
     setUser({
