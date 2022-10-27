@@ -40,7 +40,7 @@ export default function Footer() {
   })
 
   let name, value;
-  function inputHandler(e) {
+  function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
       name = e.target.name;
       value = e.target.value;
       setUser({ 
@@ -49,7 +49,7 @@ export default function Footer() {
       });
   }
     
-  async function sendMessage(e) {
+  async function sendMessage(e: React.FormEvent) {
     e.preventDefault();
 
     const { username, email, number, message } = user;
