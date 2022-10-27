@@ -8,6 +8,8 @@ export default function AddTodo(): JSX.Element {
 
     const [note, setNote] = useState({title: "", description: "", category: "", isCompleted: false})
 
+    const test 
+
     const handleClick = (e: React.FormEvent)=>{
         e.preventDefault();
         addNote(note.title, note.description, note.category, note.isCompleted);
@@ -15,7 +17,7 @@ export default function AddTodo(): JSX.Element {
         window.location.reload()
     }
 
-    const onChange = (e)=>{
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
         setNote({
             ...note,
             [e.target.name]: e.target.value
