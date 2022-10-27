@@ -102,7 +102,7 @@ export default function SignUp() {
     const onFinish = (values: any) => {
         console.log('Success:', values);
     };
-    const onFinishFailed = (errorInfo: : any) => {
+    const onFinishFailed = (errorInfo: any) => {
         console.log('Failed:', errorInfo);
     };
 
@@ -169,17 +169,16 @@ export default function SignUp() {
                     placeholder="Enter Yours Number"
                 />
             </Form.Item>
-            <Form.Item 
-                name={['password']}
+            <Form.Item
+                name="password"
                 label="Password"
                 rules={[
-                    {
-                        required: true,
-                        type: 'password',
-                        min: 6,
-                        max: 8
-                    },
+                {
+                    required: true,
+                    message: 'Please input your password!',
+                },
                 ]}
+                hasFeedback
             >
                 <Input.Password
                     name="password"
@@ -189,22 +188,21 @@ export default function SignUp() {
                 />
             </Form.Item>
             <Form.Item
-                name={['confirm']}
+                name="confirm"
                 label="Confirm Password"
                 dependencies={['password']}
                 hasFeedback
                 rules={[
                 {
                     required: true,
-                    type: 'password',
-                    min: 6
+                    message: 'Please confirm your password!',
                 },
                 ({ getFieldValue }) => ({
                     validator(_, value) {
                     if (!value || getFieldValue('password') === value) {
                         return Promise.resolve();
                     }
-                        return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                    return Promise.reject(new Error('The two passwords that you entered do not match!'));
                     },
                 }),
                 ]}
