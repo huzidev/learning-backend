@@ -22,11 +22,11 @@ export default function Test() {
              });
     }
 
-    const handleChange = (e) => {
+    const handleChange = (e:  React.ChangeEvent<HTMLInputElement>) => {
         setNewAuthor({...newUser, [e.target.name]: e.target.value});
     }
 
-    const handlePhoto = (e) => {
+    const handlePhoto = (e: any) => {
         setNewAuthor({...newUser, image: e.target.files[0]});
     }
 
