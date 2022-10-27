@@ -8,11 +8,8 @@ export default function ShowNotes(props: any): JSX.Element {
 
     const history = useHistory();
 
-    const initialState = []
-    const [completedNotes, setCompletedNotes] = React.useState(initialState)
-
     const context = useContext(DataContext);
-    const { deleteNote,notes, setNotes, compNote } = context;
+    const { deleteNote, compNote } = context;
     const { note, updateNote, index } = props;
 
     function del() {
@@ -30,7 +27,7 @@ export default function ShowNotes(props: any): JSX.Element {
 
     const [checked, setChecked] = useState(true);
 
-      const onChange = (e) => {
+      const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         console.log('checked = ', e.target.checked);
         setChecked(e.target.checked);
       };
