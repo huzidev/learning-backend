@@ -16,7 +16,7 @@ import {
 } from "react-router-dom";
 const TodoPage = React.lazy(() => import('./Todo/TodoPage'))
 
-export default function App()): JSX.Element {
+export default function App(): JSX.Element {
   return (
     <div>
       <UserState>
