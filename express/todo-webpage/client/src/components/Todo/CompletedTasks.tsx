@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CompletedTasks() {
+export default function CompletedTasks(): JSX.Element {
   return (
     <div>
         <h1>
