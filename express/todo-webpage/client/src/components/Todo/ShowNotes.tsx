@@ -1,15 +1,12 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import DataContext from "../Context/DataContext";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import NotesItems from './NotesItems';
 import { Button, Checkbox } from 'antd';
 
-export default function ShowNotes(props) {
+export default function ShowNotes(props: any): JSX.Element {
 
-    const Navigate = useNavigate();
-
-    let { id } = useParams();
-
+    const history = useHistory();
 
     const initialState = []
     const [completedNotes, setCompletedNotes] = React.useState(initialState)
