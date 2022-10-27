@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, Typography } from 'antd';
 
 export default function SingIn() {
 
-  const Navigate = useNavigate();
+  const history = useHistory();
 
   const layout = {
     labelCol: {
@@ -31,7 +31,14 @@ export default function SingIn() {
   };
   /* eslint-enable no-template-curly-in-string */
 
-  const [user, setUser] = React.useState({
+  interface DataTypes {
+    username: string,
+    number: string,
+    email: string,
+    password: string
+  }
+
+  const [user, setUser] = React.useState<DataTypes>({
     username: "",
     number : "",
     email: "",
@@ -52,7 +59,7 @@ export default function SingIn() {
   async function signIn(e) {
     e.preventDefault();
 
-    const { email, number, password, image } = user;
+    const { email, number, password } = user;
 
     const res = await fetch(`/signin`, {
       method : "POST",
@@ -81,7 +88,7 @@ export default function SingIn() {
     else {
       window.alert("LoggedIn Successfully!");
       localStorage.setItem('jwtoken', data.token);
-      Navigate('/');
+      history.push('/');
       window.location.reload();
     }
   }
