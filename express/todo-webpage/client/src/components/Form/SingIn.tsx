@@ -56,7 +56,7 @@ export default function SingIn() {
     });
   };
 
-  async function signIn(e) {
+  async function signIn(e: React.FormEvent) {
     e.preventDefault();
 
     const { email, number, password } = user;
@@ -93,7 +93,7 @@ export default function SingIn() {
     }
   }
 
-  const onFinish = (values) => {
+  const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
 
