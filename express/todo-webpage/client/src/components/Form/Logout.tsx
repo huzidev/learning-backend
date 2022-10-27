@@ -13,11 +13,11 @@ export default function Logout(): JSX.Element {
               "Content-Type" : "application/json"
           },
           credentials : "include"
-        }).then((res) => {
+        }).then((res: Response) => {
           if (res.status === 200) {
             localStorage.removeItem('jwtoken')
           } else {
-            const error = new Error(res.Error);
+            const error = new Error();
             throw error;
           }
           setTimeout(() => {
@@ -27,7 +27,7 @@ export default function Logout(): JSX.Element {
             })
             window.location.reload();
           }, 2500)
-        }).catch((err) => {
+        }).catch((err: any) => {
           console.log(err);
         })
       }, [])
