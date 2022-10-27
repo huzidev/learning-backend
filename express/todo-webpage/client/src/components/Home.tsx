@@ -31,7 +31,13 @@ import Test from './Form/Test';
 export default function App(): JSX.Element {
   const [collapsed, setCollapsed] = useState(false);
   const { Content, Footer, Sider } = Layout;
-  function getItem(label, key, icon, children, onClick ) {
+  function getItem(
+    label: any, 
+    key: any, 
+    icon: any,
+    children: any, 
+    onClick : any
+  ) {
     return {
       key,
       icon,
