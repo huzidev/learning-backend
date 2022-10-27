@@ -11,7 +11,7 @@ import UserState from './Context/UserState';
 import { Skeleton } from 'antd';
 import {
   BrowserRouter as Router,
-  Routes,
+  Switch,
   Route,
 } from "react-router-dom";
 const TodoPage = React.lazy(() => import('./Todo/TodoPage'))
@@ -22,8 +22,8 @@ export default function App(): JSX.Element {
       <UserState>
         <Router>
           <Home />
-          <Routes>
-              <Route exact path="/" element={
+          <Switch>
+              <Route exact path="/" component={
                 <React.Suspense fallback={<h1>Please Wait...</h1>}>
                   <TodoPage /> 
                 </React.Suspense>
@@ -36,7 +36,7 @@ export default function App(): JSX.Element {
               <Route exact path="/updateuser"/>
               <Route exact path="/contact" />
               <Route exact path="*" element={<Skeleton active />} />
-          </Routes>
+          </Switch>
         </Router>
       </UserState>
     </div>
