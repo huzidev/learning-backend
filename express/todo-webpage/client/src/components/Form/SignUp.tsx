@@ -38,7 +38,7 @@ export default function SignUp() {
   });
 
   let name, value;
-  function inputHandler(e) {
+  function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
     name= e.target.name;
     value= e.target.value;
     setUser({
@@ -47,7 +47,7 @@ export default function SignUp() {
     });
   };
 
-  async function signUp(e) {
+  async function signUp(e: React.FormEvent) {
 
     e.preventDefault();
 
