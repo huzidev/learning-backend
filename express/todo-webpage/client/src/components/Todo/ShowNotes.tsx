@@ -27,7 +27,7 @@ export default function ShowNotes(props: any): JSX.Element {
 
     const [checked, setChecked] = useState(true);
 
-      const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const onChange = (e: any) => {
         console.log('checked = ', e.target.checked);
         setChecked(e.target.checked);
       };
