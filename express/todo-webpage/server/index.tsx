@@ -26,7 +26,7 @@ server.get('*', (req, res) => {
     res.send({ message: "Hello, world" });
 });
 
-server.listen(port, (e) => {
+server.listen(port, (e: any) => {
     if (!e) {
         console.log(`Server is running on port ${port}`);
     }

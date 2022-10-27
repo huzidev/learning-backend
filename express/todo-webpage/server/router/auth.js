@@ -89,42 +89,6 @@ router.post('/signin', async (req, res) => {
             else {
                 res.status(500).json({ message : "Internal Server Error : Failed to registered!" })
             }
-        } else if (userName) {
-            const isMatchName = await bcrypt.compare(password, userName.password);
-
-            token = await userName.generateAuthToken();
-
-            res.cookie("jwtoken", token, {
-                expires : new Date(Date.now() + 86400000),
-                httpOnly : true
-            })
-            if (!isMatchName) {
-                res.status(401).json({ error : "Username or Password is incorrect" })
-            }
-            else if (isMatchName) {
-                res.status(201).json({ message : "User loggedIn successfully" })
-            }
-            else {
-                res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
-            }
-        } else if (userNumber) {
-            const isMatchNumber = await bcrypt.compare(password, userNumber.password);
-
-            token = await userNumber.generateAuthToken();
-
-            res.cookie("jwtoken", token, {
-                expires : new Date(Date.now() + 86400000),
-                httpOnly : true
-            })
-            if (!isMatchNumber) {
-                res.status(402).json({ error : "Number or Password is incorrect" })
-            }
-            else if (isMatchNumber) {
-                res.status(201).json({ message : "User loggedIn successfully" })
-            }
-            else {
-                res.status(500).json({ message : "Internal Server Error : Failed to registered!"})
-            }
         }
     } catch (err) {
         console.log(err);
