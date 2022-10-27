@@ -64,7 +64,7 @@ export default function App(): JSX.Element {
     getItem('Home', 'sub1', <HomeOutlined />, null, [
       getItem(
         'Add Todo', 
-        2, 
+        '2', 
         <LocalGroceryStoreOutlinedIcon />,
         null,
         () => Navigate('/addnote')
