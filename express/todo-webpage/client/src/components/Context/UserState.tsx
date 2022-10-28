@@ -1,9 +1,9 @@
 import React from 'react';
 import DataContext from './DataContext';
 
-export default function UserState(props) {
+export default function UserState(props: any) {
   const host = "http://localhost:8000"
-  const initialState = []
+  const initialState: [] = []
   const [notes, setNotes] = React.useState(initialState)
   const [completedNotes, setCompletedNotes] = React.useState(initialState)
   const [userData, setUserData] = React.useState({})
@@ -18,6 +18,10 @@ export default function UserState(props) {
     })
     const data = await res.json();
     setNotes(data)
+  }
+
+  interface DataType {
+    title: string
   }
 
   async function addNote(title, description, category, isCompleted) {

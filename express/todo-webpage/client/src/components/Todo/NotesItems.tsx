@@ -44,7 +44,7 @@ export default function NotesItems(props: any) {
         // to check if user clicked or not
         // ref.current.value gets the value
         // ref.current.click() checks the click
-        ref.current.click();
+        ref.current!.click();
         setNote({
             id: currentNote._id, 
             etitle: currentNote.title, 
