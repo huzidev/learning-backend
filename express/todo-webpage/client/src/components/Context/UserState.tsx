@@ -69,7 +69,7 @@ export default function UserState(props: any) {
             })
         })
         const data = res.json();
-        const newNotes = notes.filter((note) => { return note._id !== id })
+        const newNotes = notes.filter((note: any) => { return note._id !== id })
         setNotes(newNotes)
         console.log("Delete note with id", id);
     } catch (err) {
