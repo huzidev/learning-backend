@@ -35,7 +35,7 @@ export default function NotesItems(props: any) {
     }, [])
 
     // null is the initial value
-    const ref = useRef(null)
+    const ref = useRef<any>(null)
     const [note, setNote] = useState<DataType>({id: "", etitle: "", edescription: "", ecategory: ""})
     
     const updateNote = (currentNote: any) => {
@@ -44,7 +44,7 @@ export default function NotesItems(props: any) {
         // to check if user clicked or not
         // ref.current.value gets the value
         // ref.current.click() checks the click
-        ref.current!.click();
+        ref.current.click();
         setNote({
             id: currentNote._id, 
             etitle: currentNote.title, 
@@ -138,7 +138,7 @@ export default function NotesItems(props: any) {
                     <button onClick={() => setItems(notes)}>
                         All items
                     </button>
-                    {allItems.map((currentEle) => {
+                    {allItems.map((currentEle: any) => {
                         return (
                             <>
                             <button

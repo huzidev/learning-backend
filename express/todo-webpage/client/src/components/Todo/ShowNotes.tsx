@@ -6,7 +6,7 @@ import { Button, Checkbox } from 'antd';
 export default function ShowNotes(props: any): JSX.Element {
 
     const context = useContext(DataContext);
-    const { deleteNote, compNote } = context;
+    const { deleteNote} = context;
     const { note, updateNote, index } = props;
 
     function del() {
@@ -16,11 +16,6 @@ export default function ShowNotes(props: any): JSX.Element {
     }
 
     console.log("Data", note);
-
-    function stateReg() {
-        compNote(note._id);
-        window.alert("State Updated Successfully!");
-    }
 
     const [checked, setChecked] = useState(true);
 
@@ -62,9 +57,6 @@ export default function ShowNotes(props: any): JSX.Element {
         <h1>
             {test}
         </h1>
-        <Checkbox checked={checked} onClick={stateReg} onChange={onChange}>
-            Task Completed
-        </Checkbox>
         <hr />
     </div>
   )
