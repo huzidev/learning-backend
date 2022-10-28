@@ -4,7 +4,7 @@ import DataContext from './DataContext';
 export default function UserState(props: any) {
   const host = "http://localhost:8000"
   const initialState: [] = []
-  const [notes, setNotes] = React.useState(initialState)
+  const [notes, setNotes] = React.useState<string[]>(initialState)
   const [completedNotes, setCompletedNotes] = React.useState(initialState)
   const [userData, setUserData] = React.useState({})
 
@@ -23,15 +23,17 @@ export default function UserState(props: any) {
     isCompleted: boolean
   }
 
-  let bearer = localStorage.getItem('jwtoken');
+  let bearer: string | null = localStorage.getItem('jwtoken');
+
+  const requestHeaders: HeadersInit = new Headers();
+  requestHeaders.set(
+    'Content-Type', 'application/json'
+  );
 
   async function getNotes() {
     const res = await fetch('/allnotes', {
         method : 'GET',
-            headers : {
-                "Accept" : "application/json",
-                "auth-token": bearer
-            },
+            headers : {requestHeaders, "auth-token": bearer}
     })
     const data = await res.json();
     setNotes(data)
