@@ -20,7 +20,11 @@ export default function UserState(props: any) {
     setNotes(data)
   }
 
-  interface DataType {
+  interface DataTypeN {
+    id: number
+  }
+
+  interface DataType extends DataTypeN {
     title: string
     description: string
     category: string
@@ -41,7 +45,7 @@ export default function UserState(props: any) {
         setNotes(notes.concat(note))
         if (!res.status === 200) {
             window.alert("No New Note added")
-            const error = new Error(res.error)
+            const error = new Error()
             throw error;
         }
     } catch (err) {
@@ -49,7 +53,7 @@ export default function UserState(props: any) {
     }   
   }
 
-  async function deleteNote(id) {
+  async function deleteNote(id: DataTypeN) {
     try {
         const res = await fetch(`/deletenote/${id}`, {
             method: 'DELETE',
@@ -67,7 +71,7 @@ export default function UserState(props: any) {
     }
   }
   
-  async function compNote(id, isCompleted) {
+  async function compNote({id, isCompleted}: DataType) {
     try {
         const res = await fetch(`/completed/${id}`, {
             method: 'PUT',
@@ -87,7 +91,7 @@ export default function UserState(props: any) {
     }
   }
 
-  async function editNote(id, title, description, category) {
+  async function editNote({id, title, description, category}: DataType) {
     try {
         const res = await fetch(`/updatenote/${id}`, {
             method: 'PUT',
