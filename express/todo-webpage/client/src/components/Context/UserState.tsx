@@ -76,26 +76,6 @@ export default function UserState(props: any) {
         console.log(err);
     }
   }
-  
-  async function compNote({id, isCompleted}: DataType) {
-    try {
-        const res = await fetch(`/completed/${id}`, {
-            method: 'PUT',
-            headers: new Headers({
-                "Content-Type" : "application/json",
-                "auth-token": bearer
-            }),
-            body: JSON.stringify({isCompleted})
-        });
-
-        const data = await res.json();
-
-        let newNote = JSON.parse(JSON.stringify(notes))
-        setNotes({...notes,  isCompleted: !notes.isCompleted})
-    } catch (err) {
-        console.log(err);
-    }
-  }
 
   async function editNote({id, title, description, category}: DataType) {
     try {
@@ -190,7 +170,7 @@ export default function UserState(props: any) {
         {/* if we just use value={userData} then we simply uses context.email */}
         {/* if use value={{ userData }} multiple brackets then we've to use context.userData.email */}
         {/* {{}} multiple brackets are used when we've to pass multiple values like value={{ userData, notes }} */}
-        <DataContext.Provider value={{ userData, addNote, getNotes, editNote, deleteNote, notes, setNotes, updateUser, compNote }}>
+        <DataContext.Provider value={{ userData, addNote, getNotes, editNote, deleteNote, notes, setNotes, updateUser }}>
             {props.children}
         </DataContext.Provider>
     </div>
