@@ -43,7 +43,7 @@ export default function UserState(props: any) {
             method: 'POST',
             headers: {
                 "Content-Type" : "application/json",
-                "auth-token": localStorage.getItem('jwtoken')
+                "auth-token": bearer
             },
             body: JSON.stringify({ title, description, category, isCompleted })
         })
@@ -65,7 +65,7 @@ export default function UserState(props: any) {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                "auth-token": localStorage.getItem('jwtoken')
+                "auth-token": bearer
             }
         })
         const data = res.json();
@@ -83,7 +83,7 @@ export default function UserState(props: any) {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                "auth-token": localStorage.getItem('jwtoken')
+                "auth-token": bearer
             },
             body: JSON.stringify({isCompleted})
         });
@@ -103,7 +103,7 @@ export default function UserState(props: any) {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                "auth-token": localStorage.getItem('jwtoken')
+                "auth-token": bearer
             },
             body: JSON.stringify({title, description, category})
         });
@@ -133,7 +133,7 @@ export default function UserState(props: any) {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                "auth-token": localStorage.getItem('jwtoken')
+                "auth-token": bearer
             },
             body: JSON.stringify({username, email, number, image})
         });
@@ -180,7 +180,7 @@ export default function UserState(props: any) {
     }
   }
   React.useEffect(() => {
-    if (localStorage.getItem('jwtoken')) {
+    if (bearer) {
         about();
     }
   }, [])
