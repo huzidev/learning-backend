@@ -49,7 +49,7 @@ export default function UserState(props: any) {
         })
         const note = await res.json();
         setNotes(notes.concat(note))
-        if (!res.status === 200) {
+        if (res.status !== 200) {
             window.alert("No New Note added")
             const error = new Error()
             throw error;
@@ -171,7 +171,7 @@ export default function UserState(props: any) {
         const data = await res.json();
         setUserData(data);
 
-        if (!res.status === 200) {
+        if (res.status !== 200) {
             const error = new Error()
             throw error;
         }
