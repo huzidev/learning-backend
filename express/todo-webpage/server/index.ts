@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import cookie from 'cookie-parser';
 import bodyParser from "body-parser";
@@ -7,7 +7,7 @@ import cors from "cors";
 dotenv.config({ path : './config.env' });
 require('./db/connection.js');
 
-const server = express();
+const server: Express = express();
 const port = 8000;
 
 server.use(express.json());
@@ -22,15 +22,10 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended : true }));
 server.use(cookie());
 
-server.get('*', (req, res) => {
+server.get('*', (req: Request, res: Response) => {
     res.send({ message: "Hello, world" });
 });
 
-server.listen(port, (e) => {
-    if (!e) {
-        console.log(`Server is running on port ${port}`);
-    }
-    else {
-        console.log(e);
-    }
+server.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
