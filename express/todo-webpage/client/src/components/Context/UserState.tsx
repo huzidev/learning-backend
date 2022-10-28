@@ -22,9 +22,13 @@ export default function UserState(props: any) {
 
   interface DataTypeN {
     id: number
+    number: number
+    image: string
   }
 
   interface DataType extends DataTypeN {
+    username: string
+    email: string
     title: string
     description: string
     category: string
@@ -121,7 +125,7 @@ export default function UserState(props: any) {
     }
   }
 
-  async function updateUser(id, username, email, number, image) {
+  async function updateUser({id, username, email, number, image}: DataType) {
     try {
         const res = await fetch(`/updateuser/${id}`, {
             method: 'PUT',
@@ -166,7 +170,7 @@ export default function UserState(props: any) {
         setUserData(data);
 
         if (!res.status === 200) {
-            const error = new Error(res.error)
+            const error = new Error()
             throw error;
         }
     } catch (err) {
