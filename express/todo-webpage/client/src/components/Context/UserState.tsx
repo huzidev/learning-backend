@@ -23,17 +23,15 @@ export default function UserState(props: any) {
     isCompleted: boolean
   }
 
-  let bearer: string | null = localStorage.getItem('jwtoken');
-
-  const requestHeaders: HeadersInit = new Headers();
-  requestHeaders.set(
-    'Content-Type', 'application/json'
-  );
+  let bearer: any = localStorage.getItem('jwtoken');
 
   async function getNotes() {
     const res = await fetch('/allnotes', {
         method : 'GET',
-            headers : {requestHeaders, "auth-token": bearer}
+        headers: new Headers({
+            "Content-Type" : "application/json",
+            "auth-token": bearer
+        })
     })
     const data = await res.json();
     setNotes(data)
@@ -43,10 +41,10 @@ export default function UserState(props: any) {
     try {
         const res = await fetch(`/addnote`, {
             method: 'POST',
-            headers: {
+            headers: new Headers({
                 "Content-Type" : "application/json",
                 "auth-token": bearer
-            },
+            }),
             body: JSON.stringify({ title, description, category, isCompleted })
         })
         const note = await res.json();
@@ -65,10 +63,10 @@ export default function UserState(props: any) {
     try {
         const res = await fetch(`/deletenote/${id}`, {
             method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
+            headers: new Headers({
+                "Content-Type" : "application/json",
                 "auth-token": bearer
-            }
+            })
         })
         const data = res.json();
         const newNotes = notes.filter((note) => { return note._id !== id })
@@ -83,10 +81,10 @@ export default function UserState(props: any) {
     try {
         const res = await fetch(`/completed/${id}`, {
             method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
+            headers: new Headers({
+                "Content-Type" : "application/json",
                 "auth-token": bearer
-            },
+            }),
             body: JSON.stringify({isCompleted})
         });
 
@@ -103,10 +101,10 @@ export default function UserState(props: any) {
     try {
         const res = await fetch(`/updatenote/${id}`, {
             method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
+            headers: new Headers({
+                "Content-Type" : "application/json",
                 "auth-token": bearer
-            },
+            }),
             body: JSON.stringify({title, description, category})
         });
 
@@ -133,10 +131,10 @@ export default function UserState(props: any) {
     try {
         const res = await fetch(`/updateuser/${id}`, {
             method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
+            headers: new Headers({
+                "Content-Type" : "application/json",
                 "auth-token": bearer
-            },
+            }),
             body: JSON.stringify({username, email, number, image})
         });
 
@@ -164,10 +162,10 @@ export default function UserState(props: any) {
     try {
         const res = await fetch('/about', {
             method : 'GET',
-                headers : {
-                    "Accept" : "application/json",
-                    "Content-Type" : "application/json",
-                },
+            headers: new Headers({
+                "Content-Type" : "application/json",
+                "Accept" : "application/json",
+            }),
             credentials : "include"
         })
         const data = await res.json();
