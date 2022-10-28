@@ -68,7 +68,7 @@ export default function NotesItems(props: any) {
             currentEle.category
         )
     }))]
-    
+
     const [items, setItems] = useState(notes)
     const [state, setState] = useState(false)
     
