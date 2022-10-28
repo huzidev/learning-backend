@@ -4,7 +4,6 @@ import DataContext from '../Context/DataContext';
 import User from '../User';
 import { Button, Modal, Select  } from 'antd';
 import Test from './Test';
-import { current } from '@reduxjs/toolkit';
 
 export default function UpdateUser() {
 

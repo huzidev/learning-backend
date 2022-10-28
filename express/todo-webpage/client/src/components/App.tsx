@@ -23,19 +23,19 @@ export default function App(): JSX.Element {
         <Router>
           <Home />
           <Routes>
-              <Route exact path="/" component={
+              <Route path="/" element={
                 <React.Suspense fallback={<h1>Please Wait...</h1>}>
                   <TodoPage /> 
                 </React.Suspense>
               }/>
-              <Route exact path="/about" />
-              <Route exact path="/signup" />
-              <Route exact path="/signin" />
-              <Route exact path="/signout" element={<Logout />} />
-              <Route exact path="/addnote" />
-              <Route exact path="/updateuser"/>
-              <Route exact path="/contact" />
-              <Route exact path="*" element={<Skeleton active />} />
+              <Route path="/about" />
+              <Route path="/signup" />
+              <Route path="/signin" />
+              <Route path="/signout" element={<Logout />} />
+              <Route path="/addnote" />
+              <Route path="/updateuser"/>
+              <Route path="/contact" />
+              <Route path="*" element={<Skeleton active />} />
           </Routes>
         </Router>
       </UserState>

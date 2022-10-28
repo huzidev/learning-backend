@@ -53,7 +53,7 @@ export default function NotesItems(props: any) {
         })
     }
     
-    const handleClick = ()=>{ 
+    const handleClick = () => { 
         setIsModalOpen(false);
         editNote(note.id, note.etitle, note.edescription, note.ecategory)
       window.location.reload();

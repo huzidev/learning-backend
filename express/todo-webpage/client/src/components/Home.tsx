@@ -10,19 +10,11 @@ import {
   MessageOutlined,
   PaperClipOutlined
 } from '@ant-design/icons';
-import MapsHomeWorkOutlinedIcon from '@mui/icons-material/MapsHomeWorkOutlined';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
-import PaymentOutlinedIcon from '@mui/icons-material/PaymentOutlined';
-import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
-import KeyboardOutlinedIcon from '@mui/icons-material/KeyboardOutlined';
-import { Breadcrumb, Layout, Menu, Icon } from 'antd';
-import User from './User';
+import { Breadcrumb, Layout, Menu } from 'antd';
 import SingIn from './Form/SingIn';
 import SignUp from './Form/SignUp';
 import TodoPage from './Todo/TodoPage';
-import AddTodo from './Todo/AddTodo';
-import ShowNotes from './Todo/ShowNotes';
-import UpdateTodo from './Todo/UpdateTodo';
 import NotesItems from './Todo/NotesItems';
 import UpdateUser from './Form/UpdateUser';
 import CompletedTasks from './Todo/CompletedTasks';
@@ -50,6 +42,8 @@ export default function App(): JSX.Element {
   const Navigate = useNavigate();
   const Location = useLocation();
   const Context = useContext(DataContext);
+
+  const { userData } = Context
 
   console.log("currenrt location is "  + Location.pathname);
 
@@ -148,7 +142,7 @@ export default function App(): JSX.Element {
             }}
           >
             <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>{Context.userData.username}</Breadcrumb.Item>
+            <Breadcrumb.Item>{userData.username}</Breadcrumb.Item>
           </Breadcrumb>) : ''
           }
           <div

@@ -1,6 +1,17 @@
 import { createContext } from "react";
 
-const DataContext = createContext(null);
+type AuthContext = {
+    userData?: any
+    addNote?: any
+    getNotes?: any
+    editNote?: any
+    deleteNote?: any
+    notes?: any
+    setNotes?: any
+    updateUser?: any
+}
+
+const DataContext = createContext<AuthContext>({});
 
 export default DataContext;
 
