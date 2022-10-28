@@ -8,20 +8,6 @@ export default function UserState(props: any) {
   const [completedNotes, setCompletedNotes] = React.useState(initialState)
   const [userData, setUserData] = React.useState({})
 
-  let bearer = localStorage.getItem('jwtoken');
-
-  async function getNotes() {
-    const res = await fetch('/allnotes', {
-        method : 'GET',
-            headers : {
-                "Accept" : "application/json",
-                "auth-token": bearer
-            },
-    })
-    const data = await res.json();
-    setNotes(data)
-  }
-
   interface DataTypeN {
     id: number
     number: number
@@ -35,6 +21,20 @@ export default function UserState(props: any) {
     description: string
     category: string
     isCompleted: boolean
+  }
+
+  let bearer = localStorage.getItem('jwtoken');
+
+  async function getNotes() {
+    const res = await fetch('/allnotes', {
+        method : 'GET',
+            headers : {
+                "Accept" : "application/json",
+                "auth-token": bearer
+            },
+    })
+    const data = await res.json();
+    setNotes(data)
   }
 
   async function addNote({title, description, category, isCompleted}: DataType) {
