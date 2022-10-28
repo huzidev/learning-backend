@@ -1,9 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input } from 'antd';
 
 export default function SignUp() {
-  const history = useHistory();
+  const Navigate = useNavigate();
   const host = "http://localhost:8000";
 
     const layout = {
@@ -95,7 +95,7 @@ export default function SignUp() {
     } else {
         window.alert("User registered successfully!")
         console.log("Successful Registration");
-        history.push("/signin");
+        Navigate("/signin");
     }
   };
   

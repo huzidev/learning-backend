@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, Typography } from 'antd';
 
 export default function SingIn() {
 
-  const history = useHistory();
+  const Navigate = useNavigate();
 
   const layout = {
     labelCol: {
@@ -88,7 +88,7 @@ export default function SingIn() {
     else {
       window.alert("LoggedIn Successfully!");
       localStorage.setItem('jwtoken', data.token);
-      history.push('/');
+      Navigate('/');
       window.location.reload();
     }
   }

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Button, Modal } from 'antd';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from "../Context/DataContext";
 import AddTodo from './AddTodo';
 import ShowNotes from './ShowNotes';
@@ -23,14 +23,14 @@ export default function NotesItems(props: any) {
     };
     const Location = useLocation();
   const context = useContext(DataContext);
-  const history = useHistory();
+  const Navigate = useNavigate();
   const { notes, getNotes, editNote } = context;
   useEffect(() => {
       if (localStorage.getItem('jwtoken')) {
           getNotes()
         }
         else{
-            history.push("/login");
+            Navigate("/login");
         }
     }, [])
 

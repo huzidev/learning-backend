@@ -1,12 +1,9 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import DataContext from "../Context/DataContext";
-import { useHistory, useParams } from 'react-router-dom';
 import NotesItems from './NotesItems';
 import { Button, Checkbox } from 'antd';
 
 export default function ShowNotes(props: any): JSX.Element {
-
-    const history = useHistory();
 
     const context = useContext(DataContext);
     const { deleteNote, compNote } = context;
