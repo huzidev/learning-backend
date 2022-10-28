@@ -22,9 +22,12 @@ export default function UserState(props: any) {
 
   interface DataType {
     title: string
+    description: string
+    category: string
+    isCompleted: boolean
   }
 
-  async function addNote(title, description, category, isCompleted) {
+  async function addNote({title, description, category, isCompleted}: DataType) {
     try {
         const res = await fetch(`/addnote`, {
             method: 'POST',
