@@ -21,9 +21,7 @@ export default function SingIn() {
   const validateMessages = {
     required: '${label} is required!',
     types: {
-        username: '${label} is not a valid username!',
         email: '${label} is not a valid email!',
-        number: '${label} is not a valid number!',
     },
     password: {
         range: '${label} must be between ${min} and ${max}',
@@ -32,15 +30,11 @@ export default function SingIn() {
   /* eslint-enable no-template-curly-in-string */
 
   interface DataTypes {
-    username: string,
-    number: string,
     email: string,
     password: string
   }
 
   const [user, setUser] = React.useState<DataTypes>({
-    username: "",
-    number : "",
     email: "",
     password : ""
   });
@@ -59,7 +53,7 @@ export default function SingIn() {
   async function signIn(e: React.FormEvent) {
     e.preventDefault();
 
-    const { email, number, password } = user;
+    const { email, password } = user;
 
     const res = await fetch(`/signin`, {
       method : "POST",
@@ -68,7 +62,6 @@ export default function SingIn() {
       },
       body : JSON.stringify({
         email,
-        number,
         password
       })
     });
@@ -78,14 +71,9 @@ export default function SingIn() {
       window.alert("Invalid Value!")
     } else if (res.status === 400) {
       window.alert("Email or Password is incorrect")
-    } else if (res.status === 401) {
-      window.alert("Username or Password is incorrect")
-    } else if (res.status === 402) {
-      window.alert("Number or Password is incorrect")
     } else if (res.status === 500) {
       window.alert("Internal Server Error : Failed to registered!")
-    }
-    else {
+    } else if (res.status === 201) {
       window.alert("LoggedIn Successfully!");
       localStorage.setItem('jwtoken', data.token);
       Navigate('/');
@@ -151,7 +139,8 @@ export default function SingIn() {
               type="primary" 
               htmlType="submit"
               onClick={signIn} 
-              className="login-form-button">
+              className="login-form-button"
+            >
               Log in
             </Button>
           </Form.Item>

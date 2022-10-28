@@ -3,11 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import DataContext from '../Context/DataContext';
 import User from '../User';
 import { Button, Modal, Select  } from 'antd';
-import Test from './Test';
 
 export default function UpdateUser() {
 
-    const { Option } = Select;
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
         setIsModalOpen(true);
@@ -25,13 +23,12 @@ export default function UpdateUser() {
 
   const { updateUser } = context;
 
-  const ref = useRef(null)
-  const refClose = useRef(null)
+  const ref = useRef<any>(null)
 
   const [data, setData] = useState({id: "", eusername: "", eemail: "", enumber: "", eimage: ""})
 
 
-  const updateData = (currData) => {
+  const updateData = (currData: any) => {
     ref.current.click();
     setData({
         id: currData._id, 
@@ -42,17 +39,17 @@ export default function UpdateUser() {
     })
 }
 
-    const handleClick = (e)=>{ 
+    const handleClick = ()=>{ 
         setIsModalOpen(false);
         updateUser(data.id, data.eusername, data.eemail, data.enumber)
         window.location.reload();
     }
 
-  const onChange = (e)=>{
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({...data, [e.target.name]: e.target.value})
 }
 
-const handlePhoto = (e) => {
+const handlePhoto = (e: any) => {
     setData({...data, eimage: e.target.files[0]});
 }
 
