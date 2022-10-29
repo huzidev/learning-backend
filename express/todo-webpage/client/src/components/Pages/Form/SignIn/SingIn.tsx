@@ -3,20 +3,12 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, Typography } from 'antd';
+import layout from '../../../Layout/Layout';
+import Types from './Types'
 
 export default function SingIn() {
 
   const Navigate = useNavigate();
-
-  const layout = {
-    labelCol: {
-        span: 8,
-    },
-    wrapperCol: {
-        span: 8,
-    },
-  };
-
   /* eslint-disable no-template-curly-in-string */
   const validateMessages = {
     required: '${label} is required!',
@@ -29,12 +21,7 @@ export default function SingIn() {
   };
   /* eslint-enable no-template-curly-in-string */
 
-  interface DataTypes {
-    email: string,
-    password: string
-  }
-
-  const [user, setUser] = React.useState<DataTypes>({
+  const [user, setUser] = React.useState<Types>({
     email: "",
     password : ""
   });

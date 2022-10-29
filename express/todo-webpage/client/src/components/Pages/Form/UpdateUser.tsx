@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
-import DataContext from '../Context/DataContext';
-import User from '../User';
+import DataContext from '../../Context/DataContext';
+import User from '../../User';
 import { Button, Modal, Select  } from 'antd';
 
 export default function UpdateUser() {

@@ -1,7 +1,7 @@
-// import { combineReducers } from "redux";
+// import { configureStore  } from "@reduxjs/toolkit";
 // import userState from "./UserState";
 
-// const store = combineReducers({
+// const store = configureStore ({
 
 //     reducer : {
 //         user : userState.reducer
@@ -9,4 +9,4 @@
 
 // });
 
-// export default store;
+// export type store

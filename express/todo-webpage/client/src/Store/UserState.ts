@@ -1,7 +1,5 @@
 // import { createSlice } from '@reduxjs/toolkit';
 
-// let bearer: any = localStorage.getItem('jwtoken');
-
 // const userState = createSlice({
 //     name: 'user',
 //     initialState: {

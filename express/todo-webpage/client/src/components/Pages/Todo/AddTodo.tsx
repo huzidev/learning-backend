@@ -1,20 +1,12 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import DataContext from "../Context/DataContext";
+import DataContext from "../../Context/DataContext";
+import layout from '../../Layout/Layout';
 import { Button, Checkbox, Form, Input, Typography } from 'antd';
 
 export default function AddTodo(): JSX.Element {
 
-    const layout = {
-        labelCol: {
-            span: 8,
-        },
-        wrapperCol: {
-            span: 8,
-        },
-    };
-
     const context = useContext(DataContext);
-    const {addNote, setNotes, notes} = context;
+    const {setNotes, notes} = context;
     interface Type {
         title: string,
         description: string,
@@ -42,7 +34,7 @@ export default function AddTodo(): JSX.Element {
           const data = await res.json()
           setNotes(notes.concat(data));
         console.log("note", note);
-        setNote({title: "", description: "", category: ""})
+        window.location.reload()
     }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{

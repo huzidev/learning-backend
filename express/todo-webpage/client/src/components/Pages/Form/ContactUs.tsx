@@ -1,14 +1,6 @@
 import { Button, Form, Input, InputNumber } from 'antd';
 import React from 'react';
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 8,
-  },
-};
-
+import layout from '../../Layout/Layout';
 /* eslint-disable no-template-curly-in-string */
 const validateMessages = {
   required: '${label} is required!',

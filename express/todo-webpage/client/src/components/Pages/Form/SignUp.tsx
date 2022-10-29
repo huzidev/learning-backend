@@ -1,19 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input } from 'antd';
+import layout from '../../Layout/Layout';
 
 export default function SignUp() {
   const Navigate = useNavigate();
   const host = "http://localhost:8000";
-
-    const layout = {
-        labelCol: {
-            span: 8,
-        },
-        wrapperCol: {
-            span: 8,
-        },
-    };
 
     /* eslint-disable no-template-curly-in-string */
     const validateMessages = {

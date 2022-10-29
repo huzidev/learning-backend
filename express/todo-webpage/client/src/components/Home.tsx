@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import ContactUs from './Form/ContactUs'
+import ContactUs from './Pages/Form/ContactUs'
 import DataContext from './Context/DataContext';
 import {
   FileOutlined,
@@ -13,13 +13,13 @@ import {
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
 import { Breadcrumb, Layout, Menu } from 'antd';
 import type { MenuProps } from 'antd';
-import SingIn from './Form/SingIn';
-import SignUp from './Form/SignUp';
-import TodoPage from './Todo/TodoPage';
-import NotesItems from './Todo/NotesItems';
-import UpdateUser from './Form/UpdateUser';
-import CompletedTasks from './Todo/CompletedTasks';
-import Test from './Form/Test';
+import SingIn from './Pages/Form/SignIn/SingIn';
+import SignUp from './Pages/Form/SignUp';
+import TodoPage from './Pages/Todo/TodoPage';
+import NotesItems from './Pages/Todo/NotesItems';
+import UpdateUser from './Pages/Form/UpdateUser';
+import CompletedTasks from './Pages/Todo/CompletedTasks';
+import Test from './Pages/Form/Test';
 
 export default function App(): JSX.Element {
   const [collapsed, setCollapsed] = useState(false);
