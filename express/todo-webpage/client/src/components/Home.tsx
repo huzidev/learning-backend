@@ -33,14 +33,14 @@ export default function App(): JSX.Element {
     icon: any,
     children: any, 
     onClick : any
-  ) {
+  ): MenuItem {
     return {
       key,
       icon,
       children,
       label,
       onClick
-    };
+    } as MenuItem;
   }
   
   const Navigate = useNavigate();
@@ -51,7 +51,7 @@ export default function App(): JSX.Element {
 
   console.log("currenrt location is "  + Location.pathname);
 
-  const signedInItems = [
+  const signedInItems: MenuItem[] = [
     getItem(
       'User', 
       '1', 
