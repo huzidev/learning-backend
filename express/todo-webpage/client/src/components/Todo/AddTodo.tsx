@@ -5,19 +5,18 @@ import DataContext from "../Context/DataContext";
 export default function AddTodo(): JSX.Element {
     const context = useContext(DataContext);
     const {addNote} = context;
-    interface Test {
+    interface Type {
         title: string,
         description: string,
         category: string,
     }
-    const [note, setNote] = useState<Test>({title: "", description: "", category: ""})
+    const [note, setNote] = useState<Type>({title: "", description: "", category: ""})
 
 
     const handleClick = (e: React.FormEvent)=>{
         e.preventDefault();
         addNote(note.title, note.description, note.category);
         setNote({title: "", description: "", category: ""})
-        window.location.reload()
     }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{

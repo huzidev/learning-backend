@@ -5,7 +5,6 @@ export default function UserState(props: any) {
   const host = "http://localhost:8000"
   const initialState: [] = []
   const [notes, setNotes] = React.useState<string[]>(initialState)
-  const [completedNotes, setCompletedNotes] = React.useState(initialState)
   const [userData, setUserData] = React.useState({})
 
   interface DataTypeN {
@@ -37,7 +36,7 @@ export default function UserState(props: any) {
     setNotes(data)
   }
 
-  async function addNote({title, description, category, isCompleted}: DataType) {
+  async function addNote({title, description, category}: DataType) {
     try {
         const res = await fetch(`/addnote`, {
             method: 'POST',
@@ -45,15 +44,10 @@ export default function UserState(props: any) {
                 "Content-Type" : "application/json",
                 "auth-token": bearer
             }),
-            body: JSON.stringify({ title, description, category, isCompleted })
+            body: JSON.stringify({ title, description, category })
         })
         const note = await res.json();
         setNotes(notes.concat(note))
-        if (res.status !== 200) {
-            window.alert("No New Note added")
-            const error = new Error()
-            throw error;
-        }
     } catch (err) {
         console.log(err);
     }   
