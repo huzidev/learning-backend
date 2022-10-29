@@ -1,24 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit';
+// import { createSlice } from '@reduxjs/toolkit';
 
-let bearer: any = localStorage.getItem('jwtoken');
+// let bearer: any = localStorage.getItem('jwtoken');
 
-const userState = createSlice({
-    name: 'user',
-    initialState,
-    reducers: {
-        async getNotes() {
-            const res = await fetch('/allnotes', {
-                method : 'GET',
-                headers: new Headers({
-                    "Content-Type" : "application/json",
-                    "auth-token": bearer
-                })
-            })
-            const data = await res.json();
-        }
-    }
-})
+// const userState = createSlice({
+//     name: 'user',
+//     initialState: {
+//         setNotes: []
+//     },
+//     reducers: {
+//         getNotes(state: any) {
+//             async function test() {
+//                 const res = await fetch('/allnotes')
+//                 const data = await res.json();
+//                 state.setNotes = data
+//             }
+//         }
+//     }
+// })
 
-export const stateActions = userState.actions;
+// export const stateActions = userState.actions;
 
-export default userState;
+// export default userState;

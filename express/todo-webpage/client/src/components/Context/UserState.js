@@ -1,69 +1,50 @@
 import React from 'react';
 import DataContext from './DataContext';
 
-export default function UserState(props: any) {
-  const host = "http://localhost:8000"
-  const initialState: [] = []
-  const [notes, setNotes] = React.useState<string[]>(initialState)
+export default function UserState(props) {
+  const initialState = []
+  const [notes, setNotes] = React.useState(initialState)
   const [userData, setUserData] = React.useState({})
 
-  interface DataTypeN {
-    id: number
-    number: number
-    image: string
-  }
+//   interface DataTypeN {
+//     id: number
+//     number: number
+//     image: string
+//   }
 
-  interface DataType extends DataTypeN {
-    username: string
-    email: string
-    title: string
-    description: string
-    category: string
-    isCompleted: boolean
-  }
+//   interface DataType extends DataTypeN {
+//     username: string
+//     email: string
+//     title: string
+//     description: string
+//     category: string
+//   }
 
-  let bearer: any = localStorage.getItem('jwtoken');
+  let bearer = localStorage.getItem('jwtoken');
 
   async function getNotes() {
     const res = await fetch('/allnotes', {
         method : 'GET',
-        headers: new Headers({
+        headers: {
             "Content-Type" : "application/json",
-            "auth-token": bearer
-        })
+            "auth-token": localStorage.getItem('jwtoken')
+        }
     })
     const data = await res.json();
     setNotes(data)
   }
 
-  async function addNote({title, description, category}: DataType) {
-    try {
-        const res = await fetch(`/addnote`, {
-            method: 'POST',
-            headers: new Headers({
-                "Content-Type" : "application/json",
-                "auth-token": bearer
-            }),
-            body: JSON.stringify({ title, description, category })
-        })
-        const note = await res.json();
-        setNotes(notes.concat(note))
-    } catch (err) {
-        console.log(err);
-    }   
-  }
-
-  async function deleteNote(id: DataTypeN) {
+  async function deleteNote(id) {
     try {
         const res = await fetch(`/deletenote/${id}`, {
             method: 'DELETE',
             headers: new Headers({
                 "Content-Type" : "application/json",
-                "auth-token": bearer
+                "auth-token": localStorage.getItem('jwtoken')
             })
         })
         const data = res.json();
-        const newNotes = notes.filter((note: any) => { return note._id !== id })
+        const newNotes = notes.filter((note) => { return note._id !== id })
         setNotes(newNotes)
         console.log("Delete note with id", id);
     } catch (err) {
@@ -71,7 +52,7 @@ export default function UserState(props: any) {
     }
   }
 
-  async function editNote({id, title, description, category}: DataType) {
+  async function editNote({id, title, description, category}) {
     try {
         const res = await fetch(`/updatenote/${id}`, {
             method: 'PUT',
@@ -101,7 +82,7 @@ export default function UserState(props: any) {
     }
   }
 
-  async function updateUser({id, username, email, number, image}: DataType) {
+  async function updateUser({id, username, email, number, image}) {
     try {
         const res = await fetch(`/updateuser/${id}`, {
             method: 'PUT',
@@ -164,7 +145,7 @@ export default function UserState(props: any) {
         {/* if we just use value={userData} then we simply uses context.email */}
         {/* if use value={{ userData }} multiple brackets then we've to use context.userData.email */}
         {/* {{}} multiple brackets are used when we've to pass multiple values like value={{ userData, notes }} */}
-        <DataContext.Provider value={{ userData, addNote, getNotes, editNote, deleteNote, notes, setNotes, updateUser }}>
+        <DataContext.Provider value={{ userData, getNotes, editNote, deleteNote, notes, setNotes, updateUser }}>
             {props.children}
         </DataContext.Provider>
     </div>

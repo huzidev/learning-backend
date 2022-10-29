@@ -1,21 +1,47 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import DataContext from "../Context/DataContext";
-
+import { Button, Checkbox, Form, Input, Typography } from 'antd';
 
 export default function AddTodo(): JSX.Element {
+
+    const layout = {
+        labelCol: {
+            span: 8,
+        },
+        wrapperCol: {
+            span: 8,
+        },
+    };
+
     const context = useContext(DataContext);
-    const {addNote} = context;
+    const {addNote, setNotes, notes} = context;
     interface Type {
         title: string,
         description: string,
         category: string,
     }
-    const [note, setNote] = useState<Type>({title: "", description: "", category: ""})
+    const [note, setNote] = useState({title: "", description: "", category: ""})
 
-
-    const handleClick = (e: React.FormEvent)=>{
+    
+    const addTodo = async (e: React.FormEvent) => {
         e.preventDefault();
-        addNote(note.title, note.description, note.category);
+
+        const {title, description, category} = note
+
+        const res = await fetch(`/addnote`, {
+            method : "POST",
+            headers : {
+              "Content-Type" : "application/json",
+            },
+            body : JSON.stringify({
+                title,
+                description,
+                category
+            })
+          });
+          const data = await res.json()
+          setNotes(notes.concat(data));
+        console.log("note", note);
         setNote({title: "", description: "", category: ""})
     }
 
@@ -32,30 +58,53 @@ export default function AddTodo(): JSX.Element {
         { label: "book", value: "book" },
       ];
 
+      const onFinish = (values: any) => {
+        console.log('Received values of form: ', values);
+      };
+
   return (
     <div>
         <h1>
             Add Todo Note
         </h1>
-        <form>
-            <input 
-                type="text"
-                name='title' 
-                value={note.title}
-                onChange={onChange}
-                minLength= {5}
-                placeholder='Enter Yours Todo Tittle'
-                required 
+        <Form 
+            {...layout} 
+            name="nest-messages" 
+            onFinish={onFinish} 
+        >
+          <Form.Item
+            name="title"
+            rules={[
+              {
+                required: true,
+                message: 'Please input note title!',
+              },
+            ]}
+          >
+            <Input 
+              name='title'
+              value={note.title}
+              onChange={onChange}
+              placeholder="title" 
             />
-            <input 
-                type="text"
-                name='description' 
-                value={note.description}
-                onChange={onChange}
-                minLength= {5}
-                placeholder='Enter Yours Todo Description'
-                required 
+          </Form.Item>
+          <Form.Item
+            name="description"
+            rules={[
+              {
+                required: true,
+                message: 'Please input note description!',
+              },
+            ]}
+          >
+            <Input
+              type="description"
+              name='description'
+              value={note.description}
+              onChange={onChange}
+              placeholder="description"
             />
+          </Form.Item>
             {
                 options.map((data) => (
                     <>
@@ -69,10 +118,17 @@ export default function AddTodo(): JSX.Element {
                     </>
                 ))
             }
-            <button onClick={handleClick}>
-                Add Todo
-            </button>
-        </form>
+          <Form.Item>
+            <Button 
+              type="primary" 
+              htmlType="submit"
+              onClick={addTodo} 
+              className="login-form-button"
+            >
+              Add Note
+            </Button>
+          </Form.Item>
+        </Form>
     </div>
   )
 }

@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from "../Context/DataContext";
 import AddTodo from './AddTodo';
 import ShowNotes from './ShowNotes';
+import { useDispatch } from 'react-redux';
 
 export default function NotesItems(props: any) {
 
@@ -21,13 +22,12 @@ export default function NotesItems(props: any) {
     const handleCancel = () => {
       setIsModalOpen(false);
     };
-    const Location = useLocation();
   const context = useContext(DataContext);
   const Navigate = useNavigate();
   const { notes, getNotes, editNote } = context;
   useEffect(() => {
       if (localStorage.getItem('jwtoken')) {
-          getNotes()
+            getNotes()
         }
         else{
             Navigate("/login");

@@ -17,22 +17,22 @@ export default function ShowNotes(props: any): JSX.Element {
 
     console.log("Data", note);
 
-    const [checked, setChecked] = useState(true);
+    const [checked, setChecked] = useState<boolean>(true);
 
       const onChange = (e: any) => {
         console.log('checked = ', e.target.checked);
         setChecked(e.target.checked);
       };
 
-    const test = !note.isCompleted ? "Hello World" : "True"
+    // const test = !note.isCompleted ? "Hello World" : "True"
       
-      React.useEffect(() => {
-          if (note.isCompleted === true) {
-              setChecked(true)
-          } else if (note.isCompleted === false) {
-              setChecked(false)
-          }
-      }, [setChecked])
+    //   React.useEffect(() => {
+    //       if (note.isCompleted === true) {
+    //           setChecked(true)
+    //       } else if (note.isCompleted === false) {
+    //           setChecked(false)
+    //       }
+    //   }, [setChecked])
 
   return (
     <div>
@@ -54,9 +54,6 @@ export default function ShowNotes(props: any): JSX.Element {
         <button onClick={()=>{updateNote(note)}}>
             Update Note
         </button>
-        <h1>
-            {test}
-        </h1>
         <hr />
     </div>
   )
