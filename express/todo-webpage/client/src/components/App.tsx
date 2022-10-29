@@ -30,11 +30,6 @@ export default function App(): JSX.Element {
                 />
               )
             })} 
-              <Route path="/" element={
-                <React.Suspense fallback={<h1>Please Wait...</h1>}>
-                  <TodoPage /> 
-                </React.Suspense>
-              }/>
               <Route path="/signout" element={<Logout />} />
               <Route path="*" element={<Skeleton active />} />
           </Routes>

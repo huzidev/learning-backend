@@ -139,15 +139,15 @@ export default function App(): JSX.Element {
           }}
         >
           {localStorage.getItem('jwtoken') ? (
-
-          <Breadcrumb
-            style={{
-              margin: '16px 0',
-            }}
-          >
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>{userData.username}</Breadcrumb.Item>
-          </Breadcrumb>) : ''
+            <Breadcrumb
+              style={{
+                margin: '16px 0',
+              }}
+            >
+              <Breadcrumb.Item>User</Breadcrumb.Item>
+              <Breadcrumb.Item>{userData.username}</Breadcrumb.Item>
+            </Breadcrumb>
+            ) : ''
           }
           <div
             className="site-layout-background"
