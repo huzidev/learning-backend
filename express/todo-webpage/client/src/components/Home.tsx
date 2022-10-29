@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import routes from './Router/routes'
 import ContactUs from './Pages/Form/ContactUs'
 import DataContext from './Context/DataContext';
 import {
@@ -156,11 +157,12 @@ export default function App(): JSX.Element {
               minHeight: 360,
             }}
           >
-            {!Location.pathname.includes('/about') && 
-            !Location.pathname.includes('/contact') && 
-            !Location.pathname.includes('/signout') && 
-            <TodoPage />
-          }
+            {
+              !Location.pathname.includes('/about') && 
+              !Location.pathname.includes('/contact') && 
+              !Location.pathname.includes('/signout') && 
+              <TodoPage />
+            }
             {Location.pathname.includes('/contact') && <ContactUs />}
             {Location.pathname.includes('/signin') && <SingIn />}
             {Location.pathname.includes('/signup') && <SignUp />}
