@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import DataContext from '../../../Context/DataContext';
 import User from '../../../User';
 import { Button, Modal } from 'antd';
-import { DataType } from './Type';
+import { DataType, DataTypeF } from './Type';
 
 export default function UpdateUser() {
 
@@ -17,7 +17,7 @@ export default function UpdateUser() {
 
     const context = useContext(DataContext);
 
-  const { updateUser } = context;
+  const { setUserData, userData } = context;
 
   const ref = useRef<any>(null)
 
@@ -35,10 +35,48 @@ export default function UpdateUser() {
     })
 }
 
-    const handleClick = () => { 
+console.log("User data", userData);
+
+
+    const handleClick = async () => { 
+
+        const {_id, username, email, number, image} = userData
+        const {eusername, eemail, enumber, eimage} = data
+
+        try {
+            const res = await fetch(`/updateuser/${_id}`, {
+                method: 'PUT',
+                headers: {
+                    "Content-Type" : "application/json",
+                },
+                body: JSON.stringify({
+                    username: eusername, 
+                    email: eemail, 
+                    number: enumber, 
+                    image: eimage
+                })
+            });
+    
+            const data = await res.json();
+    
+            let newData = JSON.parse(JSON.stringify(userData))
+    
+            for (let index = 0; index < newData.length; index++) {
+                const element = newData[index];
+                if (element._id === _id) {
+                    newData[index].username = username;
+                    newData[index].email = email;
+                    newData[index].number = number;
+                    newData[index].image = image;
+                    break; 
+                }
+                setUserData(newData)
+                window.location.reload()
+            }
+        } catch (err) {
+            console.log(err);
+        }
         setIsModalOpen(false);
-        updateUser(data.id, data.eusername, data.eemail, data.enumber)
-        window.location.reload();
     }
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

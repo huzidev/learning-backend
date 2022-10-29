@@ -5,3 +5,10 @@ export interface DataType {
     eemail: string 
     eimage: string
 }
+
+export interface DataTypeF extends DataType {
+    number: string, 
+    username: string
+    email: string 
+    image: string
+}

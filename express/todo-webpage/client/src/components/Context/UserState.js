@@ -82,37 +82,6 @@ export default function UserState(props) {
     }
   }
 
-  async function updateUser({id, username, email, number, image}) {
-    try {
-        const res = await fetch(`/updateuser/${id}`, {
-            method: 'PUT',
-            headers: new Headers({
-                "Content-Type" : "application/json",
-                "auth-token": bearer
-            }),
-            body: JSON.stringify({username, email, number, image})
-        });
-
-        const data = await res.json();
-
-        let newData = JSON.parse(JSON.stringify(userData))
-
-        for (let index = 0; index < newData.length; index++) {
-            const element = newData[index];
-            if (element._id === id) {
-                newData[index].username = username;
-                newData[index].email = email;
-                newData[index].number = number;
-                newData[index].image = image;
-                break; 
-            }
-            setUserData(newData)
-        }
-    } catch (err) {
-        console.log(err);
-    }
-  }
-
   async function about() {
     try {
         const res = await fetch('/about', {
@@ -145,7 +114,7 @@ export default function UserState(props) {
         {/* if we just use value={userData} then we simply uses context.email */}
         {/* if use value={{ userData }} multiple brackets then we've to use context.userData.email */}
         {/* {{}} multiple brackets are used when we've to pass multiple values like value={{ userData, notes }} */}
-        <DataContext.Provider value={{ userData, getNotes, editNote, deleteNote, notes, setNotes, updateUser }}>
+        <DataContext.Provider value={{ userData, getNotes, editNote, deleteNote, notes, setNotes }}>
             {props.children}
         </DataContext.Provider>
     </div>
