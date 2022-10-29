@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, Typography } from 'antd';
 import layout from '../../../Layout/Layout';
-import Types from './Types'
+import Types from '../../../Types/Types'
 
 export default function SingIn() {
 

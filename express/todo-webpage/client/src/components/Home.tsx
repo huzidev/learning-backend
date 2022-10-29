@@ -14,8 +14,8 @@ import {
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
 import { Breadcrumb, Layout, Menu } from 'antd';
 import type { MenuProps } from 'antd';
-import SingIn from './Pages/Form/SignIn/SingIn';
-import SignUp from './Pages/Form/SignUp';
+import SingIn from './Pages/Form/Signin/SingIn';
+import SignUp from './Pages/Form/Signup/SignUp';
 import TodoPage from './Pages/Todo/TodoPage';
 import NotesItems from './Pages/Todo/NotesItems';
 import UpdateUser from './Pages/Form/UpdateUser';

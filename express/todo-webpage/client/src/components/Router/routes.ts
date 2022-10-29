@@ -1,8 +1,8 @@
 import ROUTE_PATHS from './paths';
 
 const Home = import('../Pages/Todo/TodoPage')
-const Signin = import('../Pages/Form/SignIn/SingIn');
-const SignUp = import('../Pages/Form/SignUp');
+const Signin = import('../Pages/Form/Signin/SingIn');
+const SignUp = import('../Pages/Form/Signup/SignUp');
 const Contact = import('../Pages/Form/ContactUs');
 const About = import('../User');
 const Notes = import('../Pages/Todo/NotesItems');

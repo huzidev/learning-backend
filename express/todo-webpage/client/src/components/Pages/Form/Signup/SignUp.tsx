@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input } from 'antd';
-import layout from '../../Layout/Layout';
+import layout from '../../../Layout/Layout';
 
 export default function SignUp() {
   const Navigate = useNavigate();
