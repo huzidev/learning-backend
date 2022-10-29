@@ -39,7 +39,7 @@ export default function UpdateUser() {
     })
 }
 
-    const handleClick = ()=>{ 
+    const handleClick = () => { 
         setIsModalOpen(false);
         updateUser(data.id, data.eusername, data.eemail, data.enumber)
         window.location.reload();

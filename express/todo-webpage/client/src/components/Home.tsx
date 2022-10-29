@@ -12,6 +12,7 @@ import {
 } from '@ant-design/icons';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
 import { Breadcrumb, Layout, Menu } from 'antd';
+import type { MenuProps } from 'antd';
 import SingIn from './Form/SingIn';
 import SignUp from './Form/SignUp';
 import TodoPage from './Todo/TodoPage';
@@ -23,6 +24,9 @@ import Test from './Form/Test';
 export default function App(): JSX.Element {
   const [collapsed, setCollapsed] = useState(false);
   const { Content, Footer, Sider } = Layout;
+
+  type MenuItem = Required<MenuProps>['items'][number];
+
   function getItem(
     label: string, 
     key: string, 
@@ -55,7 +59,7 @@ export default function App(): JSX.Element {
       null,
       () => Navigate('/updateuser')
     ),
-    getItem('Home', 'sub1', <HomeOutlined />, null, [
+    getItem('Home', 'sub1', <HomeOutlined />, 1, [
       getItem(
         'Add Todo', 
         '2', 
