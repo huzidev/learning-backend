@@ -1,7 +1,6 @@
 import express from "express";
 import Verification from '../middleware/Verification';
 import Note from '../models/Note';
-import { body, validationResult } from 'express-validator';
 import cors from "cors";
  
 const router = express.Router();
@@ -20,27 +19,19 @@ router.get('/allnotes', Verification, async (req, res) => {
     }
 })
 
-router.post('/addnote', Verification, [
-    body('title', 'Enter a valid title').isLength({ min: 3 }),
-    body('description', 'Description must be atleast 5 characters').isLength({ min: 5 })], 
-    async (req, res) => {
+router.post('/addnote', Verification, async (req, res) => {
         try {
-            const { title, description, category, isCompleted } = req.body;
-
-            const errors = validationResult(req);
-
-            if (!errors.isEmpty()) {
-                return res.status(400).json({ errors: errors.array() })
+            const { title, description, category } = req.body;
+            console.log("Title is", title);
+            if (!title | !description | !category) {
+                return res.status(404).json({ message: "You've left an tag empty" })
+            } else {
+                const note = new Note({
+                    title, description, category, user: req.userID
+                })
+                const savedNote = await note.save();
+                res.json(savedNote)
             }
-
-            const note = new Note({
-                title, description, category, isCompleted, user: req.userID
-            })
-
-            const savedNote = await note.save();
-
-            res.json(savedNote)
-
         } catch (e) {
             console.log(e);
         }
@@ -50,7 +41,6 @@ router.post('/addnote', Verification, [
 router.put('/updatenote/:id', Verification, async (req, res) => {
     const { title, description, category } = req.body;
     try {
-        
         const newNote = {}
         if (title) {
             newNote.title = title
@@ -61,7 +51,6 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         if (category) {
             newNote.category = category
         }
-
         let note = await Note.findById(req.params.id);
         if (!note) {
             return res.status(404).json({ error: "Not Found" })
@@ -69,14 +58,12 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         if (note.user.toString() !== req.userID.toString()) {
             return res.status(401).send("Not Allowed");
         }
-
         note = await Note.findByIdAndUpdate(
             req.params.id,
             { $set: newNote },
             { new: true }
         )
         res.json({ note });
-
     } catch (e) {
         console.log(e);
     }

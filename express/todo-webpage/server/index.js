@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from "express";
+import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv";
 import cookie from 'cookie-parser';
 import bodyParser from "body-parser";
@@ -7,7 +7,7 @@ import cors from "cors";
 dotenv.config({ path : './config.env' });
 require('./db/connection.js');
 
-const server: Express = express();
+const server = express();
 const port = 8000;
 
 server.use(express.json());
@@ -22,7 +22,7 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended : true }));
 server.use(cookie());
 
-server.get('*', (req: Request, res: Response) => {
+server.get('*', (req, res) => {
     res.send({ message: "Hello, world" });
 });
 
