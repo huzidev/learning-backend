@@ -1,7 +1,6 @@
-import React from 'react'
-
 import ROUTE_PATHS from './paths';
 
+const Home = import('../Pages/Todo/TodoPage')
 const Signin = import('../Pages/Form/SignIn/SingIn');
 const SignUp = import('../Pages/Form/SignUp');
 const Contact = import('../Pages/Form/ContactUs');
@@ -16,6 +15,9 @@ interface AppRoute {
 
   const routes: AppRoute[] = [
     {
+        Component: Home,
+        path: ROUTE_PATHS.HOME
+    },{
         Component: Signin,
         path: ROUTE_PATHS.SIGNIN
     },
