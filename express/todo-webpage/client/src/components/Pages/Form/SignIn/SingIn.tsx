@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Typography } from 'antd';
 import layout from '../../../Layout/Layout';
-import { DataType } from './Types';
+import { DataType } from './Type';
 
 export default function SingIn() {
 

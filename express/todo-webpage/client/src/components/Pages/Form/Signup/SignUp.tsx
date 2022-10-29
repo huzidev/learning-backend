@@ -2,34 +2,13 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input } from 'antd';
 import layout from '../../../Layout/Layout';
+import { DataType } from './Type';
 
 export default function SignUp() {
   const Navigate = useNavigate();
   const host = "http://localhost:8000";
 
-    /* eslint-disable no-template-curly-in-string */
-    const validateMessages = {
-        required: '${label} is required!',
-        types: {
-            username: '${label} is not a valid username!',
-            email: '${label} is not a valid email!',
-            number: '${label} is not a valid number!',
-        },
-        password: {
-            range: '${label} must be between ${min} and ${max}',
-        },
-    };
-  /* eslint-enable no-template-curly-in-string */
-
-    interface DataTypes {
-        username: string,
-        email: string,
-        number: string,
-        password: string,
-        cpassword: string
-    }
-
-  const [user, setUser] = React.useState<DataTypes>({
+  const [user, setUser] = React.useState<DataType>({
     username : "",
     email : "",
     number : "",
@@ -48,9 +27,7 @@ export default function SignUp() {
   };
 
   async function signUp(e: React.FormEvent) {
-
     e.preventDefault();
-
     const { username, email, number, password, cpassword } = user;
     const res = await fetch(`${host}/signup`, {
         method: "POST",
@@ -67,7 +44,6 @@ export default function SignUp() {
     });
 
     const data = await res.json();
-
     if (res.status === 421 || !data) {
         window.alert("You've left an tag empty")
     } else if (res.status === 422) {
@@ -90,14 +66,6 @@ export default function SignUp() {
         Navigate("/signin");
     }
   };
-  
-    const onFinish = (values: any) => {
-        console.log('Success:', values);
-    };
-    const onFinishFailed = (errorInfo: any) => {
-        console.log('Failed:', errorInfo);
-    };
-
   return (
     <div>
         <h1>
@@ -106,9 +74,6 @@ export default function SignUp() {
         <Form 
             {...layout} 
             name="nest-messages" 
-            onFinish={onFinish} 
-            onFinishFailed={onFinishFailed}
-            validateMessages={validateMessages}
         >
             <Form.Item
                 name={['Username']}
