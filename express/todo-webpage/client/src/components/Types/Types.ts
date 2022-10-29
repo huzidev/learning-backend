@@ -1,4 +1,8 @@
 export default interface DataTypes {
+    username: string,
     email: string,
-    password: string
+    number: number,
+    password: string,
+    cpassword: string
+    
 }
