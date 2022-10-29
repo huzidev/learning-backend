@@ -14,11 +14,11 @@ import {
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
 import { Breadcrumb, Layout, Menu } from 'antd';
 import type { MenuProps } from 'antd';
-import SingIn from './Pages/Form/Signin/SingIn';
-import SignUp from './Pages/Form/Signup/SignUp';
+import SingIn from './Pages/Form/signin/SingIn';
+import SignUp from './Pages/Form/signup/SignUp';
 import TodoPage from './Pages/Todo/TodoPage';
 import NotesItems from './Pages/Todo/NotesItems';
-import UpdateUser from './Pages/Form/UpdateUser';
+import UpdateUser from './Pages/Form/update/UpdateUser';
 import CompletedTasks from './Pages/Todo/CompletedTasks';
 import Test from './Pages/Form/Test';
 

@@ -1,31 +1,27 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
-import DataContext from '../../Context/DataContext';
-import User from '../../User';
-import { Button, Modal, Select  } from 'antd';
+import DataContext from '../../../Context/DataContext';
+import User from '../../../User';
+import { Button, Modal } from 'antd';
+import { DataType } from './Type';
 
 export default function UpdateUser() {
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const showModal = () => {
         setIsModalOpen(true);
-    };
-    const handleOk = () => {
-        setIsModalOpen(false);
     };
     const handleCancel = () => {
       setIsModalOpen(false);
     };
 
-
     const context = useContext(DataContext);
-  const Navigate = useNavigate();
 
   const { updateUser } = context;
 
   const ref = useRef<any>(null)
 
-  const [data, setData] = useState({id: "", eusername: "", eemail: "", enumber: "", eimage: ""})
+  const [data, setData] = useState<DataType>({id: "", eusername: "", eemail: "", enumber: "", eimage: ""})
 
 
   const updateData = (currData: any) => {
