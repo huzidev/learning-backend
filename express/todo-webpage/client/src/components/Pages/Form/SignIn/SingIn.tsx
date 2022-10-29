@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, Typography } from 'antd';
 import layout from '../../../Layout/Layout';
-import Types from '../../../Types/Types'
+import { DataType } from './Types';
 
 export default function SingIn() {
 
@@ -21,7 +21,7 @@ export default function SingIn() {
   };
   /* eslint-enable no-template-curly-in-string */
 
-  const [user, setUser] = React.useState<Types>({
+  const [user, setUser] = React.useState<DataType>({
     email: "",
     password : ""
   });
