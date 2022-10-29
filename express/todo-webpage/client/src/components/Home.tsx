@@ -59,7 +59,7 @@ export default function App(): JSX.Element {
       null,
       () => Navigate('/updateuser')
     ),
-    getItem('Home', 'sub1', <HomeOutlined />, 1, [
+    getItem('Home', 'sub1', <HomeOutlined />, [
       getItem(
         'Add Todo', 
         '2', 
@@ -67,7 +67,7 @@ export default function App(): JSX.Element {
         null,
         () => Navigate('/addnote')
       ),
-    ]),
+    ], null),
     getItem(
       'Completed Tasks', 
       '6', 
