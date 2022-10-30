@@ -14,19 +14,14 @@ export default function SignOut(): JSX.Element {
           },
           credentials : "include"
         }).then((res: Response) => {
-          if (res.status === 200) {
             localStorage.removeItem('jwtoken')
-          } else {
-            const error = new Error();
-            throw error;
-          }
-          setTimeout(() => {
-            window.alert("Logout successfully")
-            Navigate('/', {
-              replace : true
-            })
-            window.location.reload();
-          }, 2500)
+            setTimeout(() => {
+              window.alert("Logout successfully")
+              Navigate('/', {
+                replace : true
+              })
+              window.location.reload();
+            }, 2500)
         }).catch((err: any) => {
           console.log(err);
         })
