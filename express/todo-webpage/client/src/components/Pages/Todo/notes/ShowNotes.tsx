@@ -15,7 +15,8 @@ export default function ShowNotes(props: any): JSX.Element {
         window.location.reload();
     }
 
-    console.log("Data", note);
+    console.log("What is note",  note);
+    
 
     const [checked, setChecked] = useState<boolean>(true);
 

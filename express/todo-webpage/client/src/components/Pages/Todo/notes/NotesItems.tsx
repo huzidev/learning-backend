@@ -12,7 +12,7 @@ export default function NotesItems(props: any) {
     const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
     const [isModalOpen, setIsModalOpen] = useState(false);
     
-    const { notes, getNotes, editNote } = context;
+    const { notes, setNotes, getNotes, editNote } = context;
     const [items, setItems] = useState(notes)
     const [state, setState] = useState(false)
     const ref = useRef<any>(null)
@@ -47,9 +47,41 @@ export default function NotesItems(props: any) {
         })
     }
 
-    const handleClick = () => {
+    
+
+    const handleClick = async () => {
+        const { id, etitle, edescription, ecategory } = note
+            try {
+                const res = await fetch(`/updatenote/${id}`, {
+                    method: 'PUT',
+                    headers: new Headers({
+                        "Content-Type" : "application/json",
+                    }),
+                    body: JSON.stringify({
+                        title : etitle,
+                        description : edescription,
+                        category : ecategory
+                    })
+                });
+        
+                const data = await res.json();
+        
+                let newNote = JSON.parse(JSON.stringify(notes))
+        
+                for (let index = 0; index < newNote.length; index++) {
+                    const element = newNote[index];
+                    if (element._id === id) {
+                        newNote[index].title = etitle;
+                        newNote[index].description = edescription;
+                        newNote[index].category = ecategory;
+                        break; 
+                    }
+                    setNotes(newNote)
+                }
+            } catch (err) {
+                console.log(err);
+            }
         setIsModalOpen(false);
-        editNote(note.id, note.etitle, note.edescription, note.ecategory)
         window.location.reload();
     }
 
