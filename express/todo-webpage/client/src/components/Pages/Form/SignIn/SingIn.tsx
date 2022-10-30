@@ -11,7 +11,10 @@ export default function SingIn() {
   const [user, setUser] = React.useState<DataType>({ email: "", password : "" });
 
   function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setUser({ 
+      ...user, 
+      [e.target.name]: e.target.value 
+    });
   };
 
   async function signIn(e: React.FormEvent) {
@@ -19,7 +22,9 @@ export default function SingIn() {
     const { email, password } = user;
     const res = await fetch(`/signin`, {
       method : "POST",
-      headers : { "Content-Type" : "application/json" },
+      headers : { 
+        "Content-Type" : "application/json" 
+      },
       body : JSON.stringify({ email, password })
     });
     const data = await res.json();
@@ -38,13 +43,8 @@ export default function SingIn() {
   }
   return (
     <div>
-      <Typography.Title level={3}>
-        Singin
-      </Typography.Title>
-      <Form 
-        {...layout} 
-        name="nest-messages" 
-      >
+      <Typography.Title level={3}> Singin </Typography.Title>
+      <Form {...layout} name="nest-messages">
         <Form.Item
           name="email"
           rules={[
