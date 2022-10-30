@@ -9,7 +9,6 @@ import {
   HomeOutlined,
   LoginOutlined,
   MessageOutlined,
-  PaperClipOutlined
 } from '@ant-design/icons';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
 import { Breadcrumb, Layout, Menu } from 'antd';

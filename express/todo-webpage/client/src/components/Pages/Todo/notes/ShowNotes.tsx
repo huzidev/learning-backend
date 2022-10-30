@@ -1,21 +1,30 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext } from 'react';
 import DataContext from "../../../Context/DataContext";
-import NotesItems from './NotesItems';
 import { Card, Col, Row , Button, Typography } from 'antd';
 
 export default function ShowNotes(props: any): JSX.Element {
 
     const context = useContext(DataContext);
-    const { deleteNote} = context;
+    const { notes, setNotes } = context;
     const { note, updateNote, index } = props;
 
-    function del() {
-        deleteNote(note._id);
-        window.alert("Note Deleted Successfully!");
-        window.location.reload();
-    }
-
-    const [checked, setChecked] = useState<boolean>(true);
+    async function deleteNote() {
+        try {
+            const res = await fetch(`/deletenote/${note._id}`, {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type" : "application/json",
+                }
+            })
+            const data = res.json();
+            const newNotes = notes.filter((d: any) => { return d._id !== note.id })
+            setNotes(newNotes)
+            window.alert("Note Deleted Successfully!");
+            window.location.reload()
+        } catch (e) {
+            console.log(e);
+        }
+      }
 
 
       const style = {
@@ -41,7 +50,7 @@ export default function ShowNotes(props: any): JSX.Element {
                     <Typography.Title level={5}>
                         Category: {note.category}
                     </Typography.Title>
-                    <Button onClick={del}>
+                    <Button onClick={deleteNote}>
                         Delete
                     </Button>
                     <Button onClick={() => {updateNote(note)}}>

@@ -21,7 +21,7 @@ export default function SignOut(): JSX.Element {
                 replace : true
               })
               window.location.reload();
-            }, 2500)
+            }, 2000)
         }).catch((err: string) => {
           console.log(err);
         })
