@@ -12,7 +12,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-const TodoPage = React.lazy(() => import('./Pages/Todo/TodoPage'))
+const TodoPage = React.lazy(() => import('./Pages/Todo/todoPage/TodoPage'))
 
 export default function App(): JSX.Element {
   return (

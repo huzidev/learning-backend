@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import DataContext from "../../Context/DataContext";
+import DataContext from "../../../Context/DataContext";
 import NotesItems from './NotesItems';
 import { Button, Checkbox } from 'antd';
 
@@ -23,16 +23,6 @@ export default function ShowNotes(props: any): JSX.Element {
         console.log('checked = ', e.target.checked);
         setChecked(e.target.checked);
       };
-
-    // const test = !note.isCompleted ? "Hello World" : "True"
-      
-    //   React.useEffect(() => {
-    //       if (note.isCompleted === true) {
-    //           setChecked(true)
-    //       } else if (note.isCompleted === false) {
-    //           setChecked(false)
-    //       }
-    //   }, [setChecked])
 
   return (
     <div>
