@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import DataContext from "../../../Context/DataContext";
 import NotesItems from './NotesItems';
-import { Button, Checkbox } from 'antd';
+import { Card, Col, Row , Button, Typography } from 'antd';
 
 export default function ShowNotes(props: any): JSX.Element {
 
@@ -15,37 +15,40 @@ export default function ShowNotes(props: any): JSX.Element {
         window.location.reload();
     }
 
-    console.log("What is note",  note);
-    
-
     const [checked, setChecked] = useState<boolean>(true);
 
-      const onChange = (e: any) => {
-        console.log('checked = ', e.target.checked);
-        setChecked(e.target.checked);
-      };
 
-  return (
-    <div>
-        <h1>
-            Note Number : {index + 1}
-        </h1>
-        <h1>
-            Title: {note.title}
-        </h1>
-        <h3>
-            Description: {note.description}
-        </h3> 
-        <h3>
-            Category: {note.category}
-        </h3>
-        <button onClick={del}>
-            Delete
-        </button>
-        <button onClick={() => {updateNote(note)}}>
-            Update Note
-        </button>
-        <hr />
+      const style = {
+        margin: '10px 0px 0px 0px',
+      }
+      return (
+          <div>
+        <Row gutter={16} style={style}>
+            <Col span={10}>
+                <Card title={
+                    <Typography.Title level={3}>
+                        Note Number : {index + 1}
+                    </Typography.Title>
+                } size="small"
+                >
+                    <Typography.Title level={4}>
+                        Title: {note.title}
+                    </Typography.Title>
+                    <Typography.Title level={5}>
+                        Description: {note.description}
+                    </Typography.Title> 
+                    <Typography.Title level={5}>
+                        Category: {note.category}
+                    </Typography.Title>
+                    <Button onClick={del}>
+                        Delete
+                    </Button>
+                    <Button onClick={() => {updateNote(note)}}>
+                        Update Note
+                    </Button>
+                </Card>
+            </Col>
+        </Row>
     </div>
   )
 }

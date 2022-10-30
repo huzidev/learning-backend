@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom';
 import DataContext from '../../../Context/DataContext';
 import User from '../about/About';
-import { Button, Modal } from 'antd';
+import { Button, Modal, Form, Input } from 'antd';
+import { UserOutlined, MailOutlined, NumberOutlined } from '@ant-design/icons';
 import { DataType, DataTypeF } from './Type';
 
 export default function UpdateUser() {
@@ -56,22 +56,30 @@ console.log("User data", userData);
                     image: eimage
                 })
             });
-    
-            const data = await res.json();
-    
-            let newData = JSON.parse(JSON.stringify(userData))
-    
-            for (let index = 0; index < newData.length; index++) {
-                const element = newData[index];
-                if (element._id === _id) {
-                    newData[index].username = username;
-                    newData[index].email = email;
-                    newData[index].number = number;
-                    newData[index].image = image;
-                    break; 
+            if (eusername === "") {
+                window.alert("You can't left username field empty")
+            } else if (eemail === "") {
+                window.alert("You can't left email field empty")
+            } else if (enumber === "") {
+                window.alert("You can't left number field empty")
+            }
+            else {
+                const data = await res.json();
+        
+                let newData = JSON.parse(JSON.stringify(userData))
+        
+                for (let index = 0; index < newData.length; index++) {
+                    const element = newData[index];
+                    if (element._id === _id) {
+                        newData[index].username = username;
+                        newData[index].email = email;
+                        newData[index].number = number;
+                        newData[index].image = image;
+                        break; 
+                    }
+                    setUserData(newData)
+                    window.location.reload()
                 }
-                setUserData(newData)
-                window.location.reload()
             }
         } catch (err) {
             console.log(err);
@@ -96,32 +104,35 @@ const handlePhoto = (e: any) => {
             <h1>
                 Update User's Info
             </h1>
-            <form>
-                <input 
+            <Form>
+                <Input 
                     type="text"
                     name='eusername'
                     value={data.eusername}
+                    prefix={<UserOutlined className="site-form-item-icon" />}
                     onChange={onChange}
                 />
-                <input 
+                <Input 
                     type="text"
                     name='eemail'
                     value={data.eemail}
+                    prefix={<MailOutlined className="site-form-item-icon" />}
                     onChange={onChange}
                 />
-                <input 
+                <Input 
                     type="text"
                     name='enumber'
                     value={data.enumber}
+                    prefix={<NumberOutlined className="site-form-item-icon" />}
                     onChange={onChange}
                 />
-                <input 
+                <Input 
                     type="file" 
                     accept=".png, .jpg, .jpeg"
                     name="eimage"
                     onChange={handlePhoto}
                 />
-            </form>
+            </Form>
         </Modal>
         <User updateData={updateData} />
     </div>
