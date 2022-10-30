@@ -5,32 +5,31 @@ import { Button, Checkbox, Form, Input, Typography } from 'antd';
 import { DataType } from './Type';
 
 export default function AddTodo(): JSX.Element {
-
     const context = useContext(DataContext);
     const {setNotes, notes} = context;
-    const [note, setNote] = useState<DataType>({title: "", description: "", category: ""})
+    const [note, setNote] = useState<DataType>({
+      title: "", 
+      description: "", 
+      category: ""
+    })
 
-    
     const addTodo = async (e: React.FormEvent) => {
-        e.preventDefault();
-
-        const {title, description, category} = note
-
-        const res = await fetch(`/addnote`, {
-            method : "POST",
-            headers : {
-              "Content-Type" : "application/json",
-            },
-            body : JSON.stringify({
-                title,
-                description,
-                category
-            })
-          });
-          const data = await res.json()
-          setNotes(notes.concat(data));
-        console.log("note", note);
-        window.location.reload()
+      e.preventDefault();
+      const {title, description, category} = note
+      const res = await fetch(`/addnote`, {
+        method : "POST",
+        headers : {
+          "Content-Type" : "application/json",
+        },
+        body : JSON.stringify({
+          title,
+          description,
+          category
+        })
+      });
+      const data = await res.json()
+      setNotes(notes.concat(data));
+      window.location.reload()
     }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
@@ -45,11 +44,6 @@ export default function AddTodo(): JSX.Element {
         { label: "tool", value: "tool" },
         { label: "book", value: "book" },
       ];
-
-      const onFinish = (values: any) => {
-        console.log('Received values of form: ', values);
-      };
-
   return (
     <div>
         <h1>
@@ -58,7 +52,6 @@ export default function AddTodo(): JSX.Element {
         <Form 
             {...layout} 
             name="nest-messages" 
-            onFinish={onFinish} 
         >
           <Form.Item
             name="title"
