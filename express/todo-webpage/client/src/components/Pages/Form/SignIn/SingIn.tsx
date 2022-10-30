@@ -8,16 +8,10 @@ import { DataType } from './Type';
 
 export default function SingIn() {
   const Navigate = useNavigate();
-  const [user, setUser] = React.useState<DataType>({
-    email: "",
-    password : ""
-  });
+  const [user, setUser] = React.useState<DataType>({ email: "", password : "" });
 
   function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
-    setUser({
-      ...user,
-      [e.target.name]: e.target.value
-    });
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   async function signIn(e: React.FormEvent) {
@@ -25,15 +19,9 @@ export default function SingIn() {
     const { email, password } = user;
     const res = await fetch(`/signin`, {
       method : "POST",
-      headers : {
-        "Content-Type" : "application/json"
-      },
-      body : JSON.stringify({
-        email,
-        password
-      })
+      headers : { "Content-Type" : "application/json" },
+      body : JSON.stringify({ email, password })
     });
-    
     const data = await res.json();
     if (!data) {
       window.alert("Invalid Value!")
