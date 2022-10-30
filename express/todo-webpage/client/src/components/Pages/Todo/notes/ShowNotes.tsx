@@ -41,7 +41,7 @@ export default function ShowNotes(props: any): JSX.Element {
         <button onClick={del}>
             Delete
         </button>
-        <button onClick={()=>{updateNote(note)}}>
+        <button onClick={() => {updateNote(note)}}>
             Update Note
         </button>
         <hr />
