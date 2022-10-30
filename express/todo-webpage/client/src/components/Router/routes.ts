@@ -4,7 +4,7 @@ const Home = import('../Pages/Todo/todoPage/TodoPage')
 const Signin = import('../Pages/Form/signin/SingIn');
 const SignUp = import('../Pages/Form/signup/SignUp');
 const Contact = import('../Pages/Form/contact/ContactUs');
-const About = import('../User');
+const About = import('../Pages/Form/about/About');
 const Notes = import('../Pages/Todo/notes/NotesItems');
 const UpdateUser = import('../Pages/Form/update/UpdateUser');
 

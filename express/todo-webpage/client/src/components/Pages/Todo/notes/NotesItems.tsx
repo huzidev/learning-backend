@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Button, Modal } from 'antd';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import DataContext from "../../../Context/DataContext";
 import AddTodo from '../addTodo/AddTodo';
 import ShowNotes from './ShowNotes';
@@ -12,7 +12,7 @@ export default function NotesItems(props: any) {
     const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
     const [isModalOpen, setIsModalOpen] = useState(false);
     
-    const { notes, setNotes, getNotes, editNote } = context;
+    const { notes, setNotes, getNotes } = context;
     const [items, setItems] = useState(notes)
     const [state, setState] = useState(false)
     const ref = useRef<any>(null)
@@ -47,8 +47,6 @@ export default function NotesItems(props: any) {
         })
     }
 
-    
-
     const handleClick = async () => {
         const { id, etitle, edescription, ecategory } = note
             try {
@@ -63,8 +61,6 @@ export default function NotesItems(props: any) {
                         category : ecategory
                     })
                 });
-        
-                const data = await res.json();
         
                 let newNote = JSON.parse(JSON.stringify(notes))
         

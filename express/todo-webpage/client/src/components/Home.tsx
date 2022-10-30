@@ -58,7 +58,7 @@ export default function App(): JSX.Element {
       '1', 
       <UserOutlined />,
       null,
-      () => Navigate('/updateuser')
+      () => Navigate('/about')
     ),
     getItem('Home', 'sub1', <HomeOutlined />, [
       getItem(
@@ -167,7 +167,7 @@ export default function App(): JSX.Element {
             {Location.pathname.includes('/signin') && <SingIn />}
             {Location.pathname.includes('/signup') && <SignUp />}
             {Location.pathname.includes('/addnote') && <NotesItems />}
-            {Location.pathname.includes('/updateuser') && <UpdateUser />}
+            {Location.pathname.includes('/about') && <UpdateUser />}
             {Location.pathname.includes('/completed') && <CompletedTasks />}
             {Location.pathname.includes('/test') && <Test />}
           </div>

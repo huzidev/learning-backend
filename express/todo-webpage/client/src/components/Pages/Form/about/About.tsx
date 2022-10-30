@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
-import DataContext from './Context/DataContext';
+import DataContext from '../../../Context/DataContext';
 
-export default function User(props: any): JSX.Element {
+export default function About(props: any): JSX.Element {
   const context = useContext(DataContext);
   const { userData } = context
-
   const { updateData } = props;
   return (
     <div>
@@ -23,7 +22,7 @@ export default function User(props: any): JSX.Element {
         <h1>
             Image: {userData.image}
         </h1>
-        <button onClick={()=>{updateData(userData)}}>
+        <button onClick={() => {updateData(userData)}}>
             Update Data
         </button>
     </div>

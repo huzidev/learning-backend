@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
 import DataContext from '../../../Context/DataContext';
-import User from '../../../User';
+import User from '../about/About';
 import { Button, Modal } from 'antd';
 import { DataType, DataTypeF } from './Type';
 

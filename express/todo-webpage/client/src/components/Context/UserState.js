@@ -6,28 +6,11 @@ export default function UserState(props) {
   const [notes, setNotes] = React.useState(initialState)
   const [userData, setUserData] = React.useState({})
 
-//   interface DataTypeN {
-//     id: number
-//     number: number
-//     image: string
-//   }
-
-//   interface DataType extends DataTypeN {
-//     username: string
-//     email: string
-//     title: string
-//     description: string
-//     category: string
-//   }
-
-  let bearer = localStorage.getItem('jwtoken');
-
   async function getNotes() {
     const res = await fetch('/allnotes', {
         method : 'GET',
         headers: {
             "Content-Type" : "application/json",
-            "auth-token": localStorage.getItem('jwtoken')
         }
     })
     const data = await res.json();
@@ -73,11 +56,7 @@ export default function UserState(props) {
         console.log(err);
     }
   }
-  React.useEffect(() => {
-    if (bearer) {
-        about();
-    }
-  }, [])
+  about()
 
   return (
     <div>
