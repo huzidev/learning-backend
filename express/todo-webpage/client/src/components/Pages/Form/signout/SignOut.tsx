@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function Logout(): JSX.Element {
+export default function SignOut(): JSX.Element {
 
     const Navigate = useNavigate();
 

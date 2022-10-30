@@ -34,19 +34,19 @@ export default function Footer(): JSX.Element {
             number: parseInt(number),
             message
         })
-    });
-
-    const data = await res.json();
-
-    if (res.status === 422) {
+      });
+      
+      const data = await res.json();
+      
+      if (res.status === 422) {
         window.alert("Username must be provide")
-    } else if (res.status === 423) {
-      window.alert("Email must be provide")
-    } else if (res.status === 424) {
-      window.alert("Mesasge field is empty")
-    } else if (res.status === 500 || !data) {
+      } else if (res.status === 423) {
+        window.alert("Email must be provide")
+      } else if (res.status === 424) {
+        window.alert("Mesasge field is empty")
+      } else if (res.status === 500 || !data) {
         window.alert("Failed To Send Message")
-    } else {
+      } else {
         window.alert("Message Sent Successfully!");
     }
   }
@@ -93,7 +93,7 @@ export default function Footer(): JSX.Element {
         <InputNumber   
           name="number"
           value={user.number}
-          onChange={inputHandler}
+          onChange={(e) => e.target.value}
           style={{ width: '100%' }}
           placeholder="Enter Yours Number (Optional)"
         />
@@ -123,7 +123,7 @@ export default function Footer(): JSX.Element {
         }}
       >
         <Button type="primary" htmlType="submit" onClick={sendMessage}>
-          Submit
+          Send Message
         </Button>
       </Form.Item>
     </Form>

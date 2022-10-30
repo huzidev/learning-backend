@@ -1,8 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import routes from './Router/routes'
-import Logout from './Pages/Form/Logout';
-import ContactUs from './Pages/Form/contact/ContactUs';
+import SignOut from './Pages/Form/signout/SignOut';
 import Home from './Home';
 import User from './User';
 import Error from './Error';
@@ -30,7 +29,7 @@ export default function App(): JSX.Element {
                 />
               )
             })} 
-              <Route path="/signout" element={<Logout />} />
+              <Route path="/signout" element={<SignOut />} />
               <Route path="*" element={<Skeleton active />} />
           </Routes>
         </Router>
