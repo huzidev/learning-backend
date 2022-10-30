@@ -11,8 +11,8 @@ export default function Footer() {
     number : "",
     message : ""
   })
-  
-  function inputHandler(e: any) {
+
+  function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
       setUser({ 
           ...user,
           [e.target.name] : e.target.value 
