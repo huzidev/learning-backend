@@ -38,7 +38,9 @@ export default function UserState(props) {
         console.log(err);
     }
   }
-  about()
+  React.useEffect(() => {
+      about()
+  }, [])
 
   return (
     <div>

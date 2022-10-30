@@ -3,6 +3,7 @@ import DataContext from "../../../Context/DataContext";
 import layout from '../../../Layout/Layout';
 import { Button, Form, Input } from 'antd';
 import { DataType } from './Type';
+import { stringify } from 'querystring';
 
 export default function AddTodo(): JSX.Element {
     const context = useContext(DataContext);
@@ -24,12 +25,12 @@ export default function AddTodo(): JSX.Element {
         body : JSON.stringify({
           title,
           description,
-          category
+          category: category.charAt(0).toUpperCase() + category.slice(1)
         })
       });
+      console.log("To upper caase", category.charAt(0).toUpperCase());
       const data = await res.json()
       setNotes(notes.concat(data));
-      window.location.reload()
     }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,19 +87,23 @@ export default function AddTodo(): JSX.Element {
             placeholder="description"
           />
         </Form.Item>
-          {
-            options.map((data) => (
-              <>
-                <input 
-                  type='radio'
-                  name='category'
-                  value={data.value}
-                  onChange={onChange}
-                />
-                  {data.label}
-              </>
-            ))
-          }
+        <Form.Item
+          name="category"
+          rules={[
+            {
+              required: true,
+              message: 'Please input note category!',
+            },
+          ]}
+        >
+          <Input
+            type="category"
+            name='category'
+            value={note.category}
+            onChange={onChange}
+            placeholder="Category"
+          />
+        </Form.Item>
         <Form.Item>
           <Button 
             type="primary" 
