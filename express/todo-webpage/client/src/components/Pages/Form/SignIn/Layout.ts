@@ -4,7 +4,7 @@ const layout = {
     },
     wrapperCol: {
         span: 8,
-s    },
+    },
 };
 
 export default layout;
