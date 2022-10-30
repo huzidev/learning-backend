@@ -1,6 +1,6 @@
 import { Button, Form, Input, InputNumber } from 'antd';
 import React from 'react';
-import layout from '../../Layout/Layout';
+import layout from '../../../Layout/Layout';
 /* eslint-disable no-template-curly-in-string */
 const validateMessages = {
   required: '${label} is required!',

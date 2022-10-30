@@ -2,7 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import routes from './Router/routes'
 import Logout from './Pages/Form/Logout';
-import ContactUs from './Pages/Form/ContactUs';
+import ContactUs from './Pages/Form/contact/ContactUs';
 import Home from './Home';
 import User from './User';
 import Error from './Error';

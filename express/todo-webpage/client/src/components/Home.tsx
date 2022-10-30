@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import routes from './Router/routes'
-import ContactUs from './Pages/Form/ContactUs'
+import ContactUs from './Pages/Form/contact/ContactUs'
 import DataContext from './Context/DataContext';
 import {
   FileOutlined,
