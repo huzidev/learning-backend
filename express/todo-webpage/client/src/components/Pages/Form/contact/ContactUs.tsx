@@ -4,7 +4,7 @@ import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
 
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
   const [user, setUser] = React.useState<DataType>({
     username : "",
     email : "",
@@ -12,7 +12,7 @@ export default function Footer() {
     message : ""
   })
 
-  function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
+  function inputHandler(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
       setUser({ 
           ...user,
           [e.target.name] : e.target.value 
@@ -51,11 +51,8 @@ export default function Footer() {
     }
   }
 
-  const onFinish = (values: any) => {
-    console.log(values);
-  };
   return (
-    <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+    <Form {...layout} name="nest-messages">
       <Form.Item
         name={['Username']}
         label="Name"
