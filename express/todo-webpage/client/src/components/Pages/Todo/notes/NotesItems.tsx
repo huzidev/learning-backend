@@ -12,7 +12,7 @@ export default function NotesItems(props: any) {
     const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
     const [isModalOpen, setIsModalOpen] = useState(false);
     
-    const { notes, setNotes, getNotes } = context;
+    const { notes, setNotes } = context;
     const [items, setItems] = useState(notes)
     const [state, setState] = useState(false)
     const ref = useRef<any>(null)
@@ -24,13 +24,18 @@ export default function NotesItems(props: any) {
         setIsModalOpen(false);
     };
 
+    async function getNotes() {
+        const res = await fetch('/allnotes', {
+            method : 'GET',
+            headers: {
+                "Content-Type" : "application/json",
+            }
+        })
+        const data = await res.json();
+        setNotes(data)
+      }
     useEffect(() => {
-        if (localStorage.getItem('jwtoken')) {
-            getNotes()
-        }
-        else {
-            Navigate("/login");
-        }
+          getNotes()
     }, [])
 
     const updateNote = (currentNote: any) => {
