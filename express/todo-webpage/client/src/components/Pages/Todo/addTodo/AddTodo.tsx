@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import DataContext from "../../../Context/DataContext";
 import layout from '../../../Layout/Layout';
-import { Button, Checkbox, Form, Input, Typography } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { DataType } from './Type';
 
 export default function AddTodo(): JSX.Element {
@@ -46,70 +46,70 @@ export default function AddTodo(): JSX.Element {
     ];
   return (
     <div>
-        <h1>
-            Add Todo Note
-        </h1>
-        <Form 
-            {...layout} 
-            name="nest-messages" 
-        >
-          <Form.Item
-            name="title"
-            rules={[
-              {
-                required: true,
-                message: 'Please input note title!',
-              },
-            ]}
-          >
-            <Input 
-              name='title'
-              value={note.title}
-              onChange={onChange}
-              placeholder="title" 
-            />
-          </Form.Item>
-          <Form.Item
-            name="description"
-            rules={[
-              {
-                required: true,
-                message: 'Please input note description!',
-              },
-            ]}
-          >
-            <Input
-              type="description"
-              name='description'
-              value={note.description}
-              onChange={onChange}
-              placeholder="description"
-            />
-          </Form.Item>
+      <h1>
+          Add Todo Note
+      </h1>
+      <Form 
+          {...layout} 
+          name="nest-messages" 
+      >
+        <Form.Item
+          name="title"
+          rules={[
             {
-                options.map((data) => (
-                    <>
-                        <input 
-                            type='radio'
-                            name='category'
-                            value={data.value}
-                            onChange={onChange}
-                        />
-                            {data.label}
-                    </>
-                ))
-            }
-          <Form.Item>
-            <Button 
-              type="primary" 
-              htmlType="submit"
-              onClick={addTodo} 
-              className="login-form-button"
-            >
-              Add Note
-            </Button>
-          </Form.Item>
-        </Form>
+              required: true,
+              message: 'Please input note title!',
+            },
+          ]}
+        >
+          <Input 
+            name='title'
+            value={note.title}
+            onChange={onChange}
+            placeholder="title" 
+          />
+        </Form.Item>
+        <Form.Item
+          name="description"
+          rules={[
+            {
+              required: true,
+              message: 'Please input note description!',
+            },
+          ]}
+        >
+          <Input
+            type="description"
+            name='description'
+            value={note.description}
+            onChange={onChange}
+            placeholder="description"
+          />
+        </Form.Item>
+          {
+            options.map((data) => (
+              <>
+                <input 
+                  type='radio'
+                  name='category'
+                  value={data.value}
+                  onChange={onChange}
+                />
+                  {data.label}
+              </>
+            ))
+          }
+        <Form.Item>
+          <Button 
+            type="primary" 
+            htmlType="submit"
+            onClick={addTodo} 
+            className="login-form-button"
+          >
+            Add Note
+          </Button>
+        </Form.Item>
+      </Form>
     </div>
   )
 }
