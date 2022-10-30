@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Button, Modal } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from "../../Context/DataContext";
-import AddTodo from './AddTodo';
+import AddTodo from './addTodo/AddTodo';
 import ShowNotes from './ShowNotes';
 import { useDispatch } from 'react-redux';
 

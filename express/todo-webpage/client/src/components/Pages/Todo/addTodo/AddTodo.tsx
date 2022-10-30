@@ -1,18 +1,14 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import DataContext from "../../Context/DataContext";
-import layout from '../../Layout/Layout';
+import DataContext from "../../../Context/DataContext";
+import layout from '../../../Layout/Layout';
 import { Button, Checkbox, Form, Input, Typography } from 'antd';
+import { DataType } from './Type';
 
 export default function AddTodo(): JSX.Element {
 
     const context = useContext(DataContext);
     const {setNotes, notes} = context;
-    interface Type {
-        title: string,
-        description: string,
-        category: string,
-    }
-    const [note, setNote] = useState({title: "", description: "", category: ""})
+    const [note, setNote] = useState<DataType>({title: "", description: "", category: ""})
 
     
     const addTodo = async (e: React.FormEvent) => {
