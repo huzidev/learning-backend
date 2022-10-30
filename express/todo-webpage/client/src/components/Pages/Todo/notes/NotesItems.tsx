@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Button, Modal } from 'antd';
+import { Button, Modal, Form, Input, Typography, Col } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import DataContext from "../../../Context/DataContext";
 import AddTodo from '../addTodo/AddTodo';
@@ -119,14 +119,20 @@ export default function NotesItems(props: any) {
                 Open Modal
             </Button>
             <Modal title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
-                <form>
-                    <input
+                <Form>
+                    <Typography.Title level={5}>
+                        Title
+                    </Typography.Title>
+                    <Input
                         type="text"
                         name='etitle'
                         value={note.etitle}
                         onChange={onChange}
                     />
-                    <input
+                    <Typography.Title level={5} style={{ marginTop: "10px" }}>
+                        Description
+                    </Typography.Title>
+                    <Input
                         type="text"
                         name='edescription'
                         value={note.edescription}
@@ -134,18 +140,19 @@ export default function NotesItems(props: any) {
                     />
                     {
                         options.map((data) => (
-                            <>
-                                <input
+                            <div style={{ display: 'flex' }}>
+                                {data.label}
+                                <Input
+                                    style={{ width: '15px', marginLeft: '5px' }}
                                     type='radio'
                                     name='ecategory'
                                     value={data.value}
                                     onChange={onChange}
-                                />
-                                {data.label}
-                            </>
+                                    />
+                            </div>
                         ))
                     }
-                </form>
+                </Form>
             </Modal>
             <h1>
                 Yours Notes
