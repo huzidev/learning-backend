@@ -50,12 +50,12 @@ export default function SingIn() {
   }
   return (
     <div>
-      <h1>
+      <Typography.Title level={3}>
         Singin
-      </h1>
+      </Typography.Title>
       <Form 
-          {...layout} 
-          name="nest-messages" 
+        {...layout} 
+        name="nest-messages" 
       >
         <Form.Item
           name="email"
