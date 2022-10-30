@@ -29,7 +29,8 @@ export default function ShowNotes(props: any): JSX.Element {
                     <Typography.Title level={3}>
                         Note Number : {index + 1}
                     </Typography.Title>
-                } size="small"
+                } 
+                size="small"
                 >
                     <Typography.Title level={4}>
                         Title: {note.title}
