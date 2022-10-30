@@ -95,6 +95,10 @@ const handlePhoto = (e: any) => {
     setData({...data, eimage: e.target.files[0]});
 }
 
+    const style = {
+        marginTop : "20px"
+    }
+
   return (
     <div>
         <Button style={{display: "none" }} ref={ref} type="primary" onClick={showModal}>
@@ -118,6 +122,7 @@ const handlePhoto = (e: any) => {
                     value={data.eemail}
                     prefix={<MailOutlined className="site-form-item-icon" />}
                     onChange={onChange}
+                    style={style}
                 />
                 <Input 
                     type="text"
@@ -125,12 +130,14 @@ const handlePhoto = (e: any) => {
                     value={data.enumber}
                     prefix={<NumberOutlined className="site-form-item-icon" />}
                     onChange={onChange}
+                    style={style}
                 />
                 <Input 
                     type="file" 
                     accept=".png, .jpg, .jpeg"
                     name="eimage"
                     onChange={handlePhoto}
+                    style={style}
                 />
             </Form>
         </Modal>
