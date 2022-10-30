@@ -2,22 +2,20 @@ import { Button, Form, Input, InputNumber } from 'antd';
 import React from 'react';
 import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
-export default function Footer() {
 
+
+export default function Footer() {
   const [user, setUser] = React.useState<DataType>({
     username : "",
     email : "",
     number : "",
     message : ""
   })
-
-  let name, value;
+  
   function inputHandler(e: any) {
-      name = e.target.name;
-      value = e.target.value;
       setUser({ 
           ...user,
-          [name] : value 
+          [e.target.name] : e.target.value 
       });
   }
     
