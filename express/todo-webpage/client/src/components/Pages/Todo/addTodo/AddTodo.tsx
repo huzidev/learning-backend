@@ -32,11 +32,11 @@ export default function AddTodo(): JSX.Element {
       window.location.reload()
     }
 
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
-        setNote({
-            ...note,
-            [e.target.name]: e.target.value
-        })
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setNote({
+        ...note,
+        [e.target.name]: e.target.value
+      })
     }
 
     const options = [
