@@ -1,30 +1,10 @@
 import { Button, Form, Input, InputNumber } from 'antd';
 import React from 'react';
 import layout from '../../../Layout/Layout';
-/* eslint-disable no-template-curly-in-string */
-const validateMessages = {
-  required: '${label} is required!',
-  types: {
-    username: '${label} is not a valid username!',
-    email: '${label} is not a valid email!',
-    number: '${label} is not a valid number!',
-  },
-  number: {
-    range: '${label} must be between ${min} and ${max}',
-  },
-};
-/* eslint-enable no-template-curly-in-string */
-
+import { DataType } from './Type';
 export default function Footer() {
 
-  interface DataTypes {
-    username: string,
-    email: string,
-    number: string,
-    message: string,
-  }
-
-  const [user, setUser] = React.useState<DataTypes>({
+  const [user, setUser] = React.useState<DataType>({
     username : "",
     email : "",
     number : "",
