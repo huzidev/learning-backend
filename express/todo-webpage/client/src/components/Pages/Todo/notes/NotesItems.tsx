@@ -33,7 +33,7 @@ export default function NotesItems(props: any) {
         })
         const data = await res.json();
         setNotes(data)
-      }
+    }
     useEffect(() => {
           getNotes()
     }, [])
