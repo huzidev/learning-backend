@@ -1,4 +1,4 @@
-import { Button, Form, Input, InputNumber } from 'antd';
+import { Button, Form, Input, InputNumber, Typography } from 'antd';
 import React from 'react';
 import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
@@ -21,7 +21,6 @@ export default function Footer(): JSX.Element {
     
   async function sendMessage(e: React.FormEvent) {
     e.preventDefault();
-
     const { username, email, number, message } = user;
     const res = await fetch("/contact", {
         method : "POST",
@@ -35,9 +34,7 @@ export default function Footer(): JSX.Element {
             message
         })
       });
-      
       const data = await res.json();
-      
       if (res.status === 422) {
         window.alert("Username must be provide")
       } else if (res.status === 423) {
@@ -50,9 +47,11 @@ export default function Footer(): JSX.Element {
         window.alert("Message Sent Successfully!");
     }
   }
-
   return (
     <Form {...layout} name="nest-messages">
+      <Typography.Title level={2}>
+        Contact Us
+      </Typography.Title>
       <Form.Item
         name={['Username']}
         label="Name"

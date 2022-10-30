@@ -4,6 +4,7 @@ const layout = {
     },
     wrapperCol: {
         span: 8,
+        offset: 8,
     },
 };
 

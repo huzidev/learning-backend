@@ -43,8 +43,8 @@ export default function SingIn() {
   }
   return (
     <div>
-      <Typography.Title level={3}> Singin </Typography.Title>
       <Form {...layout} name="nest-messages">
+        <Typography.Title level={3}> Singin </Typography.Title>
         <Form.Item
           name="email"
           rules={[
