@@ -157,6 +157,7 @@ export default function App(): JSX.Element {
               minHeight: 360,
             }}
           >
+            {Location.pathname=== '/' && <TodoPage />}
             {Location.pathname.includes('/contact') && <ContactUs />}
             {Location.pathname.includes('/signin') && <SingIn />}
             {Location.pathname.includes('/signup') && <SignUp />}

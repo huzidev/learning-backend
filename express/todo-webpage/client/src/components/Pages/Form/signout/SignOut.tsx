@@ -22,7 +22,7 @@ export default function SignOut(): JSX.Element {
               })
               window.location.reload();
             }, 2500)
-        }).catch((err: any) => {
+        }).catch((err: string) => {
           console.log(err);
         })
       }, [])
