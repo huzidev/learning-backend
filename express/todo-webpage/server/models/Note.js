@@ -18,12 +18,15 @@ const NotesSchema = new mongoose.Schema({
         type: String,
         default: "General"
     },
+    isCompleted : {
+        type: Boolean,
+    },
     date:{
         type: Date,
         default: Date.now
     }
 });
 
-const Note = mongoose.model('NOTES', userSchema);
+const Note = mongoose.model('NOTES', NotesSchema);
 
 module.exports = Note;
