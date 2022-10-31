@@ -25,13 +25,13 @@ export default function AddTodo(): JSX.Element {
         body : JSON.stringify({
           title,
           description,
-          category: category.charAt(0).toUpperCase() + category.slice(1)
+          category: category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()
         })
       });
       if (!title || !description || !category) {
         window.alert("You've left an tag empty!")
       }
-      else {
+      else {  
         const data = await res.json()
         setNotes(notes.concat(data));
       }
