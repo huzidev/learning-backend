@@ -39,7 +39,7 @@ router.post('/addnote', Verification, async (req, res) => {
 )
 
 router.put('/updatenote/:id', Verification, async (req, res) => {
-    const { title, description, category } = req.body;
+    const { title, description, category, isCompleted } = req.body;
     try {
         const newNote = {}
         if (title) {
@@ -50,6 +50,9 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         } 
         if (category) {
             newNote.category = category
+        }
+        if (isCompleted) {
+            newNote.isCompleted = isCompleted
         }
         let note = await Note.findById(req.params.id);
         if (!note) {
