@@ -122,14 +122,12 @@ router.post('/contact', async (req, res) => {
 
 router.put('/updateuser/:id', Verification, async (req, res) => {
     const { username, email, number } = req.body;
-
     try {
-        
         const newInfo = {}
         if (username) {
             newInfo.username = username
         } 
-        if (email) {
+        if (email) {    
             newInfo.email = email
         } 
         if (number) {
@@ -141,54 +139,17 @@ router.put('/updateuser/:id', Verification, async (req, res) => {
         if (!info) {
             return res.status(404).json({ error: "Not Found" })
         }
-
         info = await User.findByIdAndUpdate(
             req.params.id,
             { $set: newInfo },
             { new: true }
         )
         res.json({ info });
-
     } catch (e) {
         console.log(e);
     }
 
 })
-
-
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, 'images');
-    },
-    filename: function(req, file, cb) {   
-        cb(null, uuidv4() + '-' + Date.now() + path.extname(file.originalname));
-    }
-});
-
-const fileFilter = (req, file, cb) => {
-    const allowedFileTypes = ['image/jpeg', 'image/jpg', 'image/png'];
-    if(allowedFileTypes.includes(file.mimetype)) {
-        cb(null, true);
-    } else {
-        cb(null, false);
-    }
-}
-
-let upload = multer({ storage, fileFilter });
-
-router.route('/add').post(upload.single('image'), async (req, res) => {
-    const image = req.file.filename;
-
-    const newUserData = {
-        image
-    }
-
-    const newUser = new User(newUserData);
-
-    const upload = await newUser.save()
-
-    res.json(upload)
-});
 
 router.get('/about', Verification, (req, res) => {
     res.send(req.userInfo)
