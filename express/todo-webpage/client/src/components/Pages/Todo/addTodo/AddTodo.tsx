@@ -17,7 +17,7 @@ export default function AddTodo(): JSX.Element {
 
     const addTodo = async (e: React.FormEvent) => {
       e.preventDefault();
-      const {title, description, category} = note
+      const {title, description, category, isCompleted} = note
       const res = await fetch(`/addnote`, {
         method : "POST",
         headers : {
@@ -26,7 +26,8 @@ export default function AddTodo(): JSX.Element {
         body : JSON.stringify({
           title,
           description,
-          category: category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()
+          category: category.charAt(0).toUpperCase() + category.slice(1).toLowerCase(),
+          isCompleted
         })
       });
       if (res.status === 404) {

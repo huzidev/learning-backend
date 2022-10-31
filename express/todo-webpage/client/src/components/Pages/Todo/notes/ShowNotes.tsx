@@ -48,6 +48,9 @@ export default function ShowNotes(props: any): JSX.Element {
                         <Typography.Title level={5}>
                             Category: {note.category}
                         </Typography.Title>
+                        <input 
+                            type="checkbox"
+                        />
                         <Button onClick={deleteNote}>
                             Delete
                         </Button>

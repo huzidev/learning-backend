@@ -111,12 +111,6 @@ export default function NotesItems(props: any) {
         setState(true)
     }
 
-    const options = [
-        { label: "fruit", value: "fruit" },
-        { label: "tool", value: "tool" },
-        { label: "book", value: "book" }
-    ];
-
     return (
         <div>
             <AddTodo />
@@ -143,20 +137,15 @@ export default function NotesItems(props: any) {
                         value={note.edescription}
                         onChange={onChange}
                     />
-                    {
-                        options.map((data) => (
-                            <div style={{ display: 'flex' }}>
-                                {data.label}
-                                <Input
-                                    style={{ width: '15px', marginLeft: '5px' }}
-                                    type='radio'
-                                    name='ecategory'
-                                    value={data.value}
-                                    onChange={onChange}
-                                    />
-                            </div>
-                        ))
-                    }
+                    <Typography.Title level={5} style={{ marginTop: "10px" }}>
+                        Category
+                    </Typography.Title>
+                    <Input
+                        type="text"
+                        name='ecategory'
+                        value={note.ecategory}
+                        onChange={onChange}
+                    />
                 </Form>
             </Modal>
             <h1>
