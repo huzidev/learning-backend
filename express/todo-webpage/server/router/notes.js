@@ -1,6 +1,6 @@
 import express from "express";
 import Verification from '../middleware/Verification';
-import Note from '../models/note';
+import Note from '../models/Note';
 import cors from "cors";
  
 const router = express.Router();
