@@ -11,7 +11,8 @@ export default function AddTodo(): JSX.Element {
     const [note, setNote] = useState<DataType>({
       title: "", 
       description: "", 
-      category: ""
+      category: "",
+      isCompleted: false
     })
 
     const addTodo = async (e: React.FormEvent) => {
@@ -28,7 +29,7 @@ export default function AddTodo(): JSX.Element {
           category: category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()
         })
       });
-      if (!title || !description || !category) {
+      if (res.status === 404) {
         window.alert("You've left an tag empty!")
       }
       else {  
