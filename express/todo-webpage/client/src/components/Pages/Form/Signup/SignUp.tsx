@@ -178,7 +178,7 @@ export default function SignUp() {
                 }}
             >
                 <Button type="primary" htmlType="submit" onClick={signUp}>
-                    Submit
+                    Sign Up
                 </Button>
             </Form.Item>
         </Form>
