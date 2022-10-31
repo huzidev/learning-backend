@@ -12,7 +12,8 @@ const contentStyle: React.CSSProperties = {
 };
 
 const color: React.CSSProperties = {
-  color: 'rgb(139 173 172)',
+  paddingTop: "160px",
+  color: 'white',
 }
 
 export default function TodoPage(): JSX.Element {
@@ -22,13 +23,19 @@ export default function TodoPage(): JSX.Element {
   return (
     <div>
       <h1>
-        Welcome, {context.userData.username}
+        {
+          localStorage.getItem('jwtoken') ? (
+            <>
+              Welcome, {context.userData.username}
+            </>
+          ) : ''
+        }
       </h1>
       <Carousel
         fade
         infinite
         autoplay
-        autoplaySpeed={5000}
+        autoplaySpeed={6000}
         afterChange={(index) => setActiveIndex(index)}
       >
         {slides.map((slide, slideIndex) => (
@@ -38,7 +45,7 @@ export default function TodoPage(): JSX.Element {
                 <Typography.Title level={1} style={color}>
                   {slide.title}
                 </Typography.Title>
-                <Typography.Title level={4} type="secondary" style={color}>
+                <Typography.Title level={4} type="secondary" style={{ color: "rgb(139 173 172)" }}>
                   {slide.description}
                 </Typography.Title>
               </Col>

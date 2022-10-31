@@ -18,6 +18,8 @@ import TodoPage from './Pages/Todo/todoPage/TodoPage';
 import NotesItems from './Pages/Todo/notes/NotesItems';
 import UpdateUser from './Pages/Form/update/UpdateUser';
 import CompletedTasks from './Pages/Todo/CompletedTasks';
+import SignOut from './Pages/Form/signout/SignOut';
+import { Link } from 'react-router-dom';
 
 export default function App(): JSX.Element {
   const [collapsed, setCollapsed] = useState(false);
@@ -158,6 +160,7 @@ export default function App(): JSX.Element {
             {Location.pathname.includes('/contact') && <ContactUs />}
             {Location.pathname.includes('/signin') && <SingIn />}
             {Location.pathname.includes('/signup') && <SignUp />}
+            {Location.pathname.includes('/signout') && <SignOut />}
             {Location.pathname.includes('/addnote') && <NotesItems />}
             {Location.pathname.includes('/about') && <UpdateUser />}
             {Location.pathname.includes('/completed') && <CompletedTasks />}
@@ -168,7 +171,7 @@ export default function App(): JSX.Element {
             textAlign: 'center',
           }}
         >
-          All Rights Are Reserved &copy; 2022
+          Designed And Crafted By <a href="https://www.linkedin.com/in/huzidev/" target="_blank">Huzaifa Iqbal</a>
         </Footer>
       </Layout>
     </Layout>
