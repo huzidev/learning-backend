@@ -44,7 +44,7 @@ export default function SingIn() {
   return (
     <div>
       <Form {...layout} name="nest-messages">
-        <Typography.Title level={3}> Singin </Typography.Title>
+        <Typography.Title level={2}> Singin </Typography.Title>
         <Form.Item
           name="email"
           rules={[
@@ -90,7 +90,7 @@ export default function SingIn() {
             onClick={signIn} 
             className="login-form-button"
           >
-            Log in
+            Sign in
           </Button>
         </Form.Item>
       </Form>

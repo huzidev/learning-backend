@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, Typography } from 'antd';
 import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
 
@@ -68,9 +68,9 @@ export default function SignUp() {
   };
   return (
     <div>
-        <h1>
+        <Typography.Title level={2}>
             Signup
-        </h1>
+        </Typography.Title>
         <Form 
             {...layout} 
             name="nest-messages" 
