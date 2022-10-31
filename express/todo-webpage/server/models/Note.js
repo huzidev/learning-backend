@@ -19,7 +19,7 @@ const NotesSchema = new mongoose.Schema({
         default: "General"
     },
     isCompleted : {
-        type: Boolean,
+        type: Boolean
     },
     date:{
         type: Date,

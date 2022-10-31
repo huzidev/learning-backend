@@ -51,7 +51,7 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         if (category) {
             newNote.category = category
         }
-        if (isCompleted) {
+        if (!isCompleted || isCompleted) {
             newNote.isCompleted = isCompleted
         }
         let note = await Note.findById(req.params.id);
