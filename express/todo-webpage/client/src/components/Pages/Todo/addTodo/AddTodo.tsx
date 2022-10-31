@@ -28,9 +28,13 @@ export default function AddTodo(): JSX.Element {
           category: category.charAt(0).toUpperCase() + category.slice(1)
         })
       });
-      console.log("To upper caase", category.charAt(0).toUpperCase());
-      const data = await res.json()
-      setNotes(notes.concat(data));
+      if (!title || !description || !category) {
+        window.alert("You've left an tag empty!")
+      }
+      else {
+        const data = await res.json()
+        setNotes(notes.concat(data));
+      }
     }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
