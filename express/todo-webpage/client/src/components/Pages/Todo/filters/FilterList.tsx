@@ -12,7 +12,7 @@ export default function FilterList(props: any): JSX.Element {
         )
     }))]
 
-    let test = state ? items : props.notes
+    let Data = state ? items : props.notes
 
     function filterItems(items: string) {
         const updatedItems = props.notes.filter((element: any) => {
@@ -51,7 +51,7 @@ export default function FilterList(props: any): JSX.Element {
                     </>
                 )
             }
-            {test.map((note: any, i: number) => {
+            {Data.map((note: any, i: number) => {
                 return <ShowNotes key={note._id} updateNote={props.updateNote} note={note} index={i} />
             })}
         </div>

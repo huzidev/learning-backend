@@ -2,10 +2,11 @@ const ROUTE_PATHS = {
     HOME: '/',
     SIGNIN: '/signin',
     SIGNUP: '/signup',
+    SINGOUT: '/signout',
     ABOUT: '/about',
     ADDNOTE: '/addnote',
     UPDATEUSER: '/updateuser',
-    CONTACT: '/contact'
+    CONTACT: '/contact',
   };
   
   export default ROUTE_PATHS;

@@ -1,9 +1,7 @@
-import React from 'react';
 import 'antd/dist/antd.css';
 import routes from './Router/routes'
 import SignOut from './Pages/Form/signout/SignOut';
 import Home from './Home';
-import User from './Pages/Form/about/About';
 import Error from './Error';
 import UserState from './Context/UserState';
 import { Skeleton } from 'antd';
@@ -12,7 +10,6 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-const TodoPage = React.lazy(() => import('./Pages/Todo/todoPage/TodoPage'))
 
 export default function App(): JSX.Element {
   return (

@@ -22,10 +22,6 @@ export default function Test() {
              });
     }
 
-    const handleChange = (e:  React.ChangeEvent<HTMLInputElement>) => {
-        setNewAuthor({...newUser, [e.target.name]: e.target.value});
-    }
-
     const handlePhoto = (e: any) => {
         setNewAuthor({...newUser, image: e.target.files[0]});
     }
@@ -38,26 +34,26 @@ export default function Test() {
 
     console.log("State is ", test);
 
-  return (
-    <div>
-        <h1>
-            Add Image
-        </h1>
-        <form onSubmit={handleSubmit} encType='multipart/form-data'>
+    return (
+        <div>
+            <h1>
+                Add Image
+            </h1>
+            <form onSubmit={handleSubmit} encType='multipart/form-data'>
+                <input 
+                    type="file" 
+                    accept=".png, .jpg, .jpeg"
+                    name="image"
+                    onChange={handlePhoto}
+                />
+                <input 
+                    type="submit"
+                />
+            </form>
             <input 
-                type="file" 
-                accept=".png, .jpg, .jpeg"
-                name="image"
-                onChange={handlePhoto}
+                type="checkbox"
+                onClick={ff} 
             />
-            <input 
-                type="submit"
-            />
-        </form>
-        <input 
-            type="checkbox"
-            onClick={ff} 
-        />
-    </div>
-  )
+        </div>
+    )
 }

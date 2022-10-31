@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import routes from './Router/routes'
 import ContactUs from './Pages/Form/contact/ContactUs'
 import DataContext from './Context/DataContext';
 import {
@@ -10,7 +9,6 @@ import {
   LoginOutlined,
   MessageOutlined,
 } from '@ant-design/icons';
-import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import { Breadcrumb, Layout, Menu } from 'antd';
 import type { MenuProps } from 'antd';
@@ -20,7 +18,6 @@ import TodoPage from './Pages/Todo/todoPage/TodoPage';
 import NotesItems from './Pages/Todo/notes/NotesItems';
 import UpdateUser from './Pages/Form/update/UpdateUser';
 import CompletedTasks from './Pages/Todo/CompletedTasks';
-import Test from './Pages/Form/Test';
 
 export default function App(): JSX.Element {
   const [collapsed, setCollapsed] = useState(false);
@@ -164,7 +161,6 @@ export default function App(): JSX.Element {
             {Location.pathname.includes('/addnote') && <NotesItems />}
             {Location.pathname.includes('/about') && <UpdateUser />}
             {Location.pathname.includes('/completed') && <CompletedTasks />}
-            {Location.pathname.includes('/test') && <Test />}
           </div>
         </Content>
         <Footer
