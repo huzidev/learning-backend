@@ -21,13 +21,13 @@ router.get('/allnotes', Verification, async (req, res) => {
 
 router.post('/addnote', Verification, async (req, res) => {
         try {
-            const { title, description, category } = req.body;
+            const { title, description, category, isCompleted } = req.body;
             console.log("Title is", title);
             if (!title | !description | !category) {
                 return res.status(404).json({ message: "You've left an tag empty" })
             } else {
                 const note = new Note({
-                    title, description, category, user: req.userID
+                    title, description, category, isCompleted, user: req.userID
                 })
                 const savedNote = await note.save();
                 res.json(savedNote)
