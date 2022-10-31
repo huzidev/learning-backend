@@ -5,17 +5,16 @@ import DataContext from "../../../Context/DataContext";
 import AddTodo from '../addTodo/AddTodo';
 import ShowNotes from './ShowNotes';
 import { DataType } from './Type';
+import FilterList from '../filters/FilterList';
 
 export default function NotesItems(props: any) {
     const Navigate = useNavigate();
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
-    const [items, setItems] = useState(notes)
     const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
     const [isChecked, setIsChecked] = useState<any>(null);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     
-    const [state, setState] = useState(false)
     const ref = useRef<any>(null)
     
     const showModal = () => {
@@ -99,24 +98,6 @@ export default function NotesItems(props: any) {
         })
     }
 
-    const allItems = [...new Set(notes.map((currentEle: any) => {
-        return (
-            currentEle.category
-        )
-    }))]
-
-
-    let test = state ? items : notes
-
-    function filterItems(items: string) {
-        const updatedItems = notes.filter((element: any) => {
-            // element.category targets category only ex: grocery, payments and bills
-            return element.category === items
-        })
-        setItems(updatedItems)
-        setState(true)
-    }
-
     return (
         <div>
             <AddTodo />
@@ -160,35 +141,10 @@ export default function NotesItems(props: any) {
                     {isChecked ? "Completed" : "Not Completed"}
                 </Form>
             </Modal>
-            <h1>
-                Yours Notes
-            </h1>
-            {
-                notes.length === 0 ? "No Note Added" : (
-                    <>
-                        <h1>
-                            Filter the list
-                        </h1>
-                        <button onClick={() => setItems(notes)}>
-                            All items
-                        </button>
-                        {allItems.map((currentEle: any) => {
-                            return (
-                                <span key={currentEle}>
-                                    <button
-                                        onClick={() => filterItems(currentEle)}
-                                    >
-                                        {currentEle}
-                                    </button>
-                                </span>
-                            )
-                        })}
-                    </>
-                )
-            }
-            {test.map((note: any, i: number) => {
-                return <ShowNotes key={note._id} updateNote={updateNote} note={note} index={i} />
-            })}
+            <FilterList 
+                notes={notes}
+                updateNote={updateNote}
+            />
         </div>
     )
 }
