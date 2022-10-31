@@ -89,6 +89,7 @@ export default function NotesItems(props: any) {
                 console.log(err);
             }
         setIsModalOpen(false);
+        window.location.reload()
     }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -96,6 +97,10 @@ export default function NotesItems(props: any) {
             ...note, 
             [e.target.name]: e.target.value 
         })
+    }
+
+    const style = {
+        marginTop: "10px"
     }
 
     return (
@@ -115,7 +120,7 @@ export default function NotesItems(props: any) {
                         value={note.etitle}
                         onChange={onChange}
                     />
-                    <Typography.Title level={5} style={{ marginTop: "10px" }}>
+                    <Typography.Title level={5} style={style}>
                         Description
                     </Typography.Title>
                     <Input
@@ -124,7 +129,7 @@ export default function NotesItems(props: any) {
                         value={note.edescription}
                         onChange={onChange}
                     />
-                    <Typography.Title level={5} style={{ marginTop: "10px" }}>
+                    <Typography.Title level={5} style={style}>
                         Category
                     </Typography.Title>
                     <Input
@@ -137,6 +142,7 @@ export default function NotesItems(props: any) {
                         type="checkbox"
                         checked= {isChecked}
                         onChange= {stateChanger}
+                        style={style}
                     />
                     {isChecked ? "Completed" : "Not Completed"}
                 </Form>

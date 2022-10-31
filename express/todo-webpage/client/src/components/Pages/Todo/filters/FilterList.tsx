@@ -29,7 +29,7 @@ export default function FilterList(props: any): JSX.Element {
                 Yours Notes
             </h1>
             {
-                props.notes.length === 0 ? "No Note Added" : (
+                props.notes.length === 0 ? "" : (
                     <>
                         <h1>
                             Filter the list
