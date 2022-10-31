@@ -11,6 +11,7 @@ import {
   MessageOutlined,
 } from '@ant-design/icons';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
+import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import { Breadcrumb, Layout, Menu } from 'antd';
 import type { MenuProps } from 'antd';
 import SingIn from './Pages/Form/signin/SingIn';
@@ -63,7 +64,7 @@ export default function App(): JSX.Element {
       getItem(
         'Add Todo', 
         '2', 
-        <LocalGroceryStoreOutlinedIcon />,
+        <CreateOutlinedIcon />,
         null,
         () => Navigate('/addnote')
       ),
