@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input, Typography } from 'antd';
 import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
+import { Link } from 'react-router-dom';
 
 export default function SignUp() {
   const Navigate = useNavigate();
@@ -171,6 +172,9 @@ export default function SignUp() {
                     placeholder="Confirm Yours Password"
                 />
             </Form.Item>
+            <Typography.Text>
+                Already have an account? <Link to='/signin'>Signin</Link>
+            </Typography.Text>
             <Form.Item
                     wrapperCol={{
                     ...layout.wrapperCol,
