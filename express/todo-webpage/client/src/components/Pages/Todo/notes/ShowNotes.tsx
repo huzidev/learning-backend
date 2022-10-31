@@ -23,11 +23,11 @@ export default function ShowNotes(props: any): JSX.Element {
         } catch (e) {
             console.log(e);
         }
-      }
+    }
 
-      const style = {
-        margin: '10px 0px 0px 0px',
-      }
+    const style = {
+    margin: '10px 0px 0px 0px',
+    }
     return (
         <div>
             <Row gutter={16} style={style}>

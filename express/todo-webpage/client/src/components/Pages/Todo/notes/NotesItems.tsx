@@ -52,8 +52,6 @@ export default function NotesItems(props: any) {
             edescription: currentNote.description,
             ecategory: currentNote.category,
         })
-        console.log("what is currNote", currentNote);
-        console.log("state? ", isChecked);
     }
 
     function stateChanger() {
@@ -71,7 +69,8 @@ export default function NotesItems(props: any) {
                     body: JSON.stringify({
                         title : etitle,
                         description : edescription,
-                        category : ecategory
+                        category : ecategory,
+                        isCompleted: isChecked
                     })
                 });
         
@@ -91,7 +90,6 @@ export default function NotesItems(props: any) {
                 console.log(err);
             }
         setIsModalOpen(false);
-        window.location.reload();
     }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -166,7 +164,7 @@ export default function NotesItems(props: any) {
                 Yours Notes
             </h1>
             {
-                notes.length === 0 ? "" : (
+                notes.length === 0 ? "No Note Added" : (
                     <>
                         <h1>
                             Filter the list
