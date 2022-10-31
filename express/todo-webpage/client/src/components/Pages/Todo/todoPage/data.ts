@@ -1,6 +1,5 @@
 const slides = [
   {
-    image: 'react',
     title: 'My Todo',
     description: 'Hello, Welcome to My Todo',
   },
