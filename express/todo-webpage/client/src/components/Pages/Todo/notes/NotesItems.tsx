@@ -9,21 +9,22 @@ import { DataType } from './Type';
 export default function NotesItems(props: any) {
     const Navigate = useNavigate();
     const context = useContext(DataContext);
-    const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    
     const { notes, setNotes } = context;
     const [items, setItems] = useState(notes)
+    const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
+    const [isChecked, setIsChecked] = useState<any>(null);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    
     const [state, setState] = useState(false)
     const ref = useRef<any>(null)
-
+    
     const showModal = () => {
         setIsModalOpen(true);
     };
     const handleCancel = () => {
         setIsModalOpen(false);
     };
-
+    
     async function getNotes() {
         const res = await fetch('/allnotes', {
             method : 'GET',
@@ -35,21 +36,28 @@ export default function NotesItems(props: any) {
         setNotes(data)
     }
     useEffect(() => {
-          getNotes()
+        getNotes()
     }, [])
-
+    
     const updateNote = (currentNote: any) => {
         // ref.current.click() checks if user clicked or not therefore we've passed the ref in the button of modal as ref={ref}
         // to check if user clicked or not
         // ref.current.value gets the value
         // ref.current.click() checks the click
         ref.current.click();
+        setIsChecked(currentNote.isCompleted)
         setNote({
             id: currentNote._id,
             etitle: currentNote.title,
             edescription: currentNote.description,
-            ecategory: currentNote.category
+            ecategory: currentNote.category,
         })
+        console.log("what is currNote", currentNote);
+        console.log("state? ", isChecked);
+    }
+
+    function stateChanger() {
+        setIsChecked(!isChecked)
     }
 
     const handleClick = async () => {
@@ -146,6 +154,12 @@ export default function NotesItems(props: any) {
                         value={note.ecategory}
                         onChange={onChange}
                     />
+                    <input 
+                        type="checkbox"
+                        checked= {isChecked}
+                        onChange= {stateChanger}
+                    />
+                    {isChecked ? "Completed" : "Not Completed"}
                 </Form>
             </Modal>
             <h1>
@@ -162,13 +176,13 @@ export default function NotesItems(props: any) {
                         </button>
                         {allItems.map((currentEle: any) => {
                             return (
-                                <>
+                                <span key={currentEle}>
                                     <button
                                         onClick={() => filterItems(currentEle)}
                                     >
                                         {currentEle}
                                     </button>
-                                </>
+                                </span>
                             )
                         })}
                     </>
