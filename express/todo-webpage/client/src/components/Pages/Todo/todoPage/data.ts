@@ -5,7 +5,7 @@ const slides = [
   },
   {
     title: 'MERN',
-    description: 'My Todo web-page created with MongoDB, ExpressJS, React and NodeJS',
+    description: 'My Todo web-page created with MongoDB, Express, React and Node',
   },
   {
     title: 'Logics',

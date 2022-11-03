@@ -26,7 +26,9 @@ export default function TodoPage(): JSX.Element {
         {
           localStorage.getItem('jwtoken') ? (
             <>
-              Welcome, {context.userData.username}
+              <Typography.Title level={2}>
+                Welcome, {context.userData.username}
+              </Typography.Title>
             </>
           ) : ''
         }
