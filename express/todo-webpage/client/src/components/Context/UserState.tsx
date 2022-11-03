@@ -1,8 +1,8 @@
 import React from 'react';
 import DataContext from './DataContext';
 
-export default function UserState(props) {
-  const initialState = []
+export default function UserState(props: any) {
+  const initialState: [] = []
   const [notes, setNotes] = React.useState(initialState)
   const [userData, setUserData] = React.useState({})
 
