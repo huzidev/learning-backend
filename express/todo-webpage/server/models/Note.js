@@ -24,6 +24,9 @@ const NotesSchema = new mongoose.Schema({
     date:{
         type: Date,
         default: Date.now
+    },
+    updatedAt: {
+        type: Date,
     }
 });
 

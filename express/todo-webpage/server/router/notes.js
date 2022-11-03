@@ -39,7 +39,7 @@ router.post('/addnote', Verification, async (req, res) => {
 )
 
 router.put('/updatenote/:id', Verification, async (req, res) => {
-    const { title, description, category, isCompleted } = req.body;
+    const { title, description, category, isCompleted, updatedAt } = req.body;
     try {
         const newNote = {}
         if (title) {
@@ -54,6 +54,7 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         if (!isCompleted || isCompleted) {
             newNote.isCompleted = isCompleted
         }
+        newNote.updatedAt = Date.now()
         let note = await Note.findById(req.params.id);
         if (!note) {
             return res.status(404).json({ error: "Not Found" })
