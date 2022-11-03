@@ -13,10 +13,6 @@ export default function ShowNotes(props: any): JSX.Element {
         setIsModalOpen(true);
     };
 
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
-
     const handleCancel = () => {
         setIsModalOpen(false);
     };
@@ -48,13 +44,13 @@ export default function ShowNotes(props: any): JSX.Element {
             <Row gutter={16} style={style}>
                 <Col span={10}>
                     <Card title={
-                        <Typography.Title level={3}>
-                            Note Number : {index + 1}
+                        <Typography.Title level={4}>
+                            Todo: {index + 1}
                         </Typography.Title>
                     } 
                     size="small"
                     >
-                        <Typography.Title level={4}>
+                        <Typography.Title level={5}>
                             Title: {note.title}
                         </Typography.Title>
                         <Typography.Title level={5}>
