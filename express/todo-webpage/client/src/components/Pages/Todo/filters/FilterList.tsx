@@ -55,9 +55,9 @@ export default function FilterList(props: any): JSX.Element {
             <Row gutter={16}>
             {Data.map((note: any, i: number) => {
                 return (
-                        <Col className="gutter-row" span={12}>
-                            <ShowNotes key={note._id} updateNote={props.updateNote} note={note} index={i} />
-                        </Col>
+                    <Col className="gutter-row" span={8}>
+                        <ShowNotes key={note._id} updateNote={props.updateNote} note={note} index={i} />
+                    </Col>
                 ) 
             })}
             </Row>
