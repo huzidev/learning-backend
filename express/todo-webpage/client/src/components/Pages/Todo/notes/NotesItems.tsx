@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Button, Modal, Form, Input, Typography, Col } from 'antd';
+import { Button, Modal, Form, Input, Typography, Col, Divider, Row } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import DataContext from "../../../Context/DataContext";
 import AddTodo from '../addTodo/AddTodo';
-import ShowNotes from './ShowNotes';
 import { DataType } from './Type';
 import FilterList from '../filters/FilterList';
 
