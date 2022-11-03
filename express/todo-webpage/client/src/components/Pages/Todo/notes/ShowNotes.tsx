@@ -63,6 +63,22 @@ export default function ShowNotes(props: any): JSX.Element {
                         <Typography.Title level={5}>
                             Category: {note.category}
                         </Typography.Title>
+                        <IntlProvider locale="us" defaultLocale="en">
+                            <Typography.Text>
+                                Created At {" "}
+                                <FormattedDate 
+                                    value={note.date} 
+                                />
+                            </Typography.Text>
+                            <br />
+                            <Typography.Text>
+                                Updated At {" "}
+                                <FormattedDate 
+                                    value={note.updatedAt} 
+                                />
+                            </Typography.Text>
+                            <br />
+                        </IntlProvider>
                         <Button onClick={showModal}>
                             Delete
                         </Button>
@@ -74,20 +90,6 @@ export default function ShowNotes(props: any): JSX.Element {
                         <Button onClick={() => {updateNote(note)}}>
                             Update Note
                         </Button>
-                        <IntlProvider locale="us" defaultLocale="en">
-                            <Typography.Title level={5}>
-                                Created At {" "}
-                                <FormattedDate 
-                                    value={note.date} 
-                                />
-                            </Typography.Title>
-                            <Typography.Title level={5}>
-                                Updated At {" "}
-                                <FormattedDate 
-                                    value={note.updatedAt} 
-                                />
-                            </Typography.Title>
-                        </IntlProvider>
                     </Card>
                 </Col>
             </Row>
