@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import DataContext from "../../../Context/DataContext";
 import { Card, Col, Row , Button, Typography } from 'antd';
+import {IntlProvider, FormattedMessage, FormattedNumber} from 'react-intl'
 
 export default function ShowNotes(props: any): JSX.Element {
     const context = useContext(DataContext);
@@ -60,6 +61,17 @@ export default function ShowNotes(props: any): JSX.Element {
                         <Typography.Title level={5}>
                             Updated At: {note.updatedAt}
                         </Typography.Title>
+                        <IntlProvider messages={messagesInFrench} locale="fr" defaultLocale="en">
+                            <p>
+                                <FormattedMessage
+                                id="myMessage"
+                                defaultMessage="Today is {ts, date, ::yyyyMMdd}"
+                                values={{ts: Date.now()}}
+                                />
+                                <br />
+                                <FormattedNumber value={19} style="currency" currency="EUR" />
+                            </p>
+                        </IntlProvider>
                     </Card>
                 </Col>
             </Row>
