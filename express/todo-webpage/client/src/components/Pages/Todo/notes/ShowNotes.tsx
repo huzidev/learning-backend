@@ -59,17 +59,17 @@ export default function ShowNotes(props: any): JSX.Element {
                         <Button onClick={() => {updateNote(note)}}>
                             Update Note
                         </Button>
-                        {/* <Typography.Title level={5}>
-                            Created At: {note.date}
-                        </Typography.Title>
-                        <Typography.Title level={5}>
-                            Updated At: {note.updatedAt}
-                        </Typography.Title> */}
-                        <IntlProvider messages={messagesInFrench} locale="us" defaultLocale="en">
+                        <IntlProvider locale="us" defaultLocale="en">
                             <Typography.Title level={5}>
                                 Created At {" "}
                                 <FormattedDate 
                                     value={note.date} 
+                                />
+                            </Typography.Title>
+                            <Typography.Title level={5}>
+                                Updated At {" "}
+                                <FormattedDate 
+                                    value={note.updatedAt} 
                                 />
                             </Typography.Title>
                         </IntlProvider>
