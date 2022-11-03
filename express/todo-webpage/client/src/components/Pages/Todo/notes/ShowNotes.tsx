@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import DataContext from "../../../Context/DataContext";
-import { Card, Col, Row , Button, Typography } from 'antd';
-import {IntlProvider, FormattedMessage, FormattedNumber, FormattedDate} from 'react-intl'
+import { Card, Col, Row , Button, Typography, Modal } from 'antd';
+import {IntlProvider, FormattedDate} from 'react-intl'
 
 export default function ShowNotes(props: any): JSX.Element {
     const context = useContext(DataContext);
