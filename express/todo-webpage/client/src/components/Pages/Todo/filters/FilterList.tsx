@@ -29,6 +29,7 @@ export default function FilterList(props: any): JSX.Element {
             <h1>
                 Yours Notes
             </h1>
+            <Row gutter={16}>
             {
                 props.notes.length === 0 ? "" : (
                     <>
@@ -43,7 +44,7 @@ export default function FilterList(props: any): JSX.Element {
                                 <span key={currentEle}>
                                     <button
                                         onClick={() => filterItems(currentEle)}
-                                    >
+                                        >
                                         {currentEle}
                                     </button>
                                 </span>
@@ -52,10 +53,11 @@ export default function FilterList(props: any): JSX.Element {
                     </>
                 )
             }
+            </Row>
             <Row gutter={16}>
             {Data.map((note: any, i: number) => {
                 return (
-                    <Col className="gutter-row" span={8}>
+                    <Col className="gutter-row" span={8} style={{ margin: "10px 0px" }}>
                         <ShowNotes key={note._id} updateNote={props.updateNote} note={note} index={i} />
                     </Col>
                 ) 
