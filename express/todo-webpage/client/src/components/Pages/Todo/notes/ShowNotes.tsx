@@ -7,6 +7,19 @@ export default function ShowNotes(props: any): JSX.Element {
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
     const { note, updateNote, index } = props;
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
 
     async function deleteNote() {
         try {
@@ -50,9 +63,14 @@ export default function ShowNotes(props: any): JSX.Element {
                         <Typography.Title level={5}>
                             Category: {note.category}
                         </Typography.Title>
-                        <Button onClick={deleteNote}>
+                        <Button onClick={showModal}>
                             Delete
                         </Button>
+                        <Modal title="Delete Note" open={isModalOpen} okText="Delete" onOk={deleteNote} onCancel={handleCancel}>
+                            <Typography.Text>
+                                Are You Sure? You Wanna Delete This Note?
+                            </Typography.Text>
+                        </Modal>
                         <Button onClick={() => {updateNote(note)}}>
                             Update Note
                         </Button>
