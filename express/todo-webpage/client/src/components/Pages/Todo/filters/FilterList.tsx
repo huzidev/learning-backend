@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ShowNotes from '../notes/ShowNotes';
+import { Card, Col, Row , Button, Typography, Modal } from 'antd';
 
 export default function FilterList(props: any): JSX.Element {
 
@@ -51,9 +52,15 @@ export default function FilterList(props: any): JSX.Element {
                     </>
                 )
             }
+            <Row gutter={16}>
             {Data.map((note: any, i: number) => {
-                return <ShowNotes key={note._id} updateNote={props.updateNote} note={note} index={i} />
+                return (
+                        <Col className="gutter-row" span={12}>
+                            <ShowNotes key={note._id} updateNote={props.updateNote} note={note} index={i} />
+                        </Col>
+                ) 
             })}
+            </Row>
         </div>
     )
 }
