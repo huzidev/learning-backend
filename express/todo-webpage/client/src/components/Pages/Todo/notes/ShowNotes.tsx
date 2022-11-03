@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import DataContext from "../../../Context/DataContext";
 import { Card, Col, Row , Button, Typography } from 'antd';
-import {IntlProvider, FormattedMessage, FormattedNumber} from 'react-intl'
+import {IntlProvider, FormattedMessage, FormattedNumber, FormattedDate} from 'react-intl'
 
 export default function ShowNotes(props: any): JSX.Element {
     const context = useContext(DataContext);
@@ -24,6 +24,10 @@ export default function ShowNotes(props: any): JSX.Element {
         } catch (e) {
             console.log(e);
         }
+    }
+
+    const messagesInFrench = {
+        myMessage: "Aujourd'hui, c'est le {ts, date, ::yyyyMMdd}",
     }
 
     const style = {
@@ -55,22 +59,19 @@ export default function ShowNotes(props: any): JSX.Element {
                         <Button onClick={() => {updateNote(note)}}>
                             Update Note
                         </Button>
-                        <Typography.Title level={5}>
+                        {/* <Typography.Title level={5}>
                             Created At: {note.date}
                         </Typography.Title>
                         <Typography.Title level={5}>
                             Updated At: {note.updatedAt}
-                        </Typography.Title>
-                        <IntlProvider messages={messagesInFrench} locale="fr" defaultLocale="en">
-                            <p>
-                                <FormattedMessage
-                                id="myMessage"
-                                defaultMessage="Today is {ts, date, ::yyyyMMdd}"
-                                values={{ts: Date.now()}}
+                        </Typography.Title> */}
+                        <IntlProvider messages={messagesInFrench} locale="us" defaultLocale="en">
+                            <Typography.Title level={5}>
+                                Created At {" "}
+                                <FormattedDate 
+                                    value={note.date} 
                                 />
-                                <br />
-                                <FormattedNumber value={19} style="currency" currency="EUR" />
-                            </p>
+                            </Typography.Title>
                         </IntlProvider>
                     </Card>
                 </Col>
