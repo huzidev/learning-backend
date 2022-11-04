@@ -35,21 +35,15 @@ export default function ShowNotes(props: any): JSX.Element {
         }
     }
 
-    const style = {
-        margin: '10px 0px 0px 0px',
-    }
     return (
         <div>
             <Card title={
-                <Typography.Title level={4}>
-                    Note: {index + 1}
+                <Typography.Title level={5}>
+                    {note.title}
                 </Typography.Title>
             } 
             size="small"
             >
-                <Typography.Title level={5}>
-                    Title: {note.title}
-                </Typography.Title>
                 <Typography.Title level={5}>
                     Description: {note.description}
                 </Typography.Title> 

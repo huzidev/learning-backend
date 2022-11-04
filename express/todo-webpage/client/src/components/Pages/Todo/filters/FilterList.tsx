@@ -9,7 +9,9 @@ export default function FilterList(props: any): JSX.Element {
 
     const allItems = [...new Set(props.notes.map((currentEle: any) => {
         return (
-            currentEle.category
+            !currentEle.isCompleted ? (
+                currentEle.category
+            ) : ''
         )
     }))]
 
