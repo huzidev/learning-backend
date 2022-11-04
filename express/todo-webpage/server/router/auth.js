@@ -1,13 +1,11 @@
 import express from "express";
 import bcrypt from "bcrypt";
-const { v4: uuidv4 } = require('uuid');
 import multer from "multer";
 import User from '../models/userSchema';
 import Contact from '../models/userMessage';
 import Verification from '../middleware/Verification';
 import cookie from 'cookie-parser';
 import cors from "cors";
-import path from 'path';
 
 require('../db/connection.js');
 
@@ -25,7 +23,7 @@ router.post('/', (req, res) => {
 })
 
 router.post('/signup', async (req, res) => {
-    const { username, email, number, password, cpassword, image } = req.body;
+    const { username, email, number, password, cpassword } = req.body;
 
     if ( !username || !email || !number || !password || !cpassword ) {
         return res.status(421).json({ error : "You've left an tag empty" });
@@ -50,7 +48,7 @@ router.post('/signup', async (req, res) => {
         } 
         // when user registered successfully
         else {
-            const user = new User({ username, email, number, password, cpassword, image });
+            const user = new User({ username, email, number, password, cpassword });
             const userRegister = await user.save();
             if (userRegister) {
                 return res.status(201).json({ message : "User registered successfully!" });
@@ -120,8 +118,19 @@ router.post('/contact', async (req, res) => {
     }
 })
 
+const storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, "../../client/public/uploads")
+    },
+    filename: (req, file, callback) => {
+        callback(null, file.originalname)
+    }
+})
+
+const upload = multer({ storage: storage })
+
 router.put('/updateuser/:id', Verification, async (req, res) => {
-    const { username, email, number } = req.body;
+    const { username, email, number, } = req.body;
     try {
         const newInfo = {}
         if (username) {
@@ -133,7 +142,6 @@ router.put('/updateuser/:id', Verification, async (req, res) => {
         if (number) {
             newInfo.number = number
         } 
-
         let info = await User.findById(req.params.id);
         console.log("what is info", info);
         if (!info) {
@@ -148,6 +156,10 @@ router.put('/updateuser/:id', Verification, async (req, res) => {
     } catch (e) {
         console.log(e);
     }
+
+})
+
+router.put('/addimage', upload.single("image"), async(req, res) => {
 
 })
 
