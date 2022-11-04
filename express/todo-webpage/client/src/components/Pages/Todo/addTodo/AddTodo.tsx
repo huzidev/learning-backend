@@ -46,11 +46,6 @@ export default function AddTodo(): JSX.Element {
       })
     }
 
-    const options = [
-      { label: "fruit", value: "fruit"},
-      { label: "tool", value: "tool" },
-      { label: "book", value: "book" },
-    ];
   return (
     <div>
       <h1>
