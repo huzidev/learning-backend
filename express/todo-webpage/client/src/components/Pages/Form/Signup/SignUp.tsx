@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input, Typography } from 'antd';
+import { LockOutlined, UserOutlined, NumberOutlined, MailOutlined } from '@ant-design/icons';
 import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
 import { Link } from 'react-router-dom';
@@ -68,17 +69,15 @@ export default function SignUp() {
     }
   };
   return (
-    <div>
+    <div style={{ width: '500px', margin: '15% auto 0px auto'}}>
         <Typography.Title level={2}>
             Signup
         </Typography.Title>
         <Form 
-            {...layout} 
             name="nest-messages" 
         >
             <Form.Item
                 name={['Username']}
-                label="Username"
                 rules={[
                     {
                         required: true,
@@ -89,12 +88,12 @@ export default function SignUp() {
                     name="username"
                     value={user.username}
                     onChange={inputHandler}
+                    prefix={<UserOutlined className="site-form-item-icon" />}
                     placeholder="Enter Yours Username"
                 />
             </Form.Item>
             <Form.Item
                 name={['Email']}
-                label="Email"
                 rules={[
                     {
                         type: 'email',
@@ -106,12 +105,12 @@ export default function SignUp() {
                     name="email"
                     value={user.email}
                     onChange={inputHandler}
+                    prefix={<MailOutlined className="site-form-item-icon" />}
                     placeholder="Enter Yours Email"
                 />
             </Form.Item>
             <Form.Item
                 name="phone"
-                label="Phone Number"
                 rules={[
                     { 
                         required: true, 
@@ -124,12 +123,12 @@ export default function SignUp() {
                     value={user.number}
                     onChange={inputHandler}
                     style={{ width: '100%' }}
+                    prefix={<NumberOutlined className="site-form-item-icon" />}
                     placeholder="Enter Yours Number"
                 />
             </Form.Item>
             <Form.Item
                 name="password"
-                label="Password"
                 rules={[
                 {
                     required: true,
@@ -142,13 +141,14 @@ export default function SignUp() {
                     name="password"
                     value={user.password}
                     onChange={inputHandler}
+                    prefix={<LockOutlined className="site-form-item-icon" />}
                     placeholder="Enter Yours password"
                 />
             </Form.Item>
             <Form.Item
                 name="confirm"
-                label="Confirm Password"
                 dependencies={['password']}
+                style={{ marginBottom: '10px' }}
                 hasFeedback
                 rules={[
                 {
@@ -169,6 +169,7 @@ export default function SignUp() {
                     name="cpassword"
                     value={user.cpassword}
                     onChange={inputHandler}
+                    prefix={<LockOutlined className="site-form-item-icon" />}
                     placeholder="Confirm Yours Password"
                 />
             </Form.Item>
@@ -176,10 +177,7 @@ export default function SignUp() {
                 Already have an account? <Link to='/signin'>Signin</Link>
             </Typography.Text>
             <Form.Item
-                    wrapperCol={{
-                    ...layout.wrapperCol,
-                    offset: 8,
-                }}
+                style={{ marginTop: '10px' }}
             >
                 <Button type="primary" htmlType="submit" onClick={signUp}>
                     Sign Up
