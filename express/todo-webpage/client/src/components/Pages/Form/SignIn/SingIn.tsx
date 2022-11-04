@@ -64,6 +64,7 @@ export default function SingIn() {
         </Form.Item>
         <Form.Item
           name="password"
+          style={{ marginBottom: '10px' }}
           rules={[
             {
               required: true,
@@ -87,7 +88,8 @@ export default function SingIn() {
           <Button 
             type="primary" 
             htmlType="submit"
-            onClick={signIn} 
+            onClick={signIn}
+            style={{ marginTop: '10px' }}
             className="login-form-button"
           >
             Sign in
