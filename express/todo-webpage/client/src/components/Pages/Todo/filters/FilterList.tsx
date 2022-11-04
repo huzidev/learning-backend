@@ -26,34 +26,36 @@ export default function FilterList(props: any): JSX.Element {
 
     return (
         <div>
-            <h1>
-                Yours Notes
-            </h1>
-            <Row gutter={16}>
             {
                 props.notes.length === 0 ? "" : (
                     <>
-                        <h1>
-                            Filter the list
-                        </h1>
-                        <button onClick={() => setItems(props.notes)}>
-                            All items
-                        </button>
-                        {allItems.map((currentEle: any) => {
-                            return (
-                                <span key={currentEle}>
-                                    <button
-                                        onClick={() => filterItems(currentEle)}
-                                        >
-                                        {currentEle}
-                                    </button>
-                                </span>
-                            )
-                        })}
+                        <div style={{display: "flex", justifyContent: "space-between"}}>
+                            <Typography.Title level={5}> 
+                                Yours Notes
+                            </Typography.Title>
+                            <div style={{display: "flex", justifyContent: "space-between"}}>
+                                <Typography.Title level={5}>
+                                    Filter the list
+                                </Typography.Title>
+                                <Button onClick={() => setItems(props.notes)}>
+                                    All items
+                                </Button>
+                                {allItems.map((currentEle: any) => {
+                                    return (
+                                        <span key={currentEle}>
+                                            <Button
+                                                onClick={() => filterItems(currentEle)}
+                                                >
+                                                {currentEle}
+                                            </Button>
+                                        </span>
+                                    )
+                                })}
+                            </div>
+                        </div>
                     </>
                 )
             }
-            </Row>
             <Row gutter={16}>
             {Data.map((note: any, i: number) => {
                 return (

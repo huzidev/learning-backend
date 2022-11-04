@@ -54,7 +54,7 @@ export default function AddTodo(): JSX.Element {
   return (
     <div>
       <h1>
-          Add Todo Note
+          Add Note
       </h1>
       <Form 
           {...layout} 
