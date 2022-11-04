@@ -71,11 +71,11 @@ export default function SingIn() {
               message: 'Please input your Password!',
             },
           ]}
+          hasFeedback
         >
-          <Input
-            type="password"
+          <Input.Password
+            name="password"
             prefix={<LockOutlined className="site-form-item-icon" />}
-            name='password'
             value={user.password}
             onChange={inputHandler}
             placeholder="Password"
