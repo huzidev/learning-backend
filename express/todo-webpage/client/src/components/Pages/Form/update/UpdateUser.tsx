@@ -62,12 +62,6 @@ console.log("User data", userData);
                 window.alert("You can't left email field empty")
             } else if (enumber === "") {
                 window.alert("You can't left number field empty")
-            } else if (res.status === 401) {
-                window.alert("Username already taken")
-            } else if (res.status === 402) {
-                window.alert("Email already taken")
-            } else if (res.status === 403) {
-                window.alert("Number already taken")
             }
             else {
                 const data = await res.json();
@@ -80,7 +74,6 @@ console.log("User data", userData);
                         newData[index].username = username;
                         newData[index].email = email;
                         newData[index].number = number;
-                        newData[index].image = image;
                         break; 
                     }
                     setUserData(newData)

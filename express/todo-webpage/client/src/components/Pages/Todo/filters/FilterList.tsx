@@ -36,7 +36,7 @@ export default function FilterList(props: any): JSX.Element {
                         <h1>
                             Filter the list
                         </h1>
-                        <button onClick={() => props.setItems(props.notes)}>
+                        <button onClick={() => setItems(props.notes)}>
                             All items
                         </button>
                         {allItems.map((currentEle: any) => {
