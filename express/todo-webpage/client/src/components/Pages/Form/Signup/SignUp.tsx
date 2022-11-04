@@ -69,7 +69,7 @@ export default function SignUp() {
     }
   };
   return (
-    <div style={{ width: '500px', margin: '15% auto 0px auto'}}>
+    <div style={{ width: '500px', margin: '11% auto 0px auto'}}>
         <Typography.Title level={2}>
             Signup
         </Typography.Title>
