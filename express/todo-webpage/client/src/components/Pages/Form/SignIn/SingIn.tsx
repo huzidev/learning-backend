@@ -42,8 +42,8 @@ export default function SingIn() {
     }
   }
   return (
-    <div>
-      <Form {...layout} name="nest-messages">
+    <div style={{ width: '500px', margin: '15% auto 0px auto'}}>
+      <Form name="nest-messages">
         <Typography.Title level={2}> Singin </Typography.Title>
         <Form.Item
           name="email"
