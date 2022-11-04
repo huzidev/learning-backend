@@ -71,7 +71,6 @@ export default function SingIn() {
               message: 'Please input your Password!',
             },
           ]}
-          hasFeedback
         >
           <Input.Password
             name="password"
