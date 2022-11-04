@@ -46,7 +46,7 @@ export default function AddTodo(): JSX.Element {
     }
 
   return (
-    <div style={{ width: '700px', margin: 'auto' }}>
+    <div style={{ width: '650px', margin: 'auto' }}>
       <Typography.Title level={4}>
           Add Note
       </Typography.Title>

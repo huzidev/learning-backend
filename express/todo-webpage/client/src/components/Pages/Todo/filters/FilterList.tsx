@@ -30,7 +30,7 @@ export default function FilterList(props: any): JSX.Element {
                 props.notes.length === 0 ? "" : (
                     <>
                         <div style={{display: "flex", justifyContent: "space-between"}}>
-                            <Typography.Title level={5}> 
+                            <Typography.Title level={4}> 
                                 Yours Notes
                             </Typography.Title>
                             <div style={{display: "flex", justifyContent: "space-between"}}>
