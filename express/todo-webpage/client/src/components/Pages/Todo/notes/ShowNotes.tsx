@@ -6,7 +6,7 @@ import {IntlProvider, FormattedDate} from 'react-intl'
 export default function ShowNotes(props: any): JSX.Element {
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
-    const { note, updateNote, index } = props;
+    const { note, updateNote } = props;
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const showModal = () => {

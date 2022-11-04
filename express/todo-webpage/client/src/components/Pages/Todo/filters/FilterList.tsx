@@ -62,7 +62,7 @@ export default function FilterList(props: any): JSX.Element {
             {Data.map((note: any, i: number) => {
                 return (
                     <Col className="gutter-row" span={8} style={{ margin: "10px 0px" }}>
-                        <ShowNotes key={note._id} updateNote={props.updateNote} note={note} index={i} />
+                        <ShowNotes key={note._id} updateNote={props.updateNote} note={note} />
                     </Col>
                 ) 
             })}
