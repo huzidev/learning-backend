@@ -42,7 +42,7 @@ export default function ShowNotes(props: any): JSX.Element {
         <div>
             <Card title={
                 <Typography.Title level={4}>
-                    Todo: {index + 1}
+                    Note: {index + 1}
                 </Typography.Title>
             } 
             size="small"
