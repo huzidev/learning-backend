@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react'
 import DataContext from "../../../Context/DataContext";
-import layout from '../../../Layout/Layout';
-import { Button, Form, Input } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import { Button, Form, Input, Typography } from 'antd';
 import { DataType } from './Type';
-import { stringify } from 'querystring';
 
 export default function AddTodo(): JSX.Element {
     const context = useContext(DataContext);
@@ -47,14 +46,13 @@ export default function AddTodo(): JSX.Element {
     }
 
   return (
-    <div>
-      <h1>
+    <div style={{ width: '700px', margin: 'auto' }}>
+      <Typography.Title level={4}>
           Add Note
-      </h1>
+      </Typography.Title>
       <Form 
-          {...layout} 
-          name="nest-messages" 
-      >
+          name="nest-messages"
+          >
         <Form.Item
           name="title"
           rules={[
@@ -63,13 +61,13 @@ export default function AddTodo(): JSX.Element {
               message: 'Please input note title!',
             },
           ]}
-        >
+          >
           <Input 
             name='title'
             value={note.title}
             onChange={onChange}
             placeholder="title" 
-          />
+            />
         </Form.Item>
         <Form.Item
           name="description"
@@ -79,14 +77,14 @@ export default function AddTodo(): JSX.Element {
               message: 'Please input note description!',
             },
           ]}
-        >
+          >
           <Input
             type="description"
             name='description'
             value={note.description}
             onChange={onChange}
             placeholder="description"
-          />
+            />
         </Form.Item>
         <Form.Item
           name="category"
@@ -96,14 +94,14 @@ export default function AddTodo(): JSX.Element {
               message: 'Please input note category!',
             },
           ]}
-        >
+          >
           <Input
             type="category"
             name='category'
             value={note.category}
             onChange={onChange}
             placeholder="Category"
-          />
+            />
         </Form.Item>
         <Form.Item>
           <Button 
@@ -111,7 +109,7 @@ export default function AddTodo(): JSX.Element {
             htmlType="submit"
             onClick={addTodo} 
             className="login-form-button"
-          >
+            >
             Add Note
           </Button>
         </Form.Item>
