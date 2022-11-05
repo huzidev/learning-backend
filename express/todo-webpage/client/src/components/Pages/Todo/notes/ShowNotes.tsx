@@ -109,7 +109,7 @@ export default function ShowNotes(props: any): JSX.Element {
                         Update Note
                     </Button>
                 </Card>
-            ) : null}
+            ) : ''}
         </div>
     )
 }
