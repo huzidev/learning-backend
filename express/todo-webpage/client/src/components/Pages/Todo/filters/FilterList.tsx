@@ -59,13 +59,13 @@ export default function FilterList(props: any): JSX.Element {
                 )
             }
             <Row gutter={16}>
-            {Data.map((note: any, i: number) => {
-                return (
-                    <Col className="gutter-row" span={8} style={{ margin: "10px 0px" }}>
-                        <ShowNotes key={note._id} updateNote={props.updateNote} note={note} />
-                    </Col>
-                ) 
-            })}
+                {Data.map((note: any, i: number) => {
+                    return (
+                        <Col className="gutter-row" span={8} style={{ margin: "10px 0px" }}>
+                            <ShowNotes key={note._id} updateNote={props.updateNote} note={note} />
+                        </Col>
+                    ) 
+                })}
             </Row>
         </div>
     )
