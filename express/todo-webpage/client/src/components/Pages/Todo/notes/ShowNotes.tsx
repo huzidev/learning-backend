@@ -37,7 +37,7 @@ export default function ShowNotes(props: any): JSX.Element {
 
     return (
         <div>
-            <Card title={
+            {!props.isCompleted ? ( <Card title={
                 <Typography.Title level={5}>
                     {note.title}
                 </Typography.Title>
@@ -77,7 +77,7 @@ export default function ShowNotes(props: any): JSX.Element {
                 <Button onClick={() => {updateNote(note)}}>
                     Update Note
                 </Button>
-            </Card>
+            </Card>) : 'Completed'}
         </div>
     )
 }
