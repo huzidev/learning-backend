@@ -4,7 +4,7 @@ const ROUTE_PATHS = {
     SIGNUP: '/signup',
     SINGOUT: '/signout',
     ABOUT: '/about',
-    ADDNOTE: '/addnote',
+    ADDNOTE: '/note',
     UPDATEUSER: '/updateuser',
     CONTACT: '/contact',
   };

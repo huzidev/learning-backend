@@ -65,7 +65,7 @@ export default function App(): JSX.Element {
         '2', 
         <CreateOutlinedIcon />,
         null,
-        () => Navigate('/addnote')
+        () => Navigate('/note/addnote')
       ),
     ], null),
     getItem(
@@ -73,7 +73,7 @@ export default function App(): JSX.Element {
       '6', 
       <FileOutlined />,
       null,
-      () => Navigate('/completed')
+      () => Navigate('/note/completed')
     ),
     getItem(
       'Contact Us', 
@@ -156,14 +156,13 @@ export default function App(): JSX.Element {
               minHeight: 360,
             }}
           >
-            {Location.pathname=== '/' && <TodoPage />}
+            {Location.pathname === '/' && <TodoPage />}
             {Location.pathname.includes('/contact') && <ContactUs />}
             {Location.pathname.includes('/signin') && <SingIn />}
             {Location.pathname.includes('/signup') && <SignUp />}
             {Location.pathname.includes('/signout') && <SignOut />}
-            {Location.pathname.includes('/addnote') && <NotesItems />}
+            {Location.pathname.includes('/note') && <NotesItems />}
             {Location.pathname.includes('/about') && <UpdateUser />}
-            {Location.pathname.includes('/completed') && <CompletedTasks />}
           </div>
         </Content>
         <Footer

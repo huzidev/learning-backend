@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import ShowNotes from '../notes/ShowNotes';
 import { Card, Col, Row , Button, Typography, Modal } from 'antd';
+import { useLocation } from 'react-router-dom';
 
 export default function FilterList(props: any): JSX.Element {
 
+    const Location = useLocation()
     const [state, setState] = useState(false)
     const [items, setItems] = useState(props.notes)
 

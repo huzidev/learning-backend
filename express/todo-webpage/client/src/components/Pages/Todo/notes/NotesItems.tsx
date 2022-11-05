@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Button, Modal, Form, Input, Typography, Col, Divider, Row } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from "../../../Context/DataContext";
 import AddTodo from '../addTodo/AddTodo';
 import { DataType } from './Type';
 import FilterList from '../filters/FilterList';
+import CompletedTasks from '../CompletedTasks';
 
 export default function NotesItems(props: any) {
+    const Location = useLocation()
     const Navigate = useNavigate();
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
@@ -104,52 +106,64 @@ export default function NotesItems(props: any) {
 
     return (
         <div>
-            <AddTodo />
-            <Button style={{ display: "none" }} ref={ref} type="primary" onClick={showModal}>
-                Open Modal
-            </Button>
-            <Modal title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
-                <Form>
-                    <Typography.Title level={5}>
-                        Title
-                    </Typography.Title>
-                    <Input
-                        type="text"
-                        name='etitle'
-                        value={note.etitle}
-                        onChange={onChange}
+            { Location.pathname.includes('/note/addnote') && (
+            <>
+                <AddTodo />
+                <Button style={{ display: "none" }} ref={ref} type="primary" onClick={showModal}>
+                    Open Modal
+                </Button>
+                <Modal title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
+                    <Form>
+                        <Typography.Title level={5}>
+                            Title
+                        </Typography.Title>
+                        <Input
+                            type="text"
+                            name='etitle'
+                            value={note.etitle}
+                            onChange={onChange}
+                        />
+                        <Typography.Title level={5} style={style}>
+                            Description
+                        </Typography.Title>
+                        <Input
+                            type="text"
+                            name='edescription'
+                            value={note.edescription}
+                            onChange={onChange}
+                        />
+                        <Typography.Title level={5} style={style}>
+                            Category
+                        </Typography.Title>
+                        <Input
+                            type="text"
+                            name='ecategory'
+                            value={note.ecategory}
+                            onChange={onChange}
+                        />
+                        <input 
+                            type="checkbox"
+                            checked= {isChecked}
+                            onChange= {stateChanger}
+                            style={style}
+                        />
+                        {isChecked ? "Completed" : "Not Completed"}
+                    </Form>
+                </Modal>
+                <FilterList 
+                    notes={notes}
+                    updateNote={updateNote}
+                />
+            </>
+            )}
+            {Location.pathname.includes('/note/completed') &&  (
+                <>
+                    <CompletedTasks
+                        notes={notes}
                     />
-                    <Typography.Title level={5} style={style}>
-                        Description
-                    </Typography.Title>
-                    <Input
-                        type="text"
-                        name='edescription'
-                        value={note.edescription}
-                        onChange={onChange}
-                    />
-                    <Typography.Title level={5} style={style}>
-                        Category
-                    </Typography.Title>
-                    <Input
-                        type="text"
-                        name='ecategory'
-                        value={note.ecategory}
-                        onChange={onChange}
-                    />
-                    <input 
-                        type="checkbox"
-                        checked= {isChecked}
-                        onChange= {stateChanger}
-                        style={style}
-                    />
-                    {isChecked ? "Completed" : "Not Completed"}
-                </Form>
-            </Modal>
-            <FilterList 
-                notes={notes}
-                updateNote={updateNote}
-            />
+                </>
+                )
+            }
         </div>
     )
 }
