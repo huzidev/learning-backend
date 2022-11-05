@@ -5,7 +5,6 @@ import DataContext from "../../../Context/DataContext";
 import AddTodo from '../addTodo/AddTodo';
 import { DataType } from './Type';
 import FilterList from '../filters/FilterList';
-import CompletedTasks from '../CompletedTasks';
 
 export default function NotesItems(props: any) {
     const Location = useLocation()

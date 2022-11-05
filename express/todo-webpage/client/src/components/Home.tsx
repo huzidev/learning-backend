@@ -17,7 +17,6 @@ import SignUp from './Pages/Form/signup/SignUp';
 import TodoPage from './Pages/Todo/todoPage/TodoPage';
 import NotesItems from './Pages/Todo/notes/NotesItems';
 import UpdateUser from './Pages/Form/update/UpdateUser';
-import CompletedTasks from './Pages/Todo/CompletedTasks';
 import SignOut from './Pages/Form/signout/SignOut';
 import { Link } from 'react-router-dom';
 

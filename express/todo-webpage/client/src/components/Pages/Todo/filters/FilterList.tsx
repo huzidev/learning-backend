@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ShowNotes from '../notes/ShowNotes';
 import { Card, Col, Row , Button, Typography, Modal } from 'antd';
 import { useLocation } from 'react-router-dom';
-import CompletedTasks from '../CompletedTasks';
 
 export default function FilterList(props: any): JSX.Element {
 
@@ -12,7 +11,9 @@ export default function FilterList(props: any): JSX.Element {
 
     const allItems = [...new Set(props.notes.map((currentEle: any) => {
         return (
-            !currentEle.isCompleted ? (
+            !currentEle.isCompleted && Location.pathname.includes('/note/addnote') ? (
+                currentEle.category
+            ) : currentEle.isCompleted && Location.pathname.includes('/note/completed') ? (
                 currentEle.category
             ) : ''
         )
@@ -65,11 +66,20 @@ export default function FilterList(props: any): JSX.Element {
             }
             <Row gutter={16}>
                 {Data.map((note: any) => {
-                    return (
-                        <Col className="gutter-row" span={8} style={{ margin: "10px 0px" }}>
-                            <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} />
-                        </Col>
+                    if (!note.isCompleted && Location.pathname.includes('/note/addnote')) {
+                        return (
+                            <Col span={8} style={{ margin : '10px 0px' }}>
+                                <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} />
+                            </Col>
                     ) 
+                    } else if (note.isCompleted && Location.pathname.includes('/note/completed')) {
+                        return(
+
+                            <Col span={8} style={{ margin : '10px 0px' }}>
+                                <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} />
+                        </Col>
+                            )
+                    }
                 })}
             </Row>
         </div>

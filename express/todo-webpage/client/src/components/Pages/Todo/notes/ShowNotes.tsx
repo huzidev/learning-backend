@@ -39,7 +39,7 @@ export default function ShowNotes(props: any): JSX.Element {
 
     return (
         <div>
-            {!props.isCompleted && Location.pathname.includes('/note/addnote') ? ( 
+            {!note.isCompleted && Location.pathname.includes('/note/addnote') ? ( 
                 <Card title={
                     <Typography.Title level={5}>
                         {note.title}
@@ -61,13 +61,6 @@ export default function ShowNotes(props: any): JSX.Element {
                             />
                         </Typography.Text>
                         <br />
-                        <Typography.Text>
-                            Updated At {" "}
-                            <FormattedDate 
-                                value={note.updatedAt} 
-                            />
-                        </Typography.Text>
-                        <br />
                     </IntlProvider>
                     <Button onClick={showModal}>
                         Delete
@@ -81,7 +74,7 @@ export default function ShowNotes(props: any): JSX.Element {
                         Update Note
                     </Button>
                 </Card>
-            ) : props.isCompleted && Location.pathname.includes('/note/completed') ? (
+            ) : note.isCompleted === true && Location.pathname.includes('/note/completed') ? (
                 <Card title={
                     <Typography.Title level={5}>
                         {note.title}
@@ -103,13 +96,6 @@ export default function ShowNotes(props: any): JSX.Element {
                             />
                         </Typography.Text>
                         <br />
-                        <Typography.Text>
-                            Updated At {" "}
-                            <FormattedDate 
-                                value={note.updatedAt} 
-                            />
-                        </Typography.Text>
-                        <br />
                     </IntlProvider>
                     <Button onClick={showModal}>
                         Delete
@@ -123,7 +109,7 @@ export default function ShowNotes(props: any): JSX.Element {
                         Update Note
                     </Button>
                 </Card>
-            ) : ''}
+            ) : null}
         </div>
     )
 }
