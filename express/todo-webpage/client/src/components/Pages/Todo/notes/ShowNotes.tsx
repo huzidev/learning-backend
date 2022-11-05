@@ -37,9 +37,6 @@ export default function ShowNotes(props: any): JSX.Element {
         }
     }
 
-    console.log("Note completed length");
-    
-
     return (
         <div>
             {!note.isCompleted && Location.pathname.includes('/note/addnote') ? ( 
@@ -112,7 +109,8 @@ export default function ShowNotes(props: any): JSX.Element {
                         Update Note
                     </Button>
                 </Card>
-            ) : ''}
+            ) : ''
+            }
         </div>
     )
 }

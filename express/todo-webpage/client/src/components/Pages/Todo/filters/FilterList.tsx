@@ -30,6 +30,8 @@ export default function FilterList(props: any): JSX.Element {
         setState(true)
     }
 
+    const noData = "No Note Found"
+
     const Text = Location.pathname.includes('/note/addnote') ? "Yours Notes" : "Completed Notes"
 
     return (
@@ -74,11 +76,17 @@ export default function FilterList(props: any): JSX.Element {
                     ) 
                     } else if (note.isCompleted && Location.pathname.includes('/note/completed')) {
                         return(
-
                             <Col span={8} style={{ margin : '10px 0px' }}>
                                 <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} />
-                        </Col>
-                            )
+                            </Col>
+                        )
+                    } 
+                    else if (note.isCompleted !== true && Location.pathname.includes('/note/completed')) {
+                        return (
+                            <Col span={8} style={{ margin : '10px 0px' }}>
+                                <ShowNotes key={note._id} noData={noData} />
+                            </Col>
+                        )
                     }
                 })}
             </Row>
