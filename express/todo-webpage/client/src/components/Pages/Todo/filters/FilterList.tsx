@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ShowNotes from '../notes/ShowNotes';
 import { Card, Col, Row , Button, Typography, Modal } from 'antd';
 import { useLocation } from 'react-router-dom';
+import CompletedTasks from '../CompletedTasks';
 
 export default function FilterList(props: any): JSX.Element {
 
@@ -28,6 +29,8 @@ export default function FilterList(props: any): JSX.Element {
         setState(true)
     }
 
+    const Text = Location.pathname.includes('/note/addnote') ? "Yours Notes" : "Completed Notes"
+
     return (
         <div>
             {
@@ -35,7 +38,7 @@ export default function FilterList(props: any): JSX.Element {
                     <>
                         <div style={{display: "flex", justifyContent: "space-between"}}>
                             <Typography.Title level={4}> 
-                                Yours Notes
+                                {Text}
                             </Typography.Title>
                             <div style={{display: "flex", justifyContent: "space-between"}}>
                                 <Typography.Title level={5}>

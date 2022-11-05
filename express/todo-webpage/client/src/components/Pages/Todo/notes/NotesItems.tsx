@@ -9,7 +9,6 @@ import CompletedTasks from '../CompletedTasks';
 
 export default function NotesItems(props: any) {
     const Location = useLocation()
-    const Navigate = useNavigate();
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
     const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
@@ -106,9 +105,9 @@ export default function NotesItems(props: any) {
 
     return (
         <div>
-            { Location.pathname.includes('/note/addnote') && (
+            {/* { Location.pathname.includes('/note/addnote') && ( */}
             <>
-                <AddTodo />
+                { Location.pathname.includes('/note/addnote') && <AddTodo /> }
                 <Button style={{ display: "none" }} ref={ref} type="primary" onClick={showModal}>
                     Open Modal
                 </Button>
@@ -155,8 +154,8 @@ export default function NotesItems(props: any) {
                     updateNote={updateNote}
                 />
             </>
-            )}
-            {Location.pathname.includes('/note/completed') &&  (
+            {/* )} */}
+            {/* {Location.pathname.includes('/note/completed') &&  (
                 <>
                     <CompletedTasks
                         notesa={notes}
@@ -164,7 +163,7 @@ export default function NotesItems(props: any) {
                     />
                 </>
                 )
-            }
+            } */}
         </div>
     )
 }
