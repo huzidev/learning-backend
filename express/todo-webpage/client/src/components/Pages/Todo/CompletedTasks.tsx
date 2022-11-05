@@ -1,13 +1,13 @@
 import React from 'react';
+import { Typography } from 'antd';
 
 export default function CompletedTasks(props: any): JSX.Element {
-  const { notes } = props;
-  console.log("Notes", notes);
+
   return (
     <div>
-        <h1>
+        <Typography.Title level={2}>
             Completed Tasks
-        </h1>
+        </Typography.Title>
     </div>
   )
 }

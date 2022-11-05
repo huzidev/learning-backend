@@ -7,6 +7,8 @@ const SignOut = import('../Pages/Form/signout/SignOut');
 const Contact = import('../Pages/Form/contact/ContactUs');
 const About = import('../Pages/Form/about/About');
 const Notes = import('../Pages/Todo/notes/NotesItems');
+const AddNote = import('../Pages/Todo/addTodo/AddTodo');
+const CompletedNote = import('../Pages/Todo/CompletedTasks');
 const UpdateUser = import('../Pages/Form/update/UpdateUser');
 
 interface AppRoute {
@@ -32,7 +34,15 @@ interface AppRoute {
     },
     {
         Component: Notes,
-        path: ROUTE_PATHS.ADDNOTE
+        path: ROUTE_PATHS.NOTEITEMS
+    },
+    {
+        Component: AddNote,
+        path: ROUTE_PATHS.ADD_NOTE
+    },
+    {
+        Component: CompletedNote,
+        path: ROUTE_PATHS.COMPLETED_NOTE
     },
     {
         Component: Contact,

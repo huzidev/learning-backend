@@ -159,7 +159,8 @@ export default function NotesItems(props: any) {
             {Location.pathname.includes('/note/completed') &&  (
                 <>
                     <CompletedTasks
-                        notes={notes}
+                        notesa={notes}
+                        updateNote={updateNote}
                     />
                 </>
                 )
