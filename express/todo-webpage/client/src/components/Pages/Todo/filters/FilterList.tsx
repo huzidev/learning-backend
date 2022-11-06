@@ -80,7 +80,13 @@ export default function FilterList(props: any): JSX.Element {
                                 <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} />
                             </Col>
                         )
-                    } 
+                    } else {
+                        return (
+                            <Col span={8} style={{ margin : '10px 0px' }}>
+                                <ShowNotes key={note._id} noData={noData} />
+                            </Col>
+                        )
+                    }
                 })}
             </Row>
         </div>

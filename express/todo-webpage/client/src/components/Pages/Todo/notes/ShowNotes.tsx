@@ -8,7 +8,7 @@ export default function ShowNotes(props: any): JSX.Element {
     const Location = useLocation()
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
-    const { note, updateNote } = props;
+    const { note, updateNote, noData } = props;
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const showModal = () => {
@@ -37,6 +37,8 @@ export default function ShowNotes(props: any): JSX.Element {
         }
     }
 
+    console.log("what is type?", note.isCompleted);
+    
     return (
         <div>
             {!note.isCompleted && Location.pathname.includes('/note/addnote') ? ( 
@@ -109,8 +111,12 @@ export default function ShowNotes(props: any): JSX.Element {
                         Update Note
                     </Button>
                 </Card>
-            ) : ''
-            }
+            ) : (
+                <Typography.Title>
+                    Sorry, {noData}
+                </Typography.Title>
+            )
+        }
         </div>
     )
 }
