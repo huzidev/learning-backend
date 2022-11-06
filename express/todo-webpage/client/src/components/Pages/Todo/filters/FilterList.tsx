@@ -51,17 +51,18 @@ export default function FilterList(props: any): JSX.Element {
                                     All items
                                 </Button>
                                 {allItems.map((currentEle: any) => {
-                                    if (!note.isCompleted && Location.pathname.includes('/note/addnote')) { }
-                                    return (
-                                        <span key={currentEle}>
-                                            <Button
-                                                onClick={() => filterItems(currentEle)}
-                                                >
-                                                {currentEle}
-                                            </Button>
-                                        </span>
-                                    )
-                                })}
+                                    if (!currentEle.isCompleted && Location.pathname.includes('/note/addnote')) { 
+                                        return (
+                                            <span key={currentEle}>
+                                                <Button
+                                                    onClick={() => filterItems(currentEle)}
+                                                    >
+                                                    {currentEle}
+                                                </Button>
+                                            </span>
+                                        )
+                                    })}
+                                    }
                             </div>
                         </div>
                     </>
@@ -74,7 +75,7 @@ export default function FilterList(props: any): JSX.Element {
                             <Col span={8} style={{ margin : '10px 0px' }}>
                                 <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} />
                             </Col>
-                    ) 
+                        ) 
                     } else if (note.isCompleted && Location.pathname.includes('/note/completed')) {
                         return(
                             <Col span={8} style={{ margin : '10px 0px' }}>
