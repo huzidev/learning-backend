@@ -51,42 +51,7 @@ export default function ShowNotes(props: any): JSX.Element {
 
     return (
         <div>
-            {!note.isCompleted && Location.pathname.includes('/note/addnote') ? ( 
-                <Card title={
-                    <Typography.Title level={5}>
-                        {note.title}
-                    </Typography.Title>
-                } 
-                size="small"
-                >
-                    <Typography.Title level={5}>
-                        Description: {note.description}
-                    </Typography.Title> 
-                    <Typography.Title level={5}>
-                        Category: {note.category}
-                    </Typography.Title>
-                    <IntlProvider locale="en" defaultLocale="en">
-                        <Typography.Text>
-                            Created At {" "}
-                            <FormattedDate 
-                                value={note.date} 
-                            />
-                        </Typography.Text>
-                        <br />
-                    </IntlProvider>
-                    <Button onClick={showModal}>
-                        Delete
-                    </Button>
-                    <Modal title="Delete Note" open={isModalOpen} okText="Delete" onOk={deleteNote} onCancel={handleCancel}>
-                        <Typography.Text>
-                            Are You Sure? You Wanna Delete This Note?
-                        </Typography.Text>
-                    </Modal>
-                    <Button onClick={() => {updateNote(note)}}>
-                        Update Note
-                    </Button>
-                </Card>
-            ) : note.isCompleted === true && Location.pathname.includes('/note/completed') ? (
+            {!note.isCompleted && Location.pathname.includes('/note/addnote') || note.isCompleted === true && Location.pathname.includes('/note/completed') ? ( 
                 <Card title={
                     <Typography.Title level={5}>
                         {note.title}
@@ -123,7 +88,7 @@ export default function ShowNotes(props: any): JSX.Element {
                 </Card>
             ) : (
                 <Typography.Title>
-                    Sorry, No Data Found
+                    Sorry, {noData}
                 </Typography.Title>
             )
         }
