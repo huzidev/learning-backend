@@ -86,11 +86,11 @@ export default function ShowNotes(props: any): JSX.Element {
                         Update Note
                     </Button>
                 </Card>
-            ) : (
+            ) : Location.pathname.includes('/note/completed') ? (
                 <Typography.Title>
                     Sorry, {noData}
                 </Typography.Title>
-            )
+            ) : ''
         }
         </div>
     )
