@@ -68,24 +68,12 @@ export default function FilterList(props: any): JSX.Element {
             }
             <Row gutter={16}>
                 {Data.map((note: any) => {
-                    if (!note.isCompleted && Location.pathname.includes('/note/addnote')) {
+                    if (!note.isCompleted && Location.pathname.includes('/note/addnote') || note.isCompleted && Location.pathname.includes('/note/completed')) {
                         return (
                             <Col span={8} style={{ margin : '10px 0px' }}>
                                 <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} />
                             </Col>
-                    ) 
-                    } else if (note.isCompleted && Location.pathname.includes('/note/completed')) {
-                        return(
-                            <Col span={8} style={{ margin : '10px 0px' }}>
-                                <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} />
-                            </Col>
-                        )
-                    } else {
-                        return (
-                            <Col span={8} style={{ margin : '10px 0px' }}>
-                                <ShowNotes key={note._id} noData={noData} />
-                            </Col>
-                        )
+                        ) 
                     }
                 })}
             </Row>

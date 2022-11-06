@@ -37,8 +37,18 @@ export default function ShowNotes(props: any): JSX.Element {
         }
     }
 
-    console.log("what is type?", note.isCompleted);
+    console.log("TEST TES TES");
+    console.log("What is state of note ture", note.isCompleted);
     
+
+    if (!note.isCompleted && Location.pathname.includes('/note/addnote')) {
+        console.log("note state is False");
+    } else if (note.isCompleted === true && Location.pathname.includes('/note/completed')) {
+        console.log("note state is True");
+    } else if (Location.pathname.includes('/note/completed')) {
+        console.log("note Data Found");
+    }
+
     return (
         <div>
             {!note.isCompleted && Location.pathname.includes('/note/addnote') ? ( 
@@ -113,7 +123,7 @@ export default function ShowNotes(props: any): JSX.Element {
                 </Card>
             ) : (
                 <Typography.Title>
-                    Sorry, {noData}
+                    Sorry, No Data Found
                 </Typography.Title>
             )
         }
