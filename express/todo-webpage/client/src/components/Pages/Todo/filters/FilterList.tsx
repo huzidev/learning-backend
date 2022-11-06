@@ -34,6 +34,10 @@ export default function FilterList(props: any): JSX.Element {
 
     const Text = Location.pathname.includes('/note/addnote') ? "Yours Notes" : "Completed Notes"
 
+    let object = Data.map((d: any) => d.isCompleted)
+
+    console.log("Whta is state", object);
+
     return (
         <div>
             {
@@ -67,22 +71,25 @@ export default function FilterList(props: any): JSX.Element {
                 )
             }
             <Row gutter={16}>
-                {Data.map((note: any) => {
-                    if (!note.isCompleted && Location.pathname.includes('/note/addnote') || note.isCompleted && Location.pathname.includes('/note/completed')) {
-                        return (
-                            <Col span={8} style={{ margin : '10px 0px' }}>
-                                <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} noData={noData} />
-                            </Col>
-                        ) 
-                    } else if (Location.pathname.includes('/note/completed')) {
-                        return (
-                            <Col span={8} style={{ margin : '10px 0px' }}>
-                                <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} noData={noData} />
-                            </Col>
-                        ) 
-                    }
+                {Data.map((d: any) => {
+                    return (
+                        !d.isCompleted && Location.pathname.includes('/note/addnote') || d.isCompleted && Location.pathname.includes('/note/completed') ? (
+                            Data.map((note: any) => {
+                                <Col span={8} style={{ margin : '10px 0px' }}>
+                                    <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} noData={noData} />
+                                </Col>
+                            })
+                        ) : ''
+                    )
                 })}
             </Row>
         </div>
     )
 }
+// else if ( !note.isCompleted && Location.pathname.includes('/note/completed')) {
+//     return (
+//         <Col span={8} style={{ margin : '10px 0px' }}>
+//             <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} noData={noData} />
+//         </Col>
+//     ) 
+// }
