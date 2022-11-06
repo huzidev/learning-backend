@@ -51,7 +51,7 @@ export default function FilterList(props: any): JSX.Element {
                                     All items
                                 </Button>
                                 {allItems.map((currentEle: any) => {
-                                    if (!note.isCompleted && Location.pathname.includes('/note/addnote')) { 
+                                    if (!currentEle.isCompleted && Location.pathname.includes('/note/addnote')) { 
                                         return (
                                             <span key={currentEle}>
                                                 <Button
@@ -61,6 +61,17 @@ export default function FilterList(props: any): JSX.Element {
                                                 </Button>
                                             </span>
                                         )
+                                    } else if (currentEle.isCompleted && Location.pathname.includes('/note/completed')) {
+                                        return (
+                                            <span key={currentEle}>
+                                                <Button
+                                                    onClick={() => filterItems(currentEle)}
+                                                    >
+                                                    {currentEle}
+                                                </Button>
+                                            </span>
+                                        )
+                                        
                                     }
                                 })}
                             </div>
