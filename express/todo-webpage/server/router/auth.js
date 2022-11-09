@@ -156,11 +156,16 @@ router.put('/updateuser/:id', Verification, async (req, res) => {
     } catch (e) {
         console.log(e);
     }
-
 })
 
-router.put('/addimage', upload.single("image"), async(req, res) => {
-
+router.post('/addimage', upload.single("image"), (req, res) => {
+    const newData = new User({
+        image: req.file.originalname
+    })
+    newData
+    .save()
+    .then(() => res.json("Image Uploaded"))
+    .catch((e) => res.status(400).json(`Error: ${e}`))
 })
 
 router.get('/about', Verification, (req, res) => {
