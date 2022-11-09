@@ -3,5 +3,6 @@ export interface DataType {
     email: string,
     number: string,
     password: string
-    cpassword: string
+    cpassword: string,
+    isTheme: boolean
 }

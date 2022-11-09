@@ -15,7 +15,8 @@ export default function SignUp() {
     email : "",
     number : "",
     password : "",
-    cpassword : ""
+    cpassword : "",
+    isTheme: false
   });
 
   let name, value;
