@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
 })
 
 router.post('/signup', async (req, res) => {
-    const { username, email, number, password, cpassword } = req.body;
+    const { username, email, number, password, cpassword, isTheme } = req.body;
 
     if ( !username || !email || !number || !password || !cpassword ) {
         return res.status(421).json({ error : "You've left an tag empty" });
@@ -48,7 +48,7 @@ router.post('/signup', async (req, res) => {
         } 
         // when user registered successfully
         else {
-            const user = new User({ username, email, number, password, cpassword });
+            const user = new User({ username, email, number, password, cpassword, isTheme });
             const userRegister = await user.save();
             if (userRegister) {
                 return res.status(201).json({ message : "User registered successfully!" });
