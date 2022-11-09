@@ -7,6 +7,9 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : true
     },
+    isTheme: {
+        type : Boolean,
+    },
     image : {
         type : String
     },
