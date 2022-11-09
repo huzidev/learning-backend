@@ -31,7 +31,7 @@ export default function SignUp() {
 
   async function signUp(e: React.FormEvent) {
     e.preventDefault();
-    const { username, email, number, password, cpassword } = user;
+    const { username, email, number, password, cpassword, isTheme } = user;
     const res = await fetch(`${host}/signup`, {
         method: "POST",
         headers: {
@@ -42,7 +42,8 @@ export default function SignUp() {
             email,
             number: parseInt(number),
             password,
-            cpassword 
+            cpassword,
+            isTheme
         })
     });
 
