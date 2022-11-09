@@ -6,6 +6,9 @@ export default function About(props: any): JSX.Element {
   const context = useContext(DataContext);
   const { userData } = context
   const { updateData } = props;
+
+  const theme = userData.isTheme ? 'Dark Mode' : 'Light Mode'
+
   return (
     <div>
         <Card title={<Typography.Title level={3}>About</Typography.Title>} bordered={false} style={{ width: "100%" }}>
@@ -23,7 +26,10 @@ export default function About(props: any): JSX.Element {
             </Typography.Title> 
             <Typography.Title level={4}>
                 Image: {userData.image}
-            </Typography.Title> 
+            </Typography.Title>
+            <Typography.Title level={4}>
+                Theme: {theme}
+            </Typography.Title>  
             <Button onClick={() => {updateData(userData)}} style={{ marginTop: "10px" }}>
                 Update Data
             </Button>
