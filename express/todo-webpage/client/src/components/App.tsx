@@ -12,6 +12,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { GlobalStyles } from './styled-components/Global.styled';
 import { Wrapper } from './styled-components/Container.styled';
 
 export default function App(): JSX.Element {
@@ -20,8 +21,9 @@ export default function App(): JSX.Element {
   return (
     <div>
       <UserState>
+        <GlobalStyles />
+        <Wrapper dark={userData.isTheme}>
         <Router>
-          <Wrapper dark={userData.isTheme}>
             <Home />
             <Routes>
               {routes.map(({ Component, ...route }) => {
@@ -35,8 +37,8 @@ export default function App(): JSX.Element {
               <Route path="/signout" element={<SignOut />} />
               <Route path="*" element={<Skeleton active />} />
             </Routes>
-          </Wrapper>
         </Router>
+        </Wrapper>
       </UserState>
     </div>
   )
