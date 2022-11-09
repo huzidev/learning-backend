@@ -142,6 +142,9 @@ router.put('/updateuser/:id', Verification, async (req, res) => {
         if (number) {
             newInfo.number = number
         } 
+        if (!isTheme || isTheme) {
+            newInfo.isTheme = isTheme
+        }
         let info = await User.findById(req.params.id);
         console.log("what is info", info);
         if (!info) {
