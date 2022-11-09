@@ -3,11 +3,12 @@ import DataContext from '../../../Context/DataContext';
 import User from '../about/About';
 import { Button, Modal, Form, Input } from 'antd';
 import { UserOutlined, MailOutlined, NumberOutlined } from '@ant-design/icons';
-import { DataType, DataTypeF } from './Type';
+import { DataType } from './Type';
 
 export default function UpdateUser() {
 
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [isChecked, setIsChecked] = useState<any>(null);
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -26,6 +27,7 @@ export default function UpdateUser() {
 
   const updateData = (currData: any) => {
     ref.current.click();
+    setIsChecked(currData.isTheme)
     setData({
         id: currData._id, 
         eusername: currData.username,
@@ -33,6 +35,11 @@ export default function UpdateUser() {
         enumber: currData.number,
         eimage: currData.image
     })
+}
+
+
+function stateChanger() {
+    setIsChecked(!isChecked)
 }
 
 console.log("User data", userData);
@@ -53,7 +60,8 @@ console.log("User data", userData);
                     username: eusername, 
                     email: eemail, 
                     number: enumber, 
-                    image: eimage
+                    image: eimage,
+                    isTheme: isChecked
                 })
             });
             if (eusername === "") {
@@ -84,6 +92,7 @@ console.log("User data", userData);
             console.log(err);
         }
         setIsModalOpen(false);
+        window.location.reload()
     }
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -138,6 +147,13 @@ const handlePhoto = (e: any) => {
                     onChange={handlePhoto}
                     style={style}
                 />
+                <input 
+                    type="checkbox"
+                    checked= {isChecked}
+                    onChange= {stateChanger}
+                    style={style}
+                />
+                {isChecked ? "Dark Mode" : "Light Mode"}
             </Form>
         </Modal>
         <User updateData={updateData} />
