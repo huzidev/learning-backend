@@ -62,6 +62,11 @@ router.post('/signup', async (req, res) => {
     }
 })
 
+router.get('/signout', (req, res) => {
+    res.clearCookie('jwtoken', { path : '/' })
+    res.status(200).send("User loggedOut Successfully!")
+})
+
 router.post('/signin', async (req, res) => {
     try {
         let token;
@@ -175,9 +180,9 @@ router.get('/about', Verification, (req, res) => {
     res.send(req.userInfo)
 })
 
-router.get('/signout', (req, res) => {
-    res.clearCookie('jwtoken', { path : '/' })
-    res.status(200).send("User loggedOut Successfully!")
-})
+// router.get('/signout', (req, res) => {
+//     res.clearCookie('jwtoken', { path : '/' })
+//     res.status(200).send("User loggedOut Successfully!")
+// })
 
 module.exports = router;
