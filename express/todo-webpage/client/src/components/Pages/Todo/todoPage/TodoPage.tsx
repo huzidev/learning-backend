@@ -2,7 +2,6 @@ import React, { useContext, useState }from 'react';
 import { Carousel, Typography, Col, Grid } from 'antd';
 import DataContext from '../../../Context/DataContext';
 import slides from './data'
-import './styles.less'
 
 const contentStyle: React.CSSProperties = {
   height: '500px',
