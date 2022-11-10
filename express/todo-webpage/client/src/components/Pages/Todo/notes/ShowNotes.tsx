@@ -39,7 +39,7 @@ export default function ShowNotes(props: any): JSX.Element {
 
     return (
         <div>
-            {!note.isCompleted && Location.pathname.includes('/note/addnote') || note.isCompleted === true && Location.pathname.includes('/note/completed') ? ( 
+            {!note.isCompleted && Location.pathname.includes('/note/addnote') || note.isCompleted && Location.pathname.includes('/note/completed') ? ( 
                 <Card title={
                     <Typography.Title level={5}>
                         {note.title}
