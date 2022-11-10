@@ -48,8 +48,8 @@ export default function Footer(): JSX.Element {
     }
   }
   return (
-    <div>
-      <div style={{ width: '500px', margin: 'auto'}}>
+    <div style={{ width: '1500px', margin: '5% auto 0px auto'}}>
+      <div style={{ marginLeft: '500px' }}>
         <Typography.Title level={2}>
           Contact Us
         </Typography.Title>
@@ -130,6 +130,6 @@ export default function Footer(): JSX.Element {
           </Button>
         </Form.Item>
       </Form>
-    </>
+    </div>
   );
 };
