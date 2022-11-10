@@ -51,7 +51,7 @@ export default function FilterList(props: any): JSX.Element {
                                 <Typography.Title level={5}>
                                     Filter the list
                                 </Typography.Title>
-                                <Button onClick={() => setItems(props.notes)}>
+                                <Button onClick={() => setItems(props.notes)} type="ghost">
                                     All items
                                 </Button>
                                 {allItems.map((currentEle: any) => {
@@ -59,6 +59,7 @@ export default function FilterList(props: any): JSX.Element {
                                         <span key={currentEle}>
                                             <Button
                                                 onClick={() => filterItems(currentEle)}
+                                                type="ghost"
                                                 >
                                                 {currentEle}
                                             </Button>

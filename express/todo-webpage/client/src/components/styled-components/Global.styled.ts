@@ -12,5 +12,9 @@ export const GlobalStyles = createGlobalStyle`
         .Border {
             border: 1px solid white
         }
+        input {
+            background-color: #292929;
+            color: white;
+        }
     }
 `

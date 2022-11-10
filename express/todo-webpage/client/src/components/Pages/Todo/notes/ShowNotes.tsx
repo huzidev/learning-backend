@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 export default function ShowNotes(props: any): JSX.Element {
     const Location = useLocation()
     const context = useContext(DataContext);
-    const { notes, setNotes } = context;
+    const { notes, setNotes, userData } = context;
     const { note, updateNote, noData } = props;
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -46,7 +46,7 @@ export default function ShowNotes(props: any): JSX.Element {
                     </Typography.Title>
                 } 
                 size="small"
-                className='Dark'
+                className={userData.isTheme ? "Dark" : ''}
                 >
                     <Typography.Title level={5}>
                         Description: {note.description}
@@ -63,7 +63,7 @@ export default function ShowNotes(props: any): JSX.Element {
                         </Typography.Text>
                         <br />
                     </IntlProvider>
-                    <Button onClick={showModal}>
+                    <Button onClick={showModal} type="ghost">
                         Delete
                     </Button>
                     <Modal title="Delete Note" open={isModalOpen} okText="Delete" onOk={deleteNote} onCancel={handleCancel}>
@@ -71,7 +71,7 @@ export default function ShowNotes(props: any): JSX.Element {
                             Are You Sure? You Wanna Delete This Note?
                         </Typography.Text>
                     </Modal>
-                    <Button onClick={() => {updateNote(note)}}>
+                    <Button onClick={() => {updateNote(note)}} type="ghost">
                         Update Note
                     </Button>
                 </Card>
