@@ -42,9 +42,6 @@ function stateChanger() {
     setIsChecked(!isChecked)
 }
 
-console.log("User data", userData);
-
-
     const handleClick = async () => { 
 
         const {_id, username, email, number, image} = userData
