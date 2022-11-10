@@ -1,5 +1,5 @@
 import 'antd/dist/antd.css';
-import {useContext} from 'react'
+import { useContext } from 'react';
 import DataContext from './Context/DataContext';
 import routes from './Router/routes'
 import SignOut from './Pages/Form/signout/SignOut';
@@ -16,8 +16,9 @@ import { GlobalStyles } from './styled-components/Global.styled';
 import { Wrapper } from './styled-components/Container.styled';
 
 export default function App(): JSX.Element {
-  const context = useContext(DataContext);
+  const context = useContext(DataContext)
   const { userData } = context
+  
   return (
     <div>
       <UserState>
