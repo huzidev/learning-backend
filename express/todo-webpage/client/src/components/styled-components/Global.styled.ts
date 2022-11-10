@@ -5,7 +5,7 @@ export const GlobalStyles = createGlobalStyle`
         background-color: #292929;
         color: white;
         transition: all 700ms ease-in-out;
-        h1, h2, h3, h4, h5, p, span {
+        h1, h2, h3, h4, h5, p, span, label {
             color: white;
             transition: all 700ms ease-in-out;
         }

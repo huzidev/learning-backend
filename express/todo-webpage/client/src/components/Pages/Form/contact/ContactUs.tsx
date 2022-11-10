@@ -48,83 +48,88 @@ export default function Footer(): JSX.Element {
     }
   }
   return (
-    <Form {...layout} name="nest-messages">
-      <Typography.Title level={2}>
-        Contact Us
-      </Typography.Title>
-      <Form.Item
-        name={['Username']}
-        label="Name"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input 
-          name="username"
-          value={user.username}
-          onChange={inputHandler}
-          placeholder="Enter Yours Username"
-        />
-      </Form.Item>
-      <Form.Item
-        name={['Email']}
-        label="Email"
-        rules={[
-          {
-            type: 'email',
-            required: true
-          },
-        ]}
-      >
-        <Input 
-          name="email"
-          value={user.email}
-          onChange={inputHandler}
-          placeholder="Enter Yours Email"
-        />
-      </Form.Item>
-      <Form.Item 
-        name={['Number']}
-        label="Number"
-      >
-        <InputNumber   
-          name="number"
-          value={user.number}
-          onChange={(e) => e.target.value}
-          style={{ width: '100%' }}
-          placeholder="Enter Yours Number (Optional)"
-        />
-      </Form.Item>
-      <Form.Item 
-        name={['Message']}
-        label="Message"
-        rules={[
-          {
-            required: true,
-            min: 0,
-            max: 255
-          },
-        ]}
-      >
-        <Input.TextArea 
-          name="message"
-          value={user.message}
-          onChange={inputHandler}
-          placeholder="Enter Yours Message"
-        />
-      </Form.Item>
-      <Form.Item
-        wrapperCol={{
-          ...layout.wrapperCol,
-          offset: 8,
-        }}
-      >
-        <Button type="primary" htmlType="submit" onClick={sendMessage}>
-          Send Message
-        </Button>
-      </Form.Item>
-    </Form>
+    <div>
+      <div style={{ width: '500px', margin: 'auto'}}>
+        <Typography.Title level={2}>
+          Contact Us
+        </Typography.Title>
+      </div>
+      <Form {...layout} name="nest-messages">
+        <Form.Item
+          name={['Username']}
+          label="Name"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Input 
+            name="username"
+            value={user.username}
+            onChange={inputHandler}
+            placeholder="Enter Yours Username"
+          />
+        </Form.Item>
+        <Form.Item
+          name={['Email']}
+          label="Email"
+          rules={[
+            {
+              type: 'email',
+              required: true
+            },
+          ]}
+        >
+          <Input 
+            name="email"
+            value={user.email}
+            onChange={inputHandler}
+            placeholder="Enter Yours Email"
+          />
+        </Form.Item>
+        <Form.Item 
+          name={['Number']}
+          label="Number"
+        >
+          <InputNumber
+            className='inputNumber' 
+            name="number"
+            value={user.number}
+            onChange={(e) => e.target.value}
+            style={{ width: '100%' }}
+            placeholder="Enter Yours Number (Optional)"
+          />
+        </Form.Item>
+        <Form.Item 
+          name={['Message']}
+          label="Message"
+          rules={[
+            {
+              required: true,
+              min: 0,
+              max: 255
+            },
+          ]}
+        >
+          <Input.TextArea 
+            name="message"
+            value={user.message}
+            onChange={inputHandler}
+            placeholder="Enter Yours Message"
+          />
+        </Form.Item>
+        <Form.Item
+          wrapperCol={{
+            ...layout.wrapperCol,
+            offset: 8,
+          }}
+        >
+          <Button type="primary" htmlType="submit" onClick={sendMessage}>
+            Send Message
+          </Button>
+        </Form.Item>
+      </Form>
+    </>
   );
 };
