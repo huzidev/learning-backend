@@ -12,7 +12,8 @@ export const GlobalStyles = createGlobalStyle`
         .Border {
             border: 1px solid white
         }
-        input {
+        input, textarea {
+            transition: all 700ms ease-in-out;
             background-color: #292929;
             color: white;
         }

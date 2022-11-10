@@ -29,7 +29,7 @@ export default function About(props: any): JSX.Element {
         <Typography.Title level={4}>
             Theme: {theme}
         </Typography.Title>  
-        <Button onClick={() => {updateData(userData)}} style={{ marginTop: "10px" }}>
+        <Button onClick={() => {updateData(userData)}} style={{ marginTop: "10px" }} type="ghost">
             Update Data
         </Button>
     </Card>
