@@ -68,7 +68,7 @@ export default function App(): JSX.Element {
       ),
     ], null),
     getItem(
-      'Completed Tasks', 
+      'Completed Notes', 
       '6', 
       <FileOutlined />,
       null,
