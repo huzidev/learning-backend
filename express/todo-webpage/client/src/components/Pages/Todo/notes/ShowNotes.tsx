@@ -46,6 +46,7 @@ export default function ShowNotes(props: any): JSX.Element {
                     </Typography.Title>
                 } 
                 size="small"
+                className='Dark'
                 >
                     <Typography.Title level={5}>
                         Description: {note.description}

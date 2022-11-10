@@ -11,7 +11,7 @@ export default function About(props: any): JSX.Element {
 
   return (
     <Card title={<Typography.Title level={3}>About</Typography.Title>} bordered={false} style={{ width: "100%" }} className={userData.isTheme ? "Dark Border" : ''}>
-        <Typography.Title level={4} className='Colors'> 
+        <Typography.Title level={4}> 
             UserId: {userData._id}
         </Typography.Title>
         <Typography.Title level={4}>
