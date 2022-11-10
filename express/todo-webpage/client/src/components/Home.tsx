@@ -131,7 +131,7 @@ export default function App(): JSX.Element {
         >
         </Menu>
       </Sider>
-      <Layout className="site-layout">
+      <Layout className={`"site-layout" ${userData.isTheme ? "Dark" : ''}`}>
         <Content
           style={{
             margin: '0 16px',
@@ -149,7 +149,7 @@ export default function App(): JSX.Element {
             ) : ''
           }
           <div
-            className="site-layout-background"
+            className="site-layout-background Dark"
             style={{
               padding: 24,
               minHeight: 360,
