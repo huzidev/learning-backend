@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
             color: white;
             transition: all 700ms ease-in-out;
         }
-        input, textarea {
+        input, textarea, .antd-modal-content, .ant-modal-body {
             transition: all 700ms ease-in-out;
             background-color: #292929;
             color: white;

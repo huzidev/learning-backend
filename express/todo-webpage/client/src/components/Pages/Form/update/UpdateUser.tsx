@@ -105,55 +105,58 @@ const handlePhoto = (e: any) => {
     }
 
   return (
-    <div className={userData.isTheme ? "Dark" : ''}>
-        <Button style={{display: "none" }} ref={ref} type="primary" onClick={showModal}>
-            Open Modal
-        </Button>
-        <Modal title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
-            <Typography.Title level={3}>
-                Update User's Info
-            </Typography.Title>
-            <Form>
-                <Input 
-                    type="text"
-                    name='eusername'
-                    value={data.eusername}
-                    prefix={<UserOutlined className="site-form-item-icon" />}
-                    onChange={onChange}
-                />
-                <Input 
-                    type="text"
-                    name='eemail'
-                    value={data.eemail}
-                    prefix={<MailOutlined className="site-form-item-icon" />}
-                    onChange={onChange}
-                    style={style}
-                />
-                <Input 
-                    type="text"
-                    name='enumber'
-                    value={data.enumber}
-                    prefix={<NumberOutlined className="site-form-item-icon" />}
-                    onChange={onChange}
-                    style={style}
-                />
-                <Input 
-                    type="file" 
-                    accept=".png, .jpg, .jpeg"
-                    name="eimage"
-                    onChange={handlePhoto}
-                    style={style}
-                />
-                <input 
-                    type="checkbox"
-                    checked= {isChecked}
-                    onChange= {stateChanger}
-                    style={style}
-                />
-                {isChecked ? "Dark Mode" : "Light Mode"}
-            </Form>
-        </Modal>
-        <User updateData={updateData} />
-    </div>
+        <div>
+            <Button style={{display: "none" }} ref={ref} type="primary" onClick={showModal}>
+                Open Modal
+            </Button>
+            <Modal className={userData.isTheme ? "Dark" : ''} title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
+                <Typography.Title level={3}>
+                    Update User's Info
+                </Typography.Title>
+                <Form className={userData.isTheme ? "Dark" : ''}>
+                    <Input 
+                        className={userData.isTheme ? "Dark" : ''}
+                        type="text"
+                        name='eusername'
+                        value={data.eusername}
+                        prefix={<UserOutlined className="site-form-item-icon" />}
+                        onChange={onChange}
+                    />
+                    <Input 
+                        className={userData.isTheme ? "Dark" : ''}
+                        type="text"
+                        name='eemail'
+                        value={data.eemail}
+                        prefix={<MailOutlined className="site-form-item-icon" />}
+                        onChange={onChange}
+                        style={style}
+                    />
+                    <Input 
+                        className={userData.isTheme ? "Dark" : ''}
+                        type="text"
+                        name='enumber'
+                        value={data.enumber}
+                        prefix={<NumberOutlined className="site-form-item-icon" />}
+                        onChange={onChange}
+                        style={style}
+                    />
+                    <Input 
+                        type="file" 
+                        accept=".png, .jpg, .jpeg"
+                        name="eimage"
+                        onChange={handlePhoto}
+                        style={style}
+                    />
+                    <input 
+                        type="checkbox"
+                        checked= {isChecked}
+                        onChange= {stateChanger}
+                        style={style}
+                    />
+                    {isChecked ? "Dark Mode" : "Light Mode"}
+                </Form>
+            </Modal>
+            <User updateData={updateData} />
+        </div>
   )
 }
