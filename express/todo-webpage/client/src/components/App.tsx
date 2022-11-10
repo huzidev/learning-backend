@@ -11,7 +11,6 @@ import {
   Route,
 } from "react-router-dom";
 import { GlobalStyles } from './styled-components/Global.styled';
-
 export default function App(): JSX.Element {
  
   return (
