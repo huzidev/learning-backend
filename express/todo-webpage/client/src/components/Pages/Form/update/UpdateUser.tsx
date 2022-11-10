@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import DataContext from '../../../Context/DataContext';
 import User from '../about/About';
-import { Button, Modal, Form, Input } from 'antd';
+import { Button, Modal, Form, Input, Typography } from 'antd';
 import { UserOutlined, MailOutlined, NumberOutlined } from '@ant-design/icons';
 import { DataType } from './Type';
 
@@ -105,14 +105,14 @@ const handlePhoto = (e: any) => {
     }
 
   return (
-    <div>
+    <div className={userData.isTheme ? "Dark" : ''}>
         <Button style={{display: "none" }} ref={ref} type="primary" onClick={showModal}>
             Open Modal
         </Button>
         <Modal title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
-            <h1>
+            <Typography.Title level={3}>
                 Update User's Info
-            </h1>
+            </Typography.Title>
             <Form>
                 <Input 
                     type="text"
