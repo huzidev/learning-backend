@@ -19,11 +19,13 @@ export default function App(): JSX.Element {
   const context = useContext(DataContext)
   const { userData } = context
   
+  const theme = userData.isTheme
+
   return (
     <div>
       <UserState>
         <GlobalStyles />
-        <Wrapper dark={userData.isTheme}>
+        <Wrapper dark={theme}>
         <Router>
             <Home />
             <Routes>
