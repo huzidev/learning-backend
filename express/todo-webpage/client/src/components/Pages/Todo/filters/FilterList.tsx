@@ -71,14 +71,12 @@ export default function FilterList(props: any): JSX.Element {
                 )
             }
             <Row gutter={16}>
-                {Data.map((d: any) => {
+                {Data.map((note: any) => {
                     return (
-                        !d.isCompleted && Location.pathname.includes('/note/addnote') || d.isCompleted && Location.pathname.includes('/note/completed') ? (
-                            Data.map((note: any) => {
-                                <Col span={8} style={{ margin : '10px 0px' }}>
-                                    <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} noData={noData} />
-                                </Col>
-                            })
+                        !note.isCompleted && Location.pathname.includes('/note/addnote') || note.isCompleted && Location.pathname.includes('/note/completed') ? (
+                            <Col span={8} style={{ margin : '10px 0px' }}>
+                                <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} noData={noData} />
+                            </Col>
                         ) : ''
                     )
                 })}
