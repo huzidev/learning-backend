@@ -149,7 +149,7 @@ export default function App(): JSX.Element {
             ) : ''
           }
           <div
-            className="site-layout-background Dark"
+            className="site-layout-background"
             style={{
               padding: 24,
               minHeight: 360,
@@ -168,6 +168,7 @@ export default function App(): JSX.Element {
           style={{
             textAlign: 'center',
           }}
+          className={userData.isTheme ? "Dark" : ''}
         >
           Designed And Crafted By <a href="https://www.linkedin.com/in/huzidev/" target="_blank">Huzaifa Iqbal</a>
         </Footer>

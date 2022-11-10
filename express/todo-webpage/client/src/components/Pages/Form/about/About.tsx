@@ -10,7 +10,7 @@ export default function About(props: any): JSX.Element {
   const theme = userData.isTheme ? 'Dark Mode' : 'Light Mode'
 
   return (
-    <Card title={<Typography.Title level={3}>About</Typography.Title>} bordered={false} style={{ width: "100%" }}>
+    <Card title={<Typography.Title level={3}>About</Typography.Title>} bordered={false} style={{ width: "100%" }} className={userData.isTheme ? "Dark" : ''}>
         <Typography.Title level={4}> 
             UserId: {userData._id}
         </Typography.Title>
