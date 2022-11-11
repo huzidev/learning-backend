@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { Button, Card, Typography } from 'antd';
 import DataContext from '../../../Context/DataContext';
-import { GlobalStyles } from '../../../styled-components/Global.styled';
-import { ThemeProvider } from 'styled-components';
+// import { GlobalStyles } from '../../../styled-components/Global.styled';
 
 export default function About(props: any): JSX.Element {
   const context = useContext(DataContext);
@@ -11,15 +10,15 @@ export default function About(props: any): JSX.Element {
 
   const theme = userData.isTheme ? 'Dark Mode' : 'Light Mode'
 
-    const dark = userData.isTheme
+    // const dark = userData.isTheme
 
-    const darkModeBG = userData.isTheme ? "#292929" : 'rgb(240 242 245 / 1)';
-    const darkModeC = userData.isTheme ? "white" : 'black';
-    const transition = 'all 700ms ease-in-out';
+    // const darkModeBG = userData.isTheme ? "#292929" : 'rgb(240 242 245 / 1)';
+    // const darkModeC = userData.isTheme ? "white" : 'black';
+    // const transition = 'all 700ms ease-in-out';
 
   return (
     <>
-        <GlobalStyles dark={dark} darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition}/>
+        {/* <GlobalStyles dark={dark} darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition}/> */}
         <Card 
             title={<Typography.Title 
             level={3}>About</Typography.Title>} 

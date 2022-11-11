@@ -19,6 +19,7 @@ import NotesItems from './Pages/Todo/notes/NotesItems';
 import UpdateUser from './Pages/Form/update/UpdateUser';
 import SignOut from './Pages/Form/signout/SignOut';
 import { Link } from 'react-router-dom';
+import { GlobalStyles } from './styled-components/Global.styled';
 
 export default function App(): JSX.Element {
   const [collapsed, setCollapsed] = useState(false);
@@ -106,7 +107,15 @@ export default function App(): JSX.Element {
 
   const showItems = localStorage.getItem('jwtoken') ? signedInItems : signedOutItems 
 
+    const dark = userData.isTheme
+
+    const darkModeBG = userData.isTheme ? "#292929" : 'rgb(240 242 245 / 1)';
+    const darkModeC = userData.isTheme ? "white" : 'black';
+    const transition = 'all 700ms ease-in-out';
+
   return (
+    <>
+    <GlobalStyles dark={dark} darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition}/>
     <Layout
       style={{
         minHeight: '100vh',
@@ -131,7 +140,7 @@ export default function App(): JSX.Element {
         >
         </Menu>
       </Sider>
-      <Layout className={`"site-layout" ${userData.isTheme ? "Dark" : ''}`}>
+      <Layout className="site-layout Dark">
         <Content
           style={{
             margin: '0 16px',
@@ -168,11 +177,12 @@ export default function App(): JSX.Element {
           style={{
             textAlign: 'center',
           }}
-          className={userData.isTheme ? "Dark" : ''}
+          className="Dark"
         >
           Designed And Crafted By <a href="https://www.linkedin.com/in/huzidev/" target="_blank">Huzaifa Iqbal</a>
         </Footer>
       </Layout>
     </Layout>
+    </>
   );
 };
