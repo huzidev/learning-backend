@@ -27,7 +27,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
             background-color: ${p.darkModeBG};
             color: ${p.darkModeC};
             transition: ${p.transition};
-            h1, h2, h3, h4, h5, div {
+            h1, h2, h3, h4, h5, div, .anticon {
                 color: ${p.darkModeC};
                 transition: ${p.transition};
             }
