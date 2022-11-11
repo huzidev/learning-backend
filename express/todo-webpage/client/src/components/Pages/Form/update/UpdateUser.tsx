@@ -109,10 +109,7 @@ const handlePhoto = (e: any) => {
             <Button style={{display: "none" }} ref={ref} type="primary" onClick={showModal}>
                 Open Modal
             </Button>
-            <Modal className={userData.isTheme ? "Dark" : ''} title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
-                <Typography.Title level={3}>
-                    Update User's Info
-                </Typography.Title>
+            <Modal title="Update User's Info" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
                 <Form className={userData.isTheme ? "Dark" : ''}>
                     <Input 
                         className={userData.isTheme ? "Dark" : ''}
