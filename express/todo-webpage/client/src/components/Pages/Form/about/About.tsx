@@ -13,18 +13,11 @@ export default function About(props: any): JSX.Element {
 
     const dark = userData.isTheme
 
-    const test = {
-        colors : {
-            Dark : "#292929",
-            Light : "rgb(240 242 245 / 1)"
-        }
-    }
-
-    const DM = userData.isTheme ? "#292929" : 'rgb(240 242 245 / 1)';
+    const darkModeBG = userData.isTheme ? "#292929" : 'rgb(240 242 245 / 1)';
 
   return (
     <>
-        <GlobalStyles dark={dark} dmode={DM}/>
+        <GlobalStyles dark={dark} darkModeBG={darkModeBG}/>
         <Card 
             title={<Typography.Title 
             level={3}>About</Typography.Title>} 
