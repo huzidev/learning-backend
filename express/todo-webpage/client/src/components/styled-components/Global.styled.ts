@@ -22,18 +22,20 @@ export const GlobalStyles = createGlobalStyle<Props>`
             transition: ${(p: any) => p.transition};
         }
     }
-    /* .ant-modal-body, .ant-modal-header, .ant-modal-footer {
-        background-color: #292929;
-        color: white;
-        transition: all 700ms ease-in-out;
-        h1, h2, h3, h4, h5, div {
-            color: white;
-            transition: all 700ms ease-in-out;
+    ${(p: any) => p.dark ? (`
+        .ant-modal-body, .ant-modal-header, .ant-modal-footer {
+            background-color: ${p.darkModeBG};
+            color: ${p.darkModeC};
+            transition: ${p.transition};
+            h1, h2, h3, h4, h5, div {
+                color: ${p.darkModeC};
+                transition: ${p.transition};
+            }
+            input, textarea {
+                background-color: ${p.darkModeBG};
+                color: ${p.darkModeC};
+                transition: ${p.transition};
+            }
         }
-        input, textarea {
-            transition: all 700ms ease-in-out;
-            background-color: #292929;
-            color: white;
-        }
-    } */
+    `) : ''}
 `
