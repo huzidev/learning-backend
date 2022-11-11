@@ -109,7 +109,7 @@ const handlePhoto = (e: any) => {
             <Button style={{display: "none" }} ref={ref} type="primary" onClick={showModal}>
                 Open Modal
             </Button>
-            <Modal title="Update User's Info" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
+            <Modal title="Update Info" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
                 <Form className="Dark">
                     <Input 
                         className="Dark"
