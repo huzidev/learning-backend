@@ -16,9 +16,6 @@ export default function About(props: any): JSX.Element {
         style={{ width: "100%" }} 
         className={userData.isTheme ? "Dark" : ''}
     >
-        <Typography.Title level={4}> 
-            UserId: {userData._id}
-        </Typography.Title>
         <Typography.Title level={4}>
             Username: {userData.username}
         </Typography.Title> 
