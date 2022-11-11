@@ -19,7 +19,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
         input, textarea {
             background-color: ${(p: any) => p.darkModeBG};
             color: ${(p: any) => p.darkModeC};
-            transition: all 700ms ease-in-out;
+            transition: ${(p: any) => p.transition};
         }
     }
     /* .ant-modal-body, .ant-modal-header, .ant-modal-footer {
