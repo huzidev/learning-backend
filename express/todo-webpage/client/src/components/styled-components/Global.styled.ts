@@ -4,17 +4,17 @@ interface Props {
     dark : boolean
     darkModeBG: any
     darkModeC: any
+    transition: any
 }
 
 export const GlobalStyles = createGlobalStyle<Props>`
-
     .Dark {
         background-color: ${(p: any) => p.darkModeBG};
         color: ${(p: any) => p.darkModeC};
-        transition: all 700ms ease-in-out;
+        transition: ${(p: any) => p.transition};
         h1, h2, h3, h4, h5, p, span, label {
             color: ${(p: any) => p.darkModeC};
-            transition: all 700ms ease-in-out;
+            transition: ${(p: any) => p.transition};
         }
         input, textarea {
             background-color: ${(p: any) => p.darkModeBG};
