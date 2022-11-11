@@ -51,7 +51,7 @@ export default function ShowNotes(props: any): JSX.Element {
                     <Typography.Title level={5}>
                         Description: {note.description}
                     </Typography.Title> 
-                    <Typography.Title level={5}>
+                    <Typography.Title level={5} style={{ margin: '10px 0px' }}>
                         Category: {note.category}
                     </Typography.Title>
                     <IntlProvider locale="en" defaultLocale="en">
@@ -63,17 +63,19 @@ export default function ShowNotes(props: any): JSX.Element {
                         </Typography.Text>
                         <br />
                     </IntlProvider>
-                    <Button onClick={showModal} type="ghost">
-                        Delete
-                    </Button>
-                    <Modal title="Delete Note" open={isModalOpen} okText="Delete" onOk={deleteNote} onCancel={handleCancel}>
-                        <Typography.Text>
-                            Are You Sure? You Wanna Delete This Note?
-                        </Typography.Text>
-                    </Modal>
-                    <Button onClick={() => {updateNote(note)}} type="ghost">
-                        Update Note
-                    </Button>
+                    <div style={{ marginTop: '10px' }}> 
+                        <Button onClick={showModal} type="ghost">
+                            Delete
+                        </Button>
+                        <Modal title="Delete Note" open={isModalOpen} okText="Delete" onOk={deleteNote} onCancel={handleCancel}>
+                            <Typography.Text>
+                                Are You Sure? You Wanna Delete This Note?
+                            </Typography.Text>
+                        </Modal>
+                        <Button onClick={() => {updateNote(note)}} type="ghost">
+                            Update Note
+                        </Button>
+                    </div>
                 </Card>
             ) : Location.pathname.includes('/note/completed') ? (
                 <Typography.Title>
