@@ -64,7 +64,7 @@ export default function ShowNotes(props: any): JSX.Element {
                         <br />
                     </IntlProvider>
                     <div style={{ marginTop: '10px' }}> 
-                        <Button onClick={showModal} type="ghost">
+                        <Button onClick={showModal} type="ghost" style={{ marginRight: '10px' }}>
                             Delete
                         </Button>
                         <Modal title="Delete Note" open={isModalOpen} okText="Delete" onOk={deleteNote} onCancel={handleCancel}>
