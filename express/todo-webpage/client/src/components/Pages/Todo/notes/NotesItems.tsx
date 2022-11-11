@@ -139,13 +139,16 @@ export default function NotesItems(props: any) {
                             value={note.ecategory}
                             onChange={onChange}
                         />
-                        <input 
-                            type="checkbox"
-                            checked= {isChecked}
-                            onChange= {stateChanger}
-                            style={style}
-                        />
-                        {isChecked ? "Completed" : "Not Completed"}
+                        <div style={{ display: 'flex', marginTop: '10px' }}>
+                            <input 
+                                type="checkbox"
+                                checked= {isChecked}
+                                onChange= {stateChanger}
+                            />
+                            <Typography.Title level={5} style={{ margin: '0px 0px 0px 10px' }}>
+                                {isChecked ? "Completed" : "Not Completed"}
+                            </Typography.Title>
+                        </div>
                     </Form>
                 </Modal>
                 <FilterList 
@@ -153,16 +156,6 @@ export default function NotesItems(props: any) {
                     updateNote={updateNote}
                 />
             </>
-            {/* )} */}
-            {/* {Location.pathname.includes('/note/completed') &&  (
-                <>
-                    <CompletedTasks
-                        notesa={notes}
-                        updateNote={updateNote}
-                    />
-                </>
-                )
-            } */}
         </div>
     )
 }
