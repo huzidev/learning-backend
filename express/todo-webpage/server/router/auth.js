@@ -71,7 +71,7 @@ router.post('/signin', async (req, res) => {
     try {
         let token;
         const {email, password} = req.body;
-        const userEmail = await User.findOne({ email: email });
+        const userEmail = await User.findOne({ email: email });``
         if (userEmail) {
             const isMatchEmail = await bcrypt.compare(password, userEmail.password);
 
@@ -135,7 +135,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 router.put('/updateuser/:id', Verification, async (req, res) => {
-    const { username, email, number, } = req.body;
+    const { username, email, number, isTheme } = req.body;
     try {
         const newInfo = {}
         if (username) {
