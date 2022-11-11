@@ -115,74 +115,74 @@ export default function App(): JSX.Element {
 
   return (
     <>
-    <GlobalStyles dark={dark} darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition}/>
-    <Layout
-      style={{
-        minHeight: '100vh',
-      }}
-    >
-      <Sider 
-        collapsible 
-        collapsed={collapsed} 
-        onCollapse={(value) => setCollapsed(value)} 
-        style={{paddingTop: 20}}
+      <GlobalStyles dark={dark} darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition}/>
+      <Layout
+        style={{
+          minHeight: '100vh',
+        }}
       >
-        <div style={{ textAlign: 'center', cursor: 'pointer' }} onClick={() => Navigate('/')}>
-          <h1 
-            style={{ color: "#fff" }}>
-            My Todo
-          </h1>  
-        </div>
-        <Menu 
-          theme="dark" 
-          mode="inline"
-          items={showItems}
+        <Sider 
+          collapsible 
+          collapsed={collapsed} 
+          onCollapse={(value) => setCollapsed(value)} 
+          style={{paddingTop: 20}}
         >
-        </Menu>
-      </Sider>
-      <Layout className="site-layout Dark">
-        <Content
-          style={{
-            margin: '0 16px',
-          }}
-        >
-          {localStorage.getItem('jwtoken') ? (
-            <Breadcrumb
-              style={{
-                margin: '16px 0',
-              }}
-            >
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>{userData.username}</Breadcrumb.Item>
-            </Breadcrumb>
-            ) : ''
-          }
-          <div
-            className="site-layout-background"
+          <div style={{ textAlign: 'center', cursor: 'pointer' }} onClick={() => Navigate('/')}>
+            <h1 
+              style={{ color: "#fff" }}>
+              My Todo
+            </h1>  
+          </div>
+          <Menu 
+            theme="dark" 
+            mode="inline"
+            items={showItems}
+          >
+          </Menu>
+        </Sider>
+        <Layout className="site-layout Dark">
+          <Content
             style={{
-              padding: 24,
-              minHeight: 360,
+              margin: '0 16px',
             }}
           >
-            {Location.pathname === '/' && <TodoPage />}
-            {Location.pathname.includes('/contact') && <ContactUs />}
-            {Location.pathname.includes('/signin') && <SingIn />}
-            {Location.pathname.includes('/signup') && <SignUp />}
-            {Location.pathname.includes('/signout') && <SignOut />}
-            {Location.pathname.includes('/note') && <NotesItems />}
-            {Location.pathname.includes('/about') && <UpdateUser />}
-          </div>
-        </Content>
-        <Footer
-          style={{
-            textAlign: 'center',
-          }}
-          className="Dark"
-        >
-          Designed And Crafted By <a href="https://www.linkedin.com/in/huzidev/" target="_blank">Huzaifa Iqbal</a>
-        </Footer>
+            {localStorage.getItem('jwtoken') ? (
+              <Breadcrumb
+                style={{
+                  margin: '16px 0',
+                }}
+              >
+                <Breadcrumb.Item>User</Breadcrumb.Item>
+                <Breadcrumb.Item>{userData.username}</Breadcrumb.Item>
+              </Breadcrumb>
+              ) : ''
+            }
+            <div
+              className="site-layout-background"
+              style={{
+                padding: 24,
+                minHeight: 360,
+              }}
+            >
+              {Location.pathname === '/' && <TodoPage />}
+              {Location.pathname.includes('/contact') && <ContactUs />}
+              {Location.pathname.includes('/signin') && <SingIn />}
+              {Location.pathname.includes('/signup') && <SignUp />}
+              {Location.pathname.includes('/signout') && <SignOut />}
+              {Location.pathname.includes('/note') && <NotesItems />}
+              {Location.pathname.includes('/about') && <UpdateUser />}
+            </div>
+          </Content>
+          <Footer
+            style={{
+              textAlign: 'center',
+            }}
+            className="Dark"
+          >
+            Designed And Crafted By <a href="https://www.linkedin.com/in/huzidev/" target="_blank">Huzaifa Iqbal</a>
+          </Footer>
+        </Layout>
       </Layout>
-    </Layout>
     </>
   );
 };

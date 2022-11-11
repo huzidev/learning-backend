@@ -110,9 +110,9 @@ const handlePhoto = (e: any) => {
                 Open Modal
             </Button>
             <Modal title="Update User's Info" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
-                <Form className={userData.isTheme ? "Dark" : ''}>
+                <Form className="Dark">
                     <Input 
-                        className={userData.isTheme ? "Dark" : ''}
+                        className="Dark"
                         type="text"
                         name='eusername'
                         value={data.eusername}
@@ -120,7 +120,7 @@ const handlePhoto = (e: any) => {
                         onChange={onChange}
                     />
                     <Input 
-                        className={userData.isTheme ? "Dark" : ''}
+                        className="Dark"
                         type="text"
                         name='eemail'
                         value={data.eemail}
@@ -129,7 +129,7 @@ const handlePhoto = (e: any) => {
                         style={style}
                     />
                     <Input 
-                        className={userData.isTheme ? "Dark" : ''}
+                        className="Dark"
                         type="text"
                         name='enumber'
                         value={data.enumber}
