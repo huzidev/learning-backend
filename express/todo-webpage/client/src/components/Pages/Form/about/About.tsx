@@ -14,10 +14,11 @@ export default function About(props: any): JSX.Element {
     const dark = userData.isTheme
 
     const darkModeBG = userData.isTheme ? "#292929" : 'rgb(240 242 245 / 1)';
+    const darkModeC = userData.isTheme ? "white" : 'black';
 
   return (
     <>
-        <GlobalStyles dark={dark} darkModeBG={darkModeBG}/>
+        <GlobalStyles dark={dark} darkModeBG={darkModeBG} darkModeC={darkModeC} />
         <Card 
             title={<Typography.Title 
             level={3}>About</Typography.Title>} 
