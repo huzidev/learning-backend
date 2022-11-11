@@ -147,14 +147,13 @@ const handlePhoto = (e: any) => {
                         onChange={handlePhoto}
                         style={style}
                     />
-                    <div style={{ display: 'flex', border: '1px solid white' }}>
-                        <Input 
+                    <div style={{ display: 'flex', marginTop: '10px' }}>
+                        <input 
                             type="checkbox"
                             checked= {isChecked}
                             onChange= {stateChanger}
-                            style={style}
                         />
-                        <Typography.Title level={5}>
+                        <Typography.Title level={5} style={{ margin: '0px 0px 0px 10px' }}>
                             {isChecked ? "Dark Mode" : "Light Mode"}
                         </Typography.Title>
                     </div>
