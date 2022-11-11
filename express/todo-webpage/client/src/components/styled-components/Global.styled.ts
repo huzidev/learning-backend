@@ -8,11 +8,15 @@ interface Props {
 }
 
 export const GlobalStyles = createGlobalStyle<Props>`
-    .Dark {
+    .Dark, .ant-modal-body, .ant-modal-header, .ant-modal-footer {
         background-color: ${(p: any) => p.darkModeBG};
         color: ${(p: any) => p.darkModeC};
         transition: ${(p: any) => p.transition};
-        h1, h2, h3, h4, h5, p, span, label {
+        .Dark h1, h2, h3, h4, h5, p, span, label {
+            color: ${(p: any) => p.darkModeC};
+            transition: ${(p: any) => p.transition};
+        }
+        .ant-modal-footer h1, h2, h3, h4, h5, div {
             color: ${(p: any) => p.darkModeC};
             transition: ${(p: any) => p.transition};
         }
@@ -22,23 +26,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
             transition: ${(p: any) => p.transition};
         }
     }
-    ${(p: any) => p.dark ? (`
-        .ant-modal-body, .ant-modal-header, .ant-modal-footer {
-            background-color: ${p.darkModeBG};
-            color: ${p.darkModeC};
-            transition: ${p.transition};
-            h1, h2, h3, h4, h5, div {
-                color: ${p.darkModeC};
-                transition: ${p.transition};
-            }
-            input, textarea {
-                background-color: ${p.darkModeBG};
-                color: ${p.darkModeC};
-                transition: ${p.transition};
-            }
-        }
-        .anticon {
-            color: ${p.darkModeC};
-        }
-    `) : ''}
+    .anticon {
+        color: ${(p: any) => p.darkModeC};
+    }
 `
