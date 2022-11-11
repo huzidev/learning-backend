@@ -13,13 +13,13 @@ export const GlobalStyles = createGlobalStyle<Props>`
         color: ${(p: any) => p.darkModeC};
         transition: all 700ms ease-in-out;
         h1, h2, h3, h4, h5, p, span, label {
-            color: ${(p: any) => p.dark ? 'white' : 'black'};
+            color: ${(p: any) => p.darkModeC};
             transition: all 700ms ease-in-out;
         }
         input, textarea {
+            background-color: ${(p: any) => p.darkModeBG};
+            color: ${(p: any) => p.darkModeC};
             transition: all 700ms ease-in-out;
-            background-color: ${(p: any) => p.dark ? '#292929' : 'rgb(240 242 245 / 1)'};
-            color: ${(p: any) => p.dark ? 'white' : 'black'};
         }
     }
     /* .ant-modal-body, .ant-modal-header, .ant-modal-footer {
