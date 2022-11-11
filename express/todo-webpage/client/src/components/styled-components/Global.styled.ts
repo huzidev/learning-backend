@@ -2,12 +2,13 @@ import { createGlobalStyle } from "styled-components"
 
 interface Props {
     dark : boolean
+    dmode: any
 }
 
 export const GlobalStyles = createGlobalStyle<Props>`
 
     .Dark {
-        background-color: ${(p: any) => p.dark ? '#292929' : 'rgb(240 242 245 / 1)'};
+        background-color: ${(p: any) => p.dmode};
         color: ${(p: any) => p.dark ? 'white' : 'black'};
         transition: all 700ms ease-in-out;
         h1, h2, h3, h4, h5, p, span, label {

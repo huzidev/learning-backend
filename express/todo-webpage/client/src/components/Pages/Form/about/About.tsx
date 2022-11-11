@@ -20,9 +20,11 @@ export default function About(props: any): JSX.Element {
         }
     }
 
+    const DM = userData.isTheme ? "#292929" : 'rgb(240 242 245 / 1)';
+
   return (
     <>
-        <GlobalStyles dark={dark} />
+        <GlobalStyles dark={dark} dmode={DM}/>
         <Card 
             title={<Typography.Title 
             level={3}>About</Typography.Title>} 
