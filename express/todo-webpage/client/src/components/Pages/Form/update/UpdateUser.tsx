@@ -147,13 +147,17 @@ const handlePhoto = (e: any) => {
                         onChange={handlePhoto}
                         style={style}
                     />
-                    <input 
-                        type="checkbox"
-                        checked= {isChecked}
-                        onChange= {stateChanger}
-                        style={style}
-                    />
-                    {isChecked ? "Dark Mode" : "Light Mode"}
+                    <div style={{ display: 'inline-block',  }}>
+                        <Input 
+                            type="checkbox"
+                            checked= {isChecked}
+                            onChange= {stateChanger}
+                            style={{ border: '1px solid white' }}
+                        />
+                        <Typography.Title level={5}>
+                            {isChecked ? "Dark Mode" : "Light Mode"}
+                        </Typography.Title>
+                    </div>
                 </Form>
             </Modal>
             <User updateData={updateData} />
