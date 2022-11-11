@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Button, Card, Typography } from 'antd';
 import DataContext from '../../../Context/DataContext';
 import { GlobalStyles } from '../../../styled-components/Global.styled';
+import { ThemeProvider } from 'styled-components';
 
 export default function About(props: any): JSX.Element {
   const context = useContext(DataContext);
@@ -12,6 +13,13 @@ export default function About(props: any): JSX.Element {
 
     const dark = userData.isTheme
 
+    const test = {
+        colors : {
+            Dark : "#292929",
+            Light : "rgb(240 242 245 / 1)"
+        }
+    }
+
   return (
     <>
         <GlobalStyles dark={dark} />
@@ -19,7 +27,7 @@ export default function About(props: any): JSX.Element {
             title={<Typography.Title 
             level={3}>About</Typography.Title>} 
             style={{ width: "100%" }} 
-            className="Dark"
+            className="Dark Border"
         >
             <Typography.Title level={4}>
                 Username: {userData.username}
