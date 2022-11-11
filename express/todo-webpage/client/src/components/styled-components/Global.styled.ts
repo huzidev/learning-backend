@@ -27,7 +27,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
             background-color: ${p.darkModeBG};
             color: ${p.darkModeC};
             transition: ${p.transition};
-            h1, h2, h3, h4, h5, div, .anticon {
+            h1, h2, h3, h4, h5, div {
                 color: ${p.darkModeC};
                 transition: ${p.transition};
             }
@@ -36,6 +36,9 @@ export const GlobalStyles = createGlobalStyle<Props>`
                 color: ${p.darkModeC};
                 transition: ${p.transition};
             }
+        }
+        .anticon {
+            color: ${p.darkModeC};
         }
     `) : ''}
 `
