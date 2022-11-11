@@ -110,7 +110,7 @@ const handlePhoto = (e: any) => {
                 Open Modal
             </Button>
             <Modal title="Update Info" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
-                <Form className="Dark">
+                <Form>
                     <Input 
                         className="Dark"
                         type="text"
