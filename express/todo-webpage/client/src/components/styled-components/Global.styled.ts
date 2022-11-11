@@ -5,6 +5,7 @@ interface Props {
     darkModeBG: any
     darkModeC: any
     transition: any
+    border: any
 }
 
 export const GlobalStyles = createGlobalStyle<Props>`

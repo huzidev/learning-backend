@@ -111,11 +111,12 @@ export default function App(): JSX.Element {
 
     const darkModeBG = userData.isTheme ? "#292929" : 'rgb(240 242 245 / 1)';
     const darkModeC = userData.isTheme ? "white" : 'black';
+    const border = userData.isTheme ? "1px solid white" : "1px solid black";
     const transition = 'all 700ms ease-in-out';
 
   return (
     <>
-      <GlobalStyles dark={dark} darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition}/>
+      <GlobalStyles dark={dark} darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition} border={border}/>
       <Layout
         style={{
           minHeight: '100vh',
