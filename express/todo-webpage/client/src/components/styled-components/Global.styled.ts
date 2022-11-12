@@ -9,11 +9,11 @@ interface Props {
 }
 
 export const GlobalStyles = createGlobalStyle<Props>`
-    .Dark {
+    .Dark, .ant-modal-body, .ant-modal-header, .ant-modal-footer {
         background-color: ${(p: any) => p.darkModeBG};
         color: ${(p: any) => p.darkModeC};
         transition: ${(p: any) => p.transition};
-        h1, h2, h3, h4, h5, p, span, label {
+        h1, h2, h3, h4, h5, p, span, label, div {
             color: ${(p: any) => p.darkModeC};
             transition: ${(p: any) => p.transition};
         }
@@ -29,26 +29,10 @@ export const GlobalStyles = createGlobalStyle<Props>`
     .ant-btn-primary span{
         color: white;
     }
-    ${(p: any) => p.dark ? (`
-        .ant-modal-body, .ant-modal-header, .ant-modal-footer {
-            background-color: ${p.darkModeBG};
-            color: ${p.darkModeC};
-            transition: ${p.transition};
-            h1, h2, h3, h4, h5, div, span {
-                color: ${p.darkModeC};
-                transition: ${p.transition};
-            }
-            .ant-btn-default span {
-                color: black;
-            }
-            input {
-                background-color: ${p.darkModeBG};
-                color: ${p.darkModeC};
-                transition: ${p.transition};
-            }
-        }
-        .anticon {
-            color: ${p.darkModeC};
-        }
-    `) : ''}
+    .ant-btn-default span {
+        color: black;
+    }
+    .ant-modal-close-x {
+        color: ${(p: any) => p.darkModeC};
+    }
 `
