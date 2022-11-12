@@ -23,6 +23,9 @@ export const GlobalStyles = createGlobalStyle<Props>`
             transition: ${(p: any) => p.transition};
         }
     }
+    .Border {
+        background-color: white;
+    }
     ${(p: any) => p.dark ? (`
         .ant-modal-body, .ant-modal-header, .ant-modal-footer {
             background-color: ${p.darkModeBG};
