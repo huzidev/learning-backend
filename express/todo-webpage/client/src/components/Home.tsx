@@ -112,7 +112,7 @@ export default function App(): JSX.Element {
       null, 
       () => Navigate('/signout')
     )
-  ]
+  ];
 
   let showItems = localStorage.getItem('jwtoken') ? signedInItems : signedOutItems 
 

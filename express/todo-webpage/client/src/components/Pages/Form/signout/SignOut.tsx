@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Spin, Typography } from 'antd';
 
 export default function SignOut(): JSX.Element {
 
@@ -21,15 +22,17 @@ export default function SignOut(): JSX.Element {
                 replace : true
               })
               window.location.reload();
-            }, 2000)
+            }, 2000000)
         }).catch((err: string) => {
           console.log(err);
         })
       }, [])
 
     return (
-        <div>
-            Logging Out
+        <div style={{ width: '1200px', margin: '10% auto', border: '1px solid black', alignItems: 'center' }}>
+          <Typography.Title level={1}>
+            Logging Out <Spin size='large'/>
+          </Typography.Title>
         </div>
     )
 }
