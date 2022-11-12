@@ -56,7 +56,7 @@ export default function Footer(): JSX.Element {
       </div>
       <Form {...layout} name="nest-messages">
         <Form.Item
-          name={['Username']}
+          name="username"
           label="Name"
           rules={[
             {
@@ -72,11 +72,10 @@ export default function Footer(): JSX.Element {
           />
         </Form.Item>
         <Form.Item
-          name={['Email']}
+          name='email'
           label="Email"
           rules={[
             {
-              type: 'email',
               required: true
             },
           ]}
