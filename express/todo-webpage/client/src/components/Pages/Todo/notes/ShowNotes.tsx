@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 export default function ShowNotes(props: any): JSX.Element {
     const Location = useLocation()
     const context = useContext(DataContext);
-    const { notes, setNotes, userData } = context;
+    const { notes, setNotes } = context;
     const { note, updateNote, noData } = props;
     const [isModalOpen, setIsModalOpen] = useState(false);
 
