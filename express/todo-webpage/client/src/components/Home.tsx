@@ -105,7 +105,20 @@ export default function App(): JSX.Element {
     )
   ];
 
-  const showItems = localStorage.getItem('jwtoken') ? signedInItems : signedOutItems 
+  const signingOut = [
+    getItem(
+      'Signout', '1', 
+      <LoginOutlined />, 
+      null, 
+      () => Navigate('/signout')
+    )
+  ]
+
+  let showItems = localStorage.getItem('jwtoken') ? signedInItems : signedOutItems 
+
+  if (Location.pathname.includes('/signout')) {
+    showItems = signingOut
+  }
 
     const dark = userData.isTheme
 
