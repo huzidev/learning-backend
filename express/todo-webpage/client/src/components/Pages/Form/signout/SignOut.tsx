@@ -22,14 +22,14 @@ export default function SignOut(): JSX.Element {
                 replace : true
               })
               window.location.reload();
-            }, 2000000)
+            }, 2000)
         }).catch((err: string) => {
           console.log(err);
         })
       }, [])
 
     return (
-        <div style={{width: '300px', margin: '22% auto'}}>
+        <div style={{width: '300px', margin: '20% auto'}}>
           <Typography.Title level={1}>
             Logging Out <Spin size='large'/>
           </Typography.Title>
