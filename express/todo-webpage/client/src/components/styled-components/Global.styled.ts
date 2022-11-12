@@ -26,6 +26,9 @@ export const GlobalStyles = createGlobalStyle<Props>`
     .Border {
         background-color: ${(p: any) => p.LModeBG};
     }
+    .ant-btn-primary span{
+        color: white;
+    }
     ${(p: any) => p.dark ? (`
         .ant-modal-body, .ant-modal-header, .ant-modal-footer {
             background-color: ${p.darkModeBG};

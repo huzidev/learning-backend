@@ -112,7 +112,6 @@ export default function App(): JSX.Element {
     const darkModeBG = userData.isTheme ? "#292929" : 'whitesmoke';
     const LModeBG = userData.isTheme ? "#292929" : 'white';
     const darkModeC = userData.isTheme ? "white" : 'black';
-    const dMCard = userData.isTheme ? "#292929" : 'white';
     const transition = 'all 700ms ease-in-out';
 
   return (
