@@ -51,38 +51,38 @@ export default function AddTodo(): JSX.Element {
           Add Note
       </Typography.Title>
       <Form 
-          name="nest-messages"
-          >
-          <Input 
-            name='title'
-            value={note.title}
-            onChange={onChange}
-            placeholder="title" 
-            />
-          <Input
-            className='styleMargin'
-            type="description"
-            name='description'
-            value={note.description}
-            onChange={onChange}
-            placeholder="description"
-            />
-          <Input
-            className='styleMargin'
-            type="category"
-            name='category'
-            value={note.category}
-            onChange={onChange}
-            placeholder="Category"
-            />
-          <Button
-            type="primary" 
-            htmlType="submit"
-            onClick={addTodo} 
-            className="login-form-button styleMargin"
-            >
-            Add Note
-          </Button>
+        name="nest-messages"
+      >
+        <Input 
+          name='title'
+          value={note.title}
+          onChange={onChange}
+          placeholder="title" 
+        />
+        <Input
+          className='styleMargin'
+          type="description"
+          name='description'
+          value={note.description}
+          onChange={onChange}
+          placeholder="description"
+        />
+        <Input
+          className='styleMargin'
+          type="category"
+          name='category'
+          value={note.category}
+          onChange={onChange}
+          placeholder="Category"
+        />
+        <Button
+          type="primary" 
+          htmlType="submit"
+          onClick={addTodo} 
+          className="login-form-button styleMargin"
+        >
+          Add Note
+        </Button>
       </Form>
     </div>
   )
