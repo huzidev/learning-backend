@@ -60,6 +60,7 @@ export default function AddTodo(): JSX.Element {
             placeholder="title" 
             />
           <Input
+            className='styleMargin'
             type="description"
             name='description'
             value={note.description}
@@ -67,17 +68,18 @@ export default function AddTodo(): JSX.Element {
             placeholder="description"
             />
           <Input
+            className='styleMargin'
             type="category"
             name='category'
             value={note.category}
             onChange={onChange}
             placeholder="Category"
             />
-          <Button 
+          <Button
             type="primary" 
             htmlType="submit"
             onClick={addTodo} 
-            className="login-form-button"
+            className="login-form-button styleMargin"
             >
             Add Note
           </Button>
