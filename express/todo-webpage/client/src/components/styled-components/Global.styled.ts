@@ -5,7 +5,7 @@ interface Props {
     darkModeBG: any
     darkModeC: any
     transition: any
-    dMCard: any
+    LModeBG: any
 }
 
 export const GlobalStyles = createGlobalStyle<Props>`
@@ -18,13 +18,13 @@ export const GlobalStyles = createGlobalStyle<Props>`
             transition: ${(p: any) => p.transition};
         }
         input, textarea {
-            background-color: ${(p: any) => p.darkModeBG};
+            background-color: ${(p: any) => p.LModeBG};
             color: ${(p: any) => p.darkModeC};
             transition: ${(p: any) => p.transition};
         }
     }
     .Border {
-        background-color: ${(p: any) => p.dMCard};
+        background-color: ${(p: any) => p.LModeBG};
     }
     ${(p: any) => p.dark ? (`
         .ant-modal-body, .ant-modal-header, .ant-modal-footer {

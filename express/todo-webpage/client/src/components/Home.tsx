@@ -110,13 +110,14 @@ export default function App(): JSX.Element {
     const dark = userData.isTheme
 
     const darkModeBG = userData.isTheme ? "#292929" : 'whitesmoke';
+    const LModeBG = userData.isTheme ? "#292929" : 'white';
     const darkModeC = userData.isTheme ? "white" : 'black';
     const dMCard = userData.isTheme ? "#292929" : 'white';
     const transition = 'all 700ms ease-in-out';
 
   return (
     <>
-      <GlobalStyles dark={dark} darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition} dMCard={dMCard}/>
+      <GlobalStyles dark={dark} darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition} LModeBG={LModeBG}/>
       <Layout
         style={{
           minHeight: '100vh',
