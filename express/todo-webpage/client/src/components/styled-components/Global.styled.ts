@@ -5,7 +5,7 @@ interface Props {
     darkModeBG: any
     darkModeC: any
     transition: any
-    border: any
+    dMCard: any
 }
 
 export const GlobalStyles = createGlobalStyle<Props>`
@@ -24,7 +24,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
         }
     }
     .Border {
-        background-color: white;
+        background-color: ${(p: any) => p.dMCard};
     }
     ${(p: any) => p.dark ? (`
         .ant-modal-body, .ant-modal-header, .ant-modal-footer {
