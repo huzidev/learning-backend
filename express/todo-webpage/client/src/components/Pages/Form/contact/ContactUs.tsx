@@ -64,9 +64,9 @@ export default function Footer(): JSX.Element {
               name="username"
               value={user.username}
               onChange={inputHandler}
-              prefix={<UserOutlined className="site-form-item-icon" style={style}/>}
+              prefix={<UserOutlined className="site-form-item-icon" style={style} />}
               placeholder="Enter Yours Username"
-              />
+            />
             <Input 
               className='Dark'
               type='email'
@@ -75,7 +75,7 @@ export default function Footer(): JSX.Element {
               onChange={inputHandler}
               placeholder="Enter Yours Email"
               style={styleM}
-              prefix={<MailOutlined className="site-form-item-icon"  style={style}/>}
+              prefix={<MailOutlined className="site-form-item-icon"  style={style} />}
               required
             />
             <Input
