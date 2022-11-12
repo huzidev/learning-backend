@@ -2,7 +2,7 @@ import { Button, Form, Input, InputNumber, Typography } from 'antd';
 import React from 'react';
 import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
-import { UserOutlined } from '@ant-design/icons';
+import { UserOutlined, MailOutlined } from '@ant-design/icons';
 
 
 export default function Footer(): JSX.Element {
@@ -48,6 +48,9 @@ export default function Footer(): JSX.Element {
         window.alert("Message Sent Successfully!");
     }
   }
+
+  const style = {padding: '0px 5px'}
+
   return (
     <div style={{ width: '700px', margin: '5% auto 0px auto'}}>
         <Typography.Title level={2}>
@@ -70,6 +73,7 @@ export default function Footer(): JSX.Element {
               value={user.email}
               onChange={inputHandler}
               placeholder="Enter Yours Email"
+              prefix={<MailOutlined className="site-form-item-icon"  style={style}/>}
               required
             />
             <Input
