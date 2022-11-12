@@ -35,4 +35,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
     .ant-modal-close-x {
         color: ${(p: any) => p.darkModeC};
     }
+    .styleMargin {
+        margin-top: 15px;
+    }
 `

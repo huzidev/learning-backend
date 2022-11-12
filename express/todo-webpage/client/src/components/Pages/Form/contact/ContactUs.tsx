@@ -50,7 +50,6 @@ export default function Footer(): JSX.Element {
   }
 
   const style = {padding: '0px 5px'}
-  const styleM = {marginTop: '15px'}
 
   return (
     <div style={{ width: '700px', margin: '5% auto 0px auto'}}>
@@ -68,35 +67,32 @@ export default function Footer(): JSX.Element {
               placeholder="Enter Yours Username"
             />
             <Input 
-              className='Dark'
+              className='Dark styleMargin'
               type='email'
               name="email"
               value={user.email}
               onChange={inputHandler}
               placeholder="Enter Yours Email"
-              style={styleM}
               prefix={<MailOutlined className="site-form-item-icon"  style={style} />}
               required
             />
             <Input
-              className='Dark'
+              className='Dark styleMargin'
               type='number'
               name="number"
               value={user.number}
               onChange={inputHandler}
-              style={styleM}
               placeholder="Enter Yours Number (Optional)"
               prefix='+92'
             />
             <Input.TextArea 
-              className='Dark'
+              className='Dark styleMargin'
               name="message"
               value={user.message}
               onChange={inputHandler}
-              style={styleM}
               placeholder="Enter Yours Message"
             />
-            <Button style={styleM} type="primary" htmlType="submit" onClick={sendMessage}>
+            <Button className='styleMargin' type="primary" htmlType="submit" onClick={sendMessage}>
               Send Message
             </Button>
         </Form>

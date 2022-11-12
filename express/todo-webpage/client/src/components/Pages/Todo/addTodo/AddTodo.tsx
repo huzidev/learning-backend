@@ -53,31 +53,12 @@ export default function AddTodo(): JSX.Element {
       <Form 
           name="nest-messages"
           >
-        <Form.Item
-          name="title"
-          rules={[
-            {
-              required: true,
-              message: 'Please input note title!',
-            },
-          ]}
-          >
           <Input 
             name='title'
             value={note.title}
             onChange={onChange}
             placeholder="title" 
             />
-        </Form.Item>
-        <Form.Item
-          name="description"
-          rules={[
-            {
-              required: true,
-              message: 'Please input note description!',
-            },
-          ]}
-          >
           <Input
             type="description"
             name='description'
@@ -85,16 +66,6 @@ export default function AddTodo(): JSX.Element {
             onChange={onChange}
             placeholder="description"
             />
-        </Form.Item>
-        <Form.Item
-          name="category"
-          rules={[
-            {
-              required: true,
-              message: 'Please input note category!',
-            },
-          ]}
-          >
           <Input
             type="category"
             name='category'
@@ -102,8 +73,6 @@ export default function AddTodo(): JSX.Element {
             onChange={onChange}
             placeholder="Category"
             />
-        </Form.Item>
-        <Form.Item>
           <Button 
             type="primary" 
             htmlType="submit"
@@ -112,7 +81,6 @@ export default function AddTodo(): JSX.Element {
             >
             Add Note
           </Button>
-        </Form.Item>
       </Form>
     </div>
   )
