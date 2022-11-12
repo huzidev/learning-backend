@@ -29,7 +29,7 @@ export default function SignOut(): JSX.Element {
       }, [])
 
     return (
-        <div style={{ width: '1200px', margin: '10% auto', border: '1px solid black', alignItems: 'center' }}>
+        <div style={{width: '300px', margin: '22% auto'}}>
           <Typography.Title level={1}>
             Logging Out <Spin size='large'/>
           </Typography.Title>
