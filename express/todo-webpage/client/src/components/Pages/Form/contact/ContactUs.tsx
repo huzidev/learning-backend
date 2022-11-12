@@ -63,7 +63,7 @@ export default function Footer(): JSX.Element {
               name="username"
               value={user.username}
               onChange={inputHandler}
-              prefix={<UserOutlined className="site-form-item-icon" />}
+              prefix={<UserOutlined className="site-form-item-icon" style={style}/>}
               placeholder="Enter Yours Username"
             />
             <Input 

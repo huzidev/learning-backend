@@ -35,7 +35,4 @@ export const GlobalStyles = createGlobalStyle<Props>`
     .ant-modal-close-x {
         color: ${(p: any) => p.darkModeC};
     }
-    .ant-input-number-handler-wrap {
-        display: none;
-    }
 `
