@@ -2,6 +2,7 @@ import { Button, Form, Input, InputNumber, Typography } from 'antd';
 import React from 'react';
 import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
+import { UserOutlined } from '@ant-design/icons';
 
 
 export default function Footer(): JSX.Element {
@@ -48,87 +49,49 @@ export default function Footer(): JSX.Element {
     }
   }
   return (
-    <div style={{ width: '1500px', margin: '5% auto 0px auto'}}>
-      <div style={{ marginLeft: '500px' }}>
+    <div style={{ width: '700px', margin: '5% auto 0px auto'}}>
         <Typography.Title level={2}>
           Contact Us
         </Typography.Title>
-      </div>
-      <Form {...layout} name="nest-messages">
-        <Form.Item
-          name="username"
-          label="Name"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input 
-            name="username"
-            value={user.username}
-            onChange={inputHandler}
-            placeholder="Enter Yours Username"
-          />
-        </Form.Item>
-        <Form.Item
-          name='email'
-          label="Email"
-          rules={[
-            {
-              required: true
-            },
-          ]}
-        >
-          <Input 
-            name="email"
-            value={user.email}
-            onChange={inputHandler}
-            placeholder="Enter Yours Email"
-          />
-        </Form.Item>
-        <Form.Item 
-          name={['Number']}
-          label="Number"
-        >
-          <InputNumber
-            className='inputNumber' 
-            name="number"
-            value={user.number}
-            onChange={(e) => e.target.value}
-            style={{ width: '100%' }}
-            placeholder="Enter Yours Number (Optional)"
-          />
-        </Form.Item>
-        <Form.Item 
-          name={['Message']}
-          label="Message"
-          rules={[
-            {
-              required: true,
-              min: 0,
-              max: 255
-            },
-          ]}
-        >
-          <Input.TextArea 
-            name="message"
-            value={user.message}
-            onChange={inputHandler}
-            placeholder="Enter Yours Message"
-          />
-        </Form.Item>
-        <Form.Item
-          wrapperCol={{
-            ...layout.wrapperCol,
-            offset: 8,
-          }}
-        >
-          <Button type="primary" htmlType="submit" onClick={sendMessage}>
-            Send Message
-          </Button>
-        </Form.Item>
-      </Form>
+        <Form {...layout} name="nest-messages">
+            <Input 
+              className='Dark'
+              type='text'
+              name="username"
+              value={user.username}
+              onChange={inputHandler}
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              placeholder="Enter Yours Username"
+            />
+            <Input 
+              className='Dark'
+              type='email'
+              name="email"
+              value={user.email}
+              onChange={inputHandler}
+              placeholder="Enter Yours Email"
+              required
+            />
+            <Input
+              className='Dark'
+              type='number'
+              name="number"
+              value={user.number}
+              onChange={inputHandler}
+              placeholder="Enter Yours Number (Optional)"
+              prefix='+92'
+            />
+            <Input.TextArea 
+              className='Dark'
+              name="message"
+              value={user.message}
+              onChange={inputHandler}
+              placeholder="Enter Yours Message"
+            />
+            <Button type="primary" htmlType="submit" onClick={sendMessage}>
+              Send Message
+            </Button>
+        </Form>
     </div>
   );
 };
