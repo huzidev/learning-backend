@@ -28,6 +28,7 @@ export default function SignOut(): JSX.Element {
         })
       }, [])
 
+      
     return (
         <div style={{width: '300px', margin: '20% auto'}}>
           <Typography.Title level={1}>
