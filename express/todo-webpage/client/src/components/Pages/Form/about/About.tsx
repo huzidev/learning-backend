@@ -16,12 +16,6 @@ export default function About(props: any): JSX.Element {
     localStorage.removeItem("dark")
   }
 
-    // const dark = userData.isTheme
-
-    // const darkModeBG = userData.isTheme ? "#292929" : 'rgb(240 242 245 / 1)';
-    // const darkModeC = userData.isTheme ? "white" : 'black';
-    // const transition = 'all 700ms ease-in-out';
-
   return (
     <>
         {/* <GlobalStyles dark={dark} darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition}/> */}
