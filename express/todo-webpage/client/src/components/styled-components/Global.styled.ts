@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 
 interface Props {
-    dark : any
+    dark : String
     darkModeBG: any
     darkModeC: any
     transition: any
