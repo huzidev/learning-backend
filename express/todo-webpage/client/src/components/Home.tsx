@@ -120,7 +120,7 @@ export default function App(): JSX.Element {
     showItems = signingOut
   }
 
-    const dark = userData.isTheme
+    const dark = localStorage.getItem("dark");
 
     const darkModeBG = userData.isTheme ? "#292929" : 'whitesmoke';
     const LModeBG = userData.isTheme ? "#292929" : 'white';
