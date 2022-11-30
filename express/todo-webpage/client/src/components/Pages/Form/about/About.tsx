@@ -4,7 +4,7 @@ import DataContext from '../../../Context/DataContext';
 
 export default function About(props: any): JSX.Element {
   const context = useContext(DataContext);
-  const { userData } = context
+  const { userData } = context;
   const { updateData } = props;
 
   const theme = userData.isTheme ? 'Dark Mode' : 'Light Mode'
