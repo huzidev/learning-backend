@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Button, Card, Typography } from 'antd';
 import DataContext from '../../../Context/DataContext';
-// import { GlobalStyles } from '../../../styled-components/Global.styled';
 
 export default function About(props: any): JSX.Element {
   const context = useContext(DataContext);
