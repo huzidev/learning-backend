@@ -126,7 +126,7 @@ export default function App(): JSX.Element {
       theme = "light";
     }
 
-    const darkModeBG = theme === "dark" ? "#292929" : theme === "light" ?  "whitesmoke" : '';
+    const darkModeBG = theme === "dark" ? "#292929" : 'whitesmoke';
     const LModeBG = theme === "dark" ? "#292929" : 'white';
     const darkModeC = theme === "dark" ? "white" : 'black';
     const transition = 'all 700ms ease-in-out';
