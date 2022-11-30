@@ -11,9 +11,7 @@ export default function FilterList(props: any): JSX.Element {
 
     const allItems = [...new Set(props.notes.map((currentEle: any) => {
         return (
-            !currentEle.isCompleted && Location.pathname.includes('/note/addnote') ? (
-                currentEle.category
-            ) : currentEle.isCompleted && Location.pathname.includes('/note/completed') ? (
+            !currentEle.isCompleted && Location.pathname.includes('/note/addnote') || currentEle.isCompleted && Location.pathname.includes('/note/completed') ? (
                 currentEle.category
             ) : null
         )
@@ -37,6 +35,8 @@ export default function FilterList(props: any): JSX.Element {
     let object = Data.map((d: any) => d.isCompleted)
 
     console.log("Whta is state", object);
+
+    console.log("Before converting to object", Data);
 
     return (
         <div>
