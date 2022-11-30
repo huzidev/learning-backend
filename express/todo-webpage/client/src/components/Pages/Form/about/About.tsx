@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Button, Card, Typography } from 'antd';
 import DataContext from '../../../Context/DataContext';
 // import { GlobalStyles } from '../../../styled-components/Global.styled';
@@ -10,17 +10,18 @@ export default function About(props: any): JSX.Element {
 
   const theme = userData.isTheme ? 'Dark Mode' : 'Light Mode'
 
-  if (userData.isTheme) {
-    localStorage.setItem("dark", "Dark-Theme");
-    localStorage.removeItem("light");
-} else {
-    localStorage.setItem("light", "Light-Theme");
-    localStorage.removeItem("dark");
-  }
+
+    if (userData.isTheme) {
+        localStorage.setItem("dark", "Dark-Theme");
+        localStorage.removeItem("light");
+    } else {
+        localStorage.setItem("light", "Light-Theme");
+        localStorage.removeItem("dark");
+    }
 
   let themae = localStorage.getItem('dark') ? 'dark' : 'light' 
 
-  console.log("wahts is theme in local", themae);
+  console.log("wahts is theme in localStorage", themae);
   
   return (
     <>
