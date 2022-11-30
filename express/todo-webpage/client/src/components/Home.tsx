@@ -128,8 +128,8 @@ export default function App(): JSX.Element {
     }
 
     const darkModeBG = theme === "dark" ? "#292929" : 'whitesmoke';
-    const LModeBG = localStorage.getItem("dark") ? "#292929" : 'white';
-    const darkModeC = localStorage.getItem("dark") ? "white" : 'black';
+    const LModeBG = theme === "dark" ? "#292929" : 'white';
+    const darkModeC = theme === "dark" ? "white" : 'black';
     const transition = 'all 700ms ease-in-out';
 
   return (
