@@ -81,17 +81,16 @@ function stateChanger() {
                         newData[index].number = number;
                         break; 
                     }
-                    setUserData(newData)
-                    window.location.reload()
+                    setUserData(newData);
+                    window.location.reload();
                 }
             }
         } catch (err) {
             console.log(err);
         }
         setIsModalOpen(false);
-        window.location.reload()
+            window.location.reload();
     }
-
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({...data, [e.target.name]: e.target.value})
 }
