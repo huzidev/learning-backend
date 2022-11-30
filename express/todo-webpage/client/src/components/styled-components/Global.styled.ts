@@ -1,10 +1,10 @@
 import { createGlobalStyle } from "styled-components"
 
 interface Props {
-    darkModeBG: String
-    darkModeC: String
-    transition: String
-    LModeBG: String
+    darkModeBG: any
+    darkModeC: any
+    transition: any
+    LModeBG: any
 }
 
 export const GlobalStyles = createGlobalStyle<Props>`
