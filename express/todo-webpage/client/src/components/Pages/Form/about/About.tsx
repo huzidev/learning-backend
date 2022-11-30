@@ -12,7 +12,9 @@ export default function About(props: any): JSX.Element {
 
   if (userData.isTheme) {
     localStorage.setItem("dark", "Dark-Theme");
-  } else {
+    localStorage.removeItem("light");
+} else {
+    localStorage.setItem("light", "Light-Theme");
     localStorage.removeItem("dark");
   }
 
