@@ -14,7 +14,7 @@ export default function FilterList(props: any): JSX.Element {
             !currentEle.isCompleted && Location.pathname.includes('/note/addnote') ? (
                 currentEle.category
             ) : currentEle.isCompleted && Location.pathname.includes('/note/completed') ? (
-                currentEle
+                currentEle.category
             ) : null
         )
     }))]
