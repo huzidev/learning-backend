@@ -18,7 +18,6 @@ import TodoPage from './Pages/Todo/todoPage/TodoPage';
 import NotesItems from './Pages/Todo/notes/NotesItems';
 import UpdateUser from './Pages/Form/update/UpdateUser';
 import SignOut from './Pages/Form/signout/SignOut';
-import { Link } from 'react-router-dom';
 import { GlobalStyles } from './styled-components/Global.styled';
 
 export default function App(): JSX.Element {
