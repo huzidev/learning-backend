@@ -60,7 +60,7 @@ export default function FilterList(props: any): JSX.Element {
                                             <Button
                                                 onClick={() => filterItems(currentEle)}
                                                 type="ghost"
-                                                >
+                                            >
                                                 {currentEle}
                                             </Button>
                                         </span>
