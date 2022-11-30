@@ -120,18 +120,16 @@ export default function App(): JSX.Element {
     showItems = signingOut
   }
 
-    const dark = localStorage.getItem("dark") ? 'dark' : 'light';
+    // const dark = localStorage.getItem("dark") ? 'dark' : 'light';
 
-  console.log("what is theme", dark);
-
-    const darkModeBG = dark ? "#292929" : 'whitesmoke';
-    const LModeBG = dark ? "#292929" : 'white';
-    const darkModeC = dark ? "white" : 'black';
+    const darkModeBG = localStorage.getItem("dark") ? "#292929" : 'whitesmoke';
+    const LModeBG = localStorage.getItem("dark") ? "#292929" : 'white';
+    const darkModeC = localStorage.getItem("dark") ? "white" : 'black';
     const transition = 'all 700ms ease-in-out';
 
   return (
     <>
-      <GlobalStyles dark={dark} darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition} LModeBG={LModeBG}/>
+      <GlobalStyles darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition} LModeBG={LModeBG}/>
       <Layout
         style={{
           minHeight: '100vh',

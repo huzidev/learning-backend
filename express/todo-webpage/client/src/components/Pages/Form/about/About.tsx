@@ -16,6 +16,10 @@ export default function About(props: any): JSX.Element {
     localStorage.removeItem("dark");
   }
 
+  let themae = localStorage.getItem('dark') ? 'dark' : 'light' 
+
+  console.log("wahts is theme in local", themae);
+  
   return (
     <>
         {/* <GlobalStyles dark={dark} darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition}/> */}
