@@ -10,14 +10,15 @@ export default function About(props: any): JSX.Element {
 
   const theme = userData.isTheme ? 'Dark Mode' : 'Light Mode'
 
-
-    if (userData.isTheme) {
-        localStorage.setItem("dark", "Dark-Theme");
-        localStorage.removeItem("light");
-    } else {
-        localStorage.setItem("light", "Light-Theme");
-        localStorage.removeItem("dark");
-    }
+    useEffect(() => {
+        if (userData.isTheme === true) {
+            localStorage.setItem("dark", "Dark-Theme");
+            localStorage.removeItem("light");
+        } else if (userData.isTheme === false) {
+            localStorage.setItem("light", "Light-Theme");
+            localStorage.removeItem("dark");
+        }
+    }, [])
 
   let themae = localStorage.getItem('dark') ? 'dark' : 'light' 
 
