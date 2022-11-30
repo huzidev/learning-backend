@@ -17,14 +17,12 @@ export default function About(props: any): JSX.Element {
         localStorage.setItem("light", "Light-Theme");
         localStorage.removeItem("dark");
     }
-
   let themae = localStorage.getItem('dark') ? 'dark' : 'light' 
-
+    
   console.log("wahts is theme in localStorage", themae);
   
   return (
     <>
-        {/* <GlobalStyles dark={dark} darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition}/> */}
         <Card 
             title={<Typography.Title 
             level={3}>About</Typography.Title>} 
