@@ -46,7 +46,6 @@ export default function FilterList(props: any): JSX.Element {
     for (let index = 0; index < object.length; index++) {
         if (object[index] === true) {
             holderTrue[index] = "true"
-            quantityT += 1;
         } else {
             holderTrue[index] = null
         }
@@ -55,14 +54,22 @@ export default function FilterList(props: any): JSX.Element {
         if (object[index] === false) {
             holderFalse[index] = "false"
         } else {
-            quantityF += 1;
             holderFalse[index] = null
         }
     }
+    console.log("true quantity", holderTrue);
+    console.log("false quantity", holderFalse); 
+    
+    for (let index = 0; index < holderTrue.length; index++) {
+        if (holderTrue[index] === "true") {
+            console.log("");
+            
+        }
+    }
+        
 
     console.log("true quantity", quantityT);
-    console.log("false quantity", quantityF); 
-    
+    console.log("false quantity", holderFalse); 
 
     return (
         <div>
