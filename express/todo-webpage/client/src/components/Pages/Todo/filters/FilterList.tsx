@@ -36,8 +36,23 @@ export default function FilterList(props: any): JSX.Element {
 
     console.log("Whta is state", object);
     
-    console.log("whta is length", object);
+    console.log("whta is length of total", object.length);
 
+    let holderTrue;
+    let holderFalse;
+
+    for (let index = 0; index < object.length; index++) {
+        if (object[index] === true) {
+            holderTrue = "true";
+        } else if (object[index] === false) {
+            holderFalse = "false";
+        }
+    }
+    if () {
+        
+    }
+    console.log("quantity of false is", holderTrue.length - 1);
+    console.log("quantity of false is", holderFalse.length - 1);
 
 
     return (
