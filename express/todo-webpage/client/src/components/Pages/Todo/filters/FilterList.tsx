@@ -35,8 +35,10 @@ export default function FilterList(props: any): JSX.Element {
     let object = Data.map((d: any) => d.isCompleted)
 
     console.log("Whta is state", object);
+    
+    console.log("whta is length", object);
 
-    console.log("Before converting to object", Data);
+
 
     return (
         <div>
