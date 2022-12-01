@@ -38,16 +38,31 @@ export default function FilterList(props: any): JSX.Element {
     
     console.log("whta is length of total", object.length);
 
-    let holderTrue: String;
-    let holderFalse: String;
+    let holderTrue: any = [];
+    let holderFalse: any = [];
 
-    for (let index = 0; index < object.length ; index++) {
+    for (let index = 0; index < object.length; index++) {
         if (object[index] === true) {
-            holderTrue = "true";
+            holderTrue[index] = "true"
         } else if (object[index] === false) {
-            holderFalse = "false";
+            holderFalse[index] = "false";
         }
     }
+    console.log("holderTrue", holderTrue);
+    console.log("holderFalse", holderFalse);
+
+    for (let index = 0; index < holderTrue.length; index++) {
+        if (holderTrue[index] === true) {
+            console.log("true");
+        }
+    }
+    for (let index = 0; index < holderFalse.length; index++) {
+        if (holderTrue[index] === false) {
+            console.log("false");
+        }
+    }
+
+    
 
     return (
         <div>
@@ -65,9 +80,9 @@ export default function FilterList(props: any): JSX.Element {
                                 <Button onClick={() => setItems(props.notes)} type="ghost">
                                     All items
                                 </Button>
-                                {allItems.map((currentEle: any) => {
+                                {allItems.map((currentEle: any, index: number) => {
                                     return (
-                                        <span key={currentEle}>
+                                        <span key={index}>
                                             <Button
                                                 onClick={() => filterItems(currentEle)}
                                                 type="ghost"
