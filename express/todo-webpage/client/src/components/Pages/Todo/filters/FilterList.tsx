@@ -28,8 +28,6 @@ export default function FilterList(props: any): JSX.Element {
         setState(true)
     }
 
-    const noData = "No Note Found"
-
     const Text = Location.pathname.includes('/note/addnote') ? "Yours Notes" : "Completed Notes"
 
     let object = Data.map((d: any) => d.isCompleted)
@@ -40,8 +38,6 @@ export default function FilterList(props: any): JSX.Element {
 
     let holderTrue: any = [];
     let holderFalse: any = [];
-    let quantityT: number = 0;
-    let quantityF: number = 0;
 
     for (let index = 0; index < object.length; index++) {
         if (object[index] === true) {
@@ -60,16 +56,18 @@ export default function FilterList(props: any): JSX.Element {
     console.log("true quantity", holderTrue);
     console.log("false quantity", holderFalse); 
     
+    let text: any;
+
     for (let index = 0; index < holderTrue.length; index++) {
-        if (holderTrue[index] === "true") {
-            console.log("");
-            
+        if (holderTrue[index] !== "true") {
+            text = 'No Task is completed';
         }
     }
-        
-
-    console.log("true quantity", quantityT);
-    console.log("false quantity", holderFalse); 
+    for (let index = 0; index < holderFalse.length; index++) {
+        if (holderFalse[index] === "false" && holderFalse[index] !== null) {
+            console.log("quantityF", holderFalse[index].length);
+        }
+    }
 
     return (
         <div>
@@ -109,7 +107,7 @@ export default function FilterList(props: any): JSX.Element {
                     return (
                         !note.isCompleted && Location.pathname.includes('/note/addnote') || note.isCompleted && Location.pathname.includes('/note/completed') ? (
                             <Col span={8} style={{ margin : '10px 0px' }}>
-                                <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} noData={noData}/>
+                                <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} noData={text}/>
                             </Col>
                         ) : ''
                     )
