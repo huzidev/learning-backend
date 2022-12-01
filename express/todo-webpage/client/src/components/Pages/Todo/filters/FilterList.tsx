@@ -40,14 +40,29 @@ export default function FilterList(props: any): JSX.Element {
 
     let holderTrue: any = [];
     let holderFalse: any = [];
+    let quantityT: number = 0;
+    let quantityF: number = 0;
 
     for (let index = 0; index < object.length; index++) {
         if (object[index] === true) {
             holderTrue[index] = "true"
-        } else if (object[index] === false) {
-            holderFalse[index] = "false";
+            quantityT += 1;
+        } else {
+            holderTrue[index] = null
         }
     }
+    for (let index = 0; index < object.length; index++) {
+        if (object[index] === false) {
+            holderFalse[index] = "false"
+        } else {
+            quantityF += 1;
+            holderFalse[index] = null
+        }
+    }
+
+    console.log("true quantity", quantityT);
+    console.log("false quantity", quantityF); 
+    
 
     return (
         <div>
