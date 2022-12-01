@@ -51,18 +51,23 @@ export default function FilterList(props: any): JSX.Element {
     console.log("holderTrue", holderTrue);
     console.log("holderFalse", holderFalse);
 
+    let quanT: any;
+    let quanF: number;
+
     for (let index = 0; index < holderTrue.length; index++) {
-        if (holderTrue[index] === true) {
+        if (holderTrue[index] === "true") {
             console.log("true");
+            quanT = index+1;
+            console.log("Quant for true", quanT);
         }
     }
     for (let index = 0; index < holderFalse.length; index++) {
-        if (holderTrue[index] === false) {
+        if (holderFalse[index] === "false") {
             console.log("false");
+            quanF = index+1;
+            console.log("Quant for false", quanF);
         }
     }
-
-    
 
     return (
         <div>
@@ -102,7 +107,7 @@ export default function FilterList(props: any): JSX.Element {
                     return (
                         !note.isCompleted && Location.pathname.includes('/note/addnote') || note.isCompleted && Location.pathname.includes('/note/completed') ? (
                             <Col span={8} style={{ margin : '10px 0px' }}>
-                                <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} noData={noData}/>
+                                <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} noData={noData} quanT={quanT} quantF={quanF}/>
                             </Col>
                         ) : ''
                     )
