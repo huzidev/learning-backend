@@ -77,10 +77,15 @@ export default function ShowNotes(props: any): JSX.Element {
                         </Button>
                     </div>
                 </Card>
-            ) : Location.pathname.includes('/note/completed') && !!note.isCompleted ? (
-                <Typography.Title>
-                    Sorry, {noData}
-                </Typography.Title>
+            ) : note.isCompleted && Location.pathname.includes('/note/addnote') ? (
+                    <Typography.Title>
+                        Sorry, {noData}
+                    </Typography.Title>
+            ) :
+                Location.pathname.includes('/note/completed') && !note.isCompleted ? (
+                    <Typography.Title>
+                        Sorry, {noData}
+                    </Typography.Title>
             ) : ''
         }
         </div>
