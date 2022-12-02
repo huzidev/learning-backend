@@ -1,6 +1,7 @@
 import express from "express";
 import Verification from '../middleware/Verification';
 import Note from '../models/Note';
+import CompletedNotes from '../models/CompletedNotes';
 import cors from "cors";
  
 const router = express.Router();
@@ -12,6 +13,16 @@ router.use(cors({
 router.get('/allnotes', Verification, async (req, res) => {
     try {
         const notes = await Note.find({ user: req.userID });
+        res.json(notes)
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
+router.get('/completednotes', Verification, async (req, res) => {
+    try {
+        const notes = await CompletedNotes.find({ user: req.userID });
         res.json(notes)
     } catch (error) {
         console.error(error.message);
@@ -39,7 +50,7 @@ router.post('/addnote', Verification, async (req, res) => {
 )
 
 router.put('/updatenote/:id', Verification, async (req, res) => {
-    const { title, description, category, isCompleted, updatedAt } = req.body;
+    const { title, description, category, isCompleted } = req.body;
     try {
         const newNote = {}
         if (title) {
@@ -91,33 +102,33 @@ router.delete('/deletenote/:id', Verification, async (req, res) => {
     }
 })
 
-router.put('/completed/:id', Verification, async (req, res) => {
-    const { isCompleted } = req.body;
-    try {
+// router.put('/completed/:id', Verification, async (req, res) => {
+//     const { isCompleted } = req.body;
+//     try {
         
-        const newNote = {}
-        if (isCompleted) {
-            newNote.isCompleted = isCompleted
-        } 
+//         const newNote = {}
+//         if (isCompleted) {
+//             newNote.isCompleted = isCompleted
+//         } 
 
-        let note = await Note.findById(req.params.id);
-        if (!note) {
-            return res.status(404).json({ error: "Not Found" })
-        }
-        if (note.user.toString() !== req.userID.toString()) {
-            return res.status(401).send("Not Allowed");
-        }
+//         let note = await Note.findById(req.params.id);
+//         if (!note) {
+//             return res.status(404).json({ error: "Not Found" })
+//         }
+//         if (note.user.toString() !== req.userID.toString()) {
+//             return res.status(401).send("Not Allowed");
+//         }
 
-        note = await Note.findByIdAndUpdate(
-            req.params.id,
-            { $set: newNote },
-            { new: true }
-        )
-        res.json({ note });
+//         note = await Note.findByIdAndUpdate(
+//             req.params.id,
+//             { $set: newNote },
+//             { new: true }
+//         )
+//         res.json({ note });
 
-    } catch (e) {
-        console.log(e);
-    }
-})
+//     } catch (e) {
+//         console.log(e);
+//     }
+// })
 
 module.exports = router;
