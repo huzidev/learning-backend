@@ -37,38 +37,32 @@ export default function FilterList(props: any): JSX.Element {
     console.log("whta is length of total", object.length);
 
     let holderTrue: any = [];
-    let holderFalse: any = [];
+    // let holderFalse: any = [];
+
+    let stateShow: boolean;
 
     for (let index = 0; index < object.length; index++) {
         if (object[index] === true) {
             holderTrue[index] = "true"
+            if (holderTrue.length === object.length) {
+                console.log("what");
+                
+            }
+            stateShow = true;
         } else {
             holderTrue[index] = null
         }
     }
-    for (let index = 0; index < object.length; index++) {
-        if (object[index] === false) {
-            holderFalse[index] = "false"
-        } else {
-            holderFalse[index] = null
-        }
-    }
-    console.log("true quantity", holderTrue);
-    console.log("false quantity", holderFalse); 
+    // for (let index = 0; index < object.length; index++) {
+    //     if (object[index] === false) {
+            // holderFalse[index] = "false"
+    //     } else {
+    //         holderFalse[index] = null
+    //     }
+    // }
+    // console.log("true quantity", holderTrue);
+    // console.log("false quantity", holderFalse); 
     
-    let text: any;
-
-    for (let index = 0; index < holderTrue.length; index++) {
-        if (holderTrue[index] !== "true") {
-            text = 'No Task is completed';
-        }
-    }
-    for (let index = 0; index < holderFalse.length; index++) {
-        if (holderFalse[index] === "false" && holderFalse[index] !== null) {
-            console.log("quantityF", holderFalse[index].length);
-        }
-    }
-
     return (
         <div>
             {
@@ -107,7 +101,7 @@ export default function FilterList(props: any): JSX.Element {
                     return (
                         !note.isCompleted && Location.pathname.includes('/note/addnote') || note.isCompleted && Location.pathname.includes('/note/completed') ? (
                             <Col span={8} style={{ margin : '10px 0px' }}>
-                                <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} noData={text}/>
+                                <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted}/>
                             </Col>
                         ) : ''
                     )
