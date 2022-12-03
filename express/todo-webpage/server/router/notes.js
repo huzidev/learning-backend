@@ -65,10 +65,11 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         if (!isCompleted || isCompleted) {
             newNote.isCompleted = isCompleted
         }
+        console.log("what is this", newNote.title);
         let noteComp;
         let note;
         let savedNote;
-        if ((newNote.title || newNote.category || newNote.isCompleted) && !isCompleted) {
+        if ((title || category || isCompleted) && !isCompleted) {
             note = await Note.findById(req.params.id);
             if (!note) {
                 return res.status(404).json({ error: "Not Found" })
@@ -76,7 +77,7 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
             if (note.user.toString() !== req.userID.toString()) {
                 return res.status(401).send("Not Allowed");
             }
-            if (newNote.isCompleted === true) {
+            if (isCompleted === !isCompleted) {
                 note = new CompletedNotes({
                     title, description, category, isCompleted, user: req.userID
                 })
