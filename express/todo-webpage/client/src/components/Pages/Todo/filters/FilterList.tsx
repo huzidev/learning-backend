@@ -19,6 +19,9 @@ export default function FilterList(props: any): JSX.Element {
 
     let Data = state ? items : props.notes
 
+    console.log("length of data", Data.length);
+    
+
     function filterItems(items: string) {
         const updatedItems = props.notes.filter((element: any) => {
             // element.category targets category only ex: grocery, payments and bills
@@ -30,12 +33,12 @@ export default function FilterList(props: any): JSX.Element {
 
     const Text = Location.pathname.includes('/note/addnote') ? "Yours Notes" : "Completed Notes"
 
-    let object = Data.map((d: any) => d.isCompleted)
+    const Holder = Location.pathname.includes('/note/addnote') ? "Added" : "Completed"
 
     return (
         <div>
             {
-                props.notes.length === 0 ? "" : (
+                Data.length === 0 ? `No Task ${Holder}`  : (
                     <>
                         <div style={{display: "flex", justifyContent: "space-between"}}>
                             <Typography.Title level={4}> 
