@@ -65,11 +65,9 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         if (!isCompleted || isCompleted) {
             newNote.isCompleted = isCompleted
         }
-        console.log("what is this", newNote.title);
-        let noteComp;
         let note;
         let savedNote;
-        if ((title || category || isCompleted) && !isCompleted) {
+        if (await Note.findById(req.params.id)) {
             note = await Note.findById(req.params.id);
             if (!note) {
                 return res.status(404).json({ error: "Not Found" })
@@ -77,87 +75,49 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
             if (note.user.toString() !== req.userID.toString()) {
                 return res.status(401).send("Not Allowed");
             }
-            if (isCompleted === !isCompleted) {
+            if (isCompleted === true) {
                 note = new CompletedNotes({
                     title, description, category, isCompleted, user: req.userID
                 })
-                let delNote = await Note.findById(req.params.id)
-                if (delNote.user.toString() !== req.userID.toString()) {
+                savedNote = await note.save();
+                note = await Note.findById(req.params.id)
+                if (note.user.toString() !== req.userID.toString()) {
                     return res.status(401).send("Not Allowed");
                 }
-                delNote = await Note.findByIdAndDelete(req.params.id);
+                note = await Note.findByIdAndDelete(req.params.id);
             }
             note = await Note.findByIdAndUpdate(
                 req.params.id,
                 { $set: newNote },
                 { new: true }
             )
-            savedNote = await note.save();
-        }
-        if ((newNote.title || newNote.category || newNote.isCompleted) && isCompleted) {
-            noteComp = await CompletedNotes.findById(req.params.id);
-            if (!noteComp) {
+        } else if (await CompletedNotes.findById(req.params.id)) {
+            note = await CompletedNotes.findById(req.params.id);
+            if (!note) {
                 return res.status(404).json({ error: "Not Found" })
             }
-            if (noteComp.user.toString() !== req.userID.toString()) {
+            if (note.user.toString() !== req.userID.toString()) {
                 return res.status(401).send("Not Allowed");
             }
-            if (newNote.isCompleted === false) {
-                noteComp = new Note({
+            if (isCompleted === false) {
+                note = new Note({
                     title, description, category, isCompleted, user: req.userID
                 })
-                let delNote = await CompletedNotes.findById(req.params.id)
-                if (delNote.user.toString() !== req.userID.toString()) {
+                savedNote = await note.save();
+                note = await CompletedNotes.findById(req.params.id)
+                if (note.user.toString() !== req.userID.toString()) {
                     return res.status(401).send("Not Allowed");
                 }
-                delNote = await CompletedNotes.findByIdAndDelete(req.params.id);
+                note = await CompletedNotes.findByIdAndDelete(req.params.id);
             }
-            noteComp = await CompletedNotes.findByIdAndUpdate(
+            note = await CompletedNotes.findByIdAndUpdate(
                 req.params.id,
                 { $set: newNote },
                 { new: true }
             )
-            savedNote = await noteComp.save();
         }
-        // if (!isCompleted) {
-        //     note = await Note.findByIdAndUpdate(
-        //         req.params.id,
-        //         { $set: newNote },
-        //         { new: true }
-        //     )
-        //     if (newNote.isCompleted === true) {
-        //         note = new CompletedNotes({
-        //             title, description, category, isCompleted, user: req.userID
-        //         })
-        //         let delNote = await Note.findById(req.params.id)
-        //         if (delNote.user.toString() !== req.userID.toString()) {
-        //             return res.status(401).send("Not Allowed");
-        //         }
-        //         delNote = await Note.findByIdAndDelete(req.params.id);
-        //     }
-        //     savedNote = await note.save();
-        // } 
-        // else {
-        //     noteComp = await CompletedNotes.findByIdAndUpdate(
-        //         req.params.id,
-        //         { $set: newNote },
-        //         { new: true }
-        //     )
-        //         if (newNote.isCompleted === false) {
-        //             note = new Note({
-        //                 title, description, category, isCompleted, user: req.userID
-        //             })
-        //             let delNote = await CompletedNotes.findById(req.params.id)
-        //             if (delNote.user.toString() !== req.userID.toString()) {
-        //                 return res.status(401).send("Not Allowed");
-        //             }
-        //             delNote = await CompletedNotes.findByIdAndDelete(req.params.id);
-        //         }
-        //     savedNote = await CompletedNotes.save();
-        // }
         res.json(savedNote)
         res.json({ note });
-        res.json({ noteComp });
     } catch (e) {
         console.log(e);
     }
