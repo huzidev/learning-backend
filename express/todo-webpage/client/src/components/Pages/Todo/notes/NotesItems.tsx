@@ -126,97 +126,97 @@ export default function NotesItems(props: any) {
         <div>
             { Location.pathname.includes('/addnote') && <AddTodo /> ? (
                 <>
-                <Button style={{ display: "none" }} ref={ref} type="primary" onClick={showModal}>
-                    Open Modal
-                </Button>
-                <Modal title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
-                    <Form>
-                        <Typography.Title level={5}>
-                            Title
-                        </Typography.Title>
-                        <Input
-                            type="text"
-                            name='etitle'
-                            value={note.etitle}
-                            onChange={onChange}
-                        />
-                        <Typography.Title level={5} style={style}>
-                            Description
-                        </Typography.Title>
-                        <Input
-                            type="text"
-                            name='edescription'
-                            value={note.edescription}
-                            onChange={onChange}
-                        />
-                        <Typography.Title level={5} style={style}>
-                            Category
-                        </Typography.Title>
-                        <Input
-                            type="text"
-                            name='ecategory'
-                            value={note.ecategory}
-                            onChange={onChange}
-                        />
-                        <div style={{ display: 'flex', marginTop: '10px' }}>
-                            <input 
-                                type="checkbox"
-                                checked= {isChecked}
-                                onChange= {stateChanger}
-                            />
-                            <Typography.Title level={5} style={{ margin: '0px 0px 0px 10px' }}>
-                                {isChecked ? "Completed" : "Not Completed"}
+                    <Button style={{ display: "none" }} ref={ref} type="primary" onClick={showModal}>
+                        Open Modal
+                    </Button>
+                    <Modal title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
+                        <Form>
+                            <Typography.Title level={5}>
+                                Title
                             </Typography.Title>
-                        </div>
-                    </Form>
-                </Modal>
+                            <Input
+                                type="text"
+                                name='etitle'
+                                value={note.etitle}
+                                onChange={onChange}
+                            />
+                            <Typography.Title level={5} style={style}>
+                                Description
+                            </Typography.Title>
+                            <Input
+                                type="text"
+                                name='edescription'
+                                value={note.edescription}
+                                onChange={onChange}
+                            />
+                            <Typography.Title level={5} style={style}>
+                                Category
+                            </Typography.Title>
+                            <Input
+                                type="text"
+                                name='ecategory'
+                                value={note.ecategory}
+                                onChange={onChange}
+                            />
+                            <div style={{ display: 'flex', marginTop: '10px' }}>
+                                <input 
+                                    type="checkbox"
+                                    checked= {isChecked}
+                                    onChange= {stateChanger}
+                                />
+                                <Typography.Title level={5} style={{ margin: '0px 0px 0px 10px' }}>
+                                    {isChecked ? "Completed" : "Not Completed"}
+                                </Typography.Title>
+                            </div>
+                        </Form>
+                    </Modal>
                 </>
             ) : Location.pathname.includes('/completed') ? (
                 <>
-                <Button style={{ display: "none" }} ref={ref} type="primary" onClick={showModal}>
-                    Open Modal
-                </Button>
-                <Modal title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
-                    <Form>
-                        <Typography.Title level={5}>
-                            Title
-                        </Typography.Title>
-                        <Input
-                            type="text"
-                            name='etitle'
-                            value={note.etitle}
-                            onChange={onChange}
-                        />
-                        <Typography.Title level={5} style={style}>
-                            Description
-                        </Typography.Title>
-                        <Input
-                            type="text"
-                            name='edescription'
-                            value={note.edescription}
-                            onChange={onChange}
-                        />
-                        <Typography.Title level={5} style={style}>
-                            Category
-                        </Typography.Title>
-                        <Input
-                            type="text"
-                            name='ecategory'
-                            value={note.ecategory}
-                            onChange={onChange}
-                        />
-                        <div style={{ display: 'flex', marginTop: '10px' }}>
-                            <input 
-                                type="checkbox"
-                                checked= {isChecked}
-                                onChange= {stateChanger}
-                            />
-                            <Typography.Title level={5} style={{ margin: '0px 0px 0px 10px' }}>
-                                {isChecked ? "Completed" : "Not Completed"}
+                    <Button style={{ display: "none" }} ref={ref} type="primary" onClick={showModal}>
+                        Open Modal
+                    </Button>
+                    <Modal title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
+                        <Form>
+                            <Typography.Title level={5}>
+                                Title
                             </Typography.Title>
-                        </div>
-                    </Form>
-                </Modal>
+                            <Input
+                                type="text"
+                                name='etitle'
+                                value={note.etitle}
+                                onChange={onChange}
+                            />
+                            <Typography.Title level={5} style={style}>
+                                Description
+                            </Typography.Title>
+                            <Input
+                                type="text"
+                                name='edescription'
+                                value={note.edescription}
+                                onChange={onChange}
+                            />
+                            <Typography.Title level={5} style={style}>
+                                Category
+                            </Typography.Title>
+                            <Input
+                                type="text"
+                                name='ecategory'
+                                value={note.ecategory}
+                                onChange={onChange}
+                            />
+                            <div style={{ display: 'flex', marginTop: '10px' }}>
+                                <input 
+                                    type="checkbox"
+                                    checked= {isChecked}
+                                    onChange= {stateChanger}
+                                />
+                                <Typography.Title level={5} style={{ margin: '0px 0px 0px 10px' }}>
+                                    {isChecked ? "Completed" : "Not Completed"}
+                                </Typography.Title>
+                            </div>
+                        </Form>
+                    </Modal>
                 </>
             ) : ''
         }
