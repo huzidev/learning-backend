@@ -23,6 +23,7 @@ export default function NotesItems(props: any) {
         setIsModalOpen(false);
     };
     
+    useEffect(() => {
     if (Location.pathname.includes('/addnote')) {
         async function getNotes() {
             const res = await fetch('/allnotes', {
@@ -34,23 +35,28 @@ export default function NotesItems(props: any) {
             const data = await res.json();
             setNotes(data)
         }
-        getNotes()
-    } 
+                getNotes()
+            } 
+    }, [])
     
-    else if (Location.pathname.includes('/completed')) {
-        async function getCompNotes() {
-            const res = await fetch('/completednotes', {
-                method : 'GET',
-                headers: {
-                    "Content-Type" : "application/json",
+    useEffect(() => {
+        if (Location.pathname.includes('/completed')) {
+            async function getCompNotes() {
+                const res = await fetch('/completednotes', {
+                    method : 'GET',
+                    headers: {
+                        "Content-Type" : "application/json",
+                    }
+                })
+                const data = await res.json();
+                setNotes(data)
+            }
+                if (Location.pathname.includes('/completed')) {
+                    getCompNotes()
                 }
-            })
-            const data = await res.json();
-            setNotes(data)
-        }
-        getCompNotes()
-    }
-    
+            }
+    }, [])
+        
     const updateNote = (currentNote: any) => {
         // ref.current.click() checks if user clicked or not therefore we've passed the ref in the button of modal as ref={ref}
         // to check if user clicked or not
