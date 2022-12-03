@@ -32,11 +32,11 @@ export default function NotesItems(props: any) {
                     "Content-Type" : "application/json",
                 }
             })
-            const data = await res.json();
-            setNotes(data)
-        }
-                getNotes()
-            } 
+                const data = await res.json();
+                setNotes(data)
+            }
+            getNotes()
+        } 
     }, [])
     
     useEffect(() => {
@@ -51,10 +51,8 @@ export default function NotesItems(props: any) {
                 const data = await res.json();
                 setNotes(data)
             }
-                if (Location.pathname.includes('/completed')) {
-                    getCompNotes()
-                }
-            }
+            getCompNotes()
+        }
     }, [])
         
     const updateNote = (currentNote: any) => {

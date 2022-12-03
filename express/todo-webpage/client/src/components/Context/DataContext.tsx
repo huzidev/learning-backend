@@ -5,6 +5,8 @@ type AuthContext = {
     notes?: any
     setNotes?: any
     setUserData?: any
+    compNotes?: any
+    setCompNotes?: any
 }
 
 const DataContext = createContext<AuthContext>({});
