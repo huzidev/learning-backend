@@ -65,20 +65,17 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         if (!isCompleted || isCompleted) {
             newNote.isCompleted = isCompleted
         }
-        let note = await Note.findById(req.params.id);
-        let noteComp = await CompletedNotes.findById(req.params.id);
-        if (!note || !noteComp) {
-            return res.status(404).json({ error: "Not Found" })
-        }
-        if (note.user.toString() !== req.userID.toString() || noteComp.user.toString() !== req.userID.toString()) {
-            return res.status(401).send("Not Allowed");
-        }
-        if (!isCompleted) {
-            note = await Note.findByIdAndUpdate(
-                req.params.id,
-                { $set: newNote },
-                { new: true }
-            )
+        let noteComp;
+        let note;
+        let savedNote;
+        if ((newNote.title || newNote.category || newNote.isCompleted) && !isCompleted) {
+            note = await Note.findById(req.params.id);
+            if (!note) {
+                return res.status(404).json({ error: "Not Found" })
+            }
+            if (note.user.toString() !== req.userID.toString()) {
+                return res.status(401).send("Not Allowed");
+            }
             if (newNote.isCompleted === true) {
                 note = new CompletedNotes({
                     title, description, category, isCompleted, user: req.userID
@@ -89,26 +86,77 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
                 }
                 delNote = await Note.findByIdAndDelete(req.params.id);
             }
-        } else {
-            note = await CompletedNotes.findByIdAndUpdate(
+            note = await Note.findByIdAndUpdate(
                 req.params.id,
                 { $set: newNote },
                 { new: true }
             )
-            if (newNote.isCompleted === false) {
-                note = new Note({
-                    title, description, category, isCompleted, user: req.userID
-                })
-                let delNote = await CompletedNotes.findById(req.params.id)
-                if (delNote.user.toString() !== req.userID.toString()) {
-                    return res.status(401).send("Not Allowed");
-                }
-                delNote = await CompletedNotes.findByIdAndDelete(req.params.id);
-            }
+            savedNote = await note.save();
         }
-        const savedNote = await note.save();
+        if ((newNote.title || newNote.category || newNote.isCompleted) && isCompleted) {
+            noteComp = await CompletedNotes.findById(req.params.id);
+            if (!noteComp) {
+                return res.status(404).json({ error: "Not Found" })
+            }
+            if (noteComp.user.toString() !== req.userID.toString()) {
+                return res.status(401).send("Not Allowed");
+            }
+            noteComp = await CompletedNotes.findByIdAndUpdate(
+                req.params.id,
+                { $set: newNote },
+                { new: true }
+            )
+                if (newNote.isCompleted === false) {
+                    note = new Note({
+                        title, description, category, isCompleted, user: req.userID
+                    })
+                    let delNote = await CompletedNotes.findById(req.params.id)
+                    if (delNote.user.toString() !== req.userID.toString()) {
+                        return res.status(401).send("Not Allowed");
+                    }
+                    delNote = await CompletedNotes.findByIdAndDelete(req.params.id);
+                }
+            savedNote = await noteComp.save();
+        }
+        // if (!isCompleted) {
+        //     note = await Note.findByIdAndUpdate(
+        //         req.params.id,
+        //         { $set: newNote },
+        //         { new: true }
+        //     )
+        //     if (newNote.isCompleted === true) {
+        //         note = new CompletedNotes({
+        //             title, description, category, isCompleted, user: req.userID
+        //         })
+        //         let delNote = await Note.findById(req.params.id)
+        //         if (delNote.user.toString() !== req.userID.toString()) {
+        //             return res.status(401).send("Not Allowed");
+        //         }
+        //         delNote = await Note.findByIdAndDelete(req.params.id);
+        //     }
+        //     savedNote = await note.save();
+        // } 
+        // else {
+        //     noteComp = await CompletedNotes.findByIdAndUpdate(
+        //         req.params.id,
+        //         { $set: newNote },
+        //         { new: true }
+        //     )
+        //         if (newNote.isCompleted === false) {
+        //             note = new Note({
+        //                 title, description, category, isCompleted, user: req.userID
+        //             })
+        //             let delNote = await CompletedNotes.findById(req.params.id)
+        //             if (delNote.user.toString() !== req.userID.toString()) {
+        //                 return res.status(401).send("Not Allowed");
+        //             }
+        //             delNote = await CompletedNotes.findByIdAndDelete(req.params.id);
+        //         }
+        //     savedNote = await CompletedNotes.save();
+        // }
         res.json(savedNote)
         res.json({ note });
+        res.json({ noteComp });
     } catch (e) {
         console.log(e);
     }
