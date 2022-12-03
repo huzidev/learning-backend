@@ -3,8 +3,9 @@ import DataContext from './DataContext';
 
 export default function UserState(props: any) {
   const initialState: [] = []
+  const initialStateComp: [] = []
   const [notes, setNotes] = React.useState(initialState)
-  const [compNotes, setCompNotes] = React.useState(initialState)
+  const [compNotes, setCompNotes] = React.useState(initialStateComp)
   const [userData, setUserData] = React.useState({})
 
   async function about() {
