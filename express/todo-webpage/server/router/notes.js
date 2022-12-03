@@ -164,7 +164,6 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
 
 router.delete('/deletenote/:id', Verification, async (req, res) => {
     try {
-        let compNote;
         let note;
         if (await Note.findById(req.params.id)) {
             note = await Note.findById(req.params.id);
@@ -174,17 +173,17 @@ router.delete('/deletenote/:id', Verification, async (req, res) => {
             if (note.user.toString() !== req.userID.toString()) {
                 return res.status(401).send("Not Allowed");
             }
-            note = await holder.findByIdAndDelete(req.params.id);
+            note = await Note.findByIdAndDelete(req.params.id);
             return res.status(200).json({ message: "Note Deleted", note: note })
         } else if (await CompletedNotes.findById(req.params.id)) {
-            note = await Note.findById(req.params.id);
+            note = await CompletedNotes.findById(req.params.id);
             if (!note) {
                 return res.status(404).json({ error: "Not Found" })
             }
             if (note.user.toString() !== req.userID.toString()) {
                 return res.status(401).send("Not Allowed");
             }
-            note = await holder.findByIdAndDelete(req.params.id);
+            note = await CompletedNotes.findByIdAndDelete(req.params.id);
             return res.status(200).json({ message: "Note Deleted", note: note })
         }
     } catch (e) {
