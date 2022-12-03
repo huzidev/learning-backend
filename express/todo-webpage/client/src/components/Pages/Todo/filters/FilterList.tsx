@@ -32,37 +32,6 @@ export default function FilterList(props: any): JSX.Element {
 
     let object = Data.map((d: any) => d.isCompleted)
 
-    console.log("Whta is state", object);
-    
-    console.log("whta is length of total", object.length);
-
-    let holderTrue: any = [];
-    // let holderFalse: any = [];
-
-    let stateShow: boolean;
-
-    for (let index = 0; index < object.length; index++) {
-        if (object[index] === true) {
-            holderTrue[index] = "true"
-            if (holderTrue.length === object.length) {
-                console.log("what");
-                
-            }
-            stateShow = true;
-        } else {
-            holderTrue[index] = null
-        }
-    }
-    // for (let index = 0; index < object.length; index++) {
-    //     if (object[index] === false) {
-            // holderFalse[index] = "false"
-    //     } else {
-    //         holderFalse[index] = null
-    //     }
-    // }
-    // console.log("true quantity", holderTrue);
-    // console.log("false quantity", holderFalse); 
-    
     return (
         <div>
             {
