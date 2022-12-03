@@ -13,7 +13,7 @@ export default function NotesItems(props: any) {
     const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
     const [isChecked, setIsChecked] = useState<any>(null);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    
+    const [testState, setTEstState] = useState<boolean>(false);
     const ref = useRef<any>(null)
     
     const showModal = () => {
@@ -22,27 +22,28 @@ export default function NotesItems(props: any) {
     const handleCancel = () => {
         setIsModalOpen(false);
     };
-    
+
     useEffect(() => {
-    if (Location.pathname.includes('/addnote')) {
-        async function getNotes() {
-            const res = await fetch('/allnotes', {
-                method : 'GET',
-                headers: {
-                    "Content-Type" : "application/json",
-                }
+        if (Location.pathname.includes('/addnote')) {
+            async function getNotes() {
+                const res = await fetch('/allnotes', {
+                    method : 'GET',
+                    headers: {
+                        "Content-Type" : "application/json",
+                    }
             })
-                const data = await res.json();
-                setNotes(data)
-            }
-            getNotes()
-        } 
-    }, [])
-    
-    useEffect(() => {
-        if (Location.pathname.includes('/completed')) {
-            async function getCompNotes() {
-                const res = await fetch('/completednotes', {
+            const data = await res.json();
+            setNotes(data)
+        }
+        console.log("in all notes", notes);
+        getNotes()
+    } 
+}, [Location.pathname])
+
+useEffect(() => {
+    if (Location.pathname.includes('/completed')) {
+        async function getCompNotes() {
+            const res = await fetch('/completednotes', {
                     method : 'GET',
                     headers: {
                         "Content-Type" : "application/json",
@@ -51,10 +52,14 @@ export default function NotesItems(props: any) {
                 const data = await res.json();
                 setNotes(data)
             }
+            console.log("in COMP notes", notes);
             getCompNotes()
         }
-    }, [])
-        
+    }, [Location.pathname])
+    
+    console.log("waht si state", testState);
+    
+
     const updateNote = (currentNote: any) => {
         // ref.current.click() checks if user clicked or not therefore we've passed the ref in the button of modal as ref={ref}
         // to check if user clicked or not
