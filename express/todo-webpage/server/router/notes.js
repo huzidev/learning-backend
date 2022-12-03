@@ -214,7 +214,6 @@ router.delete('/deletenote/:id', Verification, async (req, res) => {
 //             { new: true }
 //         )
 //         res.json({ note });
-
 //     } catch (e) {
 //         console.log(e);
 //     }
