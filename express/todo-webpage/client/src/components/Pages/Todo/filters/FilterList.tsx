@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ShowNotes from '../notes/ShowNotes';
-import ShowCompNotes from '../notes/ShowCompNotes';
 import { Card, Col, Row , Button, Typography, Modal } from 'antd';
 import { useLocation } from 'react-router-dom';
 
@@ -15,7 +14,9 @@ export default function FilterList(props: any): JSX.Element {
 
     const allItems = [...new Set(props.notes.map((currentEle: any) => {
         return (
-            currentEle.category
+            !currentEle.isCompleted && Location.pathname.includes('/note/addnote') || currentEle.isCompleted && Location.pathname.includes('/note/completed') ? (
+                currentEle.category
+            ) : null
         )
     }))]
 
@@ -71,15 +72,11 @@ export default function FilterList(props: any): JSX.Element {
             <Row gutter={16}>
                 {Data.map((note: any) => {
                     return (
-                        !note.isCompleted && Location.pathname.includes('/note/addnote') ? (
+                        !note.isCompleted && Location.pathname.includes('/note/addnote') || note.isCompleted && Location.pathname.includes('/note/completed') ? (
                             <Col span={8} style={{ margin : '10px 0px' }}>
                                 <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted}/>
                             </Col>
-                        ) : note.isCompleted && Location.pathname.includes('/note/completed') ? (
-                            <Col span={8} style={{ margin : '10px 0px' }}>
-                                <ShowCompNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted}/>
-                            </Col>
-                        ) : ''
+                        ) : null
                     )
                 })}
             </Row>
