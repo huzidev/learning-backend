@@ -23,15 +23,6 @@ export default function NotesItems(props: any) {
         setIsModalOpen(false);
     };
 
-    let emptyF;
-    let emptyC;
-
-    if (Location.pathname.includes('/addnote')) {
-        emptyF = notes.length === 0;
-    } else if (Location.pathname.includes('/completed')) {
-        emptyC = notes.length === 0;
-    }
-
     useEffect(() => {
         if (Location.pathname.includes('/addnote')) {
             async function getNotes() {
@@ -185,8 +176,6 @@ useEffect(() => {
             </>
             <FilterList 
                 notes={notes}
-                emptyF={emptyF}
-                emptyC={emptyC}
                 updateNote={updateNote}
             />
         </div>
