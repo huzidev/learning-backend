@@ -106,6 +106,9 @@ export default function SignUp() {
                 placeholder="Enter Yours Number"
                 required
             />
+            <Form.Item
+                hasFeedback
+            >
                 <Input.Password
                     className='Dark styleMargin'
                     name="password"
@@ -115,6 +118,7 @@ export default function SignUp() {
                     placeholder="Enter Yours password"
                     required
                 />
+            </Form.Item>
             <Form.Item
                 name="confirm"
                 dependencies={['password']}
@@ -136,7 +140,7 @@ export default function SignUp() {
                 ]}
             >
                 <Input.Password
-                    className='Dark styleMargin' 
+                    className='Dark' 
                     name="cpassword"
                     value={user.cpassword}
                     onChange={inputHandler}

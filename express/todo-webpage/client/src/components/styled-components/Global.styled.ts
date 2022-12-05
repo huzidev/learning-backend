@@ -40,4 +40,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
     .ant-input-password-icon.anticon {
         color: ${(p: any) => p.darkModeC};
     }
+    .ant-input-password-icon.anticon:hover {
+        color: ${(p: any) => p.darkModeC};
+    }
 `
