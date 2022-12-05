@@ -6,7 +6,6 @@ const ROUTE_PATHS = {
     ABOUT: '/about',
     NOTEITEMS: '/note',
     ADD_NOTE: '/note/addnote',
-    COMPLETED_NOTE: '/note/completed',
     UPDATEUSER: '/updateuser',
     CONTACT: '/contact',
   };

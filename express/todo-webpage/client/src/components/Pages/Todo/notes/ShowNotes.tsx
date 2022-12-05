@@ -39,46 +39,43 @@ export default function ShowNotes(props: any): JSX.Element {
 
     return (
         <div>
-            {!note.isCompleted && Location.pathname.includes('/note/addnote') || note.isCompleted && Location.pathname.includes('/note/completed') ? ( 
-                <Card title={
-                    <Typography.Title level={5}>
-                        {note.title}
-                    </Typography.Title>
-                } 
-                size="small"
-                className="Dark Border"
-                >
-                    <Typography.Title level={5}>
-                        Description: {note.description}
-                    </Typography.Title> 
-                    <Typography.Title level={5} style={{ margin: '10px 0px' }}>
-                        Category: {note.category}
-                    </Typography.Title>
-                    <IntlProvider locale="en" defaultLocale="en">
+            <Card title={
+                <Typography.Title level={5}>
+                    {note.title}
+                </Typography.Title>
+            } 
+            size="small"
+            className="Dark Border"
+            >
+                <Typography.Title level={5}>
+                    Description: {note.description}
+                </Typography.Title> 
+                <Typography.Title level={5} style={{ margin: '10px 0px' }}>
+                    Category: {note.category}
+                </Typography.Title>
+                <IntlProvider locale="en" defaultLocale="en">
+                    <Typography.Text>
+                        Created At {" "}
+                        <FormattedDate 
+                            value={note.date} 
+                        />
+                    </Typography.Text>
+                    <br />
+                </IntlProvider>
+                <div style={{ marginTop: '10px' }}> 
+                    <Button onClick={showModal} type="ghost" style={{ marginRight: '10px' }}>
+                        Delete
+                    </Button>
+                    <Modal title="Delete Note" open={isModalOpen} okText="Delete" onOk={deleteNote} onCancel={handleCancel}>
                         <Typography.Text>
-                            Created At {" "}
-                            <FormattedDate 
-                                value={note.date} 
-                            />
+                            Are You Sure? You Wanna Delete This Note?
                         </Typography.Text>
-                        <br />
-                    </IntlProvider>
-                    <div style={{ marginTop: '10px' }}> 
-                        <Button onClick={showModal} type="ghost" style={{ marginRight: '10px' }}>
-                            Delete
-                        </Button>
-                        <Modal title="Delete Note" open={isModalOpen} okText="Delete" onOk={deleteNote} onCancel={handleCancel}>
-                            <Typography.Text>
-                                Are You Sure? You Wanna Delete This Note?
-                            </Typography.Text>
-                        </Modal>
-                        <Button onClick={() => {updateNote(note)}} type="ghost">
-                            Update Note
-                        </Button>
-                    </div>
-                </Card>
-            ) : ''
-        }
+                    </Modal>
+                    <Button onClick={() => {updateNote(note)}} type="ghost">
+                        Update Note
+                    </Button>
+                </div>
+            </Card>
         </div>
     )
 }

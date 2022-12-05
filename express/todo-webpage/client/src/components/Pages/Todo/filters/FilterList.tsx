@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ShowNotes from '../notes/ShowNotes';
 import ShowCompNotes from '../notes/ShowCompNotes';
 import { Card, Col, Row , Button, Typography, Modal } from 'antd';
@@ -15,9 +15,7 @@ export default function FilterList(props: any): JSX.Element {
 
     const allItems = [...new Set(props.notes.map((currentEle: any) => {
         return (
-            !currentEle.isCompleted && Location.pathname.includes('/note/addnote') || currentEle.isCompleted && Location.pathname.includes('/note/completed') ? (
-                currentEle.category
-            ) : null
+            currentEle.category
         )
     }))]
 
@@ -81,7 +79,7 @@ export default function FilterList(props: any): JSX.Element {
                             <Col span={8} style={{ margin : '10px 0px' }}>
                                 <ShowCompNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted}/>
                             </Col>
-                        )
+                        ) : ''
                     )
                 })}
             </Row>

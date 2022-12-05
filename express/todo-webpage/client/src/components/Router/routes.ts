@@ -8,7 +8,6 @@ const Contact = import('../Pages/Form/contact/ContactUs');
 const About = import('../Pages/Form/about/About');
 const Notes = import('../Pages/Todo/notes/NotesItems');
 const AddNote = import('../Pages/Todo/addTodo/AddTodo');
-const ShowNotes = import('../Pages/Todo/notes/ShowNotes');
 const UpdateUser = import('../Pages/Form/update/UpdateUser');
 
 interface AppRoute {
@@ -39,10 +38,6 @@ interface AppRoute {
     {
         Component: AddNote,
         path: ROUTE_PATHS.ADD_NOTE
-    },
-    {
-        Component: ShowNotes,
-        path: ROUTE_PATHS.COMPLETED_NOTE
     },
     {
         Component: Contact,
