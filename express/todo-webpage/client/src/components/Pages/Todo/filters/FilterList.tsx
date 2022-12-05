@@ -53,7 +53,11 @@ export default function FilterList(props: any): JSX.Element {
             {
                 <>
                     {
-                        (Location.pathname.includes('/note/completed') && holder !== true || holder === undefined) || (Location.pathname.includes('/note/addnote') && holder !== false || holder === undefined) ? `No Task ${Holder}` : (
+                        (Location.pathname.includes('/note/completed') && holder !== true || holder === undefined) || (Location.pathname.includes('/note/addnote') && holder !== false || holder === undefined) ? (
+                            <Typography.Title level={4}> 
+                                No Task {Holder}
+                            </Typography.Title>
+                        ) : (
                             <div style={{display: "flex", justifyContent: "space-between"}}>
                                 <Typography.Title level={4}> 
                                     {Text}
