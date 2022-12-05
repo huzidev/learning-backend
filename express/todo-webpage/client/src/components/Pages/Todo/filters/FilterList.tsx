@@ -76,7 +76,7 @@ export default function FilterList(props: any): JSX.Element {
                             <Col span={8} style={{ margin : '10px 0px' }}>
                                 <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted}/>
                             </Col>
-                        ) : ''
+                        ) : !note.isCompleted && Location.pathname.includes('/note/completed') ? 'No DATA'
                     )
                 })}
             </Row>
