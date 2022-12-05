@@ -9,15 +9,16 @@ export default function FilterList(props: any): JSX.Element {
     const [state, setState] = useState(false)
     const [items, setItems] = useState(props.notes)
 
+    
+    let Data = state ? items : props.notes
+
     const allItems = [...new Set(props.notes.map((currentEle: any) => {
         return (
             !currentEle.isCompleted && Location.pathname.includes('/note/addnote') || currentEle.isCompleted && Location.pathname.includes('/note/completed') ? (
                 currentEle.category
-            ) : null
+            ) : Data.length === 0 && Location.pathname.includes('/note/completed') || Location.pathname.includes('/note/addnote') ? null : null
         )
     }))]
-
-    let Data = state ? items : props.notes
 
     console.log("length of data", Data.length);
     
