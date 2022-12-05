@@ -45,45 +45,30 @@ export default function SingIn() {
     <div style={{ width: '500px', margin: '15% auto 0px auto'}}>
       <Form name="nest-messages">
         <Typography.Title level={2}> Singin </Typography.Title>
-        <Form.Item
-          name="email"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your Email!',
-            },
-          ]}
-        >
           <Input 
+            className='Dark'
             name='email'
             value={user.email}
             onChange={inputHandler}
             prefix={<UserOutlined className="site-form-item-icon" />}
             placeholder="Email" 
+            required
           />
-        </Form.Item>
-        <Form.Item
-          name="password"
-          style={{ marginBottom: '10px' }}
-          rules={[
-            {
-              required: true,
-              message: 'Please input your Password!',
-            },
-          ]}
-        >
           <Input.Password
+            className='Dark styleMargin'
             name="password"
             prefix={<LockOutlined className="site-form-item-icon" />}
             value={user.password}
             onChange={inputHandler}
             placeholder="Password"
+            required
           />
-        </Form.Item>
-        <Typography.Text>
-          Don't have an account? <Link to='/signup'>Signup</Link>
-        </Typography.Text>
-        <Form.Item>
+          <div className='styleMargin'>
+            <Typography.Text>
+              Don't have an account? <Link to='/signup'>Signup</Link>
+            </Typography.Text>
+          </div>
+        <div>
           <Button 
             type="primary" 
             htmlType="submit"
@@ -93,7 +78,7 @@ export default function SingIn() {
           >
             Sign in
           </Button>
-        </Form.Item>
+        </div>
       </Form>
     </div>
   )

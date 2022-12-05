@@ -37,4 +37,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
     .styleMargin {
         margin-top: 15px;
     }
+    .ant-input-password-icon.anticon {
+        color: ${(p: any) => p.darkModeC};
+    }
 `
