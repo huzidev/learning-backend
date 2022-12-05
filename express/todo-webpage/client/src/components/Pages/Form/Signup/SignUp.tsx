@@ -78,75 +78,43 @@ export default function SignUp() {
         <Form 
             name="nest-messages" 
         >
-            <Form.Item
-                name={['Username']}
-                rules={[
-                    {
-                        required: true,
-                    },
-                ]}
-                >
-                <Input 
-                    name="username"
-                    value={user.username}
-                    onChange={inputHandler}
-                    prefix={<UserOutlined className="site-form-item-icon" />}
-                    placeholder="Enter Yours Username"
-                />
-            </Form.Item>
-            <Form.Item
-                name={['Email']}
-                rules={[
-                    {
-                        type: 'email',
-                        required: true
-                    },
-                ]}
-            >
-                <Input 
-                    name="email"
-                    value={user.email}
-                    onChange={inputHandler}
-                    prefix={<MailOutlined className="site-form-item-icon" />}
-                    placeholder="Enter Yours Email"
-                />
-            </Form.Item>
-            <Form.Item
-                name="phone"
-                rules={[
-                    { 
-                        required: true, 
-                        message: 'Please input your phone number!' 
-                    }
-                ]}
-            >
-                <Input 
-                    name="number"
-                    value={user.number}
-                    onChange={inputHandler}
-                    style={{ width: '100%' }}
-                    prefix={<NumberOutlined className="site-form-item-icon" />}
-                    placeholder="Enter Yours Number"
-                />
-            </Form.Item>
-            <Form.Item
-                name="password"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please input your password!',
-                    },
-                ]}
-                hasFeedback
-            >
+            <Input 
+                className='Dark'
+                name="username"
+                value={user.username}
+                onChange={inputHandler}
+                prefix={<UserOutlined className="site-form-item-icon" />}
+                placeholder="Enter Yours Username"
+                required
+            />
+            <Input 
+                className='Dark styleMargin'
+                name="email"
+                value={user.email}
+                onChange={inputHandler}
+                prefix={<MailOutlined className="site-form-item-icon" />}
+                placeholder="Enter Yours Email"
+                required
+            />
+            <Input 
+                className='Dark styleMargin'
+                name="number"
+                value={user.number}
+                onChange={inputHandler}
+                style={{ width: '100%' }}
+                prefix={<NumberOutlined className="site-form-item-icon" />}
+                placeholder="Enter Yours Number"
+                required
+            />
                 <Input.Password
+                    className='Dark styleMargin'
                     name="password"
                     value={user.password}
                     onChange={inputHandler}
                     prefix={<LockOutlined className="site-form-item-icon" />}
                     placeholder="Enter Yours password"
+                    required
                 />
-            </Form.Item>
             <Form.Item
                 name="confirm"
                 dependencies={['password']}
@@ -167,7 +135,8 @@ export default function SignUp() {
                 }),
                 ]}
             >
-                <Input.Password 
+                <Input.Password
+                    className='Dark styleMargin' 
                     name="cpassword"
                     value={user.cpassword}
                     onChange={inputHandler}
@@ -179,7 +148,7 @@ export default function SignUp() {
                 Already have an account? <Link to='/signin'>Signin</Link>
             </Typography.Text>
             <Form.Item
-                style={{ marginTop: '10px' }}
+                className='styleMargin' 
             >
                 <Button type="primary" htmlType="submit" onClick={signUp}>
                     Sign Up
