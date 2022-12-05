@@ -51,39 +51,37 @@ export default function FilterList(props: any): JSX.Element {
     return (
         <div>
             {
-                Data.length === 0 ? `No Task ${Holder}` : (
-                    <>
-                        {
-                            Location.pathname.includes('/note/completed') && holder !== true || holder === undefined ? `No Task ${Holder}` : (
+                <>
+                    {
+                        (Location.pathname.includes('/note/completed') && holder !== true || holder === undefined) || (Location.pathname.includes('/note/addnote') && holder !== false || holder === undefined) ? `No Task ${Holder}` : (
+                            <div style={{display: "flex", justifyContent: "space-between"}}>
+                                <Typography.Title level={4}> 
+                                    {Text}
+                                </Typography.Title>
                                 <div style={{display: "flex", justifyContent: "space-between"}}>
-                                    <Typography.Title level={4}> 
-                                        {Text}
+                                    <Typography.Title level={5}>
+                                        Filter the list
                                     </Typography.Title>
-                                    <div style={{display: "flex", justifyContent: "space-between"}}>
-                                        <Typography.Title level={5}>
-                                            Filter the list
-                                        </Typography.Title>
-                                        <Button onClick={() => setItems(props.notes)} type="ghost">
-                                            All items
-                                        </Button>
-                                        {allItems.map((currentEle: any, index: number) => {
-                                            return (
-                                                <span key={index}>
-                                                    <Button
-                                                        onClick={() => filterItems(currentEle)}
-                                                        type="ghost"
-                                                    >
-                                                        {currentEle}
-                                                    </Button>
-                                                </span>
-                                            )
-                                        })}
-                                    </div>
+                                    <Button onClick={() => setItems(props.notes)} type="ghost">
+                                        All items
+                                    </Button>
+                                    {allItems.map((currentEle: any, index: number) => {
+                                        return (
+                                            <span key={index}>
+                                                <Button
+                                                    onClick={() => filterItems(currentEle)}
+                                                    type="ghost"
+                                                >
+                                                    {currentEle}
+                                                </Button>
+                                            </span>
+                                        )
+                                    })}
                                 </div>
-                            )
-                        }
-                    </>
-                )
+                            </div>
+                        )
+                    }
+                </>
             }
             <Row gutter={16}>
                 {Data.map((note: any) => {
