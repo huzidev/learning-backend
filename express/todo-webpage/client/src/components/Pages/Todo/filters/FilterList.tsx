@@ -36,36 +36,52 @@ export default function FilterList(props: any): JSX.Element {
 
     const Holder = Location.pathname.includes('/note/addnote') ? "Added" : "Completed"
 
+    console.log("data", Data);
+    
+    let holder;
+    Data.forEach((Element: any, i: number) => {
+        for(let key in Element){
+            console.log(`${Element.isCompleted}`);
+            holder = Element.isCompleted
+        }
+    });
+
+    console.log("what is holder", holder);
+    
     return (
         <div>
             {
-                Data.length === 0 ? `No Task ${Holder}`  : (
+                Data.length === 0 ? `No Task ${Holder}` : (
                     <>
-                        <div style={{display: "flex", justifyContent: "space-between"}}>
-                            <Typography.Title level={4}> 
-                                {Text}
-                            </Typography.Title>
-                            <div style={{display: "flex", justifyContent: "space-between"}}>
-                                <Typography.Title level={5}>
-                                    Filter the list
-                                </Typography.Title>
-                                <Button onClick={() => setItems(props.notes)} type="ghost">
-                                    All items
-                                </Button>
-                                {allItems.map((currentEle: any, index: number) => {
-                                    return (
-                                        <span key={index}>
-                                            <Button
-                                                onClick={() => filterItems(currentEle)}
-                                                type="ghost"
-                                            >
-                                                {currentEle}
-                                            </Button>
-                                        </span>
-                                    )
-                                })}
-                            </div>
-                        </div>
+                        {
+                            Location.pathname.includes('/note/completed') && holder !== true || holder === undefined ? `No Task ${Holder}` : (
+                                <div style={{display: "flex", justifyContent: "space-between"}}>
+                                    <Typography.Title level={4}> 
+                                        {Text}
+                                    </Typography.Title>
+                                    <div style={{display: "flex", justifyContent: "space-between"}}>
+                                        <Typography.Title level={5}>
+                                            Filter the list
+                                        </Typography.Title>
+                                        <Button onClick={() => setItems(props.notes)} type="ghost">
+                                            All items
+                                        </Button>
+                                        {allItems.map((currentEle: any, index: number) => {
+                                            return (
+                                                <span key={index}>
+                                                    <Button
+                                                        onClick={() => filterItems(currentEle)}
+                                                        type="ghost"
+                                                    >
+                                                        {currentEle}
+                                                    </Button>
+                                                </span>
+                                            )
+                                        })}
+                                    </div>
+                                </div>
+                            )
+                        }
                     </>
                 )
             }
