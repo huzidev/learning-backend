@@ -152,32 +152,4 @@ router.delete('/deletenote/:id', Verification, async (req, res) => {
     }
 })
 
-// router.put('/completed/:id', Verification, async (req, res) => {
-//     const { isCompleted } = req.body;
-//     try {
-        
-//         const newNote = {}
-//         if (isCompleted) {
-//             newNote.isCompleted = isCompleted
-//         } 
-
-//         let note = await Note.findById(req.params.id);
-//         if (!note) {
-//             return res.status(404).json({ error: "Not Found" })
-//         }
-//         if (note.user.toString() !== req.userID.toString()) {
-//             return res.status(401).send("Not Allowed");
-//         }
-
-//         note = await Note.findByIdAndUpdate(
-//             req.params.id,
-//             { $set: newNote },
-//             { new: true }
-//         )
-//         res.json({ note });
-//     } catch (e) {
-//         console.log(e);
-//     }
-// })
-
 module.exports = router;
