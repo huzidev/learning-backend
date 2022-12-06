@@ -101,7 +101,6 @@ export default function SignUp() {
                 name="number"
                 value={user.number}
                 onChange={inputHandler}
-                style={{ width: '100%' }}
                 prefix={<NumberOutlined className="site-form-item-icon" />}
                 placeholder="Enter Yours Number"
                 required
