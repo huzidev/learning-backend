@@ -1,10 +1,10 @@
 import { createGlobalStyle } from "styled-components"
 
 interface Props {
-    darkModeBG: any
-    darkModeC: any
-    transition: any
-    LModeBG: any
+    darkModeBG: String
+    darkModeC: String
+    transition: String
+    LModeBG: String
 }
 
 export const GlobalStyles = createGlobalStyle<Props>`
@@ -39,8 +39,8 @@ export const GlobalStyles = createGlobalStyle<Props>`
     }
     .ant-input-password-icon.anticon {
         color: ${(p: any) => p.darkModeC};
-    }
-    .ant-input-password-icon.anticon:hover {
-        color: ${(p: any) => p.darkModeC};
+        &:hover {
+            color: ${(p: any) => p.darkModeC};
+        }
     }
 `
