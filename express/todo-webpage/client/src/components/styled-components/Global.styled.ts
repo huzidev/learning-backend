@@ -43,4 +43,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
             color: ${(p: any) => p.darkModeC};
         }
     }
+    .ant-input-affix-wrapper.ant-input-password.Dark.ant-input-affix-wrapper-status-error.ant-input-affix-wrapper-has-feedback {
+        background: none;
+    }
 `
