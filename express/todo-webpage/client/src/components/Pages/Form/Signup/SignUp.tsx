@@ -106,6 +106,7 @@ export default function SignUp() {
                 required
             />
             <Form.Item
+                name="password"
                 hasFeedback
             >
                 <Input.Password
