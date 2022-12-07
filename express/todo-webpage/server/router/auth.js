@@ -48,7 +48,7 @@ router.post('/signup', async (req, res) => {
         } 
         // when user registered successfully
         else {
-            const user = new User({ username, email, number, password, cpassword, isTheme });
+            const user = new User({ username, email, number: "+92", password, cpassword, isTheme });
             const userRegister = await user.save();
             if (userRegister) {
                 return res.status(201).json({ message : "User registered successfully!" });
@@ -180,9 +180,5 @@ router.get('/about', Verification, (req, res) => {
     res.send(req.userInfo)
 })
 
-// router.get('/signout', (req, res) => {
-//     res.clearCookie('jwtoken', { path : '/' })
-//     res.status(200).send("User loggedOut Successfully!")
-// })
 
 module.exports = router;
