@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Form, Input, Typography } from 'antd';
+import { Button, Form, Input, Typography, notification } from 'antd';
 import { LockOutlined, UserOutlined, NumberOutlined, MailOutlined } from '@ant-design/icons';
 import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
