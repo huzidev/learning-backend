@@ -76,7 +76,7 @@ router.post('/signin', async (req, res) => {
         }
         const userEmail = await User.findOne({ email: email });
         if (!userEmail) {
-            
+            return res.status(422).json({ error: "No Such Email Found!" })
         } else {
             const isMatchEmail = await bcrypt.compare(password, userEmail.password);
 
