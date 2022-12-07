@@ -33,13 +33,17 @@ export default function SingIn() {
       body : JSON.stringify({ email, password })
     });
     const data = await res.json();
-    if (!data) {
+    if (!data || res.status === 421) {
       icon = error;
       title = "You've left an tag Empty!";
-    } else if (res.status === 400) {
+    } else if (res.status === 422) {
       icon = error;
-      title = `Error!`;
-      description = `Email or Password is incorrect`;
+      title = `Email Not Found`;
+      description = `"${email}" Doesn't Found`;
+    } else if (res.status === 423) {
+      icon = error;
+      title = `Wrong Password`;
+      description = `"${email}" Doesn't Found`;
     } else if (res.status === 500) {
       window.alert("Internal Server Error : Failed to registered!")
     } else if (res.status === 201) {
