@@ -71,26 +71,26 @@ router.post('/signin', async (req, res) => {
     try {
         let token;
         const {email, password} = req.body;
-        if (!email, !password) {
+        if (!email || !password) {
             return res.status(421).json({ error : "You've left an tag empty" });
         }
         const userEmail = await User.findOne({ email: email });
         if (!userEmail) {
             return res.status(422).json({ error: "No Such Email is Found!" })
-        } else {
+        } else if (userEmail) {
             const isMatchPassword = await bcrypt.compare(password, userEmail.password);
             if (!isMatchPassword) {
                 return res.status(423).json({ error : "Password is incorrect" })
-            } else if (isMatchPassword) {
+            } else {
                 token = await userEmail.generateAuthToken();
                 res.cookie("jwtoken", token, {
                     expires : new Date(Date.now() + 86400000), // after 24 hours
                     httpOnly : true
                 })
                 return res.status(201).json({ message : "User loggedIn successfully" })
-            } else {
-                return res.status(500).json({ message : "Internal Server Error : Failed to registered!" })
             }
+        } else {
+            return res.status(500).json({ message : "Internal Server Error : Failed to registered!" })
         }
     } catch (err) {
         console.log(err);
