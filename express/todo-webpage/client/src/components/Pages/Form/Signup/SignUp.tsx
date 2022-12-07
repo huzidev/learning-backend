@@ -54,11 +54,11 @@ export default function SignUp() {
     if (res.status === 421 || !data) {
         title = "You've left an tag Empty!"
     } else if (res.status === 422) {
-        title = `Email "${email}" Already Exist`
-        description = 'Enter New Email';
+        title = `Email Already Exist`
+        description = `"${email}" is already taken, Enter New Email`;
     } else if (res.status === 423) {
-        title = `Username ${username} Already Exist`
-        description = `${username} is already taken, Enter New Username`;
+        title = `Username Already Exist`
+        description = `"${username}" is already taken, Enter New Username`;
     } else if (res.status === 424) {
         title = `Number ${number} Already Exist`
         description = 'Enter New Number';
