@@ -49,4 +49,11 @@ export const GlobalStyles = createGlobalStyle<Props>`
     .margin-input {
         margin: 15px 0px;
     }
+    .ant-notification-notice {
+        background-color: ${(p: any) => p.darkModeBG};
+        box-shadow: 0 0px 5px 0 ${(p: any) => p.darkModeC}, 0 0px 9px -4px ${(p: any) => p.darkModeC}, 0 4px 24px -3px ${(p: any) => p.darkModeC};
+        div, span {
+            color: ${(p: any) => p.darkModeC};
+        }
+    }
 `
