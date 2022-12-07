@@ -1,12 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Spin, Typography, notification } from 'antd';
+import { CheckCircleOutlined  } from '@ant-design/icons';
 
 export default function SignOut(): JSX.Element {
 
     const Navigate = useNavigate();
   
-    let icon: String
+    let icon: any;
+    let title: String;
 
     React.useEffect(() => {
         fetch('/signout', {
@@ -19,7 +21,13 @@ export default function SignOut(): JSX.Element {
         }).then((res: Response) => {
             localStorage.removeItem('jwtoken')
             setTimeout(() => {
-              window.alert("Logout successfully")
+              async function openNotification() {
+                notification.open({
+                  icon : <CheckCircleOutlined style={{ color: '#00FF00' }}/>,
+                  message: "Logout Successfully"
+                });
+              };
+            openNotification()
               Navigate('/', {
                 replace : true
               })
