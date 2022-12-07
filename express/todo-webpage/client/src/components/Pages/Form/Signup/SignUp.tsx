@@ -29,6 +29,9 @@ export default function SignUp() {
     });
   };
 
+  let title: String;
+  let description: String | null;
+
   async function signUp(e: React.FormEvent) {
     e.preventDefault();
     const { username, email, number, password, cpassword, isTheme } = user;
@@ -49,9 +52,10 @@ export default function SignUp() {
 
     const data = await res.json();
     if (res.status === 421 || !data) {
-        window.alert("You've left an tag empty")
+        title = "You've left an tag Empty!"
     } else if (res.status === 422) {
-        window.alert("Email already Exist")
+        title = "Email Already Exist"
+        description = 'Enter New Email';
     } else if (res.status === 423) {
         window.alert("Username already Exist")
     } else if (res.status === 424) {
@@ -69,17 +73,18 @@ export default function SignUp() {
         console.log("Successful Registration");
         Navigate("/signin");
     }
-  };
-
-  async function openNotification() {
-    notification.open({
-      message: 'Notification Title',
-      description:
-        'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
-      onClick: () => {
-        console.log('Notification Clicked!');
-      },
-    });
+    async function openNotification() {
+        notification.open({
+          message: title,
+          description: description,
+          onClick: () => {
+            console.log('Notification Clicked!');
+          },
+        });
+      };
+      if (res.status === 421 || res.status === 422) {
+        openNotification()
+      }
   };
 
   return (
@@ -172,9 +177,6 @@ export default function SignUp() {
                 </Button>
             </Form.Item>
         </Form>
-        <Button type="primary" onClick={openNotification}>
-            Open the notification box
-        </Button>
     </div>
   )
 }
