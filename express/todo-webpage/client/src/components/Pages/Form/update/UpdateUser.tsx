@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import DataContext from '../../../Context/DataContext';
 import User from '../about/About';
 import { Button, Modal, Form, Input, Typography } from 'antd';
-import { UserOutlined, MailOutlined, NumberOutlined } from '@ant-design/icons';
+import { UserOutlined, MailOutlined, NumberOutlined, ExclamationCircleOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import { DataType } from './Type';
 
 export default function UpdateUser() {
