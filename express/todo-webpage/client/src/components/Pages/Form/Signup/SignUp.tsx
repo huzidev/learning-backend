@@ -58,14 +58,16 @@ export default function SignUp() {
         description = 'Enter New Email';
     } else if (res.status === 423) {
         title = `Username ${username} Already Exist`
-        description = 'Enter New Username';
+        description = `${username} is already taken, Enter New Username`;
     } else if (res.status === 424) {
         title = `Number ${number} Already Exist`
         description = 'Enter New Number';
     } else if (res.status === 425) {
-        window.alert("Password doesn't match")
+        title = `Password Error!`
+        description = `Password Doesn't match`;
     } else if (res.status === 426) {
-        window.alert(`Username's length must be greater than 2 character and you've used just ${username.length} characters`)
+        title = `Username Error!`
+        description = `Password Doesn't match`;
     } else if (res.status === 427) {
         window.alert(`Password's length must be greater than 2 character and you've used just ${password.length} values`)
     } else if (res.status === 500) {
