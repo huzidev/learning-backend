@@ -38,8 +38,8 @@ export default function SingIn() {
       title = "You've left an tag Empty!";
     } else if (res.status === 422) {
       icon = error;
-      title = `Wrong Email`;
-      description = `"${email}" Doesn't Found`;
+      title = `Error`;
+      description = `Email or Password Is Incorrect!`;
     } else if (res.status === 423) {
       icon = error;
       title = `Wrong Password`;
@@ -49,12 +49,12 @@ export default function SingIn() {
       title = `Server Error`;
       description = `Failed To Signin, Internal Server Error!`;
     } else {
+      localStorage.setItem('jwtoken', data.token);
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>
       title = `Signin Successful!`
       description = `User Signedin Successfully`;
       console.log("Signin Successful");
       Navigate('/');
-      window.location.reload();
     }
     async function openNotification() {
       notification.open({
