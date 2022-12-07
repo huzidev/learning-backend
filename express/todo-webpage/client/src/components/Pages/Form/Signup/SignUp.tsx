@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input, Typography, notification } from 'antd';
 import { LockOutlined, UserOutlined, NumberOutlined, MailOutlined } from '@ant-design/icons';
-import { SmileOutlined } from '@ant-design/icons';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { DataType } from './Type';
 import { Link } from 'react-router-dom';
 
@@ -29,6 +29,7 @@ export default function SignUp() {
     });
   };
 
+  let icon: any
   let title: String;
   let description: String | null;
 
@@ -52,6 +53,7 @@ export default function SignUp() {
 
     const data = await res.json();
     if (res.status === 421 || !data) {
+        icon = <ExclamationCircleOutlined />;
         title = "You've left an tag Empty!"
     } else if (res.status === 422) {
         title = `Email Already Exist!`
@@ -82,8 +84,9 @@ export default function SignUp() {
     }
     async function openNotification() {
         notification.open({
+          icon : icon,
           message: title,
-          description: description,
+          description: description
         });
       };
     openNotification()
