@@ -89,7 +89,7 @@ export default function App(): JSX.Element {
     )
   ];
   
-  const signedOutItems = [
+  const signedOutItems: MenuItem[] = [
     getItem(
       'Signin', '2', 
       <LoginOutlined />, 
@@ -104,7 +104,7 @@ export default function App(): JSX.Element {
     )
   ];
 
-  const signingOut = [
+  const signingOut: MenuItem[] = [
     getItem(
       'Signout', '1', 
       <LoginOutlined />, 
