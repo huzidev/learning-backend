@@ -38,12 +38,12 @@ export default function SingIn() {
       title = "You've left an tag Empty!";
     } else if (res.status === 422) {
       icon = error;
-      title = `Email Not Found`;
+      title = `Wrong Email`;
       description = `"${email}" Doesn't Found`;
     } else if (res.status === 423) {
       icon = error;
       title = `Wrong Password`;
-      description = `"${email}" Doesn't Found`;
+      description = `Password You've Entered Is Wrong`;
     } else if (res.status === 500) {
       window.alert("Internal Server Error : Failed to registered!")
     } else if (res.status === 201) {
