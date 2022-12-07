@@ -49,7 +49,7 @@ export default function UpdateUser() {
 
     const handleClick = async () => { 
 
-        const {_id, username, email, number, image} = userData
+        const {_id, username, email, number, isTheme} = userData
         const {eusername, eemail, enumber, eimage} = data
 
         try {
@@ -78,15 +78,11 @@ export default function UpdateUser() {
                 icon = error;
                 title = "Empty Field";
                 description = `You can't left ${hold} field empty`
-            }  else if (eusername === username) {
-                icon = error;
-                title = "Empty Field";
-                description = "You can't left username field empty"
-            }
+            } 
             else {
                 icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
                 title = "Success!";
-                description = "Yours Data Updated Successfully!"
+                description = "Yours Data Have Been Updated Successfully!"
                 const data = await res.json();
                 let newData = JSON.parse(JSON.stringify(userData))
                 for (let index = 0; index < newData.length; index++) {
