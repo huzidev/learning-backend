@@ -4,10 +4,9 @@ import { Button, Form, Input, Typography, notification } from 'antd';
 import { 
     LockOutlined, 
     UserOutlined, 
-    NumberOutlined, 
     MailOutlined, 
     ExclamationCircleOutlined, 
-    SettingOutlined, 
+    ClockCircleOutlined, 
     CheckCircleOutlined 
 } from '@ant-design/icons';
 import { DataType } from './Type';
@@ -88,7 +87,7 @@ export default function SignUp() {
         title = `Password Error!`
         description = `Password character must be greater than 5, You've used only ${password.length} character`;
     } else if (res.status === 500) {
-        icon = <SettingOutlined />;
+        icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
         title = `Internal Server Error!`
         description = `Failed To Register, Server Error!`;
     } else {
