@@ -108,6 +108,7 @@ export default function SignUp() {
             <Form.Item
                 name="password"
                 hasFeedback
+                style={{ marginBottom: '15px' }}
             >
                 <Input.Password
                     className='Dark styleMargin'
