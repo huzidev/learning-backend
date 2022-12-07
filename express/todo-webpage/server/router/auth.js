@@ -48,7 +48,7 @@ router.post('/signup', async (req, res) => {
         } 
         // when user registered successfully
         else {
-            const user = new User({ username, email, number: "+92", password, cpassword, isTheme });
+            const user = new User({ username, email, number: "+92" + number, password, cpassword, isTheme });
             const userRegister = await user.save();
             if (userRegister) {
                 return res.status(201).json({ message : "User registered successfully!" });
