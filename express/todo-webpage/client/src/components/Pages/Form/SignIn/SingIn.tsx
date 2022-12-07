@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LockOutlined, UserOutlined, ExclamationCircleOutlined, SettingOutlined, CheckCircleOutlined  } from '@ant-design/icons';
 import { Button, Form, Input, Typography } from 'antd';
 import layout from './Layout';
 import { DataType } from './Type';
