@@ -7,8 +7,12 @@ export default function SignOut(): JSX.Element {
 
     const Navigate = useNavigate();
   
-    let icon: any;
-    let title: String;
+    async function openNotification() {
+      notification.open({
+        icon : <CheckCircleOutlined style={{ color: '#00FF00' }}/>,
+        message: "Logout Successfully"
+      });
+    };
 
     React.useEffect(() => {
         fetch('/signout', {
@@ -21,17 +25,11 @@ export default function SignOut(): JSX.Element {
         }).then((res: Response) => {
             localStorage.removeItem('jwtoken')
             setTimeout(() => {
-              async function openNotification() {
-                notification.open({
-                  icon : <CheckCircleOutlined style={{ color: '#00FF00' }}/>,
-                  message: "Logout Successfully"
-                });
-              };
-            openNotification()
               Navigate('/', {
                 replace : true
               })
-              window.location.reload();
+            {openNotification()}
+            window.location.reload()
             }, 2000)
         }).catch((err: string) => {
           console.log(err);
