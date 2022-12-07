@@ -50,9 +50,9 @@ export default function SingIn() {
       description = `Failed To Signin, Internal Server Error!`;
     } else {
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>
-      title = `Signin Successfull!`
+      title = `Signin Successful!`
       description = `User Signedin Successfully`;
-      console.log("Successful Registration");
+      console.log("Signin Successful");
       Navigate('/');
       window.location.reload();
     }

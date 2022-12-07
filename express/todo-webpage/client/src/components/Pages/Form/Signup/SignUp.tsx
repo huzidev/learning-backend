@@ -92,9 +92,9 @@ export default function SignUp() {
         description = `Failed To Register, Internal Server Error!`;
     } else {
         icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>
-        title = `Registeration Successfull!`
+        title = `Registeration Successful!`
         description = `User Registered Successfully`;
-        console.log("Successful Registration");
+        console.log("Registration Successful");
         Navigate("/signin");
     }
     async function openNotification() {
