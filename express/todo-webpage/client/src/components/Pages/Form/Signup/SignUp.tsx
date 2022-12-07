@@ -92,7 +92,7 @@ export default function SignUp() {
         title = `Internal Server Error!`
         description = `Failed To Register, Server Error!`;
     } else {
-        icon = <CheckCircleOutlined style={{ color: '##00FF00' }}/>
+        icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>
         title = `Registeration Successfull`
         description = `User Registered Successfully!`;
         console.log("Successful Registration");
@@ -139,7 +139,8 @@ export default function SignUp() {
                 name="number"
                 value={user.number}
                 onChange={inputHandler}
-                prefix={<NumberOutlined className="site-form-item-icon" />}
+                // prefix={<NumberOutlined className="site-form-item-icon" />}
+                prefix = "+92"
                 placeholder="Enter Yours Number"
                 required
             />
