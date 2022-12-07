@@ -42,7 +42,7 @@ export default function UpdateUser() {
         setIsChecked(!isChecked)
     }
 
-    let error: any = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+    let error: any = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
     let icon : any
     let title: String;
     let description: String | null;
@@ -88,9 +88,7 @@ export default function UpdateUser() {
             }
             else {
                 const data = await res.json();
-        
                 let newData = JSON.parse(JSON.stringify(userData))
-        
                 for (let index = 0; index < newData.length; index++) {
                     const element = newData[index];
                     if (element._id === _id) {
@@ -99,6 +97,9 @@ export default function UpdateUser() {
                         newData[index].number = number;
                         break; 
                     }
+                    icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+                    title = "Empty Field";
+                    description = "You can't left number field empty"
                     setUserData(newData);
                     window.location.reload()
                 }
