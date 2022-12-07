@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import DataContext from '../../../Context/DataContext';
 import User from '../about/About';
-import { Button, Modal, Form, Input, Typography } from 'antd';
+import { Button, Modal, Form, Input, Typography, notification } from 'antd';
 import { UserOutlined, MailOutlined, NumberOutlined, ExclamationCircleOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import { DataType } from './Type';
 
@@ -85,6 +85,14 @@ function stateChanger() {
                     window.location.reload();
                 }
             }
+            async function openNotification() {
+                notification.open({
+                  icon : icon,
+                  message: title,
+                  description: description
+                });
+              };
+              openNotification();
         } catch (err) {
             console.log(err);
         }

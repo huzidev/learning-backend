@@ -62,7 +62,7 @@ export default function SingIn() {
         description: description
       });
     };
-    openNotification()
+    openNotification();
   }
   return (
     <div style={{ width: '500px', margin: '15% auto 0px auto'}}>
