@@ -29,7 +29,6 @@ export default function SignOut(): JSX.Element {
                 replace : true
               })
             {openNotification()}
-            window.location.reload()
             }, 2000)
         }).catch((err: string) => {
           console.log(err);
