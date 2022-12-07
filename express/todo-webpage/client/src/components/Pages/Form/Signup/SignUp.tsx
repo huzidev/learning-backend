@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input, Typography, notification } from 'antd';
 import { LockOutlined, UserOutlined, NumberOutlined, MailOutlined } from '@ant-design/icons';
-import layout from '../../../Layout/Layout';
+import { SmileOutlined } from '@ant-design/icons';
 import { DataType } from './Type';
 import { Link } from 'react-router-dom';
 
