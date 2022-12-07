@@ -54,12 +54,14 @@ export default function SignUp() {
     if (res.status === 421 || !data) {
         title = "You've left an tag Empty!"
     } else if (res.status === 422) {
-        title = "Email Already Exist"
+        title = `Email "${email}" Already Exist`
         description = 'Enter New Email';
     } else if (res.status === 423) {
-        window.alert("Username already Exist")
+        title = `Username ${username} Already Exist`
+        description = 'Enter New Username';
     } else if (res.status === 424) {
-        window.alert("Number already Exist")
+        title = `Number ${number} Already Exist`
+        description = 'Enter New Number';
     } else if (res.status === 425) {
         window.alert("Password doesn't match")
     } else if (res.status === 426) {
@@ -77,9 +79,6 @@ export default function SignUp() {
         notification.open({
           message: title,
           description: description,
-          onClick: () => {
-            console.log('Notification Clicked!');
-          },
         });
       };
       if (res.status === 421 || res.status === 422) {
