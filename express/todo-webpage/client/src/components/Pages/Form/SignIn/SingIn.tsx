@@ -17,6 +17,11 @@ export default function SingIn() {
     });
   };
 
+  let error: any = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+  let icon : any
+  let title: String;
+  let description: String | null;
+
   async function signIn(e: React.FormEvent) {
     e.preventDefault();
     const { email, password } = user;
@@ -29,7 +34,8 @@ export default function SingIn() {
     });
     const data = await res.json();
     if (!data) {
-      window.alert("Invalid Value!")
+      icon = error;
+      title = "You've left an tag Empty!"
     } else if (res.status === 400) {
       window.alert("Email or Password is incorrect")
     } else if (res.status === 500) {
@@ -40,6 +46,14 @@ export default function SingIn() {
       Navigate('/');
       window.location.reload();
     }
+    async function openNotification() {
+      notification.open({
+        icon : icon,
+        message: title,
+        description: description
+      });
+    };
+  openNotification()
   }
   return (
     <div style={{ width: '500px', margin: '15% auto 0px auto'}}>
