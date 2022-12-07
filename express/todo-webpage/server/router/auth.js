@@ -71,8 +71,13 @@ router.post('/signin', async (req, res) => {
     try {
         let token;
         const {email, password} = req.body;
-        const userEmail = await User.findOne({ email: email });``
-        if (userEmail) {
+        if (!email, !password) {
+            return res.status(421).json({ error : "You've left an tag empty" });
+        }
+        const userEmail = await User.findOne({ email: email });
+        if (!userEmail) {
+            
+        } else {
             const isMatchEmail = await bcrypt.compare(password, userEmail.password);
 
             token = await userEmail.generateAuthToken();
