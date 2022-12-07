@@ -78,18 +78,18 @@ router.post('/signin', async (req, res) => {
         if (!userEmail) {
             return res.status(422).json({ error: "No Such Email is Found!" })
         } else {
-            const isMatchEmail = await bcrypt.compare(password, userEmail.password);
-
-            token = await userEmail.generateAuthToken();
-
-            res.cookie("jwtoken", token, {
-                expires : new Date(Date.now() + 86400000),
-                httpOnly : true
-            })
-            if (!isMatchEmail) {
-                res.status(400).json({ error : "Email or Password is incorrect" })
+            const isMatchPassword = await bcrypt.compare(password, userEmail.password);
+            if (!isMatchPassword) {
+                res.status(423).json({ error : "Password is incorrect" })
+            } else {
+                token = await userEmail.generateAuthToken();
+                res.cookie("jwtoken", token, {
+                    expires : new Date(Date.now() + 86400000), // after 24 hours
+                    httpOnly : true
+                })
             }
-            else if (isMatchEmail) {
+
+            if (isMatchEmail) {
                 res.status(201).json({ message : "User loggedIn successfully" })
             }
             else {
