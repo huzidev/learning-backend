@@ -38,9 +38,14 @@ export default function UpdateUser() {
 }
 
 
-function stateChanger() {
-    setIsChecked(!isChecked)
-}
+    function stateChanger() {
+        setIsChecked(!isChecked)
+    }
+
+    let error: any = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+    let icon : any
+    let title: String;
+    let description: String | null;
 
     const handleClick = async () => { 
 
