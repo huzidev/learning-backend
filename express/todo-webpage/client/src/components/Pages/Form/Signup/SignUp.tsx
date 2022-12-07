@@ -36,7 +36,8 @@ export default function SignUp() {
     });
   };
 
-  let icon: any
+  let error: any = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+  let icon : any
   let title: String;
   let description: String | null;
 
@@ -60,30 +61,30 @@ export default function SignUp() {
 
     const data = await res.json();
     if (res.status === 421 || !data) {
-        icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+        icon = error;
         title = "You've left an tag Empty!"
     } else if (res.status === 422) {
-        icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+        icon = error;
         title = `Email Already Exist!`
         description = `"${email}" is already taken, Enter New Email`;
     } else if (res.status === 423) {
-        icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+        icon = error;
         title = `Username Already Exist!`
         description = `"${username}" is already taken, Enter New Username`;
     } else if (res.status === 424) {
-        icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+        icon = error;
         title = `Number Already Exist!`
         description = `"${number}" is already taken, Enter New Number`;
     } else if (res.status === 425) {
-        icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+        icon = error;
         title = `Password Error!`
         description = `Password Doesn't match`;
     } else if (res.status === 426) {
-        icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+        icon = error;
         title = `Username Error!`
         description = `Username character must be greater than 3, You've used only ${username.length} character`;
     } else if (res.status === 427) {
-        icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+        icon = error;
         title = `Password Error!`
         description = `Password character must be greater than 5, You've used only ${password.length} character`;
     } else if (res.status === 500) {
