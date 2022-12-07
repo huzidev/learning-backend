@@ -54,24 +54,26 @@ export default function SignUp() {
     if (res.status === 421 || !data) {
         title = "You've left an tag Empty!"
     } else if (res.status === 422) {
-        title = `Email Already Exist`
+        title = `Email Already Exist!`
         description = `"${email}" is already taken, Enter New Email`;
     } else if (res.status === 423) {
-        title = `Username Already Exist`
+        title = `Username Already Exist!`
         description = `"${username}" is already taken, Enter New Username`;
     } else if (res.status === 424) {
-        title = `Number ${number} Already Exist`
-        description = 'Enter New Number';
+        title = `Number Already Exist!`
+        description = `"${number}" is already taken, Enter New Number`;
     } else if (res.status === 425) {
         title = `Password Error!`
         description = `Password Doesn't match`;
     } else if (res.status === 426) {
         title = `Username Error!`
-        description = `Password Doesn't match`;
+        description = `Username character must be greater than 3, You've used only ${username.length} character`;
     } else if (res.status === 427) {
-        window.alert(`Password's length must be greater than 2 character and you've used just ${password.length} values`)
+        title = `Password Error!`
+        description = `Password character must be greater than 5, You've used only ${password.length} character`;
     } else if (res.status === 500) {
-        window.alert("Internal Server Error : Failed to registered!")
+        title = `Internal Server Error!`
+        description = `Failed To Register, Server Error!`;
     } else {
         window.alert("User registered successfully!")
         console.log("Successful Registration");
