@@ -84,6 +84,7 @@ export default function SignUp() {
         title = `Internal Server Error!`
         description = `Failed To Register, Server Error!`;
     } else {
+        icon = <CheckCircleOutlined style={{ color: '##00FF00' }}/>
         title = `Registeration Successfull`
         description = `User Registered Successfully!`;
         console.log("Successful Registration");
