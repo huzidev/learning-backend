@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input, Typography, notification } from 'antd';
 import { LockOutlined, UserOutlined, NumberOutlined, MailOutlined } from '@ant-design/icons';
-import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { ExclamationCircleOutlined, SettingOutlined } from '@ant-design/icons';
 import { DataType } from './Type';
 import { Link } from 'react-router-dom';
 
@@ -53,27 +53,34 @@ export default function SignUp() {
 
     const data = await res.json();
     if (res.status === 421 || !data) {
-        icon = <ExclamationCircleOutlined />;
+        icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
         title = "You've left an tag Empty!"
     } else if (res.status === 422) {
+        icon = <ExclamationCircleOutlined />;
         title = `Email Already Exist!`
         description = `"${email}" is already taken, Enter New Email`;
     } else if (res.status === 423) {
+        icon = <ExclamationCircleOutlined />;
         title = `Username Already Exist!`
         description = `"${username}" is already taken, Enter New Username`;
     } else if (res.status === 424) {
+        icon = <ExclamationCircleOutlined />;
         title = `Number Already Exist!`
         description = `"${number}" is already taken, Enter New Number`;
     } else if (res.status === 425) {
+        icon = <ExclamationCircleOutlined />;
         title = `Password Error!`
         description = `Password Doesn't match`;
     } else if (res.status === 426) {
+        icon = <ExclamationCircleOutlined />;
         title = `Username Error!`
         description = `Username character must be greater than 3, You've used only ${username.length} character`;
     } else if (res.status === 427) {
+        icon = <ExclamationCircleOutlined />;
         title = `Password Error!`
         description = `Password character must be greater than 5, You've used only ${password.length} character`;
     } else if (res.status === 500) {
+        icon = <SettingOutlined />;
         title = `Internal Server Error!`
         description = `Failed To Register, Server Error!`;
     } else {
