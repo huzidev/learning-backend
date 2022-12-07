@@ -46,11 +46,13 @@ export default function SingIn() {
       description = `Password You've Entered Is Wrong`;
     } else if (res.status === 500) {
       icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
-      title = `Wrong Password`;
-      description = `Password You've Entered Is Wrong`;
-    } else if (res.status === 201) {
-      window.alert("LoggedIn Successfully!");
-      localStorage.setItem('jwtoken', data.token);
+      title = `Server Error`;
+      description = `Failed To Signin, Internal Server Error!`;
+    } else {
+      icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>
+      title = `Signin Successfull!`
+      description = `User Signedin Successfully`;
+      console.log("Successful Registration");
       Navigate('/');
       window.location.reload();
     }

@@ -89,11 +89,11 @@ export default function SignUp() {
     } else if (res.status === 500) {
         icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
         title = `Internal Server Error!`
-        description = `Failed To Register, Server Error!`;
+        description = `Failed To Register, Internal Server Error!`;
     } else {
         icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>
-        title = `Registeration Successfull`
-        description = `User Registered Successfully!`;
+        title = `Registeration Successfull!`
+        description = `User Registered Successfully`;
         console.log("Successful Registration");
         Navigate("/signin");
     }
