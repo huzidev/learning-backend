@@ -81,18 +81,14 @@ router.post('/signin', async (req, res) => {
             const isMatchPassword = await bcrypt.compare(password, userEmail.password);
             if (!isMatchPassword) {
                 res.status(423).json({ error : "Password is incorrect" })
-            } else {
+            } else if (isMatchPassword) {
                 token = await userEmail.generateAuthToken();
                 res.cookie("jwtoken", token, {
                     expires : new Date(Date.now() + 86400000), // after 24 hours
                     httpOnly : true
                 })
-            }
-
-            if (isMatchEmail) {
                 res.status(201).json({ message : "User loggedIn successfully" })
-            }
-            else {
+            } else {
                 res.status(500).json({ message : "Internal Server Error : Failed to registered!" })
             }
         }
