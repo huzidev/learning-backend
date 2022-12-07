@@ -86,9 +86,7 @@ export default function SignUp() {
           description: description,
         });
       };
-      if (res.status === 421 || res.status === 422) {
-        openNotification()
-      }
+    openNotification()
   };
 
   return (
