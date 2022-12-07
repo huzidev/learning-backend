@@ -73,11 +73,11 @@ export default function UpdateUser() {
                   description: description
                 });
               };
-              const hold = eusername === "" ? "username" : eemail === "" ? "email" : "number"
+              const text = eusername === "" ? "username" : eemail === "" ? "email" : "number"
             if (eusername === "" || eemail === "" || enumber === "") {
                 icon = error;
                 title = "Empty Field";
-                description = `You can't left ${hold} field empty`
+                description = `You can't left ${text} field empty`
             } 
             else {
                 icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
