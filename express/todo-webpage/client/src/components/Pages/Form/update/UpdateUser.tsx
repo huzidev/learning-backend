@@ -66,12 +66,25 @@ export default function UpdateUser() {
                     isTheme: isChecked
                 })
             });
+            async function openNotification() {
+                notification.open({
+                  icon : icon,
+                  message: title,
+                  description: description
+                });
+              };
             if (eusername === "") {
-                window.alert("You can't left username field empty")
+                icon = error;
+                title = "Empty Field";
+                description = "You can't left username field empty"
             } else if (eemail === "") {
-                window.alert("You can't left email field empty")
+                icon = error;
+                title = "Empty Field";
+                description = "You can't left email field empty"
             } else if (enumber === "") {
-                window.alert("You can't left number field empty")
+                icon = error;
+                title = "Empty Field";
+                description = "You can't left number field empty"
             }
             else {
                 const data = await res.json();
@@ -87,22 +100,14 @@ export default function UpdateUser() {
                         break; 
                     }
                     setUserData(newData);
-                    window.location.reload();
+                    window.location.reload()
                 }
             }
-            async function openNotification() {
-                notification.open({
-                  icon : icon,
-                  message: title,
-                  description: description
-                });
-              };
-              openNotification();
+            openNotification();
         } catch (err) {
             console.log(err);
         }
         setIsModalOpen(false);
-            window.location.reload();
     }
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({...data, [e.target.name]: e.target.value})
