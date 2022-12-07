@@ -38,8 +38,8 @@ export default function SingIn() {
       title = "You've left an tag Empty!";
     } else if (res.status === 400) {
       icon = error;
-      title = `Email Already Exist!`;
-      description = `"${email}" is already taken, Enter New Email`;
+      title = `Error!`;
+      description = `Email or Password is incorrect`;
     } else if (res.status === 500) {
       window.alert("Internal Server Error : Failed to registered!")
     } else if (res.status === 201) {
