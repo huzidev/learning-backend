@@ -56,27 +56,27 @@ export default function SignUp() {
         icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
         title = "You've left an tag Empty!"
     } else if (res.status === 422) {
-        icon = <ExclamationCircleOutlined />;
+        icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
         title = `Email Already Exist!`
         description = `"${email}" is already taken, Enter New Email`;
     } else if (res.status === 423) {
-        icon = <ExclamationCircleOutlined />;
+        icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
         title = `Username Already Exist!`
         description = `"${username}" is already taken, Enter New Username`;
     } else if (res.status === 424) {
-        icon = <ExclamationCircleOutlined />;
+        icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
         title = `Number Already Exist!`
         description = `"${number}" is already taken, Enter New Number`;
     } else if (res.status === 425) {
-        icon = <ExclamationCircleOutlined />;
+        icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
         title = `Password Error!`
         description = `Password Doesn't match`;
     } else if (res.status === 426) {
-        icon = <ExclamationCircleOutlined />;
+        icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
         title = `Username Error!`
         description = `Username character must be greater than 3, You've used only ${username.length} character`;
     } else if (res.status === 427) {
-        icon = <ExclamationCircleOutlined />;
+        icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
         title = `Password Error!`
         description = `Password character must be greater than 5, You've used only ${password.length} character`;
     } else if (res.status === 500) {
