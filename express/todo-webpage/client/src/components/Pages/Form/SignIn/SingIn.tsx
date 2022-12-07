@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { Button, Form, Input, Typography, notification } from 'antd';
 import { LockOutlined, UserOutlined, ExclamationCircleOutlined, SettingOutlined, CheckCircleOutlined  } from '@ant-design/icons';
-import { Button, Form, Input, Typography } from 'antd';
 import layout from './Layout';
 import { DataType } from './Type';
 
@@ -35,9 +35,11 @@ export default function SingIn() {
     const data = await res.json();
     if (!data) {
       icon = error;
-      title = "You've left an tag Empty!"
+      title = "You've left an tag Empty!";
     } else if (res.status === 400) {
-      window.alert("Email or Password is incorrect")
+      icon = error;
+      title = `Email Already Exist!`;
+      description = `"${email}" is already taken, Enter New Email`;
     } else if (res.status === 500) {
       window.alert("Internal Server Error : Failed to registered!")
     } else if (res.status === 201) {
