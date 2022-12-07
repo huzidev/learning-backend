@@ -75,7 +75,8 @@ export default function SignUp() {
         title = `Internal Server Error!`
         description = `Failed To Register, Server Error!`;
     } else {
-        window.alert("User registered successfully!")
+        title = `Registeration Successfull`
+        description = `User Registered Successfully!`;
         console.log("Successful Registration");
         Navigate("/signin");
     }
