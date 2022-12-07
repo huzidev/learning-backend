@@ -1,11 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Spin, Typography } from 'antd';
+import { Spin, Typography, notification } from 'antd';
 
 export default function SignOut(): JSX.Element {
 
     const Navigate = useNavigate();
   
+    let icon: String
+
     React.useEffect(() => {
         fetch('/signout', {
           method : 'GET',
