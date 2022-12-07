@@ -108,10 +108,10 @@ export default function SignUp() {
             <Form.Item
                 name="password"
                 hasFeedback
-                style={{ marginBottom: '15px' }}
+                className='margin-input'
             >
                 <Input.Password
-                    className='Dark styleMargin'
+                    className='Dark'
                     name="password"
                     value={user.password}
                     onChange={inputHandler}
@@ -123,7 +123,7 @@ export default function SignUp() {
             <Form.Item
                 name="confirm"
                 dependencies={['password']}
-                style={{ marginBottom: '10px' }}
+                className='margin-input'
                 hasFeedback
                 rules={[
                 {
