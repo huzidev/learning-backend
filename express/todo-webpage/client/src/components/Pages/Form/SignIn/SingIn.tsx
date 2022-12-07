@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input, Typography, notification } from 'antd';
-import { LockOutlined, UserOutlined, ExclamationCircleOutlined, SettingOutlined, CheckCircleOutlined  } from '@ant-design/icons';
+import { LockOutlined, UserOutlined, ExclamationCircleOutlined, ClockCircleOutlined, CheckCircleOutlined  } from '@ant-design/icons';
 import layout from './Layout';
 import { DataType } from './Type';
 
@@ -45,7 +45,9 @@ export default function SingIn() {
       title = `Wrong Password`;
       description = `Password You've Entered Is Wrong`;
     } else if (res.status === 500) {
-      window.alert("Internal Server Error : Failed to registered!")
+      icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
+      title = `Wrong Password`;
+      description = `Password You've Entered Is Wrong`;
     } else if (res.status === 201) {
       window.alert("LoggedIn Successfully!");
       localStorage.setItem('jwtoken', data.token);
