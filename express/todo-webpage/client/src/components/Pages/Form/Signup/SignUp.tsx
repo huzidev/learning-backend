@@ -70,6 +70,18 @@ export default function SignUp() {
         Navigate("/signin");
     }
   };
+
+  async function openNotification() {
+    notification.open({
+      message: 'Notification Title',
+      description:
+        'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+      onClick: () => {
+        console.log('Notification Clicked!');
+      },
+    });
+  };
+
   return (
     <div style={{ width: '500px', margin: '11% auto 0px auto'}}>
         <Typography.Title level={2}>
@@ -160,6 +172,9 @@ export default function SignUp() {
                 </Button>
             </Form.Item>
         </Form>
+        <Button type="primary" onClick={openNotification}>
+            Open the notification box
+        </Button>
     </div>
   )
 }
