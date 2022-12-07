@@ -42,7 +42,7 @@ export default function UpdateUser() {
         setIsChecked(!isChecked)
     }
 
-    let error: any = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
+    let error: any = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
     let icon : any
     let title: String;
     let description: String | null;
@@ -73,20 +73,20 @@ export default function UpdateUser() {
                   description: description
                 });
               };
-            if (eusername === "") {
+              const hold = eusername === "" ? "username" : eemail === "" ? "email" : "number"
+            if (eusername === "" || eemail === "" || enumber === "") {
+                icon = error;
+                title = "Empty Field";
+                description = `You can't left ${hold} field empty`
+            }  else if (eusername === username) {
                 icon = error;
                 title = "Empty Field";
                 description = "You can't left username field empty"
-            } else if (eemail === "") {
-                icon = error;
-                title = "Empty Field";
-                description = "You can't left email field empty"
-            } else if (enumber === "") {
-                icon = error;
-                title = "Empty Field";
-                description = "You can't left number field empty"
             }
             else {
+                icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
+                title = "Success!";
+                description = "Yours Data Updated Successfully!"
                 const data = await res.json();
                 let newData = JSON.parse(JSON.stringify(userData))
                 for (let index = 0; index < newData.length; index++) {
@@ -97,11 +97,7 @@ export default function UpdateUser() {
                         newData[index].number = number;
                         break; 
                     }
-                    icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
-                    title = "Empty Field";
-                    description = "You can't left number field empty"
                     setUserData(newData);
-                    window.location.reload()
                 }
             }
             openNotification();
@@ -109,6 +105,9 @@ export default function UpdateUser() {
             console.log(err);
         }
         setIsModalOpen(false);
+        setTimeout(() => {
+            window.location.reload()
+        }, 2500);
     }
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({...data, [e.target.name]: e.target.value})
