@@ -85,7 +85,7 @@ export default function UpdateUser() {
             } else if (isTheme === !isChecked) {
                 icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
                 title = "Theme Updated";
-                description = `Yours Theme Has Been Updated`
+                description = `Yours Theme Has Been Changed to ${isChecked ? "Dark Mode" : "Light Mode"}`
             } else {
                 icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
                 title = "Success!";
