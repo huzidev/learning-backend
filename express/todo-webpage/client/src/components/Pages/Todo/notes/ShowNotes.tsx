@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import DataContext from "../../../Context/DataContext";
 import { Card, Button, Typography, Modal, notification } from 'antd';
+import { ClockCircleOutlined, CheckCircleOutlined  } from '@ant-design/icons';
 import {IntlProvider, FormattedDate} from 'react-intl'
 import { useLocation } from 'react-router-dom';
 
@@ -30,8 +31,16 @@ export default function ShowNotes(props: any): JSX.Element {
             const data = res.json();
             const newNotes = notes.filter((d: any) => { return d._id !== note.id })
             setNotes(newNotes)
-            window.alert("Note Deleted Successfully!");
-            window.location.reload()
+            async function openNotification() {
+                notification.open({
+                    icon : <CheckCircleOutlined style={{ color: '#00FF00' }}/>,
+                    message: "Note Deleted Successfully!"
+                });
+            };
+            openNotification();
+            setTimeout(() => {
+                window.location.reload()
+            }, 1500)
         } catch (e) {
             console.log(e);
         }
