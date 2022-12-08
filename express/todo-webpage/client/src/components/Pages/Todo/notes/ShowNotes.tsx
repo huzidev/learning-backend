@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import DataContext from "../../../Context/DataContext";
-import { Card, Col, Row , Button, Typography, Modal } from 'antd';
+import { Card, Button, Typography, Modal, notification } from 'antd';
 import {IntlProvider, FormattedDate} from 'react-intl'
 import { useLocation } from 'react-router-dom';
 
