@@ -24,6 +24,10 @@ export default function NotesItems(props: any) {
         setIsModalOpen(false);
     };
 
+    let icon : any
+    let title: String;
+    let description: String | null;
+
     useEffect(() => {
         if (Location.pathname.includes('/addnote')) {
             async function getNotes() {
@@ -34,6 +38,14 @@ export default function NotesItems(props: any) {
                     }
             })
             const data = await res.json();
+            async function openNotification() {
+            notification.open({
+                icon : <CheckCircleOutlined style={{ color: '#00FF00' }}/>,
+                message : `Notes Fetched Successfully`,
+                description : `${data.length} notes have been fetched`
+            });
+            };
+            openNotification();
             setNotes(data)
         }
         console.log("in all notes", notes);
@@ -51,6 +63,16 @@ useEffect(() => {
                     }
                 })
                 const data = await res.json();
+                if (data.length === 0) {
+                    
+                }
+                notification.open({
+                    icon : <CheckCircleOutlined style={{ color: '#00FF00' }}/>,
+                    message : `Notes Fetched Successfully`,
+                    description : `${data.length} notes have been fetched`
+                });
+                };
+                openNotification();
                 setNotes(data)
             }
             console.log("in COMP notes", notes);
