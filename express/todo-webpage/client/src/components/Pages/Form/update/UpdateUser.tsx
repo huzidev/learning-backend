@@ -114,15 +114,15 @@ export default function UpdateUser() {
     }
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({...data, [e.target.name]: e.target.value})
-}
+  }
 
-const handlePhoto = (e: any) => {
-    setData({...data, eimage: e.target.files[0]});
-}
+  const handlePhoto = (e: any) => {
+      setData({...data, eimage: e.target.files[0]});
+  }
 
-    const style = {
-        marginTop : "20px"
-    }
+  const style = {
+      marginTop : "20px"
+  }
 
   return (
         <div>
