@@ -105,7 +105,13 @@ export default function NotesItems(props: any) {
                         isCompleted: isChecked
                     })
                 });
-        
+                async function openNotification() {
+                    notification.open({
+                      icon : icon,
+                      message: title,
+                      description: description
+                    });
+                };
                 const text = title === "" ? "title" : description === "" ? "description" : "category"
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
@@ -133,6 +139,7 @@ export default function NotesItems(props: any) {
                     }
                     setNotes(newNote)
                 }
+                openNotification();
             } catch (err) {
                 console.log(err);
             }
