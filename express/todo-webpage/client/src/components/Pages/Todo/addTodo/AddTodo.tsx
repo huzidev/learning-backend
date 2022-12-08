@@ -41,7 +41,7 @@ export default function AddTodo(): JSX.Element {
       else {  
         const data = await res.json()
         setNotes(notes.concat(data));
-        icon = <CheckCircleOutlined style={{ color: '#FF0000' }}/>;
+        icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
         heading = `Note Added`;
         message = `Yours Note Has Been Added Successfully!`;
       }
