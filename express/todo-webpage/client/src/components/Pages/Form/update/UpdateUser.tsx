@@ -82,8 +82,11 @@ export default function UpdateUser() {
                 icon = error;
                 title = "Same Data";
                 description = `Nothing New To Update All Values Are Same As Before`
-            }
-            else {
+            } else if (isTheme === !isChecked) {
+                icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
+                title = "Theme Updated";
+                description = `Yours Theme Has Been Updated`
+            } else {
                 icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
                 title = "Success!";
                 description = "Yours Data Have Been Updated Successfully!"
