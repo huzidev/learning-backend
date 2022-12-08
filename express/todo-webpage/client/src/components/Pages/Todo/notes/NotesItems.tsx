@@ -28,6 +28,13 @@ export default function NotesItems(props: any) {
     let title: String;
     let description: String | null;
 
+    let path;
+    if (Location.pathname.includes('/addnote')) {
+        
+    } else if (Location.pathname.includes('/completed')) {
+        
+    }
+
     useEffect(() => {
         if (Location.pathname.includes('/addnote')) {
             async function getNotes() {
