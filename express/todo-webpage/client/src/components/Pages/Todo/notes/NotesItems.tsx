@@ -28,28 +28,27 @@ export default function NotesItems(props: any) {
     let title: String;
     let description: String | null;
 
-    let path;
+    let path: any;
     if (Location.pathname.includes('/addnote')) {
-        
+        path = "/allnotes"
     } else if (Location.pathname.includes('/completed')) {
-        
+        path = "/completednotes"
     }
 
     useEffect(() => {
-        if (Location.pathname.includes('/addnote')) {
-            async function getNotes() {
-                const res = await fetch('/allnotes', {
-                    method : 'GET',
-                    headers: {
-                        "Content-Type" : "application/json",
-                    }
+        async function getNotes() {
+            const res = await fetch(`${path}`, {
+                method : 'GET',
+                headers: {
+                    "Content-Type" : "application/json",
+                }
             })
             const data = await res.json();
             async function openNotification() {
             if (data.length === 0) {
                 icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
-                title = `Server Error`;
-                description = `Failed To Signin, Internal Server Error!`;
+                title = `Empty`;
+                description = `No Note Has Found!`;
             } else {
                 icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
                 title = `Notes Fetched Successfully`;
@@ -66,43 +65,8 @@ export default function NotesItems(props: any) {
         }
         console.log("in all notes", notes);
         getNotes()
-    } 
-}, [Location.pathname])
-
-useEffect(() => {
-    if (Location.pathname.includes('/completed')) {
-        async function getCompNotes() {
-            const res = await fetch('/completednotes', {
-                    method : 'GET',
-                    headers: {
-                        "Content-Type" : "application/json",
-                    }
-                })
-                const data = await res.json();
-                async function openNotification() {
-                    if (data.length === 0) {
-                        icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
-                        title = `Empty`;
-                        description = `No Note Has Found!`;
-                    } else {
-                        icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
-                        title = `Notes Fetched Successfully`;
-                        description = `${data.length} notes have been fetched`;
-                    }
-                    notification.open({
-                        icon : icon,
-                        message: title,
-                        description: description
-                    });
-                    };
-                    openNotification();
-                setNotes(data)
-            }
-            console.log("in COMP notes", notes);
-            getCompNotes()
-        }
     }, [Location.pathname])
-    
+
     console.log("waht si state", testState);
     
 
