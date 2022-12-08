@@ -18,24 +18,24 @@ export default function UpdateUser() {
 
     const context = useContext(DataContext);
 
-  const { setUserData, userData } = context;
+    const { setUserData, userData } = context;
 
-  const ref = useRef<any>(null)
+    const ref = useRef<any>(null)
 
-  const [data, setData] = useState<DataType>({id: "", eusername: "", eemail: "", enumber: "", eimage: ""})
+    const [data, setData] = useState<DataType>({id: "", eusername: "", eemail: "", enumber: "", eimage: ""})
 
 
-  const updateData = (currData: any) => {
-    ref.current.click();
-    setIsChecked(currData.isTheme)
-    setData({
-        id: currData._id, 
-        eusername: currData.username,
-        eemail: currData.email, 
-        enumber: currData.number,
-        eimage: currData.image
-    })
-}
+    const updateData = (currData: any) => {
+        ref.current.click();
+        setIsChecked(currData.isTheme)
+        setData({
+            id: currData._id, 
+            eusername: currData.username,
+            eemail: currData.email, 
+            enumber: currData.number,
+            eimage: currData.image
+        })
+    }
 
 
     function stateChanger() {
@@ -112,17 +112,17 @@ export default function UpdateUser() {
             window.location.reload()
         }, 2500);
     }
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData({...data, [e.target.name]: e.target.value})
-  }
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setData({...data, [e.target.name]: e.target.value})
+    }
 
-  const handlePhoto = (e: any) => {
-      setData({...data, eimage: e.target.files[0]});
-  }
+    const handlePhoto = (e: any) => {
+        setData({...data, eimage: e.target.files[0]});
+    }
 
-  const style = {
-      marginTop : "20px"
-  }
+    const style = {
+        marginTop : "20px"
+    }
 
   return (
         <div>
