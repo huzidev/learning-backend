@@ -24,6 +24,7 @@ export default function NotesItems(props: any) {
         setIsModalOpen(false);
     };
 
+    let error: any = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
     let icon : any
     let title: String;
     let description: String | null;
@@ -105,6 +106,21 @@ export default function NotesItems(props: any) {
                     })
                 });
         
+                const text = title === "" ? "title" : description === "" ? "description" : "category"
+                if (etitle === "" || edescription === "" || ecategory === "") {
+                    icon = error;
+                    title = "Empty Field";
+                    description = `You can't left ${text} field empty`
+                } else if (etitle === title && edescription === description && ecategory === category && isCompleted === isChecked) {
+                    icon = error;
+                    title = "Same Data";
+                    description = `Nothing New To Update All Values Are Same As Before`
+                } else if (isTheme === !isChecked) {
+                    icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
+                    title = "Theme Updated";
+                    description = `Yours Theme Has Been Changed to ${isChecked ? "Dark Mode" : "Light Mode"}`
+                }
+
                 let newNote = JSON.parse(JSON.stringify(notes))
         
                 for (let index = 0; index < newNote.length; index++) {
