@@ -39,10 +39,19 @@ export default function NotesItems(props: any) {
             })
             const data = await res.json();
             async function openNotification() {
+            if (data.length === 0) {
+                icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
+                title = `Server Error`;
+                description = `Failed To Signin, Internal Server Error!`;
+            } else {
+                icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
+                title = `Notes Fetched Successfully`;
+                description = `${data.length} notes have been fetched`;
+            }
             notification.open({
-                icon : <CheckCircleOutlined style={{ color: '#00FF00' }}/>,
-                message : `Notes Fetched Successfully`,
-                description : `${data.length} notes have been fetched`
+                icon : icon,
+                message: title,
+                description: description
             });
             };
             openNotification();
@@ -63,16 +72,23 @@ useEffect(() => {
                     }
                 })
                 const data = await res.json();
-                if (data.length === 0) {
-                    
-                }
-                notification.open({
-                    icon : <CheckCircleOutlined style={{ color: '#00FF00' }}/>,
-                    message : `Notes Fetched Successfully`,
-                    description : `${data.length} notes have been fetched`
-                });
-                };
-                openNotification();
+                async function openNotification() {
+                    if (data.length === 0) {
+                        icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
+                        title = `Empty`;
+                        description = `No Note Has Found!`;
+                    } else {
+                        icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
+                        title = `Notes Fetched Successfully`;
+                        description = `${data.length} notes have been fetched`;
+                    }
+                    notification.open({
+                        icon : icon,
+                        message: title,
+                        description: description
+                    });
+                    };
+                    openNotification();
                 setNotes(data)
             }
             console.log("in COMP notes", notes);
