@@ -14,6 +14,10 @@ export default function AddTodo(): JSX.Element {
       isCompleted: false
     })
 
+    let icon : any
+    let title: String;
+    let description: String | null;
+
     const addTodo = async (e: React.FormEvent) => {
       e.preventDefault();
       const {title, description, category, isCompleted} = note
@@ -30,12 +34,25 @@ export default function AddTodo(): JSX.Element {
         })
       });
       if (res.status === 404) {
-        window.alert("You've left an tag empty!")
+        icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
+        title = `Server Error`;
+        description = `Failed To Signin, Internal Server Error!`;
       }
       else {  
         const data = await res.json()
         setNotes(notes.concat(data));
+        icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
+        title = `Server Error`;
+        description = `Failed To Signin, Internal Server Error!`;
       }
+      async function openNotification() {
+        notification.open({
+          icon : icon,
+          message: title,
+          description: description
+        });
+      };
+      openNotification();
     }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
