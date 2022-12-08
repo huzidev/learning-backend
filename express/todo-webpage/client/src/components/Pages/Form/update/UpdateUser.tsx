@@ -78,7 +78,11 @@ export default function UpdateUser() {
                 icon = error;
                 title = "Empty Field";
                 description = `You can't left ${text} field empty`
-            } 
+            } else if (eusername === username && eemail === email && enumber === number && isTheme === isChecked) {
+                icon = error;
+                title = "Same Data";
+                description = `Nothing New To Update All Values Are Same As Before`
+            }
             else {
                 icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
                 title = "Success!";
