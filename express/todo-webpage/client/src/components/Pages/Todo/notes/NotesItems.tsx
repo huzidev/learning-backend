@@ -136,7 +136,7 @@ export default function NotesItems(props: any) {
                         newNote[index].description = edescription;
                         newNote[index].category = ecategory;
                         break; 
-                    } 
+                    }
                     setNotes(newNote)
                 }
                 openNotification();
