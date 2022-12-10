@@ -105,7 +105,7 @@ export default function SignUp() {
         console.log("Registration Successful");
         Navigate("/signin");
     }
-    notificationTs(icon, message, info);
+    notificationTs(icon, title, description);
   };
 
   return (
