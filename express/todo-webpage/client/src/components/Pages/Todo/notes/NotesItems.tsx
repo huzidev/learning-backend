@@ -117,11 +117,11 @@ export default function NotesItems(props: any) {
                     icon = error;
                     title = "Empty Field";
                     description = `You can't left ${text} field empty`
-                } else if (etitle === title && edescription === description && ecategory === category && isCompleted === isChecked) {
+                } else if (etitle === etitle && edescription === edescription && ecategory === ecategory && isChecked === isChecked) {
                     icon = error;
                     title = "Same Data";
                     description = `Nothing New To Update All Values Are Same As Before`
-                } else if (isTheme === !isChecked) {
+                } else if (isChecked === !isChecked) {
                     icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
                     title = "Theme Updated";
                     description = `Yours Theme Has Been Changed to ${isChecked ? "Dark Mode" : "Light Mode"}`
