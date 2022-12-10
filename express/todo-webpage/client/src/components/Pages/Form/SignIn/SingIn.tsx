@@ -16,10 +16,18 @@ export default function SingIn() {
     });
   };
 
-  let error: any = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
-  let icon : any
-  let title: String;
-  let description: String | null;
+  let error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+  let icon : React.ReactNode
+  let message: String;
+  let info: String | null;
+
+  async function notificationTs(icon: React.ReactNode, message: String, info: String | null) {
+    notification.open({
+        icon : icon,
+        message: message,
+        description: info
+    });
+  }
 
   async function signIn(e: React.FormEvent) {
     e.preventDefault();
@@ -34,35 +42,28 @@ export default function SingIn() {
     const data = await res.json();
     if (!data || res.status === 421) {
       icon = error;
-      title = "You've left an tag Empty!";
+      message = "You've left an tag Empty!";
     } else if (res.status === 422) {
       icon = error;
-      title = `Error`;
-      description = `Email or Password Is Incorrect!`;
+      message = `Error`;
+      info = `Email or Password Is Incorrect!`;
     } else if (res.status === 423) {
       icon = error;
-      title = `Wrong Password`;
-      description = `Password You've Entered Is Wrong`;
+      message = `Wrong Password`;
+      info = `Password You've Entered Is Wrong`;
     } else if (res.status === 500) {
       icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
-      title = `Server Error`;
-      description = `Failed To Signin, Internal Server Error!`;
+      message = `Server Error`;
+      info = `Failed To Signin, Internal Server Error!`;
     } else {
       localStorage.setItem('jwtoken', data.token);
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>
-      title = `Signin Successful!`
-      description = `User Signedin Successfully`;
+      message = `Signin Successful!`
+      info = `User Signedin Successfully`;
       console.log("Signin Successful");
       Navigate('/');
     }
-    async function openNotification() {
-      notification.open({
-        icon : icon,
-        message: title,
-        description: description
-      });
-    };
-    openNotification();
+    notificationTs(icon, message, info);
   }
   return (
     <div style={{ width: '500px', margin: '15% auto 0px auto'}}>
