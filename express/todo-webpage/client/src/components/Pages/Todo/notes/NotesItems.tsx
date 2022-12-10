@@ -115,6 +115,7 @@ export default function NotesItems(props: any) {
                         isCompleted: isChecked
                     })
                 });
+                let state: String = isChecked ? "Completed Notes" : "Notes List"
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
                     message = "Empty Field";
@@ -124,14 +125,10 @@ export default function NotesItems(props: any) {
                     icon = error;
                     message = "Same Data";
                     info = `Nothing New To Update All Values Are Same As Before`
-                } else if (isChecked === true) {
+                } else if (isChecked || !isChecked) {
                     icon = success;
                     message = "Task Completed";
-                    info = `Yours Task Has Been Added To Completed Notes`
-                } else if (isChecked === false) {
-                    icon = success;
-                    message = "Task Completed";
-                    info = `Yours Task Has Been Added To Completed Notes`
+                    info = `Yours Note Has Been Added To ${state}`
                 } else {
                     icon = success;
                     message = "Note Updated";
