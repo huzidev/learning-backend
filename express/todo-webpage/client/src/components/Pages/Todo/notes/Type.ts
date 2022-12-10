@@ -8,5 +8,5 @@ export interface DataTypeHold {
     htitle: string,
     hdescription: string,
     hcategory: string
-    hIsCompleted: boolean | null
+    hIsCompleted: boolean | undefined
 }

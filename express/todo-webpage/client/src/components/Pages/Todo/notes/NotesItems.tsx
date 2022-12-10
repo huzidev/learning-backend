@@ -12,8 +12,8 @@ export default function NotesItems(props: any) {
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
     const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
-    const [holdNote, setHoldNote] = useState<DataTypeHold>({ htitle: "", hdescription: "", hcategory: "", hIsCompleted: null })
-    const [isChecked, setIsChecked] = useState<boolean | null>(null);
+    const [holdNote, setHoldNote] = useState<DataTypeHold>({ htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined })
+    const [isChecked, setIsChecked] = useState<boolean | undefined>(undefined);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const ref = useRef<any>(null)
     
@@ -120,11 +120,11 @@ export default function NotesItems(props: any) {
                     message = "Empty Field";
                     info = `You can't left any field empty`
                 } 
-                else if (etitle === htitle || edescription === hdescription || ecategory === hcategory) {
+                else if (etitle === htitle || edescription === hdescription || ecategory === hcategory || isChecked === hIsCompleted) {
                     icon = error;
                     message = "Same Data";
                     info = `Nothing New To Update All Values Are Same As Before`
-                } else if (hIsCompleted === !hIsCompleted) {
+                } else if (isChecked === !hIsCompleted) {
                     icon = success;
                     message = "Task Completed";
                     info = `Yours Task Has Benn Added To Completed Notes`
