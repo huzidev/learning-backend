@@ -48,9 +48,9 @@ export default function UpdateUser() {
         setIsChecked(!isChecked)
     }
 
-    let error: any = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
-    const success: any = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
-    let icon : any
+    const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+    const success: React.ReactNode = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
+    let icon : React.ReactNode;
     let title: String;
     let description: String | null;
 

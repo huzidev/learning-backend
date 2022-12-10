@@ -24,9 +24,9 @@ export default function NotesItems(props: any) {
         setIsModalOpen(false);
     };
 
-    const error: any = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
-    const success: any = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
-    let icon : any
+    const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+    const success: React.ReactNode = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
+    let icon : React.ReactNode
     let message: String;
     let info: String | null;
 
