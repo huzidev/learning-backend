@@ -23,7 +23,8 @@ export default function NotesItems(props: any) {
         setIsModalOpen(false);
     };
 
-    let error: any = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+    const error: any = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+    const success: any = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
     let icon : any
     let message: String;
     let info: String | null;
@@ -50,7 +51,7 @@ export default function NotesItems(props: any) {
                 message = `Empty`;
                 info = `No Note Has Found!`;
             } else {
-                icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
+                icon = success;
                 message = `Notes Fetched Successfully`;
                 info = `${data.length} notes have been fetched`;
             }
@@ -59,7 +60,7 @@ export default function NotesItems(props: any) {
                 message: message,
                 description: info
             });
-            };
+        };
             openNotification();
             setNotes(data)
         }
@@ -87,7 +88,7 @@ export default function NotesItems(props: any) {
 
     const handleClick = async () => {
         const { id, etitle, edescription, ecategory } = note
-        const { title, description, category } = notes
+        const { title, description, category, isCompleted } = notes
             try {
                 const res = await fetch(`/updatenote/${id}`, {
                     method: 'PUT',
@@ -113,12 +114,12 @@ export default function NotesItems(props: any) {
                     icon = error;
                     message = "Empty Field";
                     info = `You can't left ${text} field empty`
-                } else if (etitle === etitle && edescription === edescription && ecategory === ecategory && isChecked === isChecked) {
+                } else if (etitle === title && edescription === description && ecategory === category && isChecked === isCompleted) {
                     icon = error;
                     message = "Same Data";
                     info = `Nothing New To Update All Values Are Same As Before`
                 } else if (isChecked === !isChecked) {
-                    icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
+                    icon = success;
                     message = "Theme Updated";
                     info = `Yours Theme Has Been Changed to ${isChecked ? "Dark Mode" : "Light Mode"}`
                 }
@@ -140,7 +141,7 @@ export default function NotesItems(props: any) {
                 console.log(err);
             }
         setIsModalOpen(false);
-        if (etitle !== etitle || edescription !== edescription || ecategory !== ecategory || isChecked !== isChecked) {
+        if (etitle !== title || edescription !== description || ecategory !== category || isChecked !== isCompleted) {
             window.location.reload()
         }
     }
