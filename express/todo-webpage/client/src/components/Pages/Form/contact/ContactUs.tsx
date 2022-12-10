@@ -29,10 +29,10 @@ export default function Footer(): JSX.Element {
     });
   }
 
-  let error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+  let error : React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
   let icon : React.ReactNode
-  let title: String;
-  let info: String | null;
+  let title : String;
+  let info : String | null;
 
   async function sendMessage(e: React.FormEvent) {
     e.preventDefault();
