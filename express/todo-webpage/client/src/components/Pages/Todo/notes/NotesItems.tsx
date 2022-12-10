@@ -85,6 +85,7 @@ export default function NotesItems(props: any) {
             edescription: currentNote.description,
             ecategory: currentNote.category,
         })
+        // to hold initial value and if user didn't chnage the value and tries update the note with sane value then to show error 
         setHoldNote({
             htitle: currentNote.title,
             hdescription: currentNote.description,
