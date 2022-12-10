@@ -1,4 +1,5 @@
 import { Button, Form, Input, Typography, notification } from 'antd';
+import { ExclamationCircleOutlined, ClockCircleOutlined, CheckCircleOutlined  } from '@ant-design/icons';
 import React from 'react';
 import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
@@ -20,13 +21,18 @@ export default function Footer(): JSX.Element {
       });
   }
     
-  async function notificationTs(icon: React.ReactNode, message: String, info: String | null) {
+  async function notificationTs(icon: React.ReactNode, title: String, info: String | null) {
     notification.open({
         icon : icon,
-        message: message,
+        message: title,
         description: info
     });
   }
+
+  let error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+  let icon : React.ReactNode
+  let title: String;
+  let info: String | null;
 
   async function sendMessage(e: React.FormEvent) {
     e.preventDefault();
@@ -46,6 +52,9 @@ export default function Footer(): JSX.Element {
       const data = await res.json();
       if (res.status === 422) {
         window.alert("Username must be provide")
+        icon = error;
+        title = `Username Error`;
+        info = `Username must be provide`;
       } else if (res.status === 423) {
         window.alert("Email must be provide")
       } else if (res.status === 424) {
@@ -55,6 +64,7 @@ export default function Footer(): JSX.Element {
       } else {
         window.alert("Message Sent Successfully!");
     }
+    notificationTs(icon, title, info);
   }
 
   const style = {padding: '0px 5px'}
