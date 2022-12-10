@@ -14,7 +14,6 @@ export default function NotesItems(props: any) {
     const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
     const [isChecked, setIsChecked] = useState<any>(null);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    const [testState, setTEstState] = useState<boolean>(false);
     const ref = useRef<any>(null)
     
     const showModal = () => {
@@ -67,9 +66,6 @@ export default function NotesItems(props: any) {
         console.log("in all notes", notes);
         getNotes()
     }, [Location.pathname])
-
-    console.log("waht si state", testState);
-    
 
     const updateNote = (currentNote: any) => {
         // ref.current.click() checks if user clicked or not therefore we've passed the ref in the button of modal as ref={ref}
@@ -144,7 +140,9 @@ export default function NotesItems(props: any) {
                 console.log(err);
             }
         setIsModalOpen(false);
-        window.location.reload()
+        if (etitle !== etitle || edescription !== edescription || ecategory !== ecategory || isChecked !== isChecked) {
+            window.location.reload()
+        }
     }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
