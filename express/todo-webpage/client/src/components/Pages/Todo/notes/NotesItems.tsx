@@ -72,6 +72,10 @@ export default function NotesItems(props: any) {
         getNotes()
     }, [Location.pathname])
 
+    let holdTitle: any
+    let holdDesc: String
+    let holdCategory: String
+
     const updateNote = (currentNote: any) => {
         // ref.current.click() checks if user clicked or not therefore we've passed the ref in the button of modal as ref={ref}
         // to check if user clicked or not
@@ -85,12 +89,21 @@ export default function NotesItems(props: any) {
             edescription: currentNote.description,
             ecategory: currentNote.category,
         })
+        console.log("currentNote.title", currentNote.title);
+        
+        holdTitle = currentNote.title;
+        holdDesc = currentNote.description;
+        holdCategory = currentNote.category;
     }
+
+    console.log("what is HOLD TITLE", holdTitle);
+    
 
     function stateChanger() {
         setIsChecked(!isChecked)
     }
 
+     
     const handleClick = async () => {
         const { id, etitle, edescription, ecategory } = note
             try {
@@ -106,24 +119,22 @@ export default function NotesItems(props: any) {
                         isCompleted: isChecked
                     })
                 });
-                let holdTitle = etitle;
-                let holdDesc = edescription;
-                let holdCategory = ecategory;
-                let holdState = isChecked;
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
                     message = "Empty Field";
                     info = `You can't left any field empty`
                 } 
-                else if (etitle === holdTitle || edescription === holdDesc || ecategory === holdCategory || isChecked === holdState) {
+                else if (etitle === holdTitle || edescription === holdDesc || ecategory === holdCategory) {
                     icon = error;
                     message = "Same Data";
                     info = `Nothing New To Update All Values Are Same As Before`
-                } else if (isChecked === !holdState) {
-                    icon = success;
-                    message = "Task Completed";
-                    info = `Yours Task Has Benn Added To Completed Notes`
-                } else {
+                } 
+                //else if (isChecked === !holdState) {
+                //     icon = success;
+                //     message = "Task Completed";
+                //     info = `Yours Task Has Benn Added To Completed Notes`
+                // }// 
+                else {
                     let newNote = JSON.parse(JSON.stringify(notes))
                     for (let index = 0; index < newNote.length; index++) {
                         const element = newNote[index];
