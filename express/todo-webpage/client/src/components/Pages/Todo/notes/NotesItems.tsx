@@ -57,6 +57,10 @@ export default function NotesItems(props: any) {
                 icon = error;
                 message = `Empty`;
                 info = `No Note Has Found!`;
+            } else if (data.length === 1) {
+                icon = success;
+                message = `Note Fetched Successfully`;
+                info = `${data.length} note has been fetched`;
             } else {
                 icon = success;
                 message = `Notes Fetched Successfully`;
@@ -105,13 +109,6 @@ export default function NotesItems(props: any) {
                         isCompleted: isChecked
                     })
                 });
-                async function openNotification() {
-                    notification.open({
-                      icon : icon,
-                      message: title,
-                      description: description
-                    });
-                };
                 const text = title === "" ? "title" : description === "" ? "description" : "category"
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
@@ -139,7 +136,7 @@ export default function NotesItems(props: any) {
                     }
                     setNotes(newNote)
                 }
-                openNotification();
+                notificationTs(icon, message, info);
             } catch (err) {
                 console.log(err);
             }
