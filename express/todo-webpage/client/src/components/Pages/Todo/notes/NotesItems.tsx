@@ -85,7 +85,7 @@ export default function NotesItems(props: any) {
             edescription: currentNote.description,
             ecategory: currentNote.category,
         })
-        // to hold initial value and if user didn't chnage the value and tries update the note with sane value then to show error 
+        // to hold initial value and if user didn't chnage the value and tries to update the note with sane value then to show error 
         setHoldNote({
             htitle: currentNote.title,
             hdescription: currentNote.description,
@@ -120,15 +120,22 @@ export default function NotesItems(props: any) {
                     message = "Empty Field";
                     info = `You can't left any field empty`
                 } 
-                else if (etitle === htitle || edescription === hdescription || ecategory === hcategory || isChecked === hIsCompleted) {
+                else if (etitle === htitle && edescription === hdescription && ecategory === hcategory && isChecked === hIsCompleted) {
                     icon = error;
                     message = "Same Data";
                     info = `Nothing New To Update All Values Are Same As Before`
-                } else if (isChecked === !hIsCompleted) {
+                } else if (isChecked === true) {
                     icon = success;
                     message = "Task Completed";
-                    info = `Yours Task Has Benn Added To Completed Notes`
+                    info = `Yours Task Has Been Added To Completed Notes`
+                } else if (isChecked === false) {
+                    icon = success;
+                    message = "Task Completed";
+                    info = `Yours Task Has Been Added To Completed Notes`
                 } else {
+                    icon = success;
+                    message = "Note Updated";
+                    info = `Yours Note Has Been Updated Successfully!`
                     let newNote = JSON.parse(JSON.stringify(notes))
                     for (let index = 0; index < newNote.length; index++) {
                         const element = newNote[index];
