@@ -46,24 +46,23 @@ export default function NotesItems(props: any) {
             const data = await res.json();
             async function openNotification() {
             if (data.length === 0) {
-                icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
-                title = `Empty`;
-                description = `No Note Has Found!`;
+                icon = error;
+                message = `Empty`;
+                info = `No Note Has Found!`;
             } else {
                 icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
-                title = `Notes Fetched Successfully`;
-                description = `${data.length} notes have been fetched`;
+                message = `Notes Fetched Successfully`;
+                info = `${data.length} notes have been fetched`;
             }
             notification.open({
                 icon : icon,
-                message: title,
-                description: description
+                message: message,
+                description: info
             });
             };
             openNotification();
             setNotes(data)
         }
-        console.log("in all notes", notes);
         getNotes()
     }, [Location.pathname])
 
@@ -112,16 +111,16 @@ export default function NotesItems(props: any) {
                 const text = title === "" ? "title" : description === "" ? "description" : "category"
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
-                    title = "Empty Field";
-                    description = `You can't left ${text} field empty`
+                    message = "Empty Field";
+                    info = `You can't left ${text} field empty`
                 } else if (etitle === etitle && edescription === edescription && ecategory === ecategory && isChecked === isChecked) {
                     icon = error;
-                    title = "Same Data";
-                    description = `Nothing New To Update All Values Are Same As Before`
+                    message = "Same Data";
+                    info = `Nothing New To Update All Values Are Same As Before`
                 } else if (isChecked === !isChecked) {
                     icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
-                    title = "Theme Updated";
-                    description = `Yours Theme Has Been Changed to ${isChecked ? "Dark Mode" : "Light Mode"}`
+                    message = "Theme Updated";
+                    info = `Yours Theme Has Been Changed to ${isChecked ? "Dark Mode" : "Light Mode"}`
                 }
 
                 let newNote = JSON.parse(JSON.stringify(notes))
