@@ -44,7 +44,6 @@ export default function UpdateUser() {
         })
     }
 
-
     function stateChanger() {
         setIsChecked(!isChecked)
     }

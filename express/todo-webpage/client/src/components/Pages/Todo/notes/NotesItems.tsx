@@ -98,7 +98,6 @@ export default function NotesItems(props: any) {
         setIsChecked(!isChecked)
     }
 
-     
     const handleClick = async () => {
         const { id, etitle, edescription, ecategory } = note
         const { htitle, hdescription, hcategory, hIsCompleted } = holdNote
@@ -120,8 +119,7 @@ export default function NotesItems(props: any) {
                     icon = error;
                     message = "Empty Field";
                     info = `You can't left any field empty`
-                } 
-                else if (etitle === htitle && edescription === hdescription && ecategory === hcategory && isChecked === hIsCompleted) {
+                } else if (etitle === htitle && edescription === hdescription && ecategory === hcategory && isChecked === hIsCompleted) {
                     icon = error;
                     message = "Same Data";
                     info = `Nothing New To Update All Values Are Same As Before`
