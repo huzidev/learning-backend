@@ -123,9 +123,7 @@ export default function NotesItems(props: any) {
                     message = "Theme Updated";
                     info = `Yours Theme Has Been Changed to ${isChecked ? "Dark Mode" : "Light Mode"}`
                 }
-
                 let newNote = JSON.parse(JSON.stringify(notes))
-        
                 for (let index = 0; index < newNote.length; index++) {
                     const element = newNote[index];
                     if (element._id === id) {
@@ -141,9 +139,6 @@ export default function NotesItems(props: any) {
                 console.log(err);
             }
         setIsModalOpen(false);
-        if (etitle !== title || edescription !== description || ecategory !== category) {
-            window.location.reload()
-        }
     }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
