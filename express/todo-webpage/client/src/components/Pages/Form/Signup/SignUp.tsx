@@ -35,8 +35,16 @@ export default function SignUp() {
     });
   };
 
-  let error: any = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
-  let icon : any
+  async function notificationTs(icon: React.ReactNode, message: String, info: String | null) {
+    notification.open({
+        icon : icon,
+        message: message,
+        description: info
+    });
+  }
+
+  const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+  let icon : React.ReactNode
   let title: String;
   let description: String | null;
 
@@ -97,14 +105,7 @@ export default function SignUp() {
         console.log("Registration Successful");
         Navigate("/signin");
     }
-    async function openNotification() {
-        notification.open({
-          icon : icon,
-          message: title,
-          description: description
-        });
-      };
-    openNotification()
+    notificationTs(icon, message, info);
   };
 
   return (
