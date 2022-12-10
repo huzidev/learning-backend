@@ -109,6 +109,13 @@ export default function NotesItems(props: any) {
                         isCompleted: isChecked
                     })
                 });
+                async function openNotification() {
+                    notification.open({
+                      icon : icon,
+                      message: title,
+                      description: description
+                    });
+                };
                 const text = title === "" ? "title" : description === "" ? "description" : "category"
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
@@ -123,7 +130,9 @@ export default function NotesItems(props: any) {
                     message = "Theme Updated";
                     info = `Yours Theme Has Been Changed to ${isChecked ? "Dark Mode" : "Light Mode"}`
                 }
+
                 let newNote = JSON.parse(JSON.stringify(notes))
+        
                 for (let index = 0; index < newNote.length; index++) {
                     const element = newNote[index];
                     if (element._id === id) {
@@ -134,11 +143,14 @@ export default function NotesItems(props: any) {
                     }
                     setNotes(newNote)
                 }
-                notificationTs(icon, message, info);
+                openNotification();
             } catch (err) {
                 console.log(err);
             }
         setIsModalOpen(false);
+        if (etitle !== title || edescription !== description || ecategory !== category) {
+            window.location.reload()
+        }
     }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
