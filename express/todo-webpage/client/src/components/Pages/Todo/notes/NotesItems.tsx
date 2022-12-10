@@ -36,7 +36,7 @@ export default function NotesItems(props: any) {
         path = "/completednotes"
     }
 
-    function notificationTs(icon: React.ReactNode, message: String, info: String | null) {
+    async function notificationTs(icon: React.ReactNode, message: String, info: String | null) {
         notification.open({
             icon : icon,
             message: message,
@@ -109,28 +109,23 @@ export default function NotesItems(props: any) {
                         isCompleted: isChecked
                     })
                 });
-                async function openNotification() {
-                    notification.open({
-                      icon : icon,
-                      message: title,
-                      description: description
-                    });
-                };
-                const text = title === "" ? "title" : description === "" ? "description" : "category"
+                const text = etitle === "" ? "title" : edescription === "" ? "description" : ecategory === "" ? "category" : "You Can't Left Any Field Empty"
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
                     message = "Empty Field";
                     info = `You can't left ${text} field empty`
-                } else if (etitle === title && edescription === description && ecategory === category && isChecked === isCompleted) {
-                    icon = error;
-                    message = "Same Data";
-                    info = `Nothing New To Update All Values Are Same As Before`
-                } else if (isChecked === !isChecked) {
+                } 
+                // else if (etitle === title && edescription === description && ecategory === category && isChecked === isCompleted) {
+                //     icon = error;
+                //     message = "Same Data";
+                //     info = `Nothing New To Update All Values Are Same As Before`
+                // } 
+                else if (isChecked === !isChecked) {
                     icon = success;
-                    message = "Theme Updated";
-                    info = `Yours Theme Has Been Changed to ${isChecked ? "Dark Mode" : "Light Mode"}`
+                    message = "Task Completed";
+                    info = `Yours Task Has Benn Added To Completed Notes`
                 }
-
+                notificationTs(icon, message, info);
                 let newNote = JSON.parse(JSON.stringify(notes))
         
                 for (let index = 0; index < newNote.length; index++) {
@@ -143,14 +138,10 @@ export default function NotesItems(props: any) {
                     }
                     setNotes(newNote)
                 }
-                openNotification();
             } catch (err) {
                 console.log(err);
             }
         setIsModalOpen(false);
-        if (etitle !== title || edescription !== description || ecategory !== category) {
-            window.location.reload()
-        }
     }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
