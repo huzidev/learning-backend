@@ -150,6 +150,9 @@ export default function NotesItems(props: any) {
                 console.log(err);
             }
         setIsModalOpen(false);
+        setTimeout(() => {
+            window.location.reload()
+        }, 2500);
     }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
