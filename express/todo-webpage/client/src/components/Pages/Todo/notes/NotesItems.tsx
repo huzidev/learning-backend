@@ -13,7 +13,7 @@ export default function NotesItems(props: any) {
     const { notes, setNotes } = context;
     const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
     const [holdNote, setHoldNote] = useState<DataTypeHold>({ htitle: "", hdescription: "", hcategory: "", hIsCompleted: null })
-    const [isChecked, setIsChecked] = useState<any>(null);
+    const [isChecked, setIsChecked] = useState<boolean | null>(null);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const ref = useRef<any>(null)
     
@@ -90,7 +90,7 @@ export default function NotesItems(props: any) {
             htitle: currentNote.title,
             hdescription: currentNote.description,
             hcategory: currentNote.category,
-            hisCompleted: currentNote.isCompleted
+            hIsCompleted: currentNote.isCompleted
         })
     }
 
@@ -101,7 +101,7 @@ export default function NotesItems(props: any) {
      
     const handleClick = async () => {
         const { id, etitle, edescription, ecategory } = note
-        const { htitle, hdescription, hcategory, hisCompleted } = holdNote
+        const { htitle, hdescription, hcategory, hIsCompleted } = holdNote
             try {
                 const res = await fetch(`/updatenote/${id}`, {
                     method: 'PUT',
@@ -124,12 +124,11 @@ export default function NotesItems(props: any) {
                     icon = error;
                     message = "Same Data";
                     info = `Nothing New To Update All Values Are Same As Before`
-                } else if (hisCompleted === !hisCompleted) {
+                } else if (hIsCompleted === !hIsCompleted) {
                     icon = success;
                     message = "Task Completed";
                     info = `Yours Task Has Benn Added To Completed Notes`
-                }// 
-                else {
+                } else {
                     let newNote = JSON.parse(JSON.stringify(notes))
                     for (let index = 0; index < newNote.length; index++) {
                         const element = newNote[index];
