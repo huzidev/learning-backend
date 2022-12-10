@@ -90,6 +90,7 @@ export default function NotesItems(props: any) {
             htitle: currentNote.title,
             hdescription: currentNote.description,
             hcategory: currentNote.category,
+            hisCompleted: currentNote.isCompleted
         })
     }
 
