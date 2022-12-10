@@ -29,11 +29,19 @@ export default function NotesItems(props: any) {
     let message: String;
     let info: String | null;
 
-    let path: any;
+    let path: String;
     if (Location.pathname.includes('/addnote')) {
         path = "/allnotes"
     } else if (Location.pathname.includes('/completed')) {
         path = "/completednotes"
+    }
+
+    function notificationTs(icon: React.ReactNode, message: String, info: String | null) {
+        notification.open({
+            icon : icon,
+            message: message,
+            description: info
+        });
     }
 
     useEffect(() => {
@@ -45,7 +53,6 @@ export default function NotesItems(props: any) {
                 }
             })
             const data = await res.json();
-            async function openNotification() {
             if (data.length === 0) {
                 icon = error;
                 message = `Empty`;
@@ -55,13 +62,7 @@ export default function NotesItems(props: any) {
                 message = `Notes Fetched Successfully`;
                 info = `${data.length} notes have been fetched`;
             }
-            notification.open({
-                icon : icon,
-                message: message,
-                description: info
-            });
-        };
-            openNotification();
+            notificationTs(icon, message, info);
             setNotes(data)
         }
         getNotes()
@@ -89,6 +90,8 @@ export default function NotesItems(props: any) {
     const handleClick = async () => {
         const { id, etitle, edescription, ecategory } = note
         const { title, description, category, isCompleted } = notes
+        console.log("title", title);
+        
             try {
                 const res = await fetch(`/updatenote/${id}`, {
                     method: 'PUT',
@@ -141,7 +144,7 @@ export default function NotesItems(props: any) {
                 console.log(err);
             }
         setIsModalOpen(false);
-        if (etitle !== title || edescription !== description || ecategory !== category || isChecked !== isCompleted) {
+        if (etitle !== title || edescription !== description || ecategory !== category) {
             window.location.reload()
         }
     }
