@@ -1,4 +1,4 @@
-import { Button, Form, Input, InputNumber, Typography } from 'antd';
+import { Button, Form, Input, Typography, notification } from 'antd';
 import React from 'react';
 import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
@@ -20,6 +20,14 @@ export default function Footer(): JSX.Element {
       });
   }
     
+  async function notificationTs(icon: React.ReactNode, message: String, info: String | null) {
+    notification.open({
+        icon : icon,
+        message: message,
+        description: info
+    });
+  }
+
   async function sendMessage(e: React.FormEvent) {
     e.preventDefault();
     const { username, email, number, message } = user;
