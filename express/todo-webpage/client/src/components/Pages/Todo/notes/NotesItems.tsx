@@ -25,8 +25,8 @@ export default function NotesItems(props: any) {
 
     let error: any = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
     let icon : any
-    let title: String;
-    let description: String | null;
+    let message: String;
+    let info: String | null;
 
     let path: any;
     if (Location.pathname.includes('/addnote')) {
@@ -88,6 +88,7 @@ export default function NotesItems(props: any) {
 
     const handleClick = async () => {
         const { id, etitle, edescription, ecategory } = note
+        const { title, description, category } = notes
             try {
                 const res = await fetch(`/updatenote/${id}`, {
                     method: 'PUT',
