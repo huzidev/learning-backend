@@ -125,7 +125,7 @@ export default function NotesItems(props: any) {
                     icon = error;
                     message = "Same Data";
                     info = `Nothing New To Update All Values Are Same As Before`
-                } else if (isChecked || !isChecked) {
+                } else if (isChecked === !hIsCompleted) {
                     icon = success;
                     message = "Task Completed";
                     info = `Yours Note Has Been Added To ${state}`
