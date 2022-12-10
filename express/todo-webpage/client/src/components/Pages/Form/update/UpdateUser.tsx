@@ -58,7 +58,6 @@ export default function UpdateUser() {
 
         const {_id, username, email, number, isTheme} = userData
         const {eusername, eemail, enumber, eimage} = data
-
         try {
             const res = await fetch(`/updateuser/${_id}`, {
                 method: 'PUT',

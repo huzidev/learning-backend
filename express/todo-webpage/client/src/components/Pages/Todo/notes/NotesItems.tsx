@@ -93,9 +93,6 @@ export default function NotesItems(props: any) {
 
     const handleClick = async () => {
         const { id, etitle, edescription, ecategory } = note
-        const { title, description, category, isCompleted } = notes
-        console.log("title", title);
-        
             try {
                 const res = await fetch(`/updatenote/${id}`, {
                     method: 'PUT',
@@ -109,34 +106,37 @@ export default function NotesItems(props: any) {
                         isCompleted: isChecked
                     })
                 });
+                let holdTitle = etitle;
+                let holdDesc = edescription;
+                let holdCategory = ecategory;
+                let holdState = isChecked;
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
                     message = "Empty Field";
                     info = `You can't left any field empty`
                 } 
-                // else if (etitle === title && edescription === description && ecategory === category && isChecked === isCompleted) {
-                //     icon = error;
-                //     message = "Same Data";
-                //     info = `Nothing New To Update All Values Are Same As Before`
-                // } 
-                else if (isChecked === !isChecked) {
+                else if (etitle === holdTitle || edescription === holdDesc || ecategory === holdCategory || isChecked === holdState) {
+                    icon = error;
+                    message = "Same Data";
+                    info = `Nothing New To Update All Values Are Same As Before`
+                } else if (isChecked === !holdState) {
                     icon = success;
                     message = "Task Completed";
                     info = `Yours Task Has Benn Added To Completed Notes`
+                } else {
+                    let newNote = JSON.parse(JSON.stringify(notes))
+                    for (let index = 0; index < newNote.length; index++) {
+                        const element = newNote[index];
+                        if (element._id === id) {
+                            newNote[index].title = etitle;
+                            newNote[index].description = edescription;
+                            newNote[index].category = ecategory;
+                            break; 
+                        }
+                        setNotes(newNote)
+                    }
                 }
                 notificationTs(icon, message, info);
-                let newNote = JSON.parse(JSON.stringify(notes))
-        
-                for (let index = 0; index < newNote.length; index++) {
-                    const element = newNote[index];
-                    if (element._id === id) {
-                        newNote[index].title = etitle;
-                        newNote[index].description = edescription;
-                        newNote[index].category = ecategory;
-                        break; 
-                    }
-                    setNotes(newNote)
-                }
             } catch (err) {
                 console.log(err);
             }
