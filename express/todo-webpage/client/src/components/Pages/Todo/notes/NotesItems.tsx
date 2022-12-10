@@ -109,11 +109,10 @@ export default function NotesItems(props: any) {
                         isCompleted: isChecked
                     })
                 });
-                const text = etitle === "" ? "title" : edescription === "" ? "description" : ecategory === "" ? "category" : "You Can't Left Any Field Empty"
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
                     message = "Empty Field";
-                    info = `You can't left ${text} field empty`
+                    info = `You can't left any field empty`
                 } 
                 // else if (etitle === title && edescription === description && ecategory === category && isChecked === isCompleted) {
                 //     icon = error;
