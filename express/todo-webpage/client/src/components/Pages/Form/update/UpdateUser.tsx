@@ -24,6 +24,13 @@ export default function UpdateUser() {
 
     const [data, setData] = useState<DataType>({id: "", eusername: "", eemail: "", enumber: "", eimage: ""})
 
+    async function notificationTs(icon: React.ReactNode, title: String, description: String | null) {
+        notification.open({
+            icon : icon,
+            message: title,
+            description: description
+        });
+    }
 
     const updateData = (currData: any) => {
         ref.current.click();
@@ -66,18 +73,10 @@ export default function UpdateUser() {
                     isTheme: isChecked
                 })
             });
-            async function openNotification() {
-                notification.open({
-                  icon : icon,
-                  message: title,
-                  description: description
-                });
-              };
-              const text = eusername === "" ? "username" : eemail === "" ? "email" : "number"
             if (eusername === "" || eemail === "" || enumber === "") {
                 icon = error;
                 title = "Empty Field";
-                description = `You can't left ${text} field empty`
+                description = `You can't left any field empty`
             } else if (eusername === username && eemail === email && enumber === number && isTheme === isChecked) {
                 icon = error;
                 title = "Same Data";
@@ -103,7 +102,7 @@ export default function UpdateUser() {
                     setUserData(newData);
                 }
             }
-            openNotification();
+            notificationTs(icon, title, description);
         } catch (err) {
             console.log(err);
         }

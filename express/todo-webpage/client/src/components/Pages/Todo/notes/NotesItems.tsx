@@ -124,19 +124,21 @@ export default function NotesItems(props: any) {
                     message = "Task Completed";
                     info = `Yours Task Has Benn Added To Completed Notes`
                 }
+                else {
+                    for (let index = 0; index < newNote.length; index++) {
+                        const element = newNote[index];
+                        if (element._id === id) {
+                            newNote[index].title = etitle;
+                            newNote[index].description = edescription;
+                            newNote[index].category = ecategory;
+                            break; 
+                        }
+                        setNotes(newNote)
+                    }
+                }
                 notificationTs(icon, message, info);
                 let newNote = JSON.parse(JSON.stringify(notes))
         
-                for (let index = 0; index < newNote.length; index++) {
-                    const element = newNote[index];
-                    if (element._id === id) {
-                        newNote[index].title = etitle;
-                        newNote[index].description = edescription;
-                        newNote[index].category = ecategory;
-                        break; 
-                    }
-                    setNotes(newNote)
-                }
             } catch (err) {
                 console.log(err);
             }
