@@ -4,7 +4,7 @@ import { ExclamationCircleOutlined, CheckCircleOutlined  } from '@ant-design/ico
 import { useNavigate, useLocation } from 'react-router-dom';
 import DataContext from "../../../Context/DataContext";
 import AddTodo from '../addTodo/AddTodo';
-import { DataType } from './Type';
+import { DataType, DataTypeHold } from './Type';
 import FilterList from '../filters/FilterList';
 
 export default function NotesItems(props: any) {
@@ -12,6 +12,7 @@ export default function NotesItems(props: any) {
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
     const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
+    const [holdNote, setHoldNote] = useState<DataTypeHold>({ htitle: "", hdescription: "", hcategory: "" })
     const [isChecked, setIsChecked] = useState<any>(null);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const ref = useRef<any>(null)
@@ -71,11 +72,6 @@ export default function NotesItems(props: any) {
         }
         getNotes()
     }, [Location.pathname])
-
-    let holdTitle: any
-    let holdDesc: String
-    let holdCategory: String
-
     const updateNote = (currentNote: any) => {
         // ref.current.click() checks if user clicked or not therefore we've passed the ref in the button of modal as ref={ref}
         // to check if user clicked or not
@@ -89,15 +85,12 @@ export default function NotesItems(props: any) {
             edescription: currentNote.description,
             ecategory: currentNote.category,
         })
-        console.log("currentNote.title", currentNote.title);
-        
-        holdTitle = currentNote.title;
-        holdDesc = currentNote.description;
-        holdCategory = currentNote.category;
+        setHoldNote({
+            htitle: currentNote.title,
+            hdescription: currentNote.description,
+            hcategory: currentNote.category,
+        })
     }
-
-    console.log("what is HOLD TITLE", holdTitle);
-    
 
     function stateChanger() {
         setIsChecked(!isChecked)

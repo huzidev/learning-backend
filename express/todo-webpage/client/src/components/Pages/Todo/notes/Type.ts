@@ -4,3 +4,8 @@ export interface DataType {
     edescription: string,
     ecategory: string
 }
+export interface DataTypeHold {
+    htitle: string,
+    hdescription: string,
+    hcategory: string
+}
