@@ -49,6 +49,7 @@ export default function UpdateUser() {
     }
 
     let error: any = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
+    const success: any = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
     let icon : any
     let title: String;
     let description: String | null;
@@ -80,11 +81,11 @@ export default function UpdateUser() {
                 title = "Same Data";
                 description = `Nothing New To Update All Values Are Same As Before`
             } else if (isTheme === !isChecked) {
-                icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
+                icon = success;
                 title = "Theme Updated";
                 description = `Yours Theme Has Been Changed to ${isChecked ? "Dark Mode" : "Light Mode"}`
             } else {
-                icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
+                icon = success;
                 title = "Success!";
                 description = "Yours Data Have Been Updated Successfully!"
                 const data = await res.json();
