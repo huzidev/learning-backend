@@ -61,7 +61,7 @@ export default function Footer(): JSX.Element {
       //   window.alert("Email must be provide")
       //   icon = error;
       //   title = `Email Error`;
-      //   info = `Email must be provide`; 
+      //   info = `Email must be provide`;
       // } else if (res.status === 424) {
       //   icon = error;
       //   title = `Message Field Empty`;
