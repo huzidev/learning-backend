@@ -50,19 +50,30 @@ export default function Footer(): JSX.Element {
         })
       });
       const data = await res.json();
-      if (res.status === 422) {
-        window.alert("Username must be provide")
+      let text: any;
+      let status: any = res.status === 422 ? text = "Username Error" : res.status === 423 ? text = "Email Error" : res.status === 424 ? text = "Message Field Empyty!" : null 
+      if (status) {
         icon = error;
-        title = `Username Error`;
+        title = text;
         info = `Username must be provide`;
-      } else if (res.status === 423) {
-        window.alert("Email must be provide")
-      } else if (res.status === 424) {
-        window.alert("Mesasge field is empty")
-      } else if (res.status === 500 || !data) {
-        window.alert("Failed To Send Message")
+      } 
+      // else if (res.status === 423) {
+      //   window.alert("Email must be provide")
+      //   icon = error;
+      //   title = `Email Error`;
+      //   info = `Email must be provide`; 
+      // } else if (res.status === 424) {
+      //   icon = error;
+      //   title = `Message Field Empty`;
+      //   info = `Write atleasts 10 characters`;
+      // } 
+      else if (res.status === 500 || !data) {
+        icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
+        title = `Server Error`;
+        info = `Failed To Send Message, Internal Server Error!`;
       } else {
-        window.alert("Message Sent Successfully!");
+        icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>
+        title = `Message Sent Successfully!`
     }
     notificationTs(icon, title, info);
   }
@@ -109,6 +120,7 @@ export default function Footer(): JSX.Element {
               value={user.message}
               onChange={inputHandler}
               placeholder="Enter Yours Message"
+              minLength={10}
             />
             <Button className='styleMargin' type="primary" htmlType="submit" onClick={sendMessage}>
               Send Message
