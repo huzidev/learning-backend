@@ -50,24 +50,18 @@ export default function Footer(): JSX.Element {
         })
       });
       const data = await res.json();
-      let text: String;
-      let description: String;
-      let status: any = res.status === 422 ? text = "Username Error" : res.status === 423 ? text = "Email Error" : res.status === 424 ? text = "Message Field Empyty!" : null 
+      let text: any;
+      let status: any = res.status === 422 ? (
+        text = "Username Missing"
+      ) : res.status === 423 ? (
+        text = "Email Missing"
+      ) : res.status === 424 ? (
+        text = "Message Field Empyty!"
+      ) : null 
       if (status) {
         icon = error;
         title = text;
-        info = `Username must be provide`;
       } 
-      // else if (res.status === 423) {
-      //   window.alert("Email must be provide")
-      //   icon = error;
-      //   title = `Email Error`;
-      //   info = `Email must be provide`;
-      // } else if (res.status === 424) {
-      //   icon = error;
-      //   title = `Message Field Empty`;
-      //   info = `Write atleasts 10 characters`;
-      // } 
       else if (res.status === 500 || !data) {
         icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
         title = `Server Error`;
