@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ShowNotes from '../notes/ShowNotes';
-import { Card, Col, Row , Button, Typography, Modal } from 'antd';
+import type { MenuProps } from 'antd';
+import { Card, Col, Row , Button, Typography, Dropdown, Space } from 'antd';
 import { useLocation } from 'react-router-dom';
 
 export default function FilterList(props: any): JSX.Element {
