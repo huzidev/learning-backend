@@ -65,11 +65,7 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         if (!isCompleted || isCompleted) {
             newNote.isCompleted = isCompleted
         }
-        let note;
-        let savedNote;
-        let state;
-        let hold;
-        let main; 
+        let note, savedNote, state, hold, main; 
         if (await Note.findById(req.params.id)) {
             main = Note,
             state = true,
@@ -102,31 +98,6 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
             { $set: newNote },
             { new: true }
         )
-        // else if (await CompletedNotes.findById(req.params.id)) {
-        //     note = await CompletedNotes.findById(req.params.id);
-        //     if (!note) {
-        //         return res.status(404).json({ error: "Not Found" })
-        //     }
-        //     if (note.user.toString() !== req.userID.toString()) {
-        //         return res.status(401).send("Not Allowed");
-        //     }
-        //     if (isCompleted === false) {
-        //         note = new Note({
-        //             title, description, category, isCompleted, user: req.userID
-        //         })
-        //         savedNote = await note.save();
-        //         note = await CompletedNotes.findById(req.params.id)
-        //         if (note.user.toString() !== req.userID.toString()) {
-        //             return res.status(401).send("Not Allowed");
-        //         }
-        //         note = await CompletedNotes.findByIdAndDelete(req.params.id);
-        //     }
-        //     note = await CompletedNotes.findByIdAndUpdate(
-        //         req.params.id,
-        //         { $set: newNote },
-        //         { new: true }
-        //     )
-        // }
         res.json(savedNote)
         res.json({ note });
     } catch (e) {
