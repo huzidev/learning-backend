@@ -13,6 +13,8 @@ export default function FilterList(props: any): JSX.Element {
     
     let Data = state ? items : props.notes
 
+    const data: MenuProps['items'] = []
+
     const allItems = [...new Set(props.notes.map((currentEle: any) => {
         return (
             !currentEle.isCompleted && Location.pathname.includes('/note/addnote') || currentEle.isCompleted && Location.pathname.includes('/note/completed') ? (
