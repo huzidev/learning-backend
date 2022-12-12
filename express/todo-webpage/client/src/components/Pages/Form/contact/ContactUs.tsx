@@ -51,25 +51,29 @@ export default function Footer(): JSX.Element {
       });
       const data = await res.json();
       let text: any;
+      let description: any;
       let status: any = res.status === 422 ? (
-        text = "Username Missing"
+        text = "Username Is Missing"
       ) : res.status === 423 ? (
-        text = "Email Missing"
+        text = "Email Is Missing"
       ) : res.status === 424 ? (
-        text = "Message Field Empyty!"
-      ) : null 
+        text = "Message Is Field Empyty!"
+      ) : null
       if (status) {
         icon = error;
         title = text;
-      } 
-      else if (res.status === 500 || !data) {
-        icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
-        title = `Server Error`;
-        info = `Failed To Send Message, Internal Server Error!`;
+        info = description;
+      } else if (status === 200) {
+        icon = <CheckCircleOutlined style={{ color: '#FF0000' }}/>;;
+        title = "Message Sent Successfully!";
+        setTimeout(() => {
+          window.location.reload()
+        }, 2500)
       } else {
-        icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>
-        title = `Message Sent Successfully!`
-    }
+        icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;;
+        title = "Server Error!";
+        info = "Failed To Send Message, Internal Server Error"
+      }
     notificationTs(icon, title, info);
   }
 
