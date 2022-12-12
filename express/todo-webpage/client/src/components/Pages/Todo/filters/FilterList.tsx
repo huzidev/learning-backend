@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ShowNotes from '../notes/ShowNotes';
 import type { MenuProps } from 'antd';
 import { Card, Col, Row , Button, Typography, Dropdown, Space } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 import { useLocation } from 'react-router-dom';
 
 export default function FilterList(props: any): JSX.Element {
@@ -13,7 +14,23 @@ export default function FilterList(props: any): JSX.Element {
     
     let Data = state ? items : props.notes
 
-    const data: MenuProps['items'] = []
+    const item: MenuProps['items'] = [
+        {
+          label: <a href="https://www.antgroup.com">1st menu item</a>,
+          key: '0',
+        },
+        {
+          label: <a href="https://www.aliyun.com">2nd menu item</a>,
+          key: '1',
+        },
+        {
+          type: 'divider',
+        },
+        {
+          label: '3rd menu item',
+          key: '3',
+        },
+      ];
 
     const allItems = [...new Set(props.notes.map((currentEle: any) => {
         return (
@@ -24,7 +41,6 @@ export default function FilterList(props: any): JSX.Element {
     }))]
 
     console.log("length of data", Data.length);
-    
 
     function filterItems(items: string) {
         const updatedItems = props.notes.filter((element: any) => {
@@ -75,12 +91,26 @@ export default function FilterList(props: any): JSX.Element {
                                     {allItems.map((currentEle: any, index: number) => {
                                         return (
                                             <span key={index}>
-                                                <Button
+                                                <Dropdown
+                                                    menu={{
+                                                    items,
+                                                    selectable: true,
+                                                    defaultSelectedKeys: ['3'],
+                                                    }}
+                                                >
+                                                    <Typography.Link>
+                                                    <Space>
+                                                        Selectable
+                                                        <DownOutlined />
+                                                    </Space>
+                                                    </Typography.Link>
+                                                </Dropdown>
+                                                {/* <Button
                                                     onClick={() => filterItems(currentEle)}
                                                     type="ghost"
                                                 >
                                                     {currentEle}
-                                                </Button>
+                                                </Button> */}
                                             </span>
                                         )
                                     })}
