@@ -50,7 +50,8 @@ export default function Footer(): JSX.Element {
         })
       });
       const data = await res.json();
-      let text: any;
+      let text: String;
+      let description: String;
       let status: any = res.status === 422 ? text = "Username Error" : res.status === 423 ? text = "Email Error" : res.status === 424 ? text = "Message Field Empyty!" : null 
       if (status) {
         icon = error;
