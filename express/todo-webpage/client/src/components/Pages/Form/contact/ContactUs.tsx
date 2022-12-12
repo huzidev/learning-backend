@@ -57,18 +57,18 @@ export default function Footer(): JSX.Element {
       ) : res.status === 423 ? (
         text = "Email Is Missing"
       ) : res.status === 424 ? (
-        text = "Message Is Field Empyty!"
+        text = "Message Is Field Empty!"
       ) : null
       if (status) {
         icon = error;
         title = text;
         info = description;
-      } else if (status === 200) {
-        icon = <CheckCircleOutlined style={{ color: '#FF0000' }}/>;;
+      } else if (res.status === 200) {
+        icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;;
         title = "Message Sent Successfully!";
         setTimeout(() => {
           window.location.reload()
-        }, 2500)
+        }, 1500)
       } else {
         icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;;
         title = "Server Error!";
