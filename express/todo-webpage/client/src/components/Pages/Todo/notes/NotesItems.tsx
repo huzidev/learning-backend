@@ -72,6 +72,7 @@ export default function NotesItems(props: any) {
         }
         getNotes()
     }, [Location.pathname])
+    
     const updateNote = (currentNote: any) => {
         // ref.current.click() checks if user clicked or not therefore we've passed the ref in the button of modal as ref={ref}
         // to check if user clicked or not
