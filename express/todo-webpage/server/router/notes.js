@@ -67,55 +67,66 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         }
         let note;
         let savedNote;
+        let state;
+        let hold;
+        let main; 
         if (await Note.findById(req.params.id)) {
-            note = await Note.findById(req.params.id);
-            if (!note) {
-                return res.status(404).json({ error: "Not Found" })
-            }
-            if (note.user.toString() !== req.userID.toString()) {
-                return res.status(401).send("Not Allowed");
-            }
-            if (isCompleted === true) {
-                note = new CompletedNotes({
-                    title, description, category, isCompleted, user: req.userID
-                })
-                savedNote = await note.save();
-                note = await Note.findById(req.params.id)
-                if (note.user.toString() !== req.userID.toString()) {
-                    return res.status(401).send("Not Allowed");
-                }
-                note = await Note.findByIdAndDelete(req.params.id);
-            }
-            note = await Note.findByIdAndUpdate(
-                req.params.id,
-                { $set: newNote },
-                { new: true }
-            )
+            main = Note,
+            state = true,
+            hold = CompletedNotes
         } else if (await CompletedNotes.findById(req.params.id)) {
-            note = await CompletedNotes.findById(req.params.id);
-            if (!note) {
-                return res.status(404).json({ error: "Not Found" })
-            }
+            main = CompletedNotes,
+            state = false,
+            hold = Note
+        }
+        note = await main.findById(req.params.id);
+        if (!note) {
+            return res.status(404).json({ error: "Not Found" })
+        }
+        if (note.user.toString() !== req.userID.toString()) {
+            return res.status(401).send("Not Allowed");
+        }
+        if (isCompleted === state) {
+            note = new hold({
+                title, description, category, isCompleted, user: req.userID
+            })
+            savedNote = await note.save();
+            note = await main.findById(req.params.id)
             if (note.user.toString() !== req.userID.toString()) {
                 return res.status(401).send("Not Allowed");
             }
-            if (isCompleted === false) {
-                note = new Note({
-                    title, description, category, isCompleted, user: req.userID
-                })
-                savedNote = await note.save();
-                note = await CompletedNotes.findById(req.params.id)
-                if (note.user.toString() !== req.userID.toString()) {
-                    return res.status(401).send("Not Allowed");
-                }
-                note = await CompletedNotes.findByIdAndDelete(req.params.id);
-            }
-            note = await CompletedNotes.findByIdAndUpdate(
-                req.params.id,
-                { $set: newNote },
-                { new: true }
-            )
+            note = await main.findByIdAndDelete(req.params.id);
         }
+        note = await main.findByIdAndUpdate(
+            req.params.id,
+            { $set: newNote },
+            { new: true }
+        )
+        // else if (await CompletedNotes.findById(req.params.id)) {
+        //     note = await CompletedNotes.findById(req.params.id);
+        //     if (!note) {
+        //         return res.status(404).json({ error: "Not Found" })
+        //     }
+        //     if (note.user.toString() !== req.userID.toString()) {
+        //         return res.status(401).send("Not Allowed");
+        //     }
+        //     if (isCompleted === false) {
+        //         note = new Note({
+        //             title, description, category, isCompleted, user: req.userID
+        //         })
+        //         savedNote = await note.save();
+        //         note = await CompletedNotes.findById(req.params.id)
+        //         if (note.user.toString() !== req.userID.toString()) {
+        //             return res.status(401).send("Not Allowed");
+        //         }
+        //         note = await CompletedNotes.findByIdAndDelete(req.params.id);
+        //     }
+        //     note = await CompletedNotes.findByIdAndUpdate(
+        //         req.params.id,
+        //         { $set: newNote },
+        //         { new: true }
+        //     )
+        // }
         res.json(savedNote)
         res.json({ note });
     } catch (e) {
