@@ -17,4 +17,4 @@ const slides = [
   }
 ];
   
-  export default slides;
+export default slides;
