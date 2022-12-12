@@ -8,6 +8,7 @@ import {
   HomeOutlined,
   LoginOutlined,
   MessageOutlined,
+  LogoutOutlined
 } from '@ant-design/icons';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import { Breadcrumb, Layout, Menu } from 'antd';
@@ -83,7 +84,7 @@ export default function App(): JSX.Element {
     ),
     getItem(
       'Signout', '8', 
-      <LoginOutlined />, 
+      <LogoutOutlined />,
       null,
       () => Navigate('/signout')
     )
@@ -107,7 +108,7 @@ export default function App(): JSX.Element {
   const signingOut: MenuItem[] = [
     getItem(
       'Signout', '1', 
-      <LoginOutlined />, 
+      <LogoutOutlined />,
       null, 
       () => Navigate('/signout')
     )
