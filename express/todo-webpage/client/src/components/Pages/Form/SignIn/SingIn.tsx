@@ -43,14 +43,10 @@ export default function SingIn() {
     if (!data || res.status === 421) {
       icon = error;
       message = "You've left an tag Empty!";
-    } else if (res.status === 422) {
+    } else if (res.status === 422 || res.status === 423) {
       icon = error;
       message = `Error`;
       info = `Email or Password Is Incorrect!`;
-    } else if (res.status === 423) {
-      icon = error;
-      message = `Wrong Password`;
-      info = `Password You've Entered Is Wrong`;
     } else if (res.status === 500) {
       icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
       message = `Server Error`;
@@ -62,6 +58,9 @@ export default function SingIn() {
       info = `User Signedin Successfully`;
       console.log("Signin Successful");
       Navigate('/');
+      setTimeout(() => {
+        window.location.reload()
+      }, 1500)
     }
     notificationTs(icon, message, info);
   }

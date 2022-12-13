@@ -91,26 +91,12 @@ export default function FilterList(props: any): JSX.Element {
                                     {allItems.map((currentEle: any, index: number) => {
                                         return (
                                             <span key={index}>
-                                                <Dropdown
-                                                    menu={{
-                                                    items,
-                                                    selectable: true,
-                                                    defaultSelectedKeys: ['3'],
-                                                    }}
-                                                >
-                                                    <Typography.Link>
-                                                    <Space>
-                                                        Selectable
-                                                        <DownOutlined />
-                                                    </Space>
-                                                    </Typography.Link>
-                                                </Dropdown>
-                                                {/* <Button
+                                                <Button
                                                     onClick={() => filterItems(currentEle)}
                                                     type="ghost"
                                                 >
                                                     {currentEle}
-                                                </Button> */}
+                                                </Button>
                                             </span>
                                         )
                                     })}
