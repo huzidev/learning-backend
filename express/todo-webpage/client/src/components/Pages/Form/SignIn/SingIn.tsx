@@ -53,14 +53,14 @@ export default function SingIn() {
       info = `Failed To Signin, Internal Server Error!`;
     } else {
       localStorage.setItem('jwtoken', data.token);
+      console.log("Signin Successful");
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>
       message = `Signin Successful!`
       info = `User Signedin Successfully`;
-      console.log("Signin Successful");
       Navigate('/');
       setTimeout(() => {
         window.location.reload()
-      }, 1500)
+      }, 1000)
     }
     notificationTs(icon, message, info);
   }

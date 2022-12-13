@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import ShowNotes from '../notes/ShowNotes';
-import type { MenuProps } from 'antd';
-import { Card, Col, Row , Button, Typography, Dropdown, Space } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Card, Col, Row , Button, Typography } from 'antd';
 import { useLocation } from 'react-router-dom';
 
 export default function FilterList(props: any): JSX.Element {
@@ -13,24 +11,6 @@ export default function FilterList(props: any): JSX.Element {
 
     
     let Data = state ? items : props.notes
-
-    const item: MenuProps['items'] = [
-        {
-          label: <a href="https://www.antgroup.com">1st menu item</a>,
-          key: '0',
-        },
-        {
-          label: <a href="https://www.aliyun.com">2nd menu item</a>,
-          key: '1',
-        },
-        {
-          type: 'divider',
-        },
-        {
-          label: '3rd menu item',
-          key: '3',
-        },
-      ];
 
     const allItems = [...new Set(props.notes.map((currentEle: any) => {
         return (

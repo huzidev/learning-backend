@@ -25,7 +25,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
     .Border {
         background-color: ${(p: any) => p.LModeBG};
     }
-    .ant-btn-primary span{
+    .ant-btn-primary span {
         color: white;
     }
     .ant-btn-default span {
