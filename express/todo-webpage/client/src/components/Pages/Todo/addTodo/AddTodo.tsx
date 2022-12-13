@@ -15,8 +15,8 @@ export default function AddTodo(): JSX.Element {
   })
 
   let icon : any
-  let heading: String;
-  let message: String | null;
+  let heading: string;
+  let message: string | null;
 
   const addTodo = async (e: React.FormEvent) => {
     e.preventDefault();

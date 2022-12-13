@@ -35,7 +35,7 @@ export default function SignUp() {
     });
   };
 
-  async function notificationTs(icon: React.ReactNode, message: String, info: String | null) {
+  async function notificationTs(icon: React.ReactNode, message: string, info: string | null) {
     notification.open({
         icon : icon,
         message: message,
@@ -45,8 +45,8 @@ export default function SignUp() {
 
   const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
   let icon : React.ReactNode
-  let title: String;
-  let description: String | null;
+  let title: string;
+  let description: string | null;
 
   async function signUp(e: React.FormEvent) {
     e.preventDefault();

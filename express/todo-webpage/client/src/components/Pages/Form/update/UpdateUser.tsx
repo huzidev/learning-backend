@@ -24,7 +24,7 @@ export default function UpdateUser() {
 
     const [data, setData] = useState<DataType>({id: "", eusername: "", eemail: "", enumber: "", eimage: ""})
 
-    async function notificationTs(icon: React.ReactNode, title: String, description: String | null) {
+    async function notificationTs(icon: React.ReactNode, title: string, description: string | null) {
         notification.open({
             icon : icon,
             message: title,
@@ -51,8 +51,8 @@ export default function UpdateUser() {
     const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
     const success: React.ReactNode = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
     let icon : React.ReactNode;
-    let title: String;
-    let description: String | null;
+    let title: string;
+    let description: string | null;
 
     const handleClick = async () => { 
 

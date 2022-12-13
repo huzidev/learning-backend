@@ -27,17 +27,17 @@ export default function NotesItems(props: any) {
     const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
     const success: React.ReactNode = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
     let icon : React.ReactNode;
-    let message: String;
-    let info: String | null;
+    let message: string;
+    let info: string | null;
 
-    let path: String;
+    let path: string;
     if (Location.pathname.includes('/addnote')) {
         path = "/allnotes"
     } else if (Location.pathname.includes('/completed')) {
         path = "/completednotes"
     }
 
-    async function notificationTs(icon: React.ReactNode, message: String, info: String | null) {
+    async function notificationTs(icon: React.ReactNode, message: string, info: string | null) {
         notification.open({
             icon : icon,
             message: message,
@@ -115,7 +115,7 @@ export default function NotesItems(props: any) {
                         isCompleted: isChecked
                     })
                 });
-                let state: String = isChecked ? "Completed Notes" : "Notes List"
+                let state: string = isChecked ? "Completed Notes" : "Notes List"
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
                     message = "Empty Field";
