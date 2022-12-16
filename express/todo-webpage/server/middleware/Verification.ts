@@ -1,7 +1,8 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/userSchema';
+import { Request, Response, NextFunction } from 'express';
 
-const Verification = async (req, res, next) => {
+const Verification = async (req: any, res: Response, next: NextFunction) => {
     try {
         const token = req.cookies.jwtoken;
         const verifyUser = jwt.verify(token, process.env.SECRET_KEY);
