@@ -114,8 +114,13 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         )
         res.json(savedNote)
         res.json({ note });
-    } catch (e) {
-        console.log(e);
+    } catch (err) {
+        if (err instanceof Error) {
+            console.error(err.message);
+        } else {
+            console.error(String(err))
+        }
+        return res.status(500).send("Internal Server Error");
     }
 })
 
@@ -136,8 +141,13 @@ router.delete('/deletenote/:id', Verification, async (req, res) => {
         }
         note = await main.findByIdAndDelete(req.params.id);
         return res.status(200).json({ message: "Note Deleted", note: note })
-    } catch (e) {
-        console.log(e);
+    } catch (err) {
+        if (err instanceof Error) {
+            console.error(err.message);
+        } else {
+            console.error(String(err))
+        }
+        return res.status(500).send("Internal Server Error");
     }
 })
 
