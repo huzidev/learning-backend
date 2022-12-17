@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 const User = require("../middleware/userSchema").default
 import { Request, Response, NextFunction } from 'express';
 
-const Verification = async (req: any, res: Response, next: NextFunction) => {
+const Verification = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const token: string = req.cookies.jwtoken;
         const verifyUser: any = jwt.verify(token, process.env.SECRET_KEY!);
