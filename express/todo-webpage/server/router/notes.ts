@@ -1,7 +1,7 @@
 import express from "express";
-import Verification from '../middleware/Verification';
-import Note from '../models/note';
-import CompletedNotes from '../models/completedNotes';
+const Verification = require("../middleware/Verification").default
+const CompletedNotes = require("../models/completedNotes").default
+const Note = require("../models/note").default
 import cors from "cors";
  
 const router = express.Router();

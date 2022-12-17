@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import User from "../models/userSchema";
+const User = require("../middleware/userSchema").default
 import { Request, Response, NextFunction } from 'express';
 
 const Verification = async (req: any, res: Response, next: NextFunction) => {
@@ -23,4 +23,4 @@ const Verification = async (req: any, res: Response, next: NextFunction) => {
     }
 }
 
-export default Verification;
+module.exports = Verification;

@@ -1,9 +1,9 @@
 import express from "express";
 import bcrypt from "bcrypt";
 // import multer from "multer";
-import User from '../models/userSchema';
-import Contact from '../models/userMessage';
-import Verification from '../middleware/Verification';
+const Verification = require("../middleware/Verification").default
+const Contact = require("../middleware/userMessage").default
+const User = require("../middleware/userSchema").default
 import cookie from 'cookie-parser';
 import cors from "cors";
 

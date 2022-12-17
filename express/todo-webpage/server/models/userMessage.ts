@@ -25,4 +25,4 @@ const userMessage = new Schema({
 
 const Contact = mongoose.model('TODO-USERS-MESSAGES', userMessage); 
 
-export default Contact;
+module.exports = Contact;
