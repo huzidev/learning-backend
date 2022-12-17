@@ -4,9 +4,9 @@ import bcrypt from "bcrypt";
 const Verification = require("../middleware/Verification").default
 const Contact = require("../middleware/userMessage").default
 const User = require("../middleware/userSchema").default
+import TypesUser from './Types';
 import cookie from 'cookie-parser';
 import cors from "cors";
-import TypesUser from './Types';
 
 require('../db/connection.js');
 
@@ -66,7 +66,7 @@ router.post('/signup', async (req: Request, res: Response) => {
 router.post('/signin', async (req: Request, res: Response) => {
     try {
         let token;
-        const {email, password} = req.body;
+        const { email, password } = req.body;
         if (!email || !password) {
             return res.status(421).json({ error : "You've left an tag empty" });
         }
