@@ -48,7 +48,7 @@ router.get(`${path}`, Verification, async (req: any, res) => {
 //     }
 // })
 
-router.post('/addnote', Verification, async (req, res) => {
+router.post('/addnote', Verification, async (req: any, res) => {
         try {
             const { title, description, category, isCompleted } = req.body;
             console.log("Title is", title);
@@ -72,10 +72,17 @@ router.post('/addnote', Verification, async (req, res) => {
     }
 )
 
+interface Types {
+    title: string
+    description: string
+    category: string
+    isCompleted: boolean
+}
+
 router.put('/updatenote/:id', Verification, async (req, res) => {
     const { title, description, category, isCompleted } = req.body;
     try {
-        const newNote = {}
+        const newNote = <Types>{}
         if (title) {
             newNote.title = title
         } 
