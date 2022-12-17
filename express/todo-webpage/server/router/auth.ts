@@ -73,7 +73,7 @@ router.post('/signin', async (req, res) => {
         if (!email || !password) {
             return res.status(421).json({ error : "You've left an tag empty" });
         }
-        const userEmail = await User.findOne({ email: email });
+        const userEmail: any = await User.findOne({ email: email });
         if (!userEmail) {
             return res.status(422).json({ error: "No Such Email is Found!" })
         } else if (userEmail) {
@@ -123,10 +123,17 @@ router.post('/contact', async (req, res) => {
     }
 })
 
+interface Types {
+    username: string
+    email: string
+    number: number
+    isTheme: boolean
+}
+
 router.put('/updateuser/:id', Verification, async (req, res) => {
     const { username, email, number, isTheme } = req.body;
     try {
-        const newInfo = {}
+        const newInfo = <Types>{}
         if (username) {
             newInfo.username = username
         } 
@@ -175,9 +182,8 @@ router.put('/updateuser/:id', Verification, async (req, res) => {
 //     .catch((e) => res.status(400).json(`Error: ${e}`))
 // })
 
-router.get('/about', Verification, (req, res) => {
+router.get('/about', Verification, (req: any, res) => {
     res.send(req.userInfo)
 })
-
 
 module.exports = router;

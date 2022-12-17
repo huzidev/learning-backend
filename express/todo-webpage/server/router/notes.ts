@@ -52,7 +52,7 @@ router.post('/addnote', Verification, async (req, res) => {
         try {
             const { title, description, category, isCompleted } = req.body;
             console.log("Title is", title);
-            if (!title | !description | !category) {
+            if (!title || !description || !category) {
                 return res.status(404).json({ message: "You've left an tag empty" })
             } else {
                 const note = new Note({
