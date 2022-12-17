@@ -1,7 +1,7 @@
 import express from "express";
 import Verification from '../middleware/Verification';
-import Note from '../models/Note';
-import CompletedNotes from '../models/CompletedNotes';
+import Note from '../models/note';
+import CompletedNotes from '../models/completedNotes';
 import cors from "cors";
  
 const router = express.Router();
@@ -19,7 +19,7 @@ if (location.pathname.includes("/addnote")) {
     holder = CompletedNotes;
 }
 
-router.get(`${path}`, Verification, async (req, res) => {
+router.get(`${path}`, Verification, async (req: any, res) => {
     try {
         const notes = await holder.find({ user: req.userID });
         res.json(notes)

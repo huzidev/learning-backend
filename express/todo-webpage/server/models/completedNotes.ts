@@ -29,4 +29,4 @@ const NotesSchema = new Schema({
 
 const CompletedNotes = mongoose.model('NOTES_COMPLETED', NotesSchema);
 
-module.exports = CompletedNotes;
+export default CompletedNotes;

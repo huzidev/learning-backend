@@ -1,6 +1,6 @@
 import express from "express";
 import bcrypt from "bcrypt";
-import multer from "multer";
+// import multer from "multer";
 import User from '../models/userSchema';
 import Contact from '../models/userMessage';
 import Verification from '../middleware/Verification';
