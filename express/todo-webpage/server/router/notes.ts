@@ -79,7 +79,7 @@ interface Types {
     isCompleted: boolean
 }
 
-router.put('/updatenote/:id', Verification, async (req, res) => {
+router.put('/updatenote/:id', Verification, async (req: any, res) => {
     const { title, description, category, isCompleted } = req.body;
     try {
         const newNote = <Types>{}
@@ -95,7 +95,7 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
         if (!isCompleted || isCompleted) {
             newNote.isCompleted = isCompleted
         }
-        let note, savedNote, state, hold, main; 
+        let note: any, savedNote: any, state: any, hold: any, main: any; 
         if (await Note.findById(req.params.id)) {
             main = Note,
             state = true,
@@ -140,9 +140,9 @@ router.put('/updatenote/:id', Verification, async (req, res) => {
     }
 })
 
-router.delete('/deletenote/:id', Verification, async (req, res) => {
+router.delete('/deletenote/:id', Verification, async (req: any, res) => {
     try {
-        let note, main; 
+        let note: any, main: any; 
         if (await Note.findById(req.params.id)) {
             main = Note
         } else if (await CompletedNotes.findById(req.params.id)) {
