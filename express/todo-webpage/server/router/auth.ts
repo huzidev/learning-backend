@@ -56,7 +56,6 @@ router.post('/signup', async (req, res) => {
                 return res.status(500).json({ message : "Failed to registered" });
             }
         }
-
     } catch (err) {
         console.log(err);
     }
@@ -124,17 +123,6 @@ router.post('/contact', async (req, res) => {
     }
 })
 
-const storage = multer.diskStorage({
-    destination: (req, file, callback) => {
-        callback(null, "../../client/public/uploads")
-    },
-    filename: (req, file, callback) => {
-        callback(null, file.originalname)
-    }
-})
-
-const upload = multer({ storage: storage })
-
 router.put('/updateuser/:id', Verification, async (req, res) => {
     const { username, email, number, isTheme } = req.body;
     try {
@@ -166,16 +154,26 @@ router.put('/updateuser/:id', Verification, async (req, res) => {
         console.log(e);
     }
 })
+// const storage = multer.diskStorage({
+//     destination: (req, file, callback) => {
+//         callback(null, "../../client/public/uploads")
+//     },
+//     filename: (req, file, callback) => {
+//         callback(null, file.originalname)
+//     }
+// })
 
-router.post('/addimage', upload.single("image"), (req, res) => {
-    const newData = new User({
-        image: req.file.originalname
-    })
-    newData
-    .save()
-    .then(() => res.json("Image Uploaded"))
-    .catch((e) => res.status(400).json(`Error: ${e}`))
-})
+// const upload = multer({ storage: storage })
+
+// router.post('/addimage', upload.single("image"), (req, res) => {
+//     const newData = new User({
+//         image: req.file.originalname
+//     })
+//     newData
+//     .save()
+//     .then(() => res.json("Image Uploaded"))
+//     .catch((e) => res.status(400).json(`Error: ${e}`))
+// })
 
 router.get('/about', Verification, (req, res) => {
     res.send(req.userInfo)
