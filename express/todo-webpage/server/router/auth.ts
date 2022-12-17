@@ -65,7 +65,7 @@ router.post('/signup', async (req: Request, res: Response) => {
 
 router.post('/signin', async (req: Request, res: Response) => {
     try {
-        let token;
+        let token: string;
         const { email, password } = req.body;
         if (!email || !password) {
             return res.status(421).json({ error : "You've left an tag empty" });
@@ -93,7 +93,7 @@ router.post('/signin', async (req: Request, res: Response) => {
     }
 })
 
-router.post('/contact', async (req, res) => {
+router.post('/contact', async (req: Request, res: Response) => {
     
     try{
         const { username, email, number, message } = req.body;
@@ -120,12 +120,7 @@ router.post('/contact', async (req, res) => {
     }
 })
 
-router.get('/signout', (req: Request, res: Response) => {
-    res.clearCookie('jwtoken', { path : '/' })
-    res.status(200).send("User loggedOut Successfully!")
-})
-
-router.put('/updateuser/:id', Verification, async (req, res) => {
+router.put('/updateuser/:id', Verification, async (req: Request, res: Response) => {
     const { username, email, number, isTheme } = req.body;
     try {
         const newInfo = <TypesUser>{}
@@ -156,6 +151,12 @@ router.put('/updateuser/:id', Verification, async (req, res) => {
         console.log(e);
     }
 })
+
+router.get('/signout', (req: Request, res: Response) => {
+    res.clearCookie('jwtoken', { path : '/' })
+    res.status(200).send("User loggedOut Successfully!")
+})
+
 // const storage = multer.diskStorage({
 //     destination: (req, file, callback) => {
 //         callback(null, "../../client/public/uploads")
@@ -177,7 +178,7 @@ router.put('/updateuser/:id', Verification, async (req, res) => {
 //     .catch((e) => res.status(400).json(`Error: ${e}`))
 // })
 
-router.get('/about', Verification, (req: any, res) => {
+router.get('/about', Verification, (req: Request, res: Response) => {
     res.send(req.userInfo)
 })
 
