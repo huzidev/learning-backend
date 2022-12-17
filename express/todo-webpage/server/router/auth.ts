@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import bcrypt from "bcrypt";
 // import multer from "multer";
 const Verification = require("../middleware/Verification").default
@@ -6,6 +6,7 @@ const Contact = require("../middleware/userMessage").default
 const User = require("../middleware/userSchema").default
 import cookie from 'cookie-parser';
 import cors from "cors";
+import TypesUser from './Types';
 
 require('../db/connection.js');
 
@@ -18,11 +19,11 @@ router.use(cors({
 router.use(express.urlencoded({ extended : false }));
 router.use(cookie());
 
-router.post('/', (req, res) => {
+router.post('/', (req: Request, res: Response) => {
     res.send("Home page");
 })
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', async (req: Request, res: Response) => {
     const { username, email, number, password, cpassword, isTheme } = req.body;
 
     if ( !username || !email || !number || !password || !cpassword ) {
@@ -61,12 +62,8 @@ router.post('/signup', async (req, res) => {
     }
 })
 
-router.get('/signout', (req, res) => {
-    res.clearCookie('jwtoken', { path : '/' })
-    res.status(200).send("User loggedOut Successfully!")
-})
 
-router.post('/signin', async (req, res) => {
+router.post('/signin', async (req: Request, res: Response) => {
     try {
         let token;
         const {email, password} = req.body;
@@ -100,7 +97,7 @@ router.post('/contact', async (req, res) => {
     
     try{
         const { username, email, number, message } = req.body;
-
+        
         if (!username) {
             return res.status(422).json({ error : "Username must be provide" });
         } else if (!email) {
@@ -110,7 +107,7 @@ router.post('/contact', async (req, res) => {
         }
         const userMessage = new Contact({ username, email, number: number === null ? null : "+92" + number , message })
         const userResponse = await userMessage.save();
-
+        
         if (userResponse) {
             return res.status(200).json({ message : "Message Sent Successfully!" });
         }
@@ -123,17 +120,15 @@ router.post('/contact', async (req, res) => {
     }
 })
 
-interface Types {
-    username: string
-    email: string
-    number: number
-    isTheme: boolean
-}
+router.get('/signout', (req: Request, res: Response) => {
+    res.clearCookie('jwtoken', { path : '/' })
+    res.status(200).send("User loggedOut Successfully!")
+})
 
 router.put('/updateuser/:id', Verification, async (req, res) => {
     const { username, email, number, isTheme } = req.body;
     try {
-        const newInfo = <Types>{}
+        const newInfo = <TypesUser>{}
         if (username) {
             newInfo.username = username
         } 

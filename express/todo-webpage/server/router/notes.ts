@@ -3,6 +3,7 @@ const Verification = require("../middleware/Verification").default
 const CompletedNotes = require("../models/completedNotes").default
 const Note = require("../models/note").default
 import cors from "cors";
+import TypesNote from './Types';
  
 const router = express.Router();
 
@@ -72,17 +73,10 @@ router.post('/addnote', Verification, async (req: any, res) => {
     }
 )
 
-interface Types {
-    title: string
-    description: string
-    category: string
-    isCompleted: boolean
-}
-
 router.put('/updatenote/:id', Verification, async (req: any, res) => {
     const { title, description, category, isCompleted } = req.body;
     try {
-        const newNote = <Types>{}
+        const newNote = <TypesNote>{}
         if (title) {
             newNote.title = title
         } 
