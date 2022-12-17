@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 const Verification = require("../middleware/Verification").default
 const CompletedNotes = require("../models/completedNotes").default
 const Note = require("../models/note").default
@@ -11,7 +11,7 @@ router.use(cors({
     origin: "*"
 }));
 
-let path: any, holder: any;
+let path: string, holder: any;
 if (location.pathname.includes("/addnote")) {
     path = "/allnotes";
     holder = Note;
@@ -20,7 +20,7 @@ if (location.pathname.includes("/addnote")) {
     holder = CompletedNotes;
 }
 
-router.get(`${path}`, Verification, async (req: any, res) => {
+router.get(`${path!}`, Verification, async (req: Request, res: Response) => {
     try {
         const notes = await holder.find({ user: req.userID });
         res.json(notes)
@@ -49,7 +49,7 @@ router.get(`${path}`, Verification, async (req: any, res) => {
 //     }
 // })
 
-router.post('/addnote', Verification, async (req: any, res) => {
+router.post('/addnote', Verification, async (req: Request, res: Response) => {
         try {
             const { title, description, category, isCompleted } = req.body;
             console.log("Title is", title);
@@ -73,7 +73,7 @@ router.post('/addnote', Verification, async (req: any, res) => {
     }
 )
 
-router.put('/updatenote/:id', Verification, async (req: any, res) => {
+router.put('/updatenote/:id', Verification, async (req: Request, res: Response) => {
     const { title, description, category, isCompleted } = req.body;
     try {
         const newNote = <TypesNote>{}
@@ -134,7 +134,7 @@ router.put('/updatenote/:id', Verification, async (req: any, res) => {
     }
 })
 
-router.delete('/deletenote/:id', Verification, async (req: any, res) => {
+router.delete('/deletenote/:id', Verification, async (req: Request, res: Response) => {
     try {
         let note: any, main: any; 
         if (await Note.findById(req.params.id)) {
