@@ -10,6 +10,12 @@ router.use(cors({
     origin: "*"
 }));
 
+let path: string, holder: any;
+if (location.pathname.includes("/addnote")) {
+    path = "/allnotes";
+    holder = Note;
+}
+
 router.get('/allnotes', Verification, async (req, res) => {
     try {
         const notes = await Note.find({ user: req.userID });
@@ -25,19 +31,19 @@ router.get('/allnotes', Verification, async (req, res) => {
     }
 })
 
-router.get('/completednotes', Verification, async (req, res) => {
-    try {
-        const notes = await CompletedNotes.find({ user: req.userID });
-        res.json(notes)
-    } catch (err) {
-        if (err instanceof Error) {
-            console.error(err.message);
-        } else {
-            console.error(String(err))
-        }
-        return res.status(500).send("Internal Server Error");
-    }
-})
+// router.get('/completednotes', Verification, async (req, res) => {
+//     try {
+//         const notes = await CompletedNotes.find({ user: req.userID });
+//         res.json(notes)
+//     } catch (err) {
+//         if (err instanceof Error) {
+//             console.error(err.message);
+//         } else {
+//             console.error(String(err))
+//         }
+//         return res.status(500).send("Internal Server Error");
+//     }
+// })
 
 router.post('/addnote', Verification, async (req, res) => {
         try {
