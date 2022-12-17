@@ -10,15 +10,18 @@ router.use(cors({
     origin: "*"
 }));
 
-let path: string, holder: any;
+let path: any, holder: any;
 if (location.pathname.includes("/addnote")) {
     path = "/allnotes";
     holder = Note;
+} else if (location.pathname.includes("/completed")) {
+    path = "/completednotes";
+    holder = CompletedNotes;
 }
 
-router.get('/allnotes', Verification, async (req, res) => {
+router.get(`${path}`, Verification, async (req, res) => {
     try {
-        const notes = await Note.find({ user: req.userID });
+        const notes = await holder.find({ user: req.userID });
         res.json(notes)
     } catch (err) {
         // because error type will be unkown therefore just check if error is of instance error
