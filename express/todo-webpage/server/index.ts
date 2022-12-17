@@ -1,4 +1,4 @@
-import express, { Application, Request, Response } from "express";
+import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import cookie from 'cookie-parser';
 import bodyParser from "body-parser";
@@ -8,7 +8,7 @@ dotenv.config({ path : './config.env' });
 require('./db/connection.js');
 
 const server = express();
-const port = 8000;
+const port: number = 8000;
 
 server.use(express.json());
 server.use(require('./router/auth'));
@@ -22,7 +22,7 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended : true }));
 server.use(cookie());
 
-server.get('*', (req, res) => {
+server.get('*', (req: Request, res: Response) => {
     res.send({ message: "Hello, world" });
 });
 

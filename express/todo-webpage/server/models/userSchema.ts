@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { NextFunction } from 'express';
 
 const userSchema = new mongoose.Schema({
     username : {
@@ -40,7 +41,7 @@ const userSchema = new mongoose.Schema({
 });
 
 // HASHING
-userSchema.pre('save', async function (next) {
+userSchema.pre('save', async function (next: NextFunction) {
     if (this.isModified('password')) {
         this.password = await bcrypt.hash(this.password, 12);
         this.cpassword = await bcrypt.hash(this.cpassword, 12);
@@ -54,7 +55,7 @@ userSchema.methods.generateAuthToken = async function () {
         let token = jwt.sign({ 
             _id : this._id 
         }, 
-            process.env.SECRET_KEY
+            process.env.SECRET_KEY!
         );
         // concatenation of token inside tokens array we've created in schema
         this.tokens = this.tokens.concat({ token : token });
@@ -65,6 +66,6 @@ userSchema.methods.generateAuthToken = async function () {
     }
 };
 
-const User = mongoose.model('users', userSchema);
+const User = mongoose.model("users", userSchema);
 
 module.exports = User;

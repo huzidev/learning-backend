@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-const NotesSchema = new mongoose.Schema({
+const NotesSchema = new Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
@@ -27,6 +27,6 @@ const NotesSchema = new mongoose.Schema({
     }
 });
 
-const CompletedNotes = mongoose.model('NOTES_COMPLETED', NotesSchema);
+const Note = mongoose.model('NOTES', NotesSchema);
 
-module.exports = CompletedNotes;
+module.exports = Note;

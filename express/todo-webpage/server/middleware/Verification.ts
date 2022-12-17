@@ -1,11 +1,11 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/userSchema';
+import User from "../models/userSchema";
 import { Request, Response, NextFunction } from 'express';
 
-const Verification = async (req: any, res: Response, next: NextFunction) => {
+const Verification = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const token = req.cookies.jwtoken;
-        const verifyUser = jwt.verify(token, process.env.SECRET_KEY);
+        const verifyUser = jwt.verify(token, process.env.SECRET_KEY!);
         const userInfo = await User.findOne({
             _id: verifyUser._id,
             "tokens.token": token // in mongoDB we've tokens in which token and :token is defined here
