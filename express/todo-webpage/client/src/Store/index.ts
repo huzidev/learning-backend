@@ -1,12 +1,14 @@
-// import { configureStore  } from "@reduxjs/toolkit";
-// import userState from "./UserState";
+import { configureStore  } from "@reduxjs/toolkit";
+import userState from "./UserState";
+import testState from "./testState";
 
-// const store = configureStore ({
+const store = configureStore ({
 
-//     reducer : {
-//         user : userState.reducer
-//     }
+    reducer : {
+        user : userState.reducer,
+        test: testState.reducer
+    }
 
-// });
+});
 
-// export type store
+export default store;
