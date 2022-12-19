@@ -1,45 +1,35 @@
 import express, { Request, Response } from "express";
-const Verification = require("../middleware/Verification").default
-const CompletedNotes = require("../models/completedNotes").default
-const Note = require("../models/note").default
+const Verification = require("../middleware/Verification")
+const CompletedNotes = require("../models/completedNotes")
+const Note = require("../models/note")
 import cors from "cors";
 import TypesNote from './Types';
  
 const router = express.Router();
 
+var url = require("url");
+url.parse('http://localhost:3000/addnote').pathname    
+console.log("wthat is url", url);
+
 router.use(cors({
     origin: "*"
 }));
 
-let path: string, holder: any;
-if (location.pathname.includes("/addnote")) {
-    path = "/allnotes";
-    holder = Note;
-} else if (location.pathname.includes("/completed")) {
-    path = "/completednotes";
-    holder = CompletedNotes;
-}
+// let path: string, holder: any;
+// if (location.pathname.includes("/addnote")) {
+//     path = "/allnotes";
+//     holder = Note;
+// } else if (location.pathname.includes("/completed")) {
+//     path = "/completednotes";
+//     holder = CompletedNotes;
+// }
 
-router.get(`${path!}`, Verification, async (req: Request, res: Response) => {
-    try {
-        const notes = await holder.find({ user: req.userID });
-        res.json(notes)
-    } catch (err) {
-        // because error type will be unkown therefore just check if error is of instance error
-        if (err instanceof Error) {
-            console.error(err.message);
-        } else {
-            console.error(String(err))
-        }
-        return res.status(500).send("Internal Server Error");
-    }
-})
-
-// router.get('/completednotes', Verification, async (req, res) => {
+// router.get(`${path!}`, Verification, async (req: any, res: Response) => {
 //     try {
-//         const notes = await CompletedNotes.find({ user: req.userID });
+//         const notes = await holder.find({ user: req.userID });
 //         res.json(notes)
 //     } catch (err) {
+//         // because error type will be unkown therefore just check if error is of instance error
 //         if (err instanceof Error) {
 //             console.error(err.message);
 //         } else {
@@ -49,7 +39,34 @@ router.get(`${path!}`, Verification, async (req: Request, res: Response) => {
 //     }
 // })
 
-router.post('/addnote', Verification, async (req: Request, res: Response) => {
+router.get('/allnotes', Verification, async (req: any, res) => {
+    try {
+        const notes = await Note.find({ user: req.userID });
+        res.json(notes)
+    } catch (err) {
+        if (err instanceof Error) {
+            console.error(err.message);
+        } else {
+            console.error(String(err))
+        }
+        return res.status(500).send("Internal Server Error");
+    }
+})
+router.get('/completednotes', Verification, async (req: any, res) => {
+    try {
+        const notes = await CompletedNotes.find({ user: req.userID });
+        res.json(notes)
+    } catch (err) {
+        if (err instanceof Error) {
+            console.error(err.message);
+        } else {
+            console.error(String(err))
+        }
+        return res.status(500).send("Internal Server Error");
+    }
+})
+
+router.post('/addnote', Verification, async (req: any, res: Response) => {
         try {
             const { title, description, category, isCompleted } = req.body;
             console.log("Title is", title);
@@ -73,7 +90,7 @@ router.post('/addnote', Verification, async (req: Request, res: Response) => {
     }
 )
 
-router.put('/updatenote/:id', Verification, async (req: Request, res: Response) => {
+router.put('/updatenote/:id', Verification, async (req: any, res: Response) => {
     const { title, description, category, isCompleted } = req.body;
     try {
         const newNote = <TypesNote>{}
@@ -134,7 +151,7 @@ router.put('/updatenote/:id', Verification, async (req: Request, res: Response) 
     }
 })
 
-router.delete('/deletenote/:id', Verification, async (req: Request, res: Response) => {
+router.delete('/deletenote/:id', Verification, async (req: any, res: Response) => {
     try {
         let note: any, main: any; 
         if (await Note.findById(req.params.id)) {

@@ -1,14 +1,14 @@
 import express, { Request, Response } from "express";
 import bcrypt from "bcrypt";
 // import multer from "multer";
-const Verification = require("../middleware/Verification").default
-const Contact = require("../middleware/userMessage").default
-const User = require("../middleware/userSchema").default
+const Verification = require("../middleware/Verification")
+const Contact = require("../models/userMessage")
+const User = require("../models/userSchema")
 import TypesUser from './Types';
 import cookie from 'cookie-parser';
 import cors from "cors";
 
-require('../db/connection.js');
+require('../db/connection.ts');
 
 const router = express.Router();
 
@@ -19,11 +19,11 @@ router.use(cors({
 router.use(express.urlencoded({ extended : false }));
 router.use(cookie());
 
-router.post('/', (req: Request, res: Response) => {
+router.post('/', (req: any, res: Response) => {
     res.send("Home page");
 })
 
-router.post('/signup', async (req: Request, res: Response) => {
+router.post('/signup', async (req: any, res: Response) => {
     const { username, email, number, password, cpassword, isTheme } = req.body;
 
     if ( !username || !email || !number || !password || !cpassword ) {
@@ -63,7 +63,7 @@ router.post('/signup', async (req: Request, res: Response) => {
 })
 
 
-router.post('/signin', async (req: Request, res: Response) => {
+router.post('/signin', async (req: any, res: Response) => {
     try {
         let token: string;
         const { email, password } = req.body;
@@ -93,7 +93,7 @@ router.post('/signin', async (req: Request, res: Response) => {
     }
 })
 
-router.post('/contact', async (req: Request, res: Response) => {
+router.post('/contact', async (req: any, res: Response) => {
     
     try{
         const { username, email, number, message } = req.body;
@@ -120,7 +120,7 @@ router.post('/contact', async (req: Request, res: Response) => {
     }
 })
 
-router.put('/updateuser/:id', Verification, async (req: Request, res: Response) => {
+router.put('/updateuser/:id', Verification, async (req: any, res: Response) => {
     const { username, email, number, isTheme } = req.body;
     try {
         const newInfo = <TypesUser>{}
@@ -152,7 +152,7 @@ router.put('/updateuser/:id', Verification, async (req: Request, res: Response) 
     }
 })
 
-router.get('/signout', (req: Request, res: Response) => {
+router.get('/signout', (req: any, res: Response) => {
     res.clearCookie('jwtoken', { path : '/' })
     res.status(200).send("User loggedOut Successfully!")
 })
@@ -178,7 +178,7 @@ router.get('/signout', (req: Request, res: Response) => {
 //     .catch((e) => res.status(400).json(`Error: ${e}`))
 // })
 
-router.get('/about', Verification, (req: Request, res: Response) => {
+router.get('/about', Verification, (req: any, res: Response) => {
     res.send(req.userInfo)
 })
 

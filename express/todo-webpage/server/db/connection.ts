@@ -1,11 +1,11 @@
 import mongoose, { ConnectOptions } from "mongoose";
 const DB = process.env.DATA!;
 
-try {
-    mongoose.connect(DB, {
-        useNewUrlParser : true,
-        useUnifiedTopology : true
-    } as ConnectOptions)
-} catch (error) {
-    console.log("Error" + error);
-}
+mongoose.connect(DB, {
+    useNewUrlParser : true,
+    useUnifiedTopology : true,
+}as ConnectOptions).then(() => {
+    console.log("Connection Successful!");
+}).catch((err) => {
+    console.log("Failed To Connect", err);
+})
