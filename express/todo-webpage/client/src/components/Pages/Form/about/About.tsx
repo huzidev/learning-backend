@@ -1,11 +1,16 @@
 import React, { useContext, useEffect } from 'react';
 import { Button, Card, Typography } from 'antd';
 import DataContext from '../../../Context/DataContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { stateActions } from '../../../../Store/UserState';
 
 export default function About(props: any): JSX.Element {
   const context = useContext(DataContext);
   const { userData } = context;
   const { updateData } = props;
+
+  const test = useSelector((state: any) => state.user.setUserData)
+  const dispatch = useDispatch();
 
   const theme = userData.isTheme ? 'Dark Mode' : 'Light Mode'
 
@@ -20,6 +25,11 @@ export default function About(props: any): JSX.Element {
     
   console.log("wahts is theme in localStorage", themae);
   
+  function getData() {
+    dispatch(stateActions.getNotes())
+    console.log("what is getData", test);
+  }
+
   return (
     <>
         <Card 
@@ -47,6 +57,9 @@ export default function About(props: any): JSX.Element {
                 Update Data
             </Button>
         </Card>
+        <button className='Dark' onClick={getData}>
+          Get Data
+        </button>
     </>
   )
 }

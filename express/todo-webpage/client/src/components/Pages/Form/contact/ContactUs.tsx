@@ -6,11 +6,13 @@ import { DataType } from './Type';
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { testActions } from '../../../../Store/testState';
+import { stateActions } from '../../../../Store/testState';
 
 
 export default function Footer(): JSX.Element {
 
   const quantity = useSelector((state: any) => state.test.totalQuantity)
+  const test = useSelector((state: any) => state.user.setNotes)
   const dispatch = useDispatch();
 
   function inc() {
