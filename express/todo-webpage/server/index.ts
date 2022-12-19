@@ -1,13 +1,13 @@
-import express, { Request, Response } from "express";
+import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import cookie from 'cookie-parser';
 import bodyParser from "body-parser";
 import cors from "cors";
 
 dotenv.config({ path : './config.env' });
-require('./db/connection.js');
+require('./db/connection.ts');
 
-const server = express();
+const server: Express = express();
 const port: number = 8000;
 
 server.use(express.json());
