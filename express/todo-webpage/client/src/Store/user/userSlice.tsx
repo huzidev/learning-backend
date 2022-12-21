@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { Types, User } from "./Types";
+import { initialType, User } from "./Types";
 
-const initialState: Types = {
+const initialState: initialType = {
     loading: false,
     users: [],
     error: ''

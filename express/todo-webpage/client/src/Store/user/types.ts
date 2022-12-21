@@ -6,7 +6,7 @@ export interface User {
     isTheme: boolean
 }
 
-export interface Types {
+export interface initialType {
     loading: boolean
     users: User[]
     error: string
