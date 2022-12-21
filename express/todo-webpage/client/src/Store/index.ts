@@ -1,14 +1,14 @@
-import { configureStore  } from "@reduxjs/toolkit";
-import userState from "./UserState";
-import testState from "./testState";
+import { configureStore } from "@reduxjs/toolkit";
+import userReducer from './userSlice';
 
-const store = configureStore ({
-
+const store = configureStore({
     reducer : {
-        user : userState.reducer,
-        test: testState.reducer
+        user : userReducer
     }
-
-});
+})
 
 export default store;
+
+// will use these two types for useSelector(for State) and for useDispatch(to run/send) function
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
