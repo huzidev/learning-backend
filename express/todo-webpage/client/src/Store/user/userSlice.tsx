@@ -12,16 +12,24 @@ export const fetchUsers = createAsyncThunk('user/fetchUsers', async () => {
     // return axios
     //     .get("https://jsonplaceholder.typicode.com/users")
     //     .then(res => res.data)
-    const res = await fetch("/about", {
-        method : 'GET',
-            headers: new Headers({
-                "Content-Type" : "application/json",
-                "Accept" : "application/json",
-            }),
-        credentials : "include"
-    })
-    const data = await res.json();
-    return data
+    try {
+        const res = await fetch("/about", {
+            method : 'GET',
+                headers: new Headers({
+                    "Content-Type" : "application/json",
+                    "Accept" : "application/json",
+                }),
+            credentials : "include"
+        })
+        const data = await res.json();
+        if (res.status !== 200) {
+            const error = new Error()
+            throw error;
+        }
+        return data
+    } catch (err) {
+        console.log(err);
+    }
 })
 
 const userSlice = createSlice({
