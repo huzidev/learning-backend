@@ -39,12 +39,12 @@ const userSlice = createSlice({
         builder.addCase(fetchUsers.pending, (state) => {
             state.loading = true
         })
-        builder.addCase(fetchUsers.fulfilled, (state: any, action: PayloadAction<User[]>) => { // action is of type payloadAction and further it is Array of User
+        builder.addCase(fetchUsers.fulfilled, (state, action: PayloadAction<User[]>) => { // action is of type payloadAction and further it is Array of User
             state.loading = false
             state.userData = action.payload
             state.error = ''
         })
-        builder.addCase(fetchUsers.rejected, (state: any, action) => {
+        builder.addCase(fetchUsers.rejected, (state, action) => {
             state.loading = false
             state.userData = []
             state.error = action.error.message || "Something went wrong!"
