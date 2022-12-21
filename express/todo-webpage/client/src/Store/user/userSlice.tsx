@@ -3,11 +3,11 @@ import { initialType, User } from "./Types";
 
 const initialState: initialType = {
     loading: false,
-    users: [],
+    userData: [],
     error: ''
 }
 
-export const fetchUsers = createAsyncThunk('user/fetchUsers', async () => {
+export const fetchUsers = createAsyncThunk('user/about', async () => {
     // return axios
     //     .get("https://jsonplaceholder.typicode.com/users")
     //     .then(res => res.data)
@@ -41,12 +41,12 @@ const userSlice = createSlice({
         })
         builder.addCase(fetchUsers.fulfilled, (state: any, action: PayloadAction<User[]>) => { // action is of type payloadAction and further it is Array of User
             state.loading = false
-            state.users = action.payload
+            state.userData = action.payload
             state.error = ''
         })
         builder.addCase(fetchUsers.rejected, (state: any, action) => {
             state.loading = false
-            state.users = []
+            state.userData = []
             state.error = action.error.message || "Something went wrong!"
         })
     },

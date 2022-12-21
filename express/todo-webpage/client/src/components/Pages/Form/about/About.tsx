@@ -1,11 +1,22 @@
 import React, { useContext, useEffect } from 'react';
 import { Button, Card, Typography } from 'antd';
 import DataContext from '../../../Context/DataContext';
+import { useAppSelector, useAppDispatch } from '../../../../store/hooks/hooks';
+import { fetchUsers } from '../../../../store/user/userSlice';
 
 export default function About(props: any): JSX.Element {
   const context = useContext(DataContext);
   const { userData } = context;
   const { updateData } = props;
+
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(state => state.user)
+  useEffect(() => {
+      dispatch(fetchUsers())  
+  }, [])
+
+  console.log("what is length", user);
+  
 
   const theme = userData.isTheme ? 'Dark Mode' : 'Light Mode'
 
@@ -16,7 +27,6 @@ export default function About(props: any): JSX.Element {
         localStorage.setItem("light", "Light-Theme");
         localStorage.removeItem("dark");
     }
-  let themae = localStorage.getItem('dark') ? 'dark' : 'light' 
     
   return (
     <>
