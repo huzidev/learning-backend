@@ -1,6 +1,9 @@
 export interface User {
-    id: number
-    name: string
+    _id: number
+    username: string
+    email: string
+    number: number
+    isTheme: boolean
 }
 
 export interface Types {
