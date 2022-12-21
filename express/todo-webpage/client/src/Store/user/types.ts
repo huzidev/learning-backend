@@ -6,8 +6,8 @@ export interface User {
     isTheme: boolean
 }
 
-export interface initialType {
+export interface InitialType {
     loading: boolean
-    userData: User[]
+    userData: User
     error: string
 }

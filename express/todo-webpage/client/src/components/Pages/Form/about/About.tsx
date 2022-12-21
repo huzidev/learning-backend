@@ -15,9 +15,8 @@ export default function About(props: any): JSX.Element {
       dispatch(fetchUsers())  
   }, [])
 
-  console.log("what is length", user);
+  console.log("user", user);
   
-
   const theme = userData.isTheme ? 'Dark Mode' : 'Light Mode'
 
     if (userData.isTheme === true) {
@@ -27,7 +26,7 @@ export default function About(props: any): JSX.Element {
         localStorage.setItem("light", "Light-Theme");
         localStorage.removeItem("dark");
     }
-    
+
   return (
     <>
         <Card 
