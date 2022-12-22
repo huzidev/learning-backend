@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./user/userSlice";
 import noteReducer from "./notes/noteSlice"
+import contactReducer from "./form/contactSlice"
 
 const store = configureStore({
     reducer : {
         user : userReducer,
-        note : noteReducer
+        note : noteReducer,
+        contact: contactReducer
     }
 })
 
