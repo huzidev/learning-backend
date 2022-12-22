@@ -1,11 +1,22 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { useLoaderData, useLocation } from "react-router-dom";
 import { InitialType, Note } from "./Types";
 
 const initialState: InitialType = {
     loading: false,
     noteData: [],
-    error: ''
+    error: '',
+    numberData: ""
 }
+
+
+// let path: string;
+// if (location.pathname.includes("/addnote")) {
+//     path = "/allnotes"
+// } else if (location.pathname.includes("/completed")) {
+//     path = "/completednotes"
+// }
+
 
 export const fetchNotes = createAsyncThunk('user/notes', async () => {
     // return axios
@@ -33,7 +44,11 @@ export const fetchNotes = createAsyncThunk('user/notes', async () => {
 const noteSlice = createSlice({
     name: 'note',
     initialState,
-    reducers: {},
+    reducers: {
+        getStateTest(state) {
+            state.numberData ++;
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchNotes.pending, (state) => {
             state.loading = true
@@ -52,3 +67,5 @@ const noteSlice = createSlice({
 })
 
 export default noteSlice.reducer
+
+export const noteAction = noteSlice.actions;

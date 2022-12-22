@@ -4,13 +4,25 @@ import { Card, Button, Typography, Modal, notification } from 'antd';
 import { ClockCircleOutlined, CheckCircleOutlined  } from '@ant-design/icons';
 import {IntlProvider, FormattedDate} from 'react-intl'
 import { useLocation } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
+import { fetchNotes } from '../../../../store/notes/noteSlice';
 
 export default function ShowNotes(props: any): JSX.Element {
     const Location = useLocation()
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
     const { note, updateNote } = props;
+    
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const dispatch = useAppDispatch();
+    const noteData = useAppSelector(state => state.note)
+    useEffect(() => {
+        dispatch(fetchNotes())  
+    }, [])
+
+    console.log("notes are", noteData.noteData);
+    
 
     const showModal = () => {
         setIsModalOpen(true);

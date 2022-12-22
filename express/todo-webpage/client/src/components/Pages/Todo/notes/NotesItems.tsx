@@ -6,6 +6,8 @@ import DataContext from "../../../Context/DataContext";
 import AddTodo from '../addTodo/AddTodo';
 import { DataType, DataTypeHold } from './Type';
 import FilterList from '../filters/FilterList';
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
+import { fetchNotes } from '../../../../store/notes/noteSlice';
 
 export default function NotesItems(props: any) {
     const Location = useLocation()
@@ -17,6 +19,17 @@ export default function NotesItems(props: any) {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const ref = useRef<any>(null)
     
+    const dispatch = useAppDispatch();
+    const noteData = useAppSelector(state => state.note)
+    useEffect(() => {
+        dispatch(fetchNotes())  
+    }, [])
+
+    const testtt = noteData.noteData.map((note:any) => {
+        const { title, description, category, IsCompleted } = note
+    })
+
+
     const showModal = () => {
         setIsModalOpen(true);
     };

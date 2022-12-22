@@ -1,20 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ShowNotes from '../notes/ShowNotes';
 import { Card, Col, Row , Button, Typography } from 'antd';
 import { useLocation } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
+import { fetchNotes, noteAction } from '../../../../store/notes/noteSlice';
 
 export default function FilterList(props: any): JSX.Element {
 
+    const dispatch = useAppDispatch();
+    const noteData = useAppSelector(state => state.note)
     const Location = useLocation()
     const [state, setState] = useState(false)
-    const [items, setItems] = useState(props.notes)
+    const [items, setItems] = useState(noteData.noteData)
 
-    
-    let Data = state ? items : props.notes
+    useEffect(() => {
+        dispatch(fetchNotes())  
+    }, [])
 
-    const allItems = [...new Set(props.notes.map((currentEle: any) => {
+    const  num: number = useAppSelector((state) => state.note.numberData)
+
+    function inc() {
+        dispatch(noteAction.getStateTest())
+    }
+
+    let Data = state ? items : noteData.noteData
+
+    const allItems = [...new Set(noteData.noteData.map((currentEle: any) => {
         return (
-            !currentEle.isCompleted && Location.pathname.includes('/note/addnote') || currentEle.isCompleted && Location.pathname.includes('/note/completed') ? (
+            !currentEle.isCompleted && Location.pathname.includes('/addnote') || currentEle.isCompleted && Location.pathname.includes('/completed') ? (
                 currentEle.category
             ) : null
         )
@@ -23,7 +36,7 @@ export default function FilterList(props: any): JSX.Element {
     console.log("length of data", Data.length);
 
     function filterItems(items: string) {
-        const updatedItems = props.notes.filter((element: any) => {
+        const updatedItems = noteData.noteData.filter((element: any) => {
             // element.category targets category only ex: grocery, payments and bills
             return element.category === items
         })
@@ -35,8 +48,6 @@ export default function FilterList(props: any): JSX.Element {
 
     const Holder = Location.pathname.includes('/note/addnote') ? "Added" : "Completed"
 
-    console.log("data", Data);
-    
     let holder;
     Data.forEach((Element: any, i: number) => {
         for(let key in Element){
@@ -97,6 +108,12 @@ export default function FilterList(props: any): JSX.Element {
                     )
                 })}
             </Row>
+            <button onClick={inc}>
+                Increase
+            </button>
+            <h1>
+                {num}
+            </h1>
         </div>
     )
 }

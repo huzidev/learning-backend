@@ -8,6 +8,6 @@ export interface User {
 
 export interface InitialType {
     loading: boolean
-    userData: User
+    userData: User[]
     error: string
 }
