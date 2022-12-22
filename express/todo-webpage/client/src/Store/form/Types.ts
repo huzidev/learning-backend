@@ -1,6 +1,8 @@
 export interface InitialType {
+    loading: boolean,
     username: string,
     email: string,
-    number?: number | null,
+    number?: any,
     message: string,
+    error: string
 }

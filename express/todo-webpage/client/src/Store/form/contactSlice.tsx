@@ -2,10 +2,12 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { InitialType } from "./Types";
 
 const initialState: InitialType = {
+    loading: false,
     username: "",
     email: "",
     number: null,
     message: "",
+    error: ""
 }
 
 export const sendMessage = createAsyncThunk('user/messgae', async () => {
@@ -30,21 +32,23 @@ const contactSlice = createSlice({
     initialState,
     reducers: {
         getStateTest(state, action) {
-            state.location = action.payload ;
+            const allData = action.payload
+            state.username = allData.username;
+            state.email = allData.email;
+            state.number = allData.number;
+            state.message = allData.message;
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(fetchNotes.pending, (state) => {
+        builder.addCase(sendMessage.pending, (state) => {
             state.loading = true
         })
-        builder.addCase(fetchNotes.fulfilled, (state, action: PayloadAction<Note[]>) => { // action is of type payloadAction and further it is Array of User
+        builder.addCase(sendMessage.fulfilled, (state, action) => {
             state.loading = false
-            state.noteData = action.payload
             state.error = ''
         })
-        builder.addCase(fetchNotes.rejected, (state, action) => {
+        builder.addCase(sendMessage.rejected, (state, action) => {
             state.loading = false
-            state.noteData = []
             state.error = action.error.message || "Something went wrong!"
         })
     },
