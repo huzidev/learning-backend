@@ -6,24 +6,22 @@ const initialState: InitialType = {
     loading: false,
     noteData: [],
     error: '',
-    location: ""
+    location: "",
 }
 
-
-// let path: string;
-// if (location.pathname.includes("/addnote")) {
-//     path = "/allnotes"
-// } else if (location.pathname.includes("/completed")) {
-//     path = "/completednotes"
-// }
-
+let path: any;
+if (initialState.location === "/allnotes") {
+    path = "/allnotes"
+} else if (initialState.location === "/completednotes") {
+    path = "/completednotes"
+}
 
 export const fetchNotes = createAsyncThunk('user/notes', async () => {
     // return axios
     //     .get("https://jsonplaceholder.typicode.com/users")
     //     .then(res => res.data)
     try {
-        const res = await fetch("/allnotes", {
+        const res = await fetch(`/allnotes`, {
             method : 'GET',
                 headers: new Headers({
                     "Content-Type" : "application/json",

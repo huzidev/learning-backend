@@ -112,7 +112,7 @@ export default function FilterList(props: any): JSX.Element {
             </Row>
             <h1>
                 Currenlty the path is {num}
-            </h1>
+            </h1> 
         </div>
     )
 }
