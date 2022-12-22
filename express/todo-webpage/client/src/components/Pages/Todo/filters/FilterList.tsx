@@ -19,6 +19,8 @@ export default function FilterList(props: any): JSX.Element {
 
     const  num: string = useAppSelector((state) => state.note.location)
 
+    let locationName = Location.pathname.includes('/addnote') ? "/allnote" : Location.pathname.includes('/completed') ? "/completednotes" : ''
+
     function inc() {
         dispatch(noteAction.getStateTest())
     }
