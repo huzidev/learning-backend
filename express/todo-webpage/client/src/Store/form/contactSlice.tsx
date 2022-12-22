@@ -7,7 +7,8 @@ const initialState: InitialType = {
     email: "",
     number: null,
     message: "",
-    error: ""
+    error: "",
+    res: null
 }
 
 export const sendMessage = createAsyncThunk('user/messgae', async () => {
@@ -24,6 +25,7 @@ export const sendMessage = createAsyncThunk('user/messgae', async () => {
         })
       });
       const data = await res.json();
+      initialState.res = res.status;
       return data;
 })
 

@@ -4,5 +4,6 @@ export interface InitialType {
     email: string,
     number?: any,
     message: string,
-    error: string
+    error: string,
+    res: number | null
 }
