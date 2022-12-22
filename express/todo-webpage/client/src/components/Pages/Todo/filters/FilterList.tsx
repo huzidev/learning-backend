@@ -17,7 +17,7 @@ export default function FilterList(props: any): JSX.Element {
         dispatch(fetchNotes())  
     }, [])
 
-    const  num: number = useAppSelector((state) => state.note.numberData)
+    const  num: string = useAppSelector((state) => state.note.location)
 
     function inc() {
         dispatch(noteAction.getStateTest())

@@ -6,7 +6,7 @@ const initialState: InitialType = {
     loading: false,
     noteData: [],
     error: '',
-    numberData: ""
+    location: ""
 }
 
 
@@ -45,8 +45,8 @@ const noteSlice = createSlice({
     name: 'note',
     initialState,
     reducers: {
-        getStateTest(state) {
-            state.numberData ++;
+        getStateTest(state, action) {
+            state.location = action.payload ;
         }
     },
     extraReducers: (builder) => {
