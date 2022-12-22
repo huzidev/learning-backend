@@ -21,9 +21,9 @@ export default function FilterList(props: any): JSX.Element {
 
     let locationName = Location.pathname.includes('/addnote') ? "/allnote" : Location.pathname.includes('/completed') ? "/completednotes" : ''
 
-    function inc() {
-        dispatch(noteAction.getStateTest())
-    }
+    useEffect(() => {
+        dispatch(noteAction.getStateTest(locationName))
+    }, [Location.pathname])
 
     let Data = state ? items : noteData.noteData
 
@@ -110,11 +110,8 @@ export default function FilterList(props: any): JSX.Element {
                     )
                 })}
             </Row>
-            <button onClick={inc}>
-                Increase
-            </button>
             <h1>
-                {num}
+                Currenlty the path is {num}
             </h1>
         </div>
     )
