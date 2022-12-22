@@ -15,13 +15,14 @@ export const sendMessage = createAsyncThunk('user/messgae', async () => {
             "Content-Type" : "application/json"
         },
         body : JSON.stringify({
-            username,
-            email,
-            number: parseInt(number),
-            message
+            username: initialState.username,
+            email: initialState.email,
+            number: parseInt(initialState.number),
+            message: initialState.message
         })
       });
       const data = await res.json();
+      return data;
 })
 
 const contactSlice = createSlice({

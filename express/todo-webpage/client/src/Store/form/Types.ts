@@ -1,6 +1,6 @@
 export interface InitialType {
     username: string,
     email: string,
-    number: number | null,
+    number?: number | null,
     message: string,
 }
