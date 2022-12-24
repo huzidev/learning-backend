@@ -30,9 +30,6 @@ export default function FilterList(props: any): JSX.Element {
     // when user clicked on filter list then state will change to true & all the notes with that specific catgeory will fetch only therefore state must be true but initially it is false 
     let Data = state ? items : allNotes
 
-    console.log("state type is",  state);
-    console.log("items items items",  items);
-
     const allItems = [...new Set(notes.noteData.map((currentEle) => {
         return (
             // !currentEle.isCompleted && Location.pathname.includes('/addnote') || currentEle.isCompleted && Location.pathname.includes('/completed') ? (
@@ -51,8 +48,9 @@ export default function FilterList(props: any): JSX.Element {
     }
 
     const Text = Location.pathname.includes('/addnote') ? "Yours Notes" : "Completed Notes"
-    const Holder = Location.pathname.includes('/note/addnote') ? "Added" : "Completed"
+    const Type = Location.pathname.includes('/note/addnote') ? "Added" : "Completed"
 
+    // holder will either be completely true or completely false
     let holder;
     Data.forEach((Element: any, i: number) => {
         for(let key in Element){
@@ -75,7 +73,7 @@ export default function FilterList(props: any): JSX.Element {
                     {
                         (Location.pathname.includes('/note/completed') && holder !== true || holder === undefined) || (Location.pathname.includes('/note/addnote') && holder !== false || holder === undefined) ? (
                             <Typography.Title level={4}> 
-                                No Task {Holder}
+                                No Task {Type}
                             </Typography.Title>
                         ) : (
                             <div style={style}>
