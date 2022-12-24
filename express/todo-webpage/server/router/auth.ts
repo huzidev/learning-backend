@@ -179,7 +179,7 @@ router.get('/signout', (req: any, res: Response) => {
 // })
 
 router.get('/about', Verification, (req: any, res: Response) => {
-    res.send(req.userInfo)
+    return res.json(req.userInfo)
 })
 
 module.exports = router;

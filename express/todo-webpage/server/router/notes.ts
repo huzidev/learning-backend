@@ -7,13 +7,11 @@ import TypesNote from './Types';
  
 const router = express.Router();
 
-var url = require("url");
-url.parse('http://localhost:3000/addnote').pathname    
-console.log("wthat is url", url);
-
 router.use(cors({
     origin: "*"
 }));
+
+
 
 // let path: string, holder: any;
 // if (location.pathname.includes("/addnote")) {
@@ -38,6 +36,7 @@ router.use(cors({
 //         return res.status(500).send("Internal Server Error");
 //     }
 // })
+
 
 router.get('/allnotes', Verification, async (req: any, res) => {
     try {
@@ -96,14 +95,11 @@ router.put('/updatenote/:id', Verification, async (req: any, res: Response) => {
         const newNote = <TypesNote>{}
         if (title) {
             newNote.title = title
-        } 
-        if (description) {
+        } else if (description) {
             newNote.description = description
-        } 
-        if (category) {
+        } else if (category) {
             newNote.category = category
-        }
-        if (!isCompleted || isCompleted) {
+        } else if (!isCompleted || isCompleted) {
             newNote.isCompleted = isCompleted
         }
         let note: any, savedNote: any, state: any, hold: any, main: any; 
@@ -132,6 +128,7 @@ router.put('/updatenote/:id', Verification, async (req: any, res: Response) => {
             if (note.user.toString() !== req.userID.toString()) {
                 return res.status(401).send("Not Allowed");
             }
+            // ex: if note is changed to completed from inCompleted then delete that note from allnotes table and add it to completedNotes table
             note = await main.findByIdAndDelete(req.params.id);
         }
         note = await main.findByIdAndUpdate(
