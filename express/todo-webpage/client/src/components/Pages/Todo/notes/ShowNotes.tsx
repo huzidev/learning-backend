@@ -5,7 +5,7 @@ import { ClockCircleOutlined, CheckCircleOutlined  } from '@ant-design/icons';
 import {IntlProvider, FormattedDate} from 'react-intl'
 import { useLocation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
-import { fetchNotes } from '../../../../store/notes/noteSlice';
+import { fetchNotes } from '../../../../store/notes/ShowNotes/noteSlice';
 
 export default function ShowNotes(props: any): JSX.Element {
     const Location = useLocation()

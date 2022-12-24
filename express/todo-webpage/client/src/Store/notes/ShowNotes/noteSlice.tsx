@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { useLoaderData, useLocation } from "react-router-dom";
 import { InitialType, Note } from "./Types";
 
 const initialState: InitialType = {

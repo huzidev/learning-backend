@@ -7,7 +7,7 @@ import AddTodo from '../addTodo/AddTodo';
 import { DataType, DataTypeHold } from './Type';
 import FilterList from '../filters/FilterList';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
-import { fetchNotes } from '../../../../store/notes/noteSlice';
+import { fetchNotes } from '../../../../store/notes/ShowNotes/noteSlice';
 
 export default function NotesItems(props: any) {
     const Location = useLocation()

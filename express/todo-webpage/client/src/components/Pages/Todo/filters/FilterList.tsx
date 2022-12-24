@@ -3,7 +3,7 @@ import ShowNotes from '../notes/ShowNotes';
 import { Col, Row , Button, Typography } from 'antd';
 import { useLocation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
-import { fetchNotes, noteAction } from '../../../../store/notes/noteSlice';
+import { fetchNotes, noteAction } from '../../../../store/notes/ShowNotes/noteSlice';
 
 export default function FilterList(props: any): JSX.Element {
     const dispatch = useAppDispatch();
