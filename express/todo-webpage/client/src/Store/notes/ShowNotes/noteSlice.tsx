@@ -43,7 +43,7 @@ const noteSlice = createSlice({
         builder.addCase(fetchNotes.pending, (state) => {
             state.loading = true
         })
-        builder.addCase(fetchNotes.fulfilled, (state, action: PayloadAction<Note[]>) => { // action is of type payloadAction and further it is Array of User
+        builder.addCase(fetchNotes.fulfilled, (state, action: PayloadAction<Note[]>) => { // action is of type payloadAction and further it is Array of Note
             state.loading = false
             state.noteData = action.payload
             state.error = ''
