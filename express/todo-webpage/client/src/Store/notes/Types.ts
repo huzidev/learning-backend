@@ -10,5 +10,6 @@ export interface InitialType {
     loading: boolean
     noteData: Note[]
     error: string
-    location: string
+    locationPath: string
+    pathHolder: any
 }

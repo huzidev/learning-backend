@@ -6,22 +6,19 @@ const initialState: InitialType = {
     loading: false,
     noteData: [],
     error: '',
-    location: "",
+    locationPath: "/allnotes",
+    pathHolder: ""
 }
 
-let path: any;
-if (initialState.location === "/allnotes") {
-    path = "/allnotes"
-} else if (initialState.location === "/completednotes") {
-    path = "/completednotes"
-}
+let pathyy: any = initialState.locationPath
+
 
 export const fetchNotes = createAsyncThunk('user/notes', async () => {
     // return axios
     //     .get("https://jsonplaceholder.typicode.com/users")
     //     .then(res => res.data)
     try {
-        const res = await fetch(`/allnotes`, {
+        const res = await fetch(pathyy, {
             method : 'GET',
                 headers: new Headers({
                     "Content-Type" : "application/json",
@@ -44,7 +41,7 @@ const noteSlice = createSlice({
     initialState,
     reducers: {
         getStateTest(state, action) {
-            state.location = action.payload ;
+            state.locationPath = action.payload ;
         }
     },
     extraReducers: (builder) => {

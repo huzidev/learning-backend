@@ -17,9 +17,13 @@ export default function FilterList(props: any): JSX.Element {
         dispatch(fetchNotes())  
     }, [])
 
-    const  num: string = useAppSelector((state) => state.note.location)
+    const num: string = useAppSelector((state) => state.note.locationPath)
+    let stateholder: any
+    stateholder = useAppSelector((state) => state.note.pathHolder)
+    // setTimeout(() => {
+    // }, 2000)
 
-    let locationName = Location.pathname.includes('/addnote') ? "/allnote" : Location.pathname.includes('/completed') ? "/completednotes" : ''
+    let locationName = Location.pathname.includes('/addnote') ? "/allnotes" : Location.pathname.includes('/completed') ? "/completednotes" : ''
 
     useEffect(() => {
         dispatch(noteAction.getStateTest(locationName))
@@ -113,6 +117,9 @@ export default function FilterList(props: any): JSX.Element {
             <h1>
                 Currenlty the path is {num}
             </h1> 
+            <h1>
+                What is Path {stateholder}
+            </h1>
         </div>
     )
 }
