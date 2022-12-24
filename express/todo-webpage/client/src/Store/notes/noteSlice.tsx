@@ -5,7 +5,7 @@ import { InitialType, Note } from "./Types";
 const initialState: InitialType = {
     loading: false,
     noteData: [],
-    error: '',
+    error: "",
     locationPath: "/allnotes",
     pathHolder: ""
 }
@@ -14,9 +14,6 @@ let pathyy: any = initialState.locationPath
 
 
 export const fetchNotes = createAsyncThunk('user/notes', async () => {
-    // return axios
-    //     .get("https://jsonplaceholder.typicode.com/users")
-    //     .then(res => res.data)
     try {
         const res = await fetch(pathyy, {
             method : 'GET',

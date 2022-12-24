@@ -33,9 +33,9 @@ export default function FilterList(props: any): JSX.Element {
 
     const allItems = [...new Set(noteData.noteData.map((currentEle: any) => {
         return (
-            !currentEle.isCompleted && Location.pathname.includes('/addnote') || currentEle.isCompleted && Location.pathname.includes('/completed') ? (
+            // !currentEle.isCompleted && Location.pathname.includes('/addnote') || currentEle.isCompleted && Location.pathname.includes('/completed') ? (
                 currentEle.category
-            ) : null
+            // ) : null
         )
     }))]
 
