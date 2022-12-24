@@ -5,8 +5,6 @@ const initialState: InitialType = {
     loading: false,
     noteData: [],
     error: "",
-    locationPath: "",
-    pathHolder: ""
 }
 
 let path: any;
@@ -34,12 +32,7 @@ export const fetchNotes = createAsyncThunk('user/notes', async (location: string
 const noteSlice = createSlice({
     name: 'note',
     initialState,
-    reducers: {
-        getStateTest(state, action) {
-            let pathNane = action.payload;
-            state.locationPath = pathNane;
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder.addCase(fetchNotes.pending, (state) => {
             state.loading = true

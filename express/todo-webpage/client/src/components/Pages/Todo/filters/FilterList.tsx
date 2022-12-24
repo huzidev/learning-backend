@@ -14,18 +14,11 @@ export default function FilterList(props: any): JSX.Element {
     const [state, setState] = useState(false)
     const [items, setItems] = useState(allNotes)
 
-    const locationPahtName: string = useAppSelector((state) => state.note.locationPath)
-    const stateholder: string = useAppSelector((state) => state.note.pathHolder)
     let locationName = Location.pathname.includes('/addnote') ? "/allnotes" : Location.pathname.includes('/completed') ? "/completednotes" : ''
     
     useEffect(() => {
-        dispatch(fetchNotes(locationName))  
+        dispatch(fetchNotes(locationName))
     }, [locationName])
-
-
-    useEffect(() => {
-        dispatch(noteAction.getStateTest(locationName))
-    }, [Location.pathname])
 
     // when user clicked on filter list then state will change to true & all the notes with that specific catgeory will fetch only therefore state must be true but initially it is false 
     let Data = state ? items : allNotes
@@ -39,7 +32,7 @@ export default function FilterList(props: any): JSX.Element {
     }))]
 
     function filterItems(items: string) {
-        const updatedFilterItems = notes.noteData.filter((element) => {
+        const updatedFilterItems = allNotes.filter((element) => {
             // element.category targets category only ex: grocery, payments and bills
             return element.category === items
         })
@@ -119,12 +112,6 @@ export default function FilterList(props: any): JSX.Element {
                     )
                 })}
             </Row>
-            <h1>
-                Currenlty the path is {locationPahtName}
-            </h1> 
-            <h1>
-                What is Path {stateholder}
-            </h1>
         </div>
     )
 }
