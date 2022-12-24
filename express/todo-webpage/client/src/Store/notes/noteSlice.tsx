@@ -6,16 +6,13 @@ const initialState: InitialType = {
     loading: false,
     noteData: [],
     error: "",
-    locationPath: "/allnotes",
+    locationPath: "",
     pathHolder: ""
 }
 
-let pathyy: any = initialState.locationPath
-
-
 export const fetchNotes = createAsyncThunk('user/notes', async () => {
     try {
-        const res = await fetch(pathyy, {
+        const res = await fetch(`/allnotes`, {
             method : 'GET',
                 headers: new Headers({
                     "Content-Type" : "application/json",
@@ -38,7 +35,9 @@ const noteSlice = createSlice({
     initialState,
     reducers: {
         getStateTest(state, action) {
-            state.locationPath = action.payload ;
+            let pathNane = action.payload;
+            state.locationPath = pathNane;
+            state.pathHolder = state.locationPath;
         }
     },
     extraReducers: (builder) => {

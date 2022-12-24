@@ -6,22 +6,19 @@ import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 import { fetchNotes, noteAction } from '../../../../store/notes/noteSlice';
 
 export default function FilterList(props: any): JSX.Element {
-
     const dispatch = useAppDispatch();
-    const noteData = useAppSelector(state => state.note)
     const Location = useLocation()
+    const noteData = useAppSelector(state => state.note)
     const [state, setState] = useState(false)
     const [items, setItems] = useState(noteData.noteData)
+
+    const locationPahtName: string = useAppSelector((state) => state.note.locationPath)
+    const stateholder: string = useAppSelector((state) => state.note.pathHolder)
 
     useEffect(() => {
         dispatch(fetchNotes())  
     }, [])
 
-    const num: string = useAppSelector((state) => state.note.locationPath)
-    let stateholder: any
-    stateholder = useAppSelector((state) => state.note.pathHolder)
-    // setTimeout(() => {
-    // }, 2000)
 
     let locationName = Location.pathname.includes('/addnote') ? "/allnotes" : Location.pathname.includes('/completed') ? "/completednotes" : ''
 
@@ -39,8 +36,6 @@ export default function FilterList(props: any): JSX.Element {
         )
     }))]
 
-    console.log("length of data", Data.length);
-
     function filterItems(items: string) {
         const updatedItems = noteData.noteData.filter((element: any) => {
             // element.category targets category only ex: grocery, payments and bills
@@ -50,8 +45,7 @@ export default function FilterList(props: any): JSX.Element {
         setState(true)
     }
 
-    const Text = Location.pathname.includes('/note/addnote') ? "Yours Notes" : "Completed Notes"
-
+    const Text = Location.pathname.includes('/addnote') ? "Yours Notes" : "Completed Notes"
     const Holder = Location.pathname.includes('/note/addnote') ? "Added" : "Completed"
 
     let holder;
@@ -64,6 +58,11 @@ export default function FilterList(props: any): JSX.Element {
 
     console.log("what is holder", holder);
     
+    const style = {
+        display: "flex", 
+        justifyContent: "space-between"
+    }
+
     return (
         <div>
             {
@@ -74,11 +73,11 @@ export default function FilterList(props: any): JSX.Element {
                                 No Task {Holder}
                             </Typography.Title>
                         ) : (
-                            <div style={{display: "flex", justifyContent: "space-between"}}>
+                            <div style={style}>
                                 <Typography.Title level={4}> 
                                     {Text}
                                 </Typography.Title>
-                                <div style={{display: "flex", justifyContent: "space-between"}}>
+                                <div style={style}>
                                     <Typography.Title level={5}>
                                         Filter the list
                                     </Typography.Title>
@@ -106,7 +105,7 @@ export default function FilterList(props: any): JSX.Element {
             <Row gutter={16}>
                 {Data.map((note: any) => {
                     return (
-                        !note.isCompleted && Location.pathname.includes('/note/addnote') || note.isCompleted && Location.pathname.includes('/note/completed') ? (
+                        !note.isCompleted && Location.pathname.includes('/addnote') || note.isCompleted && Location.pathname.includes('/completed') ? (
                             <Col span={8} style={{ margin : '10px 0px' }}>
                                 <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted}/>
                             </Col>
@@ -115,7 +114,7 @@ export default function FilterList(props: any): JSX.Element {
                 })}
             </Row>
             <h1>
-                Currenlty the path is {num}
+                Currenlty the path is {locationPahtName}
             </h1> 
             <h1>
                 What is Path {stateholder}
