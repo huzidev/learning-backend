@@ -8,9 +8,11 @@ import { fetchNotes, noteAction } from '../../../../store/notes/noteSlice';
 export default function FilterList(props: any): JSX.Element {
     const dispatch = useAppDispatch();
     const Location = useLocation()
-    const noteData = useAppSelector(state => state.note)
+    const notes = useAppSelector(state => state.note)
+    let allNotes = notes.noteData
+    
     const [state, setState] = useState(false)
-    const [items, setItems] = useState(noteData.noteData)
+    const [items, setItems] = useState(allNotes)
 
     const locationPahtName: string = useAppSelector((state) => state.note.locationPath)
     const stateholder: string = useAppSelector((state) => state.note.pathHolder)
@@ -26,12 +28,12 @@ export default function FilterList(props: any): JSX.Element {
     }, [Location.pathname])
 
     // when user clicked on filter list then state will change to true & all the notes with that specific catgeory will fetch only therefore state must be true but initially it is false 
-    let Data = state ? items : noteData.noteData
+    let Data = state ? items : allNotes
 
     console.log("state type is",  state);
     console.log("items items items",  items);
 
-    const allItems = [...new Set(noteData.noteData.map((currentEle) => {
+    const allItems = [...new Set(notes.noteData.map((currentEle) => {
         return (
             // !currentEle.isCompleted && Location.pathname.includes('/addnote') || currentEle.isCompleted && Location.pathname.includes('/completed') ? (
                 currentEle.category
@@ -40,7 +42,7 @@ export default function FilterList(props: any): JSX.Element {
     }))]
 
     function filterItems(items: string) {
-        const updatedFilterItems = noteData.noteData.filter((element) => {
+        const updatedFilterItems = notes.noteData.filter((element) => {
             // element.category targets category only ex: grocery, payments and bills
             return element.category === items
         })
