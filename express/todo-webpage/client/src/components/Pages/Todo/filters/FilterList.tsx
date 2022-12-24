@@ -68,12 +68,14 @@ export default function FilterList(props: any): JSX.Element {
         justifyContent: "space-between"
     }
 
+    const error = holder === undefined;
+
     return (
         <div>
             {
                 <>
                     {
-                        (Location.pathname.includes('/note/completed') && holder !== true || holder === undefined) || (Location.pathname.includes('/note/addnote') && holder !== false || holder === undefined) ? (
+                        (Location.pathname.includes('/completed') && (holder !== true || error)) || (Location.pathname.includes('/addnote') && (holder !== false || error)) ? (
                             <Typography.Title level={4}> 
                                 No Task {Type}
                             </Typography.Title>
@@ -108,7 +110,7 @@ export default function FilterList(props: any): JSX.Element {
                 </>
             }
             <Row gutter={16}>
-                {/* Data.map so if user clicked on FilterItems then only notes with specific category will be render */}
+                {/* Data.map so if user clicked on FilterItems then only notes with specific category will be render NOT allNotes */}
                 {Data.map((note: any) => {
                     return (
                         !note.isCompleted && Location.pathname.includes('/addnote') || note.isCompleted && Location.pathname.includes('/completed') ? (
