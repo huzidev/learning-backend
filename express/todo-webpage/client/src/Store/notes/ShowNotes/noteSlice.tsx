@@ -9,9 +9,11 @@ const initialState: InitialType = {
     pathHolder: ""
 }
 
-export const fetchNotes = createAsyncThunk('user/notes', async () => {
+let path: any;
+
+export const fetchNotes = createAsyncThunk('user/notes', async (location: string) => {
     try {
-        const res = await fetch(`/allnotes`, {
+        const res = await fetch(location, {
             method : 'GET',
                 headers: new Headers({
                     "Content-Type" : "application/json",
@@ -36,7 +38,6 @@ const noteSlice = createSlice({
         getStateTest(state, action) {
             let pathNane = action.payload;
             state.locationPath = pathNane;
-            state.pathHolder = state.locationPath;
         }
     },
     extraReducers: (builder) => {

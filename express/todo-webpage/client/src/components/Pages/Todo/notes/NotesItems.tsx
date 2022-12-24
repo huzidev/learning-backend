@@ -21,10 +21,6 @@ export default function NotesItems(props: any) {
     
     const dispatch = useAppDispatch();
     const noteData = useAppSelector(state => state.note)
-    useEffect(() => {
-        dispatch(fetchNotes())  
-    }, [])
-
     const testtt = noteData.noteData.map((note:any) => {
         const { title, description, category, IsCompleted } = note
     })

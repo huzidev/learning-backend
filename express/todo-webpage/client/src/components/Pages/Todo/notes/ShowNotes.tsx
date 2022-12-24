@@ -17,13 +17,6 @@ export default function ShowNotes(props: any): JSX.Element {
 
     const dispatch = useAppDispatch();
     const noteData = useAppSelector(state => state.note)
-    useEffect(() => {
-        dispatch(fetchNotes())  
-    }, [])
-
-    console.log("notes are", noteData.noteData);
-    
-
     const showModal = () => {
         setIsModalOpen(true);
     };
