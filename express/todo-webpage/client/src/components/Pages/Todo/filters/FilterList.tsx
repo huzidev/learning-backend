@@ -30,7 +30,9 @@ export default function FilterList(props: any): JSX.Element {
     // when user clicked on filter list then state will change to true & all the notes with that specific catgeory will fetch only therefore state must be true but initially it is false 
     let Data = state ? items : allNotes
 
-    const allItems = [...new Set(notes.noteData.map((currentEle) => {
+    console.log("Data", Data);
+
+    const allItems = [...new Set(allNotes.map((currentEle) => {
         return (
             // !currentEle.isCompleted && Location.pathname.includes('/addnote') || currentEle.isCompleted && Location.pathname.includes('/completed') ? (
                 currentEle.category
@@ -106,6 +108,7 @@ export default function FilterList(props: any): JSX.Element {
                 </>
             }
             <Row gutter={16}>
+                {/* Data.map so if user clicked on FilterItems then only notes with specific category will be render */}
                 {Data.map((note: any) => {
                     return (
                         !note.isCompleted && Location.pathname.includes('/addnote') || note.isCompleted && Location.pathname.includes('/completed') ? (
