@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ShowNotes from '../notes/ShowNotes';
-import { Card, Col, Row , Button, Typography } from 'antd';
+import { Col, Row , Button, Typography } from 'antd';
 import { useLocation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 import { fetchNotes, noteAction } from '../../../../store/notes/noteSlice';
@@ -19,16 +19,19 @@ export default function FilterList(props: any): JSX.Element {
         dispatch(fetchNotes())  
     }, [])
 
-
     let locationName = Location.pathname.includes('/addnote') ? "/allnotes" : Location.pathname.includes('/completed') ? "/completednotes" : ''
 
     useEffect(() => {
         dispatch(noteAction.getStateTest(locationName))
     }, [Location.pathname])
 
+    // when user clicked on filter list then state will change to true & all the notes with that specific catgeory will fetch only therefore state must be true but initially it is false 
     let Data = state ? items : noteData.noteData
 
-    const allItems = [...new Set(noteData.noteData.map((currentEle: any) => {
+    console.log("state type is",  state);
+    console.log("items items items",  items);
+
+    const allItems = [...new Set(noteData.noteData.map((currentEle) => {
         return (
             // !currentEle.isCompleted && Location.pathname.includes('/addnote') || currentEle.isCompleted && Location.pathname.includes('/completed') ? (
                 currentEle.category
@@ -37,11 +40,11 @@ export default function FilterList(props: any): JSX.Element {
     }))]
 
     function filterItems(items: string) {
-        const updatedItems = noteData.noteData.filter((element: any) => {
+        const updatedFilterItems = noteData.noteData.filter((element) => {
             // element.category targets category only ex: grocery, payments and bills
             return element.category === items
         })
-        setItems(updatedItems)
+        setItems(updatedFilterItems)
         setState(true)
     }
 
