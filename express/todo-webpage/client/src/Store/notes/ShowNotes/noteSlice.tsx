@@ -7,8 +7,6 @@ const initialState: InitialType = {
     error: "",
 }
 
-let path: any;
-
 export const fetchNotes = createAsyncThunk('user/notes', async (location: string) => {
     try {
         const res = await fetch(location, {
