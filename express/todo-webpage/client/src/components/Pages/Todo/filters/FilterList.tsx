@@ -17,7 +17,7 @@ export default function FilterList(props: any): JSX.Element {
     const addNotesPath: boolean = Location.pathname.includes('/addnote');
     const completedNotesPath: boolean = Location.pathname.includes('/completed');
 
-    const locationName = addNotesPath ? "/allnotes" : "/completednotes"
+    const locationName: string = addNotesPath ? "/allnotes" : "/completednotes"
 
     useEffect(() => {
         dispatch(fetchNotes(locationName))
