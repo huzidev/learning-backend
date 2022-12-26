@@ -40,6 +40,10 @@ export default function Footer(): JSX.Element {
   let title : string;
   let info : string | null;
 
+  useEffect(() => {
+    dispatch(sendThisMessage(user))
+  }, [user])
+
   async function sendMessage() {
     // const { username, email, number, message } = user;
     // const res = await fetch("/contact", {
@@ -55,7 +59,6 @@ export default function Footer(): JSX.Element {
     //     })
     //   });
     //   const data = await res.json();
-    dispatch(sendThisMessage(user))
       let text: any;
       let description: any;
       let status: any = res === 422 ? (
