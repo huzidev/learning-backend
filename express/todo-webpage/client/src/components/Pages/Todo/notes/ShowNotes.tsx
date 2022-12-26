@@ -5,7 +5,7 @@ import { CheckCircleOutlined  } from '@ant-design/icons';
 import {IntlProvider, FormattedDate} from 'react-intl'
 import { useLocation } from 'react-router-dom';
 import { useAppDispatch } from '../../../../store/hooks/hooks';
-import { deleteThisNote } from '../../../../store/notes/DeleteNote/deleteSlice';
+import { deleteThisNote, manageAction } from '../../../../store/notes/DeleteNote/deleteSlice';
 
 export default function ShowNotes(props: any): JSX.Element {
     const Location = useLocation()
@@ -17,13 +17,15 @@ export default function ShowNotes(props: any): JSX.Element {
 
     const dispatch = useAppDispatch();
 
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
+    function showModal() {
+        dispatch(manageAction.modal())
 
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
+    }
+
+
+    // const handleCancel = () => {
+    //     setIsModalOpen(false);
+    // };
 
     async function deleteNote() {
             // const res = await fetch(`/deletenote/${note._id}`, {
