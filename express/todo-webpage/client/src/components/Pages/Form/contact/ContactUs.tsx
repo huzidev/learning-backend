@@ -9,7 +9,7 @@ import { sendThisMessage, contactAction } from '../../../../store/form/contactSl
 
 export default function Footer(): JSX.Element {
 
-    const contactDetails: any = useAppSelector(state => state.contact)
+  const contactDetails: any = useAppSelector(state => state.contact)
   const dispatch = useAppDispatch();
   let res = contactDetails.res
 
