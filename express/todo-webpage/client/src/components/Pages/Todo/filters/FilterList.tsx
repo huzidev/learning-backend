@@ -14,7 +14,10 @@ export default function FilterList(props: any): JSX.Element {
     const [state, setState] = useState(false)
     const [items, setItems] = useState(allNotes)
 
-    let locationName = Location.pathname.includes('/addnote') ? "/allnotes" : "/completednotes"
+    const addNotesPath: boolean = Location.pathname.includes('/addnote');
+    const completedNotesPath: boolean = Location.pathname.includes('/completed');
+
+    const locationName = addNotesPath ? "/allnotes" : "/completednotes"
 
     useEffect(() => {
         dispatch(fetchNotes(locationName))
@@ -27,7 +30,7 @@ export default function FilterList(props: any): JSX.Element {
 
     const allItems = [...new Set(allNotes.map((currentEle) => {
         return (
-            !currentEle.isCompleted && Location.pathname.includes('/addnote') || currentEle.isCompleted && Location.pathname.includes('/completed') ? (
+            !currentEle.isCompleted && addNotesPath || currentEle.isCompleted && completedNotesPath ? (
                 currentEle.category
             ) : null
         )
@@ -42,8 +45,8 @@ export default function FilterList(props: any): JSX.Element {
         setState(true)
     }
 
-    const Text = Location.pathname.includes('/addnote') ? "Yours Notes" : "Completed Notes"
-    const Type = Location.pathname.includes('/addnote') ? "Added" : "Completed"
+    const Text = addNotesPath ? "Yours Notes" : "Completed Notes"
+    const Type = addNotesPath ? "Added" : "Completed"
 
     // holder will either be completely true or completely false
     let holder;
@@ -68,7 +71,7 @@ export default function FilterList(props: any): JSX.Element {
             {
                 <>
                     {
-                        (Location.pathname.includes('/completed') && (holder !== true || error)) || (Location.pathname.includes('/addnote') && (holder !== false || error)) ? (
+                        (completedNotesPath && (holder !== true || error)) || (addNotesPath && (holder !== false || error)) ? (
                             <Typography.Title level={4}> 
                                 No Task {Type}
                             </Typography.Title>
@@ -106,7 +109,7 @@ export default function FilterList(props: any): JSX.Element {
                 {/* Data.map so if user clicked on FilterItems then only notes with specific category will be render NOT allNotes */}
                 {Data.map((note: any) => {
                     return (
-                        !note.isCompleted && Location.pathname.includes('/addnote') || note.isCompleted && Location.pathname.includes('/completed') ? (
+                        !note.isCompleted && addNotesPath || note.isCompleted && completedNotesPath ? (
                             <Col span={8} style={{ margin : '10px 0px' }}>
                                 <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted}/>
                             </Col>
