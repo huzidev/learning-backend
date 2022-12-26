@@ -28,13 +28,12 @@ export default function FilterList(props: any): JSX.Element {
 
     console.log("data", Data);
 
-    const allItems = [...new Set(allNotes.map((currentEle) => {
-        return (
-            !currentEle.isCompleted && addNotesPath || currentEle.isCompleted && completedNotesPath ? (
-                currentEle.category
-            ) : null
-        )
-    }))]
+    const allItems = [...new Set(allNotes.map((currentEle) => (
+        // !currentEle.isCompleted && addNotesPath || currentEle.isCompleted && completedNotesPath ? (
+        currentEle.category
+        // ) : null
+    )
+    ))]
 
     function filterItems(items: string) {
         const updatedFilterItems = allNotes.filter((element) => {
@@ -49,8 +48,8 @@ export default function FilterList(props: any): JSX.Element {
     const Type = addNotesPath ? "Added" : "Completed"
 
     // holder will either be completely true or completely false
-    let holder;
-    Data.forEach((Element: any, i: number) => {
+    let holder: boolean | undefined;
+    allNotes.forEach((Element: any, i: number) => {
         for(let key in Element){
             console.log(`${Element.isCompleted}`);
             holder = Element.isCompleted
