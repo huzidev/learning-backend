@@ -40,8 +40,7 @@ export default function Footer(): JSX.Element {
   let title : string;
   let info : string | null;
 
-  async function sendMessage(e: React.FormEvent) {
-    e.preventDefault();
+  async function sendMessage() {
     // const { username, email, number, message } = user;
     // const res = await fetch("/contact", {
     //     method : "POST",
@@ -56,7 +55,7 @@ export default function Footer(): JSX.Element {
     //     })
     //   });
     //   const data = await res.json();
-      dispatch(sendThisMessage(user))
+    dispatch(sendThisMessage(user))
       let text: any;
       let description: any;
       let status: any = res === 422 ? (

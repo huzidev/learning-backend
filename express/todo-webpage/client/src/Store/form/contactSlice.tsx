@@ -7,10 +7,12 @@ const initialState: InitialType = {
     res: null
 }
 
-let testType: any;
+let testType: any = null;
 
 export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any) => {
     const { username, email, number, message } = user;
+    console.log("user info", user);
+    
     const res = await fetch("/contact", {
         method : "POST",
         headers : {
@@ -23,8 +25,9 @@ export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any
             message
         })
     });
+    console.log("Before Status is", testType);
     testType = res.status
-    console.log("test type is", testType);
+    console.log("After Status is", testType);
     const data = await res.json();
     return data
 })
