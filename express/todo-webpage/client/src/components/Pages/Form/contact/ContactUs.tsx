@@ -5,12 +5,13 @@ import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
-import { sendMessage } from '../../../../store/form/contactSlice';
+import { sendThisMessage, contactAction } from '../../../../store/form/contactSlice';
 
 export default function Footer(): JSX.Element {
 
+  const res = useAppSelector(state => state.contact.res)
   const dispatch = useAppDispatch();
-  const res = useAppSelector(state => state.res)
+  // const res = useAppSelector(state => state.res)
 
   const [user, setUser] = React.useState<DataType>({
     username : "",
@@ -54,34 +55,36 @@ export default function Footer(): JSX.Element {
     //         message
     //     })
     //   });
-      // const data = await res.json();
-      dispatch(sendMessage(username, email, number, message))
-      let text: any;
-      let description: any;
-      let status: any = res.status === 422 ? (
-        text = "Username Is Missing"
-      ) : res.status === 423 ? (
-        text = "Email Is Missing"
-      ) : res.status === 424 ? (
-        text = "Message Is Field Empty!"
-      ) : null
-      if (status) {
-        icon = error;
-        title = text;
-        info = description;
-      } else if (res.status === 200) {
-        icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;;
-        title = "Message Sent Successfully!";
-        setTimeout(() => {
-          window.location.reload()
-        }, 1500)
-      } else {
-        icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;;
-        title = "Server Error!";
-        info = "Failed To Send Message, Internal Server Error"
-      }
-    notificationTs(icon, title, info);
+    //   const data = await res.json();
+      dispatch(sendThisMessage(user))
+    //   let text: any;
+    //   let description: any;
+    //   let status: any = res.status === 422 ? (
+    //     text = "Username Is Missing"
+    //   ) : res.status === 423 ? (
+    //     text = "Email Is Missing"
+    //   ) : res.status === 424 ? (
+    //     text = "Message Is Field Empty!"
+    //   ) : null
+    //   if (status) {
+    //     icon = error;
+    //     title = text;
+    //     info = description;
+    //   } else if (res.status === 200) {
+    //     icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;;
+    //     title = "Message Sent Successfully!";
+    //     setTimeout(() => {
+    //       window.location.reload()
+    //     }, 1500)
+    //   } else {
+    //     icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;;
+    //     title = "Server Error!";
+    //     info = "Failed To Send Message, Internal Server Error"
+    //   }
+    // notificationTs(icon, title, info);
   }
+
+  console.log("res", );
 
   const style = {padding: '0px 5px'}
 

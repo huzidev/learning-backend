@@ -3,44 +3,47 @@ import { InitialType } from "./Types";
 
 const initialState: InitialType = {
     loading: false,
-    username: "",
-    email: "",
-    number: null,
-    message: "",
     error: "",
     res: null
 }
 
-export const sendMessage = createAsyncThunk('user/messgae', async (username: string, email: string, number?: number, message: string) => {
+// username: string, email: string, number ?: number, message: string
+export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any) => {
+    const { username, email, number, message } = user;
     const res = await fetch("/contact", {
         method : "POST",
         headers : {
             "Content-Type" : "application/json"
         },
         body : JSON.stringify({
-            username: username,
-            email: email,
-            number: number,
-            message: message
+            username,
+            email,
+            number: parseInt(number),
+            message
         })
       });
       const data = await res.json();
-      return data;
+      return data
 })
 
 const contactSlice = createSlice({
     name: 'contact',
     initialState,
-    reducers: {},
+    reducers: {
+        resSet(state, action) {
+            state.res = action.payload
+        }
+    },
     extraReducers: (builder) => {
-        builder.addCase(sendMessage.pending, (state) => {
+        builder.addCase(sendThisMessage.pending, (state) => {
             state.loading = true
         })
-        builder.addCase(sendMessage.fulfilled, (state, action) => {
+        builder.addCase(sendThisMessage.fulfilled, (state, action) => {
             state.loading = false
+            state.res = action.payload
             state.error = ''
         })
-        builder.addCase(sendMessage.rejected, (state, action) => {
+        builder.addCase(sendThisMessage.rejected, (state, action) => {
             state.loading = false
             state.error = action.error.message || "Something went wrong!"
         })
