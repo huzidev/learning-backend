@@ -2,8 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { InitialType, Note } from "./Types";
 
 const initialState: InitialType = {
-    noteData: [],
-    error: "",
+    noteData: []
 }
 
 export const fetchNotes = createAsyncThunk('user/notes', async (location: string) => {
