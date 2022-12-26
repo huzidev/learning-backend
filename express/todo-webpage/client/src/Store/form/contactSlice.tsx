@@ -23,10 +23,10 @@ export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any
             number: parseInt(number),
             message
         })
-      });
+    });
+    testType = res.status
+console.log("test type is", testType);
       const data = await res.json();
-        testType = res.status
-    console.log("test type is", testType);
       return data
 })
 

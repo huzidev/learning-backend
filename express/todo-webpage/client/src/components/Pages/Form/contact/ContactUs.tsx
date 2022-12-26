@@ -9,11 +9,9 @@ import { sendThisMessage, contactAction } from '../../../../store/form/contactSl
 
 export default function Footer(): JSX.Element {
 
-  let res: any = useAppSelector(state => state.contact.res)
-  useEffect(() => {
-  }, [])
+    const contactDetails: any = useAppSelector(state => state.contact)
   const dispatch = useAppDispatch();
-  // const res = useAppSelector(state => state.res)
+  let res = contactDetails.res
 
   const [user, setUser] = React.useState<DataType>({
     username : "",
