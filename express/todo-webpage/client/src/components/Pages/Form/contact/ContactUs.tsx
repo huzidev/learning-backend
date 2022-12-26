@@ -1,6 +1,6 @@
 import { Button, Form, Input, Typography, notification } from 'antd';
 import { ExclamationCircleOutlined, ClockCircleOutlined, CheckCircleOutlined  } from '@ant-design/icons';
-import React from 'react';
+import React, { useEffect } from 'react';
 import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
@@ -9,7 +9,9 @@ import { sendThisMessage, contactAction } from '../../../../store/form/contactSl
 
 export default function Footer(): JSX.Element {
 
-  const res = useAppSelector(state => state.contact.res)
+  let res: any = useAppSelector(state => state.contact.res)
+  useEffect(() => {
+  }, [])
   const dispatch = useAppDispatch();
   // const res = useAppSelector(state => state.res)
 
@@ -57,34 +59,34 @@ export default function Footer(): JSX.Element {
     //   });
     //   const data = await res.json();
       dispatch(sendThisMessage(user))
-    //   let text: any;
-    //   let description: any;
-    //   let status: any = res.status === 422 ? (
-    //     text = "Username Is Missing"
-    //   ) : res.status === 423 ? (
-    //     text = "Email Is Missing"
-    //   ) : res.status === 424 ? (
-    //     text = "Message Is Field Empty!"
-    //   ) : null
-    //   if (status) {
-    //     icon = error;
-    //     title = text;
-    //     info = description;
-    //   } else if (res.status === 200) {
-    //     icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;;
-    //     title = "Message Sent Successfully!";
-    //     setTimeout(() => {
-    //       window.location.reload()
-    //     }, 1500)
-    //   } else {
-    //     icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;;
-    //     title = "Server Error!";
-    //     info = "Failed To Send Message, Internal Server Error"
-    //   }
-    // notificationTs(icon, title, info);
+      let text: any;
+      let description: any;
+      let status: any = res === 422 ? (
+        text = "Username Is Missing"
+      ) : res === 423 ? (
+        text = "Email Is Missing"
+      ) : res === 424 ? (
+        text = "Message Is Field Empty!"
+      ) : null
+      if (status) {
+        icon = error;
+        title = text;
+        info = description;
+      } else if (res === 200) {
+        icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;;
+        title = "Message Sent Successfully!";
+        setTimeout(() => {
+          window.location.reload()
+        }, 1500)
+      } else {
+        icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;;
+        title = "Server Error!";
+        info = "Failed To Send Message, Internal Server Error"
+      }
+    notificationTs(icon, title, info);
   }
 
-  console.log("res", res);
+  console.log("res from ts code", res);
 
   const style = {padding: '0px 5px'}
 

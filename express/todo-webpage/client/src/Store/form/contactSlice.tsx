@@ -7,6 +7,8 @@ const initialState: InitialType = {
     res: null
 }
 
+let testType: any;
+
 // username: string, email: string, number ?: number, message: string
 export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any) => {
     const { username, email, number, message } = user;
@@ -23,9 +25,9 @@ export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any
         })
       });
       const data = await res.json();
+        testType = res.status
+    console.log("test type is", testType);
       return data
-      initialState.res = res.status
-      return initialState.res
 })
 
 const contactSlice = createSlice({
@@ -38,7 +40,7 @@ const contactSlice = createSlice({
         })
         builder.addCase(sendThisMessage.fulfilled, (state, action) => {
             state.loading = false
-            state.res = action.payload
+            state.res = testType
             state.error = ''
         })
         builder.addCase(sendThisMessage.rejected, (state, action) => {
