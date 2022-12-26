@@ -7,6 +7,8 @@ const initialState: InitialType = {
 
 export const deleteThisNote = createAsyncThunk('user/noteDelete', async (id: number) => {
     try {
+        console.log("id idd", id);
+        
         const res = await fetch(`/deletenote/${id}`, {
             method: 'DELETE',
             headers: {

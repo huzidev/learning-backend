@@ -17,7 +17,6 @@ export default function ShowNotes(props: any): JSX.Element {
 
     const dispatch = useAppDispatch();
 
-
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -35,7 +34,7 @@ export default function ShowNotes(props: any): JSX.Element {
             //     }
             // })
             // const data = res.json();
-            dispatch(deleteThisNote(note.id))
+            dispatch(deleteThisNote(note._id))
             const newNotes = notes.filter((d: any) => { return d._id !== note.id })
             setNotes(newNotes)
             async function openNotification() {

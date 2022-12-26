@@ -57,14 +57,10 @@ export default function FilterList(props: any): JSX.Element {
         }
     });
 
-
     const style = {
         display: "flex", 
         justifyContent: "space-between",
     }
-
-    console.log("what is holder", holder);
-    console.log("what is state", state);
 
     const error = holder === undefined;
 
