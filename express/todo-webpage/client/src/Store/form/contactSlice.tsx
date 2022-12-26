@@ -11,36 +11,27 @@ const initialState: InitialType = {
     res: null
 }
 
-export const sendMessage = createAsyncThunk('user/messgae', async () => {
+export const sendMessage = createAsyncThunk('user/messgae', async (username: string, email: string, number?: number, message: string) => {
     const res = await fetch("/contact", {
         method : "POST",
         headers : {
             "Content-Type" : "application/json"
         },
         body : JSON.stringify({
-            username: initialState.username,
-            email: initialState.email,
-            number: parseInt(initialState.number),
-            message: initialState.message
+            username: username,
+            email: email,
+            number: number,
+            message: message
         })
       });
       const data = await res.json();
-      initialState.res = res.status;
       return data;
 })
 
 const contactSlice = createSlice({
     name: 'contact',
     initialState,
-    reducers: {
-        getStateTest(state, action) {
-            const allData = action.payload
-            state.username = allData.username;
-            state.email = allData.email;
-            state.number = allData.number;
-            state.message = allData.message;
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder.addCase(sendMessage.pending, (state) => {
             state.loading = true
