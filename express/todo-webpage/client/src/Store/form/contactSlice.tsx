@@ -9,7 +9,6 @@ const initialState: InitialType = {
 
 let testType: any;
 
-// username: string, email: string, number ?: number, message: string
 export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any) => {
     const { username, email, number, message } = user;
     const res = await fetch("/contact", {
@@ -25,9 +24,9 @@ export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any
         })
     });
     testType = res.status
-console.log("test type is", testType);
-      const data = await res.json();
-      return data
+    console.log("test type is", testType);
+    const data = await res.json();
+    return data
 })
 
 const contactSlice = createSlice({
