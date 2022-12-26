@@ -14,8 +14,8 @@ export default function FilterList(props: any): JSX.Element {
     const [state, setState] = useState(false)
     const [items, setItems] = useState(allNotes)
 
-    let locationName = Location.pathname.includes('/addnote') ? "/allnotes" : Location.pathname.includes('/completed') ? "/completednotes" : ''
-    
+    let locationName = Location.pathname.includes('/addnote') ? "/allnotes" : "/completednotes"
+
     useEffect(() => {
         dispatch(fetchNotes(locationName))
     }, [locationName])
@@ -27,9 +27,9 @@ export default function FilterList(props: any): JSX.Element {
 
     const allItems = [...new Set(allNotes.map((currentEle) => {
         return (
-            // !currentEle.isCompleted && Location.pathname.includes('/addnote') || currentEle.isCompleted && Location.pathname.includes('/completed') ? (
+            !currentEle.isCompleted && Location.pathname.includes('/addnote') || currentEle.isCompleted && Location.pathname.includes('/completed') ? (
                 currentEle.category
-            // ) : null
+            ) : null
         )
     }))]
 
