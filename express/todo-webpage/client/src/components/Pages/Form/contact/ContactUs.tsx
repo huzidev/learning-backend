@@ -4,6 +4,7 @@ import React from 'react';
 import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
+import { sendMessage } from '../../../../store/form/contactSlice';
 
 export default function Footer(): JSX.Element {
 
