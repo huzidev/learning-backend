@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { InitialType } from "./Types";
 
 const initialState: InitialType = {
-    status: null
+    setIsModalOpen: false
 }
 
 export const deleteThisNote = createAsyncThunk('user/noteDelete', async (id: number) => {
