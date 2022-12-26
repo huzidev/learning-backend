@@ -24,16 +24,14 @@ export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any
       });
       const data = await res.json();
       return data
+      initialState.res = res.status
+      return initialState.res
 })
 
 const contactSlice = createSlice({
     name: 'contact',
     initialState,
-    reducers: {
-        resSet(state, action) {
-            state.res = action.payload
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder.addCase(sendThisMessage.pending, (state) => {
             state.loading = true

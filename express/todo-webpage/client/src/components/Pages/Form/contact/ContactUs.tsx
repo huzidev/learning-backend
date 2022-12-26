@@ -42,7 +42,7 @@ export default function Footer(): JSX.Element {
 
   async function sendMessage(e: React.FormEvent) {
     e.preventDefault();
-    const { username, email, number, message } = user;
+    // const { username, email, number, message } = user;
     // const res = await fetch("/contact", {
     //     method : "POST",
     //     headers : {
@@ -84,7 +84,7 @@ export default function Footer(): JSX.Element {
     // notificationTs(icon, title, info);
   }
 
-  console.log("res", );
+  console.log("res", res);
 
   const style = {padding: '0px 5px'}
 
