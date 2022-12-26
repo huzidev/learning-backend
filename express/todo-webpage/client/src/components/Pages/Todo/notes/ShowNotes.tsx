@@ -5,17 +5,19 @@ import { ClockCircleOutlined, CheckCircleOutlined  } from '@ant-design/icons';
 import {IntlProvider, FormattedDate} from 'react-intl'
 import { useLocation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
+import { deleteNote } from '../../../../store/notes/DeleteNote/deleteSlice';
 
 export default function ShowNotes(props: any): JSX.Element {
     const Location = useLocation()
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
     const { note, updateNote } = props;
-    
+
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const dispatch = useAppDispatch();
-    const noteData = useAppSelector(state => state.note)
+
+
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -26,13 +28,14 @@ export default function ShowNotes(props: any): JSX.Element {
 
     async function deleteNote() {
         try {
-            const res = await fetch(`/deletenote/${note._id}`, {
-                method: 'DELETE',
-                headers: {
-                    "Content-Type" : "application/json",
-                }
-            })
-            const data = res.json();
+            // const res = await fetch(`/deletenote/${note._id}`, {
+            //     method: 'DELETE',
+            //     headers: {
+            //         "Content-Type" : "application/json",
+            //     }
+            // })
+            // const data = res.json();
+            dispatch()
             const newNotes = notes.filter((d: any) => { return d._id !== note.id })
             setNotes(newNotes)
             async function openNotification() {
@@ -49,7 +52,6 @@ export default function ShowNotes(props: any): JSX.Element {
             console.log(e);
         }
     }
-
     return (
         <div>
             {!note.isCompleted && Location.pathname.includes('/addnote') || note.isCompleted && Location.pathname.includes('/completed') ? ( 

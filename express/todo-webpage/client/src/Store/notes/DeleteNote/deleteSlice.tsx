@@ -1,31 +1,36 @@
-// import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { InitialType } from "./Types";
 
-// export const deleteNote = createAsyncThunk('user/noteDelete', async () => {
-//     try {
-//         const res = await fetch(`/deletenote/${note._id}`, {
-//             method: 'DELETE',
-//             headers: {
-//                 "Content-Type" : "application/json",
-//             }
-//         })
-//         const data = res.json();
-//         return data;
-//     } catch (e) {
-//         console.log(e);
-//     }
-// })
+const initialState: InitialType = {
+    status: null
+}
 
-// const deleteSlice = createSlice({
-//     name: 'delete',
-//     initialState,
-//     reducers: {},
-//     extraReducers: (builder) => {
-//         builder.addCase(deleteNote.fulfilled, (state) => {
-//             state.noteData = action.payload
-//         })
-//     },
-// })
+export const deleteNote = createAsyncThunk('user/noteDelete', async (id: number) => {
+    try {
+        const res = await fetch(`/deletenote/${id}`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type" : "application/json",
+            }
+        })
+        const data = res.json();
+        return data;
+    } catch (e) {
+        console.log(e);
+    }
+})
 
-// export default deleteSlice.reducer
+const deleteSlice = createSlice({
+    name: 'delete',
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(deleteNote.fulfilled, (state, action) => {
+            state.noteData = action.payload
+        })
+    },
+})
 
-// // export const noteAction = deleteSlice.actions;
+export default deleteSlice.reducer
+
+// export const noteAction = deleteSlice.actions;
