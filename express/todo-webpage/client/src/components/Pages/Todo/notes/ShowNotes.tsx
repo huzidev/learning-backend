@@ -1,16 +1,16 @@
 import React, { useContext, useState, useEffect } from 'react';
 import DataContext from "../../../Context/DataContext";
 import { Card, Button, Typography, Modal, notification } from 'antd';
-import { ClockCircleOutlined, CheckCircleOutlined  } from '@ant-design/icons';
+import { CheckCircleOutlined  } from '@ant-design/icons';
 import {IntlProvider, FormattedDate} from 'react-intl'
 import { useLocation } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
+import { useAppDispatch } from '../../../../store/hooks/hooks';
 import { deleteThisNote } from '../../../../store/notes/DeleteNote/deleteSlice';
 
 export default function ShowNotes(props: any): JSX.Element {
     const Location = useLocation()
-    const context = useContext(DataContext);
-    const { notes, setNotes } = context;
+    // const context = useContext(DataContext);
+    // const { notes, setNotes } = context;
     const { note, updateNote } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,7 +26,6 @@ export default function ShowNotes(props: any): JSX.Element {
     };
 
     async function deleteNote() {
-        try {
             // const res = await fetch(`/deletenote/${note._id}`, {
             //     method: 'DELETE',
             //     headers: {
@@ -35,8 +34,8 @@ export default function ShowNotes(props: any): JSX.Element {
             // })
             // const data = res.json();
             dispatch(deleteThisNote(note._id))
-            const newNotes = notes.filter((d: any) => { return d._id !== note.id })
-            setNotes(newNotes)
+            // const newNotes = notes.filter((d: any) => { return d._id !== note.id })
+            // setNotes(newNotes)
             async function openNotification() {
                 notification.open({
                     icon : <CheckCircleOutlined style={{ color: '#00FF00' }}/>,
@@ -47,9 +46,6 @@ export default function ShowNotes(props: any): JSX.Element {
             setTimeout(() => {
                 window.location.reload()
             }, 1500)
-        } catch (e) {
-            console.log(e);
-        }
     }
     return (
         <div>
