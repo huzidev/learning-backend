@@ -7,7 +7,5 @@ export interface Note {
 }
 
 export interface InitialType {
-    loading: boolean
     noteData: Note[]
-    error: string
 }

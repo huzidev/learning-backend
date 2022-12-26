@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ShowNotes from '../notes/ShowNotes';
-import { Col, Row , Button, Typography } from 'antd';
+import { Col, Row, Button, Typography, Skeleton } from 'antd';
 import { useLocation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 import { fetchNotes, noteAction } from '../../../../store/notes/ShowNotes/noteSlice';

@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { InitialType, Note } from "./Types";
 
 const initialState: InitialType = {
-    loading: false,
     noteData: [],
     error: "",
 }
@@ -32,18 +31,8 @@ const noteSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(fetchNotes.pending, (state) => {
-            state.loading = true
-        })
         builder.addCase(fetchNotes.fulfilled, (state, action: PayloadAction<Note[]>) => { // action is of type payloadAction and further it is Array of Note
-            state.loading = false
             state.noteData = action.payload
-            state.error = ''
-        })
-        builder.addCase(fetchNotes.rejected, (state, action) => {
-            state.loading = false
-            state.noteData = []
-            state.error = action.error.message || "Something went wrong!"
         })
     },
 })
