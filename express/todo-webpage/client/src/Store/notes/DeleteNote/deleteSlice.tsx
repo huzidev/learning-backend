@@ -5,7 +5,7 @@ const initialState: InitialType = {
     status: null
 }
 
-export const deleteNote = createAsyncThunk('user/noteDelete', async (id: number) => {
+export const deleteThisNote = createAsyncThunk('user/noteDelete', async (id: number) => {
     try {
         const res = await fetch(`/deletenote/${id}`, {
             method: 'DELETE',
@@ -24,11 +24,6 @@ const deleteSlice = createSlice({
     name: 'delete',
     initialState,
     reducers: {},
-    extraReducers: (builder) => {
-        builder.addCase(deleteNote.fulfilled, (state, action) => {
-            state.noteData = action.payload
-        })
-    },
 })
 
 export default deleteSlice.reducer

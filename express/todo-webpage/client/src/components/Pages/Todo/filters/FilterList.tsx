@@ -11,7 +11,7 @@ export default function FilterList(props: any): JSX.Element {
     const notes = useAppSelector(state => state.note)
     let allNotes = notes.noteData
     
-    const [state, setState] = useState(false)
+    const [state, setState] = useState<boolean | null>(null)
     const [items, setItems] = useState(allNotes)
 
     const addNotesPath: boolean = Location.pathname.includes('/addnote');
@@ -21,6 +21,7 @@ export default function FilterList(props: any): JSX.Element {
 
     useEffect(() => {
         dispatch(fetchNotes(locationName))
+        setState(null)
     }, [locationName])
 
     // when user clicked on filter list then state will change to true & all the notes with that specific catgeory will fetch only therefore state must be true but initially it is false 
@@ -56,12 +57,14 @@ export default function FilterList(props: any): JSX.Element {
         }
     });
 
-    console.log("what is holder", holder);
-    
+
     const style = {
         display: "flex", 
         justifyContent: "space-between",
     }
+
+    console.log("what is holder", holder);
+    console.log("what is state", state);
 
     const error = holder === undefined;
 
