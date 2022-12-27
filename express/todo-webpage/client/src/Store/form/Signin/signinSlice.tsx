@@ -5,7 +5,8 @@ const initialState: InitialType = {
     res: null
 }
 
-export const sendThisMessage = createAsyncThunk('user/singin', async (user: any) => {
+export const signInUser = createAsyncThunk('user/singin', async (user: any) => {
+    const { email, password } = user;
     const res = await fetch(`/signin`, {
         method: "POST",
         headers: {

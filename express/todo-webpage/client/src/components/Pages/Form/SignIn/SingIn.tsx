@@ -10,9 +10,12 @@ import {
   CheckCircleOutlined  
 } from '@ant-design/icons';
 import { DataType } from './Type';
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
+import { signInUser } from '../../../../store/form/Signin/signinSlice';
 
 export default function SingIn() {
   const Navigate = useNavigate();
+  const dispatch = useAppDispatch()
   const [user, setUser] = React.useState<DataType>({ email: "", password : "" });
 
   function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
@@ -37,15 +40,16 @@ export default function SingIn() {
 
   async function signIn(e: React.FormEvent) {
     e.preventDefault();
-    const { email, password } = user;
-    const res = await fetch(`/signin`, {
-      method : "POST",
-      headers : { 
-        "Content-Type" : "application/json" 
-      },
-      body : JSON.stringify({ email, password })
-    });
-    const data = await res.json();
+    dispatch(signInUser(user))
+    // const { email, password } = user;
+    // const res = await fetch(`/signin`, {
+    //   method : "POST",
+    //   headers : { 
+    //     "Content-Type" : "application/json" 
+    //   },
+    //   body : JSON.stringify({ email, password })
+    // });
+    // const data = await res.json();
     if (!data || res.status === 421) {
       icon = error;
       message = "You've left an tag Empty!";
