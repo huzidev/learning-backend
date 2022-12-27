@@ -1,14 +1,13 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { InitialType } from "./Types";
 
 const initialState: InitialType = {
     res: null
 }
 
-export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any) => {
+export const sendThisMessage = createAsyncThunk('user/message', async (user: any) => {
     const { username, email, number, message } = user;
     console.log("user info", user);
-    
     const res = await fetch("/contact", {
         method : "POST",
         headers : {
@@ -32,6 +31,7 @@ const contactSlice = createSlice({
         receiveTEst(state, action) {
             state.res = action.payload
         }
+    },
 })
 
 export default contactSlice.reducer
