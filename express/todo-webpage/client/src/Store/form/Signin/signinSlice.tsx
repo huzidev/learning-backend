@@ -9,8 +9,6 @@ const initialState: InitialType = {
 console.log("what is Data Token from initial State", initialState.data);
 let dataToken: string | null;
 
-
-
 export const signInUser = createAsyncThunk('user/singin', async (user: any) => {
     const { email, password } = user;
     const res = await fetch(`/signin`, {

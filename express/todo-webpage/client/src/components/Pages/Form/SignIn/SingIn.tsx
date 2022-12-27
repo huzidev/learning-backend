@@ -50,6 +50,8 @@ export default function SingIn() {
     dispatch(signinAction.receiveTEst(200))
   }
 
+  console.log("what is token from ts code", data);
+
   async function signIn(e: React.FormEvent) {
     e.preventDefault();
     dispatch(signInUser(user))
@@ -80,9 +82,9 @@ export default function SingIn() {
       message = `Signin Successful!`
       info = `User Signedin Successfully`;
       Navigate('/');
-      setTimeout(() => {
-        window.location.reload()
-      }, 1000)
+      // setTimeout(() => {
+      //   window.location.reload()
+      // }, 1000)
     }
     notificationTs(icon, message, info);
   }
