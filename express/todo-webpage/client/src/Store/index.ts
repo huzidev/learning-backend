@@ -8,8 +8,8 @@ const store = configureStore({
     reducer : {
         user : userReducer,
         note : noteReducer,
-        contact: contactReducer
-        signin: contactReducer
+        contact: contactReducer,
+        signin: signinReducer
     }
 })
 
