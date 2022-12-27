@@ -59,7 +59,13 @@ export default function Footer(): JSX.Element {
     //   });
     //   const data = await res.json();
     if (username === "") {
-      dispatch()
+      dispatch(contactAction.receiveTEst(422))
+    } else if (email === "") {
+      dispatch(contactAction.receiveTEst(423))
+    } else if (message === "") {
+      dispatch(contactAction.receiveTEst(424))
+    } else if (username && email && message !== "") {
+      dispatch(contactAction.receiveTEst(200))
     }
     let text: any;
     let description: any;
