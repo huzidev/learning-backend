@@ -43,8 +43,17 @@ export default function Footer(): JSX.Element {
 
 
 
+  const { username, email, number, message } = user;
+  if (username === "") {
+    dispatch(contactAction.receiveTEst(422))
+  } else if (email === "") {
+    dispatch(contactAction.receiveTEst(423))
+  } else if (message === "") {
+    dispatch(contactAction.receiveTEst(424))
+  } else if (username && email && message !== "") {
+    dispatch(contactAction.receiveTEst(200))
+  }
   function sendMessage() {
-    const { username, email, number, message } = user;
     // const res = await fetch("/contact", {
     //     method : "POST",
     //     headers : {
@@ -58,15 +67,7 @@ export default function Footer(): JSX.Element {
     //     })
     //   });
     //   const data = await res.json();
-    if (username === "") {
-      dispatch(contactAction.receiveTEst(422))
-    } else if (email === "") {
-      dispatch(contactAction.receiveTEst(423))
-    } else if (message === "") {
-      dispatch(contactAction.receiveTEst(424))
-    } else if (username && email && message !== "") {
-      dispatch(contactAction.receiveTEst(200))
-    }
+    dispatch(sendThisMessage(user))
     let text: any;
     let description: any;
     let status: any = res === 422 ? (
@@ -94,12 +95,6 @@ export default function Footer(): JSX.Element {
     notificationTs(icon, title, info);
     setState(true)
   }
-  // if (state === true) {
-
-  // }
-  useEffect(() => {
-    dispatch(sendThisMessage(user))
-  }, [user])
 
   console.log("res from ts code", res);
 

@@ -7,9 +7,9 @@ const initialState: InitialType = {
     res: null
 }
 
-console.log("WHAT IS RES FROM REDUX", initialState.res);
-// let testType: any = null;
-let testType: any = initialState.res;
+// console.log("WHAT IS RES FROM REDUX", initialState.res);
+// // let testType: any = null;
+// let testType: any = initialState.res;
 
 export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any) => {
     const { username, email, number, message } = user;
@@ -57,7 +57,7 @@ const contactSlice = createSlice({
         })
         builder.addCase(sendThisMessage.fulfilled, (state, action) => {
             state.loading = false
-            state.res = testType
+            // state.res = testType
             state.error = ''
         })
         builder.addCase(sendThisMessage.rejected, (state, action) => {
