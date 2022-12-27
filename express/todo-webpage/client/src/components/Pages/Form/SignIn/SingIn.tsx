@@ -42,14 +42,15 @@ export default function SingIn() {
   }
 
   const { email, password } = user;
-  if (email === "" || password === "") {
+  if (email === "") {
     dispatch(signinAction.receiveTEst(421))
   } else if (password === "") {
-    dispatch(signinAction.receiveTEst(423))
+    dispatch(signinAction.receiveTEst(422))
   }  else if (email && password !== "") {
     dispatch(signinAction.receiveTEst(200))
   }
 
+  let hold: string = res === 421 ? "Email" : res === 422 ? "Password" : ""
   console.log("what is token from ts code", data);
 
   async function signIn(e: React.FormEvent) {
@@ -64,10 +65,10 @@ export default function SingIn() {
     //   body : JSON.stringify({ email, password })
     // });
     // const data = await res.json();
-    if (res === 421) {
+    if (res === 421 || res === 422) {
       icon = error;
-      message = "You've Left Email Field Empty!";
-    } else if (res === 422 || res === 423) {
+      message = `You've Left ${hold} Field Empty!`;
+    } else if (res === 423) {
       icon = error;
       message = `Error`;
       info = `Email or Password Is Incorrect!`;
