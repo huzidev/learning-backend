@@ -4,7 +4,7 @@ import { ExclamationCircleOutlined, CheckCircleOutlined  } from '@ant-design/ico
 import { Button, Form, Input, Typography, notification } from 'antd';
 import { DataType } from './Type';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
-import { addThisNote } from '../../../../store/notes/AddNote/addNoteSlice';
+import { addThisNote, addNoteAction } from '../../../../store/notes/AddNote/addNoteSlice';
 
 export default function AddTodo(): JSX.Element {
   const noteRes = useAppSelector(state => state.addnote)
@@ -22,6 +22,17 @@ export default function AddTodo(): JSX.Element {
   let icon : any
   let heading: string;
   let message: string | null;
+
+  const { title, description, category } = user;
+  if (title === "") {
+    dispatch(contactAction.receiveTEst(422))
+  } else if (description === "") {
+    dispatch(contactAction.receiveTEst(423))
+  } else if (category === "") {
+    dispatch(contactAction.receiveTEst(424))
+  } else if (username && email && message !== "") {
+    dispatch(contactAction.receiveTEst(200))
+  }
 
   const addTodo = async (e: React.FormEvent) => {
     e.preventDefault();
