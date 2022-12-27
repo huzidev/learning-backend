@@ -23,20 +23,20 @@ export default function AddTodo(): JSX.Element {
   let heading: string;
   let message: string | null;
 
-  const { title, description, category } = user;
+  const { title, description, category } = note;
   if (title === "") {
-    dispatch(contactAction.receiveTEst(422))
+    dispatch(addNoteAction.receiveTEst(422))
   } else if (description === "") {
-    dispatch(contactAction.receiveTEst(423))
+    dispatch(addNoteAction.receiveTEst(423))
   } else if (category === "") {
-    dispatch(contactAction.receiveTEst(424))
-  } else if (username && email && message !== "") {
-    dispatch(contactAction.receiveTEst(200))
+    dispatch(addNoteAction.receiveTEst(424))
+  } else if (title && description && category !== "") {
+    dispatch(addNoteAction.receiveTEst(200))
   }
 
-  const addTodo = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const {title, description, category, isCompleted} = note
+  const addTodo = async () => {
+    dispatch(addNoteAction.receiveTEst(note))
+    // const {title, description, category, isCompleted} = note
     // const res = await fetch(`/addnote`, {
     //   method : "POST",
     //   headers : {
@@ -49,13 +49,13 @@ export default function AddTodo(): JSX.Element {
     //     isCompleted
     //   })
     // });
-    if (res.status === 404) {
+    if (res === 422 || 423 || 424) {
       icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
       heading = `Empty Field`;
       message = `You've Left A Field Empty!`;
     }
     else {  
-      const data = await res.json()
+      // const data = await res.json()
       setNotes(notes.concat(data));
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
       heading = `Note Added`;
