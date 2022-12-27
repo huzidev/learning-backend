@@ -40,11 +40,12 @@ export default function Footer(): JSX.Element {
   let title : string;
   let info : string | null;
 
+  
   useEffect(() => {
     dispatch(sendThisMessage(user))
-  }, [user])
+  }, [])
 
-  async function sendMessage() {
+  function sendMessage() {
     // const { username, email, number, message } = user;
     // const res = await fetch("/contact", {
     //     method : "POST",

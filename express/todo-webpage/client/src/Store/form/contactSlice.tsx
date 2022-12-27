@@ -25,9 +25,18 @@ export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any
             message
         })
     });
-    console.log("Before Status is", testType);
-    testType = res.status
-    console.log("After Status is", testType);
+    if (username === "") {
+        testType = 422
+    } else if (email === "") {
+        testType = 423
+    } else if (message === "") {
+        testType === 424
+    } else if (username && email && message !== "") {
+        testType === 200
+    }
+    // console.log("Before Status is", testType);
+    // testType = res.status
+    // console.log("After Status is", testType);
     const data = await res.json();
     return data
 })
