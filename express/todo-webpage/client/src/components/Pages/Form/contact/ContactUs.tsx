@@ -43,7 +43,7 @@ export default function Footer(): JSX.Element {
 
 
 
-  const { username, email, number, message } = user;
+  const { username, email, message } = user;
   if (username === "") {
     dispatch(contactAction.receiveTEst(422))
   } else if (email === "") {
