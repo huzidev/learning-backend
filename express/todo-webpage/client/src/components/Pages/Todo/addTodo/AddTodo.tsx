@@ -9,6 +9,7 @@ import { addThisNote } from '../../../../store/notes/AddNote/addNoteSlice';
 export default function AddTodo(): JSX.Element {
   const noteRes = useAppSelector(state => state.contact)
   const dispatch = useAppDispatch();
+  let res: number | null = contactRes.res
   const context = useContext(DataContext);
   const {setNotes, notes} = context;
   const [note, setNote] = useState<DataType>({

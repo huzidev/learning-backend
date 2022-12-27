@@ -6,7 +6,7 @@ const initialState: InitialType = {
 }
 
 export const addThisNote = createAsyncThunk('user/addNote', async (user: any) => {
-    const { username, email, number, message } = user;
+    const { title, description, category, isCompleted } = user;
     console.log("user info", user);
     const res = await fetch(`/addnote`, {
         method: "POST",

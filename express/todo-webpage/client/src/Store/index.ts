@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./user/userSlice";
+import addNoteReducer from "./notes/AddNote/addNoteSlice"
 import noteReducer from "./notes/ShowNotes/noteSlice"
 import contactReducer from "./form/Contact/contactSlice"
 import signinReducer from "./form/Signin/signinSlice"
@@ -9,7 +10,8 @@ const store = configureStore({
         user : userReducer,
         note : noteReducer,
         contact: contactReducer,
-        signin: signinReducer
+        signin: signinReducer,
+        addnote: addNoteReducer
     }
 })
 
