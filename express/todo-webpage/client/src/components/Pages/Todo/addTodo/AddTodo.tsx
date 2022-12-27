@@ -7,9 +7,9 @@ import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 import { addThisNote } from '../../../../store/notes/AddNote/addNoteSlice';
 
 export default function AddTodo(): JSX.Element {
-  const noteRes = useAppSelector(state => state.contact)
+  const noteRes = useAppSelector(state => state.addnote)
   const dispatch = useAppDispatch();
-  let res: number | null = contactRes.res
+  let res: number | null = noteRes.res
   const context = useContext(DataContext);
   const {setNotes, notes} = context;
   const [note, setNote] = useState<DataType>({
