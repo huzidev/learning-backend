@@ -5,7 +5,7 @@ import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
-import { sendThisMessage, contactAction } from '../../../../store/form/contactSlice';
+import { sendThisMessage, contactAction } from '../../../../store/form/Contact/contactSlice';
 
 export default function Footer(): JSX.Element {
   const contactRes = useAppSelector(state => state.contact)
@@ -89,10 +89,7 @@ export default function Footer(): JSX.Element {
       info = "Failed To Send Message, Internal Server Error"
     }
     notificationTs(icon, title, info);
-    setState(true)
   }
-
-  console.log("res from ts code", res);
 
   const style = { padding: '0px 5px' }
 

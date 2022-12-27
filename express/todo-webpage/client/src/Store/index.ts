@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./user/userSlice";
 import noteReducer from "./notes/ShowNotes/noteSlice"
-import contactReducer from "./form/contactSlice"
+import contactReducer from "./form/Contact/contactSlice"
 
 const store = configureStore({
     reducer : {
