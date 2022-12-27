@@ -7,7 +7,9 @@ const initialState: InitialType = {
     res: null
 }
 
-let testType: any = null;
+console.log("WHAT IS RES FROM REDUX", initialState.res);
+// let testType: any = null;
+let testType: any = initialState.res;
 
 export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any) => {
     const { username, email, number, message } = user;
@@ -25,15 +27,15 @@ export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any
             message
         })
     });
-    if (username === "") {
-        testType = 422
-    } else if (email === "") {
-        testType = 423
-    } else if (message === "") {
-        testType === 424
-    } else if (username && email && message !== "") {
-        testType === 200
-    }
+    // if (username === "") {
+    //     testType = 422
+    // } else if (email === "") {
+    //     testType = 423
+    // } else if (message === "") {
+    //     testType = 424
+    // } else if (username && email && message !== "") {
+    //     testType = 200
+    // }
     // console.log("Before Status is", testType);
     // testType = res.status
     // console.log("After Status is", testType);
@@ -44,7 +46,11 @@ export const sendThisMessage = createAsyncThunk('user/messgae', async (user: any
 const contactSlice = createSlice({
     name: 'contact',
     initialState,
-    reducers: {},
+    reducers: {
+        receiveTEst(state, action) {
+            state.res = action.payload
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(sendThisMessage.pending, (state) => {
             state.loading = true
