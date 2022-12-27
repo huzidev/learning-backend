@@ -2,8 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { InitialType } from "./Types";
 
 const initialState: InitialType = {
-    res: null
-    data: ""
+    res: null,
+    data: null
 }
 
 export const signInUser = createAsyncThunk('user/singin', async (user: any) => {

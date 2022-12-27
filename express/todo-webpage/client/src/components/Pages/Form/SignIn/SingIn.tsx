@@ -50,7 +50,6 @@ export default function SingIn() {
     dispatch(signinAction.receiveTEst(200))
   }
 
-
   async function signIn(e: React.FormEvent) {
     e.preventDefault();
     dispatch(signInUser(user))
