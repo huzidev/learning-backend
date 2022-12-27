@@ -42,8 +42,8 @@ export default function SingIn() {
   }
 
   const { email, password } = user;
-  if (email === "") {
-    dispatch(signinAction.receiveTEst(422))
+  if (email === "" || password === "") {
+    dispatch(signinAction.receiveTEst(421))
   } else if (password === "") {
     dispatch(signinAction.receiveTEst(423))
   }  else if (email && password !== "") {
@@ -66,7 +66,7 @@ export default function SingIn() {
     // const data = await res.json();
     if (res === 421) {
       icon = error;
-      message = "You've left an tag Empty!";
+      message = "You've Left Email Field Empty!";
     } else if (res === 422 || res === 423) {
       icon = error;
       message = `Error`;
