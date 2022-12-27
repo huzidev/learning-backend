@@ -15,10 +15,10 @@ import { signInUser, signinAction } from '../../../../store/form/Signin/signinSl
 
 export default function SingIn() {
   const Navigate = useNavigate();
-  const signinRes = useAppSelector(state => state.signin)
-  const dispatch = useAppDispatch();
-  let res: number | null = signinRes.res
-  let data: string | null = signinRes.data
+  // const signinres.status = useAppSelector(state => state.signin)
+  // const dispatch = useAppDispatch();
+  // let res.status: number | null = signinres.status.res.status
+  // let data: string | null = signinres.status.data
   const [user, setUser] = React.useState<any>({ email: "", password : "" });
 
   function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
@@ -42,42 +42,42 @@ export default function SingIn() {
   }
 
   const { email, password } = user;
-  if (email === "") {
-    dispatch(signinAction.receiveTEst(421))
-  } else if (password === "") {
-    dispatch(signinAction.receiveTEst(422))
-  }  else if (email && password !== "") {
-    dispatch(signinAction.receiveTEst(200))
-  }
+  // if (email === "") {
+  //   dispatch(signinAction.receiveTEst(421))
+  // } else if (password === "") {
+  //   dispatch(signinAction.receiveTEst(422))
+  // }  else if (email && password !== "") {
+  //   dispatch(signinAction.receiveTEst(200))
+  // }
 
-  let hold: string = res === 421 ? "Email" : res === 422 ? "Password" : ""
-  console.log("what is token from ts code", data);
+  // let hold: string = res.status === 421 ? "Email" : res.status === 422 ? "Password" : ""
+  // console.log("what is token from ts code", data);
 
   async function signIn(e: React.FormEvent) {
     e.preventDefault();
-    dispatch(signInUser(user))
-    // const { email, password } = user;
-    // const res = await fetch(`/signin`, {
-    //   method : "POST",
-    //   headers : { 
-    //     "Content-Type" : "application/json" 
-    //   },
-    //   body : JSON.stringify({ email, password })
-    // });
-    // const data = await res.json();
-    if (res === 421 || res === 422) {
+    // dispatch(signInUser(user))
+    const { email, password } = user;
+    const res = await fetch(`/signin`, {
+      method : "POST",
+      headers : { 
+        "Content-Type" : "application/json" 
+      },
+      body : JSON.stringify({ email, password })
+    });
+    const data = await res.json();
+    if (res.status === 421 || res.status === 422) {
       icon = error;
-      message = `You've Left ${hold} Field Empty!`;
-    } else if (res === 423) {
+      message = `You've Left Field Empty!`;
+    } else if (res.status === 423) {
       icon = error;
       message = `Error`;
       info = `Email or Password Is Incorrect!`;
-    } else if (res === 500) {
+    } else if (res.status === 500) {
       icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
       message = `Server Error`;
       info = `Failed To Signin, Internal Server Error!`;
     } else {
-      // localStorage.setItem('jwtoken', data.token);
+      localStorage.setItem('jwtoken', data.token);
       console.log("Signin Successful");
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>
       message = `Signin Successful!`
