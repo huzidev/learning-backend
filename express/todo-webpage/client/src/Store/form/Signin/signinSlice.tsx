@@ -6,6 +6,11 @@ const initialState: InitialType = {
     data: null
 }
 
+console.log("what is Data Token from initial State", initialState.data);
+let dataToken: string | null;
+
+
+
 export const signInUser = createAsyncThunk('user/singin', async (user: any) => {
     const { email, password } = user;
     const res = await fetch(`/signin`, {
@@ -16,6 +21,9 @@ export const signInUser = createAsyncThunk('user/singin', async (user: any) => {
         body: JSON.stringify({ email, password })
     });
     const data = await res.json();
+    dataToken = data.token
+    console.log("what is token", dataToken);
+    
     return data;
 })
 
@@ -25,6 +33,7 @@ const signinSlice = createSlice({
     reducers: {
         receiveTEst(state, action) {
             state.res = action.payload
+            state.data = dataToken
         }
     },
 })

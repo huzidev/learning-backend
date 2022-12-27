@@ -19,7 +19,7 @@ export default function SingIn() {
   const dispatch = useAppDispatch();
   let res: number | null = signinRes.res
   let data: string | null = signinRes.data
-  const [user, setUser] = React.useState<DataType>({ email: "", password : "" });
+  const [user, setUser] = React.useState<any>({ email: "", password : "" });
 
   function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
     setUser({ 
@@ -74,7 +74,7 @@ export default function SingIn() {
       message = `Server Error`;
       info = `Failed To Signin, Internal Server Error!`;
     } else {
-      localStorage.setItem('jwtoken', data.token);
+      // localStorage.setItem('jwtoken', data.token);
       console.log("Signin Successful");
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>
       message = `Signin Successful!`
@@ -93,7 +93,7 @@ export default function SingIn() {
           <Input 
             className='Dark'
             name='email'
-            value={user.email}
+            value={email}
             onChange={inputHandler}
             prefix={<UserOutlined className="site-form-item-icon" />}
             placeholder="Email" 
@@ -103,7 +103,7 @@ export default function SingIn() {
             className='Dark styleMargin'
             name="password"
             prefix={<LockOutlined className="site-form-item-icon" />}
-            value={user.password}
+            value={password}
             onChange={inputHandler}
             placeholder="Password"
             required
