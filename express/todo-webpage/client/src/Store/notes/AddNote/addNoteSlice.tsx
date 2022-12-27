@@ -8,24 +8,22 @@ const initialState: InitialType = {
 export const addThisNote = createAsyncThunk('user/addNote', async (user: any) => {
     const { username, email, number, message } = user;
     console.log("user info", user);
-    const res = await fetch("/contact", {
+    const res = await fetch(`/addnote`, {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            username,
-            email,
-            number: parseInt(number),
-            message
+            title,
+            description,
+            category: category.charAt(0).toUpperCase() + category.slice(1).toLowerCase(),
+            isCompleted
         })
     });
-    const data = await res.json();
-    return data
 })
 
-const contactSlice = createSlice({
-    name: 'contact',
+const addNoteSlice = createSlice({
+    name: 'addnote',
     initialState,
     reducers: {
         receiveTEst(state, action) {
@@ -34,6 +32,6 @@ const contactSlice = createSlice({
     },
 })
 
-export default contactSlice.reducer
+export default addNoteSlice.reducer
 
-export const contactAction = contactSlice.actions;
+export const addNoteAction = addNoteSlice.actions;

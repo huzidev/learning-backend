@@ -3,8 +3,12 @@ import DataContext from "../../../Context/DataContext";
 import { ExclamationCircleOutlined, CheckCircleOutlined  } from '@ant-design/icons';
 import { Button, Form, Input, Typography, notification } from 'antd';
 import { DataType } from './Type';
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
+import { addThisNote } from '../../../../store/notes/AddNote/addNoteSlice';
 
 export default function AddTodo(): JSX.Element {
+  const noteRes = useAppSelector(state => state.contact)
+  const dispatch = useAppDispatch();
   const context = useContext(DataContext);
   const {setNotes, notes} = context;
   const [note, setNote] = useState<DataType>({
@@ -21,18 +25,18 @@ export default function AddTodo(): JSX.Element {
   const addTodo = async (e: React.FormEvent) => {
     e.preventDefault();
     const {title, description, category, isCompleted} = note
-    const res = await fetch(`/addnote`, {
-      method : "POST",
-      headers : {
-        "Content-Type" : "application/json",
-      },
-      body : JSON.stringify({
-        title,
-        description,
-        category: category.charAt(0).toUpperCase() + category.slice(1).toLowerCase(),
-        isCompleted
-      })
-    });
+    // const res = await fetch(`/addnote`, {
+    //   method : "POST",
+    //   headers : {
+    //     "Content-Type" : "application/json",
+    //   },
+    //   body : JSON.stringify({
+    //     title,
+    //     description,
+    //     category: category.charAt(0).toUpperCase() + category.slice(1).toLowerCase(),
+    //     isCompleted
+    //   })
+    // });
     if (res.status === 404) {
       icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
       heading = `Empty Field`;
