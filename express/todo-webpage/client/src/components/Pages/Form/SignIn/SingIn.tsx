@@ -15,9 +15,10 @@ import { signInUser, signinAction } from '../../../../store/form/Signin/signinSl
 
 export default function SingIn() {
   const Navigate = useNavigate();
-  const signinRes = useAppSelector(state => state.contact)
+  const signinRes = useAppSelector(state => state.signin)
   const dispatch = useAppDispatch();
   let res: number | null = signinRes.res
+  let data: string | null = signinRes.data
   const [user, setUser] = React.useState<DataType>({ email: "", password : "" });
 
   function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {

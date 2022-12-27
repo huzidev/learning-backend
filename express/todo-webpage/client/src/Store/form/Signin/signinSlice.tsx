@@ -3,6 +3,7 @@ import { InitialType } from "./Types";
 
 const initialState: InitialType = {
     res: null
+    data: ""
 }
 
 export const signInUser = createAsyncThunk('user/singin', async (user: any) => {
