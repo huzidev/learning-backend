@@ -35,7 +35,7 @@ export default function AddTodo(): JSX.Element {
   }
 
   const addTodo = async () => {
-    dispatch(addNoteAction.receiveTEst(note))
+    dispatch(addThisNote(note))
     // const {title, description, category, isCompleted} = note
     // const res = await fetch(`/addnote`, {
     //   method : "POST",
@@ -56,7 +56,7 @@ export default function AddTodo(): JSX.Element {
     }
     else {  
       // const data = await res.json()
-      setNotes(notes.concat(data));
+      // setNotes(notes.concat(data));
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
       heading = `Note Added`;
       message = `Yours Note Has Been Added Successfully!`;

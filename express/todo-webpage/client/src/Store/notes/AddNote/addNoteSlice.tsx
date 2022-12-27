@@ -20,6 +20,9 @@ export const addThisNote = createAsyncThunk('user/addNote', async (note: any) =>
             isCompleted
         })
     });
+    const data = await res.json()
+    console.log("what is data", data);
+    return data;
 })
 
 const addNoteSlice = createSlice({
