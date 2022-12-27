@@ -5,7 +5,7 @@ const initialState: InitialType = {
     res: null
 }
 
-export const addThisNote = createAsyncThunk('user/addnote', async (user: any) => {
+export const addThisNote = createAsyncThunk('user/addNote', async (user: any) => {
     const { username, email, number, message } = user;
     console.log("user info", user);
     const res = await fetch("/contact", {
