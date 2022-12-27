@@ -11,11 +11,13 @@ import {
 } from '@ant-design/icons';
 import { DataType } from './Type';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
-import { signInUser } from '../../../../store/form/Signin/signinSlice';
+import { signInUser, signinAction } from '../../../../store/form/Signin/signinSlice';
 
 export default function SingIn() {
   const Navigate = useNavigate();
-  const dispatch = useAppDispatch()
+  const signinRes = useAppSelector(state => state.contact)
+  const dispatch = useAppDispatch();
+  let res: number | null = signinRes.res
   const [user, setUser] = React.useState<DataType>({ email: "", password : "" });
 
   function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
@@ -38,6 +40,16 @@ export default function SingIn() {
     });
   }
 
+  const { email, password } = user;
+  if (email === "") {
+    dispatch(signinAction.receiveTEst(422))
+  } else if (password === "") {
+    dispatch(signinAction.receiveTEst(423))
+  }  else if (email && password !== "") {
+    dispatch(signinAction.receiveTEst(200))
+  }
+
+
   async function signIn(e: React.FormEvent) {
     e.preventDefault();
     dispatch(signInUser(user))
@@ -50,14 +62,14 @@ export default function SingIn() {
     //   body : JSON.stringify({ email, password })
     // });
     // const data = await res.json();
-    if (!data || res.status === 421) {
+    if (res === 421) {
       icon = error;
       message = "You've left an tag Empty!";
-    } else if (res.status === 422 || res.status === 423) {
+    } else if (res === 422 || res === 423) {
       icon = error;
       message = `Error`;
       info = `Email or Password Is Incorrect!`;
-    } else if (res.status === 500) {
+    } else if (res === 500) {
       icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
       message = `Server Error`;
       info = `Failed To Signin, Internal Server Error!`;

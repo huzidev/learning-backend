@@ -15,10 +15,11 @@ export const signInUser = createAsyncThunk('user/singin', async (user: any) => {
         body: JSON.stringify({ email, password })
     });
     const data = await res.json();
+    return data;
 })
 
-const contactSlice = createSlice({
-    name: 'contact',
+const signinSlice = createSlice({
+    name: 'signin',
     initialState,
     reducers: {
         receiveTEst(state, action) {
@@ -27,6 +28,6 @@ const contactSlice = createSlice({
     },
 })
 
-export default contactSlice.reducer
+export default signinSlice.reducer
 
-export const contactAction = contactSlice.actions;
+export const signinAction = signinSlice.actions;
