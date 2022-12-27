@@ -1,6 +1,6 @@
 import { Button, Form, Input, Typography, notification } from 'antd';
 import { ExclamationCircleOutlined, ClockCircleOutlined, CheckCircleOutlined } from '@ant-design/icons';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
@@ -8,10 +8,8 @@ import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 import { sendThisMessage, contactAction } from '../../../../store/form/contactSlice';
 
 export default function Footer(): JSX.Element {
-
   const contactRes = useAppSelector(state => state.contact)
   const dispatch = useAppDispatch();
-  const [state, setState] = useState<boolean>(false)
   let res: number | null = contactRes.res
 
   const [user, setUser] = React.useState<DataType>({
@@ -40,8 +38,6 @@ export default function Footer(): JSX.Element {
   let icon: React.ReactNode;
   let title: string;
   let info: string | null;
-
-
 
   const { username, email, message } = user;
   if (username === "") {
