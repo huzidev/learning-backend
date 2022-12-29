@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react'
-import DataContext from "../../../Context/DataContext";
+import React, { useState } from 'react'
 import { ExclamationCircleOutlined, CheckCircleOutlined  } from '@ant-design/icons';
 import { Button, Form, Input, Typography, notification } from 'antd';
 import { DataType } from './Type';
@@ -10,8 +9,6 @@ export default function AddTodo(): JSX.Element {
   const noteRes = useAppSelector(state => state.addnote)
   const dispatch = useAppDispatch();
   let res: number | null = noteRes.res
-  const context = useContext(DataContext);
-  const {setNotes, notes} = context;
   const [note, setNote] = useState<DataType>({
     title: "", 
     description: "", 
