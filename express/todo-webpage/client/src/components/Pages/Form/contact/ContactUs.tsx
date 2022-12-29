@@ -36,37 +36,25 @@ export default function Footer(): JSX.Element {
 
   let error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }} />;
   let icon: React.ReactNode;
-  let title: string;
+  let title: string, description: string, text: string, holdType: string;
   let info: string | null;
 
   const { username, email, message } = user;
   if (username === "") {
-    dispatch(contactAction.receiveTEst(422))
+    dispatch(contactAction.receiveTEst(421));
+    holdType = "username";
   } else if (email === "") {
-    dispatch(contactAction.receiveTEst(423))
+    dispatch(contactAction.receiveTEst(422));
+    holdType = "email";
   } else if (message === "") {
-    dispatch(contactAction.receiveTEst(424))
-  } else if (username && email && message !== "") {
+    dispatch(contactAction.receiveTEst(423))
+  } else {
     dispatch(contactAction.receiveTEst(200))
   }
+
   function sendMessage() {
-    // const res = await fetch("/contact", {
-    //     method : "POST",
-    //     headers : {
-    //         "Content-Type" : "application/json"
-    //     },
-    //     body : JSON.stringify({
-    //         username,
-    //         email,
-    //         number: parseInt(number),
-    //         message
-    //     })
-    //   });
-    //   const data = await res.json();
     dispatch(sendThisMessage(user))
-    let text: any;
-    let description: any;
-    let status: any = res === 422 ? (
+    let status: any = res === 42 ? (
       text = "Username Is Missing"
     ) : res === 423 ? (
       text = "Email Is Missing"
@@ -77,7 +65,13 @@ export default function Footer(): JSX.Element {
       icon = error;
       title = text;
       info = description;
-    } else if (res === 200) {
+    }
+    if (res === 421 || 422 || 423) {
+      icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }} />;
+      title = `Empty Field`;
+      info = `You've Left ${holdType} Field Empty!`;
+    }  
+    else if (res === 200) {
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }} />;;
       title = "Message Sent Successfully!";
       setTimeout(() => {
