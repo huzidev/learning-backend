@@ -19,14 +19,18 @@ export default function AddTodo(): JSX.Element {
   let icon: React.ReactNode;
   let heading: string;
   let message: string | null;
+  let holdType: string;
 
   const { title, description, category } = note;
   if (title === "") {
     dispatch(addNoteAction.receiveTEst(421))
+    holdType = "Title"
   } else if (description === "") {
     dispatch(addNoteAction.receiveTEst(422))
+    holdType = "Description"
   } else if (category === "") {
     dispatch(addNoteAction.receiveTEst(423))
+    holdType = "Category"
   } else if (title && description && category !== "") {
     dispatch(addNoteAction.receiveTEst(200))
   }
@@ -49,7 +53,7 @@ export default function AddTodo(): JSX.Element {
     if (res === 421 || 423 || 424) {
       icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
       heading = `Empty Field`;
-      message = `You've Left A Field Empty!`;
+      message = `You've Left ${holdType} Field Empty!`;
     }
     else {  
       // const data = await res.json()
