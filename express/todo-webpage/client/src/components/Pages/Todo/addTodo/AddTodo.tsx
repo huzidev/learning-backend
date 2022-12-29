@@ -22,13 +22,21 @@ export default function AddTodo(): JSX.Element {
   let holdType: string;
   const { title, description, category } = note;
 
-  let holdTest = title === "" ? "Title" : description === "" ? "Description" : category === "" ? "Category" : title && description && category !== '' ? "comp" : null
-  let sendingRes = holdTest === "Title" ? 421 : holdTest === "Description" ? 422 : holdTest === "Category" ? 423 :  holdTest === "comp" ? 200 : null
+  if (title === "") {
+    dispatch(addNoteAction.receiveTEst(421))
+    holdType = "Title"
+  } else if (description === "") {
+    dispatch(addNoteAction.receiveTEst(422))
+    holdType = "Description"
+  } else if (category === "") {
+    dispatch(addNoteAction.receiveTEst(423))
+    holdType = "Category"
+  } else {
+    dispatch(addNoteAction.receiveTEst(200))
+  }
 
-  if (holdTest) {
-    dispatch(addNoteAction.receiveTEst(sendingRes))
-    holdType = holdTest
-  } 
+  console.log("what is res status", res);
+  
   
   const addTodo = async () => {
     dispatch(addThisNote(note))
