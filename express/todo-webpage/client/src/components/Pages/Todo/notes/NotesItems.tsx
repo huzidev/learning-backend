@@ -37,10 +37,9 @@ export default function NotesItems(props: any) {
     const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
     const success: React.ReactNode = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
     let icon : React.ReactNode;
-    let message: string;
+    let message: string, path: string;
     let info: string | null;
 
-    let path: string;
     if (Location.pathname.includes('/addnote')) {
         path = "/allnotes"
     } else if (Location.pathname.includes('/completed')) {
