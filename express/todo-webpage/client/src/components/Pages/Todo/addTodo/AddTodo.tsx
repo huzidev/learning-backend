@@ -50,12 +50,12 @@ export default function AddTodo(): JSX.Element {
     //     isCompleted
     //   })
     // });
-    if (res === 421 || 423 || 424) {
+    if (res === 421 || 422 || 423) {
       icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
       heading = `Empty Field`;
       message = `You've Left ${holdType} Field Empty!`;
     }
-    else {  
+    else if (res === 200) {
       // const data = await res.json()
       // setNotes(notes.concat(data));
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
