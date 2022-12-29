@@ -34,44 +34,31 @@ export default function Footer(): JSX.Element {
     });
   }
 
-  let error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }} />;
   let icon: React.ReactNode;
-  let title: string, description: string, text: string, holdType: string;
-  let info: string | null;
+  let title: string, holdType: string, info: string;
 
   const { username, email, message } = user;
   if (username === "") {
     dispatch(contactAction.receiveTEst(421));
-    holdType = "username";
+    holdType = "Username";
   } else if (email === "") {
     dispatch(contactAction.receiveTEst(422));
-    holdType = "email";
+    holdType = "Email";
   } else if (message === "") {
     dispatch(contactAction.receiveTEst(423))
+    holdType = "Message";
   } else {
     dispatch(contactAction.receiveTEst(200))
   }
 
   function sendMessage() {
     dispatch(sendThisMessage(user))
-    let status: any = res === 42 ? (
-      text = "Username Is Missing"
-    ) : res === 423 ? (
-      text = "Email Is Missing"
-    ) : res === 424 ? (
-      text = "Message Is Field Empty!"
-    ) : null
-    if (status) {
-      icon = error;
-      title = text;
-      info = description;
-    }
     if (res === 421 || 422 || 423) {
       icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }} />;
       title = `Empty Field`;
       info = `You've Left ${holdType} Field Empty!`;
     }  
-    else if (res === 200) {
+    if (res === 200) {
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }} />;;
       title = "Message Sent Successfully!";
       setTimeout(() => {
