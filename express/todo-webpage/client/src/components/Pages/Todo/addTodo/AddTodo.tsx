@@ -16,21 +16,21 @@ export default function AddTodo(): JSX.Element {
     isCompleted: false
   })
 
-  let icon : any
+  let icon: React.ReactNode;
   let heading: string;
   let message: string | null;
 
   const { title, description, category } = note;
   if (title === "") {
-    dispatch(addNoteAction.receiveTEst(422))
+    dispatch(addNoteAction.receiveTEst(421))
   } else if (description === "") {
-    dispatch(addNoteAction.receiveTEst(423))
+    dispatch(addNoteAction.receiveTEst(422))
   } else if (category === "") {
-    dispatch(addNoteAction.receiveTEst(424))
+    dispatch(addNoteAction.receiveTEst(423))
   } else if (title && description && category !== "") {
     dispatch(addNoteAction.receiveTEst(200))
   }
-
+  
   const addTodo = async () => {
     dispatch(addThisNote(note))
     // const {title, description, category, isCompleted} = note
@@ -46,7 +46,7 @@ export default function AddTodo(): JSX.Element {
     //     isCompleted
     //   })
     // });
-    if (res === 422 || 423 || 424) {
+    if (res === 421 || 423 || 424) {
       icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
       heading = `Empty Field`;
       message = `You've Left A Field Empty!`;
