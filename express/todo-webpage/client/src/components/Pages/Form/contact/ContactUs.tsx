@@ -39,13 +39,13 @@ export default function Footer(): JSX.Element {
 
   const { username, email, message } = user;
   if (username === "") {
-    dispatch(contactAction.receiveTEst(421));
+    dispatch(contactAction.receiveTEst(422));
     holdType = "Username";
   } else if (email === "") {
-    dispatch(contactAction.receiveTEst(422));
+    dispatch(contactAction.receiveTEst(423));
     holdType = "Email";
   } else if (message === "") {
-    dispatch(contactAction.receiveTEst(423))
+    dispatch(contactAction.receiveTEst(424))
     holdType = "Message";
   } else {
     dispatch(contactAction.receiveTEst(200))
@@ -53,7 +53,7 @@ export default function Footer(): JSX.Element {
 
   function sendMessage() {
     dispatch(sendThisMessage(user))
-    if (res === 421 || 422 || 423) {
+    if (res === 422 || 423 || 424) {
       icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }} />;
       title = `Empty Field`;
       info = `You've Left ${holdType} Field Empty!`;
