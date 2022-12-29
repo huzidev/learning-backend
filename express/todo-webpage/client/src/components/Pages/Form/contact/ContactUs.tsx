@@ -19,7 +19,7 @@ export default function Footer(): JSX.Element {
     message: ""
   })
 
-  function inputHandler(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function onChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setUser({
       ...user,
       [e.target.name]: e.target.value
@@ -83,7 +83,7 @@ export default function Footer(): JSX.Element {
           type='text'
           name="username"
           value={user.username}
-          onChange={inputHandler}
+          onChange={onChange}
           prefix={<UserOutlined className="site-form-item-icon" style={style} />}
           placeholder="Enter Yours Username"
         />
@@ -92,7 +92,7 @@ export default function Footer(): JSX.Element {
           type='email'
           name="email"
           value={user.email}
-          onChange={inputHandler}
+          onChange={onChange}
           placeholder="Enter Yours Email"
           prefix={<MailOutlined className="site-form-item-icon" style={style} />}
           required
@@ -102,7 +102,7 @@ export default function Footer(): JSX.Element {
           type='number'
           name="number"
           value={user.number}
-          onChange={inputHandler}
+          onChange={onChange}
           placeholder="Enter Yours Number (Optional)"
           prefix='+92'
         />
@@ -110,7 +110,7 @@ export default function Footer(): JSX.Element {
           className='Dark styleMargin'
           name="message"
           value={user.message}
-          onChange={inputHandler}
+          onChange={onChange}
           placeholder="Enter Yours Message"
           minLength={10}
         />
