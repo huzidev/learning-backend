@@ -25,7 +25,6 @@ export default function NotesItems(props: any) {
         const { title, description, category, IsCompleted } = note
     })
 
-
     const showModal = () => {
         setIsModalOpen(true);
     };

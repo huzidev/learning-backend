@@ -11,6 +11,9 @@ export default function FilterList(props: any): JSX.Element {
     const Location = useLocation()
     let allNotes = notes.noteData
     
+    console.log("all notes", allNotes);
+    
+
     const [state, setState] = useState<boolean | null>(null)
     const [items, setItems] = useState(allNotes)
 
