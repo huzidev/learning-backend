@@ -21,11 +21,7 @@ export default function NotesItems(props: any) {
     
     const dispatch = useAppDispatch();
     const noteData = useAppSelector(state => state.note)
-    let allNotes: any;
-    setTimeout(() => {
-        allNotes = noteData.noteData;
-        console.log("all notes", allNotes);
-    }, 500)
+    let allNotes: any; = noteData.noteData;
     
     const showModal = () => {
         setIsModalOpen(true);
