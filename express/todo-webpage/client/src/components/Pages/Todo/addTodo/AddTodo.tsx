@@ -9,6 +9,7 @@ export default function AddTodo(): JSX.Element {
   const noteRes = useAppSelector(state => state.addnote)
   const dispatch = useAppDispatch();
   let res: number | null = noteRes.res
+
   const [note, setNote] = useState<DataType>({
     title: "", 
     description: "", 
@@ -16,12 +17,18 @@ export default function AddTodo(): JSX.Element {
     isCompleted: false
   })
 
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNote({
+      ...note,
+      [e.target.name]: e.target.value
+    })
+  }
+  
   let icon: React.ReactNode;
-  let heading: string;
+  let heading: string, holdType: string;
   let message: string | null;
-  let holdType: string;
-  const { title, description, category } = note;
 
+  const { title, description, category } = note;
   if (title === "") {
     dispatch(addNoteAction.receiveTEst(421))
     holdType = "Title"
@@ -35,10 +42,7 @@ export default function AddTodo(): JSX.Element {
     dispatch(addNoteAction.receiveTEst(200))
   }
 
-  console.log("what is res status", res);
-  
-  
-  const addTodo = async () => {
+  function addTodo() {
     dispatch(addThisNote(note))
     if (res === 421 || 422 || 423) {
       icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
@@ -60,12 +64,6 @@ export default function AddTodo(): JSX.Element {
     openNotification();
   }
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNote({
-      ...note,
-      [e.target.name]: e.target.value
-    })
-  }
 
   return (
     <div style={{ width: '650px', margin: 'auto' }}>

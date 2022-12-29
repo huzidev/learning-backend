@@ -26,14 +26,6 @@ export default function Footer(): JSX.Element {
     });
   }
 
-  async function notificationTs(icon: React.ReactNode, title: String, info: String | null) {
-    notification.open({
-      icon: icon,
-      message: title,
-      description: info
-    });
-  }
-
   let icon: React.ReactNode;
   let title: string, holdType: string, info: string | null;
 
