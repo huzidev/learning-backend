@@ -34,6 +34,9 @@ export default function AddTodo(): JSX.Element {
   } else if (title && description && category !== "") {
     dispatch(addNoteAction.receiveTEst(200))
   }
+
+  console.log("what is res status", res);
+  
   
   const addTodo = async () => {
     dispatch(addThisNote(note))
@@ -54,8 +57,8 @@ export default function AddTodo(): JSX.Element {
       icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
       heading = `Empty Field`;
       message = `You've Left ${holdType} Field Empty!`;
-    }
-    else if (res === 200) {
+    } 
+    if (res === 200) {
       // const data = await res.json()
       // setNotes(notes.concat(data));
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
