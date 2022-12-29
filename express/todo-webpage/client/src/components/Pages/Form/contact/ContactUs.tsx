@@ -27,18 +27,18 @@ export default function Footer(): JSX.Element {
   }
 
   let icon: React.ReactNode;
-  let title: string, holdType: string, info: string | null;
+  let title: string, field: string, info: string | null;
 
   const { username, email, message } = user;
   if (username === "") {
     dispatch(contactAction.receiveTEst(422));
-    holdType = "Username";
+    field = "Username";
   } else if (email === "") {
     dispatch(contactAction.receiveTEst(423));
-    holdType = "Email";
+    field = "Email";
   } else if (message === "") {
     dispatch(contactAction.receiveTEst(424))
-    holdType = "Message";
+    field = "Message";
   } else {
     dispatch(contactAction.receiveTEst(200))
   }
@@ -50,7 +50,7 @@ export default function Footer(): JSX.Element {
     if (res === 422 || 423 || 424) {
       icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }} />;
       title = `Empty Field`;
-      info = `You've Left ${holdType} Field Empty!`;
+      info = `You've Left ${field} Field Empty!`;
     }  
     if (res === 200) {
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }} />;;
