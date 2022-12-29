@@ -69,7 +69,14 @@ export default function Footer(): JSX.Element {
       title = "Server Error!";
       info = "Failed To Send Message, Internal Server Error"
     }
-    notificationTs(icon, title, info);
+    async function openNotification() {
+      notification.open({
+        icon: icon,
+        message: title,
+        description: info
+      });
+    }
+    openNotification();
   }
 
   const style = { padding: '0px 5px' }
