@@ -40,32 +40,17 @@ export default function AddTodo(): JSX.Element {
   
   const addTodo = async () => {
     dispatch(addThisNote(note))
-    // const {title, description, category, isCompleted} = note
-    // const res = await fetch(`/addnote`, {
-    //   method : "POST",
-    //   headers : {
-    //     "Content-Type" : "application/json",
-    //   },
-    //   body : JSON.stringify({
-    //     title,
-    //     description,
-    //     category: category.charAt(0).toUpperCase() + category.slice(1).toLowerCase(),
-    //     isCompleted
-    //   })
-    // });
     if (res === 421 || 422 || 423) {
       icon = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
       heading = `Empty Field`;
       message = `You've Left ${holdType} Field Empty!`;
     } 
     if (res === 200) {
-      // const data = await res.json()
-      // setNotes(notes.concat(data));
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
       heading = `Note Added`;
       message = `Yours Note Has Been Added Successfully!`;
     }
-    async function openNotification() {
+    function openNotification() {
       notification.open({
         icon : icon,
         message: heading,

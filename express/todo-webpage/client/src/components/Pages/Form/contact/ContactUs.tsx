@@ -35,7 +35,7 @@ export default function Footer(): JSX.Element {
   }
 
   let icon: React.ReactNode;
-  let title: string, holdType: string, info: string;
+  let title: string, holdType: string, info: string | null;
 
   const { username, email, message } = user;
   if (username === "") {
@@ -51,6 +51,8 @@ export default function Footer(): JSX.Element {
     dispatch(contactAction.receiveTEst(200))
   }
 
+  console.log("res iss", res);
+  
   function sendMessage() {
     dispatch(sendThisMessage(user))
     if (res === 422 || 423 || 424) {
@@ -61,15 +63,12 @@ export default function Footer(): JSX.Element {
     if (res === 200) {
       icon = <CheckCircleOutlined style={{ color: '#00FF00' }} />;;
       title = "Message Sent Successfully!";
+      info = null;
       setTimeout(() => {
         window.location.reload()
       }, 1500)
-    } else {
-      icon = <ClockCircleOutlined style={{ color: '#FF0000' }} />;;
-      title = "Server Error!";
-      info = "Failed To Send Message, Internal Server Error"
     }
-    async function openNotification() {
+    function openNotification() {
       notification.open({
         icon: icon,
         message: title,
