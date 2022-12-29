@@ -6,9 +6,9 @@ import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 import { fetchNotes, noteAction } from '../../../../store/notes/ShowNotes/noteSlice';
 
 export default function FilterList(props: any): JSX.Element {
+    const notes = useAppSelector(state => state.note)
     const dispatch = useAppDispatch();
     const Location = useLocation()
-    const notes = useAppSelector(state => state.note)
     let allNotes = notes.noteData
     
     const [state, setState] = useState<boolean | null>(null)
@@ -26,8 +26,6 @@ export default function FilterList(props: any): JSX.Element {
 
     // when user clicked on filter list then state will change to true & all the notes with that specific catgeory will fetch only therefore state must be true but initially it is false 
     let Data = state ? items : allNotes
-
-    console.log("data", Data);
 
     const allItems = [...new Set(allNotes.map((currentEle) => (
         // !currentEle.isCompleted && addNotesPath || currentEle.isCompleted && completedNotesPath ? (
@@ -48,28 +46,28 @@ export default function FilterList(props: any): JSX.Element {
     const Text = addNotesPath ? "Yours Notes" : "Completed Notes"
     const Type = addNotesPath ? "Added" : "Completed"
 
-    // holder will either be completely true or completely false
-    let holder: boolean | undefined;
+    // status will either be completely true or completely false
+    let status: boolean | undefined;
     allNotes.forEach((Element: any, i: number) => {
         for(let key in Element){
             console.log(`${Element.isCompleted}`);
-            holder = Element.isCompleted
+            status = Element.isCompleted
         }
     });
-
+    
+    const error = status === undefined;
+    
     const style = {
         display: "flex", 
         justifyContent: "space-between",
     }
-
-    const error = holder === undefined;
 
     return (
         <div>
             {
                 <>
                     {
-                        (completedNotesPath && (holder !== true || error)) || (addNotesPath && (holder !== false || error)) ? (
+                        (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
                             <Typography.Title level={4}> 
                                 No Task {Type}
                             </Typography.Title>
