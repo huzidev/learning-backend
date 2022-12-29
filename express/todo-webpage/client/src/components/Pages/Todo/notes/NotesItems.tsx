@@ -21,6 +21,9 @@ export default function NotesItems(props: any) {
     
     const dispatch = useAppDispatch();
     const noteData = useAppSelector(state => state.note)
+    const allNote = noteData.noteData
+    console.log("all notes", allNote);
+    
     const testtt = noteData.noteData.map((note:any) => {
         const { title, description, category, IsCompleted } = note
     })
@@ -54,31 +57,29 @@ export default function NotesItems(props: any) {
     }
 
     useEffect(() => {
-        async function getNotes() {
-            const res = await fetch(`${path}`, {
-                method : 'GET',
-                headers: {
-                    "Content-Type" : "application/json",
-                }
-            })
-            const data = await res.json();
-            if (data.length === 0) {
-                icon = error;
-                message = `Empty`;
-                info = `No Note Has Found!`;
-            } else if (data.length === 1) {
-                icon = success;
-                message = `Note Fetched Successfully`;
-                info = `${data.length} note has been fetched`;
-            } else {
-                icon = success;
-                message = `Notes Fetched Successfully`;
-                info = `${data.length} notes have been fetched`;
-            }
-            notificationTs(icon, message, info);
-            setNotes(data)
-        }
-        getNotes()
+            // const res = await fetch(`${path}`, {
+            //     method : 'GET',
+            //     headers: {
+            //         "Content-Type" : "application/json",
+            //     }
+            // })
+            dispatch(fetchNotes(path))
+            // const data = await res.json();
+            // if (allNote.length === 0) {
+            //     icon = error;
+            //     message = `Empty`;
+            //     info = `No Note Has Found!`;
+            // } else if (allNote.length === 1) {
+            //     icon = success;
+            //     message = `Note Fetched Successfully`;
+            //     info = `${allNote.length} note has been fetched`;
+            // } else {
+            //     icon = success;
+            //     message = `Notes Fetched Successfully`;
+            //     info = `${allNote.length} notes have been fetched`;
+            // }
+            // notificationTs(icon, message, info);
+            // setNotes(data)
     }, [Location.pathname])
     
     const updateNote = (currentNote: any) => {

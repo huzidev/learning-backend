@@ -11,9 +11,6 @@ export default function FilterList(props: any): JSX.Element {
     const Location = useLocation()
     let allNotes = notes.noteData
     
-    console.log("all notes", allNotes);
-    
-
     const [state, setState] = useState<boolean | null>(null)
     const [items, setItems] = useState(allNotes)
 
@@ -23,7 +20,7 @@ export default function FilterList(props: any): JSX.Element {
     const locationName: string = addNotesPath ? "/allnotes" : "/completednotes"
 
     useEffect(() => {
-        dispatch(fetchNotes(locationName))
+        // so state will changed to default form and allNotes will be fetched
         setState(null)
     }, [locationName])
 

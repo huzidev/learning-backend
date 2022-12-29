@@ -15,10 +15,6 @@ export const fetchNotes = createAsyncThunk('user/notes', async (location: string
             credentials : "include"
         })
         const data = await res.json();
-        if (res.status !== 200) {
-            const error = new Error()
-            throw error;
-        }
         return data
     } catch (err) {
         console.log(err);
