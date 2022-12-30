@@ -21,8 +21,11 @@ export default function NotesItems(props: any) {
     
     const dispatch = useAppDispatch();
     const noteData = useAppSelector(state => state.note)
-    let allNotes: any; = noteData.noteData;
+    let allNotes: any = noteData.noteData;
     
+    console.log("Total notess", allNotes);
+    
+
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -50,6 +53,10 @@ export default function NotesItems(props: any) {
         });
     }
 
+    if () {
+        
+    }
+
     useEffect(() => {
             // const res = await fetch(`${path}`, {
             //     method : 'GET',
@@ -58,21 +65,22 @@ export default function NotesItems(props: any) {
             //     }
             // })
             dispatch(fetchNotes(path))
-            // const data = await res.json();
-            // if (allNote.length === 0) {
-            //     icon = error;
-            //     message = `Empty`;
-            //     info = `No Note Has Found!`;
-            // } else if (allNote.length === 1) {
-            //     icon = success;
-            //     message = `Note Fetched Successfully`;
-            //     info = `${allNote.length} note has been fetched`;
-            // } else {
-            //     icon = success;
-            //     message = `Notes Fetched Successfully`;
-            //     info = `${allNote.length} notes have been fetched`;
-            // }
-            // notificationTs(icon, message, info);
+            setTimeout(() => {
+                if (allNotes.length === 0) {
+                    icon = error;
+                    message = `Empty`;
+                    info = `No Note Has Found!`;
+                } else if (allNotes.length === 1) {
+                    icon = success;
+                    message = `Note Fetched Successfully`;
+                    info = `${allNotes.length} note has been fetched`;
+                } else {
+                    icon = success;
+                    message = `Notes Fetched Successfully`;
+                    info = `${allNotes.length} notes have been fetched`;
+                }
+                notificationTs(icon, message, info);
+            }, 500)
             // setNotes(data)
     }, [Location.pathname])
     
