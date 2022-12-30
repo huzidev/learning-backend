@@ -43,8 +43,6 @@ export default function Footer(): JSX.Element {
     dispatch(contactAction.receiveTEst(200))
   }
 
-  console.log("res iss", res);
-  
   function sendMessage() {
     dispatch(sendThisMessage(user))
     if (res === 422 || 423 || 424) {

@@ -48,7 +48,6 @@ export default function FilterList(props: any): JSX.Element {
     let status: boolean | undefined;
     allNotes.forEach((Element: any, i: number) => {
         for(let key in Element){
-            console.log(`${Element.isCompleted}`);
             status = Element.isCompleted
         }
     });

@@ -7,7 +7,7 @@ import AddTodo from '../addTodo/AddTodo';
 import { DataType, DataTypeHold } from './Type';
 import FilterList from '../filters/FilterList';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
-import { fetchNotes } from '../../../../store/notes/ShowNotes/noteSlice';
+import { fetchNotes, noteAction } from '../../../../store/notes/ShowNotes/noteSlice';
 
 export default function NotesItems(props: any) {
     const Location = useLocation()
@@ -24,9 +24,6 @@ export default function NotesItems(props: any) {
     const noteRes = noteData.res;
     let allNotes: any = noteData.noteData;
     
-    console.log("Total notess", allNotes);
-    
-
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -37,7 +34,7 @@ export default function NotesItems(props: any) {
     const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
     const success: React.ReactNode = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
     let icon : React.ReactNode;
-    let message: string, path: string;
+    let message: string, path: any;
     let info: string | null;
 
     if (Location.pathname.includes('/addnote')) {
@@ -55,35 +52,43 @@ export default function NotesItems(props: any) {
     }
 
     if (allNotes.length === 0) {
-        
+        (dispatch(noteAction.testState(404)))
+    } else if (allNotes.length === 1) {
+        (dispatch(noteAction.testState(201)))
+    } else if (allNotes.length > 1) {
+        (dispatch(noteAction.testState(202)))
     }
 
     useEffect(() => {
-            // const res = await fetch(`${path}`, {
-            //     method : 'GET',
-            //     headers: {
-            //         "Content-Type" : "application/json",
-            //     }
-            // })
-            dispatch(fetchNotes(path))
-            setTimeout(() => {
-                if (allNotes.length === 0) {
-                    icon = error;
-                    message = `Empty`;
-                    info = `No Note Has Found!`;
-                } else if (allNotes.length === 1) {
-                    icon = success;
-                    message = `Note Fetched Successfully`;
-                    info = `${allNotes.length} note has been fetched`;
-                } else {
-                    icon = success;
-                    message = `Notes Fetched Successfully`;
-                    info = `${allNotes.length} notes have been fetched`;
-                }
-                notificationTs(icon, message, info);
-            }, 500)
-            // setNotes(data)
+        dispatch(fetchNotes(path))
     }, [Location.pathname])
+    
+    
+    // useEffect(() => {
+    //         // const res = await fetch(`${path}`, {
+    //         //     method : 'GET',
+    //         //     headers: {
+    //         //         "Content-Type" : "application/json",
+    //         //     }
+    //         // })
+    //         setTimeout(() => {
+    //             if (noteRes === 404) {
+    //                 icon = error;
+    //                 message = `Empty`;
+    //                 info = `No Note Has Found!`;
+    //             } else if (noteRes === 201) {
+    //                 icon = success;
+    //                 message = `Note Fetched Successfully`;
+    //                 info = `${allNotes.length} note has been fetched`;
+    //             } else {
+    //                 icon = success;
+    //                 message = `Notes Fetched Successfully`;
+    //                 info = `${allNotes.length} notes have been fetched`;
+    //             }
+    //             notificationTs(icon, message, info);
+    //         }, 500)
+    //         // setNotes(data)
+    // }, [Location.pathname])
     
     const updateNote = (currentNote: any) => {
         // ref.current.click() checks if user clicked or not therefore we've passed the ref in the button of modal as ref={ref}
