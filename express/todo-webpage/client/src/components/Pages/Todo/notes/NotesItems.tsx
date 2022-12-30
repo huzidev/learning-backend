@@ -15,7 +15,7 @@ export default function NotesItems(props: any) {
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
     const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
-    const [holdNote, setHoldNote] = useState<DataTypeHold>({ htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined })
+    const [holdNote, setHoldNote] = useState<DataTypeHold>({ hid: null, htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined })
     const [isChecked, setIsChecked] = useState<boolean | undefined>(undefined);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const ref = useRef<any>(null)
@@ -107,6 +107,7 @@ export default function NotesItems(props: any) {
         })
         // to hold initial value and if user didn't chnage the value and tries to update the note with sane value then to show error 
         setHoldNote({
+            hid: currentNote._id,
             htitle: currentNote.title,
             hdescription: currentNote.description,
             hcategory: currentNote.category,
