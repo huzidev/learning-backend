@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { InitialType, Note } from "./Types";
 
 const initialState: InitialType = {
-    noteData: []
+    noteData: [],
     res: null
 }
 
