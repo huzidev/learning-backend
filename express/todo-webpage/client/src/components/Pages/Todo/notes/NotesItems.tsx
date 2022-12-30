@@ -134,7 +134,7 @@ export default function NotesItems(props: any) {
             //             isCompleted: isChecked
             //         })
             //     });
-            dispatch(updateThisNote(note))
+            dispatch(updateThisNote(holdNote))
                 let state: string = isChecked ? "Completed Notes" : "Notes List"
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
