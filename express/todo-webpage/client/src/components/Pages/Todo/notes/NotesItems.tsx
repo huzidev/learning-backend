@@ -14,7 +14,7 @@ export default function NotesItems(props: any) {
     const Location = useLocation()
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
-    const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
+    const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "", eisChecked: null })
     const [holdNote, setHoldNote] = useState<DataTypeHold>({ hid: null, htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined })
     const [isChecked, setIsChecked] = useState<boolean | undefined>(undefined);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -135,7 +135,7 @@ export default function NotesItems(props: any) {
             //             isCompleted: isChecked
             //         })
             //     });
-            dispatch(updateThisNote(holdNote))
+        dispatch(updateThisNote(note))
                 let state: string = isChecked ? "Completed Notes" : "Notes List"
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
@@ -170,9 +170,9 @@ export default function NotesItems(props: any) {
             //     console.log(err);
             // }
         setIsModalOpen(false);
-        setTimeout(() => {
-            window.location.reload()
-        }, 2500);
+        // setTimeout(() => {
+        //     window.location.reload()
+        // }, 2500);
     }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
