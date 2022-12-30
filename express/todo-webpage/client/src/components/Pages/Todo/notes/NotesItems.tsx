@@ -6,16 +6,16 @@ import DataContext from "../../../Context/DataContext";
 import AddTodo from '../addTodo/AddTodo';
 import { DataType, DataTypeHold } from './Type';
 import FilterList from '../filters/FilterList';
-import { updateThisNote } from '../../../../store/notes/UpdateNote/updateSlice';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 import { fetchNotes, noteAction } from '../../../../store/notes/ShowNotes/noteSlice';
+import { updateThisNote } from '../../../../store/notes/UpdateNote/updateSlice';
 
 export default function NotesItems(props: any) {
     const Location = useLocation()
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
     const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
-    const [holdNote, setHoldNote] = useState<DataTypeHold>({ hid: null, htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined })
+    const [holdNote, setHoldNote] = useState<DataTypeHold>({ htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined })
     const [isChecked, setIsChecked] = useState<boolean | undefined>(undefined);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const ref = useRef<any>(null)
@@ -107,7 +107,6 @@ export default function NotesItems(props: any) {
         })
         // to hold initial value and if user didn't chnage the value and tries to update the note with sane value then to show error 
         setHoldNote({
-            hid: currentNote._id,
             htitle: currentNote.title,
             hdescription: currentNote.description,
             hcategory: currentNote.category,
@@ -122,7 +121,20 @@ export default function NotesItems(props: any) {
     const handleClick = async () => {
         const { id, etitle, edescription, ecategory } = note
         const { htitle, hdescription, hcategory, hIsCompleted } = holdNote
-        dispatch(updateThisNote(holdNote))
+            // try {
+            //     const res = await fetch(`/updatenote/${id}`, {
+            //         method: 'PUT',
+            //         headers: new Headers({
+            //             "Content-Type" : "application/json",
+            //         }),
+            //         body: JSON.stringify({
+            //             title : etitle,
+            //             description : edescription,
+            //             category : ecategory,
+            //             isCompleted: isChecked
+            //         })
+            //     });
+            dispatch(updateThisNote(note))
                 let state: string = isChecked ? "Completed Notes" : "Notes List"
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
@@ -153,6 +165,9 @@ export default function NotesItems(props: any) {
                     }
                 }
                 notificationTs(icon, message, info);
+            // } catch (err) {
+            //     console.log(err);
+            // }
         setIsModalOpen(false);
         setTimeout(() => {
             window.location.reload()

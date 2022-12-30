@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
-export const updateThisNote = createAsyncThunk('user/notes', async (data: any) => {
+export const updateThisNote = createAsyncThunk('user/notes', async (note: any) => {
     try {
-        const { htitle, hdescription, hcategory, hIsCompleted } = data
+        const { id, etitle, edescription, ecategory } = note
         const res = await fetch(`/updatenote/${id}`, {
             method: 'PUT',
             headers: new Headers({

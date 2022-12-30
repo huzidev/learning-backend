@@ -5,7 +5,6 @@ export interface DataType {
     ecategory: string
 }
 export interface DataTypeHold {
-    hid: number | null,
     htitle: string,
     hdescription: string,
     hcategory: string
