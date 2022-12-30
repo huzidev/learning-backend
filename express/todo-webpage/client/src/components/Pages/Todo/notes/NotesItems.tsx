@@ -18,30 +18,33 @@ export default function NotesItems(props: any) {
     const [isChecked, setIsChecked] = useState<boolean | undefined>(undefined);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const ref = useRef<any>(null)
-    
-    const dispatch = useAppDispatch();
-    const noteData = useAppSelector(state => state.note)
-    const noteRes = noteData.res;
-    let allNotes: any = noteData.noteData;
-    
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
-
     const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
     const success: React.ReactNode = <CheckCircleOutlined style={{ color: '#00FF00' }}/>;
     let icon : React.ReactNode;
-    let message: string, path: any;
-    let info: string | null;
+    let message: any, path: any;
+    let info: any;
 
     if (Location.pathname.includes('/addnote')) {
         path = "/allnotes"
     } else if (Location.pathname.includes('/completed')) {
         path = "/completednotes"
     }
+    useEffect(() => {
+        dispatch(fetchNotes(path))
+    }, [Location.pathname])
+    
+    const dispatch = useAppDispatch();
+    const noteData = useAppSelector(state => state.note)
+    const noteRes = noteData.res
+    let allNotes: any = noteData.noteData;
+    
+    const showModal = () => {   
+        setIsModalOpen(true);
+    };
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+
 
     async function notificationTs(icon: React.ReactNode, message: string, info: string | null) {
         notification.open({
@@ -59,35 +62,33 @@ export default function NotesItems(props: any) {
         (dispatch(noteAction.testState(202)))
     }
 
-    useEffect(() => {
-        dispatch(fetchNotes(path))
-    }, [Location.pathname])
-    
+
+    console.log("REs for notes", noteRes);
     
     // useEffect(() => {
-    //         // const res = await fetch(`${path}`, {
-    //         //     method : 'GET',
-    //         //     headers: {
-    //         //         "Content-Type" : "application/json",
-    //         //     }
-    //         // })
-    //         setTimeout(() => {
-    //             if (noteRes === 404) {
-    //                 icon = error;
-    //                 message = `Empty`;
-    //                 info = `No Note Has Found!`;
-    //             } else if (noteRes === 201) {
-    //                 icon = success;
-    //                 message = `Note Fetched Successfully`;
-    //                 info = `${allNotes.length} note has been fetched`;
-    //             } else {
-    //                 icon = success;
-    //                 message = `Notes Fetched Successfully`;
-    //                 info = `${allNotes.length} notes have been fetched`;
-    //             }
-    //             notificationTs(icon, message, info);
-    //         }, 500)
-    //         // setNotes(data)
+            // const res = await fetch(`${path}`, {
+            //     method : 'GET',
+            //     headers: {
+            //         "Content-Type" : "application/json",
+            //     }
+            // })
+            setTimeout(() => {
+                if (noteRes === 404) {
+                    icon = error;
+                    message = `Empty`;
+                    info = `No Note Has Found!`;
+                } else if (noteRes === 201) {
+                    icon = success;
+                    message = `Note Fetched Successfully`;
+                    info = `1 note has been fetched`;
+                } else if (noteRes === 202) {
+                    icon = success;
+                    message = `Notes Fetched Successfully`;
+                    info = `${allNotes.length} notes have been fetched`;
+                }
+                notificationTs(icon, message, info);
+            }, 2500)
+            // setNotes(data)
     // }, [Location.pathname])
     
     const updateNote = (currentNote: any) => {
@@ -119,19 +120,6 @@ export default function NotesItems(props: any) {
     const handleClick = async () => {
         const { id, etitle, edescription, ecategory } = note
         const { htitle, hdescription, hcategory, hIsCompleted } = holdNote
-            try {
-                const res = await fetch(`/updatenote/${id}`, {
-                    method: 'PUT',
-                    headers: new Headers({
-                        "Content-Type" : "application/json",
-                    }),
-                    body: JSON.stringify({
-                        title : etitle,
-                        description : edescription,
-                        category : ecategory,
-                        isCompleted: isChecked
-                    })
-                });
                 let state: string = isChecked ? "Completed Notes" : "Notes List"
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
@@ -162,9 +150,6 @@ export default function NotesItems(props: any) {
                     }
                 }
                 notificationTs(icon, message, info);
-            } catch (err) {
-                console.log(err);
-            }
         setIsModalOpen(false);
         setTimeout(() => {
             window.location.reload()
