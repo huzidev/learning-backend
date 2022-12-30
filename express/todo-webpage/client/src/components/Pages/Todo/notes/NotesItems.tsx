@@ -21,6 +21,7 @@ export default function NotesItems(props: any) {
     
     const dispatch = useAppDispatch();
     const noteData = useAppSelector(state => state.note)
+    const noteRes = noteData.res;
     let allNotes: any = noteData.noteData;
     
     console.log("Total notess", allNotes);
@@ -53,7 +54,7 @@ export default function NotesItems(props: any) {
         });
     }
 
-    if () {
+    if (allNotes.length === 0) {
         
     }
 

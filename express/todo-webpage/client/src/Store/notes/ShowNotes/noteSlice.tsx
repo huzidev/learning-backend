@@ -25,7 +25,11 @@ export const fetchNotes = createAsyncThunk('user/notes', async (location: string
 const noteSlice = createSlice({
     name: 'note',
     initialState,
-    reducers: {},
+    reducers: {
+        testState(state, action) {
+            state.res = action.payload
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchNotes.fulfilled, (state, action: PayloadAction<Note[]>) => { // action is of type payloadAction and further it is Array of Note
             state.noteData = action.payload
