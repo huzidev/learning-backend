@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
-export const fetchNotes = createAsyncThunk('user/notes', async (location: string) => {
+export const updateThisNote = createAsyncThunk('user/notes', async (data: any) => {
     try {
+        const { htitle, hdescription, hcategory, hIsCompleted } = data
         const res = await fetch(`/updatenote/${id}`, {
             method: 'PUT',
             headers: new Headers({
@@ -22,16 +23,7 @@ export const fetchNotes = createAsyncThunk('user/notes', async (location: string
 const noteSlice = createSlice({
     name: 'note',
     initialState,
-    reducers: {
-        testState(state, action) {
-            state.res = action.payload
-        }
-    },
-    extraReducers: (builder) => {
-        builder.addCase(fetchNotes.fulfilled, (state, action: PayloadAction<Note[]>) => { // action is of type payloadAction and further it is Array of Note
-            state.noteData = action.payload
-        })
-    },
+    reducers: {},
 })
 
 export default noteSlice.reducer

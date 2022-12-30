@@ -6,6 +6,7 @@ import DataContext from "../../../Context/DataContext";
 import AddTodo from '../addTodo/AddTodo';
 import { DataType, DataTypeHold } from './Type';
 import FilterList from '../filters/FilterList';
+import { updateThisNote } from '../../../../store/notes/UpdateNote/updateSlice';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 import { fetchNotes, noteAction } from '../../../../store/notes/ShowNotes/noteSlice';
 
@@ -14,7 +15,7 @@ export default function NotesItems(props: any) {
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
     const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "" })
-    const [holdNote, setHoldNote] = useState<DataTypeHold>({ htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined })
+    const [holdNote, setHoldNote] = useState<DataTypeHold>({ hid: "", htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined })
     const [isChecked, setIsChecked] = useState<boolean | undefined>(undefined);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const ref = useRef<any>(null)
@@ -120,6 +121,7 @@ export default function NotesItems(props: any) {
     const handleClick = async () => {
         const { id, etitle, edescription, ecategory } = note
         const { htitle, hdescription, hcategory, hIsCompleted } = holdNote
+        dispatch(updateThisNote(holdNote))
                 let state: string = isChecked ? "Completed Notes" : "Notes List"
                 if (etitle === "" || edescription === "" || ecategory === "") {
                     icon = error;
