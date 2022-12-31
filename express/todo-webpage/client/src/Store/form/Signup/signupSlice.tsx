@@ -3,7 +3,10 @@ import { InitialType } from "./Types";
 
 const initialState: InitialType = {
     res: null,
+    resServer: null
 }
+
+let ResType: number | null;
 
 const host = "http://localhost:8000";
 export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
@@ -23,6 +26,9 @@ export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
         })
     });
     const data = await res.json();
+    console.log("Data from Redux", data);
+    console.log("Res from Redux", res.status);
+    ResType = res.status;
     return data;
 })
 
@@ -32,6 +38,7 @@ const signupSlice = createSlice({
     reducers: {
         receiveTEst(state, action) {
             state.res = action.payload
+            state.res = ResType
         }
     },
 })

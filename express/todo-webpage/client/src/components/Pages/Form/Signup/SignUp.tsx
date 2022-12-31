@@ -52,6 +52,9 @@ export default function SignUp() {
   let title: string, field: string;
   let description: string | null;
 
+  console.log("Res From TypeScript Code", res);
+  
+
   const { username, email, number, password, cpassword, isTheme } = user;
     if (username || email || number || password || cpassword === "") {
         dispatch(signupAction.receiveTEst(421));
