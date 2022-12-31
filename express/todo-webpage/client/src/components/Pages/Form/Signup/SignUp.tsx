@@ -51,8 +51,8 @@ export default function SignUp() {
   let description: string | null;
 
   async function signUp() {
+      const { username, email, number, password, cpassword, isTheme } = user;
       dispatch(signUpUser(user))
-    const { username, email, number, password, cpassword, isTheme } = user;
     // const res = await fetch(`${host}/signup`, {
     //     method: "POST",
     //     headers: {
