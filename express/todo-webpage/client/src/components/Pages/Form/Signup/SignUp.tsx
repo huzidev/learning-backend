@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input, Typography, notification } from 'antd';
 import { 
@@ -20,6 +20,7 @@ export default function SignUp() {
     const signUpRes = useAppSelector(state => state.signup);
     const res: number | null = signUpRes.res;
     const resServer: number | null = signUpRes.resServer;
+    const [state, testState] = useState(false)
   const Navigate = useNavigate();
 
   const [user, setUser] = React.useState<DataType>({
@@ -49,15 +50,15 @@ export default function SignUp() {
     });
   }
 
+  useEffect(() => {
+      dispatch(signUpUser(user))
+  }, [state])
   console.log("what is test Res", testRes);
-  
 
   const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
   let icon : React.ReactNode
   let title: string, field: any;
   let description: string | null;
-
-  console.log("Res From TypeScript Code", res);
 
   const { username, email, number, password, cpassword, isTheme } = user;
     let inputType: string = username === "" ? "Username" : email === "" ? "Email" : number === "" ? "Number" : password === "" ? "Password" : cpassword === "" ? "Confirm Password" : ""
@@ -79,11 +80,7 @@ export default function SignUp() {
                 // }
                 
 
-    console.log("What is field", field);
-    
-
   async function signUp() {
-      dispatch(signUpUser(user))
     // const res = await fetch(`${host}/signup`, {
     //     method: "POST",
     //     headers: {
@@ -104,31 +101,31 @@ export default function SignUp() {
         icon = error;
         title = `You've left ${field} Field Empty`
     } 
-    // else if (resServer === 422) {
-    //     icon = error;
-    //     title = `Username Already Exist!`
-    //     description = `"${username}" is already taken, Enter New Username`;
-    // } 
-    // else if (res.status === 423) {
-        //     icon = error;
-        // title = `Email Already Exist!`
-        // description = `"${email}" is already taken, Enter New Email`;
-    // } else if (res.status === 424) {
-    //     icon = error;
-    //     title = `Number Already Exist!`
-    //     description = `"${number}" is already taken, Enter New Number`;
-    // } 
-    else if (res === 425) {
+    else if (testRes === 422) {
+        icon = error;
+        title = `Username Already Exist!`
+        description = `"${username}" is already taken, Enter New Username`;
+    } 
+    else if (testRes === 423) {
+            icon = error;
+        title = `Email Already Exist!`
+        description = `"${email}" is already taken, Enter New Email`;
+    } else if (testRes === 424) {
+        icon = error;
+        title = `Number Already Exist!`
+        description = `"${number}" is already taken, Enter New Number`;
+    } 
+    else if (testRes === 425) {
         icon = error;
         title = `Password Error!`
         description = `Password Doesn't match`;
     } 
-    else if (res === 426) {
+    else if (testRes === 426) {
         icon = error;
         title = `Username Error!`
         description = `Username must be 3 characters Long, You've used only ${username.length === 1 ? `${username.length} character` : `${username.length} characters`}`;
     } 
-    else if (res === 427) {
+    else if (testRes === 427) {
         icon = error;
         title = `Password Error!`
         description = `Password must be 6 characters Long, You've used only ${password.length === 1 ? `${password.length} character` : `${password.length} characters`}`;
@@ -146,6 +143,7 @@ export default function SignUp() {
         Navigate("/signin");
     }
     notificationTs(icon, title, description);
+      testState(!state)
   };
 
   return (
