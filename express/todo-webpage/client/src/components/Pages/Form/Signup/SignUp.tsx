@@ -72,6 +72,12 @@ export default function SignUp() {
         dispatch(signupAction.receiveTEst(427));
     }
 
+    if (username === "") {
+        field = "Username"
+    } else if (username !== "" && username.length < 3) {
+        
+    }
+
     console.log("What is field", field);
     
 
