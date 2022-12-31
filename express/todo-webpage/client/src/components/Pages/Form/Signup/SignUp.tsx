@@ -16,6 +16,8 @@ import { signUpUser, signupAction } from '../../../../store/form/Signup/signupSl
 
 export default function SignUp() {
     const dispatch = useAppDispatch()
+    const signUpRes = useAppSelector(state => state.signup)
+    const res = signUpRes.res
   const Navigate = useNavigate();
 
   const [user, setUser] = React.useState<DataType>({
@@ -47,7 +49,7 @@ export default function SignUp() {
 
   const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
   let icon : React.ReactNode
-  let title: string;
+  let title: string, field: string;
   let description: string | null;
 
   const { username, email, number, password, cpassword, isTheme } = user;
@@ -57,7 +59,7 @@ export default function SignUp() {
     } else if (email === "") {
         dispatch(signupAction.receiveTEst(423));
         field = "Email";
-    } else if (message === "") {
+    } else if (number === "") {
         dispatch(signupAction.receiveTEst(424))
         field = "Message";
     } else {
@@ -82,7 +84,7 @@ export default function SignUp() {
     // });
 
     // const data = await res.json();
-    if (res.status === 421 || !data) {
+    if (res === 421) {
         icon = error;
         title = "You've left an tag Empty!"
     } else if (res.status === 422) {
