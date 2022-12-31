@@ -54,6 +54,7 @@ export default function SignUp() {
   let description: string | null;
 
   console.log("Res From TypeScript Code", res);
+  console.log("Res From TypeScript Code for Backend", resServer);
   
 
   const { username, email, number, password, cpassword, isTheme } = user;
@@ -65,9 +66,10 @@ export default function SignUp() {
             "Number" : password === "" ? 
             "Password" : cpassword === "" ? 
             "Confirm Password" : "";
-    } else if (username || email || number || password || cpassword !== "") {
-        dispatch(signupAction.receiveTEst(200));
-    }
+    } 
+        if (resServer === 422) {
+            dispatch(signupAction.receiveTEst(422));
+        }
 
   async function signUp() {
       dispatch(signUpUser(user))
@@ -91,14 +93,15 @@ export default function SignUp() {
         icon = error;
         title = `You've left ${field} Field Empty`
     } 
-    // else if (res.status === 422) {
-    //     icon = error;
-    //     title = `Email Already Exist!`
-    //     description = `"${email}" is already taken, Enter New Email`;
-    // } else if (res.status === 423) {
-    //     icon = error;
-    //     title = `Username Already Exist!`
-    //     description = `"${username}" is already taken, Enter New Username`;
+    else if (resServer === 422) {
+        icon = error;
+        title = `Username Already Exist!`
+        description = `"${username}" is already taken, Enter New Username`;
+    } 
+    // else if (res.status === 423) {
+        //     icon = error;
+        // title = `Email Already Exist!`
+        // description = `"${email}" is already taken, Enter New Email`;
     // } else if (res.status === 424) {
     //     icon = error;
     //     title = `Number Already Exist!`

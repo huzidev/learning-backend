@@ -26,9 +26,9 @@ export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
         })
     });
     const data = await res.json();
-    console.log("Data from Redux", data);
-    console.log("Res from Redux", res.status);
-    ResType = res.status;
+    if (res.status === 422) {
+        ResType = 422;
+    }
     return data;
 })
 
