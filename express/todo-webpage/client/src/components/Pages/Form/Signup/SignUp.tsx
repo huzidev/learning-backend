@@ -55,7 +55,12 @@ export default function SignUp() {
   const { username, email, number, password, cpassword, isTheme } = user;
     if (username || email || number || password || cpassword === "") {
         dispatch(signupAction.receiveTEst(421));
-        field = username === "" ? "Username" : email === "" ? "Email" : number === "" ? "Number" : password === "" ? "Password" : cpassword === "" ? "Confirm Password" : "";
+        field = username === "" ? 
+            "Username" : email === "" ? 
+            "Email" : number === "" ? 
+            "Number" : password === "" ? 
+            "Password" : cpassword === "" ? 
+            "Confirm Password" : "";
     } else if (username || email || number || password || cpassword !== "") {
         dispatch(signupAction.receiveTEst(200));
     }
