@@ -6,7 +6,6 @@ const initialState: InitialType = {
     data: null
 }
 
-console.log("what is Data Token from initial State", initialState.data);
 let dataToken: string | null;
 
 export const signInUser = createAsyncThunk('user/singin', async (user: any) => {
