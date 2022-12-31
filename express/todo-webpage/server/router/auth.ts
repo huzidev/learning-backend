@@ -33,7 +33,6 @@ router.post('/signup', async (req: any, res: Response) => {
         const emailExist = await User.findOne({ email : email });
         const usernameExist = await User.findOne({ username : username });
         const numberExist = await User.findOne({ number : number });
-
         if (usernameExist) {
             return res.status(422).json({ error: "Username already Exist" });
         } else if (emailExist) {
@@ -44,7 +43,7 @@ router.post('/signup', async (req: any, res: Response) => {
             return res.status(425).json({ error : "Password doesn't match" });
         } else if (username.length < 3) {
             return res.status(426).json({ error : "Username must be 3 characters Long" });
-        } else if (password.length < 6 || cpassword.length < 6) {
+        } else if (password.length || cpassword.length < 6) {
             return res.status(427).json({ error : "Password must be 6 characters Long" });
         } 
         // when user registered successfully
