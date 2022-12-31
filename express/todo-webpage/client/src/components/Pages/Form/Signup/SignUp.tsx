@@ -51,8 +51,8 @@ export default function SignUp() {
   let title: string;
   let description: string | null;
 
-  async function signUp(e: React.FormEvent) {
-    e.preventDefault();
+  async function signUp() {
+      dispatch(signUpUser(user))
     const { username, email, number, password, cpassword, isTheme } = user;
     const res = await fetch(`${host}/signup`, {
         method: "POST",
