@@ -13,6 +13,7 @@ import { DataType } from './Type';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 import { signUpUser, signupAction } from '../../../../store/form/Signup/signupSlice';
+import { testRes } from '../../../../store/form/Signup/signupSlice';
 
 export default function SignUp() {
     const dispatch = useAppDispatch();
@@ -48,6 +49,9 @@ export default function SignUp() {
     });
   }
 
+  console.log("what is test Res", testRes);
+  
+
   const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
   let icon : React.ReactNode
   let title: string, field: any;
@@ -56,27 +60,24 @@ export default function SignUp() {
   console.log("Res From TypeScript Code", res);
 
   const { username, email, number, password, cpassword, isTheme } = user;
-    if (username === "" || email === "" || number === "" || password === "" || cpassword === "") {
-        dispatch(signupAction.receiveTEst(421));
-        field = username === "" ? 
-            "Username": email === "" ? 
-            "Email" : number === "" ? 
-            "Number" : password === "" ? 
-            "Password" : cpassword === "" ? 
-            "Confirm Password" : "";
-    } else if (password !== cpassword) {
-        dispatch(signupAction.receiveTEst(425));
-    } else if (username.length < 3) {
-        dispatch(signupAction.receiveTEst(426));
-    } else if ((password || cpassword) !== "" && (password.length || cpassword.length) < 6) {
-        dispatch(signupAction.receiveTEst(427));
-    }
-
-    if (username === "") {
-        field = "Username"
-    } else if (username !== "" && username.length < 3) {
-        
-    }
+    let inputType: string = username === "" ? "Username" : email === "" ? "Email" : number === "" ? "Number" : password === "" ? "Password" : cpassword === "" ? "Confirm Password" : ""
+    if (inputType) {
+        dispatch(signupAction.receiveTEst(421))
+        field = inputType
+    } 
+    // else if (username !== "" && username.length < 3) {
+    //     dispatch(signupAction.receiveTEst(426));
+    // }
+    // else if (password !== cpassword) {
+        //     dispatch(signupAction.receiveTEst(425));
+        // } 
+        // else if (username.length < 3) {
+            //     dispatch(signupAction.receiveTEst(426));
+            // } 
+            // else if ((password || cpassword) !== "" && (password.length || cpassword.length) < 6) {
+                //     dispatch(signupAction.receiveTEst(427));
+                // }
+                
 
     console.log("What is field", field);
     

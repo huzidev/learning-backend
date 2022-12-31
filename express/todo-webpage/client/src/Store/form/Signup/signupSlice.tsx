@@ -6,6 +6,8 @@ const initialState: InitialType = {
     resServer: null
 }
 
+export let testRes: any;
+
 const host = "http://localhost:8000";
 export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
     const { username, email, number, password, cpassword, isTheme } = user;
@@ -23,6 +25,7 @@ export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
             isTheme
         })
     });
+    testRes = res.status
     const data = await res.json();
     return data;
 })
