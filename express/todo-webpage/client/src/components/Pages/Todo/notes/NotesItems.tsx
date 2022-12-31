@@ -104,6 +104,7 @@ export default function NotesItems(props: any) {
             etitle: currentNote.title,
             edescription: currentNote.description,
             ecategory: currentNote.category,
+            eisChecked: currentNote.isCompleted
         })
         // to hold initial value and if user didn't chnage the value and tries to update the note with sane value then to show error 
         setHoldNote({
@@ -120,7 +121,7 @@ export default function NotesItems(props: any) {
     }
 
     const handleClick = async () => {
-        const { id, etitle, edescription, ecategory } = note
+        const { id, etitle, edescription, ecategory, eisChecked } = note
         const { htitle, hdescription, hcategory, hIsCompleted } = holdNote
             // try {
             //     const res = await fetch(`/updatenote/${id}`, {
