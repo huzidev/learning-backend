@@ -15,9 +15,9 @@ import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 import { signUpUser, signupAction } from '../../../../store/form/Signup/signupSlice';
 
 export default function SignUp() {
-    const dispatch = useAppDispatch()
-    const signUpRes = useAppSelector(state => state.signup)
-    const res = signUpRes.res
+    const dispatch = useAppDispatch();
+    const signUpRes = useAppSelector(state => state.signup);
+    const res: number | null = signUpRes.res;
   const Navigate = useNavigate();
 
   const [user, setUser] = React.useState<DataType>({
