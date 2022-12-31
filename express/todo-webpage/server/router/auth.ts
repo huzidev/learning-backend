@@ -43,7 +43,7 @@ router.post('/signup', async (req: any, res: Response) => {
             return res.status(425).json({ error : "Password doesn't match" });
         } else if (username.length < 3) {
             return res.status(426).json({ error : "Username must be 3 characters Long" });
-        } else if (password.length || cpassword.length < 6) {
+        } else if ((password.length || cpassword.length) < 6) {
             return res.status(427).json({ error : "Password must be 6 characters Long" });
         } 
         // when user registered successfully
