@@ -24,6 +24,7 @@ export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
             isTheme
         })
     });
+    console.log("STATUS REDUX", res.status);
     if (res.status !== 421) {
         testRes = res.status
     }
