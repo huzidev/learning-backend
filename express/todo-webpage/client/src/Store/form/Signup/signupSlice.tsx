@@ -3,7 +3,6 @@ import { InitialType } from "./Types";
 
 const initialState: InitialType = {
     res: null,
-    resServer: null
 }
 
 export let testRes: any;
@@ -25,7 +24,9 @@ export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
             isTheme
         })
     });
-    testRes = res.status
+    if (res.status !== 421) {
+        testRes = res.status
+    }
     const data = await res.json();
     return data;
 })
