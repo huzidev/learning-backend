@@ -2,8 +2,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 let dataToken: string | null;
 
+const host = "http://localhost:8000";
 export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
-    const { email, password } = user;
+    const { username, email, number, password, cpassword, isTheme } = user;
     const res = await fetch(`${host}/signup`, {
         method: "POST",
         headers: {
@@ -18,4 +19,6 @@ export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
             isTheme
         })
     });
+    const data = await res.json();
+    return datal
 })

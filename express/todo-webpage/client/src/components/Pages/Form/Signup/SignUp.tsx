@@ -54,22 +54,22 @@ export default function SignUp() {
   async function signUp() {
       dispatch(signUpUser(user))
     const { username, email, number, password, cpassword, isTheme } = user;
-    const res = await fetch(`${host}/signup`, {
-        method: "POST",
-        headers: {
-            "Content-Type" : "application/json"
-        },
-        body: JSON.stringify({
-            username,
-            email,
-            number: parseInt(number),
-            password,
-            cpassword,
-            isTheme
-        })
-    });
+    // const res = await fetch(`${host}/signup`, {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type" : "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         username,
+    //         email,
+    //         number: parseInt(number),
+    //         password,
+    //         cpassword,
+    //         isTheme
+    //     })
+    // });
 
-    const data = await res.json();
+    // const data = await res.json();
     if (res.status === 421 || !data) {
         icon = error;
         title = "You've left an tag Empty!"
