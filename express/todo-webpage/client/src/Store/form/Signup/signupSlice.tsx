@@ -5,7 +5,7 @@ const initialState: InitialType = {
     res: null,
 }
 
-export let testRes: any;
+let testRes: any;
 
 const host = "http://localhost:8000";
 export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
@@ -25,7 +25,7 @@ export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
         })
     });
     console.log("STATUS REDUX", res.status);
-    testRes = res.status
+    testRes = 50
     const data = await res.json();
     return data;
 })
@@ -34,10 +34,10 @@ const signupSlice = createSlice({
     name: 'signup',
     initialState,
     reducers: {
-        receiveTEst(state, action) {
-            state.res = action.payload
+        testState(state) {
+            state.res = 50;
         }
-    },
+    }
 })
 
 export default signupSlice.reducer
