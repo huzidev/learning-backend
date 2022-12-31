@@ -18,6 +18,7 @@ export default function SignUp() {
     const dispatch = useAppDispatch();
     const signUpRes = useAppSelector(state => state.signup);
     const res: number | null = signUpRes.res;
+    const resServer: number | null = signUpRes.resServer;
   const Navigate = useNavigate();
 
   const [user, setUser] = React.useState<DataType>({

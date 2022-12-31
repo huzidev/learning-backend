@@ -38,7 +38,7 @@ const signupSlice = createSlice({
     reducers: {
         receiveTEst(state, action) {
             state.res = action.payload
-            state.res = ResType
+            state.resServer = ResType
         }
     },
 })
