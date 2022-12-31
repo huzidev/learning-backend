@@ -12,7 +12,7 @@ import {
 import { DataType } from './Type';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
-import { signUpUser,signupAction } from '../../../../store/form/Signup/signupSlice';
+import { signUpUser, signupAction } from '../../../../store/form/Signup/signupSlice';
 
 export default function SignUp() {
     const dispatch = useAppDispatch()
@@ -52,16 +52,16 @@ export default function SignUp() {
 
   const { username, email, number, password, cpassword, isTheme } = user;
     if (username === "") {
-        dispatch(contactAction.receiveTEst(422));
+        dispatch(signupAction.receiveTEst(422));
         field = "Username";
     } else if (email === "") {
-        dispatch(contactAction.receiveTEst(423));
+        dispatch(signupAction.receiveTEst(423));
         field = "Email";
     } else if (message === "") {
-        dispatch(contactAction.receiveTEst(424))
+        dispatch(signupAction.receiveTEst(424))
         field = "Message";
     } else {
-        dispatch(contactAction.receiveTEst(200))
+        dispatch(signupAction.receiveTEst(200))
     }
 
   async function signUp() {
