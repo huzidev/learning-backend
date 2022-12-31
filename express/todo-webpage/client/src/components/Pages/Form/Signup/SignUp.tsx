@@ -54,11 +54,9 @@ export default function SignUp() {
   let description: string | null;
 
   console.log("Res From TypeScript Code", res);
-  console.log("Res From TypeScript Code for Backend", resServer);
-  
 
   const { username, email, number, password, cpassword, isTheme } = user;
-    if (username || email || number || password || cpassword === "") {
+    if ((username || email || number || password || cpassword) === "") {
         dispatch(signupAction.receiveTEst(421));
         field = username === "" ? 
             "Username" : email === "" ? 
@@ -66,10 +64,13 @@ export default function SignUp() {
             "Number" : password === "" ? 
             "Password" : cpassword === "" ? 
             "Confirm Password" : "";
-    } 
-        if (resServer === 422) {
-            dispatch(signupAction.receiveTEst(422));
-        }
+    } else if (password !== cpassword) {
+        dispatch(signupAction.receiveTEst(425));
+    } else if (username.length < 3) {
+        dispatch(signupAction.receiveTEst(426));
+    } else if ((password.length || cpassword.length) !== 0 && (password.length || cpassword.length) < 6) {
+        dispatch(signupAction.receiveTEst(427));
+    }
 
   async function signUp() {
       dispatch(signUpUser(user))
@@ -93,11 +94,11 @@ export default function SignUp() {
         icon = error;
         title = `You've left ${field} Field Empty`
     } 
-    else if (resServer === 422) {
-        icon = error;
-        title = `Username Already Exist!`
-        description = `"${username}" is already taken, Enter New Username`;
-    } 
+    // else if (resServer === 422) {
+    //     icon = error;
+    //     title = `Username Already Exist!`
+    //     description = `"${username}" is already taken, Enter New Username`;
+    // } 
     // else if (res.status === 423) {
         //     icon = error;
         // title = `Email Already Exist!`
@@ -106,19 +107,23 @@ export default function SignUp() {
     //     icon = error;
     //     title = `Number Already Exist!`
     //     description = `"${number}" is already taken, Enter New Number`;
-    // } else if (res.status === 425) {
-    //     icon = erro;
-    //     title = `Password Error!`
-    //     description = `Password Doesn't match`;
-    // } else if (res.status === 426) {
-    //     icon = error;
-    //     title = `Username Error!`
-    //     description = `Username character must be greater than 3, You've used only ${username.length} character`;
-    // } else if (res.status === 427) {
-    //     icon = error;
-    //     title = `Password Error!`
-    //     description = `Password character must be greater than 5, You've used only ${password.length} character`;
-    // } else if (res.status === 500) {
+    // } 
+    else if (res === 425) {
+        icon = error;
+        title = `Password Error!`
+        description = `Password Doesn't match`;
+    } 
+    else if (res === 426) {
+        icon = error;
+        title = `Username Error!`
+        description = `Username character must be 3, You've used only ${username.length} character`;
+    } 
+    else if (res === 427) {
+        icon = error;
+        title = `Password Error!`
+        description = `Password character must be 6, You've used only ${password.length} character`;
+    }
+    //  else if (res.status === 500) {
     //     icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
     //     title = `Internal Server Error!`
     //     description = `Failed To Register, Internal Server Error!`;

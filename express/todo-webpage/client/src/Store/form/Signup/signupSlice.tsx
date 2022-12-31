@@ -6,8 +6,6 @@ const initialState: InitialType = {
     resServer: null
 }
 
-let ResType: number | null;
-
 const host = "http://localhost:8000";
 export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
     const { username, email, number, password, cpassword, isTheme } = user;
@@ -26,9 +24,6 @@ export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
         })
     });
     const data = await res.json();
-    if (res.status === 422) {
-        ResType = 422;
-    }
     return data;
 })
 
@@ -38,7 +33,6 @@ const signupSlice = createSlice({
     reducers: {
         receiveTEst(state, action) {
             state.res = action.payload
-            state.resServer = ResType
         }
     },
 })
