@@ -4,8 +4,6 @@ const initialState: InitialType = {
     res: null,
 }
 
-let dataToken: string | null;
-
 const host = "http://localhost:8000";
 export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
     const { username, email, number, password, cpassword, isTheme } = user;
@@ -33,7 +31,6 @@ const signupSlice = createSlice({
     reducers: {
         receiveTEst(state, action) {
             state.res = action.payload
-            state.data = dataToken
         }
     },
 })
