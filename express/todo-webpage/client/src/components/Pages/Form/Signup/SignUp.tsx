@@ -11,8 +11,8 @@ import {
 } from '@ant-design/icons';
 import { DataType } from './Type';
 import { Link } from 'react-router-dom';
-import { signUpUser } from '../../../../store/form/Signup/signupSlice';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
+import { signUpUser,signupAction } from '../../../../store/form/Signup/signupSlice';
 
 export default function SignUp() {
     const dispatch = useAppDispatch()
