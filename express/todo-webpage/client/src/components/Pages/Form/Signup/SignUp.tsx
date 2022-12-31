@@ -56,27 +56,21 @@ export default function SignUp() {
   console.log("Res From TypeScript Code", res);
 
   const { username, email, number, password, cpassword, isTheme } = user;
-    // if (username || email || number || password || cpassword === "") {
-    //     dispatch(signupAction.receiveTEst(421));
-    //     field = username === "" ? 
-    //         "Username": email === "" ? 
-    //         "Email" : number === "" ? 
-    //         "Number" : password === "" ? 
-    //         "Password" : cpassword === "" ? 
-    //         "Confirm Password" : "";
-    // } 
-    if (username === "") {
-            dispatch(signupAction.receiveTEst(421));
+    if (username === "" || email === "" || number === "" || password === "" || cpassword === "") {
+        dispatch(signupAction.receiveTEst(421));
+        field = username === "" ? 
+            "Username": email === "" ? 
+            "Email" : number === "" ? 
+            "Number" : password === "" ? 
+            "Password" : cpassword === "" ? 
+            "Confirm Password" : "";
+    } else if (password !== cpassword) {
+        dispatch(signupAction.receiveTEst(425));
+    } else if (username.length < 3) {
+        dispatch(signupAction.receiveTEst(426));
+    } else if ((password || cpassword) !== "" && (password.length || cpassword.length) < 6) {
+        dispatch(signupAction.receiveTEst(427));
     }
-    // else if (password !== cpassword) {
-    //     dispatch(signupAction.receiveTEst(425));
-    // } 
-    // else if (username.length < 3) {
-    //     dispatch(signupAction.receiveTEst(426));
-    // } 
-    // else if ((password || cpassword) !== "" && (password.length || cpassword.length) < 6) {
-    //     dispatch(signupAction.receiveTEst(427));
-    // }
 
     console.log("What is field", field);
     
