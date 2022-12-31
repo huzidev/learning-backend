@@ -12,8 +12,10 @@ import {
 import { DataType } from './Type';
 import { Link } from 'react-router-dom';
 import { signUpUser } from '../../../../store/form/Signup/signupSlice';
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 
 export default function SignUp() {
+    const dispatch = useAppDispatch()
   const Navigate = useNavigate();
   const host = "http://localhost:8000";
 
