@@ -56,7 +56,9 @@ export default function SignUp() {
     if (username || email || number || password || cpassword === "") {
         dispatch(signupAction.receiveTEst(421));
         field = username === "" ? "Username" : email === "" ? "Email" : number === "" ? "Number" : password === "" ? "Password" : cpassword === "" ? "Confirm Password" : "";
-    } 
+    } else if (username || email || number || password || cpassword !== "") {
+        dispatch(signupAction.receiveTEst(200));
+    }
 
   async function signUp() {
       dispatch(signUpUser(user))
@@ -109,7 +111,7 @@ export default function SignUp() {
     //     title = `Internal Server Error!`
     //     description = `Failed To Register, Internal Server Error!`;
     // } 
-    else {
+    if (res === 200) {
         icon = <CheckCircleOutlined style={{ color: '#00FF00' }}/>
         title = `Registeration Successful!`
         description = `User Registered Successfully`;
