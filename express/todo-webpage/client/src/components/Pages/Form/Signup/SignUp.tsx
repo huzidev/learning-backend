@@ -40,8 +40,11 @@ export default function SignUp() {
   };
 
   const { username, email, number, password, cpassword, isTheme } = user;
-      dispatch(signUpUser(user))
-      dispatch(signupAction.r)
+  console.log("RES Ts", res);
+  dispatch(signUpUser(user))
+  useEffect(() => {
+      dispatch(signupAction.testState())
+      }, [user])
 
   async function notificationTs(icon: React.ReactNode, message: string, info: string | null) {
     notification.open({
@@ -50,19 +53,15 @@ export default function SignUp() {
         description: info
     });
   }
-
-  console.log("STATUS TS CODE", res);
-
   const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
   let icon : React.ReactNode
   let title: string, field: any;
   let description: string | null;
 
-    // let inputType: string = username === "" ? "Username" : email === "" ? "Email" : number === "" ? "Number" : password === "" ? "Password" : cpassword === "" ? "Confirm Password" : ""
-    // if (inputType) {
-    //     dispatch(signupAction.receiveTEst(421))
-    //     field = inputType
-    // } 
+    let inputType: string = username === "" ? "Username" : email === "" ? "Email" : number === "" ? "Number" : password === "" ? "Password" : cpassword === "" ? "Confirm Password" : ""
+    if (res === 421) {
+        field = inputType
+    } 
     // else if (username !== "" && username.length < 3) {
     //     dispatch(signupAction.receiveTEst(426));
     // }
@@ -80,7 +79,7 @@ export default function SignUp() {
   function signUp() {
     if (res === 421) {
         icon = error;
-        title = `You've left a Field Empty`
+        title = `You've left ${field} Field Empty`
     } 
     else if (res === 422) {
         icon = error;

@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { InitialType } from "./Types";
 
 const initialState: InitialType = {
-    res: null,
+    res: 421,
 }
 
 let testRes: any;
@@ -24,8 +24,8 @@ export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
             isTheme
         })
     });
-    console.log("STATUS REDUX", res.status);
-    testRes = 50
+    console.log("RES REDUX", res.status);
+    testRes = res.status
     const data = await res.json();
     return data;
 })
@@ -35,7 +35,7 @@ const signupSlice = createSlice({
     initialState,
     reducers: {
         testState(state) {
-            state.res = 50;
+            state.res = testRes;
         }
     }
 })
