@@ -50,7 +50,7 @@ export default function SignUp() {
 
   const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
   let icon : React.ReactNode
-  let title: string, field: string;
+  let title: string, field: any;
   let description: string | null;
 
   console.log("Res From TypeScript Code", res);
@@ -68,9 +68,13 @@ export default function SignUp() {
         dispatch(signupAction.receiveTEst(425));
     } else if (username.length < 3) {
         dispatch(signupAction.receiveTEst(426));
-    } else if ((password.length || cpassword.length) !== 0 && (password.length || cpassword.length) < 6) {
-        dispatch(signupAction.receiveTEst(427));
-    }
+    } 
+    // else if ((password || cpassword) !== "" && (password.length || cpassword.length) < 6) {
+    //     dispatch(signupAction.receiveTEst(427));
+    // }
+
+    console.log("What is field", field);
+    
 
   async function signUp() {
       dispatch(signUpUser(user))
@@ -116,12 +120,12 @@ export default function SignUp() {
     else if (res === 426) {
         icon = error;
         title = `Username Error!`
-        description = `Username character must be 3, You've used only ${username.length} character`;
+        description = `Username must be 3 characters Long, You've used only ${username.length === 1 ? `${username.length} character` : `${username.length} characters`}`;
     } 
     else if (res === 427) {
         icon = error;
         title = `Password Error!`
-        description = `Password character must be 6, You've used only ${password.length} character`;
+        description = `Password must be 6 characters Long, You've used only ${password.length === 1 ? `${password.length} character` : `${password.length} characters`}`;
     }
     //  else if (res.status === 500) {
     //     icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
@@ -149,7 +153,7 @@ export default function SignUp() {
             <Input 
                 className='Dark'
                 name="username"
-                value={user.username}
+                value={username}
                 onChange={inputHandler}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Enter Yours Username"
@@ -158,7 +162,7 @@ export default function SignUp() {
             <Input 
                 className='Dark styleMargin'
                 name="email"
-                value={user.email}
+                value={email}
                 onChange={inputHandler}
                 prefix={<MailOutlined className="site-form-item-icon" />}
                 placeholder="Enter Yours Email"
@@ -169,7 +173,6 @@ export default function SignUp() {
                 name="number"
                 value={user.number}
                 onChange={inputHandler}
-                // prefix={<NumberOutlined className="site-form-item-icon" />}
                 prefix = "+92"
                 placeholder="Enter Yours Number"
                 required
@@ -182,7 +185,7 @@ export default function SignUp() {
                 <Input.Password
                     className='Dark'
                     name="password"
-                    value={user.password}
+                    value={password}
                     onChange={inputHandler}
                     prefix={<LockOutlined className="site-form-item-icon" />}
                     placeholder="Enter Yours password"
@@ -212,7 +215,7 @@ export default function SignUp() {
                 <Input.Password
                     className='Dark' 
                     name="cpassword"
-                    value={user.cpassword}
+                    value={cpassword}
                     onChange={inputHandler}
                     prefix={<LockOutlined className="site-form-item-icon" />}
                     placeholder="Confirm Yours Password"
