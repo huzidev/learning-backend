@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./user/userSlice";
-import addNoteReducer from "./notes/AddNote/addNoteSlice"
-import noteReducer from "./notes/ShowNotes/noteSlice"
-import contactReducer from "./form/Contact/contactSlice"
-import signinReducer from "./form/Signin/signinSlice"
+import addNoteReducer from "./notes/AddNote/addNoteSlice";
+import noteReducer from "./notes/ShowNotes/noteSlice";
+import contactReducer from "./form/Contact/contactSlice";
+import signinReducer from "./form/Signin/signinSlice";
+import signupReducer from "./form/Signup/signupSlice";
 
 const store = configureStore({
     reducer : {
@@ -11,7 +12,8 @@ const store = configureStore({
         note : noteReducer,
         contact: contactReducer,
         signin: signinReducer,
-        addnote: addNoteReducer
+        addnote: addNoteReducer,
+        signup: signupReducer
     }
 })
 

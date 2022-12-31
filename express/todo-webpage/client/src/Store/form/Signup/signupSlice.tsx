@@ -1,5 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+const initialState: InitialType = {
+    res: null,
+}
+
 let dataToken: string | null;
 
 const host = "http://localhost:8000";
@@ -20,5 +24,20 @@ export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
         })
     });
     const data = await res.json();
-    return datal
+    return data;
 })
+
+const signupSlice = createSlice({
+    name: 'signup',
+    initialState,
+    reducers: {
+        receiveTEst(state, action) {
+            state.res = action.payload
+            state.data = dataToken
+        }
+    },
+})
+
+export default signupSlice.reducer
+
+export const signupAction = signupSlice.actions;

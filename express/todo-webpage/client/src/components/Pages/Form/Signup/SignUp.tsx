@@ -17,7 +17,6 @@ import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 export default function SignUp() {
     const dispatch = useAppDispatch()
   const Navigate = useNavigate();
-  const host = "http://localhost:8000";
 
   const [user, setUser] = React.useState<DataType>({
     username : "",

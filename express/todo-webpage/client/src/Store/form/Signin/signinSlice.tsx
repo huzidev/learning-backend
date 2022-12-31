@@ -19,7 +19,6 @@ export const signInUser = createAsyncThunk('user/singin', async (user: any) => {
         body: JSON.stringify({ email, password })
     });
     const data = await res.json();
-    console.log("what is data", data);
     return data;
 })
 
