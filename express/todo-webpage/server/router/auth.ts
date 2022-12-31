@@ -27,7 +27,7 @@ router.post('/signup', async (req: any, res: Response) => {
     const { username, email, number, password, cpassword, isTheme } = req.body;
 
     if ( !username || !email || !number || !password || !cpassword ) {
-        return res.status(421).json({ error : "You've left an tag empty" });
+        return res.status(421).json({ error : "You've left a tag empty" });
     }
     try {
         const emailExist = await User.findOne({ email : email });
