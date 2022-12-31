@@ -18,7 +18,7 @@ import { testRes } from '../../../../store/form/Signup/signupSlice';
 export default function SignUp() {
     const dispatch = useAppDispatch();
     const signUpRes = useAppSelector(state => state.signup);
-    const res: number | null = signUpRes.res;
+    let res: number | null = signUpRes.res;
     const [state, testState] = useState(false)
   const Navigate = useNavigate();
 
@@ -52,7 +52,8 @@ export default function SignUp() {
   useEffect(() => {
       dispatch(signUpUser(user))
   }, [state])
-  console.log("what is test Res", testRes);
+  console.log("RES TS CODE", res);
+  console.log("RES TS CODE TESTRES", testRes);
 
   const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
   let icon : React.ReactNode
@@ -78,6 +79,9 @@ export default function SignUp() {
                 //     dispatch(signupAction.receiveTEst(427));
                 // }
                 
+    if (testRes !== undefined) {
+        res = testRes
+    }
 
   async function signUp() {
     // const res = await fetch(`${host}/signup`, {
