@@ -50,8 +50,21 @@ export default function SignUp() {
   let title: string;
   let description: string | null;
 
+  const { username, email, number, password, cpassword, isTheme } = user;
+    if (username === "") {
+        dispatch(contactAction.receiveTEst(422));
+        field = "Username";
+    } else if (email === "") {
+        dispatch(contactAction.receiveTEst(423));
+        field = "Email";
+    } else if (message === "") {
+        dispatch(contactAction.receiveTEst(424))
+        field = "Message";
+    } else {
+        dispatch(contactAction.receiveTEst(200))
+    }
+
   async function signUp() {
-      const { username, email, number, password, cpassword, isTheme } = user;
       dispatch(signUpUser(user))
     // const res = await fetch(`${host}/signup`, {
     //     method: "POST",
