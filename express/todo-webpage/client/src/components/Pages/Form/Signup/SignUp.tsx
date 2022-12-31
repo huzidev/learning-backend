@@ -104,31 +104,31 @@ export default function SignUp() {
         icon = error;
         title = `You've left ${field} Field Empty`
     } 
-    else if (testRes === 422) {
+    else if (res === 422) {
         icon = error;
         title = `Username Already Exist!`
         description = `"${username}" is already taken, Enter New Username`;
     } 
-    else if (testRes === 423) {
+    else if (res === 423) {
             icon = error;
         title = `Email Already Exist!`
         description = `"${email}" is already taken, Enter New Email`;
-    } else if (testRes === 424) {
+    } else if (res === 424) {
         icon = error;
         title = `Number Already Exist!`
         description = `"${number}" is already taken, Enter New Number`;
     } 
-    else if (testRes === 425) {
+    else if (res === 425) {
         icon = error;
         title = `Password Error!`
         description = `Password Doesn't match`;
     } 
-    else if (testRes === 426) {
+    else if (res === 426) {
         icon = error;
         title = `Username Error!`
         description = `Username must be 3 characters Long, You've used only ${username.length === 1 ? `${username.length} character` : `${username.length} characters`}`;
     } 
-    else if (testRes === 427) {
+    else if (res === 427) {
         icon = error;
         title = `Password Error!`
         description = `Password must be 6 characters Long, You've used only ${password.length === 1 ? `${password.length} character` : `${password.length} characters`}`;
