@@ -24,8 +24,8 @@ export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
             isTheme
         })
     });
-    console.log("RES REDUX", res.status);
     testRes = res.status
+    console.log("RES REDUX", testRes);
     const data = await res.json();
     return data;
 })

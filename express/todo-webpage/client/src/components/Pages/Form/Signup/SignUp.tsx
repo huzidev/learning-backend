@@ -57,6 +57,9 @@ export default function SignUp() {
   let title: string, field: any;
   let description: string | null;
 
+  console.log("res TS", );
+  
+
     let inputType: string = username === "" ? "Username" : email === "" ? "Email" : number === "" ? "Number" : password === "" ? "Password" : cpassword === "" ? "Confirm Password" : ""
     if (res === 421) {
         field = inputType
@@ -76,6 +79,7 @@ export default function SignUp() {
                 
 
   function signUp() {
+    dispatch(signupAction.testState())
     if (res === 421) {
         icon = error;
         title = `You've left ${field} Field Empty`
