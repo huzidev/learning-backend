@@ -55,14 +55,20 @@ export default function SignUp() {
 
     useEffect(() => {
         dispatch(signupAction.testState())
+        dispatch(signUpUser(user))
     }, [])
-    
+
     function work() {
         dispatch(signupAction.testState())
     }
     console.log("res TS before", res);
-    
-    let inputType: string = username === "" ? "Username" : email === "" ? "Email" : number === "" ? "Number" : password === "" ? "Password" : cpassword === "" ? "Confirm Password" : ""
+
+    let inputType: string = username === "" ? 
+    "Username" : email === "" ? 
+    "Email" : number === "" ? 
+    "Number" : password === "" ? 
+    "Password" : cpassword === "" ? 
+    "Confirm Password" : "";
     if (res === 421) {
         field = inputType
     }
@@ -70,20 +76,20 @@ export default function SignUp() {
     //     dispatch(signupAction.receiveTEst(426));
     // }
     // else if (password !== cpassword) {
-        //     dispatch(signupAction.receiveTEst(425));
+    //     dispatch(signupAction.receiveTEst(425));
     // } 
     // else if (username.length < 3) {
-        //     dispatch(signupAction.receiveTEst(426));
-        // } 
-        // else if ((password || cpassword) !== "" && (password.length || cpassword.length) < 6) {
+    //     dispatch(signupAction.receiveTEst(426));
+    // } 
+    // else if ((password || cpassword) !== "" && (password.length || cpassword.length) < 6) {
     //     dispatch(signupAction.receiveTEst(427));
     // }
 
-    
+
     function signUp() {
         dispatch(signUpUser(user))
         work()
-            console.log("res TS", res);
+        console.log("res TS", res);
         if (res === 421) {
             icon = error;
             title = `You've left ${field} Field Empty`
