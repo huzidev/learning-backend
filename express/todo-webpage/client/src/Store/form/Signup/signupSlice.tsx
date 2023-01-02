@@ -5,7 +5,7 @@ const initialState: InitialType = {
     res: null,
 }
 
-let testRes: any;
+export let testRes: any;
 
 const host = "http://localhost:8000";
 export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
@@ -24,7 +24,7 @@ export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
             isTheme
         })
     });
-    testRes = res.status
+    testRes = res.status;
     console.log("RES REDUX", testRes);
     const data = await res.json();
     return data;
