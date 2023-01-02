@@ -40,7 +40,6 @@ export default function SignUp() {
   };
 
   const { username, email, number, password, cpassword, isTheme } = user;
-  console.log("RES Ts", res);
   dispatch(signUpUser(user))
   useEffect(() => {
       dispatch(signupAction.testState())
