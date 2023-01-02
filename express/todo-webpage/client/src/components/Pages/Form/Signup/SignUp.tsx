@@ -41,9 +41,6 @@ export default function SignUp() {
 
   const { username, email, number, password, cpassword, isTheme } = user;
   dispatch(signUpUser(user))
-  useEffect(() => {
-      dispatch(signupAction.testState())
-      }, [user])
 
   async function notificationTs(icon: React.ReactNode, message: string, info: string | null) {
     notification.open({
@@ -57,8 +54,11 @@ export default function SignUp() {
   let title: string, field: any;
   let description: string | null;
 
-  console.log("res TS", );
-  
+  console.log("res TS", res);
+
+  function work() {
+    dispatch(signupAction.testState())
+  }
 
     let inputType: string = username === "" ? "Username" : email === "" ? "Email" : number === "" ? "Number" : password === "" ? "Password" : cpassword === "" ? "Confirm Password" : ""
     if (res === 421) {
@@ -79,7 +79,6 @@ export default function SignUp() {
                 
 
   function signUp() {
-    dispatch(signupAction.testState())
     if (res === 421) {
         icon = error;
         title = `You've left ${field} Field Empty`
@@ -218,6 +217,7 @@ export default function SignUp() {
                 </Button>
             </Form.Item>
         </Form>
+        <button onClick={work}>Change state</button>
     </div>
   )
 }
