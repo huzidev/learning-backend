@@ -57,14 +57,11 @@ export default function SignUp() {
         dispatch(signupAction.testState())
     }, [])
     
-    console.log("res TS before", res);
     function work() {
         dispatch(signupAction.testState())
     }
+    console.log("res TS before", res);
     
-    console.log("THIS MUST HAVE TO BE 421", testRes);
-    
-
     let inputType: string = username === "" ? "Username" : email === "" ? "Email" : number === "" ? "Number" : password === "" ? "Password" : cpassword === "" ? "Confirm Password" : ""
     if (res === 421) {
         field = inputType
