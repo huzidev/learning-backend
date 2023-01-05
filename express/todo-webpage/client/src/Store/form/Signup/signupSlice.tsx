@@ -18,7 +18,7 @@ export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
         body: JSON.stringify({
             username,
             email,
-            number,
+            number: parseInt(number),
             password,
             cpassword,
             isTheme
