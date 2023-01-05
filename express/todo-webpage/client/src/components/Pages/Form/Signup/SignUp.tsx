@@ -165,7 +165,7 @@ export default function SignUp() {
                 <Input
                     className='Dark styleMargin'
                     name="number"
-                    value={user.number}
+                    value={number}
                     onChange={inputHandler}
                     prefix="+92"
                     placeholder="Enter Yours Number"
