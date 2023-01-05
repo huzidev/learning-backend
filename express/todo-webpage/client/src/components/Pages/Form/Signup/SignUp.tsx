@@ -85,11 +85,10 @@ export default function SignUp() {
     // else if ((password || cpassword) !== "" && (password.length || cpassword.length) < 6) {
     //     dispatch(signupAction.receiveTEst(427));
     // }
-
-    const signUpError = useAppSelector(state => state.signup.error);
-    const signUpUsernameError = useAppSelector(state => state.signup.usernameError);
-    const signUpEmailError = useAppSelector(state => state.signup.emailError);
-    const signUpNumberError = useAppSelector(state => state.signup.numberError);
+    const signUpError = signUpRes.error
+    const signUpUsernameError = signUpRes.usernameError
+    const signUpEmailError = signUpRes.emailError
+    const signUpNumberError = signUpRes.numberError
 
     console.log(signUpError);
 
