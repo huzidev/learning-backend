@@ -13,7 +13,6 @@ import { DataType } from './Type';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 import { signUpUser, signupAction, testRes } from '../../../../store/form/Signup/signupSlice';
-import { RootState } from '../../../../store';
 
 export default function SignUp() {
     const dispatch = useAppDispatch();
@@ -70,9 +69,8 @@ export default function SignUp() {
     "Number" : password === "" ? 
     "Password" : cpassword === "" ? 
     "Confirm Password" : "";
-    if (res === 421) {
-        field = inputType;
-    }
+    field = inputType;
+
     // else if (username !== "" && username.length < 3) {
     //     dispatch(signupAction.receiveTEst(426));
     // }
@@ -85,74 +83,57 @@ export default function SignUp() {
     // else if ((password || cpassword) !== "" && (password.length || cpassword.length) < 6) {
     //     dispatch(signupAction.receiveTEst(427));
     // }
-    const signUpError = signUpRes.error
-    const signUpUsernameError = signUpRes.usernameError
-    const signUpEmailError = signUpRes.emailError
-    const signUpNumberError = signUpRes.numberError
-
-    console.log(signUpError);
 
 
-    // const signUpError = useAppSelector(state => state.signup.error);
-    // const signUpUsernameError = useAppSelector(state => state.signup.usernameError);
-    // const signUpEmailError = useAppSelector(state => state.signup.emailError);
-    // const signUpNumberError = useAppSelector(state => state.signup.numberError);
     function signUp() {
         dispatch(signUpUser(user))
-        if (signUpError) {
-            window.alert("Data is empty")
-        } else if (signUpUsernameError) {
-            alert("Username already exist")
-        } else if (signUpEmailError) {
-            alert("Email already exist")
+        console.log("res TS", res);
+        if (res === 421) {
+            icon = error;
+            title = `You've left ${field} Field Empty`
         }
-        // console.log("res TS", res);
-        // if (res === 421) {
-        //     icon = error;
-        //     title = `You've left ${field} Field Empty`
-        // }
-        // else if (res === 422) {
-        //     icon = error;
-        //     title = `Username Already Exist!`
-        //     description = `"${username}" is already taken, Enter New Username`;
-        // }
-        // else if (res === 423) {
-        //     icon = error;
-        //     title = `Email Already Exist!`
-        //     description = `"${email}" is already taken, Enter New Email`;
-        // } else if (res === 424) {
-        //     icon = error;
-        //     title = `Number Already Exist!`
-        //     description = `"${number}" is already taken, Enter New Number`;
-        // }
-        // else if (res === 425) {
-        //     icon = error;
-        //     title = `Password Error!`
-        //     description = `Password Doesn't match`;
-        // }
-        // else if (res === 426) {
-        //     icon = error;
-        //     title = `Username Error!`
-        //     description = `Username must be 3 characters Long, You've used only ${username.length === 1 ? `${username.length} character` : `${username.length} characters`}`;
-        // }
-        // else if (res === 427) {
-        //     icon = error;
-        //     title = `Password Error!`
-        //     description = `Password must be 6 characters Long, You've used only ${password.length === 1 ? `${password.length} character` : `${password.length} characters`}`;
-        // }
-        // //  else if (res.status === 500) {
-        // //     icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
-        // //     title = `Internal Server Error!`
-        // //     description = `Failed To Register, Internal Server Error!`;
-        // // } 
-        // if (res === 200) {
-        //     icon = <CheckCircleOutlined style={{ color: '#00FF00' }} />
-        //     title = `Registeration Successful!`
-        //     description = `User Registered Successfully`;
-        //     console.log("Registration Successful");
-        //     Navigate("/signin");
-        // }
-        // notificationTs(icon, title, description);
+        else if (res === 422) {
+            icon = error;
+            title = `Username Already Exist!`
+            description = `${username} is already taken, Enter New Username`;
+        }
+        else if (res === 423) {
+            icon = error;
+            title = `Email Already Exist!`
+            description = `${email} is already taken, Enter New Email`;
+        } else if (res === 424) {
+            icon = error;
+            title = `Number Already Exist!`
+            description = `${number} is already taken, Enter New Number`;
+        }
+        else if (res === 425) {
+            icon = error;
+            title = `Password Error!`
+            description = `Password Doesn't match`;
+        }
+        else if (res === 426) {
+            icon = error;
+            title = `Username Error!`
+            description = `Username must be 3 characters Long, You've used only ${username.length === 1 ? `${username.length} character` : `${username.length} characters`}`;
+        }
+        else if (res === 427) {
+            icon = error;
+            title = `Password Error!`
+            description = `Password must be 6 characters Long, You've used only ${password.length === 1 ? `${password.length} character` : `${password.length} characters`}`;
+        }
+        //  else if (res.status === 500) {
+        //     icon = <ClockCircleOutlined style={{ color: '#FF0000' }}/>;
+        //     title = `Internal Server Error!`
+        //     description = `Failed To Register, Internal Server Error!`;
+        // } 
+        if (res === 200) {
+            icon = <CheckCircleOutlined style={{ color: '#00FF00' }} />
+            title = `Registeration Successful!`
+            description = `User Registered Successfully`;
+            console.log("Registration Successful");
+            Navigate("/signin");
+        }
+        notificationTs(icon, title, description);
     };
 
     return (
