@@ -4,6 +4,9 @@ import { InitialType } from "./Types";
 const initialState: InitialType = {
     type: "",
     error: "",
+    usernameError: "",
+    emailError: "",
+    numberError: "",
     res: null,
 }
 
