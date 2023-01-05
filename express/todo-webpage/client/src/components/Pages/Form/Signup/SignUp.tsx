@@ -86,10 +86,13 @@ export default function SignUp() {
     //     dispatch(signupAction.receiveTEst(427));
     // }
 
-    const signUpError = useAppSelector((state: RootState) => state.signup.error);
-    const signUpUsernameError = useAppSelector((state: RootState) => state.signup.usernameError);
-    const signUpEmailError = useAppSelector((state: RootState) => state.signup.emailError);
-    const signUpNumberError = useAppSelector((state: RootState) => state.signup.numberError);
+    const signUpError = useAppSelector(state => state.signup.error);
+    const signUpUsernameError = useAppSelector(state => state.signup.usernameError);
+    const signUpEmailError = useAppSelector(state => state.signup.emailError);
+    const signUpNumberError = useAppSelector(state => state.signup.numberError);
+
+    console.log(signUpError);
+
 
     // const signUpError = useAppSelector(state => state.signup.error);
     // const signUpUsernameError = useAppSelector(state => state.signup.usernameError);
@@ -98,7 +101,7 @@ export default function SignUp() {
     function signUp() {
         dispatch(signUpUser(user))
         if (signUpError) {
-            alert("Data is empty")
+            window.alert("Data is empty")
         } else if (signUpUsernameError) {
             alert("Username already exist")
         } else if (signUpEmailError) {
