@@ -18,16 +18,43 @@ export const signUpUser = createAsyncThunk('user/signup', async (user: any) => {
         body: JSON.stringify({
             username,
             email,
-            number: parseInt(number),
+            number,
             password,
             cpassword,
             isTheme
         })
     });
-    testRes = res.status;
-    console.log("RES REDUX", testRes);
+    // testRes = res.status;
+    // console.log("RES REDUX", testRes);
     const data = await res.json();
-    return data;
+    if (res.status === 421) {
+        dispatch({
+            type: 'SIGNUP_ERROR',
+            error: data.error
+        });
+    } else if (res.status === 422) {
+        dispatch({
+            type: 'SIGNUP_USERNAME_ERROR',
+            error: data.error
+        });
+    } else if (res.status === 423) {
+        dispatch({
+            type: 'SIGNUP_EMAIL_ERROR',
+            error: data.error
+        });
+    } else if (res.status === 424) {
+        dispatch({
+            type: 'SIGNUP_NUMBER_ERROR',
+            error: data.error
+        });
+    } 
+    // else {
+    //     dispatch({
+    //         type: 'SIGNUP_SUCCESS',
+    //         data
+    //     });
+    // }
+    // return data;
 })
 
 const signupSlice = createSlice({
@@ -37,9 +64,18 @@ const signupSlice = createSlice({
         testState(state) {
             state.res = testRes;
         }
+    }, 
+    extraReducers: (builder) => {
+        builder.addCase(signUpUser.fulfilled, (state) => { // action is of type payloadAction and further it is Array of User
+            state.res = testRes
+        })
     }
 })
 
 export default signupSlice.reducer
 
 export const signupAction = signupSlice.actions;
+
+function dispatch(arg0: { type: string; error: any; }) {
+    throw new Error("Function not implemented.");
+}

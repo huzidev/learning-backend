@@ -54,13 +54,13 @@ export default function SignUp() {
     let description: string | null;
 
     useEffect(() => {
-        dispatch(signupAction.testState())
         dispatch(signUpUser(user))
     }, [])
-
-    function work() {
-        dispatch(signupAction.testState())
+    
+    if (username !== "" && email !== "" && number !== "" && password !== "" && cpassword !== "" && (password === cpassword)) {
+        dispatch(signUpUser(user))
     }
+
     console.log("res TS before", res);
 
     let inputType: string = username === "" ? 
@@ -70,7 +70,7 @@ export default function SignUp() {
     "Password" : cpassword === "" ? 
     "Confirm Password" : "";
     if (res === 421) {
-        field = inputType
+        field = inputType;
     }
     // else if (username !== "" && username.length < 3) {
     //     dispatch(signupAction.receiveTEst(426));
@@ -88,7 +88,6 @@ export default function SignUp() {
 
     function signUp() {
         dispatch(signUpUser(user))
-        work()
         console.log("res TS", res);
         if (res === 421) {
             icon = error;
@@ -228,7 +227,6 @@ export default function SignUp() {
                     </Button>
                 </Form.Item>
             </Form>
-            <button onClick={work}>Change state</button>
         </div>
     )
 }
