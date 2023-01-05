@@ -85,7 +85,10 @@ export default function SignUp() {
     //     dispatch(signupAction.receiveTEst(427));
     // }
 
-
+    const signUpError = useAppSelector(state => state.signup.error);
+    const signUpUsernameError = useAppSelector(state => state.signup.usernameError);
+    const signUpEmailError = useAppSelector(state => state.signup.emailError);
+    const signUpNumberError = useAppSelector(state => state.signup.numberError);
     function signUp() {
         dispatch(signUpUser(user))
         console.log("res TS", res);

@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { InitialType } from "./Types";
 
 const initialState: InitialType = {
+    type: "",
+    error: "",
     res: null,
 }
 
