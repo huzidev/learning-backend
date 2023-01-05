@@ -73,11 +73,11 @@ export const signUpUser = (user: any) => {
                 }
             });
             const data = await response.json();
-
             if (response.status === 421) {
                 dispatch({
                     type: 'SIGNUP_ERROR',
-                    error: data.error
+                    error: data.error,
+                    
                 });
             } else if (response.status === 422) {
                 dispatch({

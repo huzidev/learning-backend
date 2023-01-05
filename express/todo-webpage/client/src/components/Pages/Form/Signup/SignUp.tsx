@@ -13,6 +13,7 @@ import { DataType } from './Type';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 import { signUpUser, signupAction, testRes } from '../../../../store/form/Signup/signupSlice';
+import { RootState } from '../../../../store';
 
 export default function SignUp() {
     const dispatch = useAppDispatch();
@@ -85,10 +86,10 @@ export default function SignUp() {
     //     dispatch(signupAction.receiveTEst(427));
     // }
 
-    const signUpError = useAppSelector((state: RootState) => state.signUp.error);
-    const signUpUsernameError = useAppSelector((state: RootState) => state.signUp.usernameError);
-    const signUpEmailError = useAppSelector((state: RootState) => state.signUp.emailError);
-    const signUpNumberError = useAppSelector((state: RootState) => state.signUp.numberError);
+    const signUpError = useAppSelector((state: RootState) => state.signup.error);
+    const signUpUsernameError = useAppSelector((state: RootState) => state.signup.usernameError);
+    const signUpEmailError = useAppSelector((state: RootState) => state.signup.emailError);
+    const signUpNumberError = useAppSelector((state: RootState) => state.signup.numberError);
 
     // const signUpError = useAppSelector(state => state.signup.error);
     // const signUpUsernameError = useAppSelector(state => state.signup.usernameError);
