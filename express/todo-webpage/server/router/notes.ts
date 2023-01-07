@@ -51,6 +51,7 @@ router.get('/allnotes', Verification, async (req: any, res) => {
         return res.status(500).send("Internal Server Error");
     }
 })
+
 router.get('/completednotes', Verification, async (req: any, res) => {
     try {
         const notes = await CompletedNotes.find({ user: req.userID });
