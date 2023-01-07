@@ -7,9 +7,6 @@ const initialState: InitialType = {
     totalNotes: null
 }
 
-let totalNotesTest: any;
-let fetchNotesRes: any;
-
 export const fetchNotes = createAsyncThunk('user/notes', async (location: string) => {
     try {
         const res = await fetch(location, {
@@ -19,11 +16,7 @@ export const fetchNotes = createAsyncThunk('user/notes', async (location: string
                 }),
             credentials : "include"
         })
-        console.log("res status", res.status);
-        fetchNotesRes = res.status;
         const data = await res.json();
-        totalNotesTest = data.length;
-        console.log("notes Length Redux", data.length);
         return data
     } catch (err) {
         console.log(err);
@@ -37,7 +30,8 @@ const noteSlice = createSlice({
         testState(state, action) {
             const data = action.payload;
             state.res = data.resIs;
-            state.totalNotes = data;
+            state.totalNotes = data.dataLen;
+            console.log("DATA", data);
         }
     },
     extraReducers: (builder) => {
