@@ -32,31 +32,14 @@ export default function NotesItems(props: any) {
     } else if (Location.pathname.includes('/completed')) {
         path = "/completednotes"
     }
+    useEffect(() => {
+        dispatch(fetchNotes(path))
+        dispatch(noteAction.testState())
+    }, [Location.pathname])
+    
     const noteRes = noteData.res
     const allNotesLenggt = noteData.totalNotes;
     let allNotes: any = noteData.noteData;
-
-    let resIs: any
-
-    useEffect(() => {
-        async function res() {
-            const res = await fetch(path);
-            resIs = res.status;            
-            const data = await res.json();
-            let dataLen = data.length;
-            dispatch(noteAction.testState({ resIs, dataLen }))
-        }
-        res()
-    }, [path])
-
-    console.log("res Ts", noteRes);
-    console.log("data len Ts", allNotesLenggt);
-    
-
-    useEffect(() => {
-        dispatch(fetchNotes(path))
-    }, [path])
-    
     
     const showModal = () => {   
         setIsModalOpen(true);
