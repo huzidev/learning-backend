@@ -22,9 +22,8 @@ export const fetchNotes = createAsyncThunk('user/notes', async (location: string
         console.log("res status", res.status);
         fetchNotesRes = res.status;
         const data = await res.json();
-        if (res.status === 200) {
-            totalNotesTest = data.length;
-        }
+        totalNotesTest = data.length;
+        console.log("notes Length Redux", data.length);
         return data
     } catch (err) {
         console.log(err);

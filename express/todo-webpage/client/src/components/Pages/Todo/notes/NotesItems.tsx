@@ -34,7 +34,7 @@ export default function NotesItems(props: any) {
     }
     useEffect(() => {
         dispatch(fetchNotes(path))
-        dispatch(fetchNotes(path))
+        dispatch(noteAction.testState())
     }, [Location.pathname])
     
     const noteRes = noteData.res
@@ -57,8 +57,8 @@ export default function NotesItems(props: any) {
         });
     }
 
-    console.log("allNotes are", allNotesLenggt);
-    console.log("res notes TS", noteRes);
+    // console.log("allNotes are", allNotesLenggt);
+    // console.log("res notes TS", noteRes);
 
     // if (allNotes.length === 0) {
     //     (dispatch(noteAction.testState(404)))
@@ -75,7 +75,7 @@ export default function NotesItems(props: any) {
             //         "Content-Type" : "application/json",
             //     }
             // })
-            setTimeout(() => {
+            useEffect(() => {
                 if (noteRes === 404) {
                     icon = error;
                     message = `Empty`;
@@ -90,7 +90,7 @@ export default function NotesItems(props: any) {
                     info = `${allNotesLenggt} notes have been fetched`;
                 }
                 notificationTs(icon, message, info);
-            }, 2500)
+            }, [])
             // setNotes(data)
     // }, [Location.pathname])
     
