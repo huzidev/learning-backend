@@ -198,7 +198,7 @@ export default function NotesItems(props: any) {
                 </Button>
                 <Modal title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
                     <Form>
-                        <Typography.Title level={5}>
+                        <Typography.Title level={5} className="h5">
                             Title
                         </Typography.Title>
                         <Input
@@ -242,7 +242,7 @@ export default function NotesItems(props: any) {
                 notes={notes}
                 updateNote={updateNote}
             />
-            <h1>
+            <h1 className='h1'>
                 WHAT IS RES {noteRes}
             </h1>
         </div>

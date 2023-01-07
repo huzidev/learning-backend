@@ -56,4 +56,9 @@ export const GlobalStyles = createGlobalStyle<Props>`
             color: ${(p: any) => p.darkModeC};
         }
     }
+    @media (max-width: 1600px) {
+      .h5 {
+        font-size: 50px;
+      }
+    }
 `
