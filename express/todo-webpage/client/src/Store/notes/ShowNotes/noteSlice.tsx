@@ -4,7 +4,7 @@ import { InitialType, Note } from "./Types";
 const initialState: InitialType = {
     noteData: [],
     res: null,
-    totalNotes: 0
+    totalNotes: null
 }
 
 export const fetchNotes = createAsyncThunk('user/notes', async (location: string) => {

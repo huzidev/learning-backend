@@ -9,4 +9,5 @@ export interface Note {
 export interface InitialType {
     noteData: Note[]
     res: number | null
+    totalNotes: number | null
 }
