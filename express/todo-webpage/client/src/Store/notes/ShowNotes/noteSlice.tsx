@@ -35,8 +35,8 @@ const noteSlice = createSlice({
     name: 'note',
     initialState,
     reducers: {
-        testState(state, action) {
-            state.res = action.payload
+        testState(state) {
+            state.res = fetchNotesRes;
             state.totalNotes = totalNotesTest;
         }
     },

@@ -59,13 +59,13 @@ export default function NotesItems(props: any) {
     console.log("allNotes are", allNotesLenggt);
     
 
-    if (allNotes.length === 0) {
-        (dispatch(noteAction.testState(404)))
-    } else if (allNotes.length === 1) {
-        (dispatch(noteAction.testState(201)))
-    } else if (allNotes.length > 1) {
-        (dispatch(noteAction.testState(202)))
-    }
+    // if (allNotes.length === 0) {
+    //     (dispatch(noteAction.testState(404)))
+    // } else if (allNotes.length === 1) {
+    //     (dispatch(noteAction.testState(201)))
+    // } else if (allNotes.length > 1) {
+    //     (dispatch(noteAction.testState(202)))
+    // }
 
     // useEffect(() => {
             // const res = await fetch(`${path}`, {
