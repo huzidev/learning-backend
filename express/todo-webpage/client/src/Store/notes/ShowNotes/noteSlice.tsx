@@ -31,7 +31,6 @@ const noteSlice = createSlice({
             const data = action.payload;
             state.res = data.resIs;
             state.totalNotes = data.dataLen;
-            console.log("DATA", data);
         }
     },
     extraReducers: (builder) => {

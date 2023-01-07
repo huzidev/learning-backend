@@ -40,14 +40,14 @@ export default function NotesItems(props: any) {
 
     useEffect(() => {
         async function res() {
-            const res = await fetch("/allnotes");
+            const res = await fetch(path);
             resIs = res.status;            
             const data = await res.json();
             let dataLen = data.length;
             dispatch(noteAction.testState({ resIs, dataLen }))
         }
         res()
-    }, [])
+    }, [path])
 
     console.log("res Ts", noteRes);
     console.log("data len Ts", allNotesLenggt);
@@ -55,7 +55,7 @@ export default function NotesItems(props: any) {
 
     useEffect(() => {
         dispatch(fetchNotes(path))
-    }, [Location.pathname])
+    }, [path])
     
     
     const showModal = () => {   
