@@ -7,6 +7,8 @@ const initialState: InitialType = {
     totalNotes: null
 }
 
+let totalNotesTest: any;
+
 export const fetchNotes = createAsyncThunk('user/notes', async (location: string) => {
     try {
         const res = await fetch(location, {
@@ -17,10 +19,11 @@ export const fetchNotes = createAsyncThunk('user/notes', async (location: string
             credentials : "include"
         })
         console.log("res status", res.status);
-        if (res.status === 200) {
-            
-        }
+        // if (res.status === 200) {
+        // }
         const data = await res.json();
+        console.log("data", data.length);
+        
         return data
     } catch (err) {
         console.log(err);
