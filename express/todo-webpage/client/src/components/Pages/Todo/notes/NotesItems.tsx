@@ -35,16 +35,23 @@ export default function NotesItems(props: any) {
 
     let resIs: any
 
-    async function res() {
-        resIs = await fetch("/allnotes")
-    }
+    useEffect(() => {
+        async function res() {
+            const res = await fetch("/allnotes");
+            resIs = res.status;            
+            console.log("resIs", resIs);
+            const data = await res.json();
+            let dataLne = data.length;
+            console.log("data", data);
+            dispatch(noteAction.testState(resIs))
+            dispatch(noteAction.testState(data.length))
+        }
+        res()
+    }, [])
 
-    console.log("res from TS", resIS.status);
-    
 
     useEffect(() => {
         dispatch(fetchNotes(path))
-        dispatch(noteAction.testState())
     }, [Location.pathname])
     
     const noteRes = noteData.res
@@ -253,7 +260,7 @@ export default function NotesItems(props: any) {
                 updateNote={updateNote}
             />
             <h1>
-                WHAT IS RES {noteRes}
+                WHAT IS RES {resIs}
             </h1>
         </div>
     )
