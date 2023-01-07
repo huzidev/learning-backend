@@ -63,9 +63,6 @@ export default function NotesItems(props: any) {
         (dispatch(noteAction.testState(202)))
     }
 
-
-    console.log("REs for notes", noteRes);
-    
     // useEffect(() => {
             // const res = await fetch(`${path}`, {
             //     method : 'GET',
