@@ -11,6 +11,8 @@ import { fetchNotes, noteAction } from '../../../../store/notes/ShowNotes/noteSl
 import { updateThisNote } from '../../../../store/notes/UpdateNote/updateSlice';
 
 export default function NotesItems(props: any) {
+    const dispatch = useAppDispatch();
+    const noteData = useAppSelector(state => state.note)
     const Location = useLocation()
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
@@ -32,10 +34,9 @@ export default function NotesItems(props: any) {
     }
     useEffect(() => {
         dispatch(fetchNotes(path))
+        dispatch(fetchNotes(path))
     }, [Location.pathname])
     
-    const dispatch = useAppDispatch();
-    const noteData = useAppSelector(state => state.note)
     const noteRes = noteData.res
     const allNotesLenggt = noteData.totalNotes;
     let allNotes: any = noteData.noteData;
@@ -57,7 +58,7 @@ export default function NotesItems(props: any) {
     }
 
     console.log("allNotes are", allNotesLenggt);
-    
+    console.log("res notes TS", noteRes);
 
     // if (allNotes.length === 0) {
     //     (dispatch(noteAction.testState(404)))
