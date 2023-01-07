@@ -242,6 +242,9 @@ export default function NotesItems(props: any) {
                 notes={notes}
                 updateNote={updateNote}
             />
+            <h1>
+                WHAT IS RES {noteRes}
+            </h1>
         </div>
     )
 }
