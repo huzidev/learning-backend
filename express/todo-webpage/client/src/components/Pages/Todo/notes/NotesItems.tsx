@@ -37,6 +37,7 @@ export default function NotesItems(props: any) {
     const dispatch = useAppDispatch();
     const noteData = useAppSelector(state => state.note)
     const noteRes = noteData.res
+    const allNotesLenggt = noteData.totalNotes;
     let allNotes: any = noteData.noteData;
     
     const showModal = () => {   
@@ -54,6 +55,9 @@ export default function NotesItems(props: any) {
             description: info
         });
     }
+
+    console.log("allNotes are", allNotesLenggt);
+    
 
     if (allNotes.length === 0) {
         (dispatch(noteAction.testState(404)))
@@ -82,7 +86,7 @@ export default function NotesItems(props: any) {
                 } else if (noteRes === 202) {
                     icon = success;
                     message = `Notes Fetched Successfully`;
-                    info = `${allNotes.length} notes have been fetched`;
+                    info = `${allNotesLenggt} notes have been fetched`;
                 }
                 notificationTs(icon, message, info);
             }, 2500)

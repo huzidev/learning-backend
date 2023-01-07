@@ -8,6 +8,7 @@ const initialState: InitialType = {
 }
 
 let totalNotesTest: any;
+let fetchNotesRes: any;
 
 export const fetchNotes = createAsyncThunk('user/notes', async (location: string) => {
     try {
@@ -19,6 +20,7 @@ export const fetchNotes = createAsyncThunk('user/notes', async (location: string
             credentials : "include"
         })
         console.log("res status", res.status);
+        fetchNotesRes = res.status;
         const data = await res.json();
         if (res.status === 200) {
             totalNotesTest = data.length;
@@ -35,6 +37,7 @@ const noteSlice = createSlice({
     reducers: {
         testState(state, action) {
             state.res = action.payload
+            state.totalNotes = totalNotesTest;
         }
     },
     extraReducers: (builder) => {
