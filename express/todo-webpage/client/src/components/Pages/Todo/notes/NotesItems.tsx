@@ -32,6 +32,16 @@ export default function NotesItems(props: any) {
     } else if (Location.pathname.includes('/completed')) {
         path = "/completednotes"
     }
+
+    let resIs: any
+
+    async function res() {
+        resIs = await fetch("/allnotes")
+    }
+
+    console.log("res from TS", resIS.status);
+    
+
     useEffect(() => {
         dispatch(fetchNotes(path))
         dispatch(noteAction.testState())
