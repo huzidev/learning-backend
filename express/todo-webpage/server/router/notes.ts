@@ -12,7 +12,6 @@ router.use(cors({
 }));
 
 
-
 // let path: string, holder: any;
 // if (location.pathname.includes("/addnote")) {
 //     path = "/allnotes";
@@ -36,7 +35,6 @@ router.use(cors({
 //         return res.status(500).send("Internal Server Error");
 //     }
 // })
-
 
 router.get('/allnotes', Verification, async (req: any, res) => {
     try {
