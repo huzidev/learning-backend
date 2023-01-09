@@ -143,15 +143,15 @@ export default function NotesItems(props: any) {
             //     });
         dispatch(updateThisNote(note))
                 let state: string = isChecked ? "Completed Notes" : "Notes List"
-        if (title === "" || description === "" || category === "") {
+            if (title === "" || description === "" || category === "") {
                     icon = error;
                     message = "Empty Field";
                     info = `You can't left any field empty`
-        } else if (title === htitle && description === hdescription && category === hcategory && isCheckedState === hIsCompleted) {
+            } else if (title === htitle && description === hdescription && category === hcategory && isCheckedState === hIsCompleted) {
                     icon = error;
                     message = "Same Data";
                     info = `Nothing New To Update All Values Are Same As Before`
-                } else if (isChecked === !hIsCompleted) {
+            } else if (isCheckedState === !hIsCompleted) {
                     icon = success;
                     message = "Task Completed";
                     info = `Yours Note Has Been Added To ${state}`
@@ -197,7 +197,7 @@ export default function NotesItems(props: any) {
                         </Typography.Title>
                         <Input
                             type="text"
-                            name='etitle'
+                            name='title'
                             value={title}
                             onChange={onChange}
                         />
@@ -206,7 +206,7 @@ export default function NotesItems(props: any) {
                         </Typography.Title>
                         <Input
                             type="text"
-                            name='edescription'
+                            name='description'
                             value={description}
                             onChange={onChange}
                         />
@@ -215,7 +215,7 @@ export default function NotesItems(props: any) {
                         </Typography.Title>
                         <Input
                             type="text"
-                            name='ecategory'
+                            name='category'
                             value={category}
                             onChange={onChange}
                         />

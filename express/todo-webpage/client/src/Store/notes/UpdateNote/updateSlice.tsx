@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const updateThisNote = createAsyncThunk('user/updateNote', async (note: any) => {
     try {
-        const { id, etitle, edescription, ecategory, eisChecked } = note
+        const { id, title, description, category, isChecked } = note
         console.log("Note for update", note);
         const res = await fetch(`/updatenote/${id}`, {
             method: 'PUT',
@@ -10,10 +10,10 @@ export const updateThisNote = createAsyncThunk('user/updateNote', async (note: a
                 "Content-Type": "application/json",
             }),
             body: JSON.stringify({
-                title: etitle,
-                description: edescription,
-                category: ecategory,
-                isCompleted: eisChecked
+                title,
+                description,
+                category,
+                isCompleted: isChecked
             })
         });
         const data = await res.json()
