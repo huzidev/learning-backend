@@ -1,9 +1,9 @@
 export interface DataType {
     id: string,
-    etitle: string,
-    edescription: string,
-    ecategory: string,
-    eisChecked: boolean | null
+    title: string,
+    description: string,
+    category: string,
+    isChecked: boolean | null
 }
 export interface DataTypeHold {
     hid: number | null,

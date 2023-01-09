@@ -16,9 +16,9 @@ export default function NotesItems(props: any) {
     const Location = useLocation()
     const context = useContext(DataContext);
     const { notes, setNotes } = context;
-    const [note, setNote] = useState<DataType>({ id: "", etitle: "", edescription: "", ecategory: "", eisChecked: null })
+    const [note, setNote] = useState<DataType>({ id: "", title: "", description: "", category: "", isChecked: null })
     const [holdNote, setHoldNote] = useState<DataTypeHold>({ hid: null, htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined })
-    const [isChecked, setIsChecked] = useState<boolean | undefined>(undefined);
+    const [isCheckedState, setIsCheckedState] = useState<boolean | undefined>(undefined);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const ref = useRef<any>(null)
     const error: React.ReactNode = <ExclamationCircleOutlined style={{ color: '#FF0000' }}/>;
@@ -100,13 +100,13 @@ export default function NotesItems(props: any) {
         // ref.current.value gets the value
         // ref.current.click() checks the click
         ref.current.click();
-        setIsChecked(currentNote.isCompleted)
+        setIsCheckedState(currentNote.isCompleted)
         setNote({
             id: currentNote._id,
-            etitle: currentNote.title,
-            edescription: currentNote.description,
-            ecategory: currentNote.category,
-            eisChecked: currentNote.isCompleted
+            title: currentNote.title,
+            description: currentNote.description,
+            category: currentNote.category,
+            isChecked: currentNote.isCompleted
         })
         // to hold initial value and if user didn't chnage the value and tries to update the note with sane value then to show error 
         setHoldNote({
@@ -119,14 +119,14 @@ export default function NotesItems(props: any) {
     }
 
     function stateChanger() {
-        setIsChecked(!isChecked)
+        setIsCheckedState(!isCheckedState)
     }
 
     console.log("note", note);
     
 
+    const { id, title, description, category, isChecked } = note
     const handleClick = async () => {
-        const { id, etitle, edescription, ecategory, eisChecked } = note
         const { htitle, hdescription, hcategory, hIsCompleted } = holdNote
             // try {
             //     const res = await fetch(`/updatenote/${id}`, {
@@ -143,11 +143,11 @@ export default function NotesItems(props: any) {
             //     });
         dispatch(updateThisNote(note))
                 let state: string = isChecked ? "Completed Notes" : "Notes List"
-                if (etitle === "" || edescription === "" || ecategory === "") {
+        if (title === "" || description === "" || category === "") {
                     icon = error;
                     message = "Empty Field";
                     info = `You can't left any field empty`
-                } else if (etitle === htitle && edescription === hdescription && ecategory === hcategory && isChecked === hIsCompleted) {
+        } else if (title === htitle && description === hdescription && category === hcategory && isCheckedState === hIsCompleted) {
                     icon = error;
                     message = "Same Data";
                     info = `Nothing New To Update All Values Are Same As Before`
@@ -198,7 +198,7 @@ export default function NotesItems(props: any) {
                         <Input
                             type="text"
                             name='etitle'
-                            value={note.etitle}
+                            value={title}
                             onChange={onChange}
                         />
                         <Typography.Title level={5} style={style} className="h5">
@@ -207,7 +207,7 @@ export default function NotesItems(props: any) {
                         <Input
                             type="text"
                             name='edescription'
-                            value={note.edescription}
+                            value={description}
                             onChange={onChange}
                         />
                         <Typography.Title level={5} style={style}>
@@ -216,17 +216,17 @@ export default function NotesItems(props: any) {
                         <Input
                             type="text"
                             name='ecategory'
-                            value={note.ecategory}
+                            value={category}
                             onChange={onChange}
                         />
                         <div style={{ display: 'flex', marginTop: '10px' }}>
                             <input 
                                 type="checkbox"
-                                checked= {isChecked}
+                                checked={isCheckedState}
                                 onChange= {stateChanger}
                             />
                             <Typography.Title level={5} style={{ margin: '0px 0px 0px 10px' }}>
-                                {isChecked ? "Completed" : "Not Completed"}
+                                {isCheckedState ? "Completed" : "Not Completed"}
                             </Typography.Title>
                         </div>
                     </Form>
