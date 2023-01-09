@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import { Card, Button, Typography, Modal, notification } from 'antd';
 import { CheckCircleOutlined } from '@ant-design/icons';
 import { IntlProvider, FormattedDate } from 'react-intl'

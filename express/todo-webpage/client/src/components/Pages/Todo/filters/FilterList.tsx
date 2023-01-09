@@ -31,8 +31,8 @@ export default function FilterList(props: any): JSX.Element {
             // element.category targets category only ex: grocery, payments and bills
             return element.category === items
         })
-        setItems(updatedFilterItems)
-        setState(true)
+        setItems(updatedFilterItems);
+        setState(true);
     }
 
     const Text = addNotesPath ? "Yours Notes" : "Completed Notes"
@@ -47,7 +47,6 @@ export default function FilterList(props: any): JSX.Element {
     });
     
     const error = status === undefined;
-    
     const style = {
         display: "flex", 
         justifyContent: "space-between",
