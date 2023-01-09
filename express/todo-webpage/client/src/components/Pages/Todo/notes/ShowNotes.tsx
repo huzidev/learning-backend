@@ -61,7 +61,7 @@ export default function ShowNotes(props: any): JSX.Element {
                                 Are You Sure? You Wanna Delete This Note?
                             </Typography.Text>
                         </Modal>
-                        <Button onClick={() => { updateNote(note) }} type="ghost">
+                        <Button onClick={() => updateNote(note)} type="ghost">
                             Update Note
                         </Button>
                     </div>
