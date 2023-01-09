@@ -20,10 +20,6 @@ const NotesSchema = new Schema({
     },
     isCompleted : {
         type: Boolean
-    },
-    date:{
-        type: Date,
-        default: Date.now
     }
 });
 

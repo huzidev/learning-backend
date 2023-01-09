@@ -92,7 +92,8 @@ router.post('/addnote', Verification, async (req: any, res: Response) => {
 )
 
 router.put('/updatenote/:id', Verification, async (req: any, res: Response) => {
-    const { title, description, category, isCompleted } = req.body;
+    const { title, description, category, isCompleted, date } = req.body;
+    console.log("req", req.body);
     try {
         const newNote = <TypesNote>{}
         if (title) {
