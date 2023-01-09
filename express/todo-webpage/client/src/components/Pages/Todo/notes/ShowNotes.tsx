@@ -9,7 +9,7 @@ import { deleteThisNote } from '../../../../store/notes/DeleteNote/deleteSlice';
 
 export default function ShowNotes(props: any): JSX.Element {
     const dispatch = useAppDispatch();
-    const Location = useLocation()
+    const Location = useLocation();
     const { note, updateNote } = props;
     const [isModalOpen, setIsModalOpen] = useState(false);
 
