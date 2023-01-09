@@ -1,10 +1,9 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const updateThisNote = createAsyncThunk('user/updateNote', async (note: any) => {
     try {
         const { id, etitle, edescription, ecategory, eisChecked } = note
         console.log("Note for update", note);
-        
         const res = await fetch(`/updatenote/${id}`, {
             method: 'PUT',
             headers: new Headers({
@@ -18,6 +17,7 @@ export const updateThisNote = createAsyncThunk('user/updateNote', async (note: a
             })
         });
         const data = await res.json()
+        console.log("data", data);
         return data;
     } catch (err) {
         console.log(err);

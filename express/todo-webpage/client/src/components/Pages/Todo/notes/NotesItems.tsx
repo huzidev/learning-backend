@@ -122,6 +122,9 @@ export default function NotesItems(props: any) {
         setIsChecked(!isChecked)
     }
 
+    console.log("note", note);
+    
+
     const handleClick = async () => {
         const { id, etitle, edescription, ecategory, eisChecked } = note
         const { htitle, hdescription, hcategory, hIsCompleted } = holdNote
@@ -156,17 +159,8 @@ export default function NotesItems(props: any) {
                     icon = success;
                     message = "Note Updated";
                     info = `Yours Note Has Been Updated Successfully!`
-                    let newNote = JSON.parse(JSON.stringify(notes))
-                    for (let index = 0; index < newNote.length; index++) {
-                        const element = newNote[index];
-                        if (element._id === id) {
-                            newNote[index].title = etitle;
-                            newNote[index].description = edescription;
-                            newNote[index].category = ecategory;
-                            break; 
-                        }
-                        setNotes(newNote)
-                    }
+                    // let newNote = JSON.parse(JSON.stringify(notes))
+                    //     setNotes(newNote)
                 }
                 notificationTs(icon, message, info);
             // } catch (err) {
