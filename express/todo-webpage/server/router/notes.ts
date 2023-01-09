@@ -25,7 +25,7 @@ router.use(cors({
 //     try {
 //         const notes = await holder.find({ user: req.userID });
 //         res.json(notes)
-//     } catch (err) {
+//     } catch (err) {  
 //         // because error type will be unkown therefore just check if error is of instance error
 //         if (err instanceof Error) {
 //             console.error(err.message);
@@ -38,6 +38,9 @@ router.use(cors({
 
 router.get('/allnotes', Verification, async (req: any, res) => {
     try {
+        if (req.path.includes('mystring')) {
+            res.send('The current pathname includes "mystring"');
+        }
         const notes = await Note.find({ user: req.userID });
         res.json(notes)
     } catch (err) {

@@ -4,15 +4,15 @@ import cookie from 'cookie-parser';
 import bodyParser from "body-parser";
 import cors from "cors";
 
-dotenv.config({ path : './config.env' });
-require('./db/connection.ts');
+dotenv.config({ path : 'config.env' });
+require('../db/connection.ts');
 
 const server: Express = express();
 const port: number = 8000;
 
 server.use(express.json());
-server.use(require('./router/auth'));
-server.use(require('./router/notes'));
+server.use(require('../router/auth'));
+server.use(require('../router/notes'));
 
 server.use(cors({
     origin: "*"
