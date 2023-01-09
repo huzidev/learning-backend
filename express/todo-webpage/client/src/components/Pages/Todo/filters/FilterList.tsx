@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import ShowNotes from '../notes/ShowNotes';
 import { Col, Row, Button, Typography, Skeleton } from 'antd';
 import { useLocation } from 'react-router-dom';
-import { useAppSelector } from '../../../../store/hooks/hooks';
 
 export default function FilterList(props: any): JSX.Element {
-    const notes = useAppSelector(state => state.note)
-    const Location = useLocation()
-    let allNotes = notes.noteData
-    
+    const Location = useLocation();
+    let allNotes = props.notes;
+
     const [state, setState] = useState<boolean | null>(null)
     const [items, setItems] = useState(allNotes)
 
@@ -25,7 +23,7 @@ export default function FilterList(props: any): JSX.Element {
     // when user clicked on filter list then state will change to true & all the notes with that specific catgeory will fetch only therefore state must be true but initially it is false 
     let Data = state ? items : allNotes
 
-    const allItems = [...new Set(allNotes.map((currentEle) => (
+    const allItems = [...new Set(allNotes.map((currentEle: any) => (
         // !currentEle.isCompleted && addNotesPath || currentEle.isCompleted && completedNotesPath ? (
         currentEle.category
         // ) : null
@@ -33,7 +31,7 @@ export default function FilterList(props: any): JSX.Element {
     ))]
 
     function filterItems(items: string) {
-        const updatedFilterItems = allNotes.filter((element) => {
+        const updatedFilterItems = allNotes.filter((element: any) => {
             // element.category targets category only ex: grocery, payments and bills
             return element.category === items
         })

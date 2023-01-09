@@ -14,8 +14,6 @@ export default function NotesItems(props: any) {
     const dispatch = useAppDispatch();
     const noteData = useAppSelector(state => state.note)
     const Location = useLocation()
-    const context = useContext(DataContext);
-    const { notes, setNotes } = context;
     const [note, setNote] = useState<DataType>({ id: "", title: "", description: "", category: "", isChecked: null })
     const [holdNote, setHoldNote] = useState<DataTypeHold>({ hid: null, htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined })
     const [isCheckedState, setIsCheckedState] = useState<boolean | undefined>(undefined);
@@ -233,7 +231,7 @@ export default function NotesItems(props: any) {
                 </Modal>
             </>
             <FilterList 
-                notes={notes}
+                notes={allNotes}
                 updateNote={updateNote}
             />
             <h1 className='h1'>
