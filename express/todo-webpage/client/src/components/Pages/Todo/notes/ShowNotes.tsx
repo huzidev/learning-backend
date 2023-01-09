@@ -8,40 +8,23 @@ import { useAppDispatch } from '../../../../store/hooks/hooks';
 import { deleteThisNote } from '../../../../store/notes/DeleteNote/deleteSlice';
 
 export default function ShowNotes(props: any): JSX.Element {
+    const dispatch = useAppDispatch();
     const Location = useLocation()
     const { note, updateNote } = props;
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const dispatch = useAppDispatch();
-
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
-
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
 
     async function deleteNote() {
-            // const res = await fetch(`/deletenote/${note._id}`, {
-            //     method: 'DELETE',
-            //     headers: {
-            //         "Content-Type" : "application/json",
-            //     }
-            // })
-            // const data = res.json();
-            dispatch(deleteThisNote(note._id))
-            // const newNotes = notes.filter((d: any) => { return d._id !== note.id })
-            // setNotes(newNotes)
-            async function openNotification() {
-                notification.open({
-                    icon : <CheckCircleOutlined style={{ color: '#00FF00' }}/>,
-                    message: "Note Deleted Successfully!"
-                });
-            };
-            openNotification();
-            setTimeout(() => {
-                window.location.reload()
-            }, 1500)
+        dispatch(deleteThisNote(note._id))
+        async function openNotification() {
+            notification.open({
+                icon : <CheckCircleOutlined style={{ color: '#00FF00' }}/>,
+                message: "Note Deleted Successfully!"
+            });
+        };
+        openNotification();
+        setTimeout(() => {
+            window.location.reload()
+        }, 1500)
     }
     return (
         <div>
@@ -70,10 +53,10 @@ export default function ShowNotes(props: any): JSX.Element {
                         <br />
                     </IntlProvider>
                     <div style={{ marginTop: '10px' }}> 
-                        <Button onClick={showModal} type="ghost" style={{ marginRight: '10px' }}>
+                        <Button onClick={() => setIsModalOpen(true)} type="ghost" style={{ marginRight: '10px' }}>
                             Delete
                         </Button>
-                        <Modal title="Delete Note" open={isModalOpen} okText="Delete" onOk={deleteNote} onCancel={handleCancel}>
+                        <Modal title="Delete Note" open={isModalOpen} okText="Delete" onOk={deleteNote} onCancel={() => setIsModalOpen(false)}>
                             <Typography.Text>
                                 Are You Sure? You Wanna Delete This Note?
                             </Typography.Text>

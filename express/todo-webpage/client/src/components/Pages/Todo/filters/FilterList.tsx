@@ -7,12 +7,11 @@ export default function FilterList(props: any): JSX.Element {
     const Location = useLocation();
     let allNotes = props.notes;
 
-    const [state, setState] = useState<boolean | null>(null)
-    const [items, setItems] = useState(allNotes)
+    const [state, setState] = useState<boolean | null>(null);
+    const [items, setItems] = useState(allNotes);
 
     const addNotesPath: boolean = Location.pathname.includes('/addnote');
     const completedNotesPath: boolean = Location.pathname.includes('/completed');
-
     const locationName: string = addNotesPath ? "/allnotes" : "/completednotes"
 
     useEffect(() => {
@@ -24,11 +23,8 @@ export default function FilterList(props: any): JSX.Element {
     let Data = state ? items : allNotes
 
     const allItems = [...new Set(allNotes.map((currentEle: any) => (
-        // !currentEle.isCompleted && addNotesPath || currentEle.isCompleted && completedNotesPath ? (
         currentEle.category
-        // ) : null
-    )
-    ))]
+    )))]
 
     function filterItems(items: string) {
         const updatedFilterItems = allNotes.filter((element: any) => {
