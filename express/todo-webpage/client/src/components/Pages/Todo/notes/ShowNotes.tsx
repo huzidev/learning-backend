@@ -13,9 +13,9 @@ export default function ShowNotes(props: any): JSX.Element {
     const { note, updateNote } = props;
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    async function deleteNote() {
+    function deleteNote() {
         dispatch(deleteThisNote(note._id));
-        async function openNotification() {
+        function openNotification() {
             notification.open({
                 icon : <CheckCircleOutlined style={{ color: '#00FF00' }}/>,
                 message: "Note Deleted Successfully!"
