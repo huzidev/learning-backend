@@ -207,7 +207,7 @@ export default function NotesItems(props: any) {
                             value={note.etitle}
                             onChange={onChange}
                         />
-                        <Typography.Title level={5} style={style}>
+                        <Typography.Title level={5} style={style} className="h5">
                             Description
                         </Typography.Title>
                         <Input
