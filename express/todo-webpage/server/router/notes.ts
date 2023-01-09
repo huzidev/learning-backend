@@ -138,8 +138,7 @@ router.put('/updatenote/:id', Verification, async (req: any, res: Response) => {
             { $set: newNote },
             { new: true }
         )
-        res.json(savedNote)
-        res.json({ note });
+        res.json({ note, savedNote });
     } catch (err) {
         if (err instanceof Error) {
             console.error(err.message);
