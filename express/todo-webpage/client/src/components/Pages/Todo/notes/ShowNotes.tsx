@@ -65,8 +65,7 @@ export default function ShowNotes(props: any): JSX.Element {
                             Update Note
                         </Button>
                     </div>
-                </Card>
-            ) : ''
+                </Card>) : ''
             }
         </div>
     )
