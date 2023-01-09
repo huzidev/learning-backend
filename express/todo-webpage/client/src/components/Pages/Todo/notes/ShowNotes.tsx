@@ -14,7 +14,7 @@ export default function ShowNotes(props: any): JSX.Element {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     async function deleteNote() {
-        dispatch(deleteThisNote(note._id))
+        dispatch(deleteThisNote(note._id));
         async function openNotification() {
             notification.open({
                 icon : <CheckCircleOutlined style={{ color: '#00FF00' }}/>,
@@ -23,9 +23,10 @@ export default function ShowNotes(props: any): JSX.Element {
         };
         openNotification();
         setTimeout(() => {
-            window.location.reload()
+            window.location.reload();
         }, 1500)
-    }
+    };
+
     return (
         <div>
             {!note.isCompleted && Location.pathname.includes('/addnote') || note.isCompleted && Location.pathname.includes('/completed') ? ( 
