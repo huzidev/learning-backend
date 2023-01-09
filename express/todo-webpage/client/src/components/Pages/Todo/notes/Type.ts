@@ -2,6 +2,7 @@ export interface DataType {
     id: string,
     title: string,
     description: string,
+    date: any,
     category: string,
     isChecked: boolean | null
 }

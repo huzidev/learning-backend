@@ -14,7 +14,7 @@ export default function NotesItems(props: any) {
     const dispatch = useAppDispatch();
     const noteData = useAppSelector(state => state.note)
     const Location = useLocation()
-    const [note, setNote] = useState<DataType>({ id: "", title: "", description: "", category: "", isChecked: null })
+    const [note, setNote] = useState<DataType>({ id: "", title: "", description: "", category: "", date: null, isChecked: null })
     const [holdNote, setHoldNote] = useState<DataTypeHold>({ hid: null, htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined })
     const [isCheckedState, setIsCheckedState] = useState<boolean | undefined>(undefined);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -45,7 +45,6 @@ export default function NotesItems(props: any) {
     const handleCancel = () => {
         setIsModalOpen(false);
     };
-
 
     async function notificationTs(icon: React.ReactNode, message: string, info: string | null) {
         notification.open({
@@ -122,8 +121,7 @@ export default function NotesItems(props: any) {
 
     console.log("note", note);
     
-
-    const { id, title, description, category, isChecked } = note
+    const { title, description, category, isChecked } = note
     const handleClick = async () => {
         const { htitle, hdescription, hcategory, hIsCompleted } = holdNote
             // try {
