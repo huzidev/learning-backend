@@ -18,10 +18,10 @@ const NotesSchema = new Schema({
         type: String,
         default: "General"
     },
-    isCompleted : {
+    isCompleted: {
         type: Boolean
     },
-    date:{
+    date:{ 
         type: Date,
         default: Date.now
     }
