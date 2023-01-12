@@ -26,6 +26,8 @@ export default function ShowNotes(props: any): JSX.Element {
         }, 1500)
     };
 
+    let typeOf: string = note.isCompleted ? "Completed At" : "Created At";
+
     return (
         <div>
             {!note.isCompleted && Location.pathname.includes('/addnote') || note.isCompleted && Location.pathname.includes('/completed') ? (
@@ -45,7 +47,7 @@ export default function ShowNotes(props: any): JSX.Element {
                     </Typography.Title>
                     <IntlProvider locale="en" defaultLocale="en">
                         <Typography.Text>
-                            Created At {" "}
+                            {typeOf} {" "}
                             <FormattedDate
                                 value={note.date}
                             />
