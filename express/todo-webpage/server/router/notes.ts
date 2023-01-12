@@ -151,9 +151,9 @@ router.delete('/deletenote/:id', Verification, async (req: any, res: Response) =
     try {
         let note: any, main: any; 
         if (await Note.findById(req.params.id)) {
-            main = Note
+            main = Note;
         } else if (await CompletedNotes.findById(req.params.id)) {
-            main = CompletedNotes
+            main = CompletedNotes;
         }
         note = await main.findById(req.params.id);
         if (!note) {
