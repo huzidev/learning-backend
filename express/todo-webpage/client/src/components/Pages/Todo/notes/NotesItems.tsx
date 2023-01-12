@@ -104,7 +104,7 @@ export default function NotesItems(props: any) {
             description: currentNote.description,
             category: currentNote.category,
             date: currentNote.date,
-            isChecked: currentNote.isCompleted
+            isCompleted: currentNote.isCompleted
         })
         // to hold initial value and if user didn't chnage the value and tries to update the note with sane value then to show error 
         setHoldNote({
@@ -126,24 +126,10 @@ export default function NotesItems(props: any) {
         })
     }
 
-    console.log("note", note);
     const { title, description, category, isCompleted } = note
+    const { htitle, hdescription, hcategory, hIsCompleted } = holdNote
     
     const handleClick = async () => {
-        const { htitle, hdescription, hcategory, hIsCompleted } = holdNote
-            // try {
-            //     const res = await fetch(`/updatenote/${id}`, {
-            //         method: 'PUT',
-            //         headers: new Headers({
-            //             "Content-Type" : "application/json",
-            //         }),
-            //         body: JSON.stringify({
-            //             title : etitle,
-            //             description : edescription,
-            //             category : ecategory,
-            //             isCompleted: isChecked
-            //         })
-            //     });
         dispatch(updateThisNote(note))
             let state: string = isCompleted ? "Completed Notes" : "Notes List"
             if (title === "" || description === "" || category === "") {
