@@ -79,7 +79,7 @@ router.post('/signin', async (req: any, res: Response) => {
             } else {
                 token = await userEmail.generateAuthToken();
                 res.cookie("jwtoken", token, {
-                    expires : new Date(Date.now() + 86400000), // after 24 hours
+                    // expires : new Date(Date.now() + 86400000), // after 24 hours
                     httpOnly : true
                 })
                 return res.status(201).json({ message : "User loggedIn successfully" })

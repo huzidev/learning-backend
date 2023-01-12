@@ -12,7 +12,7 @@ const NotesSchema = new Schema({
     },
     description: {
         type: String,
-        required: true, 
+        required: true
     },
     category: {
         type: String,

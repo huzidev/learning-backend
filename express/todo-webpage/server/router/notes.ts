@@ -97,14 +97,15 @@ router.put('/updatenote/:id', Verification, async (req: any, res: Response) => {
     try {
         const newNote = <TypesNote>{}
         if (title) {
-            newNote.title = title
+            newNote.title = title;
         } else if (description) {
-            newNote.description = description
+            newNote.description = description;
         } else if (category) {
-            newNote.category = category
+            newNote.category = category;
         } else if (!isCompleted || isCompleted) {
-            newNote.isCompleted = isCompleted
+            newNote.isCompleted = isCompleted;
         }
+        newNote.date = date;
         let note: any, savedNote: any, state: any, hold: any, main: any; 
         if (await Note.findById(req.params.id)) {
             main = Note,
@@ -124,7 +125,7 @@ router.put('/updatenote/:id', Verification, async (req: any, res: Response) => {
         }
         if (isCompleted === state) {
             note = new hold({
-                title, description, category, isCompleted, user: req.userID
+                title, description, category, isCompleted, date, user: req.userID
             })
             savedNote = await note.save();
             note = await main.findById(req.params.id)
