@@ -14,7 +14,7 @@ export default function NotesItems(props: any) {
     const dispatch = useAppDispatch();
     const noteData = useAppSelector(state => state.note)
     const Location = useLocation()
-    const [note, setNote] = useState<DataType>({ id: "", title: "", description: "", category: "", date: null, isChecked: null })
+    const [note, setNote] = useState<DataType>({ id: "", title: "", description: "", category: "", date: null, isCompleted: null })
     const [holdNote, setHoldNote] = useState<DataTypeHold>({ hid: null, htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined })
     const [isCheckedState, setIsCheckedState] = useState<boolean | undefined>(undefined);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -103,6 +103,7 @@ export default function NotesItems(props: any) {
             title: currentNote.title,
             description: currentNote.description,
             category: currentNote.category,
+            date: currentNote.date,
             isChecked: currentNote.isCompleted
         })
         // to hold initial value and if user didn't chnage the value and tries to update the note with sane value then to show error 
@@ -117,11 +118,17 @@ export default function NotesItems(props: any) {
 
     function stateChanger() {
         setIsCheckedState(!isCheckedState)
+        setNote((notes) => {
+            return {
+                ...notes,
+                isCompleted: !isCompleted
+            }
+        })
     }
 
     console.log("note", note);
+    const { title, description, category, isCompleted } = note
     
-    const { title, description, category, isChecked } = note
     const handleClick = async () => {
         const { htitle, hdescription, hcategory, hIsCompleted } = holdNote
             // try {
@@ -138,7 +145,7 @@ export default function NotesItems(props: any) {
             //         })
             //     });
         dispatch(updateThisNote(note))
-                let state: string = isChecked ? "Completed Notes" : "Notes List"
+            let state: string = isCompleted ? "Completed Notes" : "Notes List"
             if (title === "" || description === "" || category === "") {
                     icon = error;
                     message = "Empty Field";

@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const updateThisNote = createAsyncThunk('user/updateNote', async (note: any) => {
     try {
-        const { id, title, description, category, isChecked } = note
+        const { id, title, description, category, isChecked, date } = note
         console.log("Note for update", note);
         const res = await fetch(`/updatenote/${id}`, {
             method: 'PUT',
@@ -13,6 +13,7 @@ export const updateThisNote = createAsyncThunk('user/updateNote', async (note: a
                 title,
                 description,
                 category,
+                date,
                 isCompleted: isChecked
             })
         });

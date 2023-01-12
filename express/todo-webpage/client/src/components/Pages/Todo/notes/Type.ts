@@ -4,7 +4,7 @@ export interface DataType {
     description: string,
     date: any,
     category: string,
-    isChecked: boolean | null
+    isCompleted: boolean | null
 }
 export interface DataTypeHold {
     hid: number | null,
