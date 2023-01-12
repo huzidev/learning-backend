@@ -102,20 +102,16 @@ router.put('/updatenote/:id', Verification, async (req: any, res: Response) => {
             newNote.category = category;
             newNote.isCompleted = isCompleted;
         } 
-        // else if (description) {
-        // } else if (category) {
-        // } else if (!isCompleted || isCompleted) {
-        // }
         newNote.date = date;
         let note: any, savedNote: any, state: any, hold: any, main: any; 
         if (await Note.findById(req.params.id)) {
-            main = Note,
-            state = true,
-            hold = CompletedNotes
+            main = Note;
+            state = true;
+            hold = CompletedNotes;
         } else if (await CompletedNotes.findById(req.params.id)) {
-            main = CompletedNotes,
-            state = false,
-            hold = Note
+            main = CompletedNotes;
+            state = false;
+            hold = Note;
         }
         note = await main.findById(req.params.id);
         if (!note) {
@@ -129,7 +125,6 @@ router.put('/updatenote/:id', Verification, async (req: any, res: Response) => {
                 title, description, category, isCompleted, date, user: req.userID
             })
             savedNote = await note.save();
-            // note = await main.findById(req.params.id)
             if (note.user.toString() !== req.userID.toString()) {
                 return res.status(401).send("Not Allowed");
             }
