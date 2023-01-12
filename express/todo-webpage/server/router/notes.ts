@@ -92,7 +92,7 @@ router.post('/addnote', Verification, async (req: any, res: Response) => {
 )
 
 router.put('/updatenote/:id', Verification, async (req: any, res: Response) => {
-    const { title, description, category, isCompleted, date } = req.body;
+    const { title, description, category, isCompleted } = req.body;
     console.log("req", req.body);
     try {
         const newNote = <TypesNote>{}
@@ -102,7 +102,6 @@ router.put('/updatenote/:id', Verification, async (req: any, res: Response) => {
             newNote.category = category;
             newNote.isCompleted = isCompleted;
         } 
-        newNote.date = date;
         let note: any, savedNote: any, state: any, hold: any, main: any; 
         if (await Note.findById(req.params.id)) {
             main = Note;
@@ -122,7 +121,7 @@ router.put('/updatenote/:id', Verification, async (req: any, res: Response) => {
         }
         if (isCompleted === state) {
             note = new hold({
-                title, description, category, isCompleted, date, user: req.userID
+                title, description, category, isCompleted, user: req.userID
             })
             savedNote = await note.save();
             if (note.user.toString() !== req.userID.toString()) {
