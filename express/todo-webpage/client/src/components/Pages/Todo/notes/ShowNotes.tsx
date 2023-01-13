@@ -43,7 +43,7 @@ export default function ShowNotes(props: any): JSX.Element {
                         Description: {note.description}
                     </Typography.Title>
                     <Typography.Title level={5} style={{ margin: '10px 0px' }}>
-                        Category: {note.category} 
+                        Category: {note.category}
                     </Typography.Title>
                     <IntlProvider locale="en" defaultLocale="en">
                         <Typography.Text>
