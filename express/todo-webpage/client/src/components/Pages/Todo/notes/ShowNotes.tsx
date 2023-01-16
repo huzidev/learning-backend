@@ -49,7 +49,7 @@ export default function ShowNotes(props: any): JSX.Element {
                         <Typography.Text>
                             {typeOf} {" "}
                             <FormattedDate
-                                value={note.date} test
+                                value={note.date}
                             />
                         </Typography.Text>
                         <br />
