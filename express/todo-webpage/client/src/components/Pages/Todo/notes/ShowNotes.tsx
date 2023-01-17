@@ -42,11 +42,12 @@ export default function ShowNotes(props: any): JSX.Element {
                     <Typography.Title level={5}>
                         Description: {note.description}
                     </Typography.Title>
-                    <Typography.Title level={5} style={{ margin: '10px 0px' }}>
+                    <Typography.Title level={5} style={{ margin: '10px 5px' }}>
                         Category: {note.category}
                     </Typography.Title>
                     <IntlProvider locale="en" defaultLocale="en">
                         <Typography.Text>
+                            {typeOf} {" "}
                             <FormattedDate
                                 value={note.date}
                             />
