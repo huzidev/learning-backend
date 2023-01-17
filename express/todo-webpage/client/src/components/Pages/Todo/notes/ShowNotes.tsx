@@ -58,7 +58,7 @@ export default function ShowNotes(props: any): JSX.Element {
                         <Button onClick={() => setIsModalOpen(true)} type="ghost" style={{ marginRight: '10px' }}>
                             Delete
                         </Button>
-                        <Modal title="Delete Note" open={isModalOpen} okText="Delete" onOk={dele teNote} onCancel={() => setIsModalOpen(false)}>
+                        <Modal title="Delete Note" open={isModalOpen} okText="Delete" onOk={deleteNote} onCancel={() => setIsModalOpen(false)}>
                             <Typography.Text>
                                 Are You Sure? You Wanna Delete This Note?
                             </Typography.Text>
