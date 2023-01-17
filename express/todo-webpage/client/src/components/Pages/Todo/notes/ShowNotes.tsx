@@ -47,7 +47,6 @@ export default function ShowNotes(props: any): JSX.Element {
                     </Typography.Title>
                     <IntlProvider locale="en" defaultLocale="en">
                         <Typography.Text>
-                            {typeOf} {" "}
                             <FormattedDate
                                 value={note.date}
                             />
