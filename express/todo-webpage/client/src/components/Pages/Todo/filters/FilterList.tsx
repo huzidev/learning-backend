@@ -69,7 +69,7 @@ export default function FilterList(props: any): JSX.Element {
 
     return (
         <>
-            <div>
+            {/* <div>
                 <Button
                     id="fade-button"
                     aria-controls={open ? 'fade-menu' : undefined}
@@ -93,7 +93,7 @@ export default function FilterList(props: any): JSX.Element {
                     <MenuItem onClick={handleClose}>My account</MenuItem>
                     <MenuItem onClick={handleClose}>Logout</MenuItem>
                 </Menu>
-            </div>
+            </div> */}
         <div>
             {
                 <>
@@ -114,7 +114,29 @@ export default function FilterList(props: any): JSX.Element {
                                         <Button onClick={() => setItems(allNotes)}>
                                             All items
                                         </Button>
-
+                                            <Button
+                                                id="fade-button"
+                                                aria-controls={open ? 'fade-menu' : undefined}
+                                                aria-haspopup="true"
+                                                aria-expanded={open ? 'true' : undefined}
+                                                onClick={handleClick}
+                                            >
+                                                Dashboard
+                                            </Button>
+                                            <Menu
+                                                id="fade-menu"
+                                                MenuListProps={{
+                                                    'aria-labelledby': 'fade-button',
+                                                }}
+                                                anchorEl={anchorEl}
+                                                open={open}
+                                                onClose={handleClose}
+                                                TransitionComponent={Fade}
+                                            >
+                                                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                                <MenuItem onClick={handleClose}>My account</MenuItem>
+                                                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                                            </Menu>
                                     {allItems.map((currentEle: any, index: number) => {
                                         return (
                                             <span key={index}>
