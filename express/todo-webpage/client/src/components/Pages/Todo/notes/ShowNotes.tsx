@@ -27,7 +27,7 @@ export default function ShowNotes(props: any): JSX.Element {
     };
 
     let typeOf: string = note.isCompleted ? "Completed At" : "Created At";
-    fontWeight: string = "600";
+    const fontWeight: string = "600";
     const margin: string = "10px 0px"
     return (
         <div className='global'>
