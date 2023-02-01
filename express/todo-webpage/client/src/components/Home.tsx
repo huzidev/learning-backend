@@ -198,7 +198,7 @@ export default function App(): JSX.Element {
             }}
             className="Dark"
           >
-            Designed And Crafted By <a href="https://www.linkedin.com/in/huzidev/" target="_blank">Huzaifa Iqbal</a>
+            Designed And Crafted By <a href="https://www.linkedin.com/in/huzidev" target="_blank">Huzaifa Iqbal</a>
           </Footer>
         </Layout>
       </Layout>
