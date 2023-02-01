@@ -10,7 +10,7 @@ export default function About(props: any): JSX.Element {
     const { updateData } = props;
 
     const dispatch = useAppDispatch();
-    const user = useAppSelector(state => state.user)
+    const user = useAppSelector(state => state.user);
     useEffect(() => {
         dispatch(fetchUsers())
     }, [])
