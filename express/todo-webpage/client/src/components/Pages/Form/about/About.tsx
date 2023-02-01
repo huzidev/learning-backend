@@ -15,8 +15,6 @@ export default function About(props: any): JSX.Element {
         dispatch(fetchUsers())
     }, [])
 
-    console.log("user", user.userData);
-
     const theme = userData.isTheme ? 'Dark Mode' : 'Light Mode';
 
     if (userData.isTheme === true) {
