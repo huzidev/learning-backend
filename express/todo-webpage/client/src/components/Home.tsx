@@ -28,11 +28,11 @@ export default function App(): JSX.Element {
   type MenuItem = Required<MenuProps>['items'][number];
 
   function getItem(
-    label: string, 
-    key: string, 
+    label: string,
+    key: string,
     icon: any,
-    children: any, 
-    onClick : any
+    children: any,
+    onClick: any
   ): MenuItem {
     return {
       key,
@@ -42,118 +42,118 @@ export default function App(): JSX.Element {
       onClick
     } as MenuItem;
   }
-  
+
   const Navigate = useNavigate();
   const Location = useLocation();
   const Context = useContext(DataContext);
 
   const { userData } = Context
 
-  console.log("currenrt location is "  + Location.pathname);
+  console.log("currenrt location is " + Location.pathname);
 
   const signedInItems: MenuItem[] = [
     getItem(
-      'User', 
-      '1', 
+      'User',
+      '1',
       <UserOutlined />,
       null,
       () => Navigate('/about')
     ),
     getItem('Home', 'sub1', <HomeOutlined />, [
       getItem(
-        'Add Todo', 
-        '2', 
+        'Add Todo',
+        '2',
         <CreateOutlinedIcon />,
         null,
         () => Navigate('/note/addnote')
       ),
     ], null),
     getItem(
-      'Completed Notes', 
-      '6', 
+      'Completed Notes',
+      '6',
       <FileOutlined />,
       null,
       () => Navigate('/note/completed')
     ),
     getItem(
-      'Contact Us', 
-      '7', 
+      'Contact Us',
+      '7',
       <MessageOutlined />,
       null,
       () => Navigate('/contact')
     ),
     getItem(
-      'Signout', '8', 
+      'Signout', '8',
       <LogoutOutlined />,
       null,
       () => Navigate('/signout')
     )
   ];
-  
+
   const signedOutItems: MenuItem[] = [
     getItem(
-      'Signin', '2', 
-      <LoginOutlined />, 
-      null, 
+      'Signin', '2',
+      <LoginOutlined />,
+      null,
       () => Navigate('/signin')
     ),
     getItem(
-      'Signup', '3', 
-      <LoginOutlined />, 
-      null, 
+      'Signup', '3',
+      <LoginOutlined />,
+      null,
       () => Navigate('/signup')
     )
   ];
 
   const signingOut: MenuItem[] = [
     getItem(
-      'Signout', '1', 
+      'Signout', '1',
       <LogoutOutlined />,
-      null, 
+      null,
       () => Navigate('/signout')
     )
   ];
 
-  let showItems = localStorage.getItem('jwtoken') ? signedInItems : signedOutItems 
+  let showItems = localStorage.getItem('jwtoken') ? signedInItems : signedOutItems
 
   if (Location.pathname.includes('/signout')) {
     showItems = signingOut
   }
- 
-  let theme;
-    if (localStorage.getItem("dark")) {
-      theme = "dark";
-    } else {
-      theme = "light";
-    }
 
-    const darkModeBG = theme === "dark" ? "#292929" : 'rgb(255 255 255)';
-    const LModeBG = theme === "dark" ? "#292929" : 'rgb(255 255 255)';
-    const darkModeC = theme === "dark" ? "white" : 'black';
-    const transition = 'all 700ms ease-in-out';
+  let theme;
+  if (localStorage.getItem("dark")) {
+    theme = "dark";
+  } else {
+    theme = "light";
+  }
+
+  const darkModeBG = theme === "dark" ? "#292929" : 'rgb(255 255 255)';
+  const LModeBG = theme === "dark" ? "#292929" : 'rgb(255 255 255)';
+  const darkModeC = theme === "dark" ? "white" : 'black';
+  const transition = 'all 700ms ease-in-out';
 
   return (
     <>
-      <GlobalStyles darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition} LModeBG={LModeBG}/>
+      <GlobalStyles darkModeBG={darkModeBG} darkModeC={darkModeC} transition={transition} LModeBG={LModeBG} />
       <Layout
         style={{
           minHeight: '100vh',
         }}
       >
-        <Sider 
-          collapsible 
-          collapsed={collapsed} 
-          onCollapse={(value) => setCollapsed(value)} 
-          style={{paddingTop: 20}}
+        <Sider
+          collapsible
+          collapsed={collapsed}
+          onCollapse={(value) => setCollapsed(value)}
+          style={{ paddingTop: 20 }}
         >
           <div style={{ textAlign: 'center', cursor: 'pointer' }} onClick={() => Navigate('/')}>
-            <h1 
+            <h1
               style={{ color: "#fff" }}>
               My Todo
-            </h1>  
+            </h1>
           </div>
-          <Menu 
-            theme="dark" 
+          <Menu
+            theme="dark"
             mode="inline"
             items={showItems}
           >
@@ -174,7 +174,7 @@ export default function App(): JSX.Element {
                 <Breadcrumb.Item>User</Breadcrumb.Item>
                 <Breadcrumb.Item>{userData.username}</Breadcrumb.Item>
               </Breadcrumb>
-              ) : ''
+            ) : ''
             }
             <div
               className="site-layout-background"
