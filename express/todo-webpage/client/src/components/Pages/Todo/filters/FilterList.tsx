@@ -52,18 +52,18 @@ export default function FilterList(props: any): JSX.Element {
     const Text = addNotesPath ? "Yours Notes" : "Completed Notes"
     const Type = addNotesPath ? "Added" : "Completed"
 
-    
+
     // status will either be completely true or completely false
     let status: boolean | undefined;
     allNotes.forEach((Element: any, i: number) => {
-        for(let key in Element){
+        for (let key in Element) {
             status = Element.isCompleted
         }
     });
-    
+
     const error = status === undefined;
     const style = {
-        display: "flex", 
+        display: "flex",
         justifyContent: "space-between",
     }
 
@@ -94,79 +94,67 @@ export default function FilterList(props: any): JSX.Element {
                     <MenuItem onClick={handleClose}>Logout</MenuItem>
                 </Menu>
             </div> */}
-        <div>
-            {
-                <>
-                    {
-                        (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
-                            <Typography.Title level={4}> 
-                                No Task {Type}
-                            </Typography.Title>
-                        ) : (
-                            <div style={style}>
-                                <Typography.Title level={4}> 
-                                    {Text}
+            <div>
+                {
+                    <>
+                        {
+                            (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
+                                <Typography.Title level={4}>
+                                    No Task {Type}
                                 </Typography.Title>
+                            ) : (
                                 <div style={style}>
-                                    <Typography.Title level={5}>
-                                        Filter the list
+                                    <Typography.Title level={4}>
+                                        {Text}
                                     </Typography.Title>
-                                        <Button onClick={() => setItems(allNotes)}>
-                                            All items
+                                    <div style={style}>
+                                        <Button
+                                            id="fade-button"
+                                            aria-controls={open ? 'fade-menu' : undefined}
+                                            aria-haspopup="true"
+                                            aria-expanded={open ? 'true' : undefined}
+                                            onClick={handleClick}
+                                        >
+                                            Filter the list
                                         </Button>
-                                            <Button
-                                                id="fade-button"
-                                                aria-controls={open ? 'fade-menu' : undefined}
-                                                aria-haspopup="true"
-                                                aria-expanded={open ? 'true' : undefined}
-                                                onClick={handleClick}
-                                            >
-                                                Dashboard
-                                            </Button>
-                                            <Menu
-                                                id="fade-menu"
-                                                MenuListProps={{
-                                                    'aria-labelledby': 'fade-button',
-                                                }}
-                                                anchorEl={anchorEl}
-                                                open={open}
-                                                onClose={handleClose}
-                                                TransitionComponent={Fade}
-                                            >
-                                                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                                <MenuItem onClick={handleClose}>My account</MenuItem>
-                                                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                                            </Menu>
-                                    {allItems.map((currentEle: any, index: number) => {
-                                        return (
-                                            <span key={index}>
-                                                <Button
-                                                    onClick={() => filterItems(currentEle)}
-                                                >
-                                                    {currentEle}
-                                                </Button>
-                                            </span>
-                                        )
-                                    })}
+                                        <Menu
+                                            id="fade-menu"
+                                            MenuListProps={{
+                                                'aria-labelledby': 'fade-button',
+                                            }}
+                                            anchorEl={anchorEl}
+                                            open={open}
+                                            onClose={handleClose}
+                                            TransitionComponent={Fade}
+                                        >
+                                            <MenuItem onClick={() => setItems(allNotes)}>All items</MenuItem>
+                                            {allItems.map((currentEle: any, index: number) => {
+                                                return (
+                                                    <span key={index}>
+                                                        <MenuItem onClick={() => filterItems(currentEle)}>{currentEle}</MenuItem>
+                                                    </span>
+                                                )
+                                            })}
+                                        </Menu>
+                                    </div>
                                 </div>
-                            </div>
+                            )
+                        }
+                    </>
+                }
+                <Row gutter={16}>
+                    {/* Data.map so if user clicked on FilterItems then only notes with specific category will be render NOT allNotes */}
+                    {Data.map((note: any) => {
+                        return (
+                            !note.isCompleted && addNotesPath || note.isCompleted && completedNotesPath ? (
+                                <Col span={8} style={{ margin: '10px 0px' }}>
+                                    <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} />
+                                </Col>
+                            ) : null
                         )
-                    }
-                </>
-            }
-            <Row gutter={16}>
-                {/* Data.map so if user clicked on FilterItems then only notes with specific category will be render NOT allNotes */}
-                {Data.map((note: any) => {
-                    return (
-                        !note.isCompleted && addNotesPath || note.isCompleted && completedNotesPath ? (
-                            <Col span={8} style={{ margin : '10px 0px' }}>
-                                <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted}/>
-                            </Col>
-                        ) : null
-                    )
-                })}
-            </Row>
-        </div>
+                    })}
+                </Row>
+            </div>
         </>
     )
 }
