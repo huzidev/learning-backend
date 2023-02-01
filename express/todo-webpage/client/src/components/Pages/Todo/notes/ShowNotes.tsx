@@ -43,7 +43,7 @@ export default function ShowNotes(props: any): JSX.Element {
                 >
                     <div>
                         <Typography.Text>
-                            <span style={fontWeight}>
+                            <span className="fontWeight">
                                 Description: {" "}
                             </span>
                             {note.description}
@@ -51,7 +51,7 @@ export default function ShowNotes(props: any): JSX.Element {
                     </div>
                     <div className="marginTop">
                         <Typography.Text>
-                            <span style={fontWeight}>
+                            <span className="fontWeight">
                                 Category: {" "}
                             </span>
                             {note.category}
@@ -60,7 +60,7 @@ export default function ShowNotes(props: any): JSX.Element {
                     <div className="marginTop">
                         <IntlProvider locale="en" defaultLocale="en">
                             <Typography.Text>
-                                <span style={fontWeight}>
+                                <span className="fontWeight">
                                     {typeOf} {" "}
                                 </span>
                                 <FormattedDate

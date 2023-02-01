@@ -87,7 +87,10 @@ export default function About(props: any): JSX.Element {
                 <div className='marginTop'>
                     <Typography.Text>
                         <span style={font} className="fontWeight">
-                            Theme: {theme} {" "}
+                            Theme: {" "}
+                        </span>
+                        <span style={fontSize}>
+                            {theme}
                         </span>
                     </Typography.Text>
                 </div>
