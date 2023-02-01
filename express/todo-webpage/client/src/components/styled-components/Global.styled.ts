@@ -23,7 +23,8 @@ export const GlobalStyles = createGlobalStyle<Props>`
         }
     }
     .Border {
-        background-color: ${(p: any) => p.LModeBG};
+        border: 1px solid #efefef;
+        box-shadow: 1px 1px 2px rgb(0 0 0 / 5%);
     }
     .ant-btn-primary span {
         color: white;
