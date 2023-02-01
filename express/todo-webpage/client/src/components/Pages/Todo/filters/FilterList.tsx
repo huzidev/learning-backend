@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ShowNotes from '../notes/ShowNotes';
-import { Col, Button, Row, Typography, Skeleton } from 'antd';
+import { Col, Button, Row, Typography } from 'antd';
 import { useLocation } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -50,7 +50,6 @@ export default function FilterList(props: any): JSX.Element {
 
     const Text = addNotesPath ? "Yours Notes" : "Completed Notes"
     const Type = addNotesPath ? "Added" : "Completed"
-
 
     // status will either be completely true or completely false
     let status: boolean | undefined;
