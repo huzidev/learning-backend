@@ -33,7 +33,7 @@ export default function About(props: any): JSX.Element {
 
     const fontSize = {
         fontSize: '20px',
-        letterSpacing: "1.2px"
+        letterSpacing: '1.2px'
     }
 
     return (
