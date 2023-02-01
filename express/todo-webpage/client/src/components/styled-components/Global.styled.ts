@@ -23,7 +23,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
         }
     }
     .Border {
-        border: 1.5px solid #efefef;
+        border: 2px solid #efefef;
         box-shadow: 1px 1px 2px rgb(0 0 0 / 5%);
     }
     .ant-btn-primary span {

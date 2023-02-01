@@ -35,9 +35,11 @@ export default function About(props: any): JSX.Element {
             style={{ width: "100%" }} 
             className="Dark Border"
         >
-            <Typography.Title level={4}>
-                Username: {userData.username}
-            </Typography.Title> 
+            <div>
+                <Typography.Title level={4}>
+                    Username: {userData.username}
+                </Typography.Title> 
+            </div>
             <Typography.Title level={4}>
                 Email: {userData.email}
             </Typography.Title> 
