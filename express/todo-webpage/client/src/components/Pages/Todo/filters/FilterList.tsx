@@ -10,6 +10,7 @@ export default function FilterList(props: any): JSX.Element {
     const Location = useLocation();
     let allNotes = props.notes;
 
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [state, setState] = useState<boolean | null>(null);
     const [items, setItems] = useState(allNotes);
 
@@ -23,10 +24,9 @@ export default function FilterList(props: any): JSX.Element {
     }, [locationName])
 
     // MUI
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
-    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
+    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(e.currentTarget);
     };
     const handleClose = () => {
         setAnchorEl(null);
@@ -82,10 +82,6 @@ export default function FilterList(props: any): JSX.Element {
                                 </Typography.Title>
                                 <div style={style}>
                                     <Button
-                                        id="fade-button"
-                                        aria-controls={open ? 'fade-menu' : undefined}
-                                        aria-haspopup="true"
-                                        aria-expanded={open ? 'true' : undefined}
                                         onClick={handleClick}
                                     >
                                         Filter the list
@@ -104,7 +100,9 @@ export default function FilterList(props: any): JSX.Element {
                                         {allItems.map((currentEle: any, index: number) => {
                                             return (
                                                 <span key={index}>
-                                                    <MenuItem onClick={() => filterItems(currentEle)}>{currentEle}</MenuItem>
+                                                    <MenuItem onClick={() => filterItems(currentEle)}>
+                                                        {currentEle}
+                                                    </MenuItem>
                                                 </span>
                                             )
                                         })}
