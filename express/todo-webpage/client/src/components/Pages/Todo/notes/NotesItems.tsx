@@ -174,7 +174,7 @@ export default function NotesItems(props: any) {
 
     return (
         <div>
-            { Location.pathname.includes('/addnote') ? <AddTodo /> : '' }
+            { Location.pathname.includes('/addnote') && <AddTodo /> }
             <>
                 <Button style={{ display: "none" }} ref={ref} type="primary" onClick={showModal}>
                     Open Modal
