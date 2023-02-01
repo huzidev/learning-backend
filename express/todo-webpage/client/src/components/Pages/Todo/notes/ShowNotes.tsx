@@ -27,7 +27,8 @@ export default function ShowNotes(props: any): JSX.Element {
     };
 
     let typeOf: string = note.isCompleted ? "Completed At" : "Created At";
-    let fontWeight: string = "600";
+    fontWeight: string = "600";
+    const margin: string = "10px 0px"
     return (
         <div className='global'>
             {!note.isCompleted && Location.pathname.includes('/addnote') || note.isCompleted && Location.pathname.includes('/completed') ? (
@@ -58,14 +59,11 @@ export default function ShowNotes(props: any): JSX.Element {
                     <div>
                         <Typography.Text>
                             <span style={{ fontWeight }}>
-                                Description: {" "}
+                                Category: {" "}
                             </span>
-                            {note.description}
+                            {note.category}
                         </Typography.Text>
                     </div>
-                    <Typography.Text style={{ margin: '10px 0px' }}>
-                        Category: {note.category}
-                    </Typography.Text>
                     <IntlProvider locale="en" defaultLocale="en">
                         <Typography.Text>
                             {typeOf} {" "}
