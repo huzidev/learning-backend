@@ -39,9 +39,9 @@ export default function ShowNotes(props: any): JSX.Element {
                     size="small"
                     className="Dark Border" 
                 >
-                    <Typography.Title level={5}>
+                    <Typography.Text>
                         Description: {note.description}
-                    </Typography.Title>
+                    </Typography.Text>
                     <Typography.Title level={5} style={{ margin: '10px 0px' }}>
                         Category: {note.category}
                     </Typography.Title>
