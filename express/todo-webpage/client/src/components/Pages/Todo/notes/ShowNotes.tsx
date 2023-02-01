@@ -41,7 +41,7 @@ export default function ShowNotes(props: any): JSX.Element {
                 >
                     <div>
                         <Typography.Text>
-                            <span style={{fontWeight: '600'}}>
+                            <span style={{ fontWeight }}>
                                 Category: {" "}
                             </span>
                             {note.category}
@@ -49,7 +49,15 @@ export default function ShowNotes(props: any): JSX.Element {
                     </div>
                     <div style={{ margin: '10px 0px' }}>
                         <Typography.Text>
-                            <span style={{ fontWeight: '600'}}>
+                            <span style={{fontWeight}}>
+                                Description: {" "}
+                            </span>
+                            {note.description}
+                        </Typography.Text>
+                    </div>
+                    <div>
+                        <Typography.Text>
+                            <span style={{ fontWeight }}>
                                 Description: {" "}
                             </span>
                             {note.description}
