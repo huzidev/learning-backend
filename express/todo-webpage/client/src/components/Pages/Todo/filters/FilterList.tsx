@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ShowNotes from '../notes/ShowNotes';
-import { Col, Row, Typography, Skeleton } from 'antd';
+import { Col, Button, Row, Typography, Skeleton } from 'antd';
 import { useLocation } from 'react-router-dom';
-import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
