@@ -27,8 +27,12 @@ export default function ShowNotes(props: any): JSX.Element {
     };
 
     let typeOf: string = note.isCompleted ? "Completed At" : "Created At";
-    const fontWeight: string = "600";
-    const margin: string = "10px 0px"
+    const fontWeight = {
+        fontWeight: '500'
+    };
+    const margin = {
+        margin: "10px 0px"
+    };
     return (
         <div className='global'>
             {!note.isCompleted && Location.pathname.includes('/addnote') || note.isCompleted && Location.pathname.includes('/completed') ? (
@@ -42,37 +46,39 @@ export default function ShowNotes(props: any): JSX.Element {
                 >
                     <div>
                         <Typography.Text>
-                            <span style={{ fontWeight }}>
+                            <span style={fontWeight}>
                                 Category: {" "}
                             </span>
                             {note.category}
                         </Typography.Text>
                     </div>
-                    <div style={{ margin: '10px 0px' }}>
+                    <div style={margin}>
                         <Typography.Text>
-                            <span style={{fontWeight}}>
+                            <span style={fontWeight}>
                                 Description: {" "}
                             </span>
                             {note.description}
                         </Typography.Text>
                     </div>
-                    <div>
+                    <div style={margin}>
                         <Typography.Text>
-                            <span style={{ fontWeight }}>
+                            <span style={fontWeight}>
                                 Category: {" "}
                             </span>
                             {note.category}
                         </Typography.Text>
                     </div>
-                    <IntlProvider locale="en" defaultLocale="en">
-                        <Typography.Text>
-                            {typeOf} {" "}
-                            <FormattedDate
-                                value={note.date}
-                            />
-                        </Typography.Text>
-                        <br />
-                    </IntlProvider>
+                    <div>
+                        <IntlProvider locale="en" defaultLocale="en">
+                            <Typography.Text>
+                                {typeOf} {" "}
+                                <FormattedDate
+                                    value={note.date}
+                                />
+                            </Typography.Text>
+                            <br />
+                        </IntlProvider>
+                    </div>
                     <div style={{ marginTop: '10px' }}>
                         <Button onClick={() => setIsModalOpen(true)} type="ghost" style={{ marginRight: '10px' }}>
                             Delete
