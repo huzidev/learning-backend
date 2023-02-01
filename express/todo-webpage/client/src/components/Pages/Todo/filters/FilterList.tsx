@@ -70,9 +70,12 @@ export default function FilterList(props: any): JSX.Element {
                                     <Typography.Title level={5}>
                                         Filter the list
                                     </Typography.Title>
-                                    <Button onClick={() => setItems(allNotes)} type="ghost">
-                                        All items
-                                    </Button>
+                                    <div>
+                                        <Button onClick={() => setItems(allNotes)} type="ghost">
+                                            All items
+                                        </Button>
+
+                                    </div>
                                     {allItems.map((currentEle: any, index: number) => {
                                         return (
                                             <span key={index}>
