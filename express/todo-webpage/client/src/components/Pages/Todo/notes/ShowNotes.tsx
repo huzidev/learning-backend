@@ -51,7 +51,6 @@ export default function ShowNotes(props: any): JSX.Element {
                             <FormattedDate
                                 value={note.date}
                             />
-                        </Typography.Text>
                         <br />
                     </IntlProvider>
                     <div style={{ marginTop: '10px' }}>
