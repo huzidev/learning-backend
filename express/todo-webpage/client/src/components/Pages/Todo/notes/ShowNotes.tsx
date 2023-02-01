@@ -39,9 +39,15 @@ export default function ShowNotes(props: any): JSX.Element {
                     size="small"
                     className="Dark Border" 
                 >
-                    <Typography.Text>
-                        Description: {note.description}
-                    </Typography.Text>
+                    <span>
+                        <Typography.Text>
+                            <span style={{fontWeight: '600'}}>
+                                Description: {" "}
+                            </span>
+                            {note.description}
+                        </Typography.Text>
+                    </span>
+                    <br />
                     <Typography.Text style={{ margin: '10px 0px' }}>
                         Category: {note.category}
                     </Typography.Text>
