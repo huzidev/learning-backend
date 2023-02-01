@@ -28,7 +28,6 @@ export default function About(props: any): JSX.Element {
     }
 
     const font = {
-        fontWeight: '600',
         fontSize: '20px'
     }
 
@@ -47,7 +46,7 @@ export default function About(props: any): JSX.Element {
             >
                 <div>
                     <Typography.Text>
-                        <span style={font}>
+                        <span style={font} className="fontWeight">
                             Username: {" "}
                         </span>
                         <span style={fontSize}>
@@ -57,7 +56,7 @@ export default function About(props: any): JSX.Element {
                 </div>
                 <div className='marginTop'>
                     <Typography.Text>
-                        <span style={font}>
+                        <span style={font} className="fontWeight">
                             Email: {" "}
                         </span>
                         <span style={fontSize}>
@@ -67,7 +66,7 @@ export default function About(props: any): JSX.Element {
                 </div>
                 <div className='marginTop'>
                     <Typography.Text>
-                        <span style={font}>
+                        <span style={font} className="fontWeight">
                             Number: {" "}
                         </span>
                         <span style={fontSize}>
@@ -77,7 +76,7 @@ export default function About(props: any): JSX.Element {
                 </div>
                 <div className='marginTop'>
                     <Typography.Text>
-                        <span style={font}>
+                        <span style={font} className="fontWeight">
                             Image: {" "}
                         </span>
                         <span style={fontSize}>
@@ -87,7 +86,7 @@ export default function About(props: any): JSX.Element {
                 </div>
                 <div className='marginTop'>
                     <Typography.Text>
-                        <span style={font}>
+                        <span style={font} className="fontWeight">
                             Theme: {theme} {" "}
                         </span>
                     </Typography.Text>
