@@ -30,9 +30,6 @@ export default function ShowNotes(props: any): JSX.Element {
     const fontWeight = {
         fontWeight: '500'
     };
-    const margin = {
-        margin: "10px 0px"
-    };
     return (
         <div className='global'>
             {!note.isCompleted && Location.pathname.includes('/addnote') || note.isCompleted && Location.pathname.includes('/completed') ? (
@@ -47,20 +44,12 @@ export default function ShowNotes(props: any): JSX.Element {
                     <div>
                         <Typography.Text>
                             <span style={fontWeight}>
-                                Category: {" "}
-                            </span>
-                            {note.category}
-                        </Typography.Text>
-                    </div>
-                    <div style={margin}>
-                        <Typography.Text>
-                            <span style={fontWeight}>
                                 Description: {" "}
                             </span>
                             {note.description}
                         </Typography.Text>
                     </div>
-                    <div style={margin}>
+                    <div className="marginTop">
                         <Typography.Text>
                             <span style={fontWeight}>
                                 Category: {" "}
@@ -68,10 +57,12 @@ export default function ShowNotes(props: any): JSX.Element {
                             {note.category}
                         </Typography.Text>
                     </div>
-                    <div>
+                    <div className="marginTop">
                         <IntlProvider locale="en" defaultLocale="en">
                             <Typography.Text>
-                                {typeOf} {" "}
+                                <span style={fontWeight}>
+                                    {typeOf} {" "}
+                                </span>
                                 <FormattedDate
                                     value={note.date}
                                 />
@@ -79,7 +70,7 @@ export default function ShowNotes(props: any): JSX.Element {
                             <br />
                         </IntlProvider>
                     </div>
-                    <div style={{ marginTop: '10px' }}>
+                    <div className="marginTop">
                         <Button onClick={() => setIsModalOpen(true)} type="ghost" style={{ marginRight: '10px' }}>
                             Delete
                         </Button>

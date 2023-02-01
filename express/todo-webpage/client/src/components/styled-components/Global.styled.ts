@@ -50,6 +50,9 @@ export const GlobalStyles = createGlobalStyle<Props>`
     .margin-input {
         margin: 15px 0px;
     }
+    .marginTop {
+        margin-top: 10px;
+    }
     .ant-notification-notice {
         background-color: ${(p: any) => p.darkModeBG};
         box-shadow: 0 0px 6px 0 ${(p: any) => p.darkModeC}, 0 0px 2px -4px ${(p: any) => p.darkModeC}, 0 2px 11px -3px ${(p: any) => p.darkModeC};
