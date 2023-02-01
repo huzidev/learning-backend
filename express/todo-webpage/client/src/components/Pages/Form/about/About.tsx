@@ -27,9 +27,16 @@ export default function About(props: any): JSX.Element {
         localStorage.removeItem("dark");
     }
 
-    const fontWeight = {
-        fontWeight: '500'
-    };
+    const font = {
+        fontWeight: '600',
+        fontSize: '20px'
+    }
+
+    const fontSize = {
+        fontSize: '20px',
+        letterSpacing: "1.2px"
+    }
+
     return (
         <>
             <Card
@@ -40,27 +47,51 @@ export default function About(props: any): JSX.Element {
             >
                 <div>
                     <Typography.Text>
-                        <span style={fontWeight}>
-                            Description: {" "}
+                        <span style={font}>
+                            Username: {" "}
                         </span>
-                        {note.description}
+                        <span style={fontSize}>
+                            {userData.username}
+                        </span>
                     </Typography.Text>
-                    <Typography.Title level={4}>
-                        Username: {userData.username}
-                    </Typography.Title>
                 </div>
-                <Typography.Title level={4}>
-                    Email: {userData.email}
-                </Typography.Title>
-                <Typography.Title level={4}>
-                    Number: {userData.number}
-                </Typography.Title>
-                <Typography.Title level={4}>
-                    Image: {userData.image}
-                </Typography.Title>
-                <Typography.Title level={4}>
-                    Theme: {theme}
-                </Typography.Title>
+                <div className='marginTop'>
+                    <Typography.Text>
+                        <span style={font}>
+                            Email: {" "}
+                        </span>
+                        <span style={fontSize}>
+                            {userData.email}
+                        </span>
+                    </Typography.Text>
+                </div>
+                <div className='marginTop'>
+                    <Typography.Text>
+                        <span style={font}>
+                            Number: {" "}
+                        </span>
+                        <span style={fontSize}>
+                            {userData.number}
+                        </span>
+                    </Typography.Text>
+                </div>
+                <div className='marginTop'>
+                    <Typography.Text>
+                        <span style={font}>
+                            Image: {" "}
+                        </span>
+                        <span style={fontSize}>
+                            {userData.image}
+                        </span>
+                    </Typography.Text>
+                </div>
+                <div>
+                    <Typography.Text>
+                        <span style={font}>
+                            Theme: {theme} {" "}
+                        </span>
+                    </Typography.Text>
+                </div>
                 <Button onClick={() => { updateData(userData) }} style={{ marginTop: "10px" }} type="ghost">
                     Update Data
                 </Button>
