@@ -85,14 +85,14 @@ export default function About(props: any): JSX.Element {
                         </span>
                     </Typography.Text>
                 </div>
-                <div>
+                <div className='marginTop'>
                     <Typography.Text>
                         <span style={font}>
                             Theme: {theme} {" "}
                         </span>
                     </Typography.Text>
                 </div>
-                <Button onClick={() => { updateData(userData) }} style={{ marginTop: "10px" }} type="ghost">
+                <Button onClick={() => { updateData(userData) }} className='marginTop' type="ghost">
                     Update Data
                 </Button>
             </Card>
