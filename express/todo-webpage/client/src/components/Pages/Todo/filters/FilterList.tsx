@@ -73,7 +73,12 @@ export default function FilterList(props: any): JSX.Element {
         } else {
             text = "No Task";
         }  
+        console.log("must runs after 2.5 sec");
+        
     }, 2500)
+
+    console.log('text type', text);
+    
 
     return (
         <div>
