@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ShowNotes from '../notes/ShowNotes';
-import { Col, Button, Row, Typography } from 'antd';
+import { Col, Button, Row, Typography, Spin } from 'antd';
 import { useLocation } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -58,6 +58,11 @@ export default function FilterList(props: any): JSX.Element {
             status = Element.isCompleted
         }
     });
+    let text: any;
+    setTimeout(() => {
+        text = <Spin size='large' /> 
+    }, 3000)
+
 
     const error = status === undefined;
     const style = {
@@ -72,12 +77,13 @@ export default function FilterList(props: any): JSX.Element {
                     {
                         (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
                             <Typography.Title level={4}>
-                                No Task {Type}
+                                {text}
                             </Typography.Title>
                         ) : (
                             <div style={style}>
                                 <Typography.Title level={4}>
                                     {Text}
+                                        {text}
                                 </Typography.Title>
                                 <div style={style}>
                                     <Button
