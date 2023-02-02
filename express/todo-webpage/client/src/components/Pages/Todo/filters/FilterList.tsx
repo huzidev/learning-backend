@@ -69,7 +69,7 @@ export default function FilterList(props: any): JSX.Element {
 
     setTimeout(() => {
         if (allNotes.length > 0) {
-            text = `Around ${allNotes.length} have been fetched`
+            text = `Around ${allNotes.length} have been fetched`;
         } else {
             text = "No Task";
         }  
