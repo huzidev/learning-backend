@@ -13,7 +13,7 @@ export default function FilterList(props: any): JSX.Element {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [state, setState] = useState<boolean | null>(null);
     const [items, setItems] = useState(allNotes);
-    const [message, setMessageState] = useState('')
+    const [message, setMessageState] = useState('');
 
     const addNotesPath: boolean = Location.pathname.includes('/addnote');
     const completedNotesPath: boolean = Location.pathname.includes('/completed');
@@ -53,7 +53,7 @@ export default function FilterList(props: any): JSX.Element {
     // let Type = addNotesPath ? "Added" : "Completed";
     let text: string = `No Task ${addNotesPath ? "Added" : "Completed"}`;
     useEffect(() => {
-        setTestState("Loading");
+        setMessageState("Loading");
         setTimeout(() => {
             setMessageState(text);
         }, 5000)
@@ -80,7 +80,7 @@ export default function FilterList(props: any): JSX.Element {
                     {
                         (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
                             <Typography.Title level={4}>
-                                { test === "Loading" ? <Spin size='large' /> : test }
+                                {message === "Loading" ? <Spin size='large' /> : message }
                             </Typography.Title>
                         ) : (
                             <div style={style}>
