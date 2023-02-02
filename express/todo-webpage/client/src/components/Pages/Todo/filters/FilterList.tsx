@@ -22,13 +22,13 @@ export default function FilterList(props: any): JSX.Element {
 
     const [type, setType] = useState('');
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (Location.pathname.includes("/addnote")) {
             setType('Added');
-        } else if (Location.pathname.includes("/addnote") {
+        } else if (Location.pathname.includes("/addnote")) {
             setType('Completed');
         }
-    }, []);
+    }, [Location.pathname]);
 
     const addNotesPath: boolean = Location.pathname.includes('/addnote');
     const completedNotesPath: boolean = Location.pathname.includes('/completed');
@@ -102,7 +102,7 @@ export default function FilterList(props: any): JSX.Element {
                             //     {/* { message === null ? <Spin size='large' /> : message } */}
 
                             // </Typography.Title>
-                            <Suspense fallback={<div>Loading...</div>}>
+                            <Suspense fallback={<div><Spin size='large' /></div>}>
                                 {type !== '' && <NoteState type={type} />}
                             </Suspense>
                         ) : (
