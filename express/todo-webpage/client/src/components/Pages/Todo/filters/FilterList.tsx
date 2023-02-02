@@ -51,11 +51,10 @@ export default function FilterList(props: any): JSX.Element {
 
     const Text = addNotesPath ? "Yours Notes" : "Completed Notes";
     // let Type = addNotesPath ? "Added" : "Completed";
-    let text: string = `No Task ${addNotesPath ? "Added" : "Completed"}`;
     useEffect(() => {
         setMessageState("Loading");
         setTimeout(() => {
-            setMessageState(text);
+            setMessageState(`No Task ${addNotesPath ? "Added" : "Completed"}`);
         }, 5000)
     }, [locationName])
 
@@ -80,7 +79,7 @@ export default function FilterList(props: any): JSX.Element {
                     {
                         (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
                             <Typography.Title level={4}>
-                                {message === "Loading" ? <Spin size='large' /> : message }
+                                { message === "Loading" ? <Spin size='large' /> : message }
                             </Typography.Title>
                         ) : (
                             <div style={style}>
