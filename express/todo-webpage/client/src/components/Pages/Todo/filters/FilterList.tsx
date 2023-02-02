@@ -52,13 +52,11 @@ export default function FilterList(props: any): JSX.Element {
     const Text = addNotesPath ? "Yours Notes" : "Completed Notes"
     // let Type = addNotesPath ? "Added" : "Completed"
     // test = addNotesPath ? "Added" : "Completed"
-    let spin: any;
     useEffect(() => {
-        setTestState("Loading...")
-        spin = <Spin size='large' />
+        setTestState("Loading")
         setTimeout(() => {
             setTestState("No Task Added")
-        }, 2000)
+        }, 5000)
     }, [locationName])
 
     console.log("what is useState", test);
@@ -79,15 +77,6 @@ export default function FilterList(props: any): JSX.Element {
         justifyContent: "space-between",
     }
 
-    // console.log("Type before", Type);
-
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         Type = "Hello World"
-    //         console.log("Type after 1.5 sec", Type);
-    //     }, 1500)
-    // }, [Location.pathname])
-
     return (
         <div>
             {
@@ -95,8 +84,7 @@ export default function FilterList(props: any): JSX.Element {
                     {
                         (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
                             <Typography.Title level={4}>
-                                {spin}
-                                {test}
+                                { test === "Loading" ? <Spin size='large' /> : test }
                             </Typography.Title>
                         ) : (
                             <div style={style}>
