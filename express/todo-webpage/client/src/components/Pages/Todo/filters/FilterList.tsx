@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import ShowNotes from '../notes/ShowNotes';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
+const ShowNotes = lazy(() => import('../notes/ShowNotes'));
 import { Col, Button, Row, Typography, Spin } from 'antd';
 import { useLocation } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
