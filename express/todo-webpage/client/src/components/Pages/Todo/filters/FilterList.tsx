@@ -68,8 +68,12 @@ export default function FilterList(props: any): JSX.Element {
     }
 
     setTimeout(() => {
-        text = "No Task";
-    }, 1500)
+        if (allNotes.length > 0) {
+            text = `Around ${allNotes.length} have been fetched`
+        } else {
+            text = "No Task";
+        }  
+    }, 2500)
 
     return (
         <div>
@@ -84,7 +88,6 @@ export default function FilterList(props: any): JSX.Element {
                             <div style={style}>
                                 <Typography.Title level={4}>
                                     {Text}
-                                        {text}
                                 </Typography.Title>
                                 <div style={style}>
                                     <Button
