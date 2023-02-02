@@ -106,7 +106,7 @@ export default function FilterList(props: any): JSX.Element {
                             // <Suspense fallback={<div><Spin size='large' /></div>}>
                             //     {type !== '' && <NoteState type={type} />}
                             // </Suspense>
-                            {type === "loading" ? <NoteState type={type} />}
+                            { type === "loading" ? <Spin size='large' /> : <NoteState type={type} /> }
                         ) : (
                             <div style={style}>
                                 <Typography.Title level={4}>
