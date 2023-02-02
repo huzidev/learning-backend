@@ -51,8 +51,10 @@ export default function FilterList(props: any): JSX.Element {
 
     const Text = addNotesPath ? "Yours Notes" : "Completed Notes";
     // let Type = addNotesPath ? "Added" : "Completed";
-    let testMess: any = addNotesPath ? "No Task Added" : "No Task Completed";
+    let testMess: any;
+    
     useEffect(() => {
+        testMess = addNotesPath ? "No Task Added" : "No Task Completed";
         setMessageState(null);
         setTimeout(() => {
             setMessageState(testMess);
