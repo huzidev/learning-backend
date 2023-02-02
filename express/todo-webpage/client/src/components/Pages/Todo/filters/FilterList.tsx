@@ -25,7 +25,7 @@ export default function FilterList(props: any): JSX.Element {
     useEffect(() => {
         if (Location.pathname.includes("/addnote")) {
             setType('Added');
-        } else if (Location.pathname.includes("/addnote")) {
+        } else if (Location.pathname.includes("/completed")) {
             setType('Completed');
         }
     }, [Location.pathname]);
