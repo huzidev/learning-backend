@@ -67,6 +67,10 @@ export default function FilterList(props: any): JSX.Element {
         justifyContent: "space-between",
     }
 
+    setTimeout(() => {
+
+    }, [])
+
     return (
         <div>
             {
