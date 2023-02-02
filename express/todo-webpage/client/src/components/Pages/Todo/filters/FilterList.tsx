@@ -44,11 +44,13 @@ export default function FilterList(props: any): JSX.Element {
         }
     }, [Location.pathname]);
     
-    if (hold === true) {
-        setType('Added');
-    } else if (hold === false) {
-        
-    }
+    useEffect(() => {
+        if (hold === true) {
+            setType('Added');
+        } else if (hold === false) {
+            setType('Completed');
+        }
+    }, [Location.pathname])
 
     useEffect(() => {
         // so state will changed to default form and allNotes will be fetched
@@ -121,7 +123,7 @@ export default function FilterList(props: any): JSX.Element {
                             // <Suspense fallback={<div><Spin size='large' /></div>}>
                             //     {type !== '' && <NoteState type={type} />}
                             // </Suspense>
-                            type === "loading" ? <Spin size='large' /> : <NoteState type={type} />
+                            <NoteState type={type} />
                         ) : (
                             <div style={style}>
                                 <Typography.Title level={4}>
