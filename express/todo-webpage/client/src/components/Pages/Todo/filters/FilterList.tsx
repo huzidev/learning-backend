@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
-const StateNote = lazy(() => import('../notes/StateNote'));
 
 export default function FilterList(props: any): JSX.Element {
     const Location = useLocation();
