@@ -54,9 +54,10 @@ export default function FilterList(props: any): JSX.Element {
     useEffect(() => {
         setMessageState("Loading");
         setTimeout(() => {
-            setMessageState(`No Task ${addNotesPath ? "Added" : "Completed"}`);
+            let TextMess = `No Task ${addNotesPath ? "Added" : "Completed"}`;
+            setMessageState(TextMess);
         }, 5000)
-    }, [locationName])
+    }, [Location.pathname])
 
     // status will either be completely true or completely false
     let status: boolean | undefined;
