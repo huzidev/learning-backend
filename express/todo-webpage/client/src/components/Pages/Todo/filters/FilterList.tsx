@@ -13,7 +13,7 @@ export default function FilterList(props: any): JSX.Element {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [state, setState] = useState<boolean | null>(null);
     const [items, setItems] = useState(allNotes);
-    const [message, setMessageState] = useState<string | null>('');
+    const [message, setMessageState] = useState<string | null>(null);
 
     const addNotesPath: boolean = Location.pathname.includes('/addnote');
     const completedNotesPath: boolean = Location.pathname.includes('/completed');
@@ -56,9 +56,7 @@ export default function FilterList(props: any): JSX.Element {
         setTimeout(() => {
             setMessageState(testMess);
         }, 5000)
-        console.log("must run");
-        
-    }, [])
+    }, [Location.pathname])
 
     console.log("What is message", message);
     
