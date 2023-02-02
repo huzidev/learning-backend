@@ -50,7 +50,7 @@ export default function FilterList(props: any): JSX.Element {
     }
 
     const Text = addNotesPath ? "Yours Notes" : "Completed Notes"
-    const Type = addNotesPath ? "Added" : "Completed"
+    let Type = addNotesPath ? "Added" : "Completed"
 
     // status will either be completely true or completely false
     let status: boolean | undefined;
@@ -67,15 +67,24 @@ export default function FilterList(props: any): JSX.Element {
         justifyContent: "space-between",
     }
 
+    console.log("Type before");
+    
+
+    useEffect(() => {
+        setTimeout(() => {
+            Type = "Hello World"
+        }, 1500)
+    }, [Location.pathname])
+
     return (
         <div>
             {
                 <>
                     {
                         (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
-                            <StateNote 
-                                type={Type}
-                            />
+                            <Suspense fallback={<Spin size='large' />}>
+                                <StateNote type={Type} />
+                            </Suspense>
                         ) : (
                             <div style={style}>
                                 <Typography.Title level={4}>
