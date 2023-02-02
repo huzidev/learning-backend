@@ -7,7 +7,6 @@ export default function NoteState(props: any) {
         <Typography.Title level={4}>
             No Task {props.type}
         </Typography.Title>
-
     </div>
   )
 }
