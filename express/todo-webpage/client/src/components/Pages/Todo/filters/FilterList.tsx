@@ -58,27 +58,13 @@ export default function FilterList(props: any): JSX.Element {
             status = Element.isCompleted
         }
     });
-    let text: any = <Spin size='large' />;
-    let showText: any;
+    let text: any;
 
     const error = status === undefined;
     const style = {
         display: "flex",
         justifyContent: "space-between",
     }
-
-    setTimeout(() => {
-        if (allNotes.length > 0) {
-            showText = `Around ${allNotes.length} have been fetched`;
-        } else if (allNotes.length === 0) {
-            showText = "No Task";
-        }  
-        text = "";
-        console.log("what is show", showText);
-        
-        console.log("must runs after 2.5 sec");
-        
-    }, 2500)
 
     return (
         <div>
@@ -87,13 +73,12 @@ export default function FilterList(props: any): JSX.Element {
                     {
                         (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
                             <Typography.Title level={4}>
-                                {showText}
+                                {allNotes.length === 0 ? <Spin size='large' /> : `No Task ${Type}`}
                             </Typography.Title>
                         ) : (
                             <div style={style}>
                                 <Typography.Title level={4}>
-                                    {text}
-                                {showText}
+                                    {Text}
                                 </Typography.Title>
                                 <div style={style}>
                                     <Button
