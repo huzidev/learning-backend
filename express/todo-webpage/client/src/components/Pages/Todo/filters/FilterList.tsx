@@ -70,7 +70,7 @@ export default function FilterList(props: any): JSX.Element {
     setTimeout(() => {
         if (allNotes.length > 0) {
             showText = `Around ${allNotes.length} have been fetched`;
-        } else {
+        } else if () {
             showText = "No Task";
         }  
         text = "";
@@ -88,7 +88,7 @@ export default function FilterList(props: any): JSX.Element {
                     {
                         (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
                             <Typography.Title level={4}>
-                                {allNotes.length > 0 ? showText : text}
+                                {showText}
                             </Typography.Title>
                         ) : (
                             <div style={style}>
