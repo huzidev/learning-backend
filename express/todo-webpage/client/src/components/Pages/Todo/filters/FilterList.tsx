@@ -68,8 +68,8 @@ export default function FilterList(props: any): JSX.Element {
     }
 
     setTimeout(() => {
-
-    }, [])
+        text = "No Task";
+    }, 1500)
 
     return (
         <div>
