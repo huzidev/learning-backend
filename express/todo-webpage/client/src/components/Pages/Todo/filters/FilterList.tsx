@@ -73,7 +73,7 @@ export default function FilterList(props: any): JSX.Element {
                     {
                         (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
                             <Typography.Title level={4}>
-                                {allNotes.length === 0 ? <Spin size='large' /> : `No Task ${Type}`}
+                                No Task {Type}
                             </Typography.Title>
                         ) : (
                             <div style={style}>
