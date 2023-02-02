@@ -59,7 +59,7 @@ export default function FilterList(props: any): JSX.Element {
         }
     });
     let text: any = <Spin size='large' />;
-    let showText: string;
+    let showText: any;
 
     const error = status === undefined;
     const style = {
@@ -69,10 +69,11 @@ export default function FilterList(props: any): JSX.Element {
 
     setTimeout(() => {
         if (allNotes.length > 0) {
-            text = `Around ${allNotes.length} have been fetched`;
+            showText = `Around ${allNotes.length} have been fetched`;
         } else {
-            text = "No Task";
+            showText = "No Task";
         }  
+        text = "";
         console.log("must runs after 2.5 sec");
         
     }, 2500)
@@ -87,7 +88,7 @@ export default function FilterList(props: any): JSX.Element {
                     {
                         (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
                             <Typography.Title level={4}>
-                                {text}
+                                {allNotes.length > 0 ? showText : text}
                             </Typography.Title>
                         ) : (
                             <div style={style}>
