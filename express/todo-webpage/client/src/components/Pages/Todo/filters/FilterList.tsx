@@ -5,9 +5,10 @@ import { useLocation } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
-const NoteState = lazy(() =>
-    new Promise((resolve) => setTimeout(resolve, 1000)).then(() => import('../notes/NoteState'))
-);
+// const NoteState = lazy(() =>
+//     new Promise((resolve) => setTimeout(resolve, 1000)).then(() => import('../notes/NoteState'))
+// );
+import NoteState from '../notes/NoteState';
 
 
 export default function FilterList(props: any): JSX.Element {
@@ -19,16 +20,18 @@ export default function FilterList(props: any): JSX.Element {
     const [items, setItems] = useState(allNotes);
     // const [message, setMessageState] = useState<string | null>('');
     
+    const [hold, setHold] = useState<boolean | null>(null)
+
 
     const [type, setType] = useState('');
 
     useEffect(() => {
         setType("loading");
-        if (Location.pathname.includes("/addnote")) {
-            setType('Added');
-        } else if (Location.pathname.includes("/completed")) {
-            setType('Completed');
-        }
+            if (Location.pathname.includes("/addnote")) {
+                setType('Added');
+            } else if (Location.pathname.includes("/completed")) {
+                setType('Completed');
+            }
     }, [Location.pathname]);
 
     const addNotesPath: boolean = Location.pathname.includes('/addnote');
@@ -106,7 +109,7 @@ export default function FilterList(props: any): JSX.Element {
                             // <Suspense fallback={<div><Spin size='large' /></div>}>
                             //     {type !== '' && <NoteState type={type} />}
                             // </Suspense>
-                            { type === "loading" ? <Spin size='large' /> : <NoteState type={type} /> }
+                            type === "loading" ? <Spin size='large' /> : <NoteState type={type} />
                         ) : (
                             <div style={style}>
                                 <Typography.Title level={4}>
