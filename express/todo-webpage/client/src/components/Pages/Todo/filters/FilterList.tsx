@@ -13,7 +13,7 @@ export default function FilterList(props: any): JSX.Element {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [state, setState] = useState<boolean | null>(null);
     const [items, setItems] = useState(allNotes);
-    const [test, setTestState] = useState('')
+    const [message, setMessageState] = useState('')
 
     const addNotesPath: boolean = Location.pathname.includes('/addnote');
     const completedNotesPath: boolean = Location.pathname.includes('/completed');
@@ -49,18 +49,15 @@ export default function FilterList(props: any): JSX.Element {
         setState(true);
     }
 
-    const Text = addNotesPath ? "Yours Notes" : "Completed Notes"
-    // let Type = addNotesPath ? "Added" : "Completed"
-    // test = addNotesPath ? "Added" : "Completed"
+    const Text = addNotesPath ? "Yours Notes" : "Completed Notes";
+    // let Type = addNotesPath ? "Added" : "Completed";
+    let text: string = `No Task ${addNotesPath ? "Added" : "Completed"}`;
     useEffect(() => {
-        setTestState("Loading")
+        setTestState("Loading");
         setTimeout(() => {
-            setTestState("No Task Added")
+            setMessageState(text);
         }, 5000)
     }, [locationName])
-
-    console.log("what is useState", test);
-    
 
     // status will either be completely true or completely false
     let status: boolean | undefined;
@@ -69,7 +66,6 @@ export default function FilterList(props: any): JSX.Element {
             status = Element.isCompleted
         }
     });
-    let text: any;
 
     const error = status === undefined;
     const style = {
