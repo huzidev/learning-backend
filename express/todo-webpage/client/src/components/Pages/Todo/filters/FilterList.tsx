@@ -13,7 +13,7 @@ export default function FilterList(props: any): JSX.Element {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [state, setState] = useState<boolean | null>(null);
     const [items, setItems] = useState(allNotes);
-    const [message, setMessageState] = useState<string | null>(null);
+    const [message, setMessageState] = useState<string | null>('');
 
     const addNotesPath: boolean = Location.pathname.includes('/addnote');
     const completedNotesPath: boolean = Location.pathname.includes('/completed');
@@ -51,15 +51,13 @@ export default function FilterList(props: any): JSX.Element {
 
     const Text = addNotesPath ? "Yours Notes" : "Completed Notes";
     // let Type = addNotesPath ? "Added" : "Completed";
-    let testMess: any;
+    let testMess: any = addNotesPath ? "No Task Added" : "No Task Completed";
     useEffect(() => {
+        setMessageState(null);
         setTimeout(() => {
             setMessageState(testMess);
         }, 5000)
     }, [Location.pathname])
-
-    console.log("What is message", message);
-    
 
     // status will either be completely true or completely false
     let status: boolean | undefined;
