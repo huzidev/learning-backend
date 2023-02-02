@@ -98,10 +98,13 @@ export default function FilterList(props: any): JSX.Element {
                 <>
                     {
                         (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
-                            <Typography.Title level={4}>
-                                {/* { message === null ? <Spin size='large' /> : message } */}
-                                
-                            </Typography.Title>
+                            // <Typography.Title level={4}>
+                            //     {/* { message === null ? <Spin size='large' /> : message } */}
+
+                            // </Typography.Title>
+                            <Suspense fallback={<div>Loading...</div>}>
+                                {type !== '' && <NoteState type={type} />}
+                            </Suspense>
                         ) : (
                             <div style={style}>
                                 <Typography.Title level={4}>
