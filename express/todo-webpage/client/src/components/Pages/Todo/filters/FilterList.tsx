@@ -52,8 +52,10 @@ export default function FilterList(props: any): JSX.Element {
     const Text = addNotesPath ? "Yours Notes" : "Completed Notes"
     // let Type = addNotesPath ? "Added" : "Completed"
     // test = addNotesPath ? "Added" : "Completed"
+    let spin: any;
     useEffect(() => {
         setTestState("Loading...")
+        spin = <Spin size='large' />
         setTimeout(() => {
             setTestState("No Task Added")
         }, 2000)
@@ -93,6 +95,7 @@ export default function FilterList(props: any): JSX.Element {
                     {
                         (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
                             <Typography.Title level={4}>
+                                {spin}
                                 {test}
                             </Typography.Title>
                         ) : (
