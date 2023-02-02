@@ -1,7 +1,9 @@
 import React from 'react';
 
-export default function StateNote() {
+export default function StateNote(): JSX.Element {
   return (
-    <div>StateNote</div>
+    <div>
+
+    </div>
   )
 }
