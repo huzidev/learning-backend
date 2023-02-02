@@ -38,13 +38,18 @@ export default function FilterList(props: any): JSX.Element {
         //         setType('Completed');
         //     }
         if (addNotesPath) {
-            console.log("You are at addNotes");
+            setHold(true);
         } else if (completedNotesPath) {
-            console.log("You are at completed notes");
-            
+            setHold(false);
         }
     }, [Location.pathname]);
     
+    if (hold === true) {
+        setType('Added');
+    } else if (hold === false) {
+        
+    }
+
     useEffect(() => {
         // so state will changed to default form and allNotes will be fetched
         setState(null)
