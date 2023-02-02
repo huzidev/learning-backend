@@ -74,6 +74,9 @@ export default function FilterList(props: any): JSX.Element {
                     {
                         (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
                             <Typography.Title level={4}>
+                                <StateNote 
+                                    type={Type}
+                                />
                                 No Task {Type}
                             </Typography.Title>
                         ) : (
