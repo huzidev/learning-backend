@@ -20,38 +20,11 @@ export default function FilterList(props: any): JSX.Element {
     const [items, setItems] = useState(allNotes);
     // const [message, setMessageState] = useState<string | null>('');
     
-    const [hold, setHold] = useState<boolean | null>(null)
-
-
-    const [type, setType] = useState('');
-
-    
     const addNotesPath: boolean = Location.pathname.includes('/addnote');
     const completedNotesPath: boolean = Location.pathname.includes('/completed');
     const locationName: string = addNotesPath ? "/allnotes" : "/completednotes"
     
-    useEffect(() => {
-        // setType("loading");
-        //     if (Location.pathname.includes("/addnote")) {
-        //         setType('Added');
-        //     } else if (Location.pathname.includes("/completed")) {
-        //         setType('Completed');
-        //     }
-        if (addNotesPath) {
-            setHold(true);
-        } else if (completedNotesPath) {
-            setHold(false);
-        }
-    }, [Location.pathname]);
     
-    useEffect(() => {
-        if (hold === true) {
-            setType('Added');
-        } else if (hold === false) {
-            setType('Completed');
-        }
-    }, [Location.pathname])
-
     useEffect(() => {
         // so state will changed to default form and allNotes will be fetched
         setState(null)
