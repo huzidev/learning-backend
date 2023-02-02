@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import ROUTE_PATHS from './paths';
 
 const Home = import('../Pages/Todo/todoPage/TodoPage');
@@ -8,7 +9,7 @@ const Contact = import('../Pages/Form/contact/ContactUs');
 const About = import('../Pages/Form/about/About');
 const Notes = import('../Pages/Todo/notes/NotesItems');
 const AddNote = import('../Pages/Todo/addTodo/AddTodo');
-const CompletedNotes = import('../Pages/Todo/notes/ShowNotes');
+const CompletedNotes = lazy(() => import('../Pages/Todo/notes/ShowNotes'));
 const UpdateUser = import('../Pages/Form/update/UpdateUser');
 
 interface AppRoute {
