@@ -17,7 +17,7 @@ export default function FilterList(props: any): JSX.Element {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [state, setState] = useState<boolean | null>(null);
     const [items, setItems] = useState(allNotes);
-    const [message, setMessageState] = useState<string | null>('');
+    // const [message, setMessageState] = useState<string | null>('');
     
 
     const [type, setType] = useState('');
