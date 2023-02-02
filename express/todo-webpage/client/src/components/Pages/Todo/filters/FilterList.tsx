@@ -70,16 +70,15 @@ export default function FilterList(props: any): JSX.Element {
     setTimeout(() => {
         if (allNotes.length > 0) {
             showText = `Around ${allNotes.length} have been fetched`;
-        } else if () {
+        } else if (allNotes.length === 0) {
             showText = "No Task";
         }  
         text = "";
+        console.log("what is show", showText);
+        
         console.log("must runs after 2.5 sec");
         
     }, 2500)
-
-    console.log('text type', text);
-    
 
     return (
         <div>
@@ -93,7 +92,8 @@ export default function FilterList(props: any): JSX.Element {
                         ) : (
                             <div style={style}>
                                 <Typography.Title level={4}>
-                                    {Text}
+                                    {text}
+                                {showText}
                                 </Typography.Title>
                                 <div style={style}>
                                     <Button
