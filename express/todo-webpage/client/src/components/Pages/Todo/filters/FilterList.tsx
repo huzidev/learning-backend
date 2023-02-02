@@ -5,6 +5,10 @@ import { useLocation } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
+const NoteState = lazy(() =>
+    new Promise((resolve) => setTimeout(resolve, 1000)).then(() => import('../notes/NoteState'))
+);
+
 
 export default function FilterList(props: any): JSX.Element {
     const Location = useLocation();
@@ -14,6 +18,17 @@ export default function FilterList(props: any): JSX.Element {
     const [state, setState] = useState<boolean | null>(null);
     const [items, setItems] = useState(allNotes);
     const [message, setMessageState] = useState<string | null>('');
+    
+
+    const [type, setType] = useState('');
+
+    React.useEffect(() => {
+        if (Location.pathname.includes("/addnote")) {
+            setType('Added');
+        } else if (Location.pathname.includes("/addnote") {
+            setType('Completed');
+        }
+    }, []);
 
     const addNotesPath: boolean = Location.pathname.includes('/addnote');
     const completedNotesPath: boolean = Location.pathname.includes('/completed');
@@ -84,7 +99,8 @@ export default function FilterList(props: any): JSX.Element {
                     {
                         (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
                             <Typography.Title level={4}>
-                                { message === null ? <Spin size='large' /> : message }
+                                {/* { message === null ? <Spin size='large' /> : message } */}
+                                
                             </Typography.Title>
                         ) : (
                             <div style={style}>
