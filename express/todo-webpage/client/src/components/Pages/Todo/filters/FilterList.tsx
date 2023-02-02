@@ -14,6 +14,7 @@ export default function FilterList(props: any): JSX.Element {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [state, setState] = useState<boolean | null>(null);
     const [items, setItems] = useState(allNotes);
+    const [test, setTestState] = useState('')
 
     const addNotesPath: boolean = Location.pathname.includes('/addnote');
     const completedNotesPath: boolean = Location.pathname.includes('/completed');
@@ -50,7 +51,17 @@ export default function FilterList(props: any): JSX.Element {
     }
 
     const Text = addNotesPath ? "Yours Notes" : "Completed Notes"
-    let Type = addNotesPath ? "Added" : "Completed"
+    // let Type = addNotesPath ? "Added" : "Completed"
+    // test = addNotesPath ? "Added" : "Completed"
+    useEffect(() => {
+        setTestState("Loading...")
+        setTimeout(() => {
+            setTestState("No Task Added")
+        }, 2000)
+    }, [locationName])
+
+    console.log("what is useState", test);
+    
 
     // status will either be completely true or completely false
     let status: boolean | undefined;
@@ -67,14 +78,14 @@ export default function FilterList(props: any): JSX.Element {
         justifyContent: "space-between",
     }
 
-    console.log("Type before");
-    
+    // console.log("Type before", Type);
 
-    useEffect(() => {
-        setTimeout(() => {
-            Type = "Hello World"
-        }, 1500)
-    }, [Location.pathname])
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         Type = "Hello World"
+    //         console.log("Type after 1.5 sec", Type);
+    //     }, 1500)
+    // }, [Location.pathname])
 
     return (
         <div>
@@ -82,9 +93,9 @@ export default function FilterList(props: any): JSX.Element {
                 <>
                     {
                         (completedNotesPath && (status !== true || error)) || (addNotesPath && (status !== false || error)) ? (
-                            <Suspense fallback={<Spin size='large' />}>
-                                <StateNote type={Type} />
-                            </Suspense>
+                            <Typography.Title level={4}>
+                                {test}
+                            </Typography.Title>
                         ) : (
                             <div style={style}>
                                 <Typography.Title level={4}>
