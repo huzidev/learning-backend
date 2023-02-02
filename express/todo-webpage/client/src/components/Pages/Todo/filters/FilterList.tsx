@@ -68,15 +68,15 @@ export default function FilterList(props: any): JSX.Element {
     // let Type = addNotesPath ? "Added" : "Completed";
     let testMess: any;
     
-    useEffect(() => {
-        testMess = null;
-        testMess = addNotesPath ? "No Task Added" : "No Task Completed";
-        console.log("what is message type?", testMess);
-        setMessageState(null);
-        setTimeout(() => {
-            setMessageState(testMess);
-        }, 5000)
-    }, [Location.pathname])
+    // useEffect(() => {
+    //     testMess = null;
+    //     testMess = addNotesPath ? "No Task Added" : "No Task Completed";
+    //     console.log("what is message type?", testMess);
+    //     setMessageState(null);
+    //     setTimeout(() => {
+    //         setMessageState(testMess);
+    //     }, 5000)
+    // }, [Location.pathname])
 
     // status will either be completely true or completely false
     let status: boolean | undefined;
