@@ -58,7 +58,7 @@ export default function FilterList(props: any): JSX.Element {
             status = Element.isCompleted
         }
     });
-    let text: any = <Spin size='large' /> 
+    let text: any = <Spin size='large' />;
 
 
     const error = status === undefined;
