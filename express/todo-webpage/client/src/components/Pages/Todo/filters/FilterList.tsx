@@ -66,7 +66,7 @@ export default function FilterList(props: any): JSX.Element {
 
     const Text = addNotesPath ? "Yours Notes" : "Completed Notes";
     // let Type = addNotesPath ? "Added" : "Completed";
-    let testMess: any;
+    // let testMess: any;
     
     // useEffect(() => {
     //     testMess = null;
