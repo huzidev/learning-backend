@@ -59,7 +59,7 @@ export default function FilterList(props: any): JSX.Element {
         }
     });
     let text: any = <Spin size='large' />;
-
+    let showText: string;
 
     const error = status === undefined;
     const style = {
