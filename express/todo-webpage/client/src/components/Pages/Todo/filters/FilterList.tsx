@@ -24,7 +24,6 @@ export default function FilterList(props: any): JSX.Element {
     const completedNotesPath: boolean = Location.pathname.includes('/completed');
     const locationName: string = addNotesPath ? "/allnotes" : "/completednotes"
     
-    
     useEffect(() => {
         // so state will changed to default form and allNotes will be fetched
         setState(null);
