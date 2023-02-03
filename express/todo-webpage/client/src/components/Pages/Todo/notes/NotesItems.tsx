@@ -195,7 +195,7 @@ export default function NotesItems(props: any) {
                             value={description}
                             onChange={onChange}
                         />
-                        <Typography.Title level={5} style={style}>
+                        <Typography.Title level={5} className="marginTop">
                             Category
                         </Typography.Title>
                         <Input
