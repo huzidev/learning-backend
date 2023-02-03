@@ -55,7 +55,7 @@ export default function FilterList(props: any): JSX.Element {
     }
 
     const Text = addNotesPath ? "Yours Notes" : "Completed Notes";
-    // let Type = addNotesPath ? "Added" : "Completed";
+    let Type = addNotesPath ? "Added" : "Completed";
     // let testMess: any;
     
     // useEffect(() => {
@@ -95,7 +95,7 @@ export default function FilterList(props: any): JSX.Element {
                             // <Suspense fallback={<div><Spin size='large' /></div>}>
                             //     {type !== '' && <NoteState type={type} />}
                             // </Suspense>
-                            <NoteState type={type} />
+                            <NoteState type={Type} />
                         ) : (
                             <div style={style}>
                                 <Typography.Title level={4}>
