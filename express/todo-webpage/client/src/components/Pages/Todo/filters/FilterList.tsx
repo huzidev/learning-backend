@@ -103,6 +103,7 @@ export default function FilterList(props: any): JSX.Element {
                                 </Typography.Title>
                                 <div style={style}>
                                     <Button
+                                        type="ghost"
                                         className='Dark'
                                         onClick={handleClick}
                                     >
