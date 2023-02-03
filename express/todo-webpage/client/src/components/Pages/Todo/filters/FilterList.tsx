@@ -27,7 +27,7 @@ export default function FilterList(props: any): JSX.Element {
     
     useEffect(() => {
         // so state will changed to default form and allNotes will be fetched
-        setState(null)
+        setState(null);
     }, [locationName])
 
     // MUI
