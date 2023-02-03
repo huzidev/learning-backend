@@ -210,7 +210,7 @@ export default function NotesItems(props: any) {
                                 checked={isCheckedState}
                                 onChange= {stateChanger}
                             />
-                            <Typography.Title level={5} style={{ margin: '0px 0px 0px 10px' }}>
+                            <Typography.Title level={5} style={{ marginLeft: '10px' }}>
                                 {isCheckedState ? "Completed" : "Not Completed"}
                             </Typography.Title>
                         </div>
