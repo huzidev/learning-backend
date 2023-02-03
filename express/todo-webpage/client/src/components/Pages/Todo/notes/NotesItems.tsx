@@ -168,10 +168,6 @@ export default function NotesItems(props: any) {
         })
     }
 
-    const style = {
-        marginTop: "10px"
-    }
-
     return (
         <div>
             { Location.pathname.includes('/addnote') && <AddTodo /> }
@@ -181,7 +177,7 @@ export default function NotesItems(props: any) {
                 </Button>
                 <Modal title="Update Todo" open={isModalOpen} okText="Update" cancelText="Cancel" onOk={handleClick} onCancel={handleCancel}>
                     <Form>
-                        <Typography.Title level={5} className="h5">
+                        <Typography.Title level={5}>
                             Title
                         </Typography.Title>
                         <Input
@@ -190,7 +186,7 @@ export default function NotesItems(props: any) {
                             value={title}
                             onChange={onChange}
                         />
-                        <Typography.Title level={5} style={style} className="h5">
+                        <Typography.Title level={5} className="marginTop">
                             Description
                         </Typography.Title>
                         <Input
