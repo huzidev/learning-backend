@@ -22,6 +22,10 @@ export const GlobalStyles = createGlobalStyle<Props>`
             transition: ${(p: any) => p.transition};
         }
     }
+    .css-6hp17o-MuiList-root-MuiMenu-list {
+        background-color: ${(p: any) => p.darkModeBG};
+        color: ${(p: any) => p.darkModeC};
+    }
     .Border {
         border: 2px solid #efefef;
         box-shadow: 1px 1px 2px rgb(0 0 0 / 5%);
