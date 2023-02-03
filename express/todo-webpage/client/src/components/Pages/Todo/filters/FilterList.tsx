@@ -103,6 +103,7 @@ export default function FilterList(props: any): JSX.Element {
                                 </Typography.Title>
                                 <div style={style}>
                                     <Button
+                                        className='Dark'
                                         onClick={handleClick}
                                     >
                                         Filter the list
