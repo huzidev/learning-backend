@@ -104,7 +104,6 @@ export default function FilterList(props: any): JSX.Element {
                                 <div style={style}>
                                     <Button
                                         onClick={handleClick}
-                                        className= "Dark"
                                     >
                                         Filter the list
                                     </Button>
@@ -122,7 +121,7 @@ export default function FilterList(props: any): JSX.Element {
                                         {allItems.map((currentEle: any, index: number) => {
                                             return (
                                                 <span key={index}>
-                                                    <MenuItem className='Dark' onClick={() => filterItems(currentEle)}>
+                                                    <MenuItem onClick={() => filterItems(currentEle)}>
                                                         {currentEle}
                                                     </MenuItem>
                                                 </span>
