@@ -1,4 +1,4 @@
-import { Card, Result } from "antd"
+import { Card, Result, Button } from "antd"
 export default function Error(): JSX.Element {
   return (
     <div>
@@ -7,7 +7,7 @@ export default function Error(): JSX.Element {
           // status 403 and status 404 have different images according to the status
           status="403"
           title="403"
-          subTitle={`The apartment you tries to access might be Rented would you like to check more apartment from the user who've uploaded that apartment`}
+          subTitle={`The page you are trying to access may not be available`}
           extra={
             <>
               <Button
