@@ -68,8 +68,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
         }
     }
     @media only screen and (max-width: 1600px) {
-      .h5 {
-        font-size: 50px;
+      .Dark {
       }
     }
 `
