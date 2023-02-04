@@ -12,7 +12,7 @@ export const updateThisNote = createAsyncThunk('user/updateNote', async (note: a
             body: JSON.stringify({
                 title,
                 description,
-                category,
+                category: category.charAt(0).toUpperCase() + category.slice(1).toLowerCase(),
                 date,
                 isCompleted
             })
