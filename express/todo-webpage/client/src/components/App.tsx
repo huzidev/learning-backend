@@ -27,7 +27,7 @@ export default function App(): JSX.Element {
                 )
               })} 
               <Route path="/signout" element={<SignOut />} />
-              <Route path="*" element={<Skeleton active />} />
+              <Route path="*" element={<Error />}/>
             </Routes>
         </Router>
       </UserState>
