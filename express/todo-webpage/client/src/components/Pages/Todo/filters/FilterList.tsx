@@ -141,7 +141,7 @@ export default function FilterList(props: any): JSX.Element {
                 {Data.map((note: any) => {
                     return (
                         !note.isCompleted && addNotesPath || note.isCompleted && completedNotesPath ? (
-                            <Col span={8} style={{ margin: '10px 0px' }}>
+                            <Col span={12} style={{ margin: '10px 0px' }}>
                                 <ShowNotes key={note._id} updateNote={props.updateNote} note={note} isCompleted={note.isCompleted} />
                             </Col>
                         ) : null
