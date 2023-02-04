@@ -14,12 +14,15 @@ import paths from './Router/paths';
 export default function App(): JSX.Element {
   
   const history = createBrowserHistory();
+  let path = history.location.pathname;
   const allPaths = Object.values(paths);
   let pathsName: any;
   for (let i = 0; i < allPaths.length; i++) {
     pathsName = allPaths[i];
   }
 
+  console.log("curr path is", history.location.pathname);
+  
   return (
     <div>
       <UserState>
