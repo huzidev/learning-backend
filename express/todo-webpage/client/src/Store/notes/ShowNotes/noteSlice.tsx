@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { InitialType, Note } from "./Types";
 
 const initialState: InitialType = {
@@ -12,6 +12,8 @@ let fetchNots: any;
 
 export const fetchNotes = createAsyncThunk('user/notes', async (location: string) => {
     try {
+        console.log('fetchNotes = createAsyncThunk');
+        
         const res = await fetch(location, {
             method : 'GET',
                 headers: new Headers({

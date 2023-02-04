@@ -1,14 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Button, Modal, Form, Input, Typography, notification } from 'antd';
-import { ExclamationCircleOutlined, CheckCircleOutlined  } from '@ant-design/icons';
+import { CheckCircleOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { Button, Form, Input, Modal, notification, Typography } from 'antd';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import DataContext from "../../../Context/DataContext";
-import AddTodo from '../addTodo/AddTodo';
-import { DataType, DataTypeHold } from './Type';
-import FilterList from '../filters/FilterList';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 import { fetchNotes, noteAction } from '../../../../store/notes/ShowNotes/noteSlice';
 import { updateThisNote } from '../../../../store/notes/UpdateNote/updateSlice';
+import AddTodo from '../addTodo/AddTodo';
+import FilterList from '../filters/FilterList';
+import { DataType, DataTypeHold } from './Type';
 
 export default function NotesItems(props: any) {
     const dispatch = useAppDispatch();
@@ -31,6 +30,8 @@ export default function NotesItems(props: any) {
         path = "/completednotes"
     }
     useEffect(() => {
+        console.log('useEffect(() => {  q1');
+        
         dispatch(fetchNotes(path))
         dispatch(noteAction.testState())
     }, [Location.pathname])

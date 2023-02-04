@@ -1,4 +1,4 @@
-import { Card, Result, Button } from "antd"
+import { Button, Card, Result } from "antd";
 import { useNavigate } from "react-router-dom";
 export default function Error(): JSX.Element {
 

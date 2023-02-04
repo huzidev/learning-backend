@@ -1,28 +1,20 @@
-import React, { useContext, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import ContactUs from './Pages/Form/contact/ContactUs'
-import DataContext from './Context/DataContext';
 import {
-  FileOutlined,
-  UserOutlined,
-  HomeOutlined,
-  LoginOutlined,
-  MessageOutlined,
-  LogoutOutlined
+  FileOutlined, HomeOutlined,
+  LoginOutlined, LogoutOutlined, MessageOutlined, UserOutlined
 } from '@ant-design/icons';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
-import { Breadcrumb, Layout, Menu } from 'antd';
 import type { MenuProps } from 'antd';
-import SingIn from './Pages/Form/signin/SingIn';
-import SignUp from './Pages/Form/signup/SignUp';
-import TodoPage from './Pages/Todo/todoPage/TodoPage';
-import NotesItems from './Pages/Todo/notes/NotesItems';
-import UpdateUser from './Pages/Form/update/UpdateUser';
-import SignOut from './Pages/Form/signout/SignOut';
+import { Breadcrumb, Layout, Menu } from 'antd';
+import React, { useContext, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import DataContext from './Context/DataContext';
 import { GlobalStyles } from './styled-components/Global.styled';
-import Error from './Error';
 
-export default function App(): JSX.Element {
+interface Props {
+  children: React.ReactNode;
+}
+
+export default function PageWrapper({ children}: Props): JSX.Element {
   const [collapsed, setCollapsed] = useState(false);
   const { Content, Footer, Sider } = Layout;
 
@@ -182,13 +174,7 @@ export default function App(): JSX.Element {
                 minHeight: 360,
               }}
             >
-              {Location.pathname === '/' && <TodoPage />}
-              {Location.pathname.includes('/contact') && <ContactUs />}
-              {Location.pathname.includes('/signin') && <SingIn />}
-              {Location.pathname.includes('/signup') && <SignUp />}
-              {Location.pathname.includes('/signout') && <SignOut />}
-              {Location.pathname.includes('/note') && <NotesItems />}
-              {Location.pathname.includes('/about') && <UpdateUser />}
+              {children}
             </div>
           </Content>
           <Footer

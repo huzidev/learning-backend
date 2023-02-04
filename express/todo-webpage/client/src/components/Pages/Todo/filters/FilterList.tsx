@@ -1,10 +1,10 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
-import ShowNotes from '../notes/ShowNotes';
-import { Col, Button, Row, Typography, Spin } from 'antd';
-import { useLocation } from 'react-router-dom';
+import Fade from '@mui/material/Fade';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import Fade from '@mui/material/Fade';
+import { Button, Col, Row, Typography } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import ShowNotes from '../notes/ShowNotes';
 // const NoteState = lazy(() =>
 //     new Promise((resolve) => setTimeout(resolve, 1000)).then(() => import('../notes/NoteState'))
 // );

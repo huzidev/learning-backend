@@ -1,12 +1,14 @@
-import { useState } from 'react';
-import { Card, Button, Typography, Modal, notification } from 'antd';
 import { CheckCircleOutlined } from '@ant-design/icons';
-import { IntlProvider, FormattedDate } from 'react-intl'
+import { Button, Card, Modal, notification, Typography } from 'antd';
+import { useState } from 'react';
+import { FormattedDate, IntlProvider } from 'react-intl';
 import { useLocation } from 'react-router-dom';
 import { useAppDispatch } from '../../../../store/hooks/hooks';
 import { deleteThisNote } from '../../../../store/notes/DeleteNote/deleteSlice';
 
 export default function ShowNotes(props: any): JSX.Element {
+    console.log('ShowNotes');
+    
     const dispatch = useAppDispatch();
     const Location = useLocation();
     const { note, updateNote } = props;
@@ -25,11 +27,12 @@ export default function ShowNotes(props: any): JSX.Element {
             window.location.reload();
         }, 1500)
     };
-
-    let typeOf: string = note.isCompleted ? "Completed At" : "Created At";
+    
+    const isCompleted = note?.isCompleted;
+    let typeOf: string = isCompleted ? "Completed At" : "Created At";
     return (
         <div className='global'>
-            {!note.isCompleted && Location.pathname.includes('/addnote') || note.isCompleted && Location.pathname.includes('/completed') ? (
+            {!isCompleted && Location.pathname.includes('/addnote') || isCompleted && Location.pathname.includes('/completed') ? (
                 <Card title={
                     <Typography.Title level={5}>
                         {note.title}

@@ -1,23 +1,20 @@
-import { lazy } from 'react';
 import ROUTE_PATHS from './paths';
 
-const Home = import('../Pages/Todo/todoPage/TodoPage');
-const Signin = import('../Pages/Form/signin/SingIn');
-const SignUp = import('../Pages/Form/signup/SignUp');
-const SignOut = import('../Pages/Form/signout/SignOut');
-const Contact = import('../Pages/Form/contact/ContactUs');
-const About = import('../Pages/Form/about/About');
-const Notes = import('../Pages/Todo/notes/NotesItems');
-const AddNote = import('../Pages/Todo/addTodo/AddTodo');
-const CompletedNotes = lazy(() => import('../Pages/Todo/notes/ShowNotes'));
-const UpdateUser = import('../Pages/Form/update/UpdateUser');
+ import About from '../Pages/Form/about/About';
+import Contact from '../Pages/Form/contact/ContactUs';
+import Signin from '../Pages/Form/signin/SingIn';
+import SignOut from '../Pages/Form/signout/SignOut';
+import SignUp from '../Pages/Form/signup/SignUp';
+import UpdateUser from '../Pages/Form/update/UpdateUser';
+import NotesItems from '../Pages/Todo/notes/NotesItems';
+import Home from '../Pages/Todo/todoPage/TodoPage';
 
 interface AppRoute {
     path: string;
     Component: any;
   }
 
-  const routes: AppRoute[] = [
+const routes: AppRoute[] = [
     {
         Component: Home,
         path: ROUTE_PATHS.HOME
@@ -34,15 +31,15 @@ interface AppRoute {
         path: ROUTE_PATHS.SINGOUT
     },
     {
-        Component: Notes,
+        Component: NotesItems,
         path: ROUTE_PATHS.NOTEITEMS
     },
     {
-        Component: AddNote,
+        Component: NotesItems,
         path: ROUTE_PATHS.ADD_NOTE
     },
     {
-        Component: CompletedNotes,
+        Component: NotesItems,
         path: ROUTE_PATHS.COMPLETED_NOTE
     },
     {

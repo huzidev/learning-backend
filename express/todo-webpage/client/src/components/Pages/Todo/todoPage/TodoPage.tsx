@@ -1,7 +1,7 @@
-import React, { useContext, useState }from 'react';
-import { Carousel, Typography, Col, Grid } from 'antd';
+import { Carousel, Col, Grid, Typography } from 'antd';
+import React, { useContext, useState } from 'react';
 import DataContext from '../../../Context/DataContext';
-import slides from './data'
+import slides from './data';
 
 const contentStyle: React.CSSProperties = {
   height: '500px',
@@ -40,7 +40,7 @@ export default function TodoPage(): JSX.Element {
         afterChange={(index) => setActiveIndex(index)}
       >
         {slides.map((slide, slideIndex) => (
-          <div>
+          <div key={slide.title}>
             <div key={slide.title} style={contentStyle}>
               <Col>
                 <Typography.Title level={1} style={color}>
