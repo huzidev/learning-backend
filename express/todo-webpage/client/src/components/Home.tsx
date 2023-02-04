@@ -20,6 +20,7 @@ import NotesItems from './Pages/Todo/notes/NotesItems';
 import UpdateUser from './Pages/Form/update/UpdateUser';
 import SignOut from './Pages/Form/signout/SignOut';
 import { GlobalStyles } from './styled-components/Global.styled';
+import Error from './Error';
 
 export default function App(): JSX.Element {
   const [collapsed, setCollapsed] = useState(false);

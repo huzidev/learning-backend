@@ -10,8 +10,14 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 export default function App(): JSX.Element {
  
+  const location = useLocation();
+
+  console.log("what is location", location.pathname);
+  
+
   return (
     <div>
       <UserState>
