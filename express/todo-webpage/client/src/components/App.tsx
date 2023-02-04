@@ -21,7 +21,7 @@ export default function App(): JSX.Element {
     pathsName = allPaths[i];
   }
 
-  console.log("curr path is", path;
+  console.log("curr path is", path);
   
   return (
     <div>
