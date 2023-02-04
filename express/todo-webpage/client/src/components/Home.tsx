@@ -50,8 +50,6 @@ export default function App(): JSX.Element {
 
   const { userData } = Context
 
-  console.log("currenrt location is " + Location.pathname);
-
   const signedInItems: MenuItem[] = [
     getItem(
       'User',

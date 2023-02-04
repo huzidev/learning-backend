@@ -4,7 +4,6 @@ import SignOut from './Pages/Form/signout/SignOut';
 import Home from './Home';
 import Error from './Error';
 import UserState from './Context/UserState';
-import { createBrowserHistory } from 'history';
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,9 +11,8 @@ import {
 } from "react-router-dom";
 import paths from './Router/paths';
 export default function App(): JSX.Element {
-  
-  const history = createBrowserHistory();
-  let path: string = history.location.pathname;
+    
+  let path: string = window.location.pathname;
   const allPaths = Object.values(paths);
   let pathsName: any;
   for (let i = 0; i < allPaths.length; i++) {
