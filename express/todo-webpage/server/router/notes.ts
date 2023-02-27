@@ -1,9 +1,9 @@
-import express, { Request, Response } from "express";
+import cors from "cors";
+import express, { Response } from "express";
+import TypesNote from './Types';
 const Verification = require("../middleware/Verification")
 const CompletedNotes = require("../models/completedNotes")
 const Note = require("../models/note")
-import cors from "cors";
-import TypesNote from './Types';
  
 const router = express.Router();
 
