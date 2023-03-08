@@ -1,0 +1,3 @@
+ORIGIBAL if we wanted to colors of painter areas to be same
+LATENT NOSE if color have to be diff on each iterations
+FILL for using other colors from images parts

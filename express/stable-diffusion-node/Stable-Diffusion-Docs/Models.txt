@@ -1,0 +1,7 @@
+f222 for realistic peoples
+redShift: for games, 3d model like pikachu
+Anything V3 for high quality anime images
+midjournay: use mdjrny-v4 style for best result like aesthethic results
+https://stable-diffusion-art.com/models/#v2_models web for diff models results
+
+illumintaiDiffusion best at 768px

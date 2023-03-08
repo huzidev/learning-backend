@@ -1,0 +1,10 @@
+COLOR NET FOR SAME POSES BUT DIFF OUTCOMES
+Canny: Mostly for High detailed image procession OR for Anime
+Depth: have less details
+HED: creates blur outlines around special edges of image result is much similar as of canny
+MLSD: mostly for straight lines EX: buildings
+Normal: for mostly gaming charchetrs: EX: change iron man into transformer
+OpenPose: for outspread pose (no lapping of hands, arm) and works best when person have tight clothing for visibility of arms and legs
+Scribble: converts sketch like scribble into any image, anime, painting
+Fake Scribble: takes real image convert it into (sketch/scribble) then into image, anime but result will be bit diff beause it first converts the image into scribble
+
