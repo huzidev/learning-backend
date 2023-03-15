@@ -3,7 +3,6 @@ const path = require('path');
 const fs = require('fs');
 const get = require('prompt-sync')();
 
-
 let obj = {
     prompt: "", 
     // negative_prompt: "",
@@ -28,15 +27,34 @@ var data = JSON.stringify({
     "height": 512,
     "restore_faces": false,
     "tiling": false,
-    "seed": -1
+    "seed": -1,
+    // "enable_hr": true,
+    // "hr_resize_x": 720,
+    // "hr_resize_y": 720,
+    // "hr_scale": 2,
+    // "hr_upscaler": "SwinIR_4x",
 });
 
+
+let model = "f222.safetensors [f300684443]";
+// let model = "protogenX34Photorealism_1.safetensors [44f90a0972]";
+// let model = "mdjrny-v4.ckpt [5d5ad06cc2]";
+// let model = "EmisAnime.ckpt [39ee30561f]";
+
+
 var ckptData = JSON.stringify({
-    // "sd_model_checkpoint": "EmisAnime.ckpt [39ee30561f]",
-    // "sd_model_checkpoint": "mdjrny-v4.ckpt [5d5ad06cc2]"
-    "sd_model_checkpoint": "protogenX34Photorealism_1.safetensors [44f90a0972]"
-    // "sd_model_checkpoint": "f222.safetensors [f300684443]"
-});
+    // "sd_model_checkpoint": model
+    // "sd_model_checkpoint": model
+    // "sd_model_checkpoint": model
+    "sd_model_checkpoint": model
+  });
+  
+let folder = model === "f222.safetensors [f300684443]" 
+  ? "f222" 
+  : model === "protogenX34Photorealism_1.safetensors [44f90a0972]" 
+  ? "protogen" 
+  : model === "EmisAnime.ckpt [39ee30561f]" 
+  ? "anime" : "midjourney" 
 
 const config = {
   method: 'post',
@@ -47,6 +65,7 @@ const config = {
   data : data
 };
 
+
 const ckptConfig = {
   method: 'post',
   url: 'http://127.0.0.1:7860/sdapi/v1/options',
@@ -56,23 +75,23 @@ const ckptConfig = {
   data: ckptData
 };
 
+let buffer;
 async function main() {
     try {
         console.log("Generating...");
         await axios(ckptConfig);
         const resp = await axios(config);
-        const {images,info} = resp.data;
+        const {images,info} = resp.data;  
         console.log("info", info);
         for (const image of images) {
             const data = image;
-            const buffer = Buffer.from(data, "base64");
+            buffer = Buffer.from(data, "base64");
             const date = Date.now();
-            const imagePath = path.join("images", `${date}.png`);
-
-            fs.writeFileSync(imagePath, buffer);
-            
+            if (model) {
+              const imagePath = path.join(`images/${folder}`, `${date}.png`);
+              fs.writeFileSync(imagePath, buffer);
+            }
         }
-
     } catch (e) {
         console.log('e',e);
     }
