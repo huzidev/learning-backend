@@ -70,57 +70,87 @@ const ckptConfig = {
   data: ckptData
 };
 
-let buffer, respImage;
+const fileName = Date.now();
 async function main() {
   try {
     console.log("Generating...");
     await axios(ckptConfig);
     const resp = await axios(config);
     const { images, info } = resp.data;
-    respImage = images;
+    let obj = JSON.parse(info);
+    console.log("obj", obj);
+    const { prompt, negative_prompt, seed, height, width, sampler_name, cfg_scale, steps, restore_faces, model_name } = obj;
+    for (const key in obj) {
+      if (key === prompt || key === height || width) {
+        console.log(`${key}: ${obj[key]}`);
+      }
+    }
+    console.log("testing", prompt, seed);
     for (const image of images) {
-      const data = image;
-      buffer = Buffer.from(data, "base64");
-      const date = Date.now();
-      const imagePath = path.join(`images/${folder}`, `${date}.png`);
-      const textFile = path.join(`images/${folder}`, `${date}.txt`);
+      const buffer = Buffer.from(image, "base64");
+      const imagePath = path.join(`images/${folder}`, `${fileName}.png`);
+      const textFile = path.join(`images/${folder}`, `${fileName}.txt`);
       fs.writeFileSync(imagePath, buffer);
       fs.writeFileSync(textFile, info);
     }
-    var imgToimgData = JSON.stringify({
-      "init_images": respImage,
-      "denoising_strength": 0.75,
-    });
-
-    const imgToimgConfig = {
-      method: 'post',
-      url: 'http://127.0.0.1:7860/sdapi/v1/img2img',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      data: imgToimgData
-    };
-    async function imgToImg() {
-      try {
-        console.log("Generating img2img");
-        const imgResp = await axios(imgToimgConfig);
-        const { images } = imgResp.data;
-        for (const imgToImg of images) {
-          const imgBuffer = Buffer.from(imgToImg, "base64");
-          const fileName = Date.now();
-          const imgToImgPath = path.join("img2img", `${fileName}.png`);
-          fs.writeFileSync(imgToImgPath, imgBuffer);
-        }
-      } catch (e) {
-        console.log("Error", e);
-      }
-    }
-
-    imgToImg();
-    test = true;
+    // var upScaleData = JSON.stringify({
+    //   "image": images.toString(),
+    //   "upscaling_resize": 4,
+    //   "upscaling_crop": false,
+    //   "upscaler_1": "SwinIR_4x"  
+    // });
+    // const upScalerConfig = {
+    //   method: 'post',
+    //   url: 'http://127.0.0.1:7860/sdapi/v1/extra-single-image',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },  
+    //   data: upScaleData
+    // };
+    // async function upScaleImg() {
+    //   try {
+    //     console.log("Upscaling Img");
+    //     const upScaleResp = await axios(upScalerConfig);
+    //     const { image } = upScaleResp.data;
+    //     const bufferUpScale = Buffer.from(image, "base64");
+    //     const upScalePath = path.join("upScale", `${fileName}.png`);
+    //     fs.writeFileSync(upScalePath, bufferUpScale);
+    //   } catch (e) {
+    //     console.log("Error", e);
+    //   }
+    // }
+    // upScaleImg();
   } catch (e) {
     console.log('e', e);
   }
 }
 
 main();
+
+// var imgToimgData = JSON.stringify({
+    //   "init_images": respImage,
+    //   "denoising_strength": 0.75,
+    // });
+// const imgToimgConfig = {
+    //   method: 'post',
+    //   url: 'http://127.0.0.1:7860/sdapi/v1/img2img',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   data: imgToimgData
+    // }; 
+// async function imgToImg() {
+    //   try {
+    //     console.log("Generating img2img");
+    //     const imgResp = await axios(imgToimgConfig);
+    //     const { images } = imgResp.data;
+    //     for (const imgToImg of images) {
+    //       const imgBuffer = Buffer.from(imgToImg, "base64");
+    //       const imgToImgPath = path.join("img2img", `${fileName}.png`);
+    //       fs.writeFileSync(imgToImgPath, imgBuffer);
+    //     }
+    //   } catch (e) {
+    //     console.log("Error", e);
+    //   }
+    // }
+    // imgToImg();
