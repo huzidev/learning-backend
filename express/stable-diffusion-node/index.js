@@ -78,14 +78,15 @@ async function main() {
     const resp = await axios(config);
     const { images, info } = resp.data;
     let obj = JSON.parse(info);
-    console.log("obj", obj);
     const { prompt, negative_prompt, seed, height, width, sampler_name, cfg_scale, steps, restore_faces, model_name } = obj;
-    for (const key in obj) {
-      if (key === prompt || key === height || width) {
-        console.log(`${key}: ${obj[key]}`);
+    let testArr = ["prompt", "height", "width"]
+    for (let key in obj) {
+      for (let i = 0; i < testArr.length; i++) {
+        if (key === testArr[i]) {
+          console.log(`${key}: ${obj[key]}`);
+        }
       }
     }
-    console.log("testing", prompt, seed);
     for (const image of images) {
       const buffer = Buffer.from(image, "base64");
       const imagePath = path.join(`images/${folder}`, `${fileName}.png`);
