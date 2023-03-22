@@ -3,7 +3,8 @@ const path = require('path');
 const fs = require('fs');
 const get = require('prompt-sync')();
 const util = require('util');
-const db = require("./img2img");
+const img = require("./img2img");
+const upScale = require("./upScale");
 
 let obj = {
   prompt: "",
@@ -88,34 +89,8 @@ async function main() {
       fs.writeFileSync(imagePath, buffer);
       fs.writeFileSync(textFile, util.inspect(newObj, false, 2, false));
     }
-    // var upScaleData = JSON.stringify({
-    //   "image": images.toString(),
-    //   "upscaling_resize": 4,
-    //   "upscaling_crop": false,
-    //   "upscaler_1": "SwinIR_4x"  
-    // });
-    // const upScalerConfig = {
-    //   method: 'post',
-    //   url: 'http://127.0.0.1:7860/sdapi/v1/extra-single-image',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },  
-    //   data: upScaleData
-    // };
-    // async function upScaleImg() {
-    //   try {
-    //     console.log("Upscaling Img");
-    //     const upScaleResp = await axios(upScalerConfig);
-    //     const { image } = upScaleResp.data;
-    //     const bufferUpScale = Buffer.from(image, "base64");
-    //     const upScalePath = path.join("upScale", `${fileName}.png`);
-    //     fs.writeFileSync(upScalePath, bufferUpScale);
-    //   } catch (e) {
-    //     console.log("Error", e);
-    //   }
-    // }
-    // upScaleImg();
-    // db.newTest(respImage, fileName);
+
+    // img.imgToimg(respImage, fileName);
   } catch (e) {
     console.log('e', e);
   }
