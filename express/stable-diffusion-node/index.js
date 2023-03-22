@@ -91,6 +91,7 @@ async function main() {
     }
 
     // img.imgToimg(respImage, fileName);
+    upScale.upScale(respImage, fileName);
   } catch (e) {
     console.log('e', e);
   }
