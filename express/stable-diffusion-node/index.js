@@ -2,6 +2,7 @@
   const path = require('path');
   const fs = require('fs');
   const get = require('prompt-sync')();
+  const util = require('util');
 
   let obj = {
     prompt: "",
@@ -78,27 +79,23 @@
       const resp = await axios(config);
       const { images, info } = resp.data;
       let obj = JSON.parse(info);
-      const { prompt, negative_prompt, seed, height, width, sampler_name, cfg_scale, steps, restore_faces, model_name } = obj;
-      let testArr = ["prompt", "height", "width"];
-      let testNoKey = ["seed", "steps"];
+      let arrofKey = ["prompt", "negative_prompt", "seed", "height", "width", "sampler_name", "cfg_scale", "steps", "restore_faces", "model_name"];
+      let newObj = {};
       for (let key in obj) {
-        for (let i = 0; i < testArr.length; i++) {
-          if (key === testArr[i]) {
-            console.log(`${key}: ${obj[key]}`);
+        arrofKey.forEach(value => {
+          if (key === value) {
+            newObj[key] = obj[key]
           }
-        }
-        for (let i = 0; i < testNoKey.length; i++) {
-          if (key === testNoKey[i]) {
-            console.log(obj[key]);            
-          }
-        }
+        });
       }
+      console.log("new obj", newObj);
       for (const image of images) {
         const buffer = Buffer.from(image, "base64");
         const imagePath = path.join(`images/${folder}`, `${fileName}.png`);
         const textFile = path.join(`images/${folder}`, `${fileName}.txt`);
         fs.writeFileSync(imagePath, buffer);
-        fs.writeFileSync(textFile, info);
+        // fs.writeFileSync(textFile, JSON.stringify(newObj, null, 2).toString());
+        fs.writeFileSync(textFile, util.inspect(newObj, false, 2, false));
       }
       // var upScaleData = JSON.stringify({
       //   "image": images.toString(),
