@@ -1,160 +1,124 @@
-  const axios = require('axios');
-  const path = require('path');
-  const fs = require('fs');
-  const get = require('prompt-sync')();
-  const util = require('util');
+const axios = require('axios');
+const path = require('path');
+const fs = require('fs');
+const get = require('prompt-sync')();
+const util = require('util');
+const db = require("./img2img");
 
-  let obj = {
-    prompt: "",
-    // negative_prompt: "",
-    steps: 20,
-  };
+let obj = {
+  prompt: "",
+  steps: 20,
+};
 
-  for (const val in obj) {
-    obj[val] = get(`${val} : `)
-  }
+for (const val in obj) {
+  obj[val] = get(`${val} : `)
+}
 
-  const { prompt, steps, negative_prompt } = obj;
+const { prompt, steps } = obj;
 
-  var data = JSON.stringify({
-    prompt,
-    steps,
-    // negative_prompt,
-    "sampler_index": "Euler",
-    "batch_size": 1,
-    "cfg_scale": 7,
-    "width": 512,
-    "height": 512,
-    "seed": -1,
-    // "enable_hr": true,
-    // "hr_scale": 2,
-    // "hr_upscaler": "SwinIR_4x",
-  });
+var data = JSON.stringify({
+  prompt,
+  steps,
+  "sampler_index": "Euler",
+  "batch_size": 1,
+  "cfg_scale": 7,
+  "width": 512,
+  "height": 512,
+  "seed": -1,
+});
 
 
-  // let model = "f222.safetensors [f300684443]";
-  let model = "protogenX34Photorealism_1.safetensors [44f90a0972]";
-  // let model = "mdjrny-v4.ckpt [5d5ad06cc2]";
-  // let model = "EmisAnime.ckpt [39ee30561f]";
+let arrModel = [
+  "protogenX34Photorealism_1.safetensors [44f90a0972]",
+  "f222.safetensors [f300684443]",
+  "mdjrny-v4.ckpt [5d5ad06cc2]",
+  "EmisAnime.ckpt [39ee30561f]"
+]
 
+let ckptSD = arrModel[3];
+let folder = ckptSD === arrModel[0] ? "protogen" : ckptSD === arrModel[1] ? "f222" : ckptSD === arrModel[2] ? "midjourney" : "anime";
 
-  var ckptData = JSON.stringify({
-    // "sd_model_checkpoint": model
-    // "sd_model_checkpoint": model
-    // "sd_model_checkpoint": model
-    "sd_model_checkpoint": model
-  });
+const config = {
+  method: 'post',
+  url: 'http://127.0.0.1:7860/sdapi/v1/txt2img',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  data: data
+};
 
-  let folder = model === "f222.safetensors [f300684443]" ? (
-    "f222"
-  ) : model === "protogenX34Photorealism_1.safetensors [44f90a0972]" ? (
-    "protogen"
-  ) : model === "EmisAnime.ckpt [39ee30561f]" ? (
-    "anime"
-  ) : "midjourney"
+const ckptConfig = {
+  method: 'post',
+  url: 'http://127.0.0.1:7860/sdapi/v1/options',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  data: JSON.stringify({ "sd_model_checkpoint": ckptSD })
+};
 
-  const config = {
-    method: 'post',
-    url: 'http://127.0.0.1:7860/sdapi/v1/txt2img',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    data: data
-  };
-
-  const ckptConfig = {
-    method: 'post',
-    url: 'http://127.0.0.1:7860/sdapi/v1/options',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    data: ckptData
-  };
-
-  const fileName = Date.now();
-  async function main() {
-    try {
-      console.log("Generating...");
-      await axios(ckptConfig);
-      const resp = await axios(config);
-      const { images, info } = resp.data;
-      let obj = JSON.parse(info);
-      let arrofKey = ["prompt", "negative_prompt", "seed", "height", "width", "sampler_name", "cfg_scale", "steps", "restore_faces", "model_name"];
-      let newObj = {};
-      for (let key in obj) {
-        arrofKey.forEach(value => {
-          if (key === value) {
-            newObj[key] = obj[key]
-          }
-        });
+const fileName = Date.now();
+let respImage;
+async function main() {
+  try {
+    console.log("Generating...");
+    await axios(ckptConfig);
+    const resp = await axios(config);
+    const { images, info } = resp.data;
+    respImage = images;
+    let obj = JSON.parse(info);
+    console.log("obj", obj.infotexts);
+    let arrofKey = ["prompt", "negative_prompt", "seed", "height", "width", "sampler_name", "cfg_scale", "steps", "restore_faces"];
+    const { Model } = info;
+    let newObj = {};
+    for (let key in obj) {
+      arrofKey.forEach(value => {
+        if (key === value || key === Model) {
+          newObj[key] = obj[key]
+        }
+      });
+      newObj = {
+        ...newObj,
+        Model: ckptSD
       }
-      console.log("new obj", newObj);
-      for (const image of images) {
-        const buffer = Buffer.from(image, "base64");
-        const imagePath = path.join(`images/${folder}`, `${fileName}.png`);
-        const textFile = path.join(`images/${folder}`, `${fileName}.txt`);
-        fs.writeFileSync(imagePath, buffer);
-        // fs.writeFileSync(textFile, JSON.stringify(newObj, null, 2).toString());
-        fs.writeFileSync(textFile, util.inspect(newObj, false, 2, false));
-      }
-      // var upScaleData = JSON.stringify({
-      //   "image": images.toString(),
-      //   "upscaling_resize": 4,
-      //   "upscaling_crop": false,
-      //   "upscaler_1": "SwinIR_4x"  
-      // });
-      // const upScalerConfig = {
-      //   method: 'post',
-      //   url: 'http://127.0.0.1:7860/sdapi/v1/extra-single-image',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   },  
-      //   data: upScaleData
-      // };
-      // async function upScaleImg() {
-      //   try {
-      //     console.log("Upscaling Img");
-      //     const upScaleResp = await axios(upScalerConfig);
-      //     const { image } = upScaleResp.data;
-      //     const bufferUpScale = Buffer.from(image, "base64");
-      //     const upScalePath = path.join("upScale", `${fileName}.png`);
-      //     fs.writeFileSync(upScalePath, bufferUpScale);
-      //   } catch (e) {
-      //     console.log("Error", e);
-      //   }
-      // }
-      // upScaleImg();
-    } catch (e) {
-      console.log('e', e);
     }
+    for (const image of images) {
+      const buffer = Buffer.from(image, "base64");
+      const imagePath = path.join(`images/${folder}`, `${fileName}.png`);
+      const textFile = path.join(`images/${folder}`, `${fileName}.txt`);
+      fs.writeFileSync(imagePath, buffer);
+      fs.writeFileSync(textFile, util.inspect(newObj, false, 2, false));
+    }
+    // var upScaleData = JSON.stringify({
+    //   "image": images.toString(),
+    //   "upscaling_resize": 4,
+    //   "upscaling_crop": false,
+    //   "upscaler_1": "SwinIR_4x"  
+    // });
+    // const upScalerConfig = {
+    //   method: 'post',
+    //   url: 'http://127.0.0.1:7860/sdapi/v1/extra-single-image',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },  
+    //   data: upScaleData
+    // };
+    // async function upScaleImg() {
+    //   try {
+    //     console.log("Upscaling Img");
+    //     const upScaleResp = await axios(upScalerConfig);
+    //     const { image } = upScaleResp.data;
+    //     const bufferUpScale = Buffer.from(image, "base64");
+    //     const upScalePath = path.join("upScale", `${fileName}.png`);
+    //     fs.writeFileSync(upScalePath, bufferUpScale);
+    //   } catch (e) {
+    //     console.log("Error", e);
+    //   }
+    // }
+    // upScaleImg();
+    // db.newTest(respImage, fileName);
+  } catch (e) {
+    console.log('e', e);
   }
+}
 
-  main();
-
-  // var imgToimgData = JSON.stringify({
-      //   "init_images": respImage,
-      //   "denoising_strength": 0.75,
-      // });
-  // const imgToimgConfig = {
-      //   method: 'post',
-      //   url: 'http://127.0.0.1:7860/sdapi/v1/img2img',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   },
-      //   data: imgToimgData
-      // }; 
-  // async function imgToImg() {
-      //   try {
-      //     console.log("Generating img2img");
-      //     const imgResp = await axios(imgToimgConfig);
-      //     const { images } = imgResp.data;
-      //     for (const imgToImg of images) {
-      //       const imgBuffer = Buffer.from(imgToImg, "base64");
-      //       const imgToImgPath = path.join("img2img", `${fileName}.png`);
-      //       fs.writeFileSync(imgToImgPath, imgBuffer);
-      //     }
-      //   } catch (e) {
-      //     console.log("Error", e);
-      //   }
-      // }
-      // imgToImg();
+main();
