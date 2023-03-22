@@ -31,4 +31,3 @@ module.exports.newTest = function test(respImage, fileName) {
     }
     imgToImg();
 }
-
