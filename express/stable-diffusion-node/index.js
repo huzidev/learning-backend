@@ -37,6 +37,7 @@ let arrModel = [
 ]
 
 let ckptSD = arrModel[3];
+// create folder with these names protogen, f222, midjourney, anime
 let folder = ckptSD === arrModel[0] ? "protogen" : ckptSD === arrModel[1] ? "f222" : ckptSD === arrModel[2] ? "midjourney" : "anime";
 
 const config = {
