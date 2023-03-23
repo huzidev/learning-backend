@@ -5,6 +5,7 @@ const get = require('prompt-sync')();
 const util = require('util');
 const img = require("./img2img");
 const upScale = require("./upScale");
+const ckpt = require("./models");
 
 let obj = {
   prompt: "",
@@ -28,17 +29,10 @@ var data = JSON.stringify({
   "seed": -1,
 });
 
+const ckptModel = ckpt.arrModel;
 
-let arrModel = [
-  "protogenX34Photorealism_1.safetensors [44f90a0972]",
-  "f222.safetensors [f300684443]",
-  "mdjrny-v4.ckpt [5d5ad06cc2]",
-  "EmisAnime.ckpt [39ee30561f]"
-]
-
-let ckptSD = arrModel[3];
-// create folder with these names protogen, f222, midjourney, anime
-let folder = ckptSD === arrModel[0] ? "protogen" : ckptSD === arrModel[1] ? "f222" : ckptSD === arrModel[2] ? "midjourney" : "anime";
+let ckptSD = ckptModel[3];
+let folder = ckptSD === ckptModel[0] ? "protogen" : ckptSD === ckptModel[1] ? "f222" : ckptSD === ckptModel[2] ? "midjourney" : "anime";
 
 const config = {
   method: 'post',
@@ -59,7 +53,6 @@ const ckptConfig = {
 };
 
 const fileName = Date.now();
-let respImage;
 async function main() {
   try {
     console.log("Generating...");
