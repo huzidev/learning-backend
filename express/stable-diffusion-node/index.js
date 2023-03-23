@@ -61,13 +61,11 @@ async function main() {
     const { images, info } = resp.data;
     respImage = images;
     let obj = JSON.parse(info);
-    console.log("obj", obj.infotexts);
     let arrofKey = ["prompt", "negative_prompt", "seed", "height", "width", "sampler_name", "cfg_scale", "steps", "restore_faces"];
-    const { Model } = info;
     let newObj = {};
     for (let key in obj) {
       arrofKey.forEach(value => {
-        if (key === value || key === Model) {
+        if (key === value) {
           newObj[key] = obj[key]
         }
       });
@@ -83,9 +81,8 @@ async function main() {
       fs.writeFileSync(imagePath, buffer);
       fs.writeFileSync(textFile, util.inspect(newObj, false, 2, false));
     }
-
     // img.imgToimg(respImage, fileName);
-    upScale.upScale(respImage, fileName);
+    // upScale.upScale(respImage, fileName);
   } catch (e) {
     console.log('e', e);
   }
