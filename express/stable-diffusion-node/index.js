@@ -9,7 +9,7 @@ const ckpt = require("./models");
 
 let obj = {
   prompt: "",
-  steps: 20,
+  steps: 0
 };
 
 for (const val in obj) {
