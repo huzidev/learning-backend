@@ -6,17 +6,28 @@ const util = require('util');
 const img = require("./img2img");
 const upScale = require("./upScale");
 const ckpt = require("./models");
+const yargs = require('yargs');
 
-let obj = {
-  prompt: "",
-  steps: 0
-};
+//   let obj = {
+//     prompt: "",
+//     steps: 0
+//   };
 
-for (const val in obj) {
-  obj[val] = get(`${val} : `)
-}
+//  console.log("args", process.argv);
 
-const { prompt, steps } = obj;
+// for (const val in obj) {
+//   obj[val] = get(`${val} : `)
+// }
+
+// const { prompt, steps } = obj;
+
+// const prompt = process.argv[2];
+// const steps = process.argv[3];
+
+// console.log("args", process.argv);
+
+let prompt = yargs.argv.prompt;
+let steps = yargs.argv.steps;
 
 var data = JSON.stringify({
   prompt,
