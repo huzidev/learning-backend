@@ -8,12 +8,11 @@ const upScale = require("./upScale");
 const ckpt = require("./models");
 const yargs = require('yargs');
 
+// For taking input after npm start
 //   let obj = {
 //     prompt: "",
 //     steps: 0
 //   };
-
-//  console.log("args", process.argv);
 
 // for (const val in obj) {
 //   obj[val] = get(`${val} : `)
@@ -21,20 +20,23 @@ const yargs = require('yargs');
 
 // const { prompt, steps } = obj;
 
+// input as argument in (npm start : npm start "prompt" steps)
 // const prompt = process.argv[2];
 // const steps = process.argv[3];
 
-// console.log("args", process.argv);
-
+// input as argument in (npm start add -- --prompt="prompt" --steps=steps)
 let prompt = yargs.argv.prompt;
 let steps = yargs.argv.steps;
+let negative_prompt = yargs.argv.neg;
+let cfg_scale = yargs.argv.cfg;
 
 var data = JSON.stringify({
   prompt,
   steps,
+  negative_prompt,
+  cfg_scale,
   "sampler_index": "Euler",
   "batch_size": 1,
-  "cfg_scale": 7,
   "width": 512,
   "height": 512,
   "seed": -1,
@@ -42,7 +44,7 @@ var data = JSON.stringify({
 
 const ckptModel = ckpt.arrModel;
 
-let ckptSD = ckptModel[3];
+let ckptSD = ckptModel[0];
 let folder = ckptSD === ckptModel[0] ? "protogen" : ckptSD === ckptModel[1] ? "f222" : ckptSD === ckptModel[2] ? "midjourney" : "anime";
 
 const config = {
