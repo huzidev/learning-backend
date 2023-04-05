@@ -4,7 +4,9 @@ import mysql from "mysql";
 
 const server = express();
 
-server.use(cors());
+server.use(cors({
+    origin: "*"
+}));
 server.use(express.json());
 
 const db = mysql.createConnection({
@@ -71,6 +73,6 @@ server.delete("/delete/:id", (req, res) => {
     });
 });
 
-server.listen(3001, () => {
-    console.log("Yey, your server is running on port 3001");
+server.listen(8080, () => {
+    console.log("Yey, your server is running on port 8080");
 });
