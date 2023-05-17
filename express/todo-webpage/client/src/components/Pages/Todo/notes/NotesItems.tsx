@@ -11,10 +11,19 @@ import { DataType, DataTypeHold } from './Type';
 
 export default function NotesItems(props: any) {
     const initialStateNote = {
-        id: "", title: "", description: "", category: "", date: null, isCompleted: null
+        id: "", 
+        title: "", 
+        description: "", 
+        category: "", 
+        date: null, 
+        isCompleted: null
     }
     const initialStateHoldNote = {
-        hid: null, htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined
+        hid: null, 
+        htitle: "", 
+        hdescription: "", 
+        hcategory: "", 
+        hIsCompleted: undefined
     }
     const dispatch = useAppDispatch();
     const noteData = useAppSelector(state => state.note);
