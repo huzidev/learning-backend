@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import { CheckCircleOutlined, ExclamationCircleOutlined, MailOutlined, NumberOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Form, Input, Modal, Typography, notification } from 'antd';
+import React, { useContext, useRef, useState } from 'react';
 import DataContext from '../../../Context/DataContext';
 import User from '../about/About';
-import { Button, Modal, Form, Input, Typography, notification } from 'antd';
-import { UserOutlined, MailOutlined, NumberOutlined, ExclamationCircleOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import { DataType } from './Type';
 
 export default function UpdateUser() {
@@ -22,7 +22,15 @@ export default function UpdateUser() {
 
     const ref = useRef<any>(null)
 
-    const [data, setData] = useState<DataType>({id: "", eusername: "", eemail: "", enumber: "", eimage: ""})
+    const initialState = {
+        id: "", 
+        eusername: "", 
+        eemail: "", 
+        enumber: "", 
+        eimage: ""
+    }
+
+    const [data, setData] = useState<DataType>(initialState);
 
     async function notificationTs(icon: React.ReactNode, title: string, description: string | null) {
         notification.open({
