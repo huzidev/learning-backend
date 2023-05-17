@@ -1,5 +1,5 @@
 import { CheckCircleOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
-import { Button, Form, Input, Modal, notification, Typography } from 'antd';
+import { Button, Form, Input, Modal, Typography, notification } from 'antd';
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
@@ -10,11 +10,17 @@ import FilterList from '../filters/FilterList';
 import { DataType, DataTypeHold } from './Type';
 
 export default function NotesItems(props: any) {
+    const initialStateNote = {
+        id: "", title: "", description: "", category: "", date: null, isCompleted: null
+    }
+    const initialStateHoldNote = {
+        hid: null, htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined
+    }
     const dispatch = useAppDispatch();
-    const noteData = useAppSelector(state => state.note)
-    const Location = useLocation()
-    const [note, setNote] = useState<DataType>({ id: "", title: "", description: "", category: "", date: null, isCompleted: null })
-    const [holdNote, setHoldNote] = useState<DataTypeHold>({ hid: null, htitle: "", hdescription: "", hcategory: "", hIsCompleted: undefined })
+    const noteData = useAppSelector(state => state.note);
+    const Location = useLocation();
+    const [note, setNote] = useState<DataType>(initialStateNote);
+    const [holdNote, setHoldNote] = useState<DataTypeHold>(initialStateHoldNote);
     const [isCheckedState, setIsCheckedState] = useState<boolean | undefined>(undefined);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const ref = useRef<any>(null)
