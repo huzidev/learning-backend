@@ -1,21 +1,23 @@
-import React, { useState } from 'react'
-import { ExclamationCircleOutlined, CheckCircleOutlined  } from '@ant-design/icons';
+import { CheckCircleOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Typography, notification } from 'antd';
-import { DataType } from './Type';
+import React, { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
-import { addThisNote, addNoteAction } from '../../../../store/notes/AddNote/addNoteSlice';
+import { addNoteAction, addThisNote } from '../../../../store/notes/AddNote/addNoteSlice';
+import { DataType } from './Type';
 
 export default function AddTodo(): JSX.Element {
   const noteRes = useAppSelector(state => state.addnote)
   const dispatch = useAppDispatch();
   let res: number | null = noteRes.res
 
-  const [note, setNote] = useState<DataType>({
+  const initialState = {
     title: "", 
     description: "", 
     category: "",
     isCompleted: false
-  })
+  }
+
+  const [note, setNote] = useState<DataType>(initialState);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNote({
