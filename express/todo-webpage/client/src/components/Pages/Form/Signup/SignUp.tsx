@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Button, Form, Input, Typography, notification } from 'antd';
 import {
-    LockOutlined,
-    UserOutlined,
-    MailOutlined,
+    CheckCircleOutlined,
     ExclamationCircleOutlined,
-    ClockCircleOutlined,
-    CheckCircleOutlined
+    LockOutlined,
+    MailOutlined,
+    UserOutlined
 } from '@ant-design/icons';
-import { DataType } from './Type';
-import { Link } from 'react-router-dom';
+import { Button, Form, Input, Typography, notification } from 'antd';
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { signUpUser } from '../../../../store/form/Signup/signupSlice';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
-import { signUpUser, signupAction, testRes } from '../../../../store/form/Signup/signupSlice';
+import { DataType } from './Type';
 
 export default function SignUp() {
     const dispatch = useAppDispatch();
@@ -20,14 +18,16 @@ export default function SignUp() {
     let res: number | null = signUpRes.res;
     const Navigate = useNavigate();
 
-    const [user, setUser] = React.useState<DataType>({
+    const initialState = {
         username: "",
         email: "",
         number: "",
         password: "",
         cpassword: "",
         isTheme: false
-    });
+    }
+
+    const [user, setUser] = React.useState<DataType>(initialState);
 
     let name, value;
     function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
