@@ -1,23 +1,24 @@
+import { CheckCircleOutlined, ExclamationCircleOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Typography, notification } from 'antd';
-import { ExclamationCircleOutlined, ClockCircleOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import React from 'react';
+import { contactAction, sendThisMessage } from '../../../../store/form/Contact/contactSlice';
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
 import layout from '../../../Layout/Layout';
 import { DataType } from './Type';
-import { UserOutlined, MailOutlined } from '@ant-design/icons';
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks/hooks';
-import { sendThisMessage, contactAction } from '../../../../store/form/Contact/contactSlice';
 
 export default function Footer(): JSX.Element {
   const contactRes = useAppSelector(state => state.contact)
   const dispatch = useAppDispatch();
   let res: number | null = contactRes.res
 
-  const [user, setUser] = React.useState<DataType>({
+  const initialState = {
     username: "",
     email: "",
     number: "",
     message: ""
-  })
+  }
+
+  const [user, setUser] = React.useState<DataType>(initialState);
 
   function onChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setUser({
