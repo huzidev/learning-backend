@@ -1,255 +1,274 @@
+For seeing all databases
 show databases;
-use databse ka name
- show tables;
-to show all the tables created at databse
-show create table products;\
+
+
+Types for create Table
 show create table products;
-for model jo hum instances create karwate hein
-and hum jab pheli bar tables banate hein then usay wapis update automatically nhi kat sake
-jo first time ban gaya wo ban gaya
-wapis update karna k lia
- ALTER TABLE products ADD COLUMN `image` VARCHAR(255) NOT NULL;
-like here humein image name ka ek or table add karna tha
+
+
+Select all the values of table
+select * from products;
+
+
+Details of table
+DESCRIBE users;
+OR
+desc users;
+
+
+Add Column in Existing Table
 ALTER TABLE products ADD COLUMN `image` VARCHAR(255) NOT NULL;
- select * from products
-product hum already bana chuje the
-* means select all
- so we can see details of all products with name price when the product is been uploaded
-DESCRIBE table name
-will tell all the models we've created
-ex DESCRIBE users;
-UPDATE table_name SET ID=103 WHERE ID=3;
-DELETE FROM table_name WHERE Name='John';
-UPDATE table_name SET id=3 WHERE Name='Mary';
-once we are dont with everything just simplt exit;
-exit;
-mysql> GRANT ALL PRIVILEGES ON fullstack.* TO 'root'@'localhost';
-DROP TABLE table_name;
-ex DROP TABLE products;
-DROP DATABASE database_ame;
-ex DROP DATABASE fullstack;
-ALTER TABLE products CHANGE old_column_name new_column_name data tyoe;
-ex ALTER TABLE products CHANGE title tittle varchar(200);
-ALTER TABLE table_name 
-RENAME COLUMN old_column_name1 TO new_col_name1,
-RENAME COLUMN old_column_name2 TO new_col_name2,
-RENAME COLUMN old_column_name3 TO new_col_name3;
-for multiple columns
+
+
+Update Specifc value of row in Table
+UPDATE users SET ID=103 WHERE ID=3;
+UPDATE users SET id=3 WHERE Name='Mary';
+
+
+Delete Value from Table
+DELETE FROM users WHERE Name='John';
+
+
+Delete table
+DROP TABLE users;
+
+
+Delete Database
+DROP DATABASE blog_app;
+
+
+Edit existing row in Table
+ALTER TABLE products CHANGE old_column_name new_column_name data type;
+ALTER TABLE users CHANGE username name varchar(200);
+
+
+Alter multiple columns
+ALTER TABLE users 
+  RENAME COLUMN username TO name,
+  RENAME COLUMN id TO userId,
+  RENAME COLUMN email TO userEmail;
+
+
 OR
 ALTER TABLE table_name 
-CHANGE old_column_name1 new_col_name1 Data Type,
-CHANGE old_column_name2 new_col_name2 Data Type,
-CHANGE old_column_name3 new_col_name3 Data Type;
-ALTER TABLE table_name
-    -> ADD new_column_name varchar(50) NOT NULL(data types)
-    -> AFTER the_name_of_coulmns_after which_you_wanted_to_insert_new_column;
+  CHANGE old_column_name1 new_col_name1 Data Type,
+  CHANGE old_column_name2 new_col_name2 Data Type,
+  CHANGE old_column_name3 new_col_name3 Data Type;
+
+
+Add new column in table
+ALTER TABLE users
+    -> ADD userId varchar(50) NOT NULL(data types)
+    -> AFTER id;
 if we didn't specify AFTEER it'lll automatically adds at END
+
 EX ALTER TABLE products
     -> ADD test varchar(50) NOT NULL
     -> AFTER id;
- ALTER TABLE table_name
-  ADD new_column_name column_definition
-    FIRST |AFTER column_name ,
-  ADD new_column_name column_definition
-    FIRST |AFTER column_name ,
 
-;
-fOR MODIFICATIONS
+
+for modifications
 ALTER TABLE table_name
   MODIFY column_name column_definition
     FIRST  AFTER column_name,
   MODIFY column_name column_definition
-    FIRST  AFTER column_name ,
-  ...
-;
+    FIRST  AFTER column_name;
+ALTER TABLE students MODIFY id VARCHAR(255) NOT NULL;
+if we wanted to modify it from NULL to NOT NULL
+
+
+
 ALTER TABLE products
     -> MODIFY test varchar(25) NULL;
 now characters can be no more than 25 previouslt it was 50
-ALTER TABLE table_name
-  DROP COLUMN column_name;
-ALTER TABLE table_name
-  CHANGE COLUMN old_name new_name
+
+
+Delete column in table
+ALTER TABLE users
+  DROP COLUMN id;
+
+
+ALTER TABLE users
+  CHANGE COLUMN id userId
     varchar(20) NOT NULL;
-ALTER TABLE table_name
-  RENAME TO new_table_name;
-FOR RENAME TABLE COMPLETELY
-Data types are of 3 type
-numeric, string and date&time
-numeric are int smallint bit float double
-strings are char varchar (mostly VARCHAR not char), text, binary
-date types : datetime, date, timestamp, time and year
-CREATE TABLE WITH CMD
-create table students ( name varchar(255), age int ) ;
-we can use desc instead of describe
-ALTER TABLE students MODIFY id VARCHAR(255) NOT NULL;
-if we wanted to modify it from NULL to NOT NULL
-INSERT INTO THRROUGH CMD
-INSERT INTO table_name (cloumn1, cloumn2, ...)  VALUES (val1, val2 ..)
-ex INSERT INTO students (id, name, class)  VALUES (1, ali, 10)
-make sure to cover the name with string property with commas like 'ali'
+    
+
+Create Table With CMD
+-create table students ( name varchar(255), age int );
+
+
+Insert Value into column
+- INSERT INTO user (id, name)  VALUES (1, "huzi")
+- INSERT INTO students (id, name, class)  VALUES (1, "ali", 10)
+- Make sure to cover the name with string property with commas like 'ali'
+- insert into students (fname, lname, class) values ('ali', 'khan', 10), ('hassan', 'ali', 9), ('suhaib', 'hassan', 12);
+
+
 show warnings;
-to show check all the warnings because in cmd we just see the word warning not the actual type of warning
- NULL MEANS VALUE IS NOT KNOW
- NULL DOES NOT MEANS 0 RATHER IT MEANS VALUE IS NOT KNOWN
-PRIMARY KEY UNIQUELY identifyes each record in a table
-PRIMARY KEY can't be null
-ADDING PRIMARY KEY in already exists table wit rows and columns                                                                                                                            ALTER TABLE table _Name ADD PRIMARY KEY (id);
-AUTO INCREMENT
-allows to generate unique number automatically whenever a new record is inserted into a table
-ALTER TABLE table_name MODIFY id INTEGER NOT NULL AUTO_INCREMENT; for already created column
-insert into table_name (row1, row2) values (value for row 1, value for row 2);
-EX insert into students (name, class) values ('hassan', '6');
- with auto increment we'don't have to add id again and again
- delete FROM table_name WHERE id=4;
- EX delete FROM students WHERE id=4;
-INSERTING MULTIPLE, VALUES AT A SINGLE TIME
-insert into students (fname, lname, class) values ('ali', 'khan', 10), ('hassan', 'ali', 9), ('suhaib', 'hassan', 12);
-WHERE CLAUSE in mysql        where caluse is used for filter
-ex select * from students where age=16;
-SELECT is basically used for reading
-select fname, lname from students where lname='hassan';
-so we can select first name and last name of students whoms last name matches
-select id, fname, lname from students where lname='hassan'; for id as well]
-UPDATE DATA IF SOMETHING WENT WRONG WE CAN UPDATE IT SPECIFICALLY
-UPDATE table_name set column_name=anything_you_wanted_it_updated_to where column_name=answer;
- ex UPDATE students set class=10 where lname='hassan';
-UPDATE students set lname='hassan' where fname='bilal';
-DELTING SPECIFIC ROWS
-delete from students where fname='ali';
-delete from students where id=10;
-students is basically the name of ours table here
-NOW when we delete an row the id of next row doesn't change suppose we deleted student with name ali whose id is 2 and next student is suhaib whose id is 3 now if we delete the data of ali whose id is 2 then id  of suhaib will remains 3 it'll not changes into 2 because their is too many sensitive data linked with the id of each row
-like studenst marks, passwords
-therefore id never changes
-id is UNIQUE
-delete from students delets the complete data inside the students table
+to check all the warnings because in cmd we just see the word warning not the actual type of warning
+
+
+- NULL MEANS VALUE IS NOT KNOW
+- NULL DOES NOT MEANS 0 RATHER IT MEANS VALUE IS NOT KNOWN
+
+
+Primary Keys
+- PRIMARY KEY UNIQUELY identifyes each record in a table
+- PRIMARY KEY can't be null
+- AUTO INCREMENT (allows to generate unique number automatically whenever a new record is inserted into a table)
+- ALTER TABLE users MODIFY id INTEGER NOT NULL AUTO_INCREMENT; for already created column
+
+
+WHERE clause      
+- where caluse is used for filter
+- select * from students where age=16;
+- select fname, lname from students where lname='hassan';
+- select id, fname, lname from students where lname='hassan'; 
+
+
+UPDATE with where clause
+- UPDATE students set class=10 where lname='hassan';
+- UPDATE students set lname='hassan' where fname='bilal';
+
+
+DELTING with where clause
+- delete from students where fname='ali';
+- delete from students where id=10;
+
+
+NOW when we delete an row the id of next row doesn't change suppose we deleted student with name ali whose id is 2 and next student is suhaib whose id is 3 now if we delete the data of ali whose id is 2 then id  of suhaib will remains 3 it'll not changes into 2 because their is too many sensitive data linked with the id of each row like studenst marks, passwords therefore id never changes
+
+
+Delete All the values inside the table But NOT the table
 delete from students;
-DISTINCT = DIFF (UNIQUE)
- select distinct column_name from table_name;
- so basically if we've 2 students of same fname, last name then we can use distinct what it'll do it'll show us UNIQUE name
- means if more than 2 students have same name then it'll show us just single students name this is what DISTINCT is it show us UNIQUE name id NOT SAME name id etc
- select distinct fname from students;
- select distinct fname, class from students;
- ORDER BY KEYWORDS
- SELECT column_name FROM table_name ORDER BY cloumn_name_again;
- it''ll shows us ascending order by default
- we can use SELECT class FROM students ORDER BY class DESC; for descending order
- HERE WE CAN USE DISTNICT
- so we can make sure if their is any student in class for example if their is any student in class 10 this year or not
- SELECT distinct class FROM students ORDER BY class;
- for unique clasees at every time means no more same values repetetion
- SELECT distinct class FROM students ORDER BY class DESC;
- WE CAN ALSO APPLY THIS FOR ALPHABETS
- SELECT distinct fname FROM students ORDER BY fname ASC;
- LIMITS FOR LIMITED DATA
- SELECT fname FROM students ORDER BY fname limit 6;
- if we select limit to 3 then we'll get only 3 students data
- LIKE OPERATOR
- IS just like i talked to someone yesterday but i didn't remember his name yeah but i remember that his name starts with something like (so)  so in this type of conditons we uses LIKE OPERATORS because it can be sohaib, sohail as both starts from so
- SELECT column_name FROM tables_name WHERE column_name again LIKE '%so%';
- inside percentage we uses the starting words we wanted to search about
- EX  SELECT fname FROM students WHERE fname LIKE '%su%';
- now we'll get all the result about the students whoms name starts with su
- show warnings; for warning
- and show erros; for erros
- show errors;
- make sure to cover %s% into single or double code becuase it is a string
- MYSQL AGGREGATE FUNCTIONS
- MAX() for maximum of any integer
- example pick the studnets who is at highhest class or of maximum of age
- select max(row_name) from table_name;
- ex select max(class) from students;
- FOR MINIMUM
- select min(class) from students;
- FOR SUM
- select SUM(class) from students;
- select sum(class) from students;
- basically sum is used for if we are getting sum of all the scores from all subject like for highest score we use for lowest score we uses min for sum of all the scores of all subject we uses sum
- COUNT IS IMPORTANT FOR AVG like if we wanted to get score in PERCENTAGE like what is the percentage of all the subjects;
- COUNT is always applicable for id
- we always have to count it thorugh id's
- AVERAGE
- select avg(class) from students;
- we can calulate the avg of scores through avg() opeartor
- LOGICAL OPERATORS TRUE OR FALSE
- select * from students where class=10;
- NOW FOR LOGICAL OPERATOR WE USES
- select * from students where class != 10;
- so we can get data of all students whose class is NOT equals to 10
- select * from students where class >= 10; for GREATER
- select * from students where class > 10;
- select * from students where class <= 10;
- select * from students where class < 10;
- select * from students where class <=10 || class >=15; FOR OR OPERATORS
- select * from students where class >= 12 && class <=16;  FOR &&
- this will just give is result bw the logic we asked for like classes bw 12 and 16
- select * from students where class between 12 and 16; this is also the same way for this
- select * from students where class != 12 && class != 16;
- select * from students where fname='ali' || fname='suhaib';
- select * from students where fname in ('ali', 'suhaib'); same but easy
- CONCAT
- for adding two values
- ex select concat(fname,  ' ',  lname) from students as fullname;
- select concat('ali',  ' ',  'hassan') as fullname; if we wanted to concat just specific name with strings
- ' ', is used with space for spacing bw the name
- select concat(fname,  ' ',  lname) from students;
- select concat('huzi', reverse('huzi')) as palindrom; for making palindrom
- palindrom are those which can be read same as forawrd and backward
- for lengths of char
- select char_length ('huzi')
- select upper('huzi')
- select lower('huzi')
- curdate(), curtime(), now() ;
- IF you are making app for hosptial we uses these data time datetime format for record
- FOREIGN KEY
- foreign key use for linking two tables a foreign key is a field in one table that refers to the primary key of other tables
- ALTER TABLE table_name_where_you_wanted_foreign_key ADD CONSTRAINT foreign_key_name FOREIGN KEY (others_table_id_with_whom_you_wanted_it_to_linked_with) REFERENCES others_table_name_with_whom_you_wanted_it_to_linked_with((others_table_id_with_whom_you_wanted_it_to_linked_with);
- ALTER TABLE orders ADD CONSTRAINT foreign_key FOREIGN KEY (cid) REFERENCES customers(cid);
- after this in PRIMARY KEY of that table where we added forgein key there will be something wriiten as MUL
- MUL MEANS MULTIPLE
- ALTER TABLE customers ALTER COLUMN email SET DEFAULT 'customer_email';
- for adding set default in existing tables
- FOR CREATING MULTIPLE COLUMNS IN A SINGLE WAY
- CREATE TABLE test (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, cname VARCHAR(255) NOT NULL, email VARCHAR(20));
- CREATING COMPLETE TABLE WITH FOREIGN KEY INCLUDED
- CREATE TABLE table_name (column_name INT NOT NULL AUTO_INCREMENT PRIMARY KEY, column_name_if wanted types to be date then use DATE ELSE YOU can use int, varcharetc) DATE NOT NULL, others_table_id_with_whom_you_wanted_it_to_linked_with INT, FOREIGN KEY(others_table_id_with_whom_you_wanted_it_to_linked_with) REFERENCES others_table_name_with_whom_you_wanted_it_to_linked_with(others_table_id_with_whom_you_wanted_it_to_linked_with));
- ex     CREATE TABLE testA (idA INT NOT NULL AUTO_INCREMENT PRIMARY KEY, orderdate DATE NOT NULL, cid INT, FOREIGN KEY(cid) REFERENCES customers(cid));
- here customers is already a created table with id name of cid
- ALTER TABLE orders MODIFY orderdate DATETIME; MODIFY DATA TYPE
- NOW WE CAN USE SUM
- here if someone oders multiple times
- we can use this           select sum(amount) from orders where cid=1;
- cid is used for foreign key so we can get exact name of ours customer for amount of order he ordered and sum them
- MYSQL SQL JOINS
- INNER JOINS RETURNS records that have matching values in both tables
- now we;ve two tables one for customer and one for orders and we've added foreign key in orders table so we can join them and can gets the exact data like which cutomers order what
- select * from customers, orders where customers.cid = orders.cid;
- BUT WE CAN USE THE SAME WITH THE HELP OF JOIN
- select cname, email from customers join orders on customers.cid = orders.cid;
- customers.cid = orders.cid will have common values therefore we can use join because we can only use join when we have something common bw these two tables in this case we've cid commion in both
- select cname, email, orderdate, amount from customers join orders on customers.cid = orders.cid;
- select customers.cid, cname, email, orderdate, amount  from customers join orders on customers.cid = orders.cid;  // IF WE WANTED CUSTOMERS ID then we've to use customer.cid we've be specific and for order id we've to use orders.cid
- LEFT JOIN
- select * from customers left join orders on customers.cid = orders.cid;
- BY THIS METHOD we can get all the data from left tables even if any customer didn't odered any thing then we WILL get NULL if customer didn;t order any thing
- if we din't use left join just uses join then we'll get data for all those cutomers who've placed order
- select * from customers join orders on customers.cid = orders.cid;
- and we can use right join for right tables data
- select * from customers join orders on customers.cid = orders.cid; // this is used when we wanted to see the two tables side by side if foreign key is enable
- select        *             from                table_name_where_primary_key join table_name_where_foreign_key    on       table_name_where_primary_key.cid         =                   table_name_where_foreign_key.cid;
- ALTER TABLE reviews ADD COLUMN pid INT NOT NULL, ADD FOREIGN KEY foreign_key(pid) REFERENCES products(pid);
- single line for adding column for foreign key and properties
- FOR MODIFYING ID WE'VE TO SPECIFY ALL
- ALTER TABLE testtable MODIFY id INT NOT NULL PRIMARY KEY AUTO_INCREMENT;3
- IF WE WANTED TO DEL SOME REVIEWS which are same and too many times we can use
- delete from reviews where description like '%excellent laptop%';
 
- ON DELETE CASCADE ON DELETE UPDATE // it is necessary to do this while creating foreign key because cascade means 
- if one main main columns delete then all the childs related to that column must also delete
 
- and if we've already created a foreign key and didn't add on delete cascade and on delete update then first we've to 
- drop the CONSTRAINT like this
- ALTER TABLE reviews DROP FOREIGN KEY reviews_ibfk_1;
+DISTINCT (selects specific value of table)
+- select distinct column_name from table_name;
+- select distinct username from users;
+- select distinct id, username, email from users;
 
- then we've to update the column with additional info and same CONSTRAINT name we've deleted before
- ALTER TABLE reviews ADD CONSTRAINT reviews_ibfk_1 FOREIGN KEY (fid) REFERENCES products (pid) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ORDER BY KEYWORDS
+SELECT column_name FROM table_name ORDER BY cloumn_name_again;
+it''ll shows us ascending order by default
+we can use SELECT class FROM students ORDER BY class DESC; for descending order
+HERE WE CAN USE DISTNICT
+so we can make sure if their is any student in class for example if their is any student in class 10 this year or not
+SELECT distinct class FROM students ORDER BY class;
+for unique clasees at every time means no more same values repetetion
+SELECT distinct class FROM students ORDER BY class DESC;
+WE CAN ALSO APPLY THIS FOR ALPHABETS
+SELECT distinct fname FROM students ORDER BY fname ASC;
+LIMITS FOR LIMITED DATA
+SELECT fname FROM students ORDER BY fname limit 6;
+if we select limit to 3 then we'll get only 3 students data
+LIKE OPERATOR
+IS just like i talked to someone yesterday but i didn't remember his name yeah but i remember that his name starts with something like (so)  so in this type of conditons we uses LIKE OPERATORS because it can be sohaib, sohail as both starts from so
+SELECT column_name FROM tables_name WHERE column_name again LIKE '%so%';
+inside percentage we uses the starting words we wanted to search about
+EX  SELECT fname FROM students WHERE fname LIKE '%su%';
+now we'll get all the result about the students whoms name starts with su
+show warnings; for warning
+and show erros; for erros
+show errors;
+make sure to cover %s% into single or double code becuase it is a string
+MYSQL AGGREGATE FUNCTIONS
+MAX() for maximum of any integer
+example pick the studnets who is at highhest class or of maximum of age
+select max(row_name) from table_name;
+ex select max(class) from students;
+FOR MINIMUM
+select min(class) from students;
+FOR SUM
+select SUM(class) from students;
+select sum(class) from students;
+basically sum is used for if we are getting sum of all the scores from all subject like for highest score we use for lowest score we uses min for sum of all the scores of all subject we uses sum
+COUNT IS IMPORTANT FOR AVG like if we wanted to get score in PERCENTAGE like what is the percentage of all the subjects;
+COUNT is always applicable for id
+we always have to count it thorugh id's
+AVERAGE
+select avg(class) from students;
+we can calulate the avg of scores through avg() opeartor
+LOGICAL OPERATORS TRUE OR FALSE
+select * from students where class=10;
+NOW FOR LOGICAL OPERATOR WE USES
+select * from students where class != 10;
+so we can get data of all students whose class is NOT equals to 10
+select * from students where class >= 10; for GREATER
+select * from students where class > 10;
+select * from students where class <= 10;
+select * from students where class < 10;
+select * from students where class <=10 || class >=15; FOR OR OPERATORS
+select * from students where class >= 12 && class <=16;  FOR &&
+this will just give is result bw the logic we asked for like classes bw 12 and 16
+select * from students where class between 12 and 16; this is also the same way for this
+select * from students where class != 12 && class != 16;
+select * from students where fname='ali' || fname='suhaib';
+select * from students where fname in ('ali', 'suhaib'); same but easy
+CONCAT
+for adding two values
+ex select concat(fname,  ' ',  lname) from students as fullname;
+select concat('ali',  ' ',  'hassan') as fullname; if we wanted to concat just specific name with strings
+' ', is used with space for spacing bw the name
+select concat(fname,  ' ',  lname) from students;
+select concat('huzi', reverse('huzi')) as palindrom; for making palindrom
+palindrom are those which can be read same as forawrd and backward
+for lengths of char
+select char_length ('huzi')
+select upper('huzi')
+select lower('huzi')
+curdate(), curtime(), now() ;
+IF you are making app for hosptial we uses these data time datetime format for record
+FOREIGN KEY
+foreign key use for linking two tables a foreign key is a field in one table that refers to the primary key of other tables
+ALTER TABLE table_name_where_you_wanted_foreign_key ADD CONSTRAINT foreign_key_name FOREIGN KEY (others_table_id_with_whom_you_wanted_it_to_linked_with) REFERENCES others_table_name_with_whom_you_wanted_it_to_linked_with((others_table_id_with_whom_you_wanted_it_to_linked_with);
+ALTER TABLE orders ADD CONSTRAINT foreign_key FOREIGN KEY (cid) REFERENCES customers(cid);
+after this in PRIMARY KEY of that table where we added forgein key there will be something wriiten as MUL
+MUL MEANS MULTIPLE
+ALTER TABLE customers ALTER COLUMN email SET DEFAULT 'customer_email';
+for adding set default in existing tables
+FOR CREATING MULTIPLE COLUMNS IN A SINGLE WAY
+CREATE TABLE test (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, cname VARCHAR(255) NOT NULL, email VARCHAR(20));
+CREATING COMPLETE TABLE WITH FOREIGN KEY INCLUDED
+CREATE TABLE table_name (column_name INT NOT NULL AUTO_INCREMENT PRIMARY KEY, column_name_if wanted types to be date then use DATE ELSE YOU can use int, varcharetc) DATE NOT NULL, others_table_id_with_whom_you_wanted_it_to_linked_with INT, FOREIGN KEY(others_table_id_with_whom_you_wanted_it_to_linked_with) REFERENCES others_table_name_with_whom_you_wanted_it_to_linked_with(others_table_id_with_whom_you_wanted_it_to_linked_with));
+ex     CREATE TABLE testA (idA INT NOT NULL AUTO_INCREMENT PRIMARY KEY, orderdate DATE NOT NULL, cid INT, FOREIGN KEY(cid) REFERENCES customers(cid));
+here customers is already a created table with id name of cid
+ALTER TABLE orders MODIFY orderdate DATETIME; MODIFY DATA TYPE
+NOW WE CAN USE SUM
+here if someone oders multiple times
+we can use this           select sum(amount) from orders where cid=1;
+cid is used for foreign key so we can get exact name of ours customer for amount of order he ordered and sum them
+MYSQL SQL JOINS
+INNER JOINS RETURNS records that have matching values in both tables
+now we;ve two tables one for customer and one for orders and we've added foreign key in orders table so we can join them and can gets the exact data like which cutomers order what
+select * from customers, orders where customers.cid = orders.cid;
+BUT WE CAN USE THE SAME WITH THE HELP OF JOIN
+select cname, email from customers join orders on customers.cid = orders.cid;
+customers.cid = orders.cid will have common values therefore we can use join because we can only use join when we have something common bw these two tables in this case we've cid commion in both
+select cname, email, orderdate, amount from customers join orders on customers.cid = orders.cid;
+select customers.cid, cname, email, orderdate, amount  from customers join orders on customers.cid = orders.cid;  // IF WE WANTED CUSTOMERS ID then we've to use customer.cid we've be specific and for order id we've to use orders.cid
+LEFT JOIN
+select * from customers left join orders on customers.cid = orders.cid;
+BY THIS METHOD we can get all the data from left tables even if any customer didn't odered any thing then we WILL get NULL if customer didn;t order any thing
+if we din't use left join just uses join then we'll get data for all those cutomers who've placed order
+select * from customers join orders on customers.cid = orders.cid;
+and we can use right join for right tables data
+select * from customers join orders on customers.cid = orders.cid; // this is used when we wanted to see the two tables side by side if foreign key is enable
+select        *             from                table_name_where_primary_key join table_name_where_foreign_key    on       table_name_where_primary_key.cid         =                   table_name_where_foreign_key.cid;
+ALTER TABLE reviews ADD COLUMN pid INT NOT NULL, ADD FOREIGN KEY foreign_key(pid) REFERENCES products(pid);
+single line for adding column for foreign key and properties
+FOR MODIFYING ID WE'VE TO SPECIFY ALL
+ALTER TABLE testtable MODIFY id INT NOT NULL PRIMARY KEY AUTO_INCREMENT;3
+IF WE WANTED TO DEL SOME REVIEWS which are same and too many times we can use
+delete from reviews where description like '%excellent laptop%';
+
+ON DELETE CASCADE ON DELETE UPDATE // it is necessary to do this while creating foreign key because cascade means 
+if one main main columns delete then all the childs related to that column must also delete
+
+and if we've already created a foreign key and didn't add on delete cascade and on delete update then first we've to 
+drop the CONSTRAINT like this
+ALTER TABLE reviews DROP FOREIGN KEY reviews_ibfk_1;
+
+then we've to update the column with additional info and same CONSTRAINT name we've deleted before
+ALTER TABLE reviews ADD CONSTRAINT reviews_ibfk_1 FOREIGN KEY (fid) REFERENCES products (pid) ON DELETE CASCADE ON UPDATE CASCADE;
