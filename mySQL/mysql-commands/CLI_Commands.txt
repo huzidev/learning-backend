@@ -106,6 +106,7 @@ Insert Value into column
 
 show warnings;
 to check all the warnings because in cmd we just see the word warning not the actual type of warning
+show errors;
 
 
 - NULL MEANS VALUE IS NOT KNOW
@@ -149,58 +150,69 @@ DISTINCT (selects specific value of table)
 - select distinct id, username, email from users;
 
 
-ORDER BY KEYWORDS
-SELECT column_name FROM table_name ORDER BY cloumn_name_again;
-it''ll shows us ascending order by default
-we can use SELECT class FROM students ORDER BY class DESC; for descending order
-HERE WE CAN USE DISTNICT
+Order By
+- SELECT id FROM users ORDER BY id;
+- SELECT id FROM users ORDER BY id DESC;
+- it'll shows us ascending order by default
+- SELECT class FROM students ORDER BY class DESC;
+
+USE DISTNICT
 so we can make sure if their is any student in class for example if their is any student in class 10 this year or not
-SELECT distinct class FROM students ORDER BY class;
+- SELECT distinct class FROM students ORDER BY class;
 for unique clasees at every time means no more same values repetetion
-SELECT distinct class FROM students ORDER BY class DESC;
-WE CAN ALSO APPLY THIS FOR ALPHABETS
-SELECT distinct fname FROM students ORDER BY fname ASC;
+- SELECT distinct class FROM students ORDER BY class DESC;
+
+
+Order by alphabets
+- SELECT distinct fname FROM students ORDER BY fname ASC;
+
+
 LIMITS FOR LIMITED DATA
-SELECT fname FROM students ORDER BY fname limit 6;
+- SELECT fname FROM students ORDER BY fname limit 6;
 if we select limit to 3 then we'll get only 3 students data
+
+
 LIKE OPERATOR
-IS just like i talked to someone yesterday but i didn't remember his name yeah but i remember that his name starts with something like (so)  so in this type of conditons we uses LIKE OPERATORS because it can be sohaib, sohail as both starts from so
-SELECT column_name FROM tables_name WHERE column_name again LIKE '%so%';
+Is just like i talked to someone yesterday but i didn't remember his name yeah but i remember that his name starts with something like (so) so in this type of conditons we uses LIKE OPERATORS because it can be sohaib, sohail as both starts from so
+- SELECT username FROM users WHERE username LIKE '%so%';
 inside percentage we uses the starting words we wanted to search about
-EX  SELECT fname FROM students WHERE fname LIKE '%su%';
-now we'll get all the result about the students whoms name starts with su
-show warnings; for warning
-and show erros; for erros
-show errors;
-make sure to cover %s% into single or double code becuase it is a string
+- SELECT fname FROM students WHERE fname LIKE '%su%';
+
+
 MYSQL AGGREGATE FUNCTIONS
-MAX() for maximum of any integer
+- MAX() for maximum of any integer
 example pick the studnets who is at highhest class or of maximum of age
-select max(row_name) from table_name;
-ex select max(class) from students;
+- select max(row_name) from table_name;
+- select max(class) from students;
+
+
 FOR MINIMUM
-select min(class) from students;
+- select min(class) from students;
+
+
 FOR SUM
-select SUM(class) from students;
-select sum(class) from students;
+- select SUM(class) from students;
 basically sum is used for if we are getting sum of all the scores from all subject like for highest score we use for lowest score we uses min for sum of all the scores of all subject we uses sum
-COUNT IS IMPORTANT FOR AVG like if we wanted to get score in PERCENTAGE like what is the percentage of all the subjects;
+COUNT IS IMPORTANT FOR AVG like if we wanted to get score in PERCENTAGE like what is the percentage of all the subjects
 COUNT is always applicable for id
 we always have to count it thorugh id's
+
+
 AVERAGE
-select avg(class) from students;
-we can calulate the avg of scores through avg() opeartor
+- select avg(class) from students;
+
+
 LOGICAL OPERATORS TRUE OR FALSE
-select * from students where class=10;
+- select * from students where class=10;
 NOW FOR LOGICAL OPERATOR WE USES
-select * from students where class != 10;
+- select * from students where class != 10;
 so we can get data of all students whose class is NOT equals to 10
-select * from students where class >= 10; for GREATER
-select * from students where class > 10;
-select * from students where class <= 10;
-select * from students where class < 10;
-select * from students where class <=10 || class >=15; FOR OR OPERATORS
-select * from students where class >= 12 && class <=16;  FOR &&
+- select * from students where class >= 10;
+- select * from students where class > 10;
+- select * from students where class <= 10;
+- select * from students where class < 10;
+- select * from students where class <=10 || class >=15;
+- select * from students where class >= 12 && class <=16; 
 this will just give is result bw the logic we asked for like classes bw 12 and 16
 select * from students where class between 12 and 16; this is also the same way for this
 select * from students where class != 12 && class != 16;
