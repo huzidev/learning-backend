@@ -8,6 +8,10 @@ show create table products;
 
 Select all the values of table
 select * from products;
+- select * from students where fname='ali' || fname='suhaib';
+OR
+With Where IN clause
+- select * from students where fname in ('ali', 'suhaib');
 
 
 Details of table
@@ -23,6 +27,7 @@ ALTER TABLE products ADD COLUMN `image` VARCHAR(255) NOT NULL;
 Update Specifc value of row in Table
 UPDATE users SET ID=103 WHERE ID=3;
 UPDATE users SET id=3 WHERE Name='Mary';
+
 
 
 Delete Value from Table
@@ -94,7 +99,9 @@ ALTER TABLE users
     
 
 Create Table With CMD
--create table students ( name varchar(255), age int );
+- create table students ( name varchar(255), age int);
+Create Table with multiple columns
+- CREATE TABLE test (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, cname VARCHAR(255) NOT NULL, email VARCHAR(20));
 
 
 Insert Value into column
@@ -130,6 +137,10 @@ WHERE clause
 UPDATE with where clause
 - UPDATE students set class=10 where lname='hassan';
 - UPDATE students set lname='hassan' where fname='bilal';
+
+
+Adding set default in existing tables
+- ALTER TABLE customers ALTER COLUMN email SET DEFAULT 'customer_email';
 
 
 DELTING with where clause
@@ -193,17 +204,24 @@ FOR MINIMUM
 FOR SUM
 - select SUM(class) from students;
 basically sum is used for if we are getting sum of all the scores from all subject like for highest score we use for lowest score we uses min for sum of all the scores of all subject we uses sum
+
+NOW WE CAN USE SUM
+here if someone oders multiple times
+we can use this
+- select sum(amount) from orders where cid=1;
+cid is used for foreign key so we can get exact name of ours customer for amount of order he ordered and sum them
+
+
 COUNT IS IMPORTANT FOR AVG like if we wanted to get score in PERCENTAGE like what is the percentage of all the subjects
 COUNT is always applicable for id
-we always have to count it thorugh id's
+COUNT is like .length gives the lenght of all the data
+select COUNT(id) from users;
 
 
 AVERAGE
 - select avg(class) from students;
 
 
-LOGICAL OPERATORS TRUE OR FALSE
-- select * from students where class=10;
 NOW FOR LOGICAL OPERATOR WE USES
 - select * from students where class != 10;
 so we can get data of all students whose class is NOT equals to 10
@@ -212,59 +230,56 @@ so we can get data of all students whose class is NOT equals to 10
 - select * from students where class <= 10;
 - select * from students where class < 10;
 - select * from students where class <=10 || class >=15;
+
+In between Result
 - select * from students where class >= 12 && class <=16; 
-this will just give is result bw the logic we asked for like classes bw 12 and 16
-select * from students where class between 12 and 16; this is also the same way for this
-select * from students where class != 12 && class != 16;
-select * from students where fname='ali' || fname='suhaib';
-select * from students where fname in ('ali', 'suhaib'); same but easy
+- select * from students where class between 12 and 16
+- select * from students where class != 12 && class != 16;
+
+
 CONCAT
 for adding two values
-ex select concat(fname,  ' ',  lname) from students as fullname;
-select concat('ali',  ' ',  'hassan') as fullname; if we wanted to concat just specific name with strings
-' ', is used with space for spacing bw the name
-select concat(fname,  ' ',  lname) from students;
-select concat('huzi', reverse('huzi')) as palindrom; for making palindrom
+- select concat(fname,  ' ',  lname) from students as fullname;
+- select concat('ali',  ' ',  'hassan') as fullname;
+' ' used for spacing
+- select concat(fname,  ' ',  lname) from students;
+- select concat('huzi', reverse('huzi')) as palindrom;
 palindrom are those which can be read same as forawrd and backward
+
+
 for lengths of char
-select char_length ('huzi')
-select upper('huzi')
-select lower('huzi')
-curdate(), curtime(), now() ;
+- select char_length ('huzi')
+- select upper('huzi')
+- select lower('huzi')
+
+
 IF you are making app for hosptial we uses these data time datetime format for record
+curdate(), curtime(), now();
+
+
 FOREIGN KEY
 foreign key use for linking two tables a foreign key is a field in one table that refers to the primary key of other tables
-ALTER TABLE table_name_where_you_wanted_foreign_key ADD CONSTRAINT foreign_key_name FOREIGN KEY (others_table_id_with_whom_you_wanted_it_to_linked_with) REFERENCES others_table_name_with_whom_you_wanted_it_to_linked_with((others_table_id_with_whom_you_wanted_it_to_linked_with);
-ALTER TABLE orders ADD CONSTRAINT foreign_key FOREIGN KEY (cid) REFERENCES customers(cid);
-after this in PRIMARY KEY of that table where we added forgein key there will be something wriiten as MUL
+- ALTER TABLE table_name_where_you_wanted_foreign_key ADD CONSTRAINT foreign_key_name FOREIGN KEY (others_table_id_with_whom_you_wanted_it_to_linked_with) REFERENCES others_table_name_with_whom_you_wanted_it_to_linked_with((others_table_id_with_whom_you_wanted_it_to_linked_with);
+- ALTER TABLE orders ADD CONSTRAINT foreign_key FOREIGN KEY (cid) REFERENCES customers(cid);
+- after this in PRIMARY KEY of that table where we added forgein key there will be something wriiten as MUL
 MUL MEANS MULTIPLE
-ALTER TABLE customers ALTER COLUMN email SET DEFAULT 'customer_email';
-for adding set default in existing tables
-FOR CREATING MULTIPLE COLUMNS IN A SINGLE WAY
-CREATE TABLE test (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, cname VARCHAR(255) NOT NULL, email VARCHAR(20));
-CREATING COMPLETE TABLE WITH FOREIGN KEY INCLUDED
-CREATE TABLE table_name (column_name INT NOT NULL AUTO_INCREMENT PRIMARY KEY, column_name_if wanted types to be date then use DATE ELSE YOU can use int, varcharetc) DATE NOT NULL, others_table_id_with_whom_you_wanted_it_to_linked_with INT, FOREIGN KEY(others_table_id_with_whom_you_wanted_it_to_linked_with) REFERENCES others_table_name_with_whom_you_wanted_it_to_linked_with(others_table_id_with_whom_you_wanted_it_to_linked_with));
-ex     CREATE TABLE testA (idA INT NOT NULL AUTO_INCREMENT PRIMARY KEY, orderdate DATE NOT NULL, cid INT, FOREIGN KEY(cid) REFERENCES customers(cid));
-here customers is already a created table with id name of cid
-ALTER TABLE orders MODIFY orderdate DATETIME; MODIFY DATA TYPE
-NOW WE CAN USE SUM
-here if someone oders multiple times
-we can use this           select sum(amount) from orders where cid=1;
-cid is used for foreign key so we can get exact name of ours customer for amount of order he ordered and sum them
+
+
 MYSQL SQL JOINS
 INNER JOINS RETURNS records that have matching values in both tables
-now we;ve two tables one for customer and one for orders and we've added foreign key in orders table so we can join them and can gets the exact data like which cutomers order what
-select * from customers, orders where customers.cid = orders.cid;
-BUT WE CAN USE THE SAME WITH THE HELP OF JOIN
-select cname, email from customers join orders on customers.cid = orders.cid;
-customers.cid = orders.cid will have common values therefore we can use join because we can only use join when we have something common bw these two tables in this case we've cid commion in both
-select cname, email, orderdate, amount from customers join orders on customers.cid = orders.cid;
-select customers.cid, cname, email, orderdate, amount  from customers join orders on customers.cid = orders.cid;  // IF WE WANTED CUSTOMERS ID then we've to use customer.cid we've be specific and for order id we've to use orders.cid
+now we've two tables one for customer and one for orders and we've added foreign key in orders table so we can join them and can gets the exact data like which cutomers order what
+- select * from customers, orders where customers.cid = orders.cid;
+- select title from articles, users where articles.owner_id = users.id;
+Using Join statement
+- select title from articles join users on articles.owner_id = users.id;
+- select cname, email from customers join orders on customers.cid = orders.cid;
+- select cname, email, orderdate, amount from customers join orders on customers.cid = orders.cid;
+
+
 LEFT JOIN
-select * from customers left join orders on customers.cid = orders.cid;
-BY THIS METHOD we can get all the data from left tables even if any customer didn't odered any thing then we WILL get NULL if customer didn;t order any thing
+- select * from customers left join orders on customers.cid = orders.cid;
+BY THIS METHOD we can get all the data from left tables even if any customer didn't odered any thing then we WILL get NULL if customer didn't order any thing
 if we din't use left join just uses join then we'll get data for all those cutomers who've placed order
-select * from customers join orders on customers.cid = orders.cid;
 and we can use right join for right tables data
 select * from customers join orders on customers.cid = orders.cid; // this is used when we wanted to see the two tables side by side if foreign key is enable
 select        *             from                table_name_where_primary_key join table_name_where_foreign_key    on       table_name_where_primary_key.cid         =                   table_name_where_foreign_key.cid;
@@ -275,12 +290,11 @@ ALTER TABLE testtable MODIFY id INT NOT NULL PRIMARY KEY AUTO_INCREMENT;3
 IF WE WANTED TO DEL SOME REVIEWS which are same and too many times we can use
 delete from reviews where description like '%excellent laptop%';
 
+
+ON DELETE CASCADE
 ON DELETE CASCADE ON DELETE UPDATE // it is necessary to do this while creating foreign key because cascade means 
 if one main main columns delete then all the childs related to that column must also delete
 
-and if we've already created a foreign key and didn't add on delete cascade and on delete update then first we've to 
-drop the CONSTRAINT like this
-ALTER TABLE reviews DROP FOREIGN KEY reviews_ibfk_1;
 
-then we've to update the column with additional info and same CONSTRAINT name we've deleted before
-ALTER TABLE reviews ADD CONSTRAINT reviews_ibfk_1 FOREIGN KEY (fid) REFERENCES products (pid) ON DELETE CASCADE ON UPDATE CASCADE;
+join for checking relation bw two tables
+select u.username as author, a.title as title, a.id as article from articles a join users u on a.ownerId = 1;
