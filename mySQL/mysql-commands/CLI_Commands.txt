@@ -265,15 +265,17 @@ foreign key use for linking two tables a foreign key is a field in one table tha
 MUL MEANS MULTIPLE
 
 
-MYSQL SQL JOINS
-INNER JOINS RETURNS records that have matching values in both tables
+INNER JOINS RETURNS matching values in both tables
 now we've two tables one for customer and one for orders and we've added foreign key in orders table so we can join them and can gets the exact data like which cutomers order what
-- select * from customers, orders where customers.cid = orders.cid;
-- select title from articles, users where articles.owner_id = users.id;
-Using Join statement
+- select * from customers join orders on customers.cid = orders.cid;
+because in orders we've foreign key called cid which is primary key of customers table
 - select title from articles join users on articles.owner_id = users.id;
-- select cname, email from customers join orders on customers.cid = orders.cid;
-- select cname, email, orderdate, amount from customers join orders on customers.cid = orders.cid;
+here in articles we've foreign key called owner_id which is primary key for users table
+Using Join statement
+- select username, title from articles join users on articles.owner_id = users.id;
+if Wanted to select id from table as well then
+- select users.id, username, title from articles join users on articles.owner_id = users.id;
+select * from articles join favorite_articles on articles.id = favorite_articles.article_id && user_id = 2;
 
 
 LEFT JOIN
