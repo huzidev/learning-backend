@@ -300,3 +300,6 @@ if one main main columns delete then all the childs related to that column must 
 
 join for checking relation bw two tables
 select u.username as author, a.title as title, a.id as article from articles a join users u on a.ownerId = 1;
+
+To get details form table articles where id is between as defined and user's role must be admin
+- select * from articles join users on articles.owner_id = users.id where articles.owner_id between 20 and 90 and users.role = "admin";
