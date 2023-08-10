@@ -321,3 +321,11 @@ This will give result according to id from table to other table
 |         94 |           1 |
 +------------+-------------+
 Showing article_id with 100 have 7 likes and article_id with 66 have 1 likes etc
+
+For descending order
+SELECT articles.id AS article_id, COUNT(reactions.id) AS total_likes
+FROM articles
+JOIN reactions ON articles.id = reactions.article_id
+WHERE reactions.is_like = 1
+GROUP BY articles.id
+ORDER BY total_likes DESC;
