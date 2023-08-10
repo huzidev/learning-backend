@@ -303,3 +303,21 @@ select u.username as author, a.title as title, a.id as article from articles a j
 
 To get details form table articles where id is between as defined and user's role must be admin
 - select * from articles join users on articles.owner_id = users.id where articles.owner_id between 20 and 90 and users.role = "admin";
+
+
+- SELECT articles.id AS article_id, COUNT(reactions.id) AS total_likes
+FROM articles
+JOIN reactions ON articles.id = reactions.article_id
+WHERE reactions.is_like = 1
+GROUP BY articles.id;
+
+This will give result according to id from table to other table
++------------+-------------+
+| article_id | total_likes |
++------------+-------------+
+|         66 |           1 |
+|        100 |           7 |
+|         91 |           2 |
+|         94 |           1 |
++------------+-------------+
+Showing article_id with 100 have 7 likes and article_id with 66 have 1 likes etc
