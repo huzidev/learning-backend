@@ -23,11 +23,10 @@ desc users;
 Add Column in Existing Table
 ALTER TABLE products ADD COLUMN `image` VARCHAR(255) NOT NULL;
 
-
+  
 Update Specifc value of row in Table
 UPDATE users SET ID=103 WHERE ID=3;
 UPDATE users SET id=3 WHERE Name='Mary';
-
 
 
 Delete Value from Table
@@ -46,6 +45,9 @@ Edit existing row in Table
 ALTER TABLE products CHANGE old_column_name new_column_name data type;
 ALTER TABLE users CHANGE username name varchar(200);
 
+
+Change position of existing column
+ALTER TABLE articles MODIFY category varchar(100) AFTER owner_id;
 
 Alter multiple columns
 ALTER TABLE users 
